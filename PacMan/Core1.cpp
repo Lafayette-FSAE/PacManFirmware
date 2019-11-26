@@ -7,24 +7,41 @@
 #include "Arduino.h"
 #include "Core1.h"
 
-// Core1::Core1(int pin)
-// {
-//   pinMode(pin, OUTPUT);
-//   _pin = pin;
-// }
-//
-// void Core1::dot()
-// {
-//   digitalWrite(_pin, HIGH);
-//   delay(250);
-//   digitalWrite(_pin, LOW);
-//   delay(250);
-// }
-//
-// void Core1::dash()
-// {
-//   digitalWrite(_pin, HIGH);
-//   delay(1000);
-//   digitalWrite(_pin, LOW);
-//   delay(250);
-// }
+// CONSTRUCTOR
+Core1::Core1(int pin){
+   Wire.begin();        // Join the I2C bus (address optional for master)
+
+   addresses = (unsigned char*)malloc(16 * sizeof(unsigned char));
+   cells =     (unsigned char*)malloc(16 * sizeof(cell));
+}
+
+unsigned char* Core1::discoverCellMen(){ // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
+   unsigned char* discoveredAddresses;
+   int nDevices;
+   discoveredAddresses = (unsigned char*)malloc(1 * sizeof(unsigned char));
+
+   nDevices = 0;
+   for(address = 1; address < 127; address++ ){
+    // The i2c_scanner uses the return value of
+    // the Write.endTransmisstion to see if
+    // a device did acknowledge to the address.
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+ 
+    if (error == 0){
+      Serial.print("I2C device found at address 0x");
+      if (address<16)
+        Serial.print("0");
+      Serial.print(address,HEX);
+      Serial.println("  !");
+ 
+      nDevices++;
+    }
+    else if (error==4){
+      Serial.print("Unknown error at address 0x");
+      if (address<16)
+        Serial.print("0");
+      Serial.println(address,HEX);
+    }    
+  }
+}
