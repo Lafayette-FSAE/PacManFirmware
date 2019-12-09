@@ -1,6 +1,6 @@
 # PacMan Firmware
 
-This repository contains the major code for Lafayette College's 2019/2020 PacMan Board. It is written in C/C++ with extensive use of Arduino specific functions and libraries.
+This repository contains the major code for Lafayette College's 2019/2020 PacMan Board. It is written in C/C++ with extensive use of Arduino specific functions and libraries. Branches are used in this repository and it is recommended to check other branches for the bleeding edge.
 
 ## Description
 
