@@ -12,10 +12,17 @@ class Core0
 {
   public:
     // Define Constructor
+        Core0 (struct cell, float, boolean, SemaphoreHandle_t, SemaphoreHandle_t, SemaphoreHandle_t);
     // Define Public Functions
+    void start();
   private:
     // Define Private Functions
+    //all the functionss
     // Define Private variables
 };
 
 #endif
+
+
+
+//to be written in cpp

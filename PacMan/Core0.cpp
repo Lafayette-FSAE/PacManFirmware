@@ -82,20 +82,34 @@ float voltage1 = 0;  //to be removed
 float current1 = 0;   //to be removed
 float temp1 = 0;      //to be removed
 uint16_t soc_test = 100;  //to be removed
+//current cell data array (for sems)
+//external fault data float (for sems)
+//define all variables for constructor
 
 void loop() {
 
-  voltage1 = voltage1 + 1; //input from core1
-  current1 = current1 + 1; //input from core1
-  temp1 = temp1 + 1;  //input from core1
-  soc_test = soc_test - 1;
+//  voltage1 = voltage1 + 1; //input from core1
+//  current1 = current1 + 1; //input from core1
+//  temp1 = temp1 + 1;  //input from core1
+//  soc_test = soc_test - 1;
+//
 
-  //values[] = obtainValuesFromCore0();
-  //volt = values[];
-  
+
+  //take cellArraySem and externalFaultSem
+  // memcpy(&currentCellData, &cells, sizeof(cells));
+  // memcpy(&extFaultData, &externalFault, sizeof(externalFault));
+  //give Sems back
+   
   fsm();
   
   delay(5000);
+}
+
+//constructor
+Core0::Core0(struct cell cells1, float externalFault, boolean AIRSOpen, SemaphoreHandle_t cellArraySem, SemaphoreHandle_t externalFaultSem, SemaphoreHandle_t AIRSOpenSem)
+{
+    //do this for all
+   cells = cells1;
 }
 
 
@@ -579,6 +593,9 @@ void updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
       misc_configs[0].pack_id = !misc_configs[0].pack_id;
   }
   else if (miscConfig == 1) { //airs
+    //take airsOpensSem
+    //airsOpen = new thing
+    //give airsOpenSem
     misc_configs[0].airs_state = !misc_configs[0].airs_state;
   }
   else if (miscConfig == 2) { //sl
