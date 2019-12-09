@@ -9,7 +9,9 @@ Released into the public domain.
 #define DEBUG true
 
 // CONSTRUCTOR
-Core1::Core1(int pin){
+Core1::Core1(struct cell cells, boolean, float, SemaphoreHandle_t, SemaphoreHandle_t, SemaphoreHandle_t){
+    publicCells = cells;
+
     Wire.begin();        // Join the I2C bus (address optional for master)
     if(DEBUG){
         Serial.begin(115200);
@@ -125,4 +127,14 @@ float Core1::getBalanceCurrent(unsigned char* cellData){
     unsigned char* cellBalanceCurrentData = getBalanceCurrentData(cellData);
     float cellBalanceCurrent = byteArrayToFloat(cellBalanceCurrentData);
     return cellBalanceCurrent;
+}
+
+float getDischargeCurrent(){
+    // Insert I2C Code for Current Sensor
+}
+
+void start(){
+  for(;;){
+      // MAIN Loop - Calls all private functions to operate
+  }
 }

@@ -33,6 +33,9 @@ class Core1
     const int totalMAH;                 // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
 
+    // SHARED VARIABLES PASSED IN VIA CONSTRUCTOR
+    struct cell publicCells;
+
     // FUNCTIONS
     void arrayAppend(int *arr, int index, int value, int *size, int *capacity);
 
