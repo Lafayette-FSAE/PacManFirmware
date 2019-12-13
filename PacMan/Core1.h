@@ -54,6 +54,7 @@ class Core1
     float getCellVoltage(unsigned char* cellData);                          // Get voltage as a float of the cell via above functions
     float getBalanceCurrent(unsigned char* cellData);                       // Get balance current as a float of the cell via above functions
     float getDischargeCurrent();                                            // Get current discharge current from sensor over I2C
+    esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* data);
 
   public:
     Core1 (struct cell, boolean, float, SemaphoreHandle_t, SemaphoreHandle_t, SemaphoreHandle_t);

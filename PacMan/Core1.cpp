@@ -138,6 +138,19 @@ float getDischargeCurrent(){
     // Insert I2C Code for Current Sensor
 }
 
+esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* data){
+    can_message_t sendMessage;
+    sendMessage.identifier = identifier;
+    sendMessage.flags = flags;
+    sendMessage.data_length_code = data_length_code;
+
+    for (int i = 0; i < data_length_code; i++){
+        sendMessage.data[i] = data[i];
+    }
+
+    return can_transmit(&sendMessage, pdMS_TO_TICKS(1000)) == ESP_OK);
+}
+
 void start(){
   for(;;){
       // MAIN Loop - Calls all private functions to operate
