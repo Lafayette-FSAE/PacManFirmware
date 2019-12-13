@@ -9,8 +9,13 @@ Released into the public domain.
 #define DEBUG true
 
 // CONSTRUCTOR
-Core1::Core1(struct cell cells, boolean, float, SemaphoreHandle_t, SemaphoreHandle_t, SemaphoreHandle_t){
+Core1::Core1(struct cell cells, float externalFault, boolean AIRSOpen, SemaphoreHandle_t cellArraySem, SemaphoreHandle_t externalFaultSem, SemaphoreHandle_t AIRSOpenSem){
     publicCells = cells;
+    publicExternalFault = externalFault;
+    publicAIRSOpen = AIRSOpen;
+    cellArraySem = cellArraySem;
+    externalFaultSem = externalFaultSem;
+    AIRSOpenSem = AIRSOpenSem;
 
     Wire.begin();        // Join the I2C bus (address optional for master)
     if(DEBUG){

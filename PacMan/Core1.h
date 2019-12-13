@@ -35,6 +35,11 @@ class Core1
 
     // SHARED VARIABLES PASSED IN VIA CONSTRUCTOR
     struct cell publicCells;
+    float publicExternalFault;
+    boolean publicAIRSOpen;
+    SemaphoreHandle_t cellArraySem;
+    SemaphoreHandle_t externalFaultSem;
+    SemaphoreHandle_t AIRSOpenSem;
 
     // FUNCTIONS
     void arrayAppend(int *arr, int index, int value, int *size, int *capacity);
