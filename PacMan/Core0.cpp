@@ -218,6 +218,9 @@ void defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean so
 }
 
   typedef struct 
+//void defineMiscConfigs() //pretty much set I think
+//{
+  typedef struct //SIMONE FORGET THE STRUCT DO AN ARRAY OF FLOATS
   {
     boolean pack_id; //true = Pack 1, false = Pack 2  //change all to floats
     boolean airs_state; //true = closed, false = open
@@ -333,19 +336,16 @@ void faults(int errorType)
   display.setCursor(30, 75);
 
   if (errorType == 1) { //SL Open
-    display.print(" SL Open ");
+    display.print("AIRS Open");
   }
   else if (errorType == 2) { //Airs Open
-    display.print("AIRS Open");
+    display.print("Low SOC");
   }
   else if (errorType == 3) { //Dangerous temp
     display.print("High Temp");
   }
   else if (errorType == 4) { //Dangerous voltage
     display.print("High Volt");
-  }
-  else if (errorType == 5) { //Low SOC
-    display.print("Low SOC");
   }
   display.update();
 }
