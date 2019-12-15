@@ -11,15 +11,15 @@ Released into the public domain.
 
 // CONSTRUCTOR
 Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample){
-    cell* cellArrayPointer = cells;
-    float* externalFaultPointer = externalFault;
-    boolean* AIRSOpenPointer = AIRSOpen;
-    int* samplePointer = sample;
+    cellArrayPointer = cells;
+    externalFaultPointer = externalFault;
+    AIRSOpenPointer = AIRSOpen;
+    samplePointer = sample;
     
-    SemaphoreHandle_t* cellArraySemPointer = cellArraySem;
-    SemaphoreHandle_t* externalFaultSemPointer = externalFaultSem;
-    SemaphoreHandle_t* AIRSOpenSemPointer = AIRSOpenSem;
-    SemaphoreHandle_t* sampleSemPointer = sampleSem;
+    cellArraySemPointer = cellArraySem;
+    externalFaultSemPointer = externalFaultSem;
+    AIRSOpenSemPointer = AIRSOpenSem;
+    sampleSemPointer = sampleSem;
     
     xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
     *samplePointer = 0;
