@@ -6,7 +6,8 @@
 #ifndef Core1_h
 #define Core1_h
 
-#include "Arduino.h"   // Required for use as an Arduino Library
+//#include "Arduino.h"   // Required for use as an Arduino Library
+#include "PacMan.h"
 #include <Wire.h>      // Required for I2C
 
 struct cell {
