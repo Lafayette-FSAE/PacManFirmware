@@ -89,8 +89,8 @@ boolean airs;
 //SemaphoreHandle_t externalFaultSem;
 //SemaphoreHandle_t AIRSOpenSem;
 //SemaphoreHandle_t sampleSem;
-int* samplePointer;
-SemaphoreHandle_t* sampleSemPointer;
+//int* samplePointer=0;
+//SemaphoreHandle_t* sampleSemPointer=0;
 
 //constructor
 Core0::Core0(cell* cells1, float* extFault, boolean* AIRSOp, SemaphoreHandle_t* cellSem, SemaphoreHandle_t* extFaultSem, SemaphoreHandle_t* AIRSOpSem, SemaphoreHandle_t* smpleSem, int* smple)
@@ -99,15 +99,15 @@ Core0::Core0(cell* cells1, float* extFault, boolean* AIRSOp, SemaphoreHandle_t* 
 //  for (int i = 0; i < sizeof(cells1); i++) {
 //    currentCellDataInt[i] = cells1[i];
 //  }
-  cell* cellArrayPointer = cells1;
-  float* externalFaultPointer = extFault;
-  boolean* AIRSOpenPointer = AIRSOp;
-  int* samplePointer = smple;
+  cellArrayPointer = cells1;
+  externalFaultPointer = extFault;
+  AIRSOpenPointer = AIRSOp;
+  samplePointer = smple;
   
-  SemaphoreHandle_t* cellArraySemPointer = cellSem;
-  SemaphoreHandle_t* externalFaultSemPointer = extFaultSem;
-  SemaphoreHandle_t* AIRSOpenSemPointer = AIRSOpSem;
-  SemaphoreHandle_t* sampleSemPointer = smpleSem;
+  cellArraySemPointer = cellSem;
+  externalFaultSemPointer = extFaultSem;
+  AIRSOpenSemPointer = AIRSOpSem;
+  sampleSemPointer = smpleSem;
 
 }
 
@@ -134,23 +134,21 @@ void Core0::startCore0() {
     //    memcpy(&extFaultData, &extFaultDataInt, sizeof(extFaultDataInt));
     //    xSemaphoreGive(externalFaultSem);
 
-    //    const GFXfont* f = &FreeSansBold9pt7b;  //set font
-    //    display.setFont(f);
-    //    display.setTextColor(GxEPD_BLACK);
-    //    display.setCursor(20, 100);
-    //
-    //    display.fillScreen(GxEPD_WHITE);
-    //    xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
-    //    voltage1 = (float) *samplePointer;  //to be removed
-    //    current1 = (float) *samplePointer;   //to be removed
-    //    temp1 = (float) *samplePointer;      //to be removed
-    //    soc_test = (uint16_t) *samplePointer;  //to be removed
-    //    //String samp = String(*samplePointer, DEC);
-    //    xSemaphoreGive(*sampleSemPointer);
+//        const GFXfont* f = &FreeSansBold9pt7b;  //set font
+//        display.setFont(f);
+//        display.setTextColor(GxEPD_BLACK);
+//        display.setCursor(20, 100);
+//    
+//        display.fillScreen(GxEPD_WHITE);
+//        xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+//        String samp = String(*samplePointer, DEC);
+//        xSemaphoreGive(*sampleSemPointer);
+//        display.print(samp);
+//        display.updateWindow(5, 5, 118, 286, false);
+
     setupCore0();
+    Serial.println("hello");
     fsm();
-    //    display.print(samp);
-    //    display.updateWindow(5, 5, 118, 286, false);
     delay(500);
   }
 }
@@ -246,7 +244,7 @@ typedef struct
 #define NUM_CELLS 16
 Configs configs[NUM_CELLS];
 
-void defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean soh, int index) //pretty much set I think
+void Core0::defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean soh, int index) //pretty much set I think
 {
   configs[index].max_temp = maxTemp; //=input[]
   configs[index].max_voltage = maxV;
@@ -268,7 +266,7 @@ typedef struct
 Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}};
 
 
-void setUpMain(boolean id) {
+void Core0::setUpMain(boolean id) {
   display.setRotation(0);
   if (id) {
     display.drawExampleBitmap(gImage_main1, 0, 0, 128, 296, GxEPD_BLACK); //true = Pack 1
@@ -281,7 +279,7 @@ void setUpMain(boolean id) {
   display.setRotation(45);
 }
 
-void mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr)
+void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr)
 {
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
@@ -326,7 +324,7 @@ void mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr)
 //  }
 //}
 
-void cellPartialUpdate(int errorType, int cellNum)
+void Core0::cellPartialUpdate(int errorType, int cellNum)
 {
   uint16_t box_w = 14;
   uint16_t box_h = 23;
@@ -362,7 +360,7 @@ void cellPartialUpdate(int errorType, int cellNum)
   display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
 }
 
-void faults(int errorType)
+void Core0::faults(int errorType)
 {
   const GFXfont* font = &FreeSansBold24pt7b;
   display.setFont(font);
@@ -389,7 +387,7 @@ void faults(int errorType)
   display.update();
 }
 
-void mainConfigScreen()
+void Core0::mainConfigScreen()
 {
   const GFXfont* font = &FreeSansBold12pt7b;
   display.setFont(font);
@@ -404,7 +402,7 @@ void mainConfigScreen()
   display.updateWindow(5, 5, 118, 286, false);
 }
 
-void configPartial(boolean index) {
+void Core0::configPartial(boolean index) {
   int top = 45;
   int bottom = 75;
   int older;
@@ -423,7 +421,7 @@ void configPartial(boolean index) {
   display.updateWindow(128 - bottom, 20, bottom - top + 4, 4, false);
 }
 
-void chooseCellScreen(uint8_t cellNum)
+void Core0::chooseCellScreen(uint8_t cellNum)
 {
   display.setRotation(0);
   display.drawExampleBitmap(gImage_chooseCell, 0, 0, 128, 296, GxEPD_BLACK);
@@ -439,7 +437,7 @@ void chooseCellScreen(uint8_t cellNum)
   display.updateWindow(5, 5, 118, 286, false);
 }
 
-void partialChooseCell(uint8_t cellNum) {
+void Core0::partialChooseCell(uint8_t cellNum) {
   display.setRotation(0);
   display.drawExampleBitmap(gImage_chooseCell, 0, 0, 128, 296, GxEPD_BLACK, GxEPD::bm_default | GxEPD::bm_partial_update);
   display.setRotation(45);
@@ -477,7 +475,7 @@ struct button buttons[] =
   { RIGHT_BUTTON, LOW, LOW, 0}
 };
 
-void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction)
+void Core0::updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction)
 {
   //change value of config
   if (cellConfig == 0) { //temp
@@ -520,7 +518,7 @@ void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction)
 
 #define NUM_CELL_CONFIGS 5
 
-void printCellConfigs(uint8_t cellNum)
+void Core0::printCellConfigs(uint8_t cellNum)
 {
   //print each
   const GFXfont* font = &FreeSansBold9pt7b;
@@ -567,7 +565,7 @@ void printCellConfigs(uint8_t cellNum)
 uint8_t last_s = 5;
 uint8_t last_y = 52;
 
-void cellConfigs(uint8_t cellNum)
+void Core0::cellConfigs(uint8_t cellNum)
 {
   //update screen to print all options for cell
 
@@ -632,7 +630,7 @@ void cellConfigs(uint8_t cellNum)
 }
 
 
-void moveCellConfig(uint8_t cellConfig)
+void Core0::moveCellConfig(uint8_t cellConfig)
 {
   //change position of bullet point
   uint8_t left = 5;
@@ -666,7 +664,7 @@ uint8_t last_sm = 5;
 uint8_t last_ym = 42;
 
 #define NUM_MISC_CONFIGS 6
-void miscConfigs()
+void Core0::miscConfigs()
 {
   last_sm = 5;
   last_ym = 42;
@@ -727,7 +725,7 @@ void miscConfigs()
   }
 }
 
-void updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
+void Core0::updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
 {
   //change value of config
   if (miscConfig == 0) { //pack id
@@ -766,7 +764,7 @@ void updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
   printMiscConfigs2(miscConfig);
 }
 
-void printMiscConfigs()
+void Core0::printMiscConfigs()
 {
   //print each
   const GFXfont* font = &FreeSansBold9pt7b;
@@ -813,7 +811,7 @@ void printMiscConfigs()
   display.updateWindow(5, 5, 118, 286, false);
 }
 
-void printMiscConfigs2(uint8_t config_num)
+void Core0::printMiscConfigs2(uint8_t config_num)
 {
   //print each
   const GFXfont* font = &FreeSansBold9pt7b;
@@ -866,7 +864,7 @@ void printMiscConfigs2(uint8_t config_num)
 
 
 
-void moveMiscConfig(uint8_t miscConfig)
+void Core0::moveMiscConfig(uint8_t miscConfig)
 {
   //change position of bullet point
   uint8_t left = 5;
@@ -897,7 +895,7 @@ void moveMiscConfig(uint8_t miscConfig)
 
 unsigned long debounceDelay = 40;    // the debounce time; increase if the output flickers
 
-boolean buttonPress(struct button* button) {
+boolean Core0::buttonPress(struct button* button) {
 
   int reading = digitalRead((*button).pin);
   if (reading != (*button).lastButtonState) {
@@ -924,7 +922,7 @@ typedef enum {
   Cell_Configs
 } State;
 
-void fsm() {
+void Core0::fsm() {
 
   boolean config_index = true;
   uint8_t cell_index = 0;
@@ -932,7 +930,8 @@ void fsm() {
 
   State nextState = Main;
   State state = Main;
-
+  setUpMain(id);
+  
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
 
   while (1) {
@@ -945,12 +944,14 @@ void fsm() {
 
     switch (nextState) {
       case Main: {  //done
+        Serial.println("main");
           if (centerPress) {
             Serial.println("center");  //testing
             centerPress = false;
             nextState = Config_State;
           }
           else if (state != Main) {
+            Serial.println("setup");
             setUpMain(id);
           }
           else if (state == Main){
@@ -959,11 +960,11 @@ void fsm() {
           current1 = (float) *samplePointer;  //to be removed
           temp1 = (float) *samplePointer;     //to be removed
           soc_test = (uint16_t) *samplePointer; //to be removed
+          Serial.println(*samplePointer);
           xSemaphoreGive(*sampleSemPointer);
-
           mainPartialUpdate(temp1, soc_test, voltage1, current1);
-          state = Main;
           }
+          state = Main;
         }
         break;
 
