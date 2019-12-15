@@ -6,34 +6,42 @@ Released into the public domain.
 
 #include "Arduino.h"
 #include "Core1.h"
-#define DEBUG true
+#define DEBUG false
+
 
 // CONSTRUCTOR
-Core1::Core1(struct cell cells, float externalFault, boolean AIRSOpen, SemaphoreHandle_t cellArraySem, SemaphoreHandle_t externalFaultSem, SemaphoreHandle_t AIRSOpenSem){
-    publicCells = cells;
-    publicExternalFault = externalFault;
-    publicAIRSOpen = AIRSOpen;
-    cellArraySem = cellArraySem;
-    externalFaultSem = externalFaultSem;
-    AIRSOpenSem = AIRSOpenSem;
+Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample){
+    cell* cellArrayPointer = cells;
+    float* externalFaultPointer = externalFault;
+    boolean* AIRSOpenPointer = AIRSOpen;
+    int* samplePointer = sample;
+    
+    SemaphoreHandle_t* cellArraySemPointer = cellArraySem;
+    SemaphoreHandle_t* externalFaultSemPointer = externalFaultSem;
+    SemaphoreHandle_t* AIRSOpenSemPointer = AIRSOpenSem;
+    SemaphoreHandle_t* sampleSemPointer = sampleSem;
+    
+    xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+    *samplePointer = 0;
+    xSemaphoreGive(*sampleSemPointer);
+    Serial.print("The Sample is: ");
+    Serial.println(*samplePointer);
 
-    Wire.begin();        // Join the I2C bus (address optional for master)
-    if(DEBUG){
-        Serial.begin(115200);
-    }
+    //Wire.begin();        // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
 
+    totalMAH = 0;
     addresses = (unsigned char*)malloc(16 * sizeof(unsigned char));
-    cells =     (unsigned char*)malloc(16 * sizeof(cell));
+  Serial.println("help");
 }
 
-void Core1::arrayAppend(int *arr, int index, int value, int *size, int *capacity){ // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
-    if(*size > *capacity){
+void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity){ // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
+    if(arrSize > capacity){
         realloc(arr, sizeof(arr) * 2);
-        *capacity = sizeof(arr) * 2;
+        capacity = sizeof(arr) * 2;
     }
 
     arr[index] = value;
-    *size = *size + 1;
+    arrSize = arrSize + 1;
 }
 
 unsigned char* Core1::discoverCellMen(){
@@ -43,12 +51,12 @@ unsigned char* Core1::discoverCellMen(){
 
     discoveredAddresses = (unsigned char*)malloc(1 * sizeof(unsigned char));
 
-    for(address = 1; address < 127; address++ ){
+    for(int address = 1; address < 127; address++ ){
         // The I2C scanner uses the return value of
         // the Write.endTransmisstion to see if
         // a device did acknowledge to the address.
         Wire.beginTransmission(address);
-        error = Wire.endTransmission();
+        byte error = Wire.endTransmission();
 
         if (error == 0){
             Serial.print("CellMan I2C device found at address 0x");
@@ -72,7 +80,7 @@ unsigned char* Core1::discoverCellMen(){
 } // USES MALLOC (Only call once at startup to prevent memory leakage)
 
 unsigned char* Core1::requestDataFromSlave(unsigned char address){
-    unsigned char* cellData[12];   //  IMPORTANT NOTE: WILL THIS NEED TO BE FREED LATER?
+    unsigned char cellData[12];   //  IMPORTANT NOTE: WILL THIS NEED TO BE FREED LATER?
     Wire.requestFrom(address, 12); // 12 is the data length expected in bytes
     if(DEBUG){
         Serial.print("Requesting data from CellMan on Address: ");
@@ -134,25 +142,31 @@ float Core1::getBalanceCurrent(unsigned char* cellData){
     return cellBalanceCurrent;
 }
 
-float getDischargeCurrent(){
-    // Insert I2C Code for Current Sensor
-}
+//float getDischargeCurrent(){
+//    // Insert I2C Code for Current Sensor
+//}
 
-esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* data){
-    can_message_t sendMessage;
-    sendMessage.identifier = identifier;
-    sendMessage.flags = flags;
-    sendMessage.data_length_code = data_length_code;
+//esp_err_t Core1::queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* CANdata){
+//    can_message_t sendMessage;
+//    sendMessage.identifier = identifier;
+//    sendMessage.flags = flags;
+//    sendMessage.data_length_code = data_length_code;
+//
+//    for (int i = 0; i < data_length_code; i++){
+//        sendMessage.data[i] = CANdata[i];
+//    }
+//
+//    return can_transmit(&sendMessage, pdMS_TO_TICKS(1000) == ESP_OK);
+//}
 
-    for (int i = 0; i < data_length_code; i++){
-        sendMessage.data[i] = data[i];
-    }
-
-    return can_transmit(&sendMessage, pdMS_TO_TICKS(1000)) == ESP_OK);
-}
-
-void start(){
+void Core1::start(){
   for(;;){
       // MAIN Loop - Calls all private functions to operate
+      xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+      *samplePointer = *samplePointer + 1;
+      Serial.print("The Sample is: ");
+      Serial.println(*samplePointer);
+      xSemaphoreGive(*sampleSemPointer);
+      delay(1000);
   }
 }
