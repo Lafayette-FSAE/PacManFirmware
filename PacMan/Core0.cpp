@@ -4,38 +4,14 @@
   Released into the public domain.
 */
 
-#include "Arduino.h"
-#include "Core0.h"
-
-// Core0::Core0(int pin)
-// {
-//   pinMode(pin, OUTPUT);
-//   _pin = pin;
-// }
-//
-// void Core0::dot()
-// {
-//   digitalWrite(_pin, HIGH);
-//   delay(250);
-//   digitalWrite(_pin, LOW);
-//   delay(250);
-// }
-// 
-// void Core0::dash()
-// {
-//   digitalWrite(_pin, HIGH);
-//   delay(1000);
-//   digitalWrite(_pin, LOW);
-//   delay(250);
-// }
-
-
 //Display Firmware
 //Simone Khalifa
 
-//Display Firmware
-//Simone Khalifa
 
+#include "References/GxGDEH029A1/GxGDEH029A1.cpp"
+#include "References/GxIO/GxIO_SPI/GxIO_SPI.cpp"
+#include "References/GxIO/GxIO.cpp"
+#include "References/BitmapGraphics.h"
 
 #include "References/Fonts/FreeSansBold24pt7b.h"
 #include "References/Fonts/FreeSansBold12pt7b.h"
@@ -58,13 +34,13 @@
 GxIO_Class io(SPI, 15, 22, 21);
 GxEPD_Class display(io, 21, 23);
 
-#define CENTER_BUTTON 17
-#define UP_BUTTON 18
-#define DOWN_BUTTON 19
-#define LEFT_BUTTON 25
-#define RIGHT_BUTTON 26
+#define CENTER_BUTTON 27
+#define UP_BUTTON 19
+#define DOWN_BUTTON 18
+#define LEFT_BUTTON 36
+#define RIGHT_BUTTON 39
 
-void setup() {
+void setupCore0() {
 
   //  Serial.begin(115200);
   display.init();
@@ -88,110 +64,51 @@ void setup() {
 }
 
 //misc configs
-boolean id; boolean sl; int soc=50;; float max_pc; float min_pc; //need to set the equal to inputs but give defaults
+boolean id; boolean sl; int soc = 50;; float max_pc; float min_pc; //need to set the equal to inputs but give defaults
 
-typedef struct
-  {
-    float curr_voltage;
-    float curr_curr;
-    float curr_temp;
-    float curr_SOC;
-  } cell;
+//typedef struct
+//{
+//  float curr_voltage;
+//  float curr_curr;
+//  float curr_temp;
+//  float curr_SOC;
+//} cell;
 
-  
+
 #define NUM_CELLS 16
 cell currentCellData[NUM_CELLS];
+cell currentCellDataInt[NUM_CELLS];
+//cell* currentCellDataInt;
 
 //define all variables for constructor
 //struct cell currentCellData; //current cell data array (for sems)
-float extFaultData; //external fault data float (for sems)
-boolean airs; 
-SemaphoreHandle_t cellArraySem;
-SemaphoreHandle_t externalFaultSem;
-SemaphoreHandle_t AIRSOpenSem;
+//float extFaultData; //external fault data float (for sems)
+//float extFaultDataInt;
+boolean airs;
+//SemaphoreHandle_t cellArraySem;
+//SemaphoreHandle_t externalFaultSem;
+//SemaphoreHandle_t AIRSOpenSem;
+//SemaphoreHandle_t sampleSem;
+int* samplePointer;
+SemaphoreHandle_t* sampleSemPointer;
 
 //constructor
-Core0::Core0(struct cell cells1, float extFault, boolean AIRSOp, SemaphoreHandle_t cellSem, SemaphoreHandle_t extFaultSem, SemaphoreHandle_t AIRSOpSem)
+Core0::Core0(cell* cells1, float* extFault, boolean* AIRSOp, SemaphoreHandle_t* cellSem, SemaphoreHandle_t* extFaultSem, SemaphoreHandle_t* AIRSOpSem, SemaphoreHandle_t* smpleSem, int* smple)
 {
-    //do this for all
-    currentCellData = cells1;
-    extFaultData = extFault;
-    airs = AIRSOp;
-    cellArraySem = cellSem;
-    externalFaultSem = extFaultSem;
-    AIRSOpenSem = AIRSOpSem;
-}
-
-
-//  voltage1 = voltage1 + 1; //input from core1
-//  current1 = current1 + 1; //input from core1
-//  temp1 = temp1 + 1;  //input from core1
-//  soc_test = soc_test - 1;
-
-  //copy memory block for cellArraySem and externalFaultSem
-  xSemaphoreTake(cellArraySem, portMAX_DELAY );
-  memcpy(&currentCellData, &cells, sizeof(cells));
-  xSemaphoreGive(externalFaultSem);
+  //do this for all
+//  for (int i = 0; i < sizeof(cells1); i++) {
+//    currentCellDataInt[i] = cells1[i];
+//  }
+  cell* cellArrayPointer = cells1;
+  float* externalFaultPointer = extFault;
+  boolean* AIRSOpenPointer = AIRSOp;
+  int* samplePointer = smple;
   
-  xSemaphoreTake(cellArraySem, portMAX_DELAY );
-  memcpy(&extFaultData, &externalFault, sizeof(externalFault));
-  xSemaphoreGive(externalFaultSem);
-  
-  fsm();
-  
-  delay(5000);
-}
+  SemaphoreHandle_t* cellArraySemPointer = cellSem;
+  SemaphoreHandle_t* externalFaultSemPointer = extFaultSem;
+  SemaphoreHandle_t* AIRSOpenSemPointer = AIRSOpSem;
+  SemaphoreHandle_t* sampleSemPointer = smpleSem;
 
-boolean centerPress = false;
-boolean leftPress = false;
-boolean rightPress = false;
-boolean upPress = false;
-boolean downPress = false;
-uint8_t dbDelay = 1000; 
-
-void CButton() //interrupt with debounce
-{
-  volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > dbDelay) { centerPress = true; Serial.println("c"); }
-  else {centerPress = false;}
-  last_interrupt_time = interrupt_time;
-}
-
-void LButton() //interrupt with debounce
-{
-  volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > dbDelay) { leftPress = true; Serial.println("l");}
-  else {leftPress = false;}
-  last_interrupt_time = interrupt_time;
-}
-
-void RButton() //interrupt with debounce
-{
-  volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > dbDelay) { rightPress = true; Serial.println("r");}
-  else {rightPress = false;}
-  last_interrupt_time = interrupt_time;
-}
-
-void UButton() //interrupt with debounce
-{
-  volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > dbDelay) { upPress = true; Serial.println("u");}
-  else {upPress = false;}
-  last_interrupt_time = interrupt_time;
-}
-
-void DButton() //interrupt with debounce
-{
-  volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
-  if (interrupt_time - last_interrupt_time > dbDelay) { downPress = true; Serial.println("d");}
-  else {downPress = false;}
-  last_interrupt_time = interrupt_time;
 }
 
 float voltage1 = 0;  //to be removed
@@ -200,7 +117,130 @@ float temp1 = 0;      //to be removed
 uint16_t soc_test = 100;  //to be removed
 
 
+void Core0::startCore0() {
 
+  //  voltage1 = voltage1 + 1; //input from core1
+  //  current1 = current1 + 1; //input from core1
+  //  temp1 = temp1 + 1;  //input from core1
+  //  soc_test = soc_test - 1;
+  //setupCore0();
+  for (;;) {
+    //copy memory block for cellArraySem and externalFaultSem
+    //    xSemaphoreTake(cellArraySem, portMAX_DELAY );
+    //    memcpy(&currentCellData, &currentCellDataInt, sizeof(currentCellDataInt));
+    //    xSemaphoreGive(externalFaultSem);
+    //
+    //    xSemaphoreTake(cellArraySem, portMAX_DELAY );
+    //    memcpy(&extFaultData, &extFaultDataInt, sizeof(extFaultDataInt));
+    //    xSemaphoreGive(externalFaultSem);
+
+    //    const GFXfont* f = &FreeSansBold9pt7b;  //set font
+    //    display.setFont(f);
+    //    display.setTextColor(GxEPD_BLACK);
+    //    display.setCursor(20, 100);
+    //
+    //    display.fillScreen(GxEPD_WHITE);
+    //    xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+    //    voltage1 = (float) *samplePointer;  //to be removed
+    //    current1 = (float) *samplePointer;   //to be removed
+    //    temp1 = (float) *samplePointer;      //to be removed
+    //    soc_test = (uint16_t) *samplePointer;  //to be removed
+    //    //String samp = String(*samplePointer, DEC);
+    //    xSemaphoreGive(*sampleSemPointer);
+    setupCore0();
+    fsm();
+    //    display.print(samp);
+    //    display.updateWindow(5, 5, 118, 286, false);
+    delay(500);
+  }
+}
+
+
+boolean centerPress = false;
+boolean leftPress = false;
+boolean rightPress = false;
+boolean upPress = false;
+boolean downPress = false;
+uint8_t dbDelay = 1000;
+
+void CButton() //interrupt with debounce
+{
+  volatile static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > dbDelay) {
+    centerPress = true;
+    Serial.println("c");
+  }
+  else {
+    centerPress = false;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+void LButton() //interrupt with debounce
+{
+  volatile static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > dbDelay) {
+    leftPress = true;
+    Serial.println("l");
+  }
+  else {
+    leftPress = false;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+void RButton() //interrupt with debounce
+{
+  volatile static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > dbDelay) {
+    rightPress = true;
+    Serial.println("r");
+  }
+  else {
+    rightPress = false;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+void UButton() //interrupt with debounce
+{
+  volatile static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > dbDelay) {
+    upPress = true;
+    Serial.println("u");
+  }
+  else {
+    upPress = false;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+void DButton() //interrupt with debounce
+{
+  volatile static unsigned long last_interrupt_time = 0;
+  unsigned long interrupt_time = millis();
+  if (interrupt_time - last_interrupt_time > dbDelay) {
+    downPress = true;
+    Serial.println("d");
+  }
+  else {
+    downPress = false;
+  }
+  last_interrupt_time = interrupt_time;
+}
+
+typedef struct
+{
+  int max_temp;
+  long max_voltage;
+  long min_voltage;
+  long max_charge_voltage;
+  boolean SOH; //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
+} Configs;
 
 
 #define NUM_CELLS 16
@@ -215,18 +255,15 @@ void defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean so
   configs[index].SOH = soh;
 }
 
-  typedef struct 
-//void defineMiscConfigs() //pretty much set I think
-//{
-  typedef struct //SIMONE FORGET THE STRUCT DO AN ARRAY OF FLOATS
-  {
-    boolean pack_id; //true = Pack 1, false = Pack 2  //change all to floats
-    boolean airs_state; //true = closed, false = open
-    boolean sl_state; //true = closed, false = open
-    uint16_t SOC_min;
-    float max_pack_current;
-    float min_pack_current;
-  } Misc_Configs;
+typedef struct
+{
+  boolean pack_id; //true = Pack 1, false = Pack 2  //change all to floats
+  boolean airs_state; //true = closed, false = open
+  boolean sl_state; //true = closed, false = open
+  uint16_t SOC_min;
+  float max_pack_current;
+  float min_pack_current;
+} Misc_Configs;
 
 Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}};
 
@@ -539,15 +576,15 @@ void cellConfigs(uint8_t cellNum)
   printCellConfigs(cellNum);
 
   uint8_t cell_config = 0;
-  centerPress=false; upPress=false; downPress=false; leftPress=false; rightPress=false;
+  centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
 
   while (1) {
-//
-//    boolean centerPress = buttonPress(&buttons[0]);
-//    boolean upPress = buttonPress(&buttons[1]);
-//    boolean downPress = buttonPress(&buttons[2]);
-//    boolean leftPress = buttonPress(&buttons[3]);
-//    boolean rightPress = buttonPress(&buttons[4]);
+    //
+    //    boolean centerPress = buttonPress(&buttons[0]);
+    //    boolean upPress = buttonPress(&buttons[1]);
+    //    boolean downPress = buttonPress(&buttons[2]);
+    //    boolean leftPress = buttonPress(&buttons[3]);
+    //    boolean rightPress = buttonPress(&buttons[4]);
 
     if (cell_config == NUM_CELL_CONFIGS && centerPress)  { //exit
       Serial.println("center");
@@ -631,19 +668,19 @@ uint8_t last_ym = 42;
 #define NUM_MISC_CONFIGS 6
 void miscConfigs()
 {
-    last_sm = 5;
-    last_ym = 42;
-    printMiscConfigs();
-  centerPress=false; upPress=false; downPress=false; leftPress=false; rightPress=false;
+  last_sm = 5;
+  last_ym = 42;
+  printMiscConfigs();
+  centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
   uint8_t misc_config = 0;
 
   while (1) {
-//
-//    boolean centerPress = buttonPress(&buttons[0]);
-//    boolean upPress = buttonPress(&buttons[1]);
-//    boolean downPress = buttonPress(&buttons[2]);
-//    boolean leftPress = buttonPress(&buttons[3]);
-//    boolean rightPress = buttonPress(&buttons[4]);
+    //
+    //    boolean centerPress = buttonPress(&buttons[0]);
+    //    boolean upPress = buttonPress(&buttons[1]);
+    //    boolean downPress = buttonPress(&buttons[2]);
+    //    boolean leftPress = buttonPress(&buttons[3]);
+    //    boolean rightPress = buttonPress(&buttons[4]);
 
     if (misc_config == NUM_MISC_CONFIGS && centerPress)  {//exit
       Serial.println("center");
@@ -896,21 +933,21 @@ void fsm() {
   State nextState = Main;
   State state = Main;
 
-  centerPress=false; upPress=false; downPress=false; leftPress=false; rightPress=false;
+  centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
 
   while (1) {
-//    //centerPress = digitalRead(CENTER_BUTTON);
-//    boolean upPress = buttonPress(&buttons[1]);
-//    boolean downPress = buttonPress(&buttons[2]);
-//    boolean leftPress = buttonPress(&buttons[3]);
-//    boolean rightPress = buttonPress(&buttons[4]);
+    //    //centerPress = digitalRead(CENTER_BUTTON);
+    //    boolean upPress = buttonPress(&buttons[1]);
+    //    boolean downPress = buttonPress(&buttons[2]);
+    //    boolean leftPress = buttonPress(&buttons[3]);
+    //    boolean rightPress = buttonPress(&buttons[4]);
 
 
     switch (nextState) {
       case Main: {  //done
           if (centerPress) {
             Serial.println("center");  //testing
-            centerPress=false;
+            centerPress = false;
             nextState = Config_State;
           }
           else if (state != Main) {
@@ -933,17 +970,17 @@ void fsm() {
       case Config_State: {   //done
           if (centerPress && config_index == true) {
             Serial.println("center");    //testing
-            centerPress=false;
+            centerPress = false;
             nextState = Choose_Cell;
           }
           else if (centerPress && config_index == false) {
             Serial.println("center");    //testing
-            centerPress=false;
+            centerPress = false;
             nextState = Misc_Configurations;
           }
           else if (upPress || downPress || leftPress || rightPress) {
             Serial.println("up/down/left/right");
-            upPress=false; downPress=false; leftPress=false; rightPress=false;
+            upPress = false; downPress = false; leftPress = false; rightPress = false;
             config_index = !config_index;
             configPartial(config_index);
           }
@@ -964,12 +1001,12 @@ void fsm() {
       case Choose_Cell: {  //done
           if (centerPress) {
             Serial.println("center");
-            centerPress=false;
+            centerPress = false;
             nextState = Cell_Configs;
           }
           else if (leftPress) {
             Serial.println("left");
-            leftPress=false;
+            leftPress = false;
             if (cell_index == 0) {
               cell_index = 15;
             }
@@ -980,7 +1017,7 @@ void fsm() {
           }
           else if (rightPress) {
             Serial.println("right");
-            rightPress=false;
+            rightPress = false;
             if (cell_index == 15) {
               cell_index = 0;
             }

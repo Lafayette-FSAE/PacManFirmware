@@ -57,19 +57,16 @@ class Core0
 {
   public:
     // Define Constructor
-        Core0 (struct cell, float, boolean, SemaphoreHandle_t, SemaphoreHandle_t, SemaphoreHandle_t);
+        Core0 (cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample);
     // Define Public Functions
-    void start();
+    void startCore0();
   private:
     // Define Private Functions
     //all the functionss
+      
     // Define Private variables
 
   
 };
 
 #endif
-
-
-
-//to be written in cpp
