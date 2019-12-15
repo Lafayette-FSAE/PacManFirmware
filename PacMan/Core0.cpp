@@ -37,18 +37,26 @@
 //Simone Khalifa
 
 
-#include "GxGDEH029A1/GxGDEH029A1.cpp"
-#include "GxIO/GxIO_SPI/GxIO_SPI.cpp"
-#include "GxIO/GxIO.cpp"
-#include "BitmapGraphics.h"
+#include "References/Fonts/FreeSansBold24pt7b.h"
+#include "References/Fonts/FreeSansBold12pt7b.h"
+#include "References/Fonts/FreeSansBold9pt7b.h"
 
-#include "Fonts/FreeSansBold24pt7b.h"
-#include "Fonts/FreeSansBold12pt7b.h"
-#include "Fonts/FreeSansBold9pt7b.h"
+#include "References/Adafruit_GFX.h"
+#include "References/Adafruit_GFX.cpp"
+#include "References/Adafruit_SPITFT.h"
+#include "References/Adafruit_SPITFT.cpp"
+#include "References/Adafruit_SPITFT_Macros.h"
+#include "References/gfxfont.h"
+#include "References/glcdfont.c"
+#include "References/GxEPD.h"
+#include "References/GxEPD.cpp"
+#include "References/GxFont_GFX.h"
+#include "References/GxFont_GFX.cpp"
 
+#include "Core0.h"
 
 GxIO_Class io(SPI, 15, 22, 21);
-GxEPD_Class display(io, 21, 16);
+GxEPD_Class display(io, 21, 23);
 
 #define CENTER_BUTTON 17
 #define UP_BUTTON 18
@@ -58,10 +66,10 @@ GxEPD_Class display(io, 21, 16);
 
 void setup() {
 
-  Serial.begin(9600);
+  //  Serial.begin(115200);
   display.init();
 
-  setUpMain(true); //id
+  //setUpMain(true); //id
 
   const GFXfont* f = &FreeSansBold9pt7b;
   display.setFont(f);
@@ -114,7 +122,6 @@ Core0::Core0(struct cell cells1, float extFault, boolean AIRSOp, SemaphoreHandle
     AIRSOpenSem = AIRSOpSem;
 }
 
-void loop() {
 
 //  voltage1 = voltage1 + 1; //input from core1
 //  current1 = current1 + 1; //input from core1
@@ -195,16 +202,7 @@ uint16_t soc_test = 100;  //to be removed
 
 
 
-  typedef struct
-  {
-    int max_temp;
-    long max_voltage;
-    long min_voltage;
-    long max_charge_voltage;
-    boolean SOH; //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
-  } Configs;
 
-  
 #define NUM_CELLS 16
 Configs configs[NUM_CELLS];
 
@@ -251,6 +249,7 @@ void mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr)
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
   display.setTextColor(GxEPD_BLACK);
+  display.setRotation(45);
 
   String temp = String(String(temperature, 1) + " C"); //convert to strings
   String voltage = String(String(volt, 1) + " V");
@@ -336,16 +335,19 @@ void faults(int errorType)
   display.setCursor(30, 75);
 
   if (errorType == 1) { //SL Open
-    display.print("AIRS Open");
+    display.print(" SL Open ");
   }
   else if (errorType == 2) { //Airs Open
-    display.print("Low SOC");
+    display.print("AIRS Open");
   }
   else if (errorType == 3) { //Dangerous temp
     display.print("High Temp");
   }
   else if (errorType == 4) { //Dangerous voltage
     display.print("High Volt");
+  }
+  else if (errorType == 5) { //Low SOC
+    display.print("Low SOC");
   }
   display.update();
 }
@@ -488,18 +490,18 @@ void printCellConfigs(uint8_t cellNum)
   display.setFont(font);
 
   uint8_t left = 10;
-  uint8_t right = (296/2);
+  uint8_t right = (296 / 2);
   uint8_t top = 60;
   uint8_t line = 20;
   uint8_t y_point = top;
 
-  String num = String("Cell #" + String(cellNum+1, DEC));
+  String num = String("Cell #" + String(cellNum + 1, DEC));
   String mtemp = String("Max T " + String(configs[cellNum].max_temp, DEC));
   String maxv = String("Max V " + String(configs[cellNum].max_voltage, 1));
   String minv = String("Min V " + String(configs[cellNum].min_voltage, 1));
   String maxcv = String("Max ChV " + String(configs[cellNum].max_charge_voltage, 1));
-  String soh = String("SOH " + String(true,DEC));//String(configs[cellNum].SOH, 1));
-  
+  String soh = String("SOH " + String(true, DEC)); //String(configs[cellNum].SOH, 1));
+
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(110, 30);
@@ -507,20 +509,20 @@ void printCellConfigs(uint8_t cellNum)
   display.setCursor(235, 120);
   display.print("HOME");
   display.setCursor(left, y_point);
-  display.fillRect(left-5, y_point-8, 4, 4, GxEPD_BLACK);
-  y_point+=line;
+  display.fillRect(left - 5, y_point - 8, 4, 4, GxEPD_BLACK);
+  y_point += line;
   display.print(mtemp);
   display.setCursor(left, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(maxv);
   display.setCursor(left, y_point);
-  y_point=top;
+  y_point = top;
   display.print(minv);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(maxcv);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(soh);
   display.updateWindow(5, 5, 118, 286, false);
 }
@@ -535,7 +537,7 @@ void cellConfigs(uint8_t cellNum)
   last_s = 5;
   last_y = 52;
   printCellConfigs(cellNum);
-  
+
   uint8_t cell_config = 0;
   centerPress=false; upPress=false; downPress=false; leftPress=false; rightPress=false;
 
@@ -595,29 +597,29 @@ void cellConfigs(uint8_t cellNum)
 
 void moveCellConfig(uint8_t cellConfig)
 {
-    //change position of bullet point
+  //change position of bullet point
   uint8_t left = 5;
-  uint8_t right = (296/2)-5;
+  uint8_t right = (296 / 2) - 5;
   uint8_t side = left;
   uint8_t top = 60;
   uint8_t line = 20;
-  uint8_t y_point = top-8;
-  if (cellConfig<=2) { 
-    y_point = top-8+20*cellConfig; 
+  uint8_t y_point = top - 8;
+  if (cellConfig <= 2) {
+    y_point = top - 8 + 20 * cellConfig;
     side = left;
   }
-  else if (cellConfig>2 && cellConfig<NUM_CELL_CONFIGS) { 
-    y_point = top-8+20*(cellConfig-3); 
+  else if (cellConfig > 2 && cellConfig < NUM_CELL_CONFIGS) {
+    y_point = top - 8 + 20 * (cellConfig - 3);
     side = right;
   }
-  else { 
-    y_point = 112; 
+  else {
+    y_point = 112;
     side = 230;
   }
   display.fillRect(last_s, last_y, 4, 4, GxEPD_WHITE);
   display.fillRect(side, y_point, 4, 4, GxEPD_BLACK);
   display.updateWindow(5, 5, 118, 286, false);
-  
+
   last_s = side;
   last_y = y_point;
 }
@@ -690,9 +692,9 @@ void miscConfigs()
 
 void updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
 {
-    //change value of config
+  //change value of config
   if (miscConfig == 0) { //pack id
-      misc_configs[0].pack_id = !misc_configs[0].pack_id;
+    misc_configs[0].pack_id = !misc_configs[0].pack_id;
   }
   else if (miscConfig == 1) { //airs
     misc_configs[0].airs_state = !misc_configs[0].airs_state;
@@ -728,13 +730,13 @@ void updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish this
 }
 
 void printMiscConfigs()
-{  
-    //print each
+{
+  //print each
   const GFXfont* font = &FreeSansBold9pt7b;
   display.setFont(font);
 
   uint8_t left = 10;
-  uint8_t right = (296/2);
+  uint8_t right = (296 / 2);
   uint8_t top = 50;
   uint8_t line = 20;
   uint8_t y_point = top;
@@ -745,49 +747,51 @@ void printMiscConfigs()
   String minSOC = String("SOCmin " + String(misc_configs[0].SOC_min, DEC));
   String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1));
   String minC = String("Min C " + String(misc_configs[0].max_pack_current, 1));
-  
+
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(235, 120);
   display.print("HOME");
-  
+
   display.setCursor(left, y_point);
-  display.fillRect(left-5, y_point-8, 4, 4, GxEPD_BLACK);
-  y_point+=line;
+  display.fillRect(left - 5, y_point - 8, 4, 4, GxEPD_BLACK);
+  y_point += line;
   display.print(pack);
   display.setCursor(left, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(air);
   display.setCursor(left, y_point);
-  y_point=top;
+  y_point = top;
   display.print(sl);
-  
+
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(minSOC);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(maxC);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(minC);
   display.updateWindow(5, 5, 118, 286, false);
 }
 
 void printMiscConfigs2(uint8_t config_num)
 {
-    //print each
+  //print each
   const GFXfont* font = &FreeSansBold9pt7b;
   display.setFont(font);
 
   uint8_t left = 10;
-  uint8_t right = (296/2);
+  uint8_t right = (296 / 2);
   uint8_t top = 50;
   uint8_t line = 20;
   uint8_t y_point = top;
 
   uint8_t side = left;
-  if (config_num>=3){side = right;}
+  if (config_num >= 3) {
+    side = right;
+  }
 
   String pack = String("PackID " + String(misc_configs[0].pack_id, DEC));
   String air = String("AIRS " + String(misc_configs[0].airs_state, DEC));
@@ -795,30 +799,30 @@ void printMiscConfigs2(uint8_t config_num)
   String minSOC = String("SOCmin " + String(misc_configs[0].SOC_min, DEC));
   String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1));
   String minC = String("Min C " + String(misc_configs[0].max_pack_current, 1));
-  
+
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(235, 120);
   display.print("HOME");
-  
+
   display.setCursor(left, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(pack);
   display.setCursor(left, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(air);
   display.setCursor(left, y_point);
-  y_point=top;
+  y_point = top;
   display.print(sl);
-  
+
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(minSOC);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(maxC);
   display.setCursor(right, y_point);
-  y_point+=line;
+  y_point += line;
   display.print(minC);
   display.updateWindow(15, side, 118, 140, false);
 }
@@ -829,27 +833,27 @@ void moveMiscConfig(uint8_t miscConfig)
 {
   //change position of bullet point
   uint8_t left = 5;
-  uint8_t right = (296/2)-5;
+  uint8_t right = (296 / 2) - 5;
   uint8_t side = left;
   uint8_t top = 50;
   uint8_t line = 20;
-  uint8_t y_point = top-8;
-  if (miscConfig<=2) { 
-    y_point = top-8+20*miscConfig; 
+  uint8_t y_point = top - 8;
+  if (miscConfig <= 2) {
+    y_point = top - 8 + 20 * miscConfig;
     side = left;
   }
-  else if (miscConfig>2 && miscConfig<NUM_MISC_CONFIGS) { 
-    y_point = top-8+20*(miscConfig-3); 
+  else if (miscConfig > 2 && miscConfig < NUM_MISC_CONFIGS) {
+    y_point = top - 8 + 20 * (miscConfig - 3);
     side = right;
   }
-  else { 
-    y_point = 112; 
+  else {
+    y_point = 112;
     side = 230;
   }
   display.fillRect(last_sm, last_ym, 4, 4, GxEPD_WHITE);
   display.fillRect(side, y_point, 4, 4, GxEPD_BLACK);
   display.updateWindow(5, 5, 118, 286, false);
-  
+
   last_sm = side;
   last_ym = y_point;
 }
@@ -912,8 +916,17 @@ void fsm() {
           else if (state != Main) {
             setUpMain(id);
           }
-          mainPartialUpdate(1, 2, 3, 4);  //fill w variables
+          else if (state == Main){
+          xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+          voltage1 = (float) *samplePointer; //to be removed
+          current1 = (float) *samplePointer;  //to be removed
+          temp1 = (float) *samplePointer;     //to be removed
+          soc_test = (uint16_t) *samplePointer; //to be removed
+          xSemaphoreGive(*sampleSemPointer);
+
+          mainPartialUpdate(temp1, soc_test, voltage1, current1);
           state = Main;
+          }
         }
         break;
 
