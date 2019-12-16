@@ -215,7 +215,11 @@ void Core1::start(){
 void Core1::startDemo(){
     // SETUP STUFF
     unsigned char* cellData;
+    uint32_t CANFlag = CAN_MSG_FLAG_NONE; // Sets us up for a standard CAN frame transmission
+    uint32_t CANIdentifier = 0x00000001;  // ID of 1, shouldn't be more than 11 bits for standard frame transmission
+    uint8_t CANDataLength = 4;            // Sending a float for SOC which is a size of 4 bytes
 
+    // Template for making our identical data (e.g. all get from same cellMan) for the demo
     cell privateCellExample = {0x01,        // I2C Address
                                0x00000000,  // cellData Array Pointer
                                0.00,        // Cell Temp
@@ -241,11 +245,15 @@ void Core1::startDemo(){
 
     for(;;){
         updateInternalCellsData(); // Update our internal cellsData from the I2C bus
+
         // Update our globals safely with Semaphores
         updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer);
         updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
         updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
 
         calculateTotalPackSOC(); // Update our internal pack SOC
+        queueCANMessage(CANFlag, CANIdentifier, CANDataLength, (unsigned char*)&packSOC); // Send our SOC out on the CAN bus - Also cast our float as a byte array
+
+        delay(1000); // Wait a second
     }
 }
