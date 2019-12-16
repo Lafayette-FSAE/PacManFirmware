@@ -6,10 +6,13 @@ Released into the public domain.
 
 #include "Arduino.h"
 #include "Core1.h"
-#define DEBUG false
+#define DEBUG true
+#define I2C_SDA 33
+#define I2C_SCL 32
 
 #include "References/CAN_Files/can.h"
 #include "References/CAN_Files/gpio.h"
+#include <Wire.h>      // Required for I2C
 
 // CONSTRUCTOR
 Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample){
@@ -29,11 +32,13 @@ Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHand
     Serial.print("The Sample is: ");
     Serial.println(*samplePointer);
 
-    //Wire.begin();        // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
+    Wire.begin(33, 32);        // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
+    //twoWire = TwoWire(0);
+    //twoWire.begin(I2C_SDA, I2C_SCL, 400000);
 
     totalMAH = 0;
     addresses = (unsigned char*)malloc(16 * sizeof(unsigned char));
-  Serial.println("help");
+    Serial.println("help");
 }
 
 void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity){ // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
@@ -49,7 +54,19 @@ void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, i
 void Core1::updateGlobalCells(cell* globalCellsPointer, cell* internalCellsPointer, SemaphoreHandle_t* cellsSem){
     // Set the global cells array to our private one
     xSemaphoreTake(*cellsSem, portMAX_DELAY);
-    memcpy(globalCellsPointer, globalCellsPointer, sizeof(globalCellsPointer)); // Functions like: *cells = privateCells; but required like this in C
+//    Serial.println(internalCellsPointer[1].cellTemp);
+//    Serial.println(internalCellsPointer[1].cellVoltage);
+//    Serial.println(internalCellsPointer[1].balanceCurrent);
+//    Serial.println(internalCellsPointer[1].SOC);
+    //memcpy(globalCellsPointer, internalCellsPointer, sizeof(internalCellsPointer)); // Functions like: *cells = privateCells; but required like this in C
+    for(int index = 0; index<16; index++){
+      globalCellsPointer[index] = internalCellsPointer[index];
+    }
+    
+    Serial.println(globalCellsPointer[1].cellTemp);
+    Serial.println(globalCellsPointer[1].cellVoltage);
+    Serial.println(globalCellsPointer[1].balanceCurrent);
+    Serial.println(globalCellsPointer[1].SOC);
     xSemaphoreGive(*cellsSem);
 }
 
@@ -116,7 +133,9 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address){
         }
     }
 
-    return cellData;
+    unsigned char cellData2[12] = {0xA4,0x70,0x9D,0x3F,0xCD,0xCC,0x5C,0x40,0xC3,0xF5,0xD8,0x40};
+    
+    return cellData2;
 }
 
 unsigned char* Core1::getCellTempData(unsigned char* cellData){
@@ -181,12 +200,39 @@ esp_err_t Core1::queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t da
 }
 
 void Core1::updateInternalCellsData(){
-    for(int index = 0; index < 16; index++){
-        privateCells[index].cellData = requestDataFromSlave(privateCells[index].address);         // Get the cellData by requesting it from the given cell with it's given I2C address, I2C addresses will be automatically populated in the future
-        privateCells[index].cellTemp = getCellTemp(privateCells[index].cellData);                 // Get the cell temperature from the cellData from I2C
-        privateCells[index].cellVoltage = getCellVoltage(privateCells[index].cellData);           // Get the cell voltage from the cellData from I2C
-        privateCells[index].balanceCurrent = getBalanceCurrent(privateCells[index].cellData);     // Get the balance current from the cellData from I2C
-        privateCells[index].SOC = (int)round(((privateCells[index].cellVoltage - 2.0)/1.65)*100); // Calculate a SOC from the voltage (BAD but quick)
+    //unsigned char* cellData;
+    
+//    for(int index = 0; index < 16; index++){
+//        unsigned char* cellData = requestDataFromSlave(privateCells[index].address);
+//        Serial.print("Got Data from Slave of address: ");
+//        Serial.println(privateCells[index].address);
+//        //Serial.println(cellData);
+//        //privateCells[index].cellData = cellData;         // Get the cellData by requesting it from the given cell with it's given I2C address, I2C addresses will be automatically populated in the future
+//        memcpy(privateCells[index].cellData, cellData, sizeof(cellData));
+//        Serial.print("Set Cell Data");
+//        privateCells[index].cellTemp = getCellTemp(privateCells[index].cellData);                 // Get the cell temperature from the cellData from I2C
+//        privateCells[index].cellVoltage = getCellVoltage(privateCells[index].cellData);           // Get the cell voltage from the cellData from I2C
+//        privateCells[index].balanceCurrent = getBalanceCurrent(privateCells[index].cellData);     // Get the balance current from the cellData from I2C
+//        privateCells[index].SOC = (int)round(((privateCells[index].cellVoltage - 2.0)/1.65)*100); // Calculate a SOC from the voltage (BAD but quick)
+//    }
+
+      for(int index = 0; index < 16; index++){
+        //unsigned char* cellData = requestDataFromSlave(privateCells[index].address);
+        //Serial.print("Got Data from Slave of address: ");
+        //Serial.println(privateCells[index].address);
+        //Serial.println(cellData);
+        //privateCells[index].cellData = cellData;         // Get the cellData by requesting it from the given cell with it's given I2C address, I2C addresses will be automatically populated in the future
+        //memcpy(privateCells[index].cellData, cellData, sizeof(cellData));
+        //Serial.print("Set Cell Data");
+        privateCells[index].cellTemp = (float)random(20,45);                
+        privateCells[index].cellVoltage = (float)random(300,365)/100;           
+        privateCells[index].balanceCurrent = (float)random(100,900)/100;     
+        privateCells[index].SOC = (int)round(((privateCells[index].cellVoltage - 2.0)/1.65)*100); 
+
+//        Serial.println(privateCells[index].cellTemp);
+//        Serial.println(privateCells[index].cellVoltage);
+//        Serial.println(privateCells[index].balanceCurrent);
+//        Serial.println(privateCells[index].SOC);
     }
 }
 
@@ -208,7 +254,7 @@ void Core1::start(){
       Serial.print("The Sample is: ");
       Serial.println(*samplePointer);
       xSemaphoreGive(*sampleSemPointer);
-      delay(1000);
+      delay(2000);
   }
 }
 
@@ -227,11 +273,11 @@ void Core1::startDemo(){
                                0.00,        // Cell balance current
                                0};          // Cell SOC
 
-    // Initialise our privateCells arrays
+//     Initialise our privateCells arrays
     for(int index = 0; index < 16; index++){
-        cellData = (unsigned char*)malloc(12 * sizeof(unsigned char));
+        //cellData = (unsigned char*)malloc(12 * sizeof(unsigned char));
         privateCells[index].address = privateCellExample.address;
-        privateCells[index].cellData = cellData; // Allocate a new block of memory for each cellData for each cell
+        //privateCells[index].cellData = cellData; // Allocate a new block of memory for each cellData for each cell
         privateCells[index].cellTemp = privateCellExample.cellTemp;
         privateCells[index].cellVoltage = privateCellExample.cellVoltage;
         privateCells[index].balanceCurrent = privateCellExample.balanceCurrent;
@@ -243,15 +289,22 @@ void Core1::startDemo(){
     updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
     updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
 
+    Serial.println("Updated globals!");
+    
     for(;;){
+        Serial.println("In loop");
         updateInternalCellsData(); // Update our internal cellsData from the I2C bus
 
+        Serial.println("Updated internal cells");
         // Update our globals safely with Semaphores
         updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer);
         updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
         updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
 
         calculateTotalPackSOC(); // Update our internal pack SOC
+        Serial.print("Total Pack SOC: ");
+        Serial.println(packSOC);
+        
         queueCANMessage(CANFlag, CANIdentifier, CANDataLength, (unsigned char*)&packSOC); // Send our SOC out on the CAN bus - Also cast our float as a byte array
 
         delay(1000); // Wait a second

@@ -11,7 +11,7 @@
 // GLOBALS
 typedef struct {
   unsigned char address;             // Holds the I2C address of this cell
-  unsigned char* cellData;           // Holds byte array from a cell got from I2C
+  unsigned char cellData[12];           // Holds byte array from a cell got from I2C
   float cellTemp;                    // Holds converted Temp float from I2C byte stream
   float cellVoltage;                 // Holds converted Voltage float from I2C byte stream
   float balanceCurrent;              // Holds converted balanceCurrent float from I2C byte stream

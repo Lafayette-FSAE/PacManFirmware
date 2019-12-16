@@ -64,7 +64,7 @@ void setupCore0() {
 }
 
 //misc configs
-boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 200; float min_pc = 50; boolean airs = 0;//need to set the equal to inputs but give defaults
+boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 250; float min_pc = 0; boolean airs = 0;//need to set the equal to inputs but give defaults
 
 //typedef struct
 //{
@@ -81,7 +81,7 @@ cell currentCellDataInt[NUM_CELLS];
 //cell* currentCellDataInt;
 
 //define all variables for constructor
-//struct cell currentCellData; //current cell data array (for sems)
+//cell* currentCellData; //current cell data array (for sems)
 //float extFaultData; //external fault data float (for sems)
 //float extFaultDataInt;
 //SemaphoreHandle_t cellArraySem;
@@ -121,9 +121,9 @@ void Core0::startCore0() {
     //copy memory block for cellArraySem and externalFaultSem
     //    xSemaphoreTake(cellArraySem, portMAX_DELAY );
     //    memcpy(&currentCellData, &currentCellDataInt, sizeof(currentCellDataInt));
-    //    xSemaphoreGive(externalFaultSem);
+    //    xSemaphoreGive(cellArraySem);
     //
-    //    xSemaphoreTake(cellArraySem, portMAX_DELAY );
+    //    xSemaphoreTake(externalFaultSem, portMAX_DELAY );
     //    memcpy(&extFaultData, &extFaultDataInt, sizeof(extFaultDataInt));
     //    xSemaphoreGive(externalFaultSem);
 
@@ -1037,14 +1037,31 @@ void Core0::fsm() {
             state = Main;
           }
           else if (state == Main){
-          xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
-          voltage1 = (float) *samplePointer; //to be removed
-          current1 = (float) *samplePointer;  //to be removed
-          temp1 = (float) *samplePointer;     //to be removed
-          soc_test = (uint16_t) *samplePointer; //to be removed
-          Serial.println(*samplePointer);
-          xSemaphoreGive(*sampleSemPointer);
-          Serial.println(temp1);
+//          xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+//          voltage1 = (float) *samplePointer; //to be removed
+//          current1 = (float) *samplePointer;  //to be removed
+//          temp1 = (float) *samplePointer;     //to be removed
+//          soc_test = (uint16_t) *samplePointer; //to be removed
+//          Serial.println(*samplePointer);
+//          xSemaphoreGive(*sampleSemPointer);
+//          Serial.println(temp1);
+            
+            xSemaphoreTake(*cellArraySemPointer, portMAX_DELAY );
+            for(int index = 0; index<NUM_CELLS; index++){
+              currentCellData[index] = cellArrayPointer[index];
+            }
+            //memcpy(currentCellData, currentCellDataInt, sizeof(currentCellDataInt));
+            xSemaphoreGive(*cellArraySemPointer);
+            voltage1 = 0; current1 = 0; temp1 = 0; soc_test = 0;
+            for (int i = 0; i<NUM_CELLS; i++){
+              voltage1 += currentCellData[i].cellVoltage;
+              current1 += currentCellData[i].balanceCurrent;
+              temp1 = max(temp1, currentCellData[i].cellTemp);
+              soc_test += currentCellData[i].SOC;
+            }
+            current1 = current1/NUM_CELLS;
+            soc_test = soc_test/NUM_CELLS;
+          
           mainPartialUpdate(temp1, soc_test, voltage1, current1);
           }
         }

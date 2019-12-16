@@ -47,6 +47,7 @@ void codeForTask1( void * parameter ){
   for(;;){
     Serial.println("task1");
     delay(250);
-    core1.start();
+    //core1.start();
+    core1.startDemo();
   }
 }

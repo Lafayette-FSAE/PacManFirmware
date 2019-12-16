@@ -35,6 +35,7 @@ class Core1
     int totalMAH;                       // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
     float packSOC;                        // Keeps track of the Pack's total SOC
+    //TwoWire twoWire;
 
 
     // SHARED VARIABLES PASSED IN VIA CONSTRUCTOR
