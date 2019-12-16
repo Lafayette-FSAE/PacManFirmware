@@ -34,14 +34,15 @@ class Core1
     unsigned long newTime;              // Holds current time in microseconds for integration
     int totalMAH;                       // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
-    
+    float packSOC;                        // Keeps track of the Pack's total SOC
+
 
     // SHARED VARIABLES PASSED IN VIA CONSTRUCTOR
     cell* cellArrayPointer;
     float* externalFaultPointer;
     boolean* AIRSOpenPointer;
     int* samplePointer;
-    
+
     SemaphoreHandle_t* cellArraySemPointer;
     SemaphoreHandle_t* externalFaultSemPointer;
     SemaphoreHandle_t* AIRSOpenSemPointer;
@@ -49,7 +50,10 @@ class Core1
 
     // FUNCTIONS
     void arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity);
-    
+    void updateGlobalCells(cell*, cell*, SemaphoreHandle_t*);
+    void updateGlobalFaults(float*, float, SemaphoreHandle_t*);
+    void updateGlobalAIRSOpen(boolean*, boolean, SemaphoreHandle_t*);
+
     unsigned char* discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(unsigned char address);             // Get 12 bytes from a cellman via I2C for a certain address
     unsigned char* getCellTempData(unsigned char* cellData);                // Get the 4 bytes from the byte array containing the cell temperature float value
@@ -60,11 +64,16 @@ class Core1
     float getCellVoltage(unsigned char* cellData);                          // Get voltage as a float of the cell via above functions
     float getBalanceCurrent(unsigned char* cellData);                       // Get balance current as a float of the cell via above functions
 //    float getDischargeCurrent();                                            // Get current discharge current from sensor over I2C
-//    esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* CANdata);
+    esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned char* CANdata);
+
+    void updateInternalCellsData();
+    float calculateTotalPackSOC(cell*);
+
 
   public:
     Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample);
     void start();
+    void startDemo();
 };
 
 #endif
