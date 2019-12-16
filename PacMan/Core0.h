@@ -26,10 +26,11 @@ class Core0
   private:
     // Define Private Functions
     void fsm();
-    void defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean soh, int index);
+    void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
     void setUpMain(boolean id);
     void mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr);
     void cellPartialUpdate(int errorType, int cellNum);
+    void cellPartialUpdate2(int errorType, int cellNum);
     void faults(int errorType);
     void mainConfigScreen();
     void configPartial(boolean index);
@@ -37,6 +38,7 @@ class Core0
     void partialChooseCell(uint8_t cellNum);
     void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction);
     void printCellConfigs(uint8_t cellNum);
+    void printCellConfigs2(uint8_t cellNum, uint8_t config_num);
     void cellConfigs(uint8_t cellNum);
     void moveCellConfig(uint8_t cellConfig);
     void miscConfigs();
@@ -45,6 +47,9 @@ class Core0
     void printMiscConfigs2(uint8_t config_num);
     void moveMiscConfig(uint8_t miscConfig);
     boolean buttonPress(struct button* button);
+    void defaultCellConfigs();
+    void checkCells(uint8_t currentCell);
+    void checkCells2(uint8_t currentCell);
     
     // Define Private variables
     int* samplePointer;

@@ -7,7 +7,6 @@
 //Display Firmware
 //Simone Khalifa
 
-
 #include "References/GxGDEH029A1/GxGDEH029A1.cpp"
 #include "References/GxIO/GxIO_SPI/GxIO_SPI.cpp"
 #include "References/GxIO/GxIO.cpp"
@@ -39,6 +38,7 @@ GxEPD_Class display(io, 21, 23);
 #define DOWN_BUTTON 18
 #define LEFT_BUTTON 36
 #define RIGHT_BUTTON 39
+#define NUM_CELLS 16
 
 void setupCore0() {
 
@@ -64,7 +64,7 @@ void setupCore0() {
 }
 
 //misc configs
-boolean id; boolean sl; int soc = 50;; float max_pc; float min_pc; //need to set the equal to inputs but give defaults
+boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 200; float min_pc = 50; boolean airs = 0;//need to set the equal to inputs but give defaults
 
 //typedef struct
 //{
@@ -75,7 +75,7 @@ boolean id; boolean sl; int soc = 50;; float max_pc; float min_pc; //need to set
 //} cell;
 
 
-#define NUM_CELLS 16
+
 cell currentCellData[NUM_CELLS];
 cell currentCellDataInt[NUM_CELLS];
 //cell* currentCellDataInt;
@@ -84,7 +84,6 @@ cell currentCellDataInt[NUM_CELLS];
 //struct cell currentCellData; //current cell data array (for sems)
 //float extFaultData; //external fault data float (for sems)
 //float extFaultDataInt;
-boolean airs;
 //SemaphoreHandle_t cellArraySem;
 //SemaphoreHandle_t externalFaultSem;
 //SemaphoreHandle_t AIRSOpenSem;
@@ -118,12 +117,6 @@ uint16_t soc_test = 100;  //to be removed
 
 
 void Core0::startCore0() {
-
-  //  voltage1 = voltage1 + 1; //input from core1
-  //  current1 = current1 + 1; //input from core1
-  //  temp1 = temp1 + 1;  //input from core1
-  //  soc_test = soc_test - 1;
-  //setupCore0();
   for (;;) {
     //copy memory block for cellArraySem and externalFaultSem
     //    xSemaphoreTake(cellArraySem, portMAX_DELAY );
@@ -134,22 +127,8 @@ void Core0::startCore0() {
     //    memcpy(&extFaultData, &extFaultDataInt, sizeof(extFaultDataInt));
     //    xSemaphoreGive(externalFaultSem);
 
-//        const GFXfont* f = &FreeSansBold9pt7b;  //set font
-//        display.setFont(f);
-//        display.setTextColor(GxEPD_BLACK);
-//        display.setCursor(20, 100);
-//    
-//        display.fillScreen(GxEPD_WHITE);
-//        xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
-//        String samp = String(*samplePointer, DEC);
-//        xSemaphoreGive(*sampleSemPointer);
-//        display.print(samp);
-//        display.updateWindow(5, 5, 118, 286, false);
-
     setupCore0();
-    Serial.println("hello");
     fsm();
-    delay(500);
   }
 }
 
@@ -234,9 +213,9 @@ void DButton() //interrupt with debounce
 typedef struct
 {
   int max_temp;
-  long max_voltage;
-  long min_voltage;
-  long max_charge_voltage;
+  float max_voltage;
+  float min_voltage;
+  float max_charge_voltage;
   boolean SOH; //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
 } Configs;
 
@@ -244,7 +223,7 @@ typedef struct
 #define NUM_CELLS 16
 Configs configs[NUM_CELLS];
 
-void Core0::defineCellConfigs(int maxTemp, long maxV, long minV, long maxCV, boolean soh, int index) //pretty much set I think
+void Core0::defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index) //pretty much set I think
 {
   configs[index].max_temp = maxTemp; //=input[]
   configs[index].max_voltage = maxV;
@@ -265,6 +244,11 @@ typedef struct
 
 Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}};
 
+void Core0::defaultCellConfigs(){
+  for(int i = 0; i<NUM_CELLS; i++){
+    defineCellConfigs(55, 3.3, 2.5, 3.5, 1, i);
+  }
+}
 
 void Core0::setUpMain(boolean id) {
   display.setRotation(0);
@@ -312,32 +296,39 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.print(temp);
 
   display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
-  //checkCells()--calls cell partial update if need be
+  checkCells(0); //calls cell partial update if need be
   //checkForFaults()--calls faults();
 }
 
-//void checkCells(){
-//  for (uint8_t cell =1; cell<=16; cell++){
-//    if(soh == false) cellPartialUpdate(2, cell);
-//    else if(temp>50) cellPartialUpdate(1, cell);
-//    else if(voltage>3) cellPartialUpdate(3, cell);
-//  }
-//}
+void Core0::checkCells(uint8_t currentCell){
+  for (uint8_t cell = currentCell; cell< NUM_CELLS; cell++){
+    if(configs[cell].SOH == 0) cellPartialUpdate(2, cell);
+    //else if(temp>) cellPartialUpdate(1, cell);
+    //else if(voltage>3) cellPartialUpdate(3, cell);
+  }
+}
+void Core0::checkCells2(uint8_t currentCell){
+  for (uint8_t cell = currentCell; cell< NUM_CELLS; cell++){
+    if(configs[cell].SOH == 0) cellPartialUpdate2(2, cell);
+    //else if(temp>) cellPartialUpdate(1, cell);
+    //else if(voltage>3) cellPartialUpdate(3, cell);
+  }
+}
 
 void Core0::cellPartialUpdate(int errorType, int cellNum)
 {
   uint16_t box_w = 14;
   uint16_t box_h = 23;
-  uint16_t box_y = 52;
+  uint16_t box_y = 63;
   uint16_t box_x = 0;
 
-  cellNum = cellNum - 1; //start index at 1
+  //cellNum = cellNum - 1; //start index at 1
 
   if (cellNum < 8) { //seg1
     box_x = 11 + (box_w - 1) * cellNum;
   }
   else { //seg2
-    box_x = 180 + (box_w - 1) * cellNum;
+    box_x = 180 + (box_w - 1) * (cellNum-8);
   }
 
   //seg variables
@@ -358,6 +349,44 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
   }
 
   display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
+  if(cellNum<NUM_CELLS-1){  checkCells(cellNum+1);}
+}
+
+void Core0::cellPartialUpdate2(int errorType, int cellNum)
+{
+  uint16_t box_w = 14;
+  uint16_t box_h = 23;
+  uint16_t box_y = 78;
+  uint16_t box_x = 0;
+
+  //cellNum = cellNum - 1; //start index at 1
+
+  if (cellNum < 8) { //seg1
+    box_x = 25 + (box_w - 1) * cellNum;
+  }
+  else { //seg2
+    box_x = 166 + (box_w - 1) * (cellNum-8);
+  }
+
+  //seg variables
+  if (errorType == 1) { //temp
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(box_x + 1, box_y - 6);
+    display.print("V");
+  }
+  else if (errorType == 2) { //soh bad
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+  }
+  else if (errorType == 3) { //high voltage
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(box_x + 1, box_y - 6);
+    display.print("T");
+  }
+
+  display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
+  if(cellNum<NUM_CELLS-1){  checkCells(cellNum+1);}
 }
 
 void Core0::faults(int errorType)
@@ -429,12 +458,13 @@ void Core0::chooseCellScreen(uint8_t cellNum)
   display.setRotation(45);
 
   uint16_t box_w = 14;
-  uint16_t box_h = 23;
-  uint16_t box_y = 78;
+  uint16_t box_h = 1;
+  uint16_t box_y = 81;
   uint16_t box_x = 25;
 
   display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
   display.updateWindow(5, 5, 118, 286, false);
+  checkCells2(0);
 }
 
 void Core0::partialChooseCell(uint8_t cellNum) {
@@ -443,8 +473,8 @@ void Core0::partialChooseCell(uint8_t cellNum) {
   display.setRotation(45);
 
   uint16_t box_w = 14;
-  uint16_t box_h = 23;
-  uint16_t box_y = 78;
+  uint16_t box_h = 1;
+  uint16_t box_y = 81;
   uint16_t box_x = 25;
 
   if (cellNum < 8)  {
@@ -513,7 +543,7 @@ void Core0::updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direct
   else if (cellConfig == 4) { //temp
     configs[cellNum].SOH = !configs[cellNum].SOH;
   }
-  //partially update screen
+  printCellConfigs2(cellNum, cellConfig);
 }
 
 #define NUM_CELL_CONFIGS 5
@@ -535,7 +565,7 @@ void Core0::printCellConfigs(uint8_t cellNum)
   String maxv = String("Max V " + String(configs[cellNum].max_voltage, 1));
   String minv = String("Min V " + String(configs[cellNum].min_voltage, 1));
   String maxcv = String("Max ChV " + String(configs[cellNum].max_charge_voltage, 1));
-  String soh = String("SOH " + String(true, DEC)); //String(configs[cellNum].SOH, 1));
+  String soh = String("SOH " + String(configs[cellNum].SOH, DEC));
 
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
@@ -560,6 +590,57 @@ void Core0::printCellConfigs(uint8_t cellNum)
   y_point += line;
   display.print(soh);
   display.updateWindow(5, 5, 118, 286, false);
+}
+
+void Core0::printCellConfigs2(uint8_t cellNum, uint8_t config_num)
+{
+  //print each
+  const GFXfont* font = &FreeSansBold9pt7b;
+  display.setFont(font);
+
+  uint8_t left = 10;
+  uint8_t right = (296 / 2);
+  uint8_t top = 60;
+  uint8_t line = 20;
+  uint8_t y_point = top;
+
+  uint8_t side = left;
+  if (config_num >= 3) {
+    side = right;
+  }
+  
+  String num = String("Cell #" + String(cellNum + 1, DEC));
+  String mtemp = String("Max T " + String(configs[cellNum].max_temp, DEC));
+  String maxv = String("Max V " + String(configs[cellNum].max_voltage, 1));
+  String minv = String("Min V " + String(configs[cellNum].min_voltage, 1));
+  String maxcv = String("Max ChV " + String(configs[cellNum].max_charge_voltage, 1));
+  String soh = String("SOH " + String(configs[cellNum].SOH, DEC));
+
+  display.fillScreen(GxEPD_WHITE);
+  display.setTextColor(GxEPD_BLACK);
+  display.setCursor(110, 30);
+  display.print(num);
+  display.setCursor(235, 120);
+  display.print("HOME");
+  
+  display.setCursor(left, y_point);
+  display.fillRect(left - 5, y_point - 8, 4, 4, GxEPD_BLACK);
+  y_point += line;
+  display.print(mtemp);
+  display.setCursor(left, y_point);
+  y_point += line;
+  display.print(maxv);
+  display.setCursor(left, y_point);
+  y_point = top;
+  display.print(minv);
+  
+  display.setCursor(right, y_point);
+  y_point += line;
+  display.print(maxcv);
+  display.setCursor(right, y_point);
+  y_point += line;
+  display.print(soh);
+  display.updateWindow(15, side, 100, 140, false);
 }
 
 uint8_t last_s = 5;
@@ -626,6 +707,7 @@ void Core0::cellConfigs(uint8_t cellNum)
       delay(50);
       updateCellConfig(cellNum, cell_config, false);
     }
+    delay(30);
   }
 }
 
@@ -722,6 +804,7 @@ void Core0::miscConfigs()
       delay(50);
       updateMiscConfig(misc_config, false);
     }
+    delay(30);
   }
 }
 
@@ -781,7 +864,7 @@ void Core0::printMiscConfigs()
   String sl = String("SL " + String(misc_configs[0].sl_state, DEC));
   String minSOC = String("SOCmin " + String(misc_configs[0].SOC_min, DEC));
   String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1));
-  String minC = String("Min C " + String(misc_configs[0].max_pack_current, 1));
+  String minC = String("Min C " + String(misc_configs[0].min_pack_current, 1));
 
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
@@ -833,7 +916,7 @@ void Core0::printMiscConfigs2(uint8_t config_num)
   String sl = String("SL " + String(misc_configs[0].sl_state, DEC));
   String minSOC = String("SOCmin " + String(misc_configs[0].SOC_min, DEC));
   String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1));
-  String minC = String("Min C " + String(misc_configs[0].max_pack_current, 1));
+  String minC = String("Min C " + String(misc_configs[0].min_pack_current, 1));
 
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
@@ -859,7 +942,8 @@ void Core0::printMiscConfigs2(uint8_t config_num)
   display.setCursor(right, y_point);
   y_point += line;
   display.print(minC);
-  display.updateWindow(15, side, 118, 140, false);
+  
+  display.updateWindow(15, side, 100, 140, false);
 }
 
 
@@ -931,6 +1015,7 @@ void Core0::fsm() {
   State nextState = Main;
   State state = Main;
   setUpMain(id);
+  defaultCellConfigs();
   
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
 
@@ -940,19 +1025,16 @@ void Core0::fsm() {
     //    boolean downPress = buttonPress(&buttons[2]);
     //    boolean leftPress = buttonPress(&buttons[3]);
     //    boolean rightPress = buttonPress(&buttons[4]);
-
-
     switch (nextState) {
       case Main: {  //done
-        Serial.println("main");
           if (centerPress) {
             Serial.println("center");  //testing
             centerPress = false;
             nextState = Config_State;
           }
           else if (state != Main) {
-            Serial.println("setup");
             setUpMain(id);
+            state = Main;
           }
           else if (state == Main){
           xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
@@ -962,9 +1044,9 @@ void Core0::fsm() {
           soc_test = (uint16_t) *samplePointer; //to be removed
           Serial.println(*samplePointer);
           xSemaphoreGive(*sampleSemPointer);
+          Serial.println(temp1);
           mainPartialUpdate(temp1, soc_test, voltage1, current1);
           }
-          state = Main;
         }
         break;
 
@@ -988,12 +1070,13 @@ void Core0::fsm() {
           else if (state != Config_State) {
             config_index = true;
             mainConfigScreen();
+            state = Config_State;
           }
-          state = Config_State;
+          delay(20);
         }
         break;
 
-      case Misc_Configurations: {   //to be finished
+      case Misc_Configurations: {  
           miscConfigs(); //exits function if on home button
           nextState = Main;
         }
@@ -1028,13 +1111,15 @@ void Core0::fsm() {
             partialChooseCell(cell_index);
           }
           else if (state != Choose_Cell) {
+            cell_index = 0;
             chooseCellScreen(cell_index);
+            state = Choose_Cell;
           }
-          state = Choose_Cell;
+          delay(20);
         }
         break;
 
-      case Cell_Configs: {   //to be finished
+      case Cell_Configs: {  
           cellConfigs(cell_index); //exits function if on home button
           nextState = Main;
         }
