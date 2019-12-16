@@ -190,8 +190,14 @@ void Core1::updateInternalCellsData(){
     }
 }
 
-float Core1::calculateTotalPackSOC(cell*){
+void Core1::calculateTotalPackSOC(){
+    int SOCTotal = 0;
 
+    for(int index = 0; index < 16; index++){
+        SOCTotal += privateCells[index].SOC;  // Sum up all of our SOCs from all the cells to get an average for the 16 cells in a pack
+    }
+
+    packSOC = (float)(SOCTotal/16); // Return the average SOC from the cells
 }
 
 void Core1::start(){
@@ -235,8 +241,11 @@ void Core1::startDemo(){
 
     for(;;){
         updateInternalCellsData(); // Update our internal cellsData from the I2C bus
-        updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer); // Update our globals safely with Semaphores
+        // Update our globals safely with Semaphores
+        updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer);
         updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
         updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
+
+        calculateTotalPackSOC(); // Update our internal pack SOC
     }
 }

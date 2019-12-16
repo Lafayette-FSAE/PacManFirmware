@@ -67,7 +67,7 @@ class Core1
     esp_err_t queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned char* CANdata);
 
     void updateInternalCellsData();
-    float calculateTotalPackSOC(cell*);
+    void calculateTotalPackSOC();
 
 
   public:
