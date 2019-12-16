@@ -8,6 +8,8 @@ Released into the public domain.
 #include "Core1.h"
 #define DEBUG false
 
+#include "References/CAN_Files/can.h"
+#include "References/CAN_Files/gpio.h"
 
 // CONSTRUCTOR
 Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHandle_t* cellArraySem, SemaphoreHandle_t* externalFaultSem, SemaphoreHandle_t* AIRSOpenSem, SemaphoreHandle_t* sampleSem, int* sample){
@@ -15,12 +17,12 @@ Core1::Core1(cell* cells, float* externalFault, boolean* AIRSOpen, SemaphoreHand
     externalFaultPointer = externalFault;
     AIRSOpenPointer = AIRSOpen;
     samplePointer = sample;
-    
+
     cellArraySemPointer = cellArraySem;
     externalFaultSemPointer = externalFaultSem;
     AIRSOpenSemPointer = AIRSOpenSem;
     sampleSemPointer = sampleSem;
-    
+
     xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
     *samplePointer = 0;
     xSemaphoreGive(*sampleSemPointer);
@@ -42,6 +44,25 @@ void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, i
 
     arr[index] = value;
     arrSize = arrSize + 1;
+}
+
+void Core1::updateGlobalCells(cell* globalCellsPointer, cell* internalCellsPointer, SemaphoreHandle_t* cellsSem){
+    // Set the global cells array to our private one
+    xSemaphoreTake(*cellsSem, portMAX_DELAY);
+    memcpy(globalCellsPointer, globalCellsPointer, sizeof(globalCellsPointer)); // Functions like: *cells = privateCells; but required like this in C
+    xSemaphoreGive(*cellsSem);
+}
+
+void Core1::updateGlobalFaults(float* globalFaultsPointer, float internalFault, SemaphoreHandle_t* faultsSem){
+    xSemaphoreTake(*faultsSem, portMAX_DELAY);
+    memcpy(globalFaultsPointer, &internalFault, sizeof(&internalFault));
+    xSemaphoreGive(*faultsSem);
+}
+
+void Core1::updateGlobalAIRSOpen(boolean* globalAIRSOpenPointer, boolean internalAIRSOpen, SemaphoreHandle_t* AIRSOpenSem){
+    xSemaphoreTake(*AIRSOpenSem, portMAX_DELAY);
+    memcpy(globalAIRSOpenPointer, &internalAIRSOpen, sizeof(&internalAIRSOpen));
+    xSemaphoreGive(*AIRSOpenSem);
 }
 
 unsigned char* Core1::discoverCellMen(){
@@ -81,7 +102,7 @@ unsigned char* Core1::discoverCellMen(){
 
 unsigned char* Core1::requestDataFromSlave(unsigned char address){
     unsigned char cellData[12];   //  IMPORTANT NOTE: WILL THIS NEED TO BE FREED LATER?
-    Wire.requestFrom(address, 12); // 12 is the data length expected in bytes
+    Wire.requestFrom((int) address, 12); // 12 is the data length expected in bytes
     if(DEBUG){
         Serial.print("Requesting data from CellMan on Address: ");
         Serial.println(address);
@@ -146,27 +167,93 @@ float Core1::getBalanceCurrent(unsigned char* cellData){
 //    // Insert I2C Code for Current Sensor
 //}
 
-//esp_err_t Core1::queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned byte* CANdata){
-//    can_message_t sendMessage;
-//    sendMessage.identifier = identifier;
-//    sendMessage.flags = flags;
-//    sendMessage.data_length_code = data_length_code;
-//
-//    for (int i = 0; i < data_length_code; i++){
-//        sendMessage.data[i] = CANdata[i];
-//    }
-//
-//    return can_transmit(&sendMessage, pdMS_TO_TICKS(1000) == ESP_OK);
-//}
+esp_err_t Core1::queueCANMessage(uint32_t flags, uint32_t identifier, uint8_t data_length_code, unsigned char* CANdata){
+    can_message_t sendMessage;
+    sendMessage.identifier = identifier;
+    sendMessage.flags = flags;
+    sendMessage.data_length_code = data_length_code;
+
+    for (int i = 0; i < data_length_code; i++){
+        sendMessage.data[i] = CANdata[i];
+    }
+
+    return can_transmit(&sendMessage, pdMS_TO_TICKS(1000) == ESP_OK);
+}
+
+void Core1::updateInternalCellsData(){
+    for(int index = 0; index < 16; index++){
+        privateCells[index].cellData = requestDataFromSlave(privateCells[index].address);         // Get the cellData by requesting it from the given cell with it's given I2C address, I2C addresses will be automatically populated in the future
+        privateCells[index].cellTemp = getCellTemp(privateCells[index].cellData);                 // Get the cell temperature from the cellData from I2C
+        privateCells[index].cellVoltage = getCellVoltage(privateCells[index].cellData);           // Get the cell voltage from the cellData from I2C
+        privateCells[index].balanceCurrent = getBalanceCurrent(privateCells[index].cellData);     // Get the balance current from the cellData from I2C
+        privateCells[index].SOC = (int)round(((privateCells[index].cellVoltage - 2.0)/1.65)*100); // Calculate a SOC from the voltage (BAD but quick)
+    }
+}
+
+void Core1::calculateTotalPackSOC(){
+    int SOCTotal = 0;
+
+    for(int index = 0; index < 16; index++){
+        SOCTotal += privateCells[index].SOC;  // Sum up all of our SOCs from all the cells to get an average for the 16 cells in a pack
+    }
+
+    packSOC = (float)(SOCTotal/16); // Return the average SOC from the cells
+}
 
 void Core1::start(){
   for(;;){
       // MAIN Loop - Calls all private functions to operate
-      xSemaphoreTake(*sampleSemPointer, portMAX_DELAY );
+      xSemaphoreTake(*sampleSemPointer, portMAX_DELAY);
       *samplePointer = *samplePointer + 1;
       Serial.print("The Sample is: ");
       Serial.println(*samplePointer);
       xSemaphoreGive(*sampleSemPointer);
       delay(1000);
   }
+}
+
+void Core1::startDemo(){
+    // SETUP STUFF
+    unsigned char* cellData;
+    uint32_t CANFlag = CAN_MSG_FLAG_NONE; // Sets us up for a standard CAN frame transmission
+    uint32_t CANIdentifier = 0x00000001;  // ID of 1, shouldn't be more than 11 bits for standard frame transmission
+    uint8_t CANDataLength = 4;            // Sending a float for SOC which is a size of 4 bytes
+
+    // Template for making our identical data (e.g. all get from same cellMan) for the demo
+    cell privateCellExample = {0x01,        // I2C Address
+                               0x00000000,  // cellData Array Pointer
+                               0.00,        // Cell Temp
+                               0.00,        // Cell Voltage
+                               0.00,        // Cell balance current
+                               0};          // Cell SOC
+
+    // Initialise our privateCells arrays
+    for(int index = 0; index < 16; index++){
+        cellData = (unsigned char*)malloc(12 * sizeof(unsigned char));
+        privateCells[index].address = privateCellExample.address;
+        privateCells[index].cellData = cellData; // Allocate a new block of memory for each cellData for each cell
+        privateCells[index].cellTemp = privateCellExample.cellTemp;
+        privateCells[index].cellVoltage = privateCellExample.cellVoltage;
+        privateCells[index].balanceCurrent = privateCellExample.balanceCurrent;
+        privateCells[index].SOC = privateCellExample.SOC;
+    }
+
+    // Make the update to the globals that we just did above
+    updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer); // Update our globals safely with Semaphores
+    updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
+    updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
+
+    for(;;){
+        updateInternalCellsData(); // Update our internal cellsData from the I2C bus
+
+        // Update our globals safely with Semaphores
+        updateGlobalCells(cellArrayPointer, privateCells, cellArraySemPointer);
+        updateGlobalFaults(externalFaultPointer, 0.00, externalFaultSemPointer);
+        updateGlobalAIRSOpen(AIRSOpenPointer, true, AIRSOpenSemPointer);
+
+        calculateTotalPackSOC(); // Update our internal pack SOC
+        queueCANMessage(CANFlag, CANIdentifier, CANDataLength, (unsigned char*)&packSOC); // Send our SOC out on the CAN bus - Also cast our float as a byte array
+
+        delay(1000); // Wait a second
+    }
 }
