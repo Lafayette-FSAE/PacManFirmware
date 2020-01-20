@@ -192,16 +192,18 @@ void Core0::fsm() {
   while (1) {
     switch (nextState) {
       case Main: {
-          if (leftPress) {
-            leftPress = false;
+          if (leftPress || upPress) {
+            leftPress = false; upPress = false;
             if (main_index == 0) main_index = 8;
             else if (main_index == 1) main_index = 16;
+            else if (main_index == 9) main_index = 0;
             else main_index -= 1;
           }
-          else if (rightPress) {
-            rightPress = false;
+          else if (rightPress || downPress) {
+            rightPress = false; downPress = false;
             if (main_index == 0) main_index = 9;
             else if (main_index == 16) main_index = 1;
+            else if (main_index == 8) main_index = 0;
             else main_index += 1;
           }
           else if (centerPress && main_index == 0) {
