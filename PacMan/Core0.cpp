@@ -347,7 +347,7 @@ void Core0::fsm() {
         break;
 
       case Cell_Configs: {
-          cellConfigs(main_index); //exits function if on home button
+          cellConfigs(main_index-1); //exits function if on home button
           nextState = Main;
         }
         break;
