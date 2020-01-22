@@ -97,10 +97,10 @@ uint8_t dbDelay = 1000;
 void CButton() //interrupt with debounce
 {
   volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+  unsigned long interrupt_time = micros();
   if (interrupt_time - last_interrupt_time > dbDelay) {
     centerPress = true;
-    Serial.println("c");
+//    Serial.println("c");
   }
   else {
     centerPress = false;
@@ -111,10 +111,10 @@ void CButton() //interrupt with debounce
 void LButton() //interrupt with debounce
 {
   volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+  unsigned long interrupt_time = micros();
   if (interrupt_time - last_interrupt_time > dbDelay) {
     leftPress = true;
-    Serial.println("l");
+//    Serial.println("l");
   }
   else {
     leftPress = false;
@@ -125,10 +125,10 @@ void LButton() //interrupt with debounce
 void RButton() //interrupt with debounce
 {
   volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+  unsigned long interrupt_time = micros();
   if (interrupt_time - last_interrupt_time > dbDelay) {
     rightPress = true;
-    Serial.println("r");
+//    Serial.println("r");
   }
   else {
     rightPress = false;
@@ -139,10 +139,10 @@ void RButton() //interrupt with debounce
 void UButton() //interrupt with debounce
 {
   volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+  unsigned long interrupt_time = micros();
   if (interrupt_time - last_interrupt_time > dbDelay) {
     upPress = true;
-    Serial.println("u");
+//    Serial.println("u");
   }
   else {
     upPress = false;
@@ -153,10 +153,10 @@ void UButton() //interrupt with debounce
 void DButton() //interrupt with debounce
 {
   volatile static unsigned long last_interrupt_time = 0;
-  unsigned long interrupt_time = millis();
+  unsigned long interrupt_time = micros();
   if (interrupt_time - last_interrupt_time > dbDelay) {
     downPress = true;
-    Serial.println("d");
+//    Serial.println("d");
   }
   else {
     downPress = false;
