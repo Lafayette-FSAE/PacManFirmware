@@ -61,6 +61,7 @@ Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}};
 
 cell currentCellData[NUM_CELLS];
 cell currentCellDataInt[NUM_CELLS];
+boolean airs_state;
 
 //constructor
 Core0::Core0(cell* cells1, float* extFault, boolean* AIRSOp, SemaphoreHandle_t* cellSem, SemaphoreHandle_t* extFaultSem, 
@@ -476,14 +477,28 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.updateWindow(5, 5, 118, 286, false);
 
   checkCells(0); //calls cell partial update if need be
-  //checkForFaults()--calls faults();
+  //checkForFaults();//calls faults();
 }
 
 void Core0::checkCells(uint8_t currentCell) {
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
-    if (configs[cell].SOH == 0) cellPartialUpdate(2, cell);
-    //else if(temp>) cellPartialUpdate(1, cell);
-    //else if(voltage>3) cellPartialUpdate(3, cell);
+    xSemaphoreTake(*AIRSOpenSemPointer, portMAX_DELAY );
+    if(misc_configs[1].airs_state == 1) *AIRSOpenPointer = true;
+    else airs_state = AIRSOpenPointer;
+    xSemaphoreGive(*AIRSOpenSemPointer);
+    if (misc_configs[1].sl_state == 1) faults(1); //sl open
+    else if (airs_state==1 || misc_configs[1].airs_state == 1) faults(2); //airs open
+    else if(currentCellData[cell].cellTemp>=configs[cell].max_temp+(0.1*configs[cell].max_temp)) faults(3); //temp too high
+    else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage + (0.1*configs[cell].max_voltage) //voltage too high
+            ||currentCellData[cell].cellVoltage<configs[cell].min_voltage - (0.1*configs[cell].min_voltage)) faults(4); //voltage too low
+    else if(currentCellData[cell].balanceCurrent>misc_configs[1].max_pack_current + (0.1*misc_configs[1].max_pack_current) //current too high
+            ||currentCellData[cell].balanceCurrent<misc_configs[1].max_pack_current - (0.1*misc_configs[1].min_pack_current)) faults(5); //current too low
+    else if (currentCellData[cell].SOC>=((misc_configs[1].SOC_min*52)/100)) faults(6); //soc below min
+    
+    if (configs[cell].SOH == 0) cellPartialUpdate(1, cell);
+    else if(currentCellData[cell].cellTemp>=configs[cell].max_temp-(0.2*configs[cell].max_temp)) cellPartialUpdate(2, cell); //within 80%
+    else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage -(0.1*configs[cell].max_voltage)
+            ||currentCellData[cell].cellVoltage<configs[cell].min_voltage + (0.1*configs[cell].min_voltage)) cellPartialUpdate(3, cell);
   }
 }
 
@@ -502,20 +517,20 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
   }
 
   //seg variables
-  if (errorType == 1) { //temp
+  if (errorType == 1) { //soh bad
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+  }
+  else if (errorType == 2) { //temp
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
-    display.print("V");
-  }
-  else if (errorType == 2) { //soh bad
-    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.print("T");
   }
   else if (errorType == 3) { //high voltage
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
-    display.print("T");
+    display.print("V");
   }
 
   display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
@@ -543,12 +558,17 @@ void Core0::faults(int errorType)
     display.print("High Temp");
   }
   else if (errorType == 4) { //Dangerous voltage
-    display.print("High Volt");
+    display.print("H/L Volt");
   }
-  else if (errorType == 5) { //Low SOC
+  else if (errorType == 5) { //Current
+    display.print("H/L Curr");
+  }
+  else if (errorType == 6) { //Low SOC
     display.print("Low SOC");
   }
   display.update();
+  while(!centerPress){}
+  centerPress = false;
 }
 
 void Core0::mainConfigScreen()
