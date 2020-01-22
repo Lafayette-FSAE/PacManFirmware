@@ -461,7 +461,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   }
 
   display.fillRect(x, y - h, w, h, GxEPD_BLACK);
-  display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_WHITE);
+  display.fillRect(box_x, box_y - box_h+1, box_w, box_h, GxEPD_WHITE);
 
   display.setCursor(box_x, box_y);  //print SOC
   display.print(SOC);
