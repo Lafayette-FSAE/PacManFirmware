@@ -52,7 +52,6 @@ void setupCore0() {
   attachInterrupt(digitalPinToInterrupt(DOWN_BUTTON), DButton, RISING);
   attachInterrupt(digitalPinToInterrupt(LEFT_BUTTON), LButton, RISING);
   attachInterrupt(digitalPinToInterrupt(RIGHT_BUTTON), RButton, RISING);
-  listOfConfigs();
 }
 
 //misc configs
@@ -211,7 +210,13 @@ void Core0::fsm() {
   while (1) {
     switch (nextState) {
       case Main: {
-          if (leftPress || upPress) {
+          if (state != Main) {
+            Serial.println("hello hello over here yes yes yes");
+            setUpMain(id, charging);
+            main_index = 0;
+            state = Main;
+          }
+          else if (leftPress || upPress) {
             leftPress = false; upPress = false;
             Serial.println("left/up");
             if (main_index == 0) main_index = 8;
@@ -237,11 +242,7 @@ void Core0::fsm() {
             centerPress = false;
             nextState = Cell_State;
           }
-          else if (state != Main) {
-            setUpMain(id, charging);
-            main_index = 0;
-            state = Main;
-          }
+          
           xSemaphoreTake(*cellArraySemPointer, portMAX_DELAY );
           for (int index = 0; index < NUM_CELLS; index++) {
             currentCellData[index] = cellArrayPointer[index];
@@ -424,14 +425,13 @@ void Core0::setUpMain(boolean id, boolean charging) {
   display.setRotation(0);
   display.drawExampleBitmap(gImage_new_main, 0, 0, 128, 296, GxEPD_BLACK);
 
-
   display.setRotation(45);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
   
   display.setCursor(175, 16);
-  if (~id) display.print("1");
-  else display.print("2");
+  if (id) display.print("2");
+  else display.print("1");
 
   if (charging) {
     display.setCursor(265, 15);
@@ -495,9 +495,11 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 
   display.setCursor(box_x + 3 * indent, box_y); //print temp
   display.print(temp);
-  display.updateWindow(5, 5, 118, 286, false);
 
   checkCells(0); //calls cell partial update if need be
+  
+  display.updateWindow(5, 5, 118, 286, false);
+
   //checkForFaults(0);//calls faults();
 }
 
@@ -513,17 +515,17 @@ void Core0::checkCells(uint8_t currentCell) {
 void Core0::checkForFaults(uint8_t currentCell) {
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
     xSemaphoreTake(*AIRSOpenSemPointer, portMAX_DELAY );
-    if(misc_configs[1].airs_state == 1) *AIRSOpenPointer = true;
+    if(misc_configs[0].airs_state == 1) *AIRSOpenPointer = true;
     else airs_state = AIRSOpenPointer;
     xSemaphoreGive(*AIRSOpenSemPointer);
-    if (misc_configs[1].sl_state == 1) faults(1); //sl open
-    else if (airs_state==1 || misc_configs[1].airs_state == 1) faults(2); //airs open
+    if (misc_configs[0].sl_state == 1) faults(1); //sl open
+    else if (airs_state==1 || misc_configs[0].airs_state == 1) faults(2); //airs open
     else if(currentCellData[cell].cellTemp>=configs[cell].max_temp+(0.1*configs[cell].max_temp)) faults(3); //temp too high
     else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage + (0.1*configs[cell].max_voltage) //voltage too high
             ||currentCellData[cell].cellVoltage<configs[cell].min_voltage - (0.1*configs[cell].min_voltage)) faults(4); //voltage too low
-    else if(currentCellData[cell].balanceCurrent>misc_configs[1].max_pack_current + (0.1*misc_configs[1].max_pack_current) //current too high
-            ||currentCellData[cell].balanceCurrent<misc_configs[1].max_pack_current - (0.1*misc_configs[1].min_pack_current)) faults(5); //current too low
-    else if (currentCellData[cell].SOC>=((misc_configs[1].SOC_min*52)/100)) faults(6); //soc below min
+    else if(currentCellData[cell].balanceCurrent>misc_configs[0].max_pack_current + (0.1*misc_configs[0].max_pack_current) //current too high
+            ||currentCellData[cell].balanceCurrent<misc_configs[0].max_pack_current - (0.1*misc_configs[0].min_pack_current)) faults(5); //current too low
+    else if (currentCellData[cell].SOC>=((misc_configs[0].SOC_min*52)/100)) faults(6); //soc below min
   }
 }
 
@@ -556,12 +558,11 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
     display.print("V");
-  }
-
-  display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
+  }  
   if (cellNum < NUM_CELLS - 1) {
     checkCells(cellNum + 1);
   }
+//  display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
 }
 
 void Core0::faults(int errorType)
@@ -1074,7 +1075,8 @@ void Core0::printMiscConfigs()
   uint8_t top = 50;
   uint8_t line = 20;
   uint8_t y_point = top;
-
+  Serial.print("MISCEHDKKSNDFHEFUERGOIERNGEIOGHER");
+  Serial.println(misc_configs[0].pack_id);
   String pack = String("PackID " + String(misc_configs[0].pack_id, DEC));
   String air = String("AIRS " + String(misc_configs[0].airs_state, DEC));
   String sl = String("SL " + String(misc_configs[0].sl_state, DEC));
