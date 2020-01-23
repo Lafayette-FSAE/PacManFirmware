@@ -52,12 +52,30 @@ void setupCore0() {
   attachInterrupt(digitalPinToInterrupt(DOWN_BUTTON), DButton, RISING);
   attachInterrupt(digitalPinToInterrupt(LEFT_BUTTON), LButton, RISING);
   attachInterrupt(digitalPinToInterrupt(RIGHT_BUTTON), RButton, RISING);
+  listOfConfigs();
 }
 
 //misc configs
 boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 250; float min_pc = 0; boolean airs = 0;//defaults
-Configs configs[NUM_CELLS];
-Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}};
+Cell_Configs configs[NUM_CELLS];
+Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}}; //here is where the pack parameters are stored--can add as many as we want and send them to can with one line of semaphore
+
+typedef struct
+{
+  String names;
+  float value;
+} Configurations;
+
+Configurations configurations[] = {};
+
+void listOfConfigs(){
+  configurations[0] = {"id", 0};
+  configurations[1] = {"sl", 0};
+  configurations[2] = {"airs", };
+  configurations[3] = {"max pack current", 250};
+  configurations[4] = {"min pack current", 0};
+  configurations[5] = {"soc", 50};
+}
 
 cell currentCellData[NUM_CELLS];
 cell currentCellDataInt[NUM_CELLS];
@@ -172,7 +190,7 @@ typedef enum {
   Misc_Configurations,
   Charging,
   Cell_Data,
-  Cell_Configs
+  Cell_Configurs
 } State;
 
 void Core0::fsm() {
@@ -195,6 +213,7 @@ void Core0::fsm() {
       case Main: {
           if (leftPress || upPress) {
             leftPress = false; upPress = false;
+            Serial.println("left/up");
             if (main_index == 0) main_index = 8;
             else if (main_index == 1) main_index = 16;
             else if (main_index == 9) main_index = 0;
@@ -202,6 +221,7 @@ void Core0::fsm() {
           }
           else if (rightPress || downPress) {
             rightPress = false; downPress = false;
+            Serial.println("right/down");
             if (main_index == 0) main_index = 9;
             else if (main_index == 16) main_index = 1;
             else if (main_index == 8) main_index = 0;
@@ -273,7 +293,7 @@ void Core0::fsm() {
           if (centerPress && cell_index == true) {
             Serial.println("center");    //testing
             centerPress = false;
-            nextState = Cell_Configs;
+            nextState = Cell_Configurs;
           }
           else if (centerPress && cell_index == false) {
             Serial.println("center");    //testing
@@ -347,7 +367,7 @@ void Core0::fsm() {
         }
         break;
 
-      case Cell_Configs: {
+      case Cell_Configurs: {
           cellConfigs(main_index-1); //exits function if on home button
           nextState = Main;
         }
@@ -402,16 +422,17 @@ boolean Core0::confirm() {
 
 void Core0::setUpMain(boolean id, boolean charging) {
   display.setRotation(0);
-  if (id) {
-    display.drawExampleBitmap(gImage_main1, 0, 0, 128, 296, GxEPD_BLACK); //true = Pack 1
-  }
-  else {
-    display.drawExampleBitmap(gImage_main2, 0, 0, 128, 296, GxEPD_BLACK); //false = Pack 2
-  }
+  display.drawExampleBitmap(gImage_new_main, 0, 0, 128, 296, GxEPD_BLACK);
+
 
   display.setRotation(45);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
+  
+  display.setCursor(175, 16);
+  if (~id) display.print("1");
+  else display.print("2");
+
   if (charging) {
     display.setCursor(265, 15);
     display.print("Ch");
@@ -477,10 +498,19 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.updateWindow(5, 5, 118, 286, false);
 
   checkCells(0); //calls cell partial update if need be
-  //checkForFaults();//calls faults();
+  //checkForFaults(0);//calls faults();
 }
 
 void Core0::checkCells(uint8_t currentCell) {
+  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
+    if (configs[cell].SOH == 0) cellPartialUpdate(1, cell);
+ /*   else if(currentCellData[cell].cellTemp>=configs[cell].max_temp-(0.2*configs[cell].max_temp)) cellPartialUpdate(2, cell); //within 80%
+    else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage -(0.1*configs[cell].max_voltage)
+            ||currentCellData[cell].cellVoltage<configs[cell].min_voltage + (0.1*configs[cell].min_voltage)) cellPartialUpdate(3, cell);*/
+  }
+}
+
+void Core0::checkForFaults(uint8_t currentCell) {
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
     xSemaphoreTake(*AIRSOpenSemPointer, portMAX_DELAY );
     if(misc_configs[1].airs_state == 1) *AIRSOpenPointer = true;
@@ -494,11 +524,6 @@ void Core0::checkCells(uint8_t currentCell) {
     else if(currentCellData[cell].balanceCurrent>misc_configs[1].max_pack_current + (0.1*misc_configs[1].max_pack_current) //current too high
             ||currentCellData[cell].balanceCurrent<misc_configs[1].max_pack_current - (0.1*misc_configs[1].min_pack_current)) faults(5); //current too low
     else if (currentCellData[cell].SOC>=((misc_configs[1].SOC_min*52)/100)) faults(6); //soc below min
-    
-    if (configs[cell].SOH == 0) cellPartialUpdate(1, cell);
-    else if(currentCellData[cell].cellTemp>=configs[cell].max_temp-(0.2*configs[cell].max_temp)) cellPartialUpdate(2, cell); //within 80%
-    else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage -(0.1*configs[cell].max_voltage)
-            ||currentCellData[cell].cellVoltage<configs[cell].min_voltage + (0.1*configs[cell].min_voltage)) cellPartialUpdate(3, cell);
   }
 }
 
@@ -567,7 +592,7 @@ void Core0::faults(int errorType)
     display.print("Low SOC");
   }
   display.update();
-  while(!centerPress){}
+  while(!centerPress){ delay(20);}
   centerPress = false;
 }
 
@@ -626,7 +651,7 @@ void Core0::configPartial(boolean index) {
 
 void Core0::defaultCellConfigs() {
   for (int i = 0; i < NUM_CELLS; i++) {
-    defineCellConfigs(55, 3.3, 2.5, 3.5, 1, i);
+    defineCellConfigs(65, 3.5, 1.5, 3.9, 1, i);
   }
 }
 
@@ -689,7 +714,7 @@ void Core0::cellConfigs(uint8_t cellNum)
       display.setCursor(270, 15);
       display.print("*");
       display.updateWindow(128-15, 270, 12, 20, false);
-      Configs original[1] = {{configs[cellNum].max_temp, configs[cellNum].max_voltage, configs[cellNum].min_voltage, 
+      Cell_Configs original[1] = {{configs[cellNum].max_temp, configs[cellNum].max_voltage, configs[cellNum].min_voltage, 
                               configs[cellNum].max_charge_voltage, configs[cellNum].SOH}};
     while(!centerPress){
     if (upPress || rightPress) {
@@ -745,7 +770,7 @@ void Core0::updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direct
   printCellConfigs2(cellNum, cellConfig);
 }
 
-void Core0::cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Configs original[1]){
+void Core0::cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Cell_Configs original[1]){
   if (cellConfig == 0){configs[cellNum].max_temp = original[0].max_temp;}
   else if (cellConfig == 1){configs[cellNum].max_voltage = original[0].max_voltage;}
   else if (cellConfig == 2){configs[cellNum].min_voltage = original[0].min_voltage;}
@@ -1054,7 +1079,8 @@ void Core0::printMiscConfigs()
   String air = String("AIRS " + String(misc_configs[0].airs_state, DEC));
   String sl = String("SL " + String(misc_configs[0].sl_state, DEC));
   String minSOC = String("SOCmin " + String(misc_configs[0].SOC_min, DEC));
-  String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1));
+  String maxC = String("Max C " + String(misc_configs[0].max_pack_current, 1)); 
+  //String maxC = String("Max C " + String(additional_configs[3], 1));
   String minC = String("Min C " + String(misc_configs[0].min_pack_current, 1));
 
   display.fillScreen(GxEPD_WHITE);

@@ -11,8 +11,8 @@
 typedef struct
 {
   boolean pack_id; //true = Pack 1, false = Pack 2  //change all to floats
-  boolean airs_state; //true = closed, false = open
-  boolean sl_state; //true = closed, false = open
+  boolean airs_state; //true = open, false = closed (thought they were aways open but guess not)
+  boolean sl_state; //true = open, false = closed
   uint16_t SOC_min;
   float max_pack_current;
   float min_pack_current;
@@ -24,8 +24,10 @@ typedef struct
   float max_voltage;
   float min_voltage;
   float max_charge_voltage;
-  boolean SOH; //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
-} Configs;
+  boolean SOH;              //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
+} Cell_Configs;
+
+void listOfConfigs();
 
 void CButton();
 void LButton();
@@ -57,6 +59,7 @@ class Core0
     //check for faults
     void checkCells(uint8_t currentCell);
     void cellPartialUpdate(int errorType, int cellNum);
+    void checkForFaults(uint8_t currentCell);
     void faults(int errorType);
 
     //main cell and configuration screens
@@ -69,7 +72,7 @@ class Core0
     void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
     void cellConfigs(uint8_t cellNum);
     void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction);
-    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Configs original[1]);
+    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Cell_Configs original[1]);
     void printCellConfigs(uint8_t cellNum);
     void printCellConfigs2(uint8_t cellNum, uint8_t config_num);
     void moveCellConfig(uint8_t cellConfig);
@@ -95,6 +98,9 @@ class Core0
     cell* cellArrayPointer;
     float* externalFaultPointer;
     boolean* AIRSOpenPointer;
+
+    //additional configs
+    //more(); //copy misc--same idea
 
     SemaphoreHandle_t* sampleSemPointer;
     SemaphoreHandle_t* cellArraySemPointer;
