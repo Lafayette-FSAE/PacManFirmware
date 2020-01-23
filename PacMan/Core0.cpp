@@ -375,8 +375,14 @@ void Core0::fsm() {
         break;
 
       case Cell_Data: {   //done
-          cellData(main_index, currentCellData[main_index]);
-          nextState = Main;
+          xSemaphoreTake(*cellArraySemPointer, portMAX_DELAY );
+          currentCellData[main_index-1] = cellArrayPointer[main_index-1];
+          xSemaphoreGive(*cellArraySemPointer);
+          cellData(main_index-1, currentCellData[main_index-1]);
+          if (centerPress) {
+            centerPress = false;
+            nextState = Main;
+          }
         }
         break;
     }
@@ -943,10 +949,10 @@ void Core0::cellData(uint8_t cellNum, cell current_cell)
   y_point += line;
   display.print(soc);
   display.updateWindow(5, 5, 118, 286, false);
-  while (!centerPress) {
-    delay(20);
-  }
-  centerPress = false;
+//  while (!centerPress) {
+//    delay(20);
+//  }
+//  centerPress = false;
 }
 
 #define NUM_MISC_CONFIGS 6
@@ -1055,9 +1061,9 @@ void Core0::updateMiscConfig(uint8_t miscConfig, boolean direction)  //finish th
 
 void Core0::miscChangeBack(uint8_t miscConfig, Misc_Configs original[1])  //finish this
 {
-  if (miscConfig == 0) { misc_configs[0].pack_id = !misc_configs[0].pack_id; }
-  else if (miscConfig == 1) { misc_configs[0].airs_state = !misc_configs[0].airs_state; }
-  else if (miscConfig == 2) { misc_configs[0].sl_state = !misc_configs[0].sl_state; }
+  if (miscConfig == 0) { misc_configs[0].pack_id = original[0].pack_id; }
+  else if (miscConfig == 1) { misc_configs[0].airs_state = original[0].airs_state; }
+  else if (miscConfig == 2) { misc_configs[0].sl_state = original[0].sl_state; }
   else if (miscConfig == 3) { misc_configs[0].SOC_min =original[0].SOC_min;  }
   else if (miscConfig == 4) { misc_configs[0].max_pack_current = original[0].max_pack_current; }
   else if (miscConfig == 5) { misc_configs[0].min_pack_current = original[0].min_pack_current;  }
