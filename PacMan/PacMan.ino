@@ -61,25 +61,25 @@ void codeForTask1( void * parameter ){
 
 
 // Define GPIO pins
-#define LED1 5
-#define LED2 33
+#define LED_GREEN 5
+#define LED_ORANGE 33
 #define SLOOP_EN 27
 #define IO_INT 12
 #define WATCHDOG 23
 #define CHRG_DETECT 17
-#define CHRG_EN 4
+#define CHRG_EN 2
 
 // Set GPIO modes
-pinMode(LED1, OUTPUT);
-pinMode(LED2, OUTPUT);
+pinMode(LED_GREEN, OUTPUT);
+pinMode(LED_ORANGE, OUTPUT);
 pinMode(SLOOP_EN, OUTPUT);
 pinMode(IO_INT, INPUT);
 pinMode(CHRGDETECT_Pin, INPUT);
 pinMode(CHRG_EN, OUTPUT);
 
 // Set default values for GPIO
-digitalWrite(LED1, LOW);
-digitalWrite(LED2, LOW);
+digitalWrite(LED_GREEN, LOW);
+digitalWrite(LED_ORANGE, LOW);
 digitalWrite(SLOOP_EN, HIGH);
 digitalWrite(CHRG_EN, LOW);
 
