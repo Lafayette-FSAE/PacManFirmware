@@ -74,7 +74,7 @@ pinMode(LED_GREEN, OUTPUT);
 pinMode(LED_ORANGE, OUTPUT);
 pinMode(SLOOP_EN, OUTPUT);
 pinMode(IO_INT, INPUT);
-pinMode(CHRGDETECT_Pin, INPUT);
+pinMode(CHRG_DETECT, INPUT);
 pinMode(CHRG_EN, OUTPUT);
 
 // Set default values for GPIO
@@ -84,31 +84,29 @@ digitalWrite(SLOOP_EN, HIGH);
 digitalWrite(CHRG_EN, LOW);
 
 // Map interrupts
-attachInterrupt(digitalPinToInterrupt(CHRG_EN), chargeDetectLowInt, FALLING);
-attachInterrupt(digitalPinToInterrupt(CHRG_EN), chargeDetectHighInt, RISING);
+attachInterrupt(digitalPinToInterrupt(CHRG_DETECT), chargeDetectInt, CHANGE);
 attachInterrupt(digitalPinToInterrupt(IO_INT), ioExpanderInt, RISING);
 
-boolean charging = false;
-boolean checkIOExpander = false;
+volatile boolean charging = false;
+volatile boolean checkIOExpander = false;
 
-// Handles when CHRG_DETECT falls, indicating the connector is plugged in
-void IRAM_ATTR chargeDetectLowInt()
+// Handles when CHRG_DETECT changes
+void chargeDetectInt()
 {
-  volatile charging = true;
-  digitalWrite(CHRG_EN, HIGH)
-}
-
-// Handles when CHRG_DETECT rises, indicating the connector is unplugged
-void IRAM_ATTR chargeDetectHighInt()
-{
-  volatile charging = false;
-  digitalWrite(CHRG_EN, LOW)
+  if (digitalRead(CHRG_DETECT)) {
+    charging = false;
+    digitalWrite(CHRG_EN, LOW);
+  }
+  else {
+    charging = true;
+    digitalWrite(CHRG_EN, HIGH);
+  }
 }
 
 // Handles when IO_INT rises, indicating that there was a SLOOP-related change
-void IRAM_ATTR ioExpanderInt()
+void ioExpanderInt()
 {
-  volatile checkIOExpander = true;
+  checkIOExpander = true;
 }
 
 // Sets up the MCP23008 IO Expander
@@ -128,3 +126,5 @@ if (checkIOExpander)
   uint8_t gpio = ioExpander.readGPIO();
   // Update SLOOP variables
 }
+
+
