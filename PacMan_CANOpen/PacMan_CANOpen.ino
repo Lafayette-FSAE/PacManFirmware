@@ -2,6 +2,8 @@
 #include "driver/timer.h"
 //#include "canOpenTimer.h"
 
+#include "CO_OD.h"
+
 // include library to read and write from flash memory
 #include <EEPROM.h>
 #define EEPROM_SIZE 100
@@ -21,21 +23,18 @@ volatile uint16_t   CO_timer1ms = 0U;   /* variable increments each millisecond 
 CO_NMT_reset_cmd_t reset;
 uint16_t timer1msPrevious;
 
+/* CAN interrupt function *****************************************************/
+void IRAM_ATTR CO_CAN0InterruptHandler() {
+  Serial.println("Interrupt Called!");
+  CO_CANinterrupt(CO->CANmodule[0]);
+}
+
 #define TIMER_INTR_SEL TIMER_INTR_LEVEL  /*!< Timer level interrupt */
 #define TIMER_GROUP    TIMER_GROUP_0     /*!< Test on timer group 0 */
 #define TIMER_DIVIDER   80               /*!< Hardware timer clock divider, 80 to get 1MHz clock to timer */
 #define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value */
 #define TIMER_FINE_ADJ   (0*(TIMER_BASE_CLK / TIMER_DIVIDER)/1000000) /*!< used to compensate alarm value */
 #define TIMER_INTERVAL0_SEC   (0.001)   /*!< test interval for timer 0 */
-
-static bool test_set_bits;
-static bool test_clear_bits;
-/* CAN interrupt function *****************************************************/
-void /* interrupt */ CO_CAN0InterruptHandler() {
-  Serial.println("Interrupt Called!");
-  CO_CANinterrupt(CO->CANmodule[0]);
-  /* clear interrupt flag */
-}
 
 volatile int cnt = 0;
 void IRAM_ATTR timer_group0_isr(void *para) { // timer group 0, ISR
@@ -77,15 +76,39 @@ static void setup_timer(void)
   timer_start(timer_group, timer_idx);
 }
 
+// void IRAM_ATTR onTimer0() {
+//     Serial.println("Timer 0 interrupt occured.");
+// }
+
+// Configure timer 0 to increment every 1us and throw an interrupt every 1ms
+// void setup_timer0() {
+//   timer0 = timerBegin(0, 80, true);
+//   timerAttachInterrupt(timer0, &onTimer0, true);
+//   timerAlarmWrite(timer0, 1000, true);
+//   timerAlarmEnable(timer0);
+// }
+
+// void IRAM_ATTR onTimer1() {
+//     Serial.println("Timer 1 interrupt occured.");
+// }
+
+// Configure timer 1 to increment every 1us and throw an interrupt every 1s
+// void setup_timer1() {
+//   timer1 = timerBegin(1, 80, true);
+//   timerAttachInterrupt(timer1, &onTimer1, true);
+//   timerAlarmWrite(timer1, 1000000, true);
+//   timerAlarmEnable(timer1);
+// }
+
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(115200); // Begin Arduino serial connection
+  
   reset = CO_RESET_NOT;
 
   /* Configure microcontroller. */
 
 
-  /* initialize EEPROM */
-  // initialize EEPROM with predefined size
+  /* initialize EEPROM with predefined size */
   EEPROM.begin(EEPROM_SIZE);
 
   /* increase variable each startup. Variable is stored in EEPROM. */
@@ -103,7 +126,7 @@ void setup() {
     };
 
     /* initialize CANopen */
-    err = CO_init(&canBase, 10/* NodeID */, 125 /* bit rate */);
+    err = CO_init(&canBase, 10 /* NodeID */, 125 /* bit rate */);
     if (err != CO_ERROR_NO) {
       while (1);
       /* CO_errorReport(CO->em, CO_EM_MEMORY_ALLOCATION_ERROR, CO_EMC_SOFTWARE_INTERNAL, err); */
@@ -134,16 +157,23 @@ void setup() {
       reset = CO_process(CO, timer1msDiff, NULL);
 
       /* Nonblocking application code may go here. */
+//      CO_LOCK_OD();
+//
+//      //Serial.print("Temperature: ");
+//      uint16_t tempseqnum = CO_OD_find((CO_SDO_t*)CO->SDO[0], (uint16_t) 0x2108);
+//      uint16_t* tempODPointer = (uint16_t*)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], tempseqnum, (uint8_t) 0x01);
+//      tempODPointer[0] += 1;
+//      if (cnt == 1000) {
+//        CO_CAN0InterruptHandler();
+//        cnt = 0;
+//      }
+//      CO_UNLOCK_OD();
+
       CO_LOCK_OD();
 
-      //Serial.print("Temperature: ");
-      uint16_t tempseqnum = CO_OD_find((CO_SDO_t*)CO->SDO[0], (uint16_t) 0x2108);
-      uint16_t* tempODPointer = (uint16_t*)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], tempseqnum, (uint8_t) 0x01);
-      tempODPointer[0] += 1;
-      if (cnt == 1000) {
-        CO_CAN0InterruptHandler();
-        cnt = 0;
-      }
+      Serial.println(OD_cellVoltage[0]);
+      OD_cellVoltage[0]++;
+      
       CO_UNLOCK_OD();
 
       /* Process EEPROM */
