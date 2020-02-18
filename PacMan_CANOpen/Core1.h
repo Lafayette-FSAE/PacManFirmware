@@ -15,6 +15,8 @@
 #include "CANopen.h"
 
 #define DEBUG true
+#define NORMAL_I2C_LENGTH 9
+#define DEBUG_I2C_LENGTH 22
 
 
 //typedef struct {
@@ -40,7 +42,7 @@ class Core1
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
     float packSOC;                      // Keeps track of the Pack's total SOC
 
-
+    // Normal Cells Data
     unint8_t cellPositions[16];         // Cell Position calculated from the voltages
     uint16_t cellVoltages[16];          // Cell Voltage data for all cells in Pack
     uint16_t cellTemperatures[16];      // Cell Temperature data for all the cells
@@ -49,16 +51,25 @@ class Core1
     uint16_t cellBalanceCurrents[16];   // Balancing Currents for each cellman
     uint8_t  cellSOCs[16];              // SOCs for each cell
 
+    // Debug Cells Data
+    bool LEDStatuses[16];               // Debug LED status on each CellMan
+    bool balanceStatuses[16];           // Balance status for each CellMan
+    uint8_t balanceDutyCycles[16];      // Balance duty cycles for each CellMan
+    uint16_t balanceFrequencies[16];    // balanceFrequencies for each CellMan
+    int16_t temperatureSlopes[16];      // temperatureSlopes for each CellMan
+    int16_t temperatureOffsets[16];     // temepratureOffsets for each CellMan
+    int16_t balanceCurrentSlopes[16];   // balanceCurrentSlopes for each CellMan
+    int16_t balanceVoltageSlopes[16];   // balanceVoltageSlopes for each CellMan
 
     // FUNCTIONS
     void arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity);
+    byteArrayToUInt16(unsigned char* byteArray);
 
     unsigned char* discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(unsigned char address);             // Get 12 bytes from a cellman via I2C for a certain address
     unsigned char* getCellTempData(unsigned char* cellData);                // Get the 4 bytes from the byte array containing the cell temperature float value
     unsigned char* getCellVoltageData(unsigned char* cellData);             // Get the 4 bytes from the byte array containing the cell voltage float value
-    unsigned char* getBalanceCurrentData(unsigned char* cellData);          // Get the 4 bytes from the byte array containing the cell balance current float value
-    float byteArrayToFloat(unsigned char* byteArray);                       // Convert 4 byte long array to a floating point value
+    unsigned char* getBalanceCurrentData(unsigned char* cellData);          // Get the 4 bytes from the byte array containing the cell balance current float value                      // Convert 4 byte long array to a floating point value
     float getCellTemp(unsigned char* cellData);                             // Get temperature as a float of the cell via above functions
     float getCellVoltage(unsigned char* cellData);                          // Get voltage as a float of the cell via above functions
     float getBalanceCurrent(unsigned char* cellData);                       // Get balance current as a float of the cell via above functions

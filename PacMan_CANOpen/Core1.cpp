@@ -24,6 +24,12 @@ void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, i
     arrSize = arrSize + 1;
 }
 
+uint16_t byteArrayToUInt16(unsigned char* byteArray){
+    uint16_t uint;
+    memcpy(&uint, byteArray, sizeof(uint));
+    return uint;
+}
+
 // TODO: Exclude known I2C devices e.g. GPIO Expand
 unsigned char* Core1::discoverCellMen(){
     unsigned char* discoveredAddresses;
@@ -61,73 +67,60 @@ unsigned char* Core1::discoverCellMen(){
 } // USES MALLOC (Only call once at startup to prevent memory leakage)
 
 unsigned char* Core1::requestDataFromSlave(unsigned char address){
-    unsigned char cellData[12];   //  IMPORTANT NOTE: WILL THIS NEED TO BE FREED LATER?
-    Wire.requestFrom((int) address, 12); // 12 is the data length expected in bytes
+    Wire.requestFrom((int) address, 24); // 24 is the max data length expected in bytes
     if(DEBUG){
         Serial.print("Requesting data from CellMan on Address: ");
         Serial.println(address);
     }
 
-    while (Wire.available()) { // NOTE: Slave may send less than requested
+    while (Wire.available()) {
         if(DEBUG) Serial.println("Wire Available!");
-        for(int i = 0; i<12; i++){
-            *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-            if(DEBUG) Serial.println(cellData[i], HEX);        // Print the character (byte) in HEX
+        unsigned char debugFlag = Wire.read();
+
+        if(debugFlag == 0x00){
+            unsigned char cellData[NORMAL_I2C_LENGTH];
+            cellData[0] = debugFlag;
+            for(int i = 1; i<NORMAL_I2C_LENGTH; i++){
+                *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
+                if(DEBUG) Serial.println(cellData[i], HEX);        // Print the character (byte) in HEX
+            }
+        }else if(debugFlag == 0x01){
+            unsigned char cellData[DEBUG_I2C_LENGTH];
+            cellData[0] = debugFlag;
+            for(int i = 1; i<DEBUG_I2C_LENGTH; i++){
+                *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
+                if(DEBUG) Serial.println(cellData[i], HEX);        // Print the character (byte) in HEX
+            }
+        }else{
+            Serial.println("Error on the Debug byte! Don't know length to expect. Returning 24 bytes");
+            Serial.print("debugFlag is: ");
+            Serial.println(debugFlag, HEX);
+
+            unsigned char cellData[DEBUG_I2C_LENGTH];
+            cellData[0] = 0x01;
+            for(int i = 1; i<DEBUG_I2C_LENGTH; i++){
+                *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
+                if(DEBUG) Serial.println(cellData[i], HEX);        // Print the character (byte) in HEX
+            }
         }
     }
-
-    unsigned char cellData2[12] = {0xA4,0x70,0x9D,0x3F,0xCD,0xCC,0x5C,0x40,0xC3,0xF5,0xD8,0x40};
-
-    return cellData2;
+    return cellData;
 }
 
-unsigned char* Core1::getCellTempData(unsigned char* cellData){
-    unsigned char *cellTempData = (unsigned char*)malloc(4 * sizeof(unsigned char));
-    memcpy(cellTempData, cellData, 4*sizeof(unsigned char));
-    return cellTempData;
+void processCellData(unsigned char* cellData, uint8_t cellLocation){
+    // Process the data differently depending on cellData[0] which is the debugFlag
+    cellPositions[cellLocation]          = cellLocation;
+    cellVoltages[cellLocation]           = (uint16_t)((cellData[2]<<8)+cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
+    cellTemperatures[cellLocation]       = (uint16_t)((cellData[4]<<8)+cellData[3]);
+    minusTerminalVoltages[cellLocation]  = (uint16_t)((cellData[6]<<8)+cellData[5]);
+    cellBalanceCurrents[cellLocation]    = (uint16_t)((cellData[8]<<8)+cellData[7]);
+
+    // If we are in I2C Debug Mode
+    if(cellData[0] == 0x01){
+        LEDStatuses[cellLocation]
+    }
 }
 
-unsigned char* Core1::getCellVoltageData(unsigned char* cellData){
-    unsigned char *cellVoltageData = (unsigned char*)malloc(4 * sizeof(unsigned char));
-    memcpy(cellVoltageData, cellData + 4, 4*sizeof(unsigned char));
-    return cellVoltageData;
-}
-
-unsigned char* Core1::getBalanceCurrentData(unsigned char* cellData){
-    unsigned char *balanceCurrentData = (unsigned char*)malloc(4 * sizeof(unsigned char));
-    memcpy(balanceCurrentData, cellData + 8, 4*sizeof(unsigned char));
-    return balanceCurrentData;
-}
-
-float Core1::byteArrayToFloat(unsigned char* byteArray){
-    float f;
-    memcpy(&f, byteArray, sizeof(f));
-    return f;
-}
-
-float Core1::getCellTemp(unsigned char* cellData){
-    unsigned char* cellTempData = getCellTempData(cellData);
-    float cellTemp = byteArrayToFloat(cellTempData);
-    //free(cellTempData); // IS THIS REQUIRED?
-    return cellTemp;
-}
-
-float Core1::getCellVoltage(unsigned char* cellData){
-    unsigned char* cellVoltageData = getCellVoltageData(cellData);
-    float cellVoltage = byteArrayToFloat(cellVoltageData);
-    //free(cellVoltageData);
-    return cellVoltage;
-}
-
-float Core1::getBalanceCurrent(unsigned char* cellData){
-    unsigned char* cellBalanceCurrentData = getBalanceCurrentData(cellData);
-    float cellBalanceCurrent = byteArrayToFloat(cellBalanceCurrentData);
-    return cellBalanceCurrent;
-}
-
-//float getDischargeCurrent(){
-//    // Insert I2C Code for Current Sensor
-//}
 
 void Core1::calculateTotalPackSOC(){
     int SOCTotal = 0;
