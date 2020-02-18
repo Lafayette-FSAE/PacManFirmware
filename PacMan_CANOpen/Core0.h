@@ -9,11 +9,11 @@
 #include "PacMan.h"
 #include "CANopen.h"
 
-typedef struct
+/*typedef struct
 {
-  boolean pack_id; //true = Pack 1, false = Pack 2  //change all to floats
+  boolean pack_id;    //true = Pack 1, false = Pack 2  //change all to floats
   boolean airs_state; //true = open, false = closed (thought they were aways open but guess not)
-  boolean sl_state; //true = open, false = closed
+  boolean sl_state;   //true = open, false = closed
   uint16_t SOC_min;
   float max_pack_current;
   float min_pack_current;
@@ -26,7 +26,7 @@ typedef struct
   float min_voltage;
   float max_charge_voltage;
   boolean SOH;              //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
-} Cell_Configs;
+} Cell_Configs;*/
 
 void listOfConfigs();
 
@@ -40,11 +40,11 @@ class Core0
 {
   public:
     // Define Constructor
-    Core0 (CO_t *CO);
+    Core0 ();
 
     // Define Public Functions
     void startCore0();
-
+    
   private:
     // Define Private Functions
     void fsm();
@@ -68,25 +68,29 @@ class Core0
     void configPartial(boolean index);
 
     //cell configuration screen
-    void defaultCellConfigs();
-    void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
+//    void defaultCellConfigs();
+//    void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
     void cellConfigs(uint8_t cellNum);
     void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction);
-    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Cell_Configs original[1]);
+    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, void* original[1]);
     void printCellConfigs(uint8_t cellNum);
     void printCellConfigs2(uint8_t cellNum, uint8_t config_num);
     void moveCellConfig(uint8_t cellConfig);
 
     //cell data screen
-    void cellData(uint8_t cellNum, cell current_cell);
+    void cellData(uint8_t cellNum);
 
-    //misc config screen
-    void miscConfigs();
-    void updateMiscConfig(uint8_t miscConfig, boolean direction);
-    void miscChangeBack(uint8_t miscConfig, Misc_Configs original[1]);
-    void printMiscConfigs();
-    void printMiscConfigs2(uint8_t config_num);
-    void moveMiscConfig(uint8_t miscConfig);
+    uint8_t chooseRegister();
+    void printChooseRegister(uint8_t reg);
+    void updateRegister(uint8_t reg, boolean direction);
+    void moveRegister(uint8_t reg);
+
+    void editValue(uint8_t reg[]);
+    void printEditValue(uint16_t index);
+    void updateValue(uint8_t regNum, uint8_t place, boolean direction);
+    void moveEdit(uint8_t reg);
+
+    void regNotFound(uint16_t regNumb);
 
     //charge screen
     void chargeScreen();
