@@ -24,10 +24,46 @@ void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, i
     arrSize = arrSize + 1;
 }
 
-uint16_t byteArrayToUInt16(unsigned char* byteArray){
-    uint16_t uint;
-    memcpy(&uint, byteArray, sizeof(uint));
-    return uint;
+void addressVoltageQuickSort(struct addressVoltage* addressVoltages, int first, int last){
+	int i, j, pivot;
+	uint16_t tempVoltage;
+	unsigned char tempAddress;
+
+	if(first<last){
+		pivot=first;
+		i=first;
+		j=last;
+
+		while(i<j){
+			while(addressVoltages[i].addressMinusVoltage<=addressVoltages[pivot].addressMinusVoltage&&i<last)
+				i++;
+			while(addressVoltages[j].addressMinusVoltage>addressVoltages[pivot].addressMinusVoltage)
+				j--;
+			if(i<j){
+				tempAddress=addressVoltages[i].address;
+				tempVoltage=addressVoltages[i].addressMinusVoltage;
+
+				addressVoltages[i].address=addressVoltages[j].address;
+				addressVoltages[i].addressMinusVoltage=addressVoltages[j].addressMinusVoltage;
+
+				addressVoltages[j].address=tempAddress;
+				addressVoltages[j].addressMinusVoltage=tempVoltage;
+			}
+		}
+
+		tempAddress=addressVoltages[pivot].address;
+		tempVoltage=addressVoltages[pivot].addressMinusVoltage;
+
+		addressVoltages[pivot].address=addressVoltages[j].address;
+		addressVoltages[pivot].addressMinusVoltage=addressVoltages[j].addressMinusVoltage;
+
+		addressVoltages[j].address=tempAddress;
+		addressVoltages[j].addressMinusVoltage=tempVoltage;
+
+		addressVoltageQuickSort(addressVoltages,first,j-1);
+		addressVoltageQuickSort(addressVoltages,j+1,last);
+
+	}
 }
 
 // TODO: Exclude known I2C devices e.g. GPIO Expand
@@ -46,13 +82,18 @@ unsigned char* Core1::discoverCellMen(){
         byte error = Wire.endTransmission();
 
         if (error == 0){
-            Serial.print("CellMan I2C device found at address 0x");
-            if (address<16) Serial.print("0");
-            Serial.print(address,HEX);
-            Serial.println("  !");
+            if(address != TEMPERATURE_SENSOR_ADDRESS
+            && address != IO_EXPANDER_ADDRESS
+            && address != REAL_TIME_CLOCK_ADDRESS
+            && address != POWER_MONITOR_ADDRESS){
+                Serial.print("CellMan I2C device found at address 0x");
+                if (address<16) Serial.print("0");
+                Serial.print(address,HEX);
+                Serial.println("  !");
 
-            arrayAppend(discoveredAddresses, nDevices, address, nDevices+1, discoveredCapacity); // Add the address to the discoveredAddresses Array using the append method to allow for expansion
-            nDevices++; // Increment the number of devices by 1, strategically after the arrayAppend so we can use it as an index
+                arrayAppend(discoveredAddresses, nDevices, address, nDevices+1, discoveredCapacity); // Add the address to the discoveredAddresses Array using the append method to allow for expansion
+                nDevices++; // Increment the number of devices by 1, strategically after the arrayAppend so we can use it as an index
+            }
         }
         else if (error==4){
             Serial.print("Unknown error at address 0x");
@@ -107,17 +148,33 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address){
     return cellData;
 }
 
-void processCellData(unsigned char* cellData, uint8_t cellLocation){
+// uint8_t calculateCellLocation(unsigned char* cellData){
+//     uint16_t minusVoltage = (uint16_t)((cellData[6]<<8)+cellData[5]);
+//
+//     return minusVoltage;
+// }
+
+void processCellData(unsigned char* cellData){
     // Process the data differently depending on cellData[0] which is the debugFlag
+    uint8_t cellLocation                 = calculateCellLocation(cellData);
+
     cellPositions[cellLocation]          = cellLocation;
     cellVoltages[cellLocation]           = (uint16_t)((cellData[2]<<8)+cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
     cellTemperatures[cellLocation]       = (uint16_t)((cellData[4]<<8)+cellData[3]);
     minusTerminalVoltages[cellLocation]  = (uint16_t)((cellData[6]<<8)+cellData[5]);
     cellBalanceCurrents[cellLocation]    = (uint16_t)((cellData[8]<<8)+cellData[7]);
 
+
     // If we are in I2C Debug Mode
     if(cellData[0] == 0x01){
-        LEDStatuses[cellLocation]
+        LEDStatuses[cellLocation]          = (bool)cellData[9];
+        balanceStatuses[cellLocation]      = (bool)cellData[10];
+        balanceDutyCycles[cellLocation]    = (uint8_t)cellData[10];
+        balanceFrequencies[cellLocation]   = (uint16_t)((cellData[13]<<8)+cellData[12]);
+        temperatureSlopes[cellLocation]    = (uint16_t)((cellData[15]<<8)+cellData[14]);
+        temperatureOffsets[cellLocation]   = (uint16_t)((cellData[17]<<8)+cellData[16]);
+        balanceCurrentSlopes[cellLocation] = (uint16_t)((cellData[19]<<8)+cellData[18]);
+        balanceVoltageSlopes[cellLocation] = (uint16_t)((cellData[21]<<8)+cellData[20]);
     }
 }
 
@@ -133,9 +190,11 @@ void Core1::calculateTotalPackSOC(){
 }
 
 void Core1::start(){
-  for(;;){
-      // MAIN Loop - Calls all private functions to operate
+
+
+    for(;;){
+
 
       delay(2000);
-  }
+    }
 }
