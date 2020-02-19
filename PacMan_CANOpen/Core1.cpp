@@ -9,9 +9,7 @@ Released into the public domain.
 // CONSTRUCTOR
 Core1::Core1(CO_t *CO){
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
-
     totalMAH = 0;
-    addresses = (unsigned char*)malloc(16 * sizeof(unsigned char));
 }
 
 void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity){ // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
@@ -154,30 +152,39 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address){
 //     return minusVoltage;
 // }
 
-void processCellData(unsigned char* cellData){
+void processCellData(unsigned char* cellData, uint8_t cellPhysicalLocation){
     // Process the data differently depending on cellData[0] which is the debugFlag
-    uint8_t cellLocation                 = calculateCellLocation(cellData);
-
-    cellPositions[cellLocation]          = cellLocation;
-    cellVoltages[cellLocation]           = (uint16_t)((cellData[2]<<8)+cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
-    cellTemperatures[cellLocation]       = (uint16_t)((cellData[4]<<8)+cellData[3]);
-    minusTerminalVoltages[cellLocation]  = (uint16_t)((cellData[6]<<8)+cellData[5]);
-    cellBalanceCurrents[cellLocation]    = (uint16_t)((cellData[8]<<8)+cellData[7]);
+    cellPositions[cellPhysicalLocation]          = cellPhysicalLocation;
+    cellVoltages[cellPhysicalLocation]           = (uint16_t)((cellData[2]<<8)+cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
+    cellTemperatures[cellPhysicalLocation]       = (uint16_t)((cellData[4]<<8)+cellData[3]);
+    minusTerminalVoltages[cellPhysicalLocation]  = (uint16_t)((cellData[6]<<8)+cellData[5]);
+    cellBalanceCurrents[cellPhysicalLocation]    = (uint16_t)((cellData[8]<<8)+cellData[7]);
 
 
     // If we are in I2C Debug Mode
     if(cellData[0] == 0x01){
-        LEDStatuses[cellLocation]          = (bool)cellData[9];
-        balanceStatuses[cellLocation]      = (bool)cellData[10];
-        balanceDutyCycles[cellLocation]    = (uint8_t)cellData[10];
-        balanceFrequencies[cellLocation]   = (uint16_t)((cellData[13]<<8)+cellData[12]);
-        temperatureSlopes[cellLocation]    = (uint16_t)((cellData[15]<<8)+cellData[14]);
-        temperatureOffsets[cellLocation]   = (uint16_t)((cellData[17]<<8)+cellData[16]);
-        balanceCurrentSlopes[cellLocation] = (uint16_t)((cellData[19]<<8)+cellData[18]);
-        balanceVoltageSlopes[cellLocation] = (uint16_t)((cellData[21]<<8)+cellData[20]);
+        LEDStatuses[cellPhysicalLocation]          = (bool)cellData[9];
+        balanceStatuses[cellPhysicalLocation]      = (bool)cellData[10];
+        balanceDutyCycles[cellPhysicalLocation]    = (uint8_t)cellData[10];
+        balanceFrequencies[cellPhysicalLocation]   = (uint16_t)((cellData[13]<<8)+cellData[12]);
+        temperatureSlopes[cellPhysicalLocation]    = (uint16_t)((cellData[15]<<8)+cellData[14]);
+        temperatureOffsets[cellPhysicalLocation]   = (uint16_t)((cellData[17]<<8)+cellData[16]);
+        balanceCurrentSlopes[cellPhysicalLocation] = (uint16_t)((cellData[19]<<8)+cellData[18]);
+        balanceVoltageSlopes[cellPhysicalLocation] = (uint16_t)((cellData[21]<<8)+cellData[20]);
     }
 }
 
+// Maps the arrayIndex to a physical cell location in the packs (since we can't tell between segments right now) by saying the second instance of a same voltage potential cell is in the other segment
+uint8_t physicalLocationFromSortedArray(unint8_t arrayIndex){
+    uint8_t physicalAddress;
+    if(arrayIndex % 2 == 0){ // If Even
+        physicalAddress = arrayIndex / 2;
+    }else{                   // If Odd
+        physicalAddress = ((arrayIndex-1)/2) + 8;
+    }
+
+    return physicalAddress;
+}
 
 void Core1::calculateTotalPackSOC(){
     int SOCTotal = 0;
@@ -190,11 +197,36 @@ void Core1::calculateTotalPackSOC(){
 }
 
 void Core1::start(){
+    // Get all CellMan Addresses
+    addresses = discoverCellMen();
+    // Put together addressVoltages array by requesting data from each cellman
+    for (int i = 0; i < 16; i++){
+        unsigned char* tempCellData = requestDataFromSlave(addresses[i]);
 
+        addressVoltages[i].address = addresses[i];
+        addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6]<<8)+tempCellData[5]);
+    }
+    // Sort the addressVoltages by ascending voltages
+    addressVoltageQuickSort(addressVoltages);
 
     for(;;){
+        // Collect data from all the CellMen
+        for(int i = 0; i < 16; i++){
+            processCellData(requestDataFromSlave(addressVoltages[i].address), physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
+        }
 
+        // Update the Object Dictionary Here
+        OD_LOCK();
+        for(int i = 0; i < 16; i++){
+            OD_cellPosition[i]         = cellPositions[i];
+            OD_cellVoltage[i]          = cellVoltages[i];
+            OD_cellTemperature[i]      = cellTemperatures[i];
+            OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
+            OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
+            OD_cellBalancingCurrent[i] = cellBalanceCurrents[i];
+        }
+        OD_UNLOCK();
 
-      delay(2000);
+        delay(100);
     }
 }
