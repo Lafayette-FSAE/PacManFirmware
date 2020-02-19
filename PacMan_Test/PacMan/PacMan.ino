@@ -2,38 +2,43 @@
 #include "Wire.h"
 
 #include "PacMan.h"
-#include "Core1.h"
+#include "I2C_Devices.h"
 
-volatile boolean charging = false;
-volatile boolean checkIOExpander = false;
+// Semaphores to allow detection of interrupts from the main loop
+volatile SemaphoreHandle_t timerCellManSemaphore;
+volatile SemaphoreHandle_t chargeDetectSemaphore;
+volatile SemaphoreHandle_t ioExpanderSemaphore;
 
 TaskHandle_t Task0, Task1;
 hw_timer_t * timer0 = NULL;
 
-// Handles when CHRG_DETECT changes
+
+// Flags that the CellMen should be polled
+void IRAM_ATTR isrTimerCellMan() {
+  xSemaphoreGiveFromISR(timerCellManSemaphore, NULL);
+  // Serial.println("CellMan timer interrupt occured.");
+}
+
+
+// Flags that CHRG_DET has changed
 void IRAM_ATTR chargeDetectInt()
 {
-  if (digitalRead(PIN_CHRG_DET)) {
-    charging = false;
-    digitalWrite(PIN_CHRG_EN, LOW);
-  }
-  else {
-    charging = true;
-    digitalWrite(PIN_CHRG_EN, HIGH);
-  }
+  xSemaphoreGiveFromISR(chargeDetectSemaphore, NULL);
+  // Serial.println("Charge detect interrupt occured.");
 }
 
-// Handles when IO_INT rises, indicating that there was a SLOOP-related change
+
+// Flags that there was an IO expander interrupt
 void IRAM_ATTR ioExpanderInt()
 {
-  checkIOExpander = true;
+  xSemaphoreGiveFromISR(ioExpanderSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
 }
 
-void IRAM_ATTR onTimer() {
-    Serial.println("Timer interrupt occured.");
-}
 
+// Configures the ESP32
 void setup() {
+  delay(1);
   Serial.begin(115200);
   
   // Set GPIO modes
@@ -58,21 +63,47 @@ void setup() {
   digitalWrite(PIN_CHRG_EN,    LOW);
   digitalWrite(PIN_WATCHDOG,   LOW);
 
+  // Create the interrupt semaphores
+  timerCellManSemaphore = xSemaphoreCreateBinary();
+  chargeDetectSemaphore = xSemaphoreCreateBinary();
+  ioExpanderSemaphore   = xSemaphoreCreateBinary();
+
   // Map interrupts
   attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET), chargeDetectInt, CHANGE);
   attachInterrupt(digitalPinToInterrupt(PIN_IO_INT), ioExpanderInt, RISING);
 
+  // Configure timer for polling of the CellMen
   timer0 = timerBegin(0, 80, true);
-  timerAttachInterrupt(timer0, &onTimer, true);
+  timerAttachInterrupt(timer0, &isrTimerCellMan, true);
   timerAlarmWrite(timer0, 1000000, true);
-  timerAlarmEnable(timer0);
+
+  Wire.begin(PIN_SDA, PIN_SCL);
+  MCP23008_setup();
+  // LTC4151_setup();
 
   // xTaskCreatePinnedToCore(&codeForTask0, "Core0Task", 10000, NULL, 1, &Task0, 0);
-  xTaskCreatePinnedToCore(&codeForTask1, "Core1Task", 10000, NULL, 1, &Task1, 1);
+  // xTaskCreatePinnedToCore(&codeForTask1, "Core1Task", 10000, NULL, 1, &Task1, 1);
+
+  // Enable timers
+  timerAlarmEnable(timer0);
 }
 
 void loop() {
-  delay(1000);
+  if (xSemaphoreTake(timerCellManSemaphore, 0) == pdTRUE) {
+  }
+
+  if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
+  }
+
+  if (xSemaphoreTake(ioExpanderSemaphore, 0) == pdTRUE) {
+  }
+  Serial.print("Voltage: ");
+  Serial.print(LTC4151_getVin(), 3);
+  Serial.println(" V");
+  Serial.print("Current: ");
+  Serial.print(LTC4151_getCurrent(), 3);
+  Serial.println(" A");
+  delay(2000);
 }
 
 // void codeForTask0(void * parameter) {
@@ -83,10 +114,10 @@ void loop() {
 //   }
 // }
 
-void codeForTask1(void * parameter) {
-  Core1 core1;
-  core1.init();
-  while (true) {
-    core1.update();
-  }
-}
+// void codeForTask1(void * parameter) {
+//   Core1 core1;
+//   core1.init();
+//   while (true) {
+//     core1.update();
+//   }
+// }

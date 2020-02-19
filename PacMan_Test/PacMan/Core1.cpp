@@ -9,6 +9,7 @@ Released into the public domain.
 
 #include "Core1.h"
 #include "PacMan.h"
+#include "MCP23008.h"
 
 Core1::Core1() {
     

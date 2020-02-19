@@ -25,6 +25,7 @@ public:
 	MCP23008();
   void configure(uint8_t reg, uint8_t value);
   uint8_t readGPIO();
+  void writeGPIO(uint8_t value);
   void digitalWrite(uint8_t pin, uint8_t value);
   uint8_t digitalRead(uint8_t pin);
 

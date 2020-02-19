@@ -17,7 +17,7 @@ uint8_t MCP23008::readGPIO()
   return read8(MCP23008_GPIO);
 }
 
-void writeGPIO(uint8_t value)
+void MCP23008::writeGPIO(uint8_t value)
 {
   write8(MCP23008_GPIO, value);
 }
@@ -27,18 +27,18 @@ void MCP23008::digitalWrite(uint8_t pin, uint8_t value) {
 
   if (value == HIGH)
   {
-    gpio |= 1 << p; 
+    gpio |= 1 << pin; 
   }
   else
   {
-    gpio &= ~(1 << p);
+    gpio &= ~(1 << pin);
   }
 
   writeGPIO(gpio);
 }
 
 uint8_t MCP23008::digitalRead(uint8_t pin) {
-  return (readGPIO() >> p) & 0x1;
+  return (readGPIO() >> pin) & 0x1;
 }
 
 uint8_t MCP23008::read8(uint8_t addr)
