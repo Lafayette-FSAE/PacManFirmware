@@ -1,10 +1,5 @@
 #include "I2C_Devices.h"
 
-#include "Arduino.h"
-#include "Wire.h"
-
-#include "PacMan.h"
-
 
 
 // Generic
@@ -21,11 +16,19 @@ void i2cWriteByteToMem(uint8_t addr, uint8_t reg, uint8_t value)
 // Reads a byte from the specified memory location of an I2C device
 uint8_t i2cReadByteFromMem(uint8_t addr, uint8_t reg)
 {
+  Serial.print("Reg: ");
+  Serial.println(reg);
 	Wire.beginTransmission(addr);
 	Wire.write((byte)reg);
-	Wire.endTransmission();
+	byte error = Wire.endTransmission();
+	Serial.print("Error code: ");
+	Serial.println(error);
 	Wire.requestFrom(addr, 1);
-	return Wire.read();
+//	return Wire.read();
+  while (Wire.available()) {
+    Serial.println(Wire.read());
+  }
+  return -1;
 }
 
 
@@ -47,72 +50,46 @@ void MCP23008_setup()
 // Reads the GPIO port
 uint8_t MCP23008_readGPIO()
 {
-
+	return i2cReadByteFromMem(I2C_ADDR_MCP23008, MCP23008_GPIO);
 }
-
 
 
 // LTC4151
+uint16_t  LTC4151_Vsense	= 0;
+uint16_t  LTC4151_Vin		= 0;
+uint16_t  LTC4151_ADin		= 0;
+float 	  LTC4151_Current  	= 0.0;
+float 	  LTC4151_Voltage  	= 0.0;
 
-// Configures the LTC4151
 void LTC4151_setup()
 {
-	i2cWriteByteToMem(I2C_ADDR_LTC4151, LTC4151_CONTROL, 0x00);
+
 }
 
-// Returns the measured Vin as a uint16_t in steps of 25mV with full-scale of 102.4V
-uint16_t LTC4151_getVinRaw()
+void LTC4151_update()
 {
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_VIN_H);
-	Serial.println();
-	Serial.println(byte_h);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_VIN_L);
-	Serial.println(byte_l);
-	return (uint16_t)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF);
+	Wire.requestFrom(I2C_ADDR_LTC4151, 6);
+	
+	uint16_t senseH = Wire.read();
+	uint16_t senseL = Wire.read();
+	uint16_t vinH   = Wire.read();
+	uint16_t vinL   = Wire.read();
+	uint16_t ADinH  = Wire.read();
+	uint16_t ADinL  = Wire.read();
+	
+	LTC4151_Vsense = senseH << 4 | senseL >> 4;
+	LTC4151_Vin    = vinH   << 4 | vinL   >> 4;
+	LTC4151_ADin   = ADinH  << 4 | ADinL  >> 4;
 }
 
-// Returns the measured Vin as a float scaled for a full-scale of 102.4V
-float LTC4151_getVin()
+// Returns the measured input voltage
+float LTC4151_getVoltage()
 {
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_VIN_H);
-	Serial.println();
-	Serial.println(byte_h);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_VIN_L);
-	Serial.println(byte_l);
-	return (float)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF) * 0.025;
+	return LTC4151_Vin * 102.4 / 4096.0;
 }
 
-// Returns the measured Vshunt as a uint16_t in steps of 20uV with full-scale of 81.92mV
-uint16_t LTC4151_getVSenseRaw()
-{
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_SENSE_H);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_SENSE_L);
-	return (uint16_t)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF);
-}
-
-// Returns a current in A generated from multiplying the sense resistance with the shunt voltage
+// Returns the calculated current drawn through the shunt
 float LTC4151_getCurrent()
 {
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_SENSE_H);
-	Serial.println();
-	Serial.println(byte_h);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_SENSE_L);
-	Serial.println(byte_l);
-	return (float)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF) * 0.00002 / 0.82;
-}
-
-// Returns the measured ADin as a uint16_t in steps of 500uV with full-scale of 2.048V
-uint16_t LTC4151_getADinRaw()
-{
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_ADIN_H);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_ADIN_L);
-	return (uint16_t)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF);
-}
-
-// Returns the measured ADin as a float scaled for a full-scale of 2.048V
-float LTC4151_getADin()
-{
-	uint8_t byte_h = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_ADIN_H);
-	uint8_t byte_l = i2cReadByteFromMem(I2C_ADDR_LTC4151, LTC4151_ADIN_L);
-	return (float)(((((uint16_t)byte_h << 8) | byte_l) >> 4) & 0x0FFF) * 0.0005;
+	return LTC4151_Vsense * 81.92 / 4096.0 / LTC4151_RSHUNT;
 }

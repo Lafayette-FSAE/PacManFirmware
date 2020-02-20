@@ -1,7 +1,3 @@
-#include "Arduino.h"
-#include "Wire.h"
-
-#include "PacMan.h"
 #include "I2C_Devices.h"
 
 // Semaphores to allow detection of interrupts from the main loop
@@ -79,7 +75,6 @@ void setup() {
 
   Wire.begin(PIN_SDA, PIN_SCL);
   MCP23008_setup();
-  // LTC4151_setup();
 
   // xTaskCreatePinnedToCore(&codeForTask0, "Core0Task", 10000, NULL, 1, &Task0, 0);
   // xTaskCreatePinnedToCore(&codeForTask1, "Core1Task", 10000, NULL, 1, &Task1, 1);
@@ -90,20 +85,22 @@ void setup() {
 
 void loop() {
   if (xSemaphoreTake(timerCellManSemaphore, 0) == pdTRUE) {
+    LTC4151_update();
+    Serial.print("Voltage: ");
+    Serial.print(LTC4151_getVoltage(), 1);
+    Serial.println(" V");
+    Serial.print("Current: ");
+    Serial.print(LTC4151_getCurrent(), 3);
+    Serial.println(" mA");
   }
 
   if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
   }
 
   if (xSemaphoreTake(ioExpanderSemaphore, 0) == pdTRUE) {
+    Serial.print("IO: ");
+    Serial.println(MCP23008_readGPIO());
   }
-  Serial.print("Voltage: ");
-  Serial.print(LTC4151_getVin(), 3);
-  Serial.println(" V");
-  Serial.print("Current: ");
-  Serial.print(LTC4151_getCurrent(), 3);
-  Serial.println(" A");
-  delay(2000);
 }
 
 // void codeForTask0(void * parameter) {

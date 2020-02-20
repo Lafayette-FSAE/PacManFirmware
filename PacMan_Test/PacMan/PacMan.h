@@ -54,4 +54,7 @@
 #define LTC4151_ADIN_L      0x05
 #define LTC4151_CONTROL     0x06
 
+// LTC4151 current shunt resistor value
+#define LTC4151_RSHUNT      0.82
+
 #endif
