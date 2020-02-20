@@ -7,7 +7,7 @@
 #define Core0_h
 
 #include "PacMan.h"
-#include "CANopen.h"
+#include "References/CAN_Files/CANopen.h"
 
 /*typedef struct
 {
@@ -28,6 +28,15 @@ typedef struct
   boolean SOH;              //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
 } Cell_Configs;*/
 
+typedef struct 
+{
+ uint8_t maxCellTemp;
+ uint16_t maxCellVoltage;
+ uint16_t minCellVoltage;
+ uint16_t maxCellChargeVoltage;
+ uint8_t cellSOH;
+} Original;
+
 void listOfConfigs();
 
 void CButton();
@@ -40,7 +49,7 @@ class Core0
 {
   public:
     // Define Constructor
-    Core0 ();
+    Core0();
 
     // Define Public Functions
     void startCore0();
@@ -53,7 +62,7 @@ class Core0
     boolean confirm();
 
     //main screen
-    void setUpMain(boolean id, boolean charging);
+    void setUpMain();
     void mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr, uint8_t main_index);
 
     //check for faults
@@ -72,7 +81,7 @@ class Core0
 //    void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
     void cellConfigs(uint8_t cellNum);
     void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction);
-    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, void* original[1]);
+    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Original original);
     void printCellConfigs(uint8_t cellNum);
     void printCellConfigs2(uint8_t cellNum, uint8_t config_num);
     void moveCellConfig(uint8_t cellConfig);
@@ -86,7 +95,7 @@ class Core0
     void moveRegister(uint8_t reg);
 
     void editValue(uint8_t reg[]);
-    void printEditValue(uint16_t index);
+    void printEditValue(void* value, char* names);
     void updateValue(uint8_t regNum, uint8_t place, boolean direction);
     void moveEdit(uint8_t reg);
 

@@ -12,7 +12,7 @@
 #include "References/CAN_Files/can.h"
 #include "References/CAN_Files/gpio.h"
 #include "Arduino.h"
-#include "CANopen.h"
+#include "References/CAN_Files/CANopen.h"
 
 #define DEBUG true
 #define NORMAL_I2C_LENGTH 9
@@ -44,7 +44,7 @@ class Core1
     float packSOC;                      // Keeps track of the Pack's total SOC
 
     // Normal Cells Data
-    unint8_t cellPositions[16];         // Cell Position calculated from the voltages
+    uint8_t cellPositions[16];         // Cell Position calculated from the voltages
     uint16_t cellVoltages[16];          // Cell Voltage data for all cells in Pack
     uint16_t cellTemperatures[16];      // Cell Temperature data for all the cells
     uint16_t minusTerminalVoltages[16]; // Cell voltages at each cellman's minus terminal with respect to ground (which ground...?)
@@ -77,7 +77,7 @@ class Core1
     unsigned char* requestDataFromSlave(unsigned char address);             // Get 12 bytes from a cellman via I2C for a certain address
 
     void processCellData(unsigned char* cellData, uint8_t cellLocation);    // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware
-    uint8_t physicalLocationFromSortedArray(unint8_t arrayIndex);
+    uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);
     void calculateTotalPackSOC();
 
 

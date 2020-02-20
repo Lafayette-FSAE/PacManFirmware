@@ -26,11 +26,11 @@
  */
 
 
-#include "CO_driver.h"
-#include "CO_SDO.h"
-#include "CO_Emergency.h"
+#include "References/CAN_Files/CO_driver.h"
+#include "References/CAN_Files/CO_SDO.h"
+#include "References/CAN_Files/CO_Emergency.h"
 #include "eeprom.h"
-#include "crc16-ccitt.h"
+#include "References/CAN_Files/crc16-ccitt.h"
 
 
 /**

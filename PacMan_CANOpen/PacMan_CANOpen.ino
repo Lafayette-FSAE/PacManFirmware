@@ -1,5 +1,5 @@
-#include "CANopen.h"
-#include "CO_OD.h"
+#include "References/CAN_Files/CANopen.h"
+#include "References/CAN_Files/CO_OD.h"
 #include <EEPROM.h> // include library to read and write from flash memory
 #include "driver/timer.h"
 #include "Core1.h"
@@ -15,6 +15,7 @@ volatile uint16_t   CO_timer1ms = 0U;   /* variable increments each millisecond 
 CO_NMT_reset_cmd_t reset;
 uint16_t timer1msPrevious;
 TaskHandle_t Task0, Task1;
+hw_timer_t * timer0 = NULL;
 
 
 // User-defined CAN base structure, passed as argument to CO_init.
@@ -76,7 +77,7 @@ void setup() {
 
     /* Configure Timer interrupt function for execution every 1 millisecond */
     setup_timer0();
-    Serial.println("CAN Timer is now setup!"");
+    Serial.println("CAN Timer is now setup!");
 
 
     /* start CAN */
@@ -118,7 +119,7 @@ void loop() {
 
 void codeForTask0( void * parameter )
 {
-  Core0 core0(cells, &externalFault, &AIRSOpen, &cellArraySem, &externalFaultSem, &AIRSOpenSem, &sampleSem, &sample);
+  Core0 core0;
   for(;;){
     Serial.println("task0");
     core0.startCore0();
@@ -126,7 +127,7 @@ void codeForTask0( void * parameter )
 }
 
 void codeForTask1( void * parameter ){
-  Core1 core1(cells, &externalFault, &AIRSOpen, &cellArraySem, &externalFaultSem, &AIRSOpenSem, &sampleSem, &sample);
+  Core1 core1();
   for(;;){
     Serial.println("task1");
     delay(250);

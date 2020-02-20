@@ -50,9 +50,9 @@ void setupCore0() {
 }
 
 //misc configs
-boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 250; float min_pc = 0; boolean airs = 0;//defaults
-Cell_Configs configs[NUM_CELLS];
-Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}}; //here is where the pack parameters are stored--can add as many as we want and send them to can with one line of semaphore
+//boolean id = 0; boolean sl = 0; int soc = 50; float max_pc = 250; float min_pc = 0; boolean airs = 0;//defaults
+//Cell_Configs configs[NUM_CELLS];
+//Misc_Configs misc_configs[1] = {{id, airs, sl, soc, max_pc, min_pc}}; //here is where the pack parameters are stored--can add as many as we want and send them to can with one line of semaphore
 
 uint8_t regista[3] = {0, 0, 0};
 
@@ -62,20 +62,20 @@ typedef struct
   float value;
 } Configurations;
 
-Configurations configurations[] = {};
+//Configurations configurations[] = {};
 
-void listOfConfigs() {
+/*void listOfConfigs() {
   configurations[0] = {"id", 0};
   configurations[1] = {"sl", 0};
   configurations[2] = {"airs", 0};
   configurations[3] = {"max pack current", 250};
   configurations[4] = {"min pack current", 0};
   configurations[5] = {"soc", 50};
-}
+}*/
 
-cell currentCellData[NUM_CELLS];
-cell currentCellDataInt[NUM_CELLS];
-boolean airs_state;
+//cell currentCellData[NUM_CELLS];
+//cell currentCellDataInt[NUM_CELLS];
+//boolean airs_state;
 
 //constructor
 Core0::Core0(){
@@ -207,7 +207,7 @@ void Core0::fsm() {
 
   State nextState = Main;
   State state = Main;
-  setUpMain(id, charging);
+  setUpMain();
   //defaultCellConfigs();
 
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
@@ -217,7 +217,7 @@ void Core0::fsm() {
       case Main: {
           if (state != Main) {
             Serial.println("hello hello over here yes yes yes");
-            setUpMain(id, charging);
+            setUpMain();
             main_index = 0;
             state = Main;
           }
@@ -252,7 +252,7 @@ void Core0::fsm() {
           for (int i = 0; i < NUM_CELLS; i++) {
             voltage1 += OD_cellVoltage[i];
             current1 += OD_cellBalancingCurrent[i];
-            temp1 = max(temp1, OD_cellTemperature[i]);
+            temp1 = max(temp1, (float)OD_cellTemperature[i]);
             soc_test += OD_cellSOC[i];
           }
           current1 = current1 / NUM_CELLS;
@@ -449,7 +449,7 @@ boolean Core0::confirm() {
   return confirm_index;
 }
 
-void Core0::setUpMain(boolean id, boolean charging) {
+void Core0::setUpMain() {
   display.setRotation(0);
   display.drawExampleBitmap(gImage_new_main, 0, 0, 128, 296, GxEPD_BLACK);
 
@@ -458,10 +458,10 @@ void Core0::setUpMain(boolean id, boolean charging) {
   display.setFont(f);
 
   display.setCursor(175, 16);
-  if (id) display.print("2");
-  else display.print("1");
+  if (OD_packNodeID==4) display.print("1");
+  else display.print("2");
 
-  if (charging) {
+  if (OD_chargeCableDetected || OD_chargingEnabled) {
     display.setCursor(265, 15);
     display.print("Ch");
   }
@@ -533,7 +533,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 
 void Core0::checkCells(uint8_t currentCell) {
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
-    if (configs[cell].SOH == 0) cellPartialUpdate(1, cell);
+    if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
     /*   else if(currentCellData[cell].cellTemp>=configs[cell].max_temp-(0.2*configs[cell].max_temp)) cellPartialUpdate(2, cell); //within 80%
        else if(currentCellData[cell].cellVoltage>configs[cell].max_voltage -(0.1*configs[cell].max_voltage)
                ||currentCellData[cell].cellVoltage<configs[cell].min_voltage + (0.1*configs[cell].min_voltage)) cellPartialUpdate(3, cell);*/
@@ -541,19 +541,22 @@ void Core0::checkCells(uint8_t currentCell) {
 }
 
 void Core0::checkForFaults(uint8_t currentCell) {
-  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
-    xSemaphoreTake(*AIRSOpenSemPointer, portMAX_DELAY );
-    if (misc_configs[0].airs_state == 1) *AIRSOpenPointer = true;
-    else airs_state = AIRSOpenPointer;
-    xSemaphoreGive(*AIRSOpenSemPointer);
-    if (misc_configs[0].sl_state == 1) faults(1); //sl open
-    else if (airs_state == 1 || misc_configs[0].airs_state == 1) faults(2); //airs open
-    else if (currentCellData[cell].cellTemp >= configs[cell].max_temp + (0.1 * configs[cell].max_temp)) faults(3); //temp too high
-    else if (currentCellData[cell].cellVoltage > configs[cell].max_voltage + (0.1 * configs[cell].max_voltage) //voltage too high
-             || currentCellData[cell].cellVoltage < configs[cell].min_voltage - (0.1 * configs[cell].min_voltage)) faults(4); //voltage too low
-    else if (currentCellData[cell].balanceCurrent > misc_configs[0].max_pack_current + (0.1 * misc_configs[0].max_pack_current) //current too high
-             || currentCellData[cell].balanceCurrent < misc_configs[0].max_pack_current - (0.1 * misc_configs[0].min_pack_current)) faults(5); //current too low
-    else if (currentCellData[cell].SOC >= ((misc_configs[0].SOC_min * 52) / 100)) faults(6); //soc below min
+  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {  
+    if (OD_SLOOP_Relay == 1) faults(1); //sl open
+    else if (OD_AIRS == 1) faults(2); //airs open
+    else if (OD_cellTemperature[cell] >= OD_maxCellTemp[cell] + (0.1 * OD_maxCellTemp[cell])
+             || OD_cellTemperature[cell] < OD_minCellTemp[cell] - (0.1 * OD_minCellTemp[cell])) faults(3); //temp too high
+    
+    else if (!OD_chargingEnabled && (OD_cellVoltage[cell] > OD_maxCellVoltage[cell] + (0.1 * OD_maxCellVoltage[cell]) //voltage too high
+             || OD_cellVoltage[cell] < OD_minCellVoltage[cell] - (0.1 * OD_minCellVoltage[cell]))) faults(4); //voltage too low
+
+    else if (OD_chargingEnabled && (OD_cellVoltage[cell] > OD_maxCellChargeVoltage[cell] + (0.1 * OD_maxCellChargeVoltage[cell]) //voltage too high
+             || OD_cellVoltage[cell] < OD_minCellVoltage[cell] - (0.1 * OD_minCellVoltage[cell]))) faults(4); //voltage too low
+             
+    else if (OD_cellBalancingCurrent[cell] > OD_maxCellCurrent[cell] + (0.1 * OD_maxCellCurrent[cell]) //current too high
+             || OD_cellBalancingCurrent[cell] < OD_minCellCurrent[cell] - (0.1 * OD_minCellCurrent[cell])) faults(5); //current too low
+             
+    else if (OD_cellSOC[cell] >= ((OD_cellSOC_Min[cell] * 52) / 100)) faults(6); //soc below min
   }
 }
 
@@ -745,8 +748,8 @@ void Core0::cellConfigs(uint8_t cellNum)
       display.setCursor(270, 15);
       display.print("*");
       display.updateWindow(128 - 15, 270, 12, 20, false);
-      (void*) original[5] = {OD_maxCellTemp[cellNum], OD_minCellVoltage[cellNum], OD_minCellVoltage[cellNum],
-          OD_maxCellChargeVoltage[cellNum], OD_cellSOC_Min[cellNum]};
+      Original original = {OD_maxCellTemp[cellNum], OD_maxCellVoltage[cellNum], OD_minCellVoltage[cellNum],
+          OD_maxCellChargeVoltage[cellNum], OD_cellSOH[cellNum]};
       while (!centerPress) {
         if (upPress || rightPress) {
           Serial.println("up");
@@ -817,21 +820,21 @@ void Core0::updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direct
   printCellConfigs2(cellNum, cellConfig);
 }
 
-void Core0::cellChangeBack(uint8_t cellNum, uint8_t cellConfig, void* original[1]) {
+void Core0::cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Original original) {
   if (cellConfig == 0) {
-    OD_maxCellTemp[cellNum] = original[0];
+    OD_maxCellTemp[cellNum] = original.maxCellTemp;
   }
   else if (cellConfig == 1) {
-    OD_maxCellVoltage[cellNum] = original[1];
+    OD_maxCellVoltage[cellNum] = original.maxCellVoltage;
   }
   else if (cellConfig == 2) {
-    OD_minCellVoltage[cellNum] = original[2];
+    OD_minCellVoltage[cellNum] = original.minCellVoltage;
   }
   else if (cellConfig == 3) {
-    OD_maxCellChargeVoltage[cellNum] = original[3];
+    OD_maxCellChargeVoltage[cellNum] = original.maxCellChargeVoltage;
   }
   else if (cellConfig == 4) {
-    OD_cellSOH[cellNum] = original[4];
+    OD_cellSOH[cellNum] = original.cellSOH;
   }
   printCellConfigs2(cellNum, cellConfig);
 }
@@ -1135,13 +1138,13 @@ void Core0::regNotFound(uint16_t regNumb){
   display.updateWindow(5, 5, 108, 286, false);
 }
 
-void Core0::printEditValue(Object_Dictionary param) {
+void Core0::printEditValue(void* value, char* names) {
   display.fillScreen(GxEPD_WHITE);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(20, 20);
-  display.print(param.names);
+  display.print(names);
   display.setCursor(235, 120);
   display.print("HOME");
   display.setCursor(10, 120);
@@ -1150,17 +1153,17 @@ void Core0::printEditValue(Object_Dictionary param) {
   f = &FreeSansBold24pt7b;  //set font
   display.setFont(f);
   display.setCursor(80, 80); //hundreds
-  display.print((int)param.pointer/100);
+  display.print((int)value/100);
   display.setCursor(110, 80);
-  display.print(((int)param.pointer/10)%10); //tens
+  display.print(((int)value/10)%10); //tens
   display.setCursor(140, 80);
-  display.print((int)param.pointer%10);  //ones
+  display.print((int)value%10);  //ones
   display.setCursor(155, 80);
   display.print("."); //decimal
   display.setCursor(170, 80);
-  display.print((int)(*(float*)param.pointer/0.1)%10); //tenths
+  display.print((int)(*(float*)value/0.1)%10); //tenths
   display.setCursor(200, 80);
-  display.print((int)(*(float*)param.pointer/0.01)%10); //hundredths
+  display.print((int)(*(float*)value/0.01)%10); //hundredths
 
 /*  if (reg ==0) display.fillRect(80, 84, 20, 2, GxEPD_BLACK);
   if (reg ==1) display.fillRect(110, 84, 20, 2, GxEPD_BLACK);
@@ -1176,11 +1179,11 @@ void Core0::editValue(uint8_t regista[]) {
   uint8_t regNum = regista[0] * 100 + regista[1] * 10 + regista[2];
   uint16_t index = regNum + 8192;
   Object_Dictionary od(index, 0);
-  float original = *(float*)(od.pointer);
+  void * original = od.pointer;
   if (od.location == 0xFFFFU) regNotFound(regNum);
   else {
   boolean confirmed = false;
-  printEditValue(od);
+  printEditValue(od.pointer, od.names);
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
   uint8_t reg = 0;
   while (1) {
@@ -1196,8 +1199,7 @@ void Core0::editValue(uint8_t regista[]) {
       delay(50);
       confirmed = confirm();
       if (!confirmed) od.pointer = original;
-      else updateValue();
-      printEditValue(od);
+      else printEditValue(od.pointer, od.names);
     }
     else if (leftPress) {
       Serial.println("left");
@@ -1236,7 +1238,7 @@ void Core0::editValue(uint8_t regista[]) {
       updateValue(regNum, reg, false);
     }
   }
-//}
+}
 }
 uint8_t valueHolder[5] = {1, 0, 2, 5, 6};
 void Core0::updateValue(uint8_t regNum, uint8_t place, boolean direction) {
