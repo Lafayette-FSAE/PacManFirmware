@@ -3,8 +3,8 @@
 
 #include "Arduino.h"
 #include "Wire.h"
-
 #include "PacMan.h"
+
 
 // Generic
 void i2cWriteByteToMem(uint8_t addr, uint8_t reg, uint8_t value);
@@ -17,15 +17,16 @@ uint8_t MCP23008_readGPIO();
 
 
 // LTC4151
+extern uint16_t LTC4151_Vsense;
+extern uint16_t LTC4151_Vin;
+extern uint16_t LTC4151_ADin;
+
 void LTC4151_setup();
+void LTC4151_update();
 
-uint16_t LTC4151_getVinRaw();
-float LTC4151_getVin();
-
-uint16_t LTC4151_getVSenseRaw();
-float LTC4151_getCurrent();
-
-uint16_t LTC4151_getADinRaw();
-float LTC4151_getADin();
+float LTC4151_getVoltage();
+float LTC4151_getCurrentA();
+float LTC4151_getCurrentmA();
+float LTC4151_getDiff();
 
 #endif
