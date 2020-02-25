@@ -124,6 +124,7 @@ void GxGDEH029A1::update(void)
   _using_partial_mode = false;
   _Init_Full(0x03);
   _writeCommand(0x24);
+  
   for (uint16_t y = 0; y < GxGDEH029A1_HEIGHT; y++)
   {
     for (uint16_t x = 0; x < GxGDEH029A1_WIDTH / 8; x++)
@@ -396,6 +397,7 @@ void GxGDEH029A1::_writeCommandData(const uint8_t* pCommandData, uint8_t datalen
     String str = String("command 0x") + String(pCommandData[0], HEX);
     _waitWhileBusy(str.c_str());
   }
+  
   IO.startTransaction();
   IO.writeCommand(*pCommandData++);
   for (uint8_t i = 0; i < datalen - 1; i++)	// sub the command
@@ -403,7 +405,6 @@ void GxGDEH029A1::_writeCommandData(const uint8_t* pCommandData, uint8_t datalen
     IO.writeData(*pCommandData++);
   }
   IO.endTransaction();
-
 }
 
 void GxGDEH029A1::_waitWhileBusy(const char* comment)
@@ -421,6 +422,7 @@ void GxGDEH029A1::_waitWhileBusy(const char* comment)
   }
   if (comment)
   {
+    //Serial.println("2");
 #if !defined(DISABLE_DIAGNOSTIC_OUTPUT)
     if (_diag_enabled)
     {
@@ -511,9 +513,13 @@ void GxGDEH029A1::_InitDisplay(uint8_t em)
 
 void GxGDEH029A1::_Init_Full(uint8_t em)
 {
+  Serial.println("hola1");
   _InitDisplay(em);
+  Serial.println("hola2");
   _writeCommandData(LUTDefault_full, sizeof(LUTDefault_full));
+  Serial.println("hola3");
   _PowerOn();
+  Serial.println("hola4");
 }
 
 void GxGDEH029A1::_Init_Part(uint8_t em)

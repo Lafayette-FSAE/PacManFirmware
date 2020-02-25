@@ -9,10 +9,10 @@
 //#include "Arduino.h"   // Required for use as an Arduino Library
 #include "PacMan.h"
 #include <Wire.h>      // Required for I2C
-#include "References/CAN_Files/can.h"
-#include "References/CAN_Files/gpio.h"
+#include "can.h"
+#include "gpio.h"
 #include "Arduino.h"
-#include "References/CAN_Files/CANopen.h"
+#include "CANopen.h"
 
 #define DEBUG true
 #define NORMAL_I2C_LENGTH 9
@@ -67,11 +67,11 @@ class Core1
         uint16_t addressMinusVoltage;
     };
 
-    struct addressVoltage addressVoltages[16];
+    addressVoltage addressVoltages[16];
 
     // FUNCTIONS
     void arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity);
-    void addressVoltageQuickSort(struct addressVoltage* addressVoltages, int first, int last);
+    void addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last);
 
     unsigned char* discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(unsigned char address);             // Get 12 bytes from a cellman via I2C for a certain address

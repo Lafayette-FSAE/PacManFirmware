@@ -7,26 +7,24 @@
 #define Core0_h
 
 #include "PacMan.h"
-#include "References/CAN_Files/CANopen.h"
+#include "CANopen.h"
 
-/*typedef struct
-{
-  boolean pack_id;    //true = Pack 1, false = Pack 2  //change all to floats
-  boolean airs_state; //true = open, false = closed (thought they were aways open but guess not)
-  boolean sl_state;   //true = open, false = closed
-  uint16_t SOC_min;
-  float max_pack_current;
-  float min_pack_current;
-} Misc_Configs;
 
-typedef struct
-{
-  int max_temp;
-  float max_voltage;
-  float min_voltage;
-  float max_charge_voltage;
-  boolean SOH;              //true = good cell, false = bad cell--> if SOH is false, no longer allow cell to cause faults
-} Cell_Configs;*/
+class Object_Dictionary {
+  public:
+    int pointer;
+    char* names;
+    uint16_t location;
+    uint16_t attribute;
+    Object_Dictionary(uint16_t index, uint8_t sub_index) {
+      CO_LOCK_OD();
+      location = CO_OD_find((CO_SDO_t*)CO->SDO[0], index);
+      pointer =  (int)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      names = (char*)CO_OD_getName((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      attribute = CO_OD_getAttribute((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      CO_UNLOCK_OD();
+    }
+};
 
 typedef struct 
 {
@@ -94,9 +92,9 @@ class Core0
     void updateRegister(uint8_t reg, boolean direction);
     void moveRegister(uint8_t reg);
 
-    void editValue(uint8_t reg[]);
-    void printEditValue(void* value, char* names);
-    void updateValue(uint8_t regNum, uint8_t place, boolean direction);
+    void editValue(uint8_t reg[], boolean state, uint8_t cellNum);
+    void printEditValue(void* value, char* names, uint8_t reg);
+    Object_Dictionary updateValue(Object_Dictionary od, uint8_t place, boolean direction);
     void moveEdit(uint8_t reg);
 
     void regNotFound(uint16_t regNumb);
