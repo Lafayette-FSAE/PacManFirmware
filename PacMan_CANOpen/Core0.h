@@ -12,14 +12,14 @@
 
 class Object_Dictionary {
   public:
-    int pointer;
+    void* pointer;
     char* names;
     uint16_t location;
     uint16_t attribute;
     Object_Dictionary(uint16_t index, uint8_t sub_index) {
       CO_LOCK_OD();
       location = CO_OD_find((CO_SDO_t*)CO->SDO[0], index);
-      pointer =  (int)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      pointer =  CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], location, sub_index);
       names = (char*)CO_OD_getName((CO_SDO_t *) CO->SDO[0], location, sub_index);
       attribute = CO_OD_getAttribute((CO_SDO_t *) CO->SDO[0], location, sub_index);
       CO_UNLOCK_OD();

@@ -14,8 +14,11 @@ Core1::Core1(CO_t *CO) {
 
 void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity) { // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
   if (arrSize > capacity) {
-    realloc(arr, sizeof(arr) * 2);
+    arr= (unsigned char*)realloc(arr, sizeof(arr) * 2);
     capacity = sizeof(arr) * 2;
+  }
+    for (int i = index; i < sizeof(arr); i++){
+      arr[i] = 0;
   }
 
   arr[index] = value;
@@ -70,11 +73,12 @@ void Core1::addressVoltageQuickSort(addressVoltage* addressVoltages, int first, 
 unsigned char* Core1::discoverCellMen() {
   unsigned char* discoveredAddresses;
   int nDevices = 0;
-  int discoveredCapacity = 1; // Start at 1 address, increase exponentionally by 2
+  int discoveredCapacity = 16; // Start at 1 address, increase exponentionally by 2
 
-  discoveredAddresses = (unsigned char*)malloc(1 * sizeof(unsigned char));
+  discoveredAddresses = (unsigned char*)malloc(4 * sizeof(unsigned char));
 
-  for (int address = 1; address < 127; address++ ) {
+
+for (int address = 1; address < 127; address++ ) {
     // The I2C scanner uses the return value of
     // the Write.endTransmisstion to see if
     // a device did acknowledge to the address.
@@ -85,7 +89,8 @@ unsigned char* Core1::discoverCellMen() {
       if (address != TEMPERATURE_SENSOR_ADDRESS
           && address != IO_EXPANDER_ADDRESS
           && address != REAL_TIME_CLOCK_ADDRESS
-          && address != POWER_MONITOR_ADDRESS) {
+          && address != POWER_MONITOR_ADDRESS
+          && address != POWER_MONITOR_GLOBAL_ADDRESS) {
         Serial.print("CellMan I2C device found at address 0x");
         if (address < 16) Serial.print("0");
         Serial.print(address, HEX);
@@ -124,16 +129,19 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
       cellData[0] = debugFlag;
       for (int i = 1; i < NORMAL_I2C_LENGTH; i++) {
         *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-      }
+        if (DEBUG){ Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
+                    //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
+        }
+        }
       cellD = cellData;
     } else if (debugFlag == 0x01) {
       unsigned char cellData[DEBUG_I2C_LENGTH];
       cellData[0] = debugFlag;
       for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
         *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-      }
+        if (DEBUG){ Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
+                    //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
+        }      }
       cellD = cellData;
     } else {
       Serial.println("Error on the Debug byte! Don't know length to expect. Returning 24 bytes");
@@ -144,8 +152,9 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
       cellData[0] = 0x01;
       for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
         *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-      }
+        if (DEBUG){ Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
+                    //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
+        }      }
       cellD = cellData;
     }
   }
@@ -206,21 +215,30 @@ void Core1::start() {
   // Get all CellMan Addresses
   unsigned char * disCellMen = discoverCellMen();
   unsigned char * celldata;
-
+  int numaddresses=0;
   // Put together addressVoltages array by requesting data from each cellman
-  for (int i = 0; i < 16; i++) {
+  for (int i = 0; i < sizeof(disCellMen); i++) {
+    if(disCellMen[i]==0)continue;
+    numaddresses+=1;
     addresses[i] = disCellMen[i];
     unsigned char* tempCellData = requestDataFromSlave(addresses[i]);
 
-    addressVoltages[i].address = addresses[i];
+    addressVoltages[i].address = disCellMen[i];
     addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
+
   }
+  if(DEBUG){
+      Serial.print("The number of address found: ");
+      Serial.println(numaddresses);
+      }
   // Sort the addressVoltages by ascending voltages
-  addressVoltageQuickSort(addressVoltages, 0, 16);
+  addressVoltageQuickSort(addressVoltages, 0, numaddresses);
 
   for (;;) {
     // Collect data from all the CellMen
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < sizeof(disCellMen); i++) {
+          if(addressVoltages[i].address==0)continue;
+
       celldata = requestDataFromSlave(addressVoltages[i].address);
                  if (celldata[0] != 0)
                    processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
