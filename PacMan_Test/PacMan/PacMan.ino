@@ -4,6 +4,11 @@
 volatile SemaphoreHandle_t timerCellManSemaphore;
 volatile SemaphoreHandle_t chargeDetectSemaphore;
 volatile SemaphoreHandle_t ioExpanderSemaphore;
+volatile SemaphoreHandle_t CButtonSemaphore;
+volatile SemaphoreHandle_t LButtonSemaphore;
+volatile SemaphoreHandle_t RButtonSemaphore;
+volatile SemaphoreHandle_t UButtonSemaphore;
+volatile SemaphoreHandle_t DButtonSemaphore;
 
 TaskHandle_t Task0, Task1;
 hw_timer_t * timer0 = NULL;
@@ -28,6 +33,36 @@ void IRAM_ATTR chargeDetectInt()
 void IRAM_ATTR ioExpanderInt()
 {
   xSemaphoreGiveFromISR(ioExpanderSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
+}
+
+void IRAM_ATTR CBUTTON()
+{
+  xSemaphoreGiveFromISR(CButtonSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
+}
+
+void IRAM_ATTR LBUTTON()
+{
+  xSemaphoreGiveFromISR(LButtonSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
+}
+
+void IRAM_ATTR RBUTTON()
+{
+  xSemaphoreGiveFromISR(RButtonSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
+}
+
+void IRAM_ATTR UBUTTON()
+{
+  xSemaphoreGiveFromISR(UButtonSemaphore, NULL);
+  // Serial.println("IO expander interrupt occured.");
+}
+
+void IRAM_ATTR DBUTTON()
+{
+  xSemaphoreGiveFromISR(DButtonSemaphore, NULL);
   // Serial.println("IO expander interrupt occured.");
 }
 
@@ -63,10 +98,20 @@ void setup() {
   timerCellManSemaphore = xSemaphoreCreateBinary();
   chargeDetectSemaphore = xSemaphoreCreateBinary();
   ioExpanderSemaphore   = xSemaphoreCreateBinary();
+  CButtonSemaphore      = xSemaphoreCreateBinary();
+  LButtonSemaphore      = xSemaphoreCreateBinary();
+  RButtonSemaphore      = xSemaphoreCreateBinary();
+  UButtonSemaphore      = xSemaphoreCreateBinary();
+  DButtonSemaphore      = xSemaphoreCreateBinary();
 
   // Map interrupts
-  attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET), chargeDetectInt, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(PIN_IO_INT), ioExpanderInt, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),  chargeDetectInt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(PIN_IO_INT),    ioExpanderInt,   RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP),    CBUTTON,         FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT),  CBUTTON,         FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), CBUTTON,         FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP),    CBUTTON,         FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN),  CBUTTON,         FALLING);
 
   // Configure timer for polling of the CellMen
   timer0 = timerBegin(0, 80, true);
@@ -75,6 +120,7 @@ void setup() {
 
   Wire.begin(PIN_SDA, PIN_SCL);
   MCP23008_setup();
+  LTC4151_setup();
 
   // xTaskCreatePinnedToCore(&codeForTask0, "Core0Task", 10000, NULL, 1, &Task0, 0);
   // xTaskCreatePinnedToCore(&codeForTask1, "Core1Task", 10000, NULL, 1, &Task1, 1);
@@ -90,8 +136,11 @@ void loop() {
     Serial.print(LTC4151_getVoltage(), 1);
     Serial.println(" V");
     Serial.print("Current: ");
-    Serial.print(LTC4151_getCurrent(), 3);
+    Serial.print(LTC4151_getCurrentmA(), 3);
     Serial.println(" mA");
+    Serial.print("Diff voltage: ");
+    Serial.print(LTC4151_getDiff(), 3);
+    Serial.println(" V");
   }
 
   if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
@@ -100,6 +149,51 @@ void loop() {
   if (xSemaphoreTake(ioExpanderSemaphore, 0) == pdTRUE) {
     Serial.print("IO: ");
     Serial.println(MCP23008_readGPIO());
+  }
+
+  if (xSemaphoreTake(CButtonSemaphore, 0) == pdTRUE) {
+    if (digitalRead(PIN_LED_GREEN)) {
+      digitalWrite(PIN_LED_GREEN, LOW);
+    }
+    else {
+      digitalWrite(PIN_LED_GREEN, HIGH);
+    }
+  }
+
+  if (xSemaphoreTake(LButtonSemaphore, 0) == pdTRUE) {
+    if (digitalRead(PIN_LED_GREEN)) {
+      digitalWrite(PIN_LED_GREEN, LOW);
+    }
+    else {
+      digitalWrite(PIN_LED_GREEN, HIGH);
+    }
+  }
+
+  if (xSemaphoreTake(RButtonSemaphore, 0) == pdTRUE) {
+    if (digitalRead(PIN_LED_GREEN)) {
+      digitalWrite(PIN_LED_GREEN, LOW);
+    }
+    else {
+      digitalWrite(PIN_LED_GREEN, HIGH);
+    }
+  }
+
+  if (xSemaphoreTake(UButtonSemaphore, 0) == pdTRUE) {
+    if (digitalRead(PIN_LED_GREEN)) {
+      digitalWrite(PIN_LED_GREEN, LOW);
+    }
+    else {
+      digitalWrite(PIN_LED_GREEN, HIGH);
+    }
+  }
+
+  if (xSemaphoreTake(DButtonSemaphore, 0) == pdTRUE) {
+    if (digitalRead(PIN_LED_GREEN)) {
+      digitalWrite(PIN_LED_GREEN, LOW);
+    }
+    else {
+      digitalWrite(PIN_LED_GREEN, HIGH);
+    }
   }
 }
 

@@ -1,10 +1,6 @@
 #ifndef I2C_Devices_h
 #define I2C_Devices_h
 
-// #ifdef __cplusplus
-// extern "C" {
-// #endif
-
 #include "Arduino.h"
 #include "Wire.h"
 #include "PacMan.h"
@@ -21,21 +17,16 @@ uint8_t MCP23008_readGPIO();
 
 
 // LTC4151
-
-extern uint16_t  LTC4151_Vsense;
-extern uint16_t  LTC4151_Vin;
-extern uint16_t  LTC4151_ADin;
-extern float 	 LTC4151_Current;
-extern float 	 LTC4151_Voltage;
+extern uint16_t LTC4151_Vsense;
+extern uint16_t LTC4151_Vin;
+extern uint16_t LTC4151_ADin;
 
 void LTC4151_setup();
 void LTC4151_update();
 
 float LTC4151_getVoltage();
-float LTC4151_getCurrent();
-
-// #ifdef __cplusplus
-// }
-// #endif /*__cplusplus*/
+float LTC4151_getCurrentA();
+float LTC4151_getCurrentmA();
+float LTC4151_getDiff();
 
 #endif

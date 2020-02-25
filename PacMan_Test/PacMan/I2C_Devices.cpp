@@ -55,11 +55,9 @@ uint8_t MCP23008_readGPIO()
 
 
 // LTC4151
-uint16_t  LTC4151_Vsense	= 0;
-uint16_t  LTC4151_Vin		= 0;
-uint16_t  LTC4151_ADin		= 0;
-float 	  LTC4151_Current  	= 0.0;
-float 	  LTC4151_Voltage  	= 0.0;
+uint16_t LTC4151_Vsense  = 0;
+uint16_t LTC4151_Vin	 = 0;
+uint16_t LTC4151_ADin	 = 0;
 
 void LTC4151_setup()
 {
@@ -85,11 +83,23 @@ void LTC4151_update()
 // Returns the measured input voltage
 float LTC4151_getVoltage()
 {
-	return LTC4151_Vin * 102.4 / 4096.0;
+	return LTC4151_Vin * LTC4151_VIN_FACTOR;
+}
+
+// Returns the calculated current drawn in A through the shunt
+float LTC4151_getCurrentA()
+{
+	return LTC4151_Vsense * LTC4151_CURR_FACTOR_A;
+}
+
+// Returns the calculated current drawn in mA through the shunt
+float LTC4151_getCurrentmA()
+{
+	return LTC4151_Vsense * LTC4151_CURR_FACTOR_mA;
 }
 
 // Returns the calculated current drawn through the shunt
-float LTC4151_getCurrent()
+float LTC4151_getDiff()
 {
-	return LTC4151_Vsense * 81.92 / 4096.0 / LTC4151_RSHUNT;
+	return LTC4151_ADin * LTC4151_AD_FACTOR;
 }
