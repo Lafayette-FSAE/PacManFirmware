@@ -30,6 +30,7 @@
 #define I2C_ADDR_MCP23008   	32
 #define I2C_ADDR_MCP9804    	24
 #define I2C_ADDR_BQ32002    	104
+#define I2C_ADDR_LTC4151_GLOB  	102
 #define I2C_ADDR_LTC4151    	111
 
 // MCP23008 register defines
