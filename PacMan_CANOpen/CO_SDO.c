@@ -500,7 +500,7 @@ char* CO_OD_getName(CO_SDO_t *SDO, uint16_t entryNo, uint8_t subIndex){
             return "";
         }
         else{
-            return (void*)(((int8_t*)object->name) + ((subIndex-1) * object->length));
+            return object->name;
         }
     }
     else{                            /* Object Type is Record */
