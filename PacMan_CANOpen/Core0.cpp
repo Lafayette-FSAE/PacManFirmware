@@ -259,8 +259,8 @@ void Core0::fsm() {
 
           voltage1 = 0; current1 = 0; temp1 = 0; soc_test = 0;
           for (int i = 0; i < NUM_CELLS; i++) {
-            voltage1 += OD_cellVoltage[i];
-            current1 += OD_cellBalancingCurrent[i];
+            voltage1 += OD_cellVoltage[i]/1000;
+            current1 += OD_cellBalancingCurrent[i]/1000;
             temp1 = max(temp1, (float)OD_cellTemperature[i]);
             soc_test += OD_cellSOC[i];
           }
