@@ -32,7 +32,7 @@ class Core1
 {
   private:
     // VARIABLES
-    uint8_t addresses[16];           // Hold discovered I2C Addresses
+    uint8_t addresses[16];              // Hold discovered I2C Addresses
 
     unsigned char I2CError;             // Holds potential error when discoverying I2C devices
 
@@ -70,10 +70,9 @@ class Core1
     addressVoltage addressVoltages[16];
 
     // FUNCTIONS
-    void arrayAppend(uint8_t* arr, int index, int value, int arrSize, int capacity);
     void addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last);
 
-    uint8_t* discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
+    uint8_t discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(uint8_t address);             // Get 12 bytes from a cellman via I2C for a certain address
 
     void processCellData(unsigned char* cellData, uint8_t cellLocation);    // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware
