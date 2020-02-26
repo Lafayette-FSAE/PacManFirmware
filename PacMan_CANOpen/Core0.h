@@ -24,6 +24,7 @@ class Object_Dictionary {
       subindex = sub_index;
       location = CO_OD_find((CO_SDO_t*)CO->SDO[0], index);
       pointer =  (int*)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      names = (char*)malloc(50 * sizeof(char));
       names = (char*)CO_OD_getName((CO_SDO_t *) CO->SDO[0], location, sub_index);
       attribute = CO_OD_getAttribute((CO_SDO_t *) CO->SDO[0], location, sub_index);
       CO_UNLOCK_OD();
