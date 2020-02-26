@@ -12,19 +12,6 @@ Core1::Core1(CO_t *CO) {
   totalMAH = 0;
 }
 
-void Core1::arrayAppend(unsigned char* arr, int index, int value, int arrSize, int capacity) { // https://www.tutorialspoint.com/c_standard_library/c_function_realloc.htm
-  if (arrSize > capacity) {
-    arr= (unsigned char*)realloc(arr, sizeof(arr) * 2);
-    capacity = sizeof(arr) * 2;
-  }
-    for (int i = index; i < sizeof(arr); i++){
-      arr[i] = 0;
-  }
-
-  arr[index] = value;
-  arrSize = arrSize + 1;
-}
-
 void Core1::addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last) {
   int i;
   int j;
@@ -70,12 +57,13 @@ void Core1::addressVoltageQuickSort(addressVoltage* addressVoltages, int first, 
 }
 
 // TODO: Exclude known I2C devices e.g. GPIO Expand
-unsigned char* Core1::discoverCellMen() {
+uint8_t Core1::discoverCellMen() {
   unsigned char* discoveredAddresses;
-  int nDevices = 0;
-  int discoveredCapacity = 16; // Start at 1 address, increase exponentionally by 2
+  uint8_t cellMenCount = 0;
 
-  discoveredAddresses = (unsigned char*)malloc(4 * sizeof(unsigned char));
+  for (int i = 0; i<16; i++){
+    addresses[i] = 0x00;
+  }
 
 
 for (int address = 1; address < 127; address++ ) {
@@ -95,9 +83,9 @@ for (int address = 1; address < 127; address++ ) {
         if (address < 16) Serial.print("0");
         Serial.print(address, HEX);
         Serial.println("  !");
-
-        arrayAppend(discoveredAddresses, nDevices, address, nDevices + 1, discoveredCapacity); // Add the address to the discoveredAddresses Array using the append method to allow for expansion
-        nDevices++; // Increment the number of devices by 1, strategically after the arrayAppend so we can use it as an index
+        
+        addresses[cellMenCount] = address;
+        cellMenCount++;
       }
     }
     else if (error == 4) {
@@ -109,7 +97,7 @@ for (int address = 1; address < 127; address++ ) {
     }
   }
 
-  return discoveredAddresses;
+  return cellMenCount;
 } // USES MALLOC (Only call once at startup to prevent memory leakage)
 
 unsigned char* Core1::requestDataFromSlave(unsigned char address) {
@@ -213,35 +201,31 @@ void Core1::calculateTotalPackSOC() {
 
 void Core1::start() {
   // Get all CellMan Addresses
-  unsigned char * disCellMen = discoverCellMen();
-  unsigned char * celldata;
-  int numaddresses=0;
+  uint8_t numberOfDiscoveredCellMen = discoverCellMen();
+  unsigned char* celldata;
+
   // Put together addressVoltages array by requesting data from each cellman
-  for (int i = 0; i < sizeof(disCellMen); i++) {
-    if(disCellMen[i]==0)continue;
-    numaddresses+=1;
-    addresses[i] = disCellMen[i];
+  for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
     unsigned char* tempCellData = requestDataFromSlave(addresses[i]);
 
-    addressVoltages[i].address = disCellMen[i];
+    addressVoltages[i].address = addresses[i];
     addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
 
   }
   if(DEBUG){
       Serial.print("The number of address found: ");
-      Serial.println(numaddresses);
+      Serial.println(numberOfDiscoveredCellMen);
       }
   // Sort the addressVoltages by ascending voltages
-  addressVoltageQuickSort(addressVoltages, 0, numaddresses);
+  addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen);
 
   for (;;) {
     // Collect data from all the CellMen
-    for (int i = 0; i < sizeof(disCellMen); i++) {
-          if(addressVoltages[i].address==0)continue;
-
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
       celldata = requestDataFromSlave(addressVoltages[i].address);
-                 if (celldata[0] != 0)
-                   processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
+        if (celldata[0] != 0){
+           processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
+        }
     }
 
     // Update the Object Dictionary Here
