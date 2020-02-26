@@ -9,7 +9,7 @@
 #define PIN_DISP_DIN      13
 #define PIN_DISP_CLK      14
 #define PIN_DISP_CS       15
-#define PIN_DISP_BUSY     33
+#define PIN_DISP_BUSY     16
 #define PIN_CHRG_DET      17
 #define PIN_SCL           18
 #define PIN_SDA           19
@@ -20,7 +20,7 @@
 #define PIN_CAN_RX        26
 #define PIN_SLOOP_EN      27
 #define PIN_BTN_CENTER    32
-//#define PIN_LED_ORANGE    33
+#define PIN_LED_ORANGE    33
 #define PIN_BTN_UP        34
 #define PIN_BTN_DOWN      35
 #define PIN_BTN_LEFT      36
