@@ -247,13 +247,13 @@ void Core0::fsm() {
             else main_index += 1;
           }
           else if (centerPress && main_index == 0) {
-            Serial.println("center");  //testing
             centerPress = false;
+            Serial.println("center");  //testing
             nextState = Config_State;
           }
           else if (centerPress && main_index != 0) {
-            Serial.println("center");  //testing
             centerPress = false;
+            Serial.println("center");  //testing
             nextState = Cell_State;
           }
 
@@ -272,18 +272,18 @@ void Core0::fsm() {
 
       case Config_State: {
           if (centerPress && config_index == true) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");  //testing
             nextState = Choose_Register;
           }
           else if (centerPress && config_index == false) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");  //testing
             nextState = Charging;
           }
           else if (upPress || downPress || leftPress || rightPress) {
-            Serial.println("up/down/left/right");
             upPress = false; downPress = false; leftPress = false; rightPress = false;
+            Serial.println("up/down/left/right");
             config_index = !config_index;
             configPartial(config_index);
           }
@@ -298,18 +298,18 @@ void Core0::fsm() {
 
       case Cell_State: {
           if (centerPress && cell_index == true) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");    //testing
             nextState = Choose_Cell_Register;
           }
           else if (centerPress && cell_index == false) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");    //testing
             nextState = Cell_Data;
           }
           else if (upPress || downPress || leftPress || rightPress) {
-            Serial.println("up/down/left/right");
             upPress = false; downPress = false; leftPress = false; rightPress = false;
+            Serial.println("up/down/left/right");
             cell_index = !cell_index;
             configPartial(cell_index);
           }
@@ -387,16 +387,16 @@ void Core0::fsm() {
 
       case Charging: {
           if (centerPress && charge_index == 0) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");    //testing
             if (confirm()) {
               charging = 1;
             }
             chargeScreen();
           }
           else if (centerPress && charge_index == 1) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");    //testing
             if (confirm()) {
               charging = 0;
             }
@@ -404,22 +404,22 @@ void Core0::fsm() {
             chargeScreen();
           }
           else if (centerPress && charge_index == 2) {
-            Serial.println("center");    //testing
             centerPress = false;
+            Serial.println("center");    //testing
             Serial.println("charging1");
             Serial.print(charging);
             nextState = Main;
           }
           else if (upPress || leftPress) {
-            Serial.println("up/left");
             upPress = false; leftPress = false;
+            Serial.println("up/left");
             if (charge_index != 0) charge_index -= 1;
             else charge_index = 2;
             chargePartial(charge_index);
           }
           else if (downPress || rightPress) {
-            Serial.println("downright");
             downPress = false; rightPress = false;
+            Serial.println("downright");
             if (charge_index != 2) charge_index += 1;
             else charge_index = 0;
             chargePartial(charge_index);
@@ -470,8 +470,8 @@ boolean Core0::confirm() {
   display.updateWindow(5, 5, 118, 286, false);
   while (!centerPress) {
     if (upPress || downPress || leftPress || rightPress) {
-      Serial.println("up/down/left/right");
       upPress = false; downPress = false; leftPress = false; rightPress = false;
+      Serial.println("up/down/left/right");
       confirm_index = !confirm_index;
       if (!confirm_index) {
         display.fillRect(160, 82, 25, 1, GxEPD_WHITE);
@@ -749,8 +749,8 @@ void Core0::cellConfigs(uint8_t cellNum)
 
   while (1) {
     if (cell_config == NUM_CELL_CONFIGS && centerPress)  { //exit
-      Serial.println("center");
       centerPress = false;
+      Serial.println("center");    //testing
       delay(50);
       break;
     }
@@ -794,14 +794,14 @@ void Core0::cellConfigs(uint8_t cellNum)
                           };
       while (!centerPress) {
         if (upPress || rightPress) {
-          Serial.println("up");
           upPress = false; downPress = false;
+          Serial.println("up");
           delay(50);
           updateCellConfig(cellNum, cell_config, true);
         }
         else if (downPress || leftPress) {
-          Serial.println("down");
           downPress = false; leftPress = false;
+          Serial.println("down");
           delay(50);
           updateCellConfig(cellNum, cell_config, false);
         }
@@ -1241,15 +1241,15 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
     uint8_t reg = 0;
     while (1) {
       if (reg == 6 && centerPress)  {//exit
-        Serial.println("center");
         centerPress = false;
+        Serial.println("center");    //testing
         *od.pointer = original;
         delay(50);
         break;
       }
       if (reg == 5 && centerPress)  {//enter
-        Serial.println("center");
         centerPress = false;
+        Serial.println("center");    //testing
         delay(50);
         confirmed = confirm();
         Serial.println(original);
@@ -1258,8 +1258,8 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         printEditValue(od, reg);
       }
       else if (leftPress) {
-        Serial.println("left");
         leftPress = false;
+        Serial.println("left");
         delay(50);
         if (reg == 0) {
           reg = 6;
@@ -1270,8 +1270,8 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         moveEdit(reg);
       }
       else if (rightPress) {
-        Serial.println("right");
         rightPress = false;
+        Serial.println("right");
         delay(50);
         if (reg == 6) {
           reg = 0;
@@ -1282,8 +1282,8 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         moveEdit(reg);
       }
       else if (upPress) {
-        Serial.println("up");
         upPress = false;
+        Serial.println("up");
         delay(50);
         od = updateValue(od, reg, true);
         Serial.print("pointer val: ");
@@ -1291,8 +1291,8 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         
       }
       else if (downPress) {
-        Serial.println("down");
         downPress = false;
+        Serial.println("down");
         delay(50);
         od = updateValue(od, reg, false);
         Serial.print("pointer val: ");
