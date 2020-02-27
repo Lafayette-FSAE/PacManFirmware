@@ -1182,7 +1182,8 @@ void Core0::regNotFound(uint16_t regNumb) {
   centerPress = false;
 }
 
-void Core0::printEditValue(Object_Dictionary od, uint8_t reg) {
+void Core0::printEditValue(Object_Dictionary od, uint8_t reg, uint8_t lastReg) {
+  int8_t conversion = lastReg-4;
   display.fillScreen(GxEPD_WHITE);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
@@ -1202,33 +1203,62 @@ void Core0::printEditValue(Object_Dictionary od, uint8_t reg) {
   Serial.print("value: ");
   Serial.println(*od.pointer);
   //value in mV so place times 1000
-  display.print((int)((*od.pointer / 100000) % 10));
+  display.print((int)((*od.pointer / (int)pow(10,conversion+4)) % 10));
   display.setCursor(95, 80);
-  display.print((int)((*od.pointer / 10000) % 10)); //tens
+  display.print((int)((*od.pointer / (int)pow(10,conversion+3)) % 10)); //tens
   display.setCursor(125, 80);
-  display.print((int)((*od.pointer / 1000) % 10)); //ones
+  display.print((int)((*od.pointer / (int)pow(10,conversion+2)) % 10)); //ones
+  if (lastReg>=3){
   display.setCursor(155, 80);
   display.print("."); //decimal
   display.setCursor(170, 80);
-  display.print((int)((*od.pointer / 100) % 10)); //tenths
+  display.print((int)((*od.pointer / (int)pow(10,conversion+1)) % 10)); //tenths
+  }
+  if (lastReg==4){
   display.setCursor(200, 80);
-  display.print((int)((*od.pointer / 10) % 10)); //hundredths
+  display.print((int)((*od.pointer / (int)pow(10,conversion)) % 10)); //hundredths
+  }
 
   if (reg == 0) display.fillRect(65, 84, 20, 2, GxEPD_BLACK);
   if (reg == 1) display.fillRect(95, 84, 20, 2, GxEPD_BLACK);
   if (reg == 2) display.fillRect(125, 84, 20, 2, GxEPD_BLACK);
   if (reg == 3) display.fillRect(170, 84, 20, 2, GxEPD_BLACK);
   if (reg == 4) display.fillRect(200, 84, 20, 2, GxEPD_BLACK);
+  if (reg == 5) display.fillRect(5, 112, 4, 4, GxEPD_BLACK);
   display.updateWindow(5, 5, 108, 286, false);
 }
 
-
+int8_t Core0::convert(uint16_t index){
+  int8_t conversion = -2;
+  if (index == 0x2005 || index == 0x200f || index == 0x2010        //voltage
+      || index == 0x2011 || index == 0x3002 || index == 0x3004 
+      || index == 0x3006 || index == 0x3009 || index == 0x300a 
+      || index == 0x300f) conversion = 1; 
+  if (index == 0x2006 || index == 0x200d || index == 0x3007        //current
+      || index == 0x300d || index == 0x300e) conversion = 1; 
+  if (index == 0x200e || index == 0x2012 || index == 0x2013        //temp
+      || index == 0x2014 || index == 0x3003 || index == 0x300b
+      || index == 0x300c) conversion = -1; 
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  //if (index == ) conversion = ;
+  return conversion;
+}
 
 void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
   uint8_t regNum = regista[0] * 100 + regista[1] * 10 + regista[2];
   uint16_t index;
   if (state) index = regNum + 0x2000;
   else       index = regNum + 0x3000;
+
+  int8_t conversion = convert(index);
+  uint8_t lastReg = 4 + conversion;
+  if (lastReg > 4) lastReg = 4;
+  
   Serial.print("cellNum ");
   Serial.println(cellNum);
   Object_Dictionary od(index, cellNum);
@@ -1236,7 +1266,7 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
   Serial.println(od.names);
   int original = *od.pointer;
     boolean confirmed = false;
-    printEditValue(od, 0);
+    printEditValue(od, 0, lastReg);
     centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
     uint8_t reg = 0;
     while (1) {
@@ -1255,7 +1285,7 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         Serial.println(original);
         if (!confirmed) *od.pointer = original;
         original = *od.pointer;
-        printEditValue(od, reg);
+        printEditValue(od, reg, lastReg);
       }
       else if (leftPress) {
         leftPress = false;
@@ -1263,6 +1293,9 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         delay(50);
         if (reg == 0) {
           reg = 6;
+        }
+        else if (reg == 5) {
+          reg = lastReg;
         }
         else {
           reg--;
@@ -1276,6 +1309,9 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         if (reg == 6) {
           reg = 0;
         }
+        else if (reg == lastReg) {
+          reg = 5;
+        }
         else {
           reg++;
         }
@@ -1285,7 +1321,7 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         upPress = false;
         Serial.println("up");
         delay(50);
-        od = updateValue(od, reg, true);
+        od = updateValue(od, reg, true, lastReg);
         Serial.print("pointer val: ");
         Serial.println(*od.pointer);
         
@@ -1294,7 +1330,7 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
         downPress = false;
         Serial.println("down");
         delay(50);
-        od = updateValue(od, reg, false);
+        od = updateValue(od, reg, false, lastReg);
         Serial.print("pointer val: ");
         Serial.println(*od.pointer);
 }
@@ -1308,18 +1344,24 @@ void Core0::viewValue(uint8_t regista[], boolean state, uint8_t cellNum) {
   uint16_t index;
   if (state) index = regNum + 0x2000;
   else       index = regNum + 0x3000;
+  
+  int8_t conversion = convert(index);
+  uint8_t lastReg = 4 + conversion;
+  if (lastReg > 4) lastReg = 4;
+  
   Object_Dictionary od(index, cellNum);
   //if (!state) String names = od.names = 'Cell #' + cellNum + '- ' + od.names;
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
     
     while (!centerPress) {
-          printViewValue(od);
+          printViewValue(od, lastReg);
           delay(1000);
     }    
     centerPress = false;
 }
 
-void Core0::printViewValue(Object_Dictionary od) {
+void Core0::printViewValue(Object_Dictionary od, uint8_t lastReg) {
+  int8_t conversion = lastReg - 4;
   display.fillScreen(GxEPD_WHITE);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
@@ -1339,24 +1381,28 @@ void Core0::printViewValue(Object_Dictionary od) {
   Serial.print("value: ");
   Serial.println(*od.pointer);
   //value in mV so place times 1000
-  display.print((int)((*od.pointer / 100000) % 10));
+  display.print((int)((*od.pointer / (int)pow(10,conversion+4)) % 10));
   display.setCursor(95, 80);
-  display.print((int)((*od.pointer / 10000) % 10)); //tens
+  display.print((int)((*od.pointer / (int)pow(10,conversion+3)) % 10)); //tens
   display.setCursor(125, 80);
-  display.print((int)((*od.pointer / 1000) % 10)); //ones
+  display.print((int)((*od.pointer / (int)pow(10,conversion+2)) % 10)); //ones
+  if(lastReg >=3){
   display.setCursor(155, 80);
   display.print("."); //decimal
   display.setCursor(170, 80);
-  display.print((int)((*od.pointer / 100) % 10)); //tenths
+  display.print((int)((*od.pointer / (int)pow(10,conversion+1)) % 10)); //tenths
+  }
+  if (lastReg == 4){
   display.setCursor(200, 80);
-  display.print((int)((*od.pointer / 10) % 10)); //hundredths
+  display.print((int)((*od.pointer / (int)pow(10,conversion)) % 10)); //hundredths
+  }
   
   display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
 
   display.updateWindow(5, 5, 108, 286, false);
 }
 
-Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolean direction) {
+Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolean direction, uint8_t lastReg) {
   //if place = 0--100000, 1--10000, 2--1000, 3--100, 4--10
   int temp =pow(10,(5-place));
 //  Serial.println(temp2);
@@ -1365,7 +1411,7 @@ Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolea
     else if (!direction & (int)(*od.pointer / temp) % 10 != 0)  od.pointer -= temp;
     else if (!direction & (int)(*od.pointer / temp) % 10 == 0)  od.pointer += 9 * temp;
   
-  printEditValue(od, place);
+  printEditValue(od, place, lastReg);
   return od;
 }
 
