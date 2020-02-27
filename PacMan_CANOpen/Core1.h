@@ -62,6 +62,7 @@ private:
 
     // FUNCTIONS
     void addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last); // Sorts addresses based off of their voltages using the quick-sort algorithm
+    bool addressVoltageSorter(addressVoltage lhs, addressVoltage rhs);
     uint8_t discoverCellMen();                                                          // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(uint8_t address);                               // Request data from cellMan as defined on the google doc: https://docs.google.com/spreadsheets/d/1zBqs7dGoYIwPeB9IhqGGFGt5ZMxdNiGEKCcX30iLUWY/edit?usp=sharing
     void processCellData(unsigned char* cellData, uint8_t cellLocation);                // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware

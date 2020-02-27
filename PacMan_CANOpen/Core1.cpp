@@ -15,52 +15,52 @@ Core1::Core1(CO_t *CO) {
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
 void Core1::addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last) {
-    int i;
-    int j;
-    int pivot;
-    uint16_t tempVoltage;
-    unsigned char tempAddress;
+  int i, j, pivot; 
+  uint16_t tempVoltage;
+  uint8_t tempAddress;
 
-    if (first < last) {
-        pivot = first;
-        i = first;
-        j = last;
+  if(first<last){
+    pivot=first;
+    i=first;
+    j=last;
 
-        while (i < j) {
-            while (addressVoltages[i].addressMinusVoltage <= addressVoltages[pivot].addressMinusVoltage && i < last)
-            i++;
-            while (addressVoltages[j].addressMinusVoltage > addressVoltages[pivot].addressMinusVoltage)
-            j--;
-            if (i < j) {
-                tempAddress = addressVoltages[i].address;
-                tempVoltage = addressVoltages[i].addressMinusVoltage;
-
-                addressVoltages[i].address = addressVoltages[j].address;
-                addressVoltages[i].addressMinusVoltage = addressVoltages[j].addressMinusVoltage;
-
-                addressVoltages[j].address = tempAddress;
-                addressVoltages[j].addressMinusVoltage = tempVoltage;
-            }
-        }
-
-        tempAddress = addressVoltages[pivot].address;
-        tempVoltage = addressVoltages[pivot].addressMinusVoltage;
-
-        addressVoltages[pivot].address = addressVoltages[j].address;
-        addressVoltages[pivot].addressMinusVoltage = addressVoltages[j].addressMinusVoltage;
-
-        addressVoltages[j].address = tempAddress;
-        addressVoltages[j].addressMinusVoltage = tempVoltage;
-
-        addressVoltageQuickSort(addressVoltages, first, j - 1);
-        addressVoltageQuickSort(addressVoltages, j + 1, last);
-
+    while(i<j){
+      while(addressVoltages[i].addressMinusVoltage<=addressVoltages[pivot].addressMinusVoltage&&i<last)
+        i++;
+      while(addressVoltages[j].addressMinusVoltage>addressVoltages[pivot].addressMinusVoltage)
+        j--;
+      if(i<j){
+        tempAddress=addressVoltages[i].address;
+        tempVoltage=addressVoltages[i].addressMinusVoltage;
+        
+        addressVoltages[i].address=addressVoltages[j].address;
+        addressVoltages[i].addressMinusVoltage=addressVoltages[j].addressMinusVoltage;
+        
+        addressVoltages[j].address=tempAddress;
+        addressVoltages[j].addressMinusVoltage=tempVoltage;
+      }
     }
+
+    tempAddress=addressVoltages[pivot].address;
+    tempVoltage=addressVoltages[pivot].addressMinusVoltage;
+    
+    addressVoltages[pivot].address=addressVoltages[j].address;
+    addressVoltages[pivot].addressMinusVoltage=addressVoltages[j].addressMinusVoltage;
+    
+    addressVoltages[j].address=tempAddress;
+    addressVoltages[j].addressMinusVoltage=tempVoltage;
+    
+    addressVoltageQuickSort(addressVoltages,first,j-1);
+    addressVoltageQuickSort(addressVoltages,j+1,last);
+  }
+}
+
+bool Core1::addressVoltageSorter(addressVoltage const lhs, addressVoltage const rhs){
+    return (lhs.addressMinusVoltage < rhs.addressMinusVoltage);
 }
 
 // Discovery I2C devices, excluding I2C devices on PacMan
 uint8_t Core1::discoverCellMen() {
-    unsigned char* discoveredAddresses;
     uint8_t cellMenCount = 0;
 
     // Since we are using a set array size, let's initialise all values in the array to 0
@@ -204,25 +204,44 @@ void Core1::calculateTotalPackSOC() {
 // Start main loop for thread
 void Core1::start() {
     /// Initial Functions
+
+    unsigned char* celldata;
+    unsigned char* tempCellData;
+
+    // Not really needed to zero the array of structures but why not
+    for(int i = 0; i < 16; i++){
+      addressVoltages[i].address              = 0x00;
+      addressVoltages[i].addressMinusVoltage  = 0;
+    }
+
+    
     // Get all CellMan Addresses
     uint8_t numberOfDiscoveredCellMen = discoverCellMen();
-    unsigned char* celldata;
 
-    // Put together addressVoltages array by requesting data from each cellman
-    for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-        unsigned char* tempCellData = requestDataFromSlave(addresses[i]);
-
-        addressVoltages[i].address = addresses[i];
-        addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
-
+    // Loop where trying to discovery until we get some devices to prevent crashing of the CPU
+    while(numberOfDiscoveredCellMen == 0){
+        Serial.println("In the while loop, looking for CellMen");
+        numberOfDiscoveredCellMen = discoverCellMen();
     }
+
     if(DEBUG){
         Serial.print("The number of address found: ");
         Serial.println(numberOfDiscoveredCellMen);
     }
-    // Sort the addressVoltages by ascending voltages
-    addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen);
+    
+    
+    // Put together addressVoltages array by requesting data from each cellman
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
+        tempCellData = requestDataFromSlave(addresses[i]);
 
+        addressVoltages[i].address = addresses[i];
+        addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
+    }
+    
+    // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
+    addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen-1);
+    //std::sort(addressVoltages, addressVoltages+numberOfDiscoveredCellMen, &Core1::addressVoltageSorter);
+    
     /// Main Loop
     for (;;) {
         // Collect data from all the CellMen
