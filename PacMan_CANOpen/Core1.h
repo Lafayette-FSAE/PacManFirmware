@@ -1,7 +1,7 @@
 /*
-  Core0.h - Library Header for PacMan Core 1 Code.
-  Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
-  Released into the public domain.
+Core0.h - Library Header for PacMan Core 1 Code.
+Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
+Released into the public domain.
 */
 #ifndef Core1_h
 #define Core1_h
@@ -19,18 +19,9 @@
 #define DEBUG_I2C_LENGTH 22
 
 
-//typedef struct {
-//    unsigned char address;             // Holds the I2C address of this cell
-//    unsigned char* cellData;           // Holds byte array from a cell got from I2C
-//    float cellTemp;                    // Holds converted Temp float from I2C byte stream
-//    float cellVoltage;                 // Holds converted Voltage float from I2C byte stream
-//    float balanceCurrent;              // Holds converted balanceCurrent float from I2C byte stream
-//    int SOC;                           // Holds calculated SOC value for the cell
-//} cell;
-
 class Core1
 {
-  private:
+private:
     // VARIABLES
     uint8_t addresses[16];              // Hold discovered I2C Addresses
 
@@ -44,7 +35,7 @@ class Core1
     float packSOC;                      // Keeps track of the Pack's total SOC
 
     // Normal Cells Data
-    uint8_t cellPositions[16];         // Cell Position calculated from the voltages
+    uint8_t cellPositions[16];          // Cell Position calculated from the voltages
     uint16_t cellVoltages[16];          // Cell Voltage data for all cells in Pack
     uint16_t cellTemperatures[16];      // Cell Temperature data for all the cells
     uint16_t minusTerminalVoltages[16]; // Cell voltages at each cellman's minus terminal with respect to ground (which ground...?)
@@ -70,19 +61,17 @@ class Core1
     addressVoltage addressVoltages[16];
 
     // FUNCTIONS
-    void addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last);
-
-    uint8_t discoverCellMen();                                       // Discover CellMen (I2C slaves) on the I2C bus
-    unsigned char* requestDataFromSlave(uint8_t address);             // Get 12 bytes from a cellman via I2C for a certain address
-
-    void processCellData(unsigned char* cellData, uint8_t cellLocation);    // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware
-    uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);
-    void calculateTotalPackSOC();
+    void addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last); // Sorts addresses based off of their voltages using the quick-sort algorithm
+    uint8_t discoverCellMen();                                                          // Discover CellMen (I2C slaves) on the I2C bus
+    unsigned char* requestDataFromSlave(uint8_t address);                               // Request data from cellMan as defined on the google doc: https://docs.google.com/spreadsheets/d/1zBqs7dGoYIwPeB9IhqGGFGt5ZMxdNiGEKCcX30iLUWY/edit?usp=sharing
+    void processCellData(unsigned char* cellData, uint8_t cellLocation);                // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware
+    uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);                        // Returns a physical location in the pack counting up in voltage levels based off of an index. 50/50 chance it is correct due to hardware bug rn
+    void calculateTotalPackSOC();                                                       // Calculate SOC from voltage TODO: Make this more powerful
 
 
-  public:
-    Core1(CO_t *CO);
-    void start();
+public:
+    Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
+    void start();                                                                       // Main loop thread for this core - Handles initial discovery, collection of data, setting OD
 };
 
 #endif
