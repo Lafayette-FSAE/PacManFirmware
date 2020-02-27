@@ -42,11 +42,11 @@ void setupCore0() {
   pinMode(PIN_BTN_DOWN,   INPUT); //button
   pinMode(PIN_BTN_LEFT,   INPUT); //button
   pinMode(PIN_BTN_RIGHT,  INPUT); //button
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_CENTER), CButton, FALLING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP), UButton, FALLING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN), DButton, FALLING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT), LButton, FALLING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), RButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_CENTER), CButton, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP), UButton, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN), DButton, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT), LButton, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), RButton, RISING);
 }
 
 //misc configs
@@ -1403,13 +1403,13 @@ void Core0::printViewValue(Object_Dictionary od, uint8_t lastReg) {
 }
 
 Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolean direction, uint8_t lastReg) {
-  //if place = 0--100000, 1--10000, 2--1000, 3--100, 4--10
-  int temp =pow(10,(5-place));
+  //if place = 0--10^(t+4), 1--10^(t+3), 2--10^(t+2), 3--10^(t+1), 4--10^t
+  int temp =pow(10,(lastReg-place));
 //  Serial.println(temp2);
-    if      (direction &  (int)(*od.pointer / temp) % 10 != 9)  od.pointer += temp;
-    else if (direction &  (int)(*od.pointer / temp) % 10 == 9)  od.pointer -= 9 * temp;
-    else if (!direction & (int)(*od.pointer / temp) % 10 != 0)  od.pointer -= temp;
-    else if (!direction & (int)(*od.pointer / temp) % 10 == 0)  od.pointer += 9 * temp;
+    if      (direction &  (int)(*od.pointer / temp) % 10 != 9)  *od.pointer += temp;
+    else if (direction &  (int)(*od.pointer / temp) % 10 == 9)  *od.pointer -= 9 * temp;
+    else if (!direction & (int)(*od.pointer / temp) % 10 != 0)  *od.pointer -= temp;
+    else if (!direction & (int)(*od.pointer / temp) % 10 == 0)  *od.pointer += 9 * temp;
   
   printEditValue(od, place, lastReg);
   return od;
