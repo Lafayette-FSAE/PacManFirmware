@@ -809,7 +809,6 @@ struct sCO_OD_RAM{
 /*1011      */ UNSIGNED32      restoreDefaultParameters[1];
 /*1013      */ UNSIGNED32      highResolutionTimeStamp;
 /*1280      */ OD_SDOClientParameter_t SDOClientParameter[1];
-/*2000      */ UNSIGNED8       packNodeID;
 /*2001      */ BOOLEAN         SLOOP_Relay;
 /*2002      */ BOOLEAN         SLOOP1;
 /*2003      */ BOOLEAN         SLOOP2;
@@ -830,10 +829,7 @@ struct sCO_OD_RAM{
 /*2012      */ UNSIGNED8       smallestCellTemp;
 /*2013      */ UNSIGNED8       greatestCellTemp;
 /*2014      */ REAL32          averageCellTemperature;
-/*2015      */ UNSIGNED8       numberOfExpectedCells;
 /*2016      */ UNSIGNED8       numberOfDetectedCells;
-/*2017      */ UNSIGNED8       cellmanRefreshRate;
-/*2018      */ UNSIGNED8       ambientTempRefreshRate;
 /*2100      */ OCTET_STRING   errorStatusBits[10];
 /*2103      */ UNSIGNED16     SYNCCounter;
 /*2104      */ UNSIGNED16     SYNCTime;
@@ -852,14 +848,6 @@ struct sCO_OD_RAM{
 /*3006      */ UNSIGNED8       cellFlybackVoltage[16];
 /*3007      */ UNSIGNED8       cellBalancingCurrent[16];
 /*3008      */ UNSIGNED8       cellSOC[16];
-/*3009      */ UNSIGNED16      minCellVoltage[16];
-/*300a      */ UNSIGNED16      maxCellVoltage[16];
-/*300b      */ UNSIGNED8       minCellTemp[16];
-/*300c      */ UNSIGNED8       maxCellTemp[16];
-/*300d      */ UNSIGNED16      minCellCurrent[16];
-/*300e      */ UNSIGNED16      maxCellCurrent[16];
-/*300f      */ UNSIGNED16      maxCellChargeVoltage[16];
-/*3010      */ UNSIGNED8       cellSOC_Min[16];
 /*3011      */ BOOLEAN         cellSOH[16];
 /*6000      */ UNSIGNED8      readInput8Bit[8];
 /*6200      */ UNSIGNED8      writeOutput8Bit[8];
@@ -873,8 +861,20 @@ struct sCO_OD_RAM{
 struct sCO_OD_EEPROM{
                UNSIGNED32     FirstWord;
 
-/*2106      */ UNSIGNED32     powerOnCounter;
-/*2112      */ INTEGER32      variableNVInt32[16];
+/*2000      */ UNSIGNED8       packNodeID;
+/*2015      */ UNSIGNED8       numberOfExpectedCells;
+/*2017      */ UNSIGNED8       cellmanRefreshRate;
+/*2018      */ UNSIGNED8       ambientTempRefreshRate;
+/*2106      */ UNSIGNED32      powerOnCounter;
+/*2112      */ INTEGER32       variableNVInt32[16];
+/*3009      */ UNSIGNED16      minCellVoltage[16];
+/*300a      */ UNSIGNED16      maxCellVoltage[16];
+/*300b      */ UNSIGNED8       minCellTemp[16];
+/*300c      */ UNSIGNED8       maxCellTemp[16];
+/*300d      */ UNSIGNED16      minCellCurrent[16];
+/*300e      */ UNSIGNED16      maxCellCurrent[16];
+/*300f      */ UNSIGNED16      maxCellChargeVoltage[16];
+/*3010      */ UNSIGNED8       cellSOC_Min[16];
 
                UNSIGNED32     LastWord;
 };
@@ -1030,7 +1030,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
       #define OD_NMTStartup                              CO_OD_ROM.NMTStartup
 
 /*2000, Data Type: UNSIGNED8 */
-        #define OD_packNodeID                                       CO_OD_RAM.packNodeID
+        #define OD_packNodeID                                       CO_OD_EEPROM.packNodeID
 
 /*2001, Data Type: BOOLEAN */
         #define OD_SLOOP_Relay                                      CO_OD_RAM.SLOOP_Relay
@@ -1093,16 +1093,16 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define OD_averageCellTemperature                           CO_OD_RAM.averageCellTemperature
 
 /*2015, Data Type: UNSIGNED8 */
-        #define OD_numberOfExpectedCells                            CO_OD_RAM.numberOfExpectedCells
+        #define OD_numberOfExpectedCells                            CO_OD_EEPROM.numberOfExpectedCells
 
 /*2016, Data Type: UNSIGNED8 */
         #define OD_numberOfDetectedCells                            CO_OD_RAM.numberOfDetectedCells
 
 /*2017, Data Type: UNSIGNED8 */
-        #define OD_cellmanRefreshRate                               CO_OD_RAM.cellmanRefreshRate
+        #define OD_cellmanRefreshRate                               CO_OD_EEPROM.cellmanRefreshRate
 
 /*2018, Data Type: UNSIGNED8 */
-        #define OD_ambientTempRefreshRate                           CO_OD_RAM.ambientTempRefreshRate
+        #define OD_ambientTempRefreshRate                           CO_OD_EEPROM.ambientTempRefreshRate
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
@@ -1342,7 +1342,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_cellSOC_cell16                                  15
 
 /*3009, Data Type: UNSIGNED16, Array[16] */
-        #define OD_minCellVoltage                                   CO_OD_RAM.minCellVoltage
+        #define OD_minCellVoltage                                   CO_OD_EEPROM.minCellVoltage
         #define ODL_minCellVoltage_arrayLength                      16
         #define ODA_minCellVoltage_cell1                            0
         #define ODA_minCellVoltage_cell2                            1
@@ -1362,7 +1362,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_minCellVoltage_cell16                           15
 
 /*300a, Data Type: UNSIGNED16, Array[16] */
-        #define OD_maxCellVoltage                                   CO_OD_RAM.maxCellVoltage
+        #define OD_maxCellVoltage                                   CO_OD_EEPROM.maxCellVoltage
         #define ODL_maxCellVoltage_arrayLength                      16
         #define ODA_maxCellVoltage_cell1                            0
         #define ODA_maxCellVoltage_cell2                            1
@@ -1382,7 +1382,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_maxCellVoltage_cell16                           15
 
 /*300b, Data Type: UNSIGNED8, Array[16] */
-        #define OD_minCellTemp                                      CO_OD_RAM.minCellTemp
+        #define OD_minCellTemp                                      CO_OD_EEPROM.minCellTemp
         #define ODL_minCellTemp_arrayLength                         16
         #define ODA_minCellTemp_cell1                               0
         #define ODA_minCellTemp_cell2                               1
@@ -1402,7 +1402,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_minCellTemp_cell16                              15
 
 /*300c, Data Type: UNSIGNED8, Array[16] */
-        #define OD_maxCellTemp                                      CO_OD_RAM.maxCellTemp
+        #define OD_maxCellTemp                                      CO_OD_EEPROM.maxCellTemp
         #define ODL_maxCellTemp_arrayLength                         16
         #define ODA_maxCellTemp_cell1                               0
         #define ODA_maxCellTemp_cell2                               1
@@ -1422,7 +1422,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_maxCellTemp_cell16                              15
 
 /*300d, Data Type: UNSIGNED16, Array[16] */
-        #define OD_minCellCurrent                                   CO_OD_RAM.minCellCurrent
+        #define OD_minCellCurrent                                   CO_OD_EEPROM.minCellCurrent
         #define ODL_minCellCurrent_arrayLength                      16
         #define ODA_minCellCurrent_cell1                            0
         #define ODA_minCellCurrent_cell2                            1
@@ -1442,7 +1442,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_minCellCurrent_cell16                           15
 
 /*300e, Data Type: UNSIGNED16, Array[16] */
-        #define OD_maxCellCurrent                                   CO_OD_RAM.maxCellCurrent
+        #define OD_maxCellCurrent                                   CO_OD_EEPROM.maxCellCurrent
         #define ODL_maxCellCurrent_arrayLength                      16
         #define ODA_maxCellCurrent_cell1                            0
         #define ODA_maxCellCurrent_cell2                            1
@@ -1462,7 +1462,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_maxCellCurrent_cell16                           15
 
 /*300f, Data Type: UNSIGNED16, Array[16] */
-        #define OD_maxCellChargeVoltage                             CO_OD_RAM.maxCellChargeVoltage
+        #define OD_maxCellChargeVoltage                             CO_OD_EEPROM.maxCellChargeVoltage
         #define ODL_maxCellChargeVoltage_arrayLength                16
         #define ODA_maxCellChargeVoltage_cell1                      0
         #define ODA_maxCellChargeVoltage_cell2                      1
@@ -1482,7 +1482,7 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_maxCellChargeVoltage_cell16                     15
 
 /*3010, Data Type: UNSIGNED8, Array[16] */
-        #define OD_cellSOC_Min                                      CO_OD_RAM.cellSOC_Min
+        #define OD_cellSOC_Min                                      CO_OD_EEPROM.cellSOC_Min
         #define ODL_cellSOC_Min_arrayLength                         16
         #define ODA_cellSOC_Min_cell1                               0
         #define ODA_cellSOC_Min_cell2                               1

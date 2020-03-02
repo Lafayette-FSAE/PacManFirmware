@@ -14,16 +14,22 @@ class Object_Dictionary {
   public:
     int* pointer;
     char* names;
+    int value;
     uint16_t location;
     uint16_t attribute;
     uint16_t index;
     uint8_t subindex;
+    uint16_t lengths;
     Object_Dictionary(uint16_t index1, uint8_t sub_index) {
       CO_LOCK_OD();
       index = index1;
       subindex = sub_index;
       location = CO_OD_find((CO_SDO_t*)CO->SDO[0], index);
       pointer =  (int*)CO_OD_getDataPointer((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      lengths = CO_OD_getLength((CO_SDO_t *) CO->SDO[0], location, sub_index);
+      //depending on length, pointer val gets the value--print pointer val but still keep pointer??
+      if (lengths == 1)value = *pointer & 0x000000FF;
+      else if (lengths == 2) value = *pointer & 0x0000FFFF;
       names = CO_OD_getName((CO_SDO_t *) CO->SDO[0], location, sub_index);
       attribute = CO_OD_getAttribute((CO_SDO_t *) CO->SDO[0], location, sub_index);
       CO_UNLOCK_OD();

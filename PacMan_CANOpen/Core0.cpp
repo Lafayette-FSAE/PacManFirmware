@@ -331,7 +331,7 @@ void Core0::fsm() {
               regNumb-= 0x2000;
               nextState = Reg_Not_Found;
             }
-            else if (od.attribute == 0x0e) nextState = Edit_Value;
+            else if (od.attribute == 0x0f || od.attribute == 0x8f) nextState = Edit_Value;
             else nextState = View_Value;
           }
           else if (regnum == 4) nextState = Main; //exits function if on home button
@@ -342,12 +342,14 @@ void Core0::fsm() {
           uint8_t regnum = chooseRegister();
           if (regnum == 3) {
             regNumb = 0x3000 + (regista[0] * 100) + (regista[1] * 10) + regista[2];
-            Object_Dictionary od1(regNumb, 0);
+            Object_Dictionary od1(regNumb, main_index-1);
+            Serial.print("attr: ");
+            Serial.println(od1.attribute);
             if (od1.location == 0xFFFF) {
               regNumb-= 0x3000;
               nextState = Reg_Not_Found;
             }
-            else if (od1.attribute == 0x8e) nextState = Edit_Cell_Value;
+            else if (od1.attribute == 0x0f || od1.attribute == 0x8f) nextState = Edit_Cell_Value;
             else nextState = View_Cell_Value;
           }
           else if (regnum == 4) nextState = Main; //exits function if on home button
@@ -1201,22 +1203,22 @@ void Core0::printEditValue(Object_Dictionary od, uint8_t reg, uint8_t lastReg) {
   display.setFont(f);
   display.setCursor(65, 80); //hundreds
   Serial.print("value: ");
-  Serial.println(*od.pointer);
+  Serial.println(od.value);
   //value in mV so place times 1000
-  display.print((int)((*od.pointer / (int)pow(10,conversion+4)) % 10));
+  display.print((int)((od.value / (int)pow(10,conversion+4)) % 10));
   display.setCursor(95, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+3)) % 10)); //tens
+  display.print((int)((od.value / (int)pow(10,conversion+3)) % 10)); //tens
   display.setCursor(125, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+2)) % 10)); //ones
+  display.print((int)((od.value / (int)pow(10,conversion+2)) % 10)); //ones
   if (lastReg>=3){
   display.setCursor(155, 80);
   display.print("."); //decimal
   display.setCursor(170, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+1)) % 10)); //tenths
+  display.print((int)((od.value / (int)pow(10,conversion+1)) % 10)); //tenths
   }
   if (lastReg==4){
   display.setCursor(200, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion)) % 10)); //hundredths
+  display.print((int)((od.value / (int)pow(10,conversion)) % 10)); //hundredths
   }
 
   if (reg == 0) display.fillRect(65, 84, 20, 2, GxEPD_BLACK);
@@ -1235,7 +1237,7 @@ int8_t Core0::convert(uint16_t index){
       || index == 0x3006 || index == 0x3009 || index == 0x300a 
       || index == 0x300f) conversion = 1; 
   if (index == 0x2006 || index == 0x200d || index == 0x3007        //current
-      || index == 0x300d || index == 0x300e) conversion = 1; 
+      || index == 0x300d || index == 0x300e) conversion = 0; 
   if (index == 0x200e || index == 0x2012 || index == 0x2013        //temp
       || index == 0x2014 || index == 0x3003 || index == 0x300b
       || index == 0x300c) conversion = -1; 
@@ -1259,12 +1261,8 @@ void Core0::editValue(uint8_t regista[], boolean state, uint8_t cellNum) {
   uint8_t lastReg = 4 + conversion;
   if (lastReg > 4) lastReg = 4;
   
-  Serial.print("cellNum ");
-  Serial.println(cellNum);
   Object_Dictionary od(index, cellNum);
-  if (!state) od.names = 'Cell #' + cellNum + '- ' + od.names;
-  Serial.println(od.names);
-  int original = *od.pointer;
+    int original = *od.pointer;
     boolean confirmed = false;
     printEditValue(od, 0, lastReg);
     centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
@@ -1378,23 +1376,23 @@ void Core0::printViewValue(Object_Dictionary od, uint8_t lastReg) {
   f = &FreeSansBold24pt7b;  //set font
   display.setFont(f);
   display.setCursor(65, 80); //hundreds
-  Serial.print("value: ");
-  Serial.println(*od.pointer);
+  Serial.print("view value: ");
+  Serial.println(od.value);
   //value in mV so place times 1000
-  display.print((int)((*od.pointer / (int)pow(10,conversion+4)) % 10));
+  display.print((int)((od.value / (int)pow(10,conversion+4)) % 10));
   display.setCursor(95, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+3)) % 10)); //tens
+  display.print((int)((od.value / (int)pow(10,conversion+3)) % 10)); //tens
   display.setCursor(125, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+2)) % 10)); //ones
+  display.print((int)((od.value / (int)pow(10,conversion+2)) % 10)); //ones
   if(lastReg >=3){
   display.setCursor(155, 80);
   display.print("."); //decimal
   display.setCursor(170, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion+1)) % 10)); //tenths
+  display.print((int)((od.value / (int)pow(10,conversion+1)) % 10)); //tenths
   }
   if (lastReg == 4){
   display.setCursor(200, 80);
-  display.print((int)((*od.pointer / (int)pow(10,conversion)) % 10)); //hundredths
+  display.print((int)((od.value / (int)pow(10,conversion)) % 10)); //hundredths
   }
   
   display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
@@ -1406,10 +1404,10 @@ Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolea
   //if place = 0--10^(t+4), 1--10^(t+3), 2--10^(t+2), 3--10^(t+1), 4--10^t
   int temp =pow(10,(lastReg-place));
 //  Serial.println(temp2);
-    if      (direction &  (int)(*od.pointer / temp) % 10 != 9)  *od.pointer += temp;
-    else if (direction &  (int)(*od.pointer / temp) % 10 == 9)  *od.pointer -= 9 * temp;
-    else if (!direction & (int)(*od.pointer / temp) % 10 != 0)  *od.pointer -= temp;
-    else if (!direction & (int)(*od.pointer / temp) % 10 == 0)  *od.pointer += 9 * temp;
+    if      (direction &  (int)(od.value / temp) % 10 != 9)  *od.pointer += temp;
+    else if (direction &  (int)(od.value / temp) % 10 == 9)  *od.pointer -= 9 * temp;
+    else if (!direction & (int)(od.value / temp) % 10 != 0)  *od.pointer -= temp;
+    else if (!direction & (int)(od.value / temp) % 10 == 0)  *od.pointer += 9 * temp;
   
   printEditValue(od, place, lastReg);
   return od;

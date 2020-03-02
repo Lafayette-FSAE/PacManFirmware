@@ -865,6 +865,7 @@ uint16_t CO_OD_find(CO_SDO_t *SDO, uint16_t index);
  * @return Data length of the variable.
  */
 uint16_t CO_OD_getLength(CO_SDO_t *SDO, uint16_t entryNo, uint8_t subIndex);
+
 char* CO_OD_getName(CO_SDO_t *SDO, uint16_t entryNo, uint8_t subIndex);
 
 /**
