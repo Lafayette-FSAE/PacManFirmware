@@ -32,8 +32,10 @@ TaskHandle_t Task1;
 
 static bool test_set_bits;
 static bool test_clear_bits;
+
 /* CAN interrupt function *****************************************************/
-void /* interrupt */ CO_CAN0InterruptHandler() {
+// TODO: Test if this is 1ms or not
+void IRAM_ATTR /* interrupt */ CO_CAN0InterruptHandler(void *para) {
   Serial.println("Interrupt Called!");
   CO_CANinterrupt(CO->CANmodule[0]);
   /* clear interrupt flag */
@@ -74,7 +76,7 @@ static void setup_timer(void)
   /*Enable timer interrupt*/
   timer_enable_intr(timer_group, timer_idx);
   /*Set ISR handler*/
-  timer_isr_register(timer_group, timer_idx, timer_group0_isr, (void*) timer_idx, ESP_INTR_FLAG_IRAM, NULL);
+  timer_isr_register(timer_group, timer_idx, CO_CAN0InterruptHandler, (void*) timer_idx, ESP_INTR_FLAG_IRAM, NULL);
   /*Start timer counter*/
   timer_start(timer_group, timer_idx);
 }
@@ -127,7 +129,7 @@ void setup() {
     reset = CO_RESET_NOT;
     timer1msPrevious = CO_timer1ms;
 
-    
+
     //Serial.println((int)(timererr==ESP_OK));
     while (reset == CO_RESET_NOT) {
       /* loop for normal program execution ******************************************/
@@ -141,13 +143,7 @@ void setup() {
       reset = CO_process(CO, timer1msDiff, NULL);
 
       /* Nonblocking application code may go here. */
-      CO_LOCK_OD();
-      if (cnt == 1000) {
-        OD_cellVoltage[0]++;
-        //CO_CAN0InterruptHandler();
-        cnt = 0;
-      }
-      CO_UNLOCK_OD();
+
 
       /* Process EEPROM */
     }

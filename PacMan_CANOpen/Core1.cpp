@@ -174,7 +174,7 @@ void Core1::calculateTotalPackSOC() {
 
 // Start main loop for thread
 void Core1::start() {
-  /// Initial Functions
+  ///// Initial Functions
 
   unsigned char* tempCellData;
 
@@ -213,7 +213,7 @@ void Core1::start() {
   // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
   addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
 
-  /// Main Loop
+  ///// Main Loop
   for (;;) {
     // Collect data from all the CellMen
     for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
