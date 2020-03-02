@@ -117,36 +117,6 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
     if (DEBUG) Serial.println("Wire Available!");
       for (int i = 0; i < REQUEST_LENGTH; i++) {
         *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-<<<<<<< HEAD
-=======
-        if (DEBUG) {  Serial.print(cellDs[i], HEX);       // Print the character (byte) in HEX
-                      Serial.print(", ");
-          //Serial.println(cellDs[i], DEC);       // Print the character (byte) in DEC
-        }
-      }
-      if (DEBUG) {Serial.println();}
-      cellD = cellDs;
-    } else if (debugFlag == 0x01) {
-      unsigned char cellData[DEBUG_I2C_LENGTH];
-      cellData[0] = debugFlag;
-      for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
-        *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) {
-          Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-          //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
-        }
-      }
-      cellD = cellData;
-    } else {
-      Serial.println("Error on the Debug byte! Don't know length to expect. Returning 24 bytes");
-      Serial.print("debugFlag is: ");
-      Serial.println(debugFlag, HEX);
-
-      unsigned char cellData[DEBUG_I2C_LENGTH];
-      cellData[0] = 0x01;
-      for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
-        *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
->>>>>>> 3fe9277b70450e1143deea803289cacc9d375ac4
         if (DEBUG) {
             Serial.println(cellDs[i], HEX);              // Print the character (byte) in HEX
             Serial.println(cellDs[i], DEC);              // Print the character (byte) in DEC
