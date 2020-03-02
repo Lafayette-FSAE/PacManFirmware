@@ -107,71 +107,28 @@ uint8_t Core1::discoverCellMen() {
 
 // Request byte array from specified CellMan I2C address
 unsigned char* Core1::requestDataFromSlave(unsigned char address) {
-  Wire.requestFrom((int) address, 24); // 24 is the max data length expected in bytes
+  Wire.requestFrom((int) address, REQUEST_LENGTH); // 24 is the max data length expected in bytes
   if (DEBUG) {
     Serial.print("Requesting data from CellMan on Address: ");
     Serial.println(address);
   }
-  unsigned char* cellD = &address;
+
   if (Wire.available()) {
     if (DEBUG) Serial.println("Wire Available!");
-    unsigned char debugFlag = Wire.read();
-
-//    if (debugFlag == 0x00) {
-      if(1){
-      //unsigned char cellData[NORMAL_I2C_LENGTH];
-      cellDs[0] = debugFlag;
-      for (int i = 1; i < NORMAL_I2C_LENGTH; i++) {
+      for (int i = 0; i < REQUEST_LENGTH; i++) {
         *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) {  Serial.println(cellDs[i], HEX);       // Print the character (byte) in HEX
-          //Serial.println(cellDs[i], DEC);       // Print the character (byte) in DEC
-        }
-      }
-      cellD = cellDs;
-    } else if (debugFlag == 0x01) {
-      unsigned char cellData[DEBUG_I2C_LENGTH];
-      cellData[0] = debugFlag;
-      for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
-        *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
         if (DEBUG) {
-          Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-          //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
+            Serial.println(cellDs[i], HEX);              // Print the character (byte) in HEX
+            Serial.println(cellDs[i], DEC);              // Print the character (byte) in DEC
         }
       }
-      cellD = cellData;
-    } else {
-      Serial.println("Error on the Debug byte! Don't know length to expect. Returning 24 bytes");
-      Serial.print("debugFlag is: ");
-      Serial.println(debugFlag, HEX);
-
-      unsigned char cellData[DEBUG_I2C_LENGTH];
-      cellData[0] = 0x01;
-      for (int i = 1; i < DEBUG_I2C_LENGTH; i++) {
-        *(cellData + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) {
-          Serial.println(cellData[i], HEX);       // Print the character (byte) in HEX
-          //Serial.println(cellData[i], DEC);       // Print the character (byte) in DEC
-        }
-      }
-      cellD = cellData;
-    }
   }
-//  for (int i = 0; i < 9; i++) {
-//    Serial.print("cell data at ");
-//    Serial.println(i);
-//    Serial.println(cellD[i]);
-//  }
-  return cellD;
+
+  return cellDs;
 }
 
 
 void Core1::processCellData(unsigned char* cellData, uint8_t cellPhysicalLocation) {
-  // Process the data differently depending on cellData[0] which is the debugFlag
-//  for (int i = 0; i < 9; i++) {
-//    Serial.print("cell data at to be processed");
-//    Serial.println(i);
-//    Serial.println(cellData[i]);
-//  }
   cellPositions[cellPhysicalLocation]          = cellPhysicalLocation;
   cellVoltages[cellPhysicalLocation]           = (uint16_t)((cellData[2] << 8) + cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
   cellTemperatures[cellPhysicalLocation]       = (uint16_t)((cellData[4] << 8) + cellData[3]);
@@ -180,7 +137,7 @@ void Core1::processCellData(unsigned char* cellData, uint8_t cellPhysicalLocatio
 
 
   // If we are in I2C Debug Mode
-  if (cellData[0] == 0x01) {
+  if (DEBUG) {
     LEDStatuses[cellPhysicalLocation]          = (bool)cellData[9];
     balanceStatuses[cellPhysicalLocation]      = (bool)cellData[10];
     balanceDutyCycles[cellPhysicalLocation]    = (uint8_t)cellData[10];

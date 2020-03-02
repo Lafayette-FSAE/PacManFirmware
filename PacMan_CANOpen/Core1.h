@@ -15,8 +15,13 @@ Released into the public domain.
 #include "CANopen.h"
 
 #define DEBUG true
-#define NORMAL_I2C_LENGTH 9
-#define DEBUG_I2C_LENGTH 22
+
+#if DEBUG == true
+    #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not working
+#else
+    #define REQUEST_LENGTH 22
+#endif
+
 
 
 class Core1
@@ -24,7 +29,7 @@ class Core1
 private:
     // VARIABLES
     uint8_t addresses[16];              // Hold discovered I2C Addresses
-    unsigned char cellDs[NORMAL_I2C_LENGTH];
+    unsigned char cellDs[REQUEST_LENGTH];
 
     unsigned char I2CError;             // Holds potential error when discoverying I2C devices
     float dischargeCurrent;             // Holds currently read discharge current from I2C sensor
