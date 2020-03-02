@@ -86,7 +86,7 @@ void setup() {
   /* Configure microcontroller. */
     xTaskCreatePinnedToCore(&codeForTask0,"Core0Task",10000,NULL,1,&Task0,0);
     delay(500);
- //   xTaskCreatePinnedToCore(&codeForTask1,"Core1Task",10000,NULL,1,&Task1,0);
+    xTaskCreatePinnedToCore(&codeForTask1,"Core1Task",10000,NULL,1,&Task1,0);
 
 
   /* initialize EEPROM */

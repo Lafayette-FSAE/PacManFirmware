@@ -24,9 +24,9 @@ class Core1
 private:
     // VARIABLES
     uint8_t addresses[16];              // Hold discovered I2C Addresses
+    unsigned char cellDs[NORMAL_I2C_LENGTH];
 
     unsigned char I2CError;             // Holds potential error when discoverying I2C devices
-
     float dischargeCurrent;             // Holds currently read discharge current from I2C sensor
     unsigned long oldTime;              // Holds previous time in microseconds for integration
     unsigned long newTime;              // Holds current time in microseconds for integration
