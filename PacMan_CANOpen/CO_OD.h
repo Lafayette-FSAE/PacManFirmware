@@ -841,12 +841,12 @@ struct sCO_OD_RAM{
 /*2130      */ OD_time_t      time;
 /*3000      */ UNSIGNED8       I2C_Address[16];
 /*3001      */ UNSIGNED8       cellPosition[16];
-/*3002      */ UNSIGNED8       cellVoltage[16];
-/*3003      */ UNSIGNED8       cellTemperature[16];
-/*3004      */ UNSIGNED8       minusTerminalVoltage[16];
+/*3002      */ UNSIGNED16      cellVoltage[16];
+/*3003      */ UNSIGNED16      cellTemperature[16];
+/*3004      */ UNSIGNED16      minusTerminalVoltage[16];
 /*3005      */ BOOLEAN         cellBalancingEnabled[16];
 /*3006      */ UNSIGNED8       cellFlybackVoltage[16];
-/*3007      */ UNSIGNED8       cellBalancingCurrent[16];
+/*3007      */ UNSIGNED16      cellBalancingCurrent[16];
 /*3008      */ UNSIGNED8       cellSOC[16];
 /*3011      */ BOOLEAN         cellSOH[16];
 /*6000      */ UNSIGNED8      readInput8Bit[8];
