@@ -259,13 +259,15 @@ void Core0::fsm() {
 
           voltage1 = 0; current1 = 0; temp1 = 0; soc_test = 0;
           for (int i = 0; i < NUM_CELLS; i++) {
-            voltage1 += OD_cellVoltage[i]/1000.0;
-            current1 += OD_cellBalancingCurrent[i]/1000.0;
-            temp1 = max(temp1, (float)OD_cellTemperature[i])/10.0;
+            voltage1 += OD_cellVoltage[i];
+            current1 += OD_cellBalancingCurrent[i];
+            temp1 = max(temp1, (float)OD_cellTemperature[i]);
             soc_test += OD_cellSOC[i];
           }
-          current1 = current1 / NUM_CELLS;
+          voltage1 = voltage1 / 1000.0;
+          current1 = current1 / (1000.0 * NUM_CELLS);
           soc_test = soc_test / NUM_CELLS;
+          temp1 = temp1 / 10.0;
           mainPartialUpdate(temp1, soc_test, voltage1, current1, main_index);
         }
         break;
@@ -1404,7 +1406,8 @@ void Core0::printViewValue(Object_Dictionary od, int8_t conversion) {
 
 Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolean direction, int8_t conversion) {
   //if place = 0--10^(t+4), 1--10^(t+3), 2--10^(t+2), 3--10^(t+1), 4--10^t
-  int temp =pow(10,conversion);
+  int temp2 = 4-place;
+  int temp =pow(10,conversion+temp2);
   if (od.lengths == 1)od.value = *od.pointer & 0x000000FF;
   else if (od.lengths == 2)od.value = *od.pointer & 0x0000FFFF;
 //  Serial.println(temp2);

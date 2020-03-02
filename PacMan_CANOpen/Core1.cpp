@@ -123,10 +123,12 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
       cellDs[0] = debugFlag;
       for (int i = 1; i < NORMAL_I2C_LENGTH; i++) {
         *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) {  Serial.println(cellDs[i], HEX);       // Print the character (byte) in HEX
+        if (DEBUG) {  Serial.print(cellDs[i], HEX);       // Print the character (byte) in HEX
+                      Serial.print(", ");
           //Serial.println(cellDs[i], DEC);       // Print the character (byte) in DEC
         }
       }
+      if (DEBUG) {Serial.println();}
       cellD = cellDs;
     } else if (debugFlag == 0x01) {
       unsigned char cellData[DEBUG_I2C_LENGTH];
