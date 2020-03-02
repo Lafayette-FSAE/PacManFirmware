@@ -104,10 +104,10 @@ class Core0
 
     void editValue(uint8_t reg[], boolean state, uint8_t cellNum);
     void viewValue(uint8_t reg[], boolean state, uint8_t cellNum);
-    void printEditValue(Object_Dictionary od, uint8_t reg, uint8_t lastReg);
-    void printViewValue(Object_Dictionary od, uint8_t lastReg);
+    void printEditValue(Object_Dictionary od, uint8_t reg, int8_t lastReg);
+    void printViewValue(Object_Dictionary od, int8_t lastReg);
     int8_t convert(uint16_t index);
-    Object_Dictionary updateValue(Object_Dictionary od, uint8_t place, boolean direction, uint8_t lastReg);
+    Object_Dictionary updateValue(Object_Dictionary od, uint8_t place, boolean direction, int8_t lastReg);
     void moveEdit(uint8_t reg);
 
     void regNotFound(uint16_t regNumb);
