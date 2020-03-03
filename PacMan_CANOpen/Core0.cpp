@@ -27,7 +27,6 @@
 GxIO_Class io(SPI, PIN_DISP_CS, PIN_DISP_DC, PIN_DISP_RST);
 GxEPD_Class display(io, PIN_DISP_RST, PIN_DISP_BUSY);
 
-#define NUM_CELLS 16
 
 void setupCore0() {
 

@@ -215,10 +215,10 @@ uint8_t Core1::discoverCellMen() {
         // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
         addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
 
-
+        bool charge;
         ///// Main Loop
         for (;;) {
-             //Collect data from all the CellMen
+            //Collect data from all the CellMen
             if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
                 // Update CellMan Code
                 for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
@@ -252,12 +252,44 @@ uint8_t Core1::discoverCellMen() {
                 }
                 CO_UNLOCK_OD();
             }
-
+            
             if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
+                charge = true;
+                Serial.println("Detected Charging thing!");
+                for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
+                    
+                    if(OD_cellVoltage[i] > OD_maxCellVoltage[i]){
+                        Serial.println("----Voltage----");
+                        Serial.println(OD_maxCellVoltage[i]);
+                        Serial.println(OD_cellVoltage[i]);
+                        charge = false;
+                    }
+
+                    // Current max value of 168 is too low for 251 (25.1C)
+//                    if(OD_maxCellTemp[i]<OD_cellTemperature[i]){
+//                        Serial.println("----Temperature----");
+//                        Serial.println(OD_maxCellTemp[i]);
+//                        Serial.println(OD_cellTemperature[i]);
+//                        
+//                        charge = false;
+//                    }
+                }
                 
+                // TODO: Prevent inverted state from occuring when lowering voltage when connector is in and then unplugging
+                if(charge == true){
+                    if(digitalRead(PIN_CHRG_EN) == LOW){ // It's not already on, e.g. we've plugged the cable in
+                      digitalWrite(PIN_CHRG_EN, HIGH);
+                      
+                    }else{ // The state changed because we removed the connector
+                      digitalWrite(PIN_CHRG_EN, LOW);
+                    }
+                    
+                }else{
+                    digitalWrite(PIN_CHRG_EN, LOW);
+                }
             }
 
             // High Priority Main Loop Code Here -- If empty put a fucking delay you faff
-          delay(100);
+            delay(100);
         }
     }

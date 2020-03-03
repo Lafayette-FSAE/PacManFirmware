@@ -15,7 +15,7 @@ Released into the public domain.
 #include "CANopen.h"
 #include "driver/timer.h"
 
-#define DEBUG true
+#define DEBUG false
 
 #if DEBUG == true
     #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not working
