@@ -38,12 +38,10 @@ class Object_Dictionary {
 
 typedef struct 
 {
- uint8_t maxCellTemp;
- uint16_t maxCellVoltage;
- uint16_t minCellVoltage;
- uint16_t maxCellChargeVoltage;
- uint8_t cellSOH;
-} Original;
+  String message;
+  boolean enabled;
+  boolean triggered;
+} Fault;
 
 void listOfConfigs();
 
@@ -77,22 +75,12 @@ class Core0
     void checkCells(uint8_t currentCell);
     void cellPartialUpdate(int errorType, int cellNum);
     void checkForFaults(uint8_t currentCell);
-    void faults(int errorType);
+    void faults(uint8_t errorType, uint8_t cellNum);
 
     //main cell and configuration screens
     void mainConfigScreen();
     void mainCellScreen(uint8_t main_index);
     void configPartial(boolean index);
-
-    //cell configuration screen
-//    void defaultCellConfigs();
-//    void defineCellConfigs(int maxTemp, float maxV, float minV, float maxCV, boolean soh, int index);
-    void cellConfigs(uint8_t cellNum);
-    void updateCellConfig(uint8_t cellNum, uint8_t cellConfig, boolean direction);
-    void cellChangeBack(uint8_t cellNum, uint8_t cellConfig, Original original);
-    void printCellConfigs(uint8_t cellNum);
-    void printCellConfigs2(uint8_t cellNum, uint8_t config_num);
-    void moveCellConfig(uint8_t cellConfig);
 
     //cell data screen
     void cellData(uint8_t cellNum);

@@ -76,7 +76,7 @@ static void setup_timer(void)
   /*Enable timer interrupt*/
   timer_enable_intr(timer_group, timer_idx);
   /*Set ISR handler*/
-  timer_isr_register(timer_group, timer_idx, CO_CAN0InterruptHandler, (void*) timer_idx, ESP_INTR_FLAG_IRAM, NULL);
+  timer_isr_register(timer_group, timer_idx, timer_group0_isr, (void*) timer_idx, ESP_INTR_FLAG_IRAM, NULL);
   /*Start timer counter*/
   timer_start(timer_group, timer_idx);
 }
