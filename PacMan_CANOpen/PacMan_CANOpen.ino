@@ -9,6 +9,12 @@
 #define TMR_TASK_INTERVAL   (1000)          /* Interval of tmrTask thread in microseconds */
 #define INCREMENT_1MS(var)  (var++)         /* Increment 1ms variable in tmrTask */
 
+#define TIMER_INTR_SEL TIMER_INTR_LEVEL  /*!< Timer level interrupt */
+#define TIMER_DIVIDER   80               /*!< Hardware timer clock divider, 80 to get 1MHz clock to timer */
+#define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value BASE CLK is 80MHz */
+#define TIMER_FINE_ADJ   (0*(TIMER_BASE_CLK / TIMER_DIVIDER)/1000000) /*!< used to compensate alarm value */
+#define TIMER_INTERVAL0_SEC   (0.001)    /*!< test interval for timer 0 CANopen */
+#define TIMER_INTERVAL1_SEC   (0.1)      /*!< test interval for timer 1 I2C */
 /**
    User-defined CAN base structure, passed as argument to CO_init.
 */
@@ -18,17 +24,12 @@ struct CANbase {
 
 /* Global variables and objects */
 volatile uint16_t   CO_timer1ms = 0U;   /* variable increments each millisecond */
+volatile SemaphoreHandle_t* I2C_InterrupterSemaphore;
+
 CO_NMT_reset_cmd_t reset;
 uint16_t timer1msPrevious;
 TaskHandle_t Task0;
 TaskHandle_t Task1;
-
-#define TIMER_INTR_SEL TIMER_INTR_LEVEL  /*!< Timer level interrupt */
-#define TIMER_GROUP    TIMER_GROUP_0     /*!< Test on timer group 0 */
-#define TIMER_DIVIDER   80               /*!< Hardware timer clock divider, 80 to get 1MHz clock to timer */
-#define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value */
-#define TIMER_FINE_ADJ   (0*(TIMER_BASE_CLK / TIMER_DIVIDER)/1000000) /*!< used to compensate alarm value */
-#define TIMER_INTERVAL0_SEC   (0.001)   /*!< test interval for timer 0 */
 
 static bool test_set_bits;
 static bool test_clear_bits;
@@ -49,13 +50,50 @@ void IRAM_ATTR timer_group0_isr(void *para) { // timer group 0, ISR
     TIMERG0.hw_timer[timer_idx].update = 1;
     TIMERG0.int_clr_timers.t0 = 1;
     TIMERG0.hw_timer[timer_idx].config.alarm_en = 1;
-    gpio_set_level(GPIO_NUM_16, cnt % 2);
     cnt++;
   }
 }
 
-static void setup_timer(void)
-{
+void IRAM_ATTR I2C_Interrupter(void *para){
+        int timer_idx = (int) para;
+      uint32_t intr_status = TIMERG0.int_st_timers.val;
+      if ((intr_status & BIT(timer_idx)) && timer_idx == TIMER_1) {
+        TIMERG0.hw_timer[timer_idx].update = 1;
+        TIMERG0.int_clr_timers.t1 = 1;
+        TIMERG0.hw_timer[timer_idx].config.alarm_en = 1;
+        cnt++;
+      }
+    xSemaphoreGiveFromISR(*I2C_InterrupterSemaphore, NULL);
+}
+
+void setup_I2C_timer(void){
+    timer_group_t timer_group = TIMER_GROUP_0;
+    timer_idx_t timer_idx = TIMER_1;
+    timer_config_t config;
+    config.alarm_en = 1;
+    config.auto_reload = 1;
+    config.counter_dir = TIMER_COUNT_UP;
+    config.divider = TIMER_DIVIDER;
+    config.intr_type = TIMER_INTR_SEL;
+    config.counter_en = TIMER_PAUSE;
+    /*Configure timer*/
+    timer_init(timer_group, timer_idx, &config);
+    /*Stop timer counter*/
+    timer_pause(timer_group, timer_idx);
+    /*Load counter value */
+    timer_set_counter_value(timer_group, timer_idx, 0x00000000ULL);
+    /*Set alarm value*/
+    timer_set_alarm_value(timer_group, timer_idx, (TIMER_INTERVAL1_SEC * TIMER_SCALE) - TIMER_FINE_ADJ);
+    /*Enable timer interrupt*/
+    timer_enable_intr(timer_group, timer_idx);
+    /*Set ISR handler*/
+    timer_isr_register(timer_group, timer_idx, I2C_Interrupter, (void*) timer_idx, ESP_INTR_FLAG_IRAM, NULL);
+    /*Start timer counter*/
+    timer_start(timer_group, timer_idx);
+}
+
+// 1ms
+static void setup_timer(void){
   timer_group_t timer_group = TIMER_GROUP_0;
   timer_idx_t timer_idx = TIMER_0;
   timer_config_t config;
@@ -119,7 +157,8 @@ void setup() {
 
     /* Configure Timer interrupt function for execution every 1 millisecond */
     setup_timer();
-    Serial.println("Setup timer");
+    setup_I2C_timer();
+    Serial.println("Setup timers");
 
     /* Configure CAN transmit and receive interrupt */
     Serial.println("Before start can");
@@ -161,6 +200,7 @@ void codeForTask0( void * parameter )
 
 void codeForTask1( void * parameter ){
   Core1 core1=Core1((CO_t*)parameter);
+  I2C_InterrupterSemaphore = &core1.I2C_InterrupterSemaphore;
   for(;;){
     Serial.println("task1");
     delay(250);

@@ -13,6 +13,7 @@ Released into the public domain.
 #include "gpio.h"
 #include "Arduino.h"
 #include "CANopen.h"
+#include "driver/timer.h"
 
 #define DEBUG true
 
@@ -23,9 +24,7 @@ Released into the public domain.
 #endif
 
 
-
-class Core1
-{
+class Core1{
 private:
     // VARIABLES
     uint8_t addresses[16];              // Hold discovered I2C Addresses
@@ -78,6 +77,8 @@ private:
 public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
     void start();                                                                       // Main loop thread for this core - Handles initial discovery, collection of data, setting OD
+    volatile SemaphoreHandle_t I2C_InterrupterSemaphore;
+
 };
 
 #endif
