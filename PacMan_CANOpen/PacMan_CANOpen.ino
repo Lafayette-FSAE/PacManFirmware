@@ -25,6 +25,7 @@ struct CANbase {
 /* Global variables and objects */
 volatile uint16_t   CO_timer1ms = 0U;   /* variable increments each millisecond */
 volatile SemaphoreHandle_t* I2C_InterrupterSemaphore;
+volatile SemaphoreHandle_t* chargeDetectSemaphore;
 
 CO_NMT_reset_cmd_t reset;
 uint16_t timer1msPrevious;
@@ -64,6 +65,11 @@ void IRAM_ATTR I2C_Interrupter(void *para){
         cnt++;
       }
     xSemaphoreGiveFromISR(*I2C_InterrupterSemaphore, NULL);
+}
+
+void IRAM_ATTR chargeDetectInt()
+{
+	xSemaphoreGiveFromISR(*chargeDetectSemaphore, NULL);
 }
 
 void setup_I2C_timer(void){
@@ -160,6 +166,10 @@ void setup() {
     setup_I2C_timer();
     Serial.println("Setup timers");
 
+    // Setup interrupts
+    attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),  chargeDetectInt, CHANGE);
+
+
     /* Configure CAN transmit and receive interrupt */
     Serial.println("Before start can");
     /* start CAN */
@@ -201,6 +211,7 @@ void codeForTask0( void * parameter )
 void codeForTask1( void * parameter ){
   Core1 core1=Core1((CO_t*)parameter);
   I2C_InterrupterSemaphore = &core1.I2C_InterrupterSemaphore;
+  chargeDetectSemaphore = &core1.chargeDetectSemaphore;
   for(;;){
     Serial.println("task1");
     delay(250);

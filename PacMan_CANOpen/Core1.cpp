@@ -11,6 +11,7 @@ Released into the public domain.
 Core1::Core1(CO_t *CO) {
     // TODO: Move this to the top-level
     I2C_InterrupterSemaphore = xSemaphoreCreateBinary();
+    chargeDetectSemaphore = xSemaphoreCreateBinary();
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
     totalMAH = 0;
 }
@@ -250,6 +251,10 @@ uint8_t Core1::discoverCellMen() {
                     }
                 }
                 CO_UNLOCK_OD();
+            }
+
+            if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
+                
             }
 
             // High Priority Main Loop Code Here -- If empty put a fucking delay you faff

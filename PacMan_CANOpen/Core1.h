@@ -78,7 +78,7 @@ public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
     void start();                                                                       // Main loop thread for this core - Handles initial discovery, collection of data, setting OD
     volatile SemaphoreHandle_t I2C_InterrupterSemaphore;
-
+    volatile SemaphoreHandle_t chargeDetectSemaphore;
 };
 
 #endif
