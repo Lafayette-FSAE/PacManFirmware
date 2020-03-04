@@ -31,16 +31,16 @@ CO_NMT_reset_cmd_t reset;
 uint16_t timer1msPrevious;
 TaskHandle_t Task0;
 TaskHandle_t Task1;
+TaskHandle_t tmrTask_thread1;
 
 static bool test_set_bits;
 static bool test_clear_bits;
 
 /* CAN interrupt function *****************************************************/
 // TODO: Test if this is 1ms or not
-void IRAM_ATTR /* interrupt */ CO_CAN0InterruptHandler(void *para) {
+void CO_CAN0InterruptHandler(void *para) {
     Serial.println("Interrupt Called!");
     CO_CANinterrupt(CO->CANmodule[0]);
-    /* clear interrupt flag */
 }
 
 volatile int cnt = 0;
@@ -174,13 +174,12 @@ void setup() {
 
 
         /* Configure Timer interrupt function for execution every 1 millisecond */
-        setup_timer();
+        //setup_timer();
         setup_I2C_timer();
         Serial.println("Setup timers");
 
         // Setup interrupts
         attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),  chargeDetectInt, CHANGE);
-
 
         /* Configure CAN transmit and receive interrupt */
         Serial.println("Before start can");
@@ -190,6 +189,7 @@ void setup() {
         reset = CO_RESET_NOT;
         timer1msPrevious = CO_timer1ms;
 
+        xTaskCreatePinnedToCore(&tmrTask_thread,"tmrTask_thread",10000,NULL,1,&tmrTask_thread1,0);
 
         //Serial.println((int)(timererr==ESP_OK));
         while (reset == CO_RESET_NOT) {
@@ -239,7 +239,7 @@ void loop() {
 }
 
 /* timer thread executes in constant intervals ********************************/
-static void tmrTask_thread(void) {
+static void tmrTask_thread(void * parameter ) {
 
     for (;;) {
 
@@ -249,6 +249,8 @@ static void tmrTask_thread(void) {
 
         if (CO->CANmodule[0]->CANnormal) {
             bool_t syncWas;
+            
+            CO_CANinterrupt(CO->CANmodule[0]);
 
             /* Process Sync */
             syncWas = CO_process_SYNC(CO, TMR_TASK_INTERVAL);
@@ -266,5 +268,6 @@ static void tmrTask_thread(void) {
                 CO_errorReport(CO->em, CO_EM_ISR_TIMER_OVERFLOW, CO_EMC_SOFTWARE_INTERNAL, 0U);
             }
         }
+        delay(1);
     }
 }
