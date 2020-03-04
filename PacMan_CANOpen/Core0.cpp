@@ -27,10 +27,12 @@
 GxIO_Class io(SPI, PIN_DISP_CS, PIN_DISP_DC, PIN_DISP_RST);
 GxEPD_Class display(io, PIN_DISP_RST, PIN_DISP_BUSY);
 
-
+uint8_t rotation = 45;
 void setupCore0() {
 
   display.init();
+  
+  if(OD_displayOrientation) rotation = 0;
 
   const GFXfont* f = &FreeSansBold9pt7b;
   display.setFont(f);
@@ -449,10 +451,10 @@ boolean Core0::confirm() {
 }
 
 void Core0::setUpMain() {
-  display.setRotation(0);
+  display.setRotation(rotation-45);
   display.drawExampleBitmap(gImage_new_main, 0, 0, 128, 296, GxEPD_BLACK);
 
-  display.setRotation(45);
+  display.setRotation(rotation);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
 
@@ -473,7 +475,7 @@ void Core0::setUpMain() {
   display.print(fault_string);
   display.update();
   display.update();
-  display.setRotation(45);
+  display.setRotation(rotation);
 }
 
 void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr, uint8_t main_index)
@@ -481,7 +483,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
   display.setTextColor(GxEPD_BLACK);
-  display.setRotation(45);
+  display.setRotation(rotation);
 
   String temp = String(String(temperature, 1) + " C"); //convert to strings
   String voltage = String(String(volt, 1) + " V");

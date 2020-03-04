@@ -414,6 +414,9 @@
 /*2018 */
         #define OD_2018_ambientTempRefreshRate                      0x2018
 
+/*2019 */
+        #define OD_2019_displayOrientation                          0x2019
+
 /*3000 */
         #define OD_3000_I2C_Address                                 0x3000
 
@@ -865,6 +868,7 @@ struct sCO_OD_EEPROM{
 /*2015      */ UNSIGNED8       numberOfExpectedCells;
 /*2017      */ UNSIGNED8       cellmanRefreshRate;
 /*2018      */ UNSIGNED8       ambientTempRefreshRate;
+/*2019      */ BOOLEAN         displayOrientation;
 /*2106      */ UNSIGNED32      powerOnCounter;
 /*2112      */ INTEGER32       variableNVInt32[16];
 /*3009      */ UNSIGNED16      minCellVoltage[16];
@@ -1103,6 +1107,9 @@ extern struct sCO_OD_ROM CO_OD_ROM;
 
 /*2018, Data Type: UNSIGNED8 */
         #define OD_ambientTempRefreshRate                           CO_OD_EEPROM.ambientTempRefreshRate
+
+/*2019, Data Type: BOOLEAN */
+        #define OD_displayOrientation                               CO_OD_EEPROM.displayOrientation
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
