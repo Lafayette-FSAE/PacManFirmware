@@ -382,14 +382,14 @@ void Core0::fsm() {
             Serial.println("up/left");
             if (charge_index != 0) charge_index -= 1;
             else charge_index = 2;
-            chargePartial(charge_index);
+            faultDisablePartial(charge_index);
           }
           else if (downPress || rightPress) {
             downPress = false; rightPress = false;
             Serial.println("downright");
             if (charge_index != 2) charge_index += 1;
             else charge_index = 0;
-            chargePartial(charge_index);
+            faultDisablePartial(charge_index);
           }
           else if (state != Charging) {
             charge_index = 0;
@@ -1130,7 +1130,8 @@ void Core0::chargeScreen() {
   display.updateWindow(5, 5, 118, 286, false);
 }
 
-void Core0::chargePartial(uint8_t charge_index) {
+
+void Core0::faultDisablePartial(uint8_t charge_index) {
   //change position of bullet point
   uint8_t x_point = 20;
   uint8_t y_point = 75;
