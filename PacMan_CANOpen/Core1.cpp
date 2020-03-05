@@ -6,6 +6,11 @@ Released into the public domain.
 #include "Core1.h"
 
 
+void openSafetyLoopCallBack(TimerHandle_t pxTimer){
+    digitalWrite(PIN_SLOOP_EN,   LOW);
+    OD_SLOOP_Relay = false;
+    Serial.println("SAFETY LOOP CLOSED!");
+}
 
 // CONSTRUCTOR
 Core1::Core1(CO_t *CO) {
@@ -14,6 +19,47 @@ Core1::Core1(CO_t *CO) {
     chargeDetectSemaphore = xSemaphoreCreateBinary();
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
     totalMAH = 0;
+
+    underVoltageTimer = xTimerCreate(
+                                      /* Just a text name, not used by the RTOS kernel. */
+                                      "underVoltageTimer",
+                                      /* The timer period in ticks. From Time To Trigger *1000 for ms */
+                                      pdMS_TO_TICKS(TTT*1000),
+                                      /* The timer is a one-shot timer. */
+                                      pdFALSE,
+                                      /* The id is not used by the callback so can take any
+                                      value. */
+                                      0,
+                                      /* The callback function that switches the LCD back-light
+                                      off. */
+                                      openSafetyLoopCallBack);
+
+    overVoltageTimer = xTimerCreate(
+                                    /* Just a text name, not used by the RTOS kernel. */
+                                    "overVoltageTimer",
+                                    /* The timer period in ticks. From Time To Trigger *1000 for ms */
+                                    pdMS_TO_TICKS(TTT*1000),
+                                    /* The timer is a one-shot timer. */
+                                    pdFALSE,
+                                    /* The id is not used by the callback so can take any
+                                    value. */
+                                    0,
+                                    /* The callback function that switches the LCD back-light
+                                    off. */
+                                    openSafetyLoopCallBack);
+    overTemperatureTimer = xTimerCreate(
+                                      /* Just a text name, not used by the RTOS kernel. */
+                                      "overTemperatureTimer",
+                                      /* The timer period in ticks. From Time To Trigger *1000 for ms */
+                                      pdMS_TO_TICKS(TTT*1000),
+                                      /* The timer is a one-shot timer. */
+                                      pdFALSE,
+                                      /* The id is not used by the callback so can take any
+                                      value. */
+                                      0,
+                                      /* The callback function that switches the LCD back-light
+                                      off. */
+                                      openSafetyLoopCallBack);
 }
 
 
@@ -153,6 +199,70 @@ uint8_t Core1::discoverCellMen() {
         }
     }
 
+    void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
+        tempUV = false;
+        tempOV = false;
+        tempOT = false;
+        int i;
+        
+        CO_LOCK_OD();
+        for(i = 0; i < numberOfDiscoveredCellMen; i++){
+            // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
+            if(cellVoltages[i] < OD_minCellVoltage[i]){
+                tempUV = true;
+            }
+            if(cellVoltages[i] > OD_maxCellVoltage[i]){
+                tempOV = true;
+            }
+            if(cellTemperatures[i] > OD_maxCellTemp[i]){
+                tempOT = true;
+            }
+        }
+        CO_UNLOCK_OD();
+
+        // At least 1 cell was found below the voltage threshold - start undervoltage counter
+        if(tempUV){
+            if(xTimerStart(underVoltageTimer, 0) != pdPASS ){
+                /* The timer could not be set into the Active state. */
+                Serial.println("Could not start underVoltage Timer");
+            }else{
+                Serial.println("underVoltage Timer as begun!");
+            }
+        // No cells were found below the minimum voltage - stop and reset counter
+        }else{
+            xTimerStop(underVoltageTimer, 0);
+            xTimerReset(underVoltageTimer, 0);
+        }
+
+        // At least 1 cell was found above the voltage threshold - start overvoltage counter
+        if(tempOV){
+            if(xTimerStart(overVoltageTimer, 0) != pdPASS ){
+                /* The timer could not be set into the Active state. */
+                Serial.println("Could not start overVoltage Timer");
+            }else{
+                Serial.println("overVoltage Timer as begun!");
+            }
+        // No cells were found above the maximum voltage - stop and reset counter
+        }else{
+            xTimerStop(overVoltageTimer, 0);
+            xTimerReset(overVoltageTimer, 0);
+        }
+
+        // At least 1 cell temp was found above the temp threshold - start overTemperature counter
+        if(tempOT){
+            if(xTimerStart(overTemperatureTimer, 0) != pdPASS ){
+                /* The timer could not be set into the Active state. */
+                Serial.println("Could not start overTemperature Timer");
+            }else{
+                Serial.println("overTemperature Timer as begun!");
+            }
+        // No cell temps were found above the maximum temp - stop and reset counter
+        }else{
+            xTimerStop(overTemperatureTimer, 0);
+            xTimerReset(overTemperatureTimer, 0);
+        }
+    }
+
     // Maps the arrayIndex to a physical cell location in the packs (since we can't tell between segments right now) by saying the second instance of a same voltage potential cell is in the other segment
     uint8_t Core1::physicalLocationFromSortedArray(uint8_t arrayIndex) {
         uint8_t physicalAddress;
@@ -218,12 +328,14 @@ uint8_t Core1::discoverCellMen() {
         bool charge;
         ///// Main Loop
         for (;;) {
-            //Collect data from all the CellMen
+
+            //Collect data from all the CellMen & Update Object Dictionary Interrupt
             if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
                 // Update CellMan Code
                 for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
                     unsigned char* celldata = requestDataFromSlave(addressVoltages[i].address);
                     processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
+                    checkSafety(numberOfDiscoveredCellMen);
                 }
 
                 // Update the Object Dictionary Here
@@ -252,12 +364,14 @@ uint8_t Core1::discoverCellMen() {
                 }
                 CO_UNLOCK_OD();
             }
-            
+
+            // Charge detect interrupt
             if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
                 charge = true;
                 Serial.println("Detected Charging thing!");
                 for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-                    
+
+                    CO_LOCK_OD();
                     if(OD_cellVoltage[i] > OD_maxCellVoltage[i]){
                         Serial.println("----Voltage----");
                         Serial.println(OD_maxCellVoltage[i]);
@@ -270,20 +384,21 @@ uint8_t Core1::discoverCellMen() {
 //                        Serial.println("----Temperature----");
 //                        Serial.println(OD_maxCellTemp[i]);
 //                        Serial.println(OD_cellTemperature[i]);
-//                        
+//
 //                        charge = false;
 //                    }
                 }
-                
+                CO_UNLOCK_OD();
+
                 // TODO: Prevent inverted state from occuring when lowering voltage when connector is in and then unplugging
                 if(charge == true){
                     if(digitalRead(PIN_CHRG_EN) == LOW){ // It's not already on, e.g. we've plugged the cable in
                       digitalWrite(PIN_CHRG_EN, HIGH);
-                      
+
                     }else{ // The state changed because we removed the connector
                       digitalWrite(PIN_CHRG_EN, LOW);
                     }
-                    
+
                 }else{
                     digitalWrite(PIN_CHRG_EN, LOW);
                 }

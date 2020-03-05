@@ -16,6 +16,8 @@ Released into the public domain.
 #include "driver/timer.h"
 
 #define DEBUG false
+// TTT =  Time To Trip in seconds
+#define TTT 30
 
 #if DEBUG == true
     #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not working
@@ -23,6 +25,7 @@ Released into the public domain.
     #define REQUEST_LENGTH 22
 #endif
 
+static void openSafetyLoopCallBack(TimerHandle_t pxTimer);
 
 class Core1{
 private:
@@ -37,6 +40,13 @@ private:
     int totalMAH;                       // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
     float packSOC;                      // Keeps track of the Pack's total SOC
+
+    bool tempUV;
+    bool tempOV;
+    bool tempOT;
+    TimerHandle_t underVoltageTimer;
+    TimerHandle_t overVoltageTimer;
+    TimerHandle_t overTemperatureTimer;
 
     // Normal Cells Data
     uint8_t cellPositions[16];          // Cell Position calculated from the voltages
@@ -70,6 +80,7 @@ private:
     uint8_t discoverCellMen();                                                          // Discover CellMen (I2C slaves) on the I2C bus
     unsigned char* requestDataFromSlave(uint8_t address);                               // Request data from cellMan as defined on the google doc: https://docs.google.com/spreadsheets/d/1zBqs7dGoYIwPeB9IhqGGFGt5ZMxdNiGEKCcX30iLUWY/edit?usp=sharing
     void processCellData(unsigned char* cellData, uint8_t cellLocation);                // Insert cellData values into the appropriate arrays depending on i2c debug flag and calculates the proper position inside based off of voltage -- Will need to be adjusted with the new hardware
+    void checkSafety(uint8_t numberOfDiscoveredCellMen);
     uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);                        // Returns a physical location in the pack counting up in voltage levels based off of an index. 50/50 chance it is correct due to hardware bug rn
     void calculateTotalPackSOC();                                                       // Calculate SOC from voltage TODO: Make this more powerful
 

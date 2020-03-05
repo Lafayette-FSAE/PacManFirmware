@@ -140,12 +140,17 @@ void setup() {
     pinMode(PIN_CHRG_EN,    OUTPUT);
     pinMode(PIN_WATCHDOG,   OUTPUT);
 
+
     // Set default values for GPIO
     digitalWrite(PIN_LED_GREEN,  LOW);
     digitalWrite(PIN_LED_ORANGE, LOW);
     digitalWrite(PIN_SLOOP_EN,   HIGH);
+    OD_SLOOP_Relay = true;
+    
     digitalWrite(PIN_CHRG_EN,    LOW);
     digitalWrite(PIN_WATCHDOG,   LOW);
+
+    digitalWrite(PIN_LED_ORANGE,  HIGH);
 
     /* initialize EEPROM */
     // initialize EEPROM with predefined size
@@ -249,7 +254,7 @@ static void tmrTask_thread(void * parameter ) {
 
         if (CO->CANmodule[0]->CANnormal) {
             bool_t syncWas;
-            
+
             CO_CANinterrupt(CO->CANmodule[0]);
 
             /* Process Sync */
