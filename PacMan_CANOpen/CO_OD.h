@@ -54,7 +54,7 @@
 
 /*******************************************************************************
    FILE INFO:
-      FileName:     
+      FileName:
       FileVersion:  1
       CreationTime: 7:35PM
       CreationDate: 02-09-2020
@@ -172,7 +172,7 @@
 /*******************************************************************************
    TYPE DEFINITIONS FOR OBJECT DICTIONARY INDEXES
 
-   some of those are redundant with CO_SDO.h CO_ObjDicId_t <Common CiA301 object 
+   some of those are redundant with CO_SDO.h CO_ObjDicId_t <Common CiA301 object
    dictionary entries>
 *******************************************************************************/
 /*1000 */
@@ -416,6 +416,12 @@
 
 /*2019 */
         #define OD_2019_displayOrientation                          0x2019
+
+/*201A */
+        #define OD_201A_fault                                       0x201A
+
+/*201B */
+        #define OD_201B_warning                                     0x201B
 
 /*3000 */
         #define OD_3000_I2C_Address                                 0x3000
@@ -819,8 +825,8 @@ struct sCO_OD_RAM{
 /*2005      */ REAL32          packVoltage;
 /*2006      */ REAL32          packDischargeCurrent;
 /*2007      */ UNSIGNED8       packSOC;
-/*2019      */ UNSIGNED8       fault;
-/*201A      */ UNSIGNED8       warning;
+/*201A      */ UNSIGNED8       fault;
+/*201B      */ UNSIGNED8       warning;
 /*2008      */ BOOLEAN         chargeCableDetected;
 /*2009      */ BOOLEAN         chargingEnabled;
 /*200a      */ REAL32          packChargeCurrent;
@@ -1110,16 +1116,14 @@ extern struct sCO_OD_ROM CO_OD_ROM;
 /*2018, Data Type: UNSIGNED8 */
         #define OD_ambientTempRefreshRate                           CO_OD_EEPROM.ambientTempRefreshRate
 
-<<<<<<< HEAD
-/*2019, Data Type: UNSIGNED8 */
-        #define OD_fault                                            CO_OD_RAM.fault
-
-/*201A, Data Type: UNSIGNED8 */
-        #define OD_warning                                          CO_OD_RAM.warning
-=======
 /*2019, Data Type: BOOLEAN */
         #define OD_displayOrientation                               CO_OD_EEPROM.displayOrientation
->>>>>>> a52dd8c5222ec24965c847dc9e8fb9f65e826627
+
+/*201A, Data Type: UNSIGNED8 */
+        #define OD_fault                                            CO_OD_RAM.fault
+
+/*201B, Data Type: UNSIGNED8 */
+        #define OD_warning                                          CO_OD_RAM.warning
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
