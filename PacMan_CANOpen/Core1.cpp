@@ -115,13 +115,13 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
 
   if (Wire.available()) {
     if (DEBUG) Serial.println("Wire Available!");
-      for (int i = 0; i < REQUEST_LENGTH; i++) {
-        *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
-        if (DEBUG) {
-            Serial.println(cellDs[i], HEX);              // Print the character (byte) in HEX
-            Serial.println(cellDs[i], DEC);              // Print the character (byte) in DEC
-        }
+    for (int i = 0; i < REQUEST_LENGTH; i++) {
+      *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
+      if (DEBUG) {
+        Serial.println(cellDs[i], HEX);              // Print the character (byte) in HEX
+        Serial.println(cellDs[i], DEC);              // Print the character (byte) in DEC
       }
+    }
   }
 
   return cellDs;
@@ -182,8 +182,8 @@ void Core1::start() {
   for (int i = 0; i < 16; i++) {
     addressVoltages[i].address              = 0x00;
     addressVoltages[i].addressMinusVoltage  = 0;
-    cellPositions[i]=i;
-    minusTerminalVoltages[i]=0;
+    cellPositions[i] = i;
+    minusTerminalVoltages[i] = 0;
   }
 
 
@@ -224,26 +224,26 @@ void Core1::start() {
     // Update the Object Dictionary Here
     CO_LOCK_OD();
     for (int i = 0; i < 16; i++) {
-      if( minusTerminalVoltages[i]!=0){
-      OD_cellPosition[i]         = cellPositions[i];
-      //Serial.print("The number of address found: ");
-      //Serial.println(OD_cellPosition[i]);
-      OD_cellVoltage[i]          = cellVoltages[i];
-      //Serial.print("The number of OD_cellVoltage found: ");
-      //Serial.println(OD_cellVoltage[i]);
-      OD_cellTemperature[i]      = cellTemperatures[i];
-      //Serial.print("The number of OD_cellTemperature found: ");
-      //Serial.println(OD_cellTemperature[i]);
-      OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
-      //Serial.print("The number of OD_minusTerminalVoltage found: ");
-      //Serial.println(OD_minusTerminalVoltage[i]);
-      OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
-      //Serial.print("The number of OD_cellBalancingEnabled found: ");
-      //Serial.println(OD_cellBalancingEnabled[i]);
-      OD_cellBalancingCurrent[i] = cellBalanceCurrents[i];
-      //Serial.print("The number of OD_cellBalancingCurrent found: ");
-      //Serial.println(OD_cellBalancingCurrent[i]);
-    }
+      if ( minusTerminalVoltages[i] != 0) {
+        OD_cellPosition[i]         = cellPositions[i];
+        //Serial.print("The number of address found: ");
+        //Serial.println(OD_cellPosition[i]);
+        OD_cellVoltage[i]          = cellVoltages[i];
+        //Serial.print("The number of OD_cellVoltage found: ");
+        //Serial.println(OD_cellVoltage[i]);
+        OD_cellTemperature[i]      = cellTemperatures[i];
+        //Serial.print("The number of OD_cellTemperature found: ");
+        //Serial.println(OD_cellTemperature[i]);
+        OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
+        //Serial.print("The number of OD_minusTerminalVoltage found: ");
+        //Serial.println(OD_minusTerminalVoltage[i]);
+        OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
+        //Serial.print("The number of OD_cellBalancingEnabled found: ");
+        //Serial.println(OD_cellBalancingEnabled[i]);
+        OD_cellBalancingCurrent[i] = cellBalanceCurrents[i];
+        //Serial.print("The number of OD_cellBalancingCurrent found: ");
+        //Serial.println(OD_cellBalancingCurrent[i]);
+      }
     }
     CO_UNLOCK_OD();
 

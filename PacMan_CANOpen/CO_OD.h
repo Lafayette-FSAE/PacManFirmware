@@ -816,6 +816,8 @@ struct sCO_OD_RAM{
 /*2005      */ REAL32          packVoltage;
 /*2006      */ REAL32          packDischargeCurrent;
 /*2007      */ UNSIGNED8       packSOC;
+/*2019      */ UNSIGNED8       fault;
+/*201A      */ UNSIGNED8       warning;
 /*2008      */ BOOLEAN         chargeCableDetected;
 /*2009      */ BOOLEAN         chargingEnabled;
 /*200a      */ REAL32          packChargeCurrent;
@@ -1103,6 +1105,12 @@ extern struct sCO_OD_ROM CO_OD_ROM;
 
 /*2018, Data Type: UNSIGNED8 */
         #define OD_ambientTempRefreshRate                           CO_OD_EEPROM.ambientTempRefreshRate
+
+/*2019, Data Type: UNSIGNED8 */
+        #define OD_fault                                            CO_OD_RAM.fault
+
+/*201A, Data Type: UNSIGNED8 */
+        #define OD_warning                                          CO_OD_RAM.warning
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
