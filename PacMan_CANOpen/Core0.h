@@ -102,7 +102,7 @@ class Core0
 
     //charge screen
     void chargeScreen();
-    void chargePartial(uint8_t charge_index);
+    void faultDisablePartial(uint8_t charge_index);
 };
 
 #endif

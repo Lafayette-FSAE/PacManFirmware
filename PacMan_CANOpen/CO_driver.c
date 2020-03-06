@@ -253,8 +253,9 @@ CO_ReturnError_t CO_CANsend(CO_CANmodule_t *CANmodule, CO_CANtx_t *buffer) {
 
   for (int i = 0; i < CAN_FRAME_MAX_DLC; i++) {
     message.data[i] = buffer->data[i];
-    printf("\nMessage Print: %u ", message.data[i]);
+    printf("Message Contents: %u \n", message.data[i]);
   }
+  
   CO_LOCK_CAN_SEND();
   /* if CAN TX buffer is free, copy message to it */
   if (1 && CANmodule->CANtxCount == 0) {
@@ -264,7 +265,7 @@ CO_ReturnError_t CO_CANsend(CO_CANmodule_t *CANmodule, CO_CANtx_t *buffer) {
     if (can_transmit(&message, pdMS_TO_TICKS(1000)) == ESP_OK) {
       printf("Message queued for transmission\n");
     } else {
-      printf("Failed to queue message for transmission\n");
+      printf("\nFailed to queue message for transmission\n");
     }
   }
   /* if no buffer is free, message will be sent by interrupt */

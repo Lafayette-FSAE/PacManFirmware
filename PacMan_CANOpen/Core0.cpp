@@ -27,11 +27,12 @@
 GxIO_Class io(SPI, PIN_DISP_CS, PIN_DISP_DC, PIN_DISP_RST);
 GxEPD_Class display(io, PIN_DISP_RST, PIN_DISP_BUSY);
 
-#define NUM_CELLS 16
-
+uint8_t rotation = 45;
 void setupCore0() {
 
   display.init();
+  
+  if(OD_displayOrientation) rotation = 0;
 
   const GFXfont* f = &FreeSansBold9pt7b;
   display.setFont(f);
@@ -381,14 +382,14 @@ void Core0::fsm() {
             Serial.println("up/left");
             if (charge_index != 0) charge_index -= 1;
             else charge_index = 2;
-            chargePartial(charge_index);
+            faultDisablePartial(charge_index);
           }
           else if (downPress || rightPress) {
             downPress = false; rightPress = false;
             Serial.println("downright");
             if (charge_index != 2) charge_index += 1;
             else charge_index = 0;
-            chargePartial(charge_index);
+            faultDisablePartial(charge_index);
           }
           else if (state != Charging) {
             charge_index = 0;
@@ -450,10 +451,10 @@ boolean Core0::confirm() {
 }
 
 void Core0::setUpMain() {
-  display.setRotation(0);
+  display.setRotation(rotation-45);
   display.drawExampleBitmap(gImage_new_main, 0, 0, 128, 296, GxEPD_BLACK);
 
-  display.setRotation(45);
+  display.setRotation(rotation);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
 
@@ -474,7 +475,7 @@ void Core0::setUpMain() {
   display.print(fault_string);
   display.update();
   display.update();
-  display.setRotation(45);
+  display.setRotation(rotation);
 }
 
 void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float curr, uint8_t main_index)
@@ -482,7 +483,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
   display.setTextColor(GxEPD_BLACK);
-  display.setRotation(45);
+  display.setRotation(rotation);
 
   String temp = String(String(temperature, 1) + " C"); //convert to strings
   String voltage = String(String(volt, 1) + " V");
@@ -1129,7 +1130,8 @@ void Core0::chargeScreen() {
   display.updateWindow(5, 5, 118, 286, false);
 }
 
-void Core0::chargePartial(uint8_t charge_index) {
+
+void Core0::faultDisablePartial(uint8_t charge_index) {
   //change position of bullet point
   uint8_t x_point = 20;
   uint8_t y_point = 75;
