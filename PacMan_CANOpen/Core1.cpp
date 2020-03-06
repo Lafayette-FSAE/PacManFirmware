@@ -204,7 +204,7 @@ uint8_t Core1::discoverCellMen() {
         tempOV = false;
         tempOT = false;
         int i;
-        
+
         CO_LOCK_OD();
         for(i = 0; i < numberOfDiscoveredCellMen; i++){
             // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
@@ -222,11 +222,13 @@ uint8_t Core1::discoverCellMen() {
 
         // At least 1 cell was found below the voltage threshold - start undervoltage counter
         if(tempUV){
-            if(xTimerStart(underVoltageTimer, 0) != pdPASS ){
-                /* The timer could not be set into the Active state. */
-                Serial.println("Could not start underVoltage Timer");
-            }else{
-                Serial.println("underVoltage Timer as begun!");
+            if(xTimerIsTimerActive(underVoltageTimer) == pdFALSE){
+                if(xTimerStart(underVoltageTimer, 0) != pdPASS ){
+                    /* The timer could not be set into the Active state. */
+                    Serial.println("Could not start underVoltage Timer");
+                }else{
+                    Serial.println("underVoltage Timer as begun!");
+                }
             }
         // No cells were found below the minimum voltage - stop and reset counter
         }else{
@@ -236,11 +238,13 @@ uint8_t Core1::discoverCellMen() {
 
         // At least 1 cell was found above the voltage threshold - start overvoltage counter
         if(tempOV){
-            if(xTimerStart(overVoltageTimer, 0) != pdPASS ){
-                /* The timer could not be set into the Active state. */
-                Serial.println("Could not start overVoltage Timer");
-            }else{
-                Serial.println("overVoltage Timer as begun!");
+            if(xTimerIsTimerActive(overVoltageTimer) == pdFALSE){ // Check to see if the timer has not been started yet, we don't want to start an already started timer
+                if(xTimerStart(overVoltageTimer, 0) != pdPASS ){
+                    /* The timer could not be set into the Active state. */
+                    Serial.println("Could not start overVoltage Timer");
+                }else{
+                    Serial.println("overVoltage Timer as begun!");
+                }
             }
         // No cells were found above the maximum voltage - stop and reset counter
         }else{
@@ -250,11 +254,13 @@ uint8_t Core1::discoverCellMen() {
 
         // At least 1 cell temp was found above the temp threshold - start overTemperature counter
         if(tempOT){
-            if(xTimerStart(overTemperatureTimer, 0) != pdPASS ){
-                /* The timer could not be set into the Active state. */
-                Serial.println("Could not start overTemperature Timer");
-            }else{
-                Serial.println("overTemperature Timer as begun!");
+            if(xTimerIsTimerActive(overTemperatureTimer) == pdFALSE){
+                if(xTimerStart(overTemperatureTimer, 0) != pdPASS ){
+                    /* The timer could not be set into the Active state. */
+                    Serial.println("Could not start overTemperature Timer");
+                }else{
+                    Serial.println("overTemperature Timer as begun!");
+                }
             }
         // No cell temps were found above the maximum temp - stop and reset counter
         }else{
