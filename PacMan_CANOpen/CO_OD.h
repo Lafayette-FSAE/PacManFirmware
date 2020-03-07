@@ -417,12 +417,6 @@
 /*2019 */
         #define OD_2019_displayOrientation                          0x2019
 
-/*201A */
-        #define OD_201A_fault                                       0x201A
-
-/*201B */
-        #define OD_201B_warning                                     0x201B
-
 /*3000 */
         #define OD_3000_I2C_Address                                 0x3000
 
@@ -801,6 +795,47 @@
         #define OD_3011_15_cellSOH_cell15                           15
         #define OD_3011_16_cellSOH_cell16                           16
 
+/*3012 */
+        #define OD_3012_fault                                       0x3012
+
+        #define OD_3012_0_fault_maxSubIndex                         0
+        #define OD_3012_1_fault_cell1                               1
+        #define OD_3012_2_fault_cell2                               2
+        #define OD_3012_3_fault_cell3                               3
+        #define OD_3012_4_fault_cell4                               4
+        #define OD_3012_5_fault_cell5                               5
+        #define OD_3012_6_fault_cell6                               6
+        #define OD_3012_7_fault_cell7                               7
+        #define OD_3012_8_fault_cell8                               8
+        #define OD_3012_9_fault_cell9                               9
+        #define OD_3012_10_fault_cell10                             10
+        #define OD_3012_11_fault_cell11                             11
+        #define OD_3012_12_fault_cell12                             12
+        #define OD_3012_13_fault_cell13                             13
+        #define OD_3012_14_fault_cell14                             14
+        #define OD_3012_15_fault_cell15                             15
+        #define OD_3012_16_fault_cell16                             16
+
+/*3013 */
+        #define OD_3013_warning                                     0x3013
+
+        #define OD_3013_0_warning_maxSubIndex                       0
+        #define OD_3013_1_warning_cell1                             1
+        #define OD_3013_2_warning_cell2                             2
+        #define OD_3013_3_warning_cell3                             3
+        #define OD_3013_4_warning_cell4                             4
+        #define OD_3013_5_warning_cell5                             5
+        #define OD_3013_6_warning_cell6                             6
+        #define OD_3013_7_warning_cell7                             7
+        #define OD_3013_8_warning_cell8                             8
+        #define OD_3013_9_warning_cell9                             9
+        #define OD_3013_10_warning_cell10                           10
+        #define OD_3013_11_warning_cell11                           11
+        #define OD_3013_12_warning_cell12                           12
+        #define OD_3013_13_warning_cell13                           13
+        #define OD_3013_14_warning_cell14                           14
+        #define OD_3013_15_warning_cell15                           15
+        #define OD_3013_16_warning_cell16                           16
 /*******************************************************************************
    STRUCTURES FOR VARIABLES IN DIFFERENT MEMORY LOCATIONS
 *******************************************************************************/
@@ -822,24 +857,22 @@ struct sCO_OD_RAM{
 /*2002      */ BOOLEAN         SLOOP1;
 /*2003      */ BOOLEAN         SLOOP2;
 /*2004      */ BOOLEAN         AIRS;
-/*2005      */ REAL32          packVoltage;
-/*2006      */ REAL32          packDischargeCurrent;
+/*2005      */ UNSIGNED16      packVoltage;
+/*2006      */ UNSIGNED16      packDischargeCurrent;
 /*2007      */ UNSIGNED8       packSOC;
-/*201A      */ UNSIGNED8       fault;
-/*201B      */ UNSIGNED8       warning;
 /*2008      */ BOOLEAN         chargeCableDetected;
 /*2009      */ BOOLEAN         chargingEnabled;
-/*200a      */ REAL32          packChargeCurrent;
+/*200a      */ UNSIGNED16      packChargeCurrent;
 /*200b      */ UNSIGNED32      chargeTime;
 /*200c      */ UNSIGNED32      timeSinceLastCharge;
-/*200d      */ UNSIGNED8       pacManTSV_Current;
-/*200e      */ UNSIGNED8       packAmbientTemperature;
-/*200f      */ UNSIGNED8       smallestCellVoltage;
-/*2010      */ UNSIGNED8       greatestCellVoltage;
-/*2011      */ UNSIGNED8       averageCellVoltage;
-/*2012      */ UNSIGNED8       smallestCellTemp;
-/*2013      */ UNSIGNED8       greatestCellTemp;
-/*2014      */ REAL32          averageCellTemperature;
+/*200d      */ UNSIGNED16      pacManTSV_Current;
+/*200e      */ UNSIGNED16      packAmbientTemperature;
+/*200f      */ UNSIGNED16      smallestCellVoltage;
+/*2010      */ UNSIGNED16      greatestCellVoltage;
+/*2011      */ UNSIGNED16      averageCellVoltage;
+/*2012      */ UNSIGNED16      smallestCellTemp;
+/*2013      */ UNSIGNED16      greatestCellTemp;
+/*2014      */ UNSIGNED16      averageCellTemperature;
 /*2016      */ UNSIGNED8       numberOfDetectedCells;
 /*2100      */ OCTET_STRING   errorStatusBits[10];
 /*2103      */ UNSIGNED16     SYNCCounter;
@@ -856,14 +889,16 @@ struct sCO_OD_RAM{
 /*3003      */ UNSIGNED16      cellTemperature[16];
 /*3004      */ UNSIGNED16      minusTerminalVoltage[16];
 /*3005      */ BOOLEAN         cellBalancingEnabled[16];
-/*3006      */ UNSIGNED8       cellFlybackVoltage[16];
+/*3006      */ UNSIGNED16      cellFlybackVoltage[16];
 /*3007      */ UNSIGNED16      cellBalancingCurrent[16];
 /*3008      */ UNSIGNED8       cellSOC[16];
 /*3011      */ BOOLEAN         cellSOH[16];
-/*6000      */ UNSIGNED8      readInput8Bit[8];
-/*6200      */ UNSIGNED8      writeOutput8Bit[8];
-/*6401      */ INTEGER16      readAnalogueInput16Bit[12];
-/*6411      */ INTEGER16      writeAnalogueOutput16Bit[8];
+/*3012      */ UNSIGNED8       fault[16];
+/*3013      */ UNSIGNED8       warning[16];
+/*6000      */ UNSIGNED8       readInput8Bit[8];
+/*6200      */ UNSIGNED8       writeOutput8Bit[8];
+/*6401      */ INTEGER16       readAnalogueInput16Bit[12];
+/*6411      */ INTEGER16       writeAnalogueOutput16Bit[8];
 
                UNSIGNED32     LastWord;
 };
@@ -1118,12 +1153,6 @@ extern struct sCO_OD_ROM CO_OD_ROM;
 
 /*2019, Data Type: BOOLEAN */
         #define OD_displayOrientation                               CO_OD_EEPROM.displayOrientation
-
-/*201A, Data Type: UNSIGNED8 */
-        #define OD_fault                                            CO_OD_RAM.fault
-
-/*201B, Data Type: UNSIGNED8 */
-        #define OD_warning                                          CO_OD_RAM.warning
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
@@ -1541,6 +1570,46 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_cellSOH_cell14                                  13
         #define ODA_cellSOH_cell15                                  14
         #define ODA_cellSOH_cell16                                  15
+
+/*3012, Data Type: UNSIGNED8, Array[16] */
+        #define OD_fault                                            CO_OD_RAM.fault
+        #define ODL_fault_arrayLength                               16
+        #define ODA_fault_cell1                                     0
+        #define ODA_fault_cell2                                     1
+        #define ODA_fault_cell3                                     2
+        #define ODA_fault_cell4                                     3
+        #define ODA_fault_cell5                                     4
+        #define ODA_fault_cell6                                     5
+        #define ODA_fault_cell7                                     6
+        #define ODA_fault_cell8                                     7
+        #define ODA_fault_cell9                                     8
+        #define ODA_fault_cell10                                    9
+        #define ODA_fault_cell11                                    10
+        #define ODA_fault_cell12                                    11
+        #define ODA_fault_cell13                                    12
+        #define ODA_fault_cell14                                    13
+        #define ODA_fault_cell15                                    14
+        #define ODA_fault_cell16                                    15
+
+/*3013, Data Type: UNSIGNED8, Array[16] */
+        #define OD_warning                                          CO_OD_RAM.warning
+        #define ODL_warning_arrayLength                             16
+        #define ODA_warning_cell1                                   0
+        #define ODA_warning_cell2                                   1
+        #define ODA_warning_cell3                                   2
+        #define ODA_warning_cell4                                   3
+        #define ODA_warning_cell5                                   4
+        #define ODA_warning_cell6                                   5
+        #define ODA_warning_cell7                                   6
+        #define ODA_warning_cell8                                   7
+        #define ODA_warning_cell9                                   8
+        #define ODA_warning_cell10                                  9
+        #define ODA_warning_cell11                                  10
+        #define ODA_warning_cell12                                  11
+        #define ODA_warning_cell13                                  12
+        #define ODA_warning_cell14                                  13
+        #define ODA_warning_cell15                                  14
+        #define ODA_warning_cell16                                  15        
 
 
 /*6000, Data Type: UNSIGNED8, Array[8] */
