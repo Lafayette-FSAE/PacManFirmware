@@ -212,7 +212,7 @@ void Core0::fsm() {
           else if (centerPress && main_index == 0) {
             centerPress = false;
             Serial.println("center");  //testing
-            nextState = Config_State;
+            nextState = Choose_Register;
           }
           else if (centerPress && main_index != 0) {
             centerPress = false;
@@ -292,7 +292,7 @@ void Core0::fsm() {
           if (regnum == 3) {
             regNumb = 0x2000 + (regista[0] * 100) + (regista[1] * 10) + regista[2];
             Object_Dictionary od(regNumb, 0);
-            if (od.location == 0xFFFF){
+            if (od.location == 0xFFFF || od.location < 0x2000 || od.location > 0x2020){
               regNumb-= 0x2000;
               nextState = Reg_Not_Found;
             }
@@ -310,7 +310,7 @@ void Core0::fsm() {
             Object_Dictionary od1(regNumb, main_index-1);
             Serial.print("attr: ");
             Serial.println(od1.attribute);
-            if (od1.location == 0xFFFF) {
+            if (od1.location == 0xFFFF || od1.location < 0x3000 || od1.location > 0x3020) {
               regNumb-= 0x3000;
               nextState = Reg_Not_Found;
             }
@@ -468,9 +468,14 @@ void Core0::setUpMain() {
   }
 
   String fault_string;
-  for (uint8_t i = 0; i<(sizeof(faults1)/sizeof(faults1[0])); i++){
-     if (faults1[i].triggered == true && faults1[i].enabled == true) fault_string = "Fault #" + String(i+1, DEC);
+  for (uint8_t i =0; i< NUM_CELLS; i++){
+    if (OD_fault[i]>0) fault_string = "Fault #" + String(OD_fault[i], DEC);
   }
+  
+
+  /*for (uint8_t i = 0; i<(sizeof(faults1)/sizeof(faults1[0])); i++){
+     if (faults1[i].triggered == true && faults1[i].enabled == true) fault_string = "Fault #" + String(i+1, DEC);
+  }*/
   display.setCursor(5, 15);
   display.print(fault_string);
   display.update();
@@ -541,6 +546,9 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 void Core0::checkCells(uint8_t currentCell) {
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
     if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
+    if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
+    if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
+    if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
 //    else if (OD_cellTemperature[cell] >= OD_maxCellTemp[cell] - (0.1 * OD_maxCellTemp[cell])) faults(3, cell+1); //temp too high
 //    else if (OD_cellTemperature[cell] < OD_minCellTemp[cell] + (0.1 * OD_minCellTemp[cell])) faults(4, cell+1);  //temp too low
 //
@@ -556,10 +564,17 @@ void Core0::checkCells(uint8_t currentCell) {
 }
 
 void Core0::checkForFaults(uint8_t currentCell) {
-    if (OD_SLOOP_Relay == 1) faults(1, 0); //sl open
-    else if (OD_AIRS == 1) faults(2, 0); //airs open
+    if (OD_SLOOP_Relay == 1) faults(0, 0); //sl open
+    else if (OD_AIRS == 1) faults(1, 0); //airs open
   
-//  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {  
+  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {  
+    if (OD_fault[cell] == 1) faults(2, cell+1); //high voltage
+    if (OD_fault[cell] == 2) faults(3, cell+1); //low voltage
+    if (OD_fault[cell] == 3) faults(4, cell+1); //high temp
+    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
+    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
+    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
+    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
 //    else if (OD_cellTemperature[cell] >= OD_maxCellTemp[cell] + (0.1 * OD_maxCellTemp[cell])) faults(3, cell+1); //temp too high
 //    else if (OD_cellTemperature[cell] < OD_minCellTemp[cell] - (0.1 * OD_minCellTemp[cell])) faults(4, cell+1);  //temp too low
 //
@@ -571,7 +586,7 @@ void Core0::checkForFaults(uint8_t currentCell) {
 //    else if (OD_cellBalancingCurrent[cell] < OD_minCellCurrent[cell] - (0.1 * OD_minCellCurrent[cell])) faults(8, cell+1); //current too low
 //
 //    else if (OD_cellSOC[cell] <= ((OD_cellSOC_Min[cell] * 52) / 100)-(0.1 * OD_cellSOC_Min[cell])) faults(9, cell + 1); //soc below min
-//  }
+  }
 }
 
 void Core0::cellPartialUpdate(int errorType, int cellNum)
@@ -592,17 +607,23 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
   if (errorType == 1) { //soh bad
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
   }
-  else if (errorType == 2) { //temp
+  else if (errorType == 2) { //voltage
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(box_x + 1, box_y - 6);
+    display.print("V");
+  }
+  else if (errorType == 3) { //temp
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
     display.print("T");
   }
-  else if (errorType == 3) { //high voltage
+  else if (errorType == 4) { //current
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
-    display.print("V");
+    display.print("C");
   }
   if (cellNum < NUM_CELLS - 1) {
     checkCells(cellNum + 1);
@@ -612,9 +633,10 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
 
 void Core0::faults(uint8_t errorType, uint8_t cellNum)
 {
-  if (faults1[errorType].enabled==true){
+  /*if (faults1[errorType].enabled==true){
   faults1[errorType].triggered = true;
-  faultNum = errorType;
+  faultNum = errorType;*/
+  
   const GFXfont* font = &FreeSansBold24pt7b;
   display.setFont(font);
 
@@ -630,7 +652,7 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
     delay(20);
   }
   centerPress = false;
-  }
+ // }
 }
 
 void Core0::mainConfigScreen()
