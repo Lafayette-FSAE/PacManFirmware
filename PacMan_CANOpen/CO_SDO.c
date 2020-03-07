@@ -173,7 +173,7 @@ static void CO_SDO_receive(void *object, const CO_CANrxMsg_t *msg){
     CO_SDO_t *SDO;
 
     SDO = (CO_SDO_t*)object;   /* this is the correct pointer type of the first argument */
-    printf("YOure on the right track");
+    //printf("YOure on the right track");
 
     /* WARNING: When doing a SDO block upload and immediately after that
      * starting another SDO request, this request is dropped. Especially if
@@ -332,8 +332,8 @@ CO_ReturnError_t CO_SDO_init(
         COB_IDServerToClient = 0;
     }
     /* configure SDO server CAN reception */
-        printf("\nREGSDO Print: %u ", CANdevRxIdx);
-        printf("\nREGSDOID Print: %u ", COB_IDClientToServer);
+//        printf("\nREGSDO Print: %u ", CANdevRxIdx);
+//        printf("\nREGSDOID Print: %u ", COB_IDClientToServer);
     CO_CANrxBufferInit(
             CANdevRx,               /* CAN device */
             CANdevRxIdx,            /* rx buffer index */
@@ -600,7 +600,7 @@ uint32_t CO_SDO_initTransfer(CO_SDO_t *SDO, uint16_t index, uint8_t subIndex){
     if(SDO->entryNo == 0xFFFFU){
         return CO_SDO_AB_NOT_EXIST ;     /* object does not exist in OD */
     }
-    printf("\n got through another one");
+    //printf("\n got through another one");
     /* verify existance of subIndex */
     if(subIndex > SDO->OD[SDO->entryNo].maxSubIndex &&
             SDO->OD[SDO->entryNo].pData != NULL)
@@ -609,8 +609,11 @@ uint32_t CO_SDO_initTransfer(CO_SDO_t *SDO, uint16_t index, uint8_t subIndex){
     }
 
     /* pointer to data in Object dictionary */
+    printf("\nSub Index Requested: %X \n", subIndex); // Removing this breaks it!??!?!?!?!?!
+    
     SDO->ODF_arg.ODdataStorage = CO_OD_getDataPointer(SDO, SDO->entryNo, subIndex);
 
+     //printf("\n Sub Index Requested After: %X", subIndex);
     /* fill ODF_arg */
     SDO->ODF_arg.object = NULL;
     if(SDO->ODExtensions){
@@ -823,7 +826,7 @@ int8_t CO_SDO_process(
     /* Is something new to process? */
     if((!SDO->CANtxBuff->bufferFull) && ((IS_CANrxNew(SDO->CANrxNew)) || (SDO->state == CO_SDO_ST_UPLOAD_BL_SUBBLOCK))){
         uint8_t CCS = SDO->CANrxData[0] >> 5;   /* Client command specifier */
-        printf("\nYOure on the right track\n");
+        //printf("\nYOure on the right track\n");
 
         /* reset timeout */
         if(SDO->state != CO_SDO_ST_UPLOAD_BL_SUBBLOCK)
@@ -839,7 +842,7 @@ int8_t CO_SDO_process(
             CLEAR_CANrxNew(SDO->CANrxNew);
             return -1;
         }
-        printf("\nSDOSTATE2 Print: %u ", state);
+        //printf("\nSDOSTATE2 Print: %u ", state);
         /* continue with previous SDO communication or start new */
         if(SDO->state != CO_SDO_ST_IDLE){
             state = SDO->state;
@@ -854,12 +857,12 @@ int8_t CO_SDO_process(
                 CO_SDO_abort(SDO, CO_SDO_AB_CMD);/* Client command specifier not valid or unknown. */
                 return -1;
             }
-        printf("\nSDOSTATE3 Print: %u ", state);
+        //printf("\nSDOSTATE3 Print: %u ", state);
 
             /* init ODF_arg */
             index = SDO->CANrxData[2];
             index = index << 8 | SDO->CANrxData[1];
-            printf("\nSDOSTATE4 Print: %u ", index);
+            //printf("\nSDOSTATE4 Print: %u ", index);
             abortCode = CO_SDO_initTransfer(SDO, index, SDO->CANrxData[3]);
             if(abortCode != 0U){
                 CO_SDO_abort(SDO, abortCode);
@@ -871,7 +874,7 @@ int8_t CO_SDO_process(
                     CO_SDO_abort(SDO, CO_SDO_AB_READONLY); /* attempt to write a read-only object */
                     return -1;
                 }
-                printf("\nDOWNLOading Print: %u ", state);
+                //printf("\nDOWNLOading Print: %u ", state);
 
                 /* set state machine to normal or block download */
                 if(CCS == CCS_DOWNLOAD_INITIATE){
@@ -884,14 +887,14 @@ int8_t CO_SDO_process(
 
             /* upload */
             else{
-                printf("\nUPLOading Print: %u ", state);
+                //printf("\nUPLOading Print: %u ", state);
 
                 abortCode = CO_SDO_readOD(SDO, CO_SDO_BUFFER_SIZE);
                 if(abortCode != 0U){
                     CO_SDO_abort(SDO, abortCode);
                     return -1;
                 }
-                printf("\nUPLOading2 Print: %u ", state);
+                //printf("\nUPLOading2 Print: %u ", state);
 
                 /* if data size is large enough set state machine to block upload, otherwise set to normal transfer */
                 if((CCS == CCS_UPLOAD_BLOCK) && (SDO->ODF_arg.dataLength > SDO->CANrxData[5])){
@@ -903,7 +906,7 @@ int8_t CO_SDO_process(
             }
         }
     }
-    printf("\nSDOSTATE5 Print: %u ", state);
+    //printf("\nSDOSTATE5 Print: %u ", state);
     /* verify SDO timeout */
     if(SDO->timeoutTimer < SDOtimeoutTime){
         SDO->timeoutTimer += timeDifference_ms;
@@ -918,13 +921,13 @@ int8_t CO_SDO_process(
             return -1;
         }
     }
-    printf("\nSDOSTATE6 Print: %u ", state);
+    //printf("\nSDOSTATE6 Print: %u ", state);
 
     /* return immediately if still idle */
     if(state == CO_SDO_ST_IDLE){
         return 0;
     }
-    printf("\nSDOSTATE7 Print: %u ", state);
+    //printf("\nSDOSTATE7 Print: %u ", state);
 
     /* state machine (buffer is freed (CLEAR_CANrxNew()) at the end) */
     switch(state){
@@ -941,7 +944,7 @@ int8_t CO_SDO_process(
 
             /* Expedited transfer */
             if((SDO->CANrxData[0] & 0x02U) != 0U){
-                printf("\nDOWNLOAD_INITIATE Print1: %u ", state);
+                //printf("\nDOWNLOAD_INITIATE Print1: %u ", state);
                 /* is size indicated? Get message length */
                 if((SDO->CANrxData[0] & 0x01U) != 0U){
                     len = 4U - ((SDO->CANrxData[0] >> 2U) & 0x03U);
@@ -962,7 +965,7 @@ int8_t CO_SDO_process(
                     CO_SDO_abort(SDO, abortCode);
                     return -1;
                 }
-                printf("\nDOWNLOAD_INITIATE Print2: %u ", state);
+                //printf("\nDOWNLOAD_INITIATE Print2: %u ", state);
 
                 /* finish the communication */
                 SDO->state = CO_SDO_ST_IDLE;
@@ -974,13 +977,13 @@ int8_t CO_SDO_process(
                 /* verify length if size is indicated */
                 if((SDO->CANrxData[0]&0x01) != 0){
                     uint32_t lenRx;
-                printf("\nDOWNLOAD_INITIATE Print3: %u ", &SDO->CANrxData[4]);
+                //printf("\nDOWNLOAD_INITIATE Print3: %u ", &SDO->CANrxData[4]);
                     
                     CO_memcpySwap4(&lenRx, &SDO->CANrxData[4]);
                     
                     SDO->ODF_arg.dataLengthTotal = lenRx;
-                printf("\nDOWNLOAD_INITIATE Print3: %u ", lenRx);
-                printf("\nDOWNLOAD_INITIATE Print4: %u ", SDO->ODF_arg.dataLength);
+                //printf("\nDOWNLOAD_INITIATE Print3: %u ", lenRx);
+                //printf("\nDOWNLOAD_INITIATE Print4: %u ", SDO->ODF_arg.dataLength);
 
                     /* verify length except for domain data type */
                     if((lenRx != SDO->ODF_arg.dataLength) && (SDO->ODF_arg.ODdataStorage != 0)){
@@ -1198,7 +1201,7 @@ int8_t CO_SDO_process(
 
         case CO_SDO_ST_UPLOAD_INITIATE:{
             /* default response */
-            printf("\CO_SDO_ST_UPLOAD_INITIATE1");
+            //printf("\n CO_SDO_ST_UPLOAD_INITIATE1");
 
             SDO->CANtxBuff->data[1] = SDO->CANrxData[1];
             SDO->CANtxBuff->data[2] = SDO->CANrxData[2];
@@ -1206,10 +1209,13 @@ int8_t CO_SDO_process(
 
             /* Expedited transfer */
             if(SDO->ODF_arg.dataLength <= 4U){
-                printf("\n CO_SDO_ST_UPLOAD_INITIATE2");
+                //printf("\n CO_SDO_ST_UPLOAD_INITIATE2 \n");
                 
-                for(i=0U; i<SDO->ODF_arg.dataLength; i++)
+                for(i=0U; i<SDO->ODF_arg.dataLength; i++){
                     SDO->CANtxBuff->data[4U+i] = SDO->ODF_arg.data[i];
+                    //printf("Data to be sent: %d \n", SDO->CANtxBuff->data[4U+i]);
+                    //printf("Datalength to be sent: %d \n", SDO->ODF_arg.dataLength);
+                }
                 SDO->CANtxBuff->data[0] = 0x43U | ((4U-SDO->ODF_arg.dataLength) << 2U);
                 SDO->state = CO_SDO_ST_IDLE;
 
@@ -1218,7 +1224,7 @@ int8_t CO_SDO_process(
 
             /* Segmented transfer */
             else{
-                printf("\n CO_SDO_ST_UPLOAD_INITIATE3");
+                //printf("\n CO_SDO_ST_UPLOAD_INITIATE3");
                 SDO->bufferOffset = 0U;
                 SDO->sequence = 0U;
                 SDO->state = CO_SDO_ST_UPLOAD_SEGMENTED;
@@ -1241,7 +1247,7 @@ int8_t CO_SDO_process(
 
         case CO_SDO_ST_UPLOAD_SEGMENTED:{
             /* verify client command specifier */
-            printf("\CO_SDO_ST_UPLOAD_SEGMENTED1");
+            //printf("\nCO_SDO_ST_UPLOAD_SEGMENTED1");
 
             if((SDO->CANrxData[0]&0xE0U) != 0x60U){
                 CO_SDO_abort(SDO, CO_SDO_AB_CMD);/* Client command specifier not valid or unknown. */
@@ -1518,7 +1524,7 @@ int8_t CO_SDO_process(
             return -1;
         }
     }
-    printf("\nYou made it");
+    //printf("\nYou made it");
     
 
     /* free buffer and send message */

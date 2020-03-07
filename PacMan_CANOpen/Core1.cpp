@@ -310,7 +310,7 @@ uint8_t Core1::discoverCellMen() {
 
         // Loop where trying to discovery until we get some devices to prevent crashing of the CPU
         while (numberOfDiscoveredCellMen == 0) {
-            Serial.println("In the while loop, looking for CellMen");
+            if(DEBUG)Serial.println("In the while loop, looking for CellMen");
             numberOfDiscoveredCellMen = discoverCellMen();
         }
 
@@ -352,8 +352,10 @@ uint8_t Core1::discoverCellMen() {
                         //Serial.print("The number of address found: ");
                         //Serial.println(OD_cellPosition[i]);
                         OD_cellVoltage[i]          = cellVoltages[i];
-                        //Serial.print("The number of OD_cellVoltage found: ");
-                        //Serial.println(OD_cellVoltage[i]);
+//                        Serial.print("The OD_cellVoltage found: ");
+//                        Serial.print(OD_cellVoltage[i]);
+//                        Serial.print(" at index: ");
+//                        Serial.println(i);
                         OD_cellTemperature[i]      = cellTemperatures[i];
                         //Serial.print("The number of OD_cellTemperature found: ");
                         //Serial.println(OD_cellTemperature[i]);

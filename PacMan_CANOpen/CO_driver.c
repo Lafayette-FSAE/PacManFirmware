@@ -253,7 +253,7 @@ CO_ReturnError_t CO_CANsend(CO_CANmodule_t *CANmodule, CO_CANtx_t *buffer) {
 
   for (int i = 0; i < CAN_FRAME_MAX_DLC; i++) {
     message.data[i] = buffer->data[i];
-    printf("Message Contents: %u \n", message.data[i]);
+    //printf("Message Contents: %u \n", message.data[i]);
   }
   
   CO_LOCK_CAN_SEND();
@@ -379,11 +379,11 @@ void CO_CANinterrupt(CO_CANmodule_t *CANmodule) {
 
   can_message_t RXmessage; // For ESP Receiving
   /* receive interrupt */
-  printf("waiting for a message!\n");
+  //printf("waiting for a message!\n");
   esp_err_t receiveStatus = can_receive(&RXmessage, pdMS_TO_TICKS(1000)); // Call the receive method for CAN packets
 
   if (receiveStatus == ESP_OK) {
-    printf("a message is being processed!\n");
+    //printf("a message is being processed!\n");
     CO_CANrxMsg_t *rcvMsg;      /* pointer to received message in CAN module */
     uint16_t index;             /* index of received message */
     uint32_t rcvMsgIdent;       /* identifier of the received message */
@@ -401,19 +401,19 @@ void CO_CANinterrupt(CO_CANmodule_t *CANmodule) {
     rcvMsgIdent = CO_CANrxMsg_readIdent(rcvMsg);
     
     if (CANmodule->useCANrxFilters) {
-      printf("can is filtered\n");
+      //printf("can is filtered\n");
       /* CAN module filters are used. Message with known 11-bit identifier has */
       /* been received */
       index = 8;  /* get index of the received message here. Or something similar */
       if (index < CANmodule->rxSize) {
         buffer = &CANmodule->rxArray[index];
         /* verify also RTR */
-        printf("rxsize: %u ", CANmodule->rxSize);
-        printf("ident: %u ", buffer->ident);
-        printf("Mask: %u ", buffer->mask);
-        printf("MSg: %u ", rcvMsgIdent);
+//        printf("rxsize: %u ", CANmodule->rxSize);
+//        printf("ident: %u ", buffer->ident);
+//        printf("Mask: %u ", buffer->mask);
+//        printf("MSg: %u ", rcvMsgIdent);
         if (((rcvMsgIdent ^ buffer->ident) & buffer->mask) == 0U) {
-          printf("got a msg\n");
+          //printf("got a msg\n");
           msgMatched = true;
         }
       }
@@ -421,7 +421,7 @@ void CO_CANinterrupt(CO_CANmodule_t *CANmodule) {
     else {
       /* CAN module filters are not used, message with any standard 11-bit identifier */
       /* has been received. Search rxArray form CANmodule for the same CAN-ID. */
-      printf("can is not filtered\n");
+      //printf("can is not filtered\n");
       for (index = CANmodule->rxSize; index > 0U; index--) {
               buffer = &CANmodule->rxArray[index];
         if (((rcvMsgIdent ^ buffer->ident) & buffer->mask) == 0U) {
@@ -434,7 +434,7 @@ void CO_CANinterrupt(CO_CANmodule_t *CANmodule) {
 
     /* Call specific function, which will process the message */
     if (msgMatched && (buffer != NULL) && (buffer->pFunct != NULL)) {
-      printf("Called specific function \n");
+      //printf("Called specific function \n");
       buffer->pFunct(buffer->object, rcvMsg);
     }
 
@@ -446,7 +446,7 @@ void CO_CANinterrupt(CO_CANmodule_t *CANmodule) {
   /* transmit interrupt */
   else if (receiveStatus == ESP_ERR_TIMEOUT || receiveStatus == ESP_ERR_INVALID_ARG) {
     /* Clear interrupt flag */
-    printf("Timeout or Invalid Flag!");
+    //printf("Timeout or Invalid Flag!");
 
     /* First CAN message (bootup) was sent successfully */
     CANmodule->firstCANtxMessage = false;
