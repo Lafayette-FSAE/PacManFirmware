@@ -264,32 +264,34 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
 
     CO_LOCK_OD();
     for(i = 0; i < numberOfDiscoveredCellMen; i++){
+        int newIndex = physicalLocationFromSortedArray(i);
+        
         // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
-        if(cellVoltages[i] < OD_minCellVoltage[i]){
-            cellFaults[i] = 2;
+        if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex]){
+            cellFaults[newIndex] = 2;
             tempUV = true;
             Serial.print("Found undervoltage for Cell: ");
-            Serial.print(i);
+            Serial.print(newIndex);
             Serial.print(" With voltage level: ");
-            Serial.println(cellVoltages[i]);
-        } else if(cellVoltages[i] > OD_maxCellVoltage[i]){
-            cellFaults[i] = 1;
+            Serial.println(cellVoltages[newIndex]);
+        } else if(cellVoltages[newIndex] > OD_maxCellVoltage[newIndex]){
+            cellFaults[newIndex] = 1;
             tempOV = true;
             Serial.print("Found overvoltage for Cell: ");
             Serial.print(i);
             Serial.print(" With voltage level: ");
-            Serial.println(cellVoltages[i]);
-        } else if(cellTemperatures[i] > OD_maxCellTemp[i]){
-            cellFaults[i] = 3;
+            Serial.println(cellVoltages[newIndex]);
+        } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex]){
+            cellFaults[newIndex] = 3;
             tempOT = true;
             Serial.print("Found over temp for Cell: ");
             Serial.print(i);
             Serial.print(" With temp level: ");
-            Serial.println(OD_maxCellTemp[i]);
+            Serial.println(OD_maxCellTemp[newIndex]);
         }else{
-            cellFaults[i] = 0;
-            OD_warning[i] = 0;
-            OD_fault[i] = 0;
+            cellFaults[newIndex] = 0;
+            OD_warning[newIndex] = 0;
+            OD_fault[newIndex] = 0;
         }
     }
     CO_UNLOCK_OD();
@@ -441,6 +443,8 @@ void Core1::start() {
     addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
 
     bool charge;
+
+    
     ///// Main Loop
     for (;;) {
 
@@ -456,9 +460,10 @@ void Core1::start() {
             // Update the Object Dictionary Here
             CO_LOCK_OD();
             for (int i = 0; i < 16; i++) {
-                if( minusTerminalVoltages[i]!=0){
+                if(minusTerminalVoltages[i]!=0){  // TODO: Examine this, the first cells should be at zero
                     OD_cellPosition[i]         = cellPositions[i];
                     OD_cellVoltage[i]          = cellVoltages[i];
+                    Serial.println(cellVoltages[i]);
                     OD_cellTemperature[i]      = cellTemperatures[i];
                     OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
                     OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
