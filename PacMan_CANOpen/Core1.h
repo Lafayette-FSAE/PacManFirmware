@@ -20,11 +20,13 @@ Released into the public domain.
 #define TTT 30
 
 #if DEBUG == true
-    #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not working
+    #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not workingunderVoltageWarningTimer
 #else
     #define REQUEST_LENGTH 22
 #endif
 
+
+static void warningCallBack(TimerHandle_t pxTimer);
 static void openSafetyLoopCallBack(TimerHandle_t pxTimer);
 
 class Core1{
@@ -44,9 +46,15 @@ private:
     bool tempUV;
     bool tempOV;
     bool tempOT;
+    
     TimerHandle_t underVoltageTimer;
+    TimerHandle_t underVoltageWarningTimer;
+
     TimerHandle_t overVoltageTimer;
+    TimerHandle_t overVoltageWarningTimer;
+
     TimerHandle_t overTemperatureTimer;
+    TimerHandle_t overTemperatureWarningTimer;
 
     // Normal Cells Data
     uint8_t cellPositions[16];          // Cell Position calculated from the voltages
