@@ -31,8 +31,9 @@ uint8_t rotation = 45;
 void setupCore0() {
 
   display.init();
+  CO_LOCK_OD();
   if(OD_displayOrientation) rotation = 0;
-
+  CO_UNLOCK_OD();
   const GFXfont* f = &FreeSansBold9pt7b;
   display.setFont(f);
   display.setTextColor(GxEPD_BLACK);
@@ -220,12 +221,14 @@ void Core0::fsm() {
           }
 
           voltage1 = 0; current1 = 0; temp1 = 0; soc_test = 0;
+          CO_LOCK_OD();
           for (int i = 0; i < NUM_CELLS; i++) {
             voltage1 += OD_cellVoltage[i];
             current1 += OD_cellBalancingCurrent[i];
             temp1 = max(temp1, (float)OD_cellTemperature[i]);
             soc_test += OD_cellSOC[i];
           }
+          CO_UNLOCK_OD();
           voltage1 = voltage1 / 1000.0;
           current1 = current1 / (1000.0 * NUM_CELLS);
           soc_test = soc_test / NUM_CELLS;
@@ -459,9 +462,7 @@ boolean Core0::confirm() {
 
 void Core0::setUpMain() {
 
-  Serial.print("orientation: ");
-  Serial.println(OD_displayOrientation);
-  
+  CO_LOCK_OD();
   if(OD_displayOrientation) rotation = 3;
   else if (!OD_displayOrientation) rotation = 1;
   
@@ -474,23 +475,23 @@ void Core0::setUpMain() {
   display.setFont(f);
 
   display.setCursor(175, 16);
+
   if (OD_packNodeID == 4) display.print("1");
+
   else display.print("2");
 
   if (OD_chargeCableDetected || OD_chargingEnabled) {
     display.setCursor(265, 15);
     display.print("Ch");
   }
-
+  
   String fault_string;
   for (uint8_t i =0; i< NUM_CELLS; i++){
     if (OD_fault[i]>0) fault_string = "Fault #" + String(OD_fault[i], DEC);
   }
   
+  CO_UNLOCK_OD();
 
-  /*for (uint8_t i = 0; i<(sizeof(faults1)/sizeof(faults1[0])); i++){
-     if (faults1[i].triggered == true && faults1[i].enabled == true) fault_string = "Fault #" + String(i+1, DEC);
-  }*/
   display.setCursor(5, 15);
   display.print(fault_string);
   display.update();
@@ -559,15 +560,18 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 }
 
 void Core0::checkCells(uint8_t currentCell) {
+  CO_LOCK_OD();
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
     if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
     if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
     if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
     if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
   }
+  CO_UNLOCK_OD();
 }
 
 void Core0::checkForFaults(uint8_t currentCell) {
+    CO_LOCK_OD();
     if (OD_SLOOP_Relay == 1) faults(0, 0); //sl open
     else if (OD_AIRS == 1) faults(1, 0); //airs open
   
@@ -580,6 +584,7 @@ void Core0::checkForFaults(uint8_t currentCell) {
 //    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
 //    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
 //  }
+  CO_UNLOCK_OD();
 }
 
 void Core0::cellPartialUpdate(int errorType, int cellNum)
@@ -710,13 +715,13 @@ void Core0::cellData(uint8_t cellNum)
   uint8_t top = 60;
   uint8_t line = 20;
   uint8_t y_point = top;
-
+  CO_LOCK_OD();
   String num = String("Cell #" + String(cellNum + 1, DEC));
   String temp = String("Temp " + String(OD_cellTemperature[cellNum], 1));
   String volt = String("Volt " + String(OD_cellVoltage[cellNum], 1));
   String curr = String("Curr " + String(OD_cellBalancingCurrent[cellNum], 1));
   String soc = String("SOH " + String(OD_cellSOC[cellNum], DEC));
-
+  CO_UNLOCK_OD();
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(110, 30);
