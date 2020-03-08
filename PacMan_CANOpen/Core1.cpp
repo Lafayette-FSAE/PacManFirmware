@@ -270,24 +270,24 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex]){
             cellFaults[newIndex] = 2;
             tempUV = true;
-            Serial.print("Found undervoltage for Cell: ");
-            Serial.print(newIndex);
-            Serial.print(" With voltage level: ");
-            Serial.println(cellVoltages[newIndex]);
+//            Serial.print("Found undervoltage for Cell: ");
+//            Serial.print(newIndex);
+//            Serial.print(" With voltage level: ");
+//            Serial.println(cellVoltages[newIndex]);
         } else if(cellVoltages[newIndex] > OD_maxCellVoltage[newIndex]){
             cellFaults[newIndex] = 1;
             tempOV = true;
-            Serial.print("Found overvoltage for Cell: ");
-            Serial.print(i);
-            Serial.print(" With voltage level: ");
-            Serial.println(cellVoltages[newIndex]);
+//            Serial.print("Found overvoltage for Cell: ");
+//            Serial.print(i);
+//            Serial.print(" With voltage level: ");
+//            Serial.println(cellVoltages[newIndex]);
         } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex]){
             cellFaults[newIndex] = 3;
             tempOT = true;
-            Serial.print("Found over temp for Cell: ");
-            Serial.print(i);
-            Serial.print(" With temp level: ");
-            Serial.println(OD_maxCellTemp[newIndex]);
+//            Serial.print("Found over temp for Cell: ");
+//            Serial.print(i);
+//            Serial.print(" With temp level: ");
+//            Serial.println(OD_maxCellTemp[newIndex]);
         }else{
             cellFaults[newIndex] = 0;
             OD_warning[newIndex] = 0;
@@ -463,7 +463,6 @@ void Core1::start() {
                 if(minusTerminalVoltages[i]!=0){  // TODO: Examine this, the first cells should be at zero
                     OD_cellPosition[i]         = cellPositions[i];
                     OD_cellVoltage[i]          = cellVoltages[i];
-                    Serial.println(cellVoltages[i]);
                     OD_cellTemperature[i]      = cellTemperatures[i];
                     OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
                     OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
