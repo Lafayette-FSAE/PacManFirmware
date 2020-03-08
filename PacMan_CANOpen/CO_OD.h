@@ -417,6 +417,9 @@
 /*2019 */
         #define OD_2019_displayOrientation                          0x2019
 
+/*201A */
+        #define OD_201A_errorTriggerTime                            0x201A
+        
 /*3000 */
         #define OD_3000_I2C_Address                                 0x3000
 
@@ -874,15 +877,15 @@ struct sCO_OD_RAM{
 /*2013      */ UNSIGNED16      greatestCellTemp;
 /*2014      */ UNSIGNED16      averageCellTemperature;
 /*2016      */ UNSIGNED8       numberOfDetectedCells;
-/*2100      */ OCTET_STRING   errorStatusBits[10];
-/*2103      */ UNSIGNED16     SYNCCounter;
-/*2104      */ UNSIGNED16     SYNCTime;
-/*2107      */ UNSIGNED16     performance[5];
-/*2108      */ INTEGER16      temperature[1];
-/*2109      */ INTEGER16      voltage[1];
-/*2110      */ INTEGER32      variableInt32[16];
-/*2120      */ OD_testVar_t   testVar;
-/*2130      */ OD_time_t      time;
+/*2100      */ OCTET_STRING    errorStatusBits[10];
+/*2103      */ UNSIGNED16      SYNCCounter;
+/*2104      */ UNSIGNED16      SYNCTime;
+/*2107      */ UNSIGNED16      performance[5];
+/*2108      */ INTEGER16       temperature[1];
+/*2109      */ INTEGER16       voltage[1];
+/*2110      */ INTEGER32       variableInt32[16];
+/*2120      */ OD_testVar_t    testVar;
+/*2130      */ OD_time_t       time;
 /*3000      */ UNSIGNED8       I2C_Address[16];
 /*3001      */ UNSIGNED8       cellPosition[16];
 /*3002      */ UNSIGNED16      cellVoltage[16];
@@ -912,6 +915,7 @@ struct sCO_OD_EEPROM{
 /*2017      */ UNSIGNED8       cellmanRefreshRate;
 /*2018      */ UNSIGNED8       ambientTempRefreshRate;
 /*2019      */ BOOLEAN         displayOrientation;
+/*201A      */ UNSIGNED8       errorTriggerTime;
 /*2106      */ UNSIGNED32      powerOnCounter;
 /*2112      */ INTEGER32       variableNVInt32[16];
 /*3009      */ UNSIGNED16      minCellVoltage[16];
@@ -1153,6 +1157,9 @@ extern struct sCO_OD_ROM CO_OD_ROM;
 
 /*2019, Data Type: BOOLEAN */
         #define OD_displayOrientation                               CO_OD_EEPROM.displayOrientation
+
+/*201A, Data Type: UNSIGNED8 */
+        #define OD_errorTriggerTime                                 CO_OD_EEPROM.errorTriggerTime        
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
