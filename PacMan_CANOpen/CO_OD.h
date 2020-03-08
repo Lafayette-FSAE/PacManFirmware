@@ -920,8 +920,8 @@ struct sCO_OD_EEPROM{
 /*2112      */ INTEGER32       variableNVInt32[16];
 /*3009      */ UNSIGNED16      minCellVoltage[16];
 /*300a      */ UNSIGNED16      maxCellVoltage[16];
-/*300b      */ UNSIGNED8       minCellTemp[16];
-/*300c      */ UNSIGNED8       maxCellTemp[16];
+/*300b      */ UNSIGNED16      minCellTemp[16];
+/*300c      */ UNSIGNED16      maxCellTemp[16];
 /*300d      */ UNSIGNED16      minCellCurrent[16];
 /*300e      */ UNSIGNED16      maxCellCurrent[16];
 /*300f      */ UNSIGNED16      maxCellChargeVoltage[16];
