@@ -319,7 +319,7 @@ struct sCO_OD_EEPROM CO_OD_EEPROM = {
 /*******************************************************************************
    OBJECT DICTIONARY
 *******************************************************************************/
-const CO_OD_entry_t CO_OD[102] = {
+const CO_OD_entry_t CO_OD[107] = {
 {0x1000, 0x00, 0x85,  4, (void*)&CO_OD_ROM.deviceType},
 {0x1001, 0x00, 0x36,  1, (void*)&CO_OD_RAM.errorRegister},
 {0x1002, 0x00, 0xB6,  4, (void*)&CO_OD_RAM.manufacturerStatusRegister},
