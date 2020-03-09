@@ -29,12 +29,14 @@ void openSafetyLoopCallBack(TimerHandle_t pxTimer){
 
 // CONSTRUCTOR
 Core1::Core1(CO_t *CO) {
-    // TODO: Move this to the top-level
+    // Interrupt Semaphors
     I2C_InterrupterSemaphore = xSemaphoreCreateBinary();
     chargeDetectSemaphore = xSemaphoreCreateBinary();
+
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
     totalMAH = 0;
 
+    // Create safetyloop timers
     underVoltageTimer = xTimerCreate(
                                       /* Just a text name, not used by the RTOS kernel. */
                                       "underVoltageTimer",
@@ -48,75 +50,12 @@ Core1::Core1(CO_t *CO) {
                                       /* The callback function that switches the LCD back-light
                                       off. */
                                       openSafetyLoopCallBack);
-     underVoltageWarningTimer = xTimerCreate(
-                                        /* Just a text name, not used by the RTOS kernel. */
-                                        "underVoltageWarningTimer",
-                                        /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                        pdMS_TO_TICKS(TTT*1000/2),
-                                        /* The timer is a one-shot timer. */
-                                        pdFALSE,
-                                        /* The id is not used by the callback so can take any
-                                        value. */
-                                        0,
-                                        /* The callback function that switches the LCD back-light
-                                        off. */
-                                        warningCallBack);
 
-    overVoltageTimer = xTimerCreate(
-                                    /* Just a text name, not used by the RTOS kernel. */
-                                    "overVoltageTimer",
-                                    /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                    pdMS_TO_TICKS(TTT*1000),
-                                    /* The timer is a one-shot timer. */
-                                    pdFALSE,
-                                    /* The id is not used by the callback so can take any
-                                    value. */
-                                    0,
-                                    /* The callback function that switches the LCD back-light
-                                    off. */
-                                    openSafetyLoopCallBack);
-    overVoltageWarningTimer = xTimerCreate(
-                                    /* Just a text name, not used by the RTOS kernel. */
-                                    "overVoltageWarningTimer",
-                                    /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                    pdMS_TO_TICKS(TTT*1000/2),
-                                    /* The timer is a one-shot timer. */
-                                    pdFALSE,
-                                    /* The id is not used by the callback so can take any
-                                    value. */
-                                    0,
-                                    /* The callback function that switches the LCD back-light
-                                    off. */
-                                    warningCallBack);
-
-
-    overTemperatureTimer = xTimerCreate(
-                                      /* Just a text name, not used by the RTOS kernel. */
-                                      "overTemperatureTimer",
-                                      /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                      pdMS_TO_TICKS(TTT*1000),
-                                      /* The timer is a one-shot timer. */
-                                      pdFALSE,
-                                      /* The id is not used by the callback so can take any
-                                      value. */
-                                      0,
-                                      /* The callback function that switches the LCD back-light
-                                      off. */
-                                      openSafetyLoopCallBack);
-    overTemperatureWarningTimer = xTimerCreate(
-                                        /* Just a text name, not used by the RTOS kernel. */
-                                        "overTemperatureWarningTimer",
-                                        /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                        pdMS_TO_TICKS(TTT*1000/2),
-                                        /* The timer is a one-shot timer. */
-                                        pdFALSE,
-                                        /* The id is not used by the callback so can take any
-                                        value. */
-                                        0,
-                                        /* The callback function that switches the LCD back-light
-                                        off. */
-                                        warningCallBack);
-                                        
+    underVoltageWarningTimer = xTimerCreate("underVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
+    overVoltageTimer = xTimerCreate("overVoltageTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
+    overVoltageWarningTimer = xTimerCreate("overVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
+    overTemperatureTimer = xTimerCreate("overTemperatureTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
+    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);                           
 }
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
@@ -264,31 +203,20 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
 
     CO_LOCK_OD();
     for(i = 0; i < numberOfDiscoveredCellMen; i++){
+        // Because we have everything stored in physical locations in the array. e.g. 0 goes to Cell 0, 1 goes to Cell 8 in the array since they are in different segments
         int newIndex = physicalLocationFromSortedArray(i);
         
         // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
         if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex]){
             cellFaults[newIndex] = 2;
             tempUV = true;
-//            Serial.print("Found undervoltage for Cell: ");
-//            Serial.print(newIndex);
-//            Serial.print(" With voltage level: ");
-//            Serial.println(cellVoltages[newIndex]);
         } else if(cellVoltages[newIndex] > OD_maxCellVoltage[newIndex]){
             cellFaults[newIndex] = 1;
             tempOV = true;
-//            Serial.print("Found overvoltage for Cell: ");
-//            Serial.print(i);
-//            Serial.print(" With voltage level: ");
-//            Serial.println(cellVoltages[newIndex]);
         } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex]){
             cellFaults[newIndex] = 3;
             tempOT = true;
-//            Serial.print("Found over temp for Cell: ");
-//            Serial.print(i);
-//            Serial.print(" With temp level: ");
-//            Serial.println(OD_maxCellTemp[newIndex]);
-        }else{
+        }else{ // Reset values here so that we get rid of warnings and reset timers
             cellFaults[newIndex] = 0;
             OD_warning[newIndex] = 0;
             OD_fault[newIndex] = 0;
