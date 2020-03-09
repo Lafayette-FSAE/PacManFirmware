@@ -563,7 +563,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 void Core0::checkCells(uint8_t currentCell) {
   CO_LOCK_OD();
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
-    if (OD_warning[cell] == 0) cellPartialUpdate(0, cell);
+    if (OD_warning[cell] < 1) cellPartialUpdate(0, cell);
     else if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
     else if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
     else if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
@@ -628,9 +628,9 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
     display.setCursor(box_x + 1, box_y - 6);
     display.print("C");
   }
-  if (cellNum < NUM_CELLS - 1) {
-    checkCells(cellNum + 1);
-  }
+//  if (cellNum < NUM_CELLS - 1) {
+//    checkCells(cellNum + 1);
+//  }
   //  display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
 }
 
