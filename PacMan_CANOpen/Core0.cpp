@@ -628,9 +628,9 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
     display.setCursor(box_x + 1, box_y - 6);
     display.print("C");
   }
-  if (cellNum < NUM_CELLS - 1) {
-    checkCells(cellNum + 1);
-  }
+//  if (cellNum < NUM_CELLS - 1) {
+//    checkCells(cellNum + 1);
+//  }
   //  display.updateWindow(128 - box_y, box_x, box_h, box_w, false);
 }
 
