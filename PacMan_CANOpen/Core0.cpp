@@ -607,10 +607,7 @@ void Core0::changeCellBack(uint8_t cellNum){
 
   //seg variables
   display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_WHITE);
- 
-  if (cellNum < NUM_CELLS - 1) {
-    checkCells(cellNum + 1);
-  }
+
 }
 
 void Core0::cellPartialUpdate(int errorType, int cellNum)
