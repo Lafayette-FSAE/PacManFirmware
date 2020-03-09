@@ -564,13 +564,10 @@ void Core0::checkCells(uint8_t currentCell) {
   CO_LOCK_OD();
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
     if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
-      else changeCellBack(cell);
     if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
-      else changeCellBack(cell);
     if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
-      else changeCellBack(cell);
     if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
-      else changeCellBack(cell);
+    if (OD_warning[cell] == 0) cellPartialUpdate(0, cell);
   }
   CO_UNLOCK_OD();
 }
@@ -592,24 +589,6 @@ void Core0::checkForFaults(uint8_t currentCell) {
   CO_UNLOCK_OD();
 }
 
-void Core0::changeCellBack(uint8_t cellNum){
-  uint16_t box_w = 14;
-  uint16_t box_h = 23;
-  uint16_t box_y = 63;
-  uint16_t box_x = 0;
-
-  if (cellNum < 8) { //seg1
-    box_x = 11 + (box_w - 1) * cellNum;
-  }
-  else { //seg2
-    box_x = 180 + (box_w - 1) * (cellNum - 8);
-  }
-
-  //seg variables
-  display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_WHITE);
-
-}
-
 void Core0::cellPartialUpdate(int errorType, int cellNum)
 {
   uint16_t box_w = 14;
@@ -625,6 +604,9 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
   }
 
   //seg variables
+  if (errorType == 0) { //soh bad
+    display.fillRect(box_x+1, box_y - box_h+1, box_w-2, box_h-2, GxEPD_WHITE);
+  }
   if (errorType == 1) { //soh bad
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
   }
