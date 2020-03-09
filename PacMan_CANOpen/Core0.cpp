@@ -219,7 +219,7 @@ void Core0::fsm() {
             Serial.println("center");  //testing
             nextState = Cell_State;
           }
-
+          if(nextState == Main){
           voltage1 = 0; current1 = 0; temp1 = 0; soc_test = 0;
           CO_LOCK_OD();
           for (int i = 0; i < NUM_CELLS; i++) {
@@ -234,6 +234,7 @@ void Core0::fsm() {
           soc_test = soc_test / NUM_CELLS;
           temp1 = temp1 / 10.0;
           mainPartialUpdate(temp1, soc_test, voltage1, current1, main_index);
+          }
         }
         break;
 

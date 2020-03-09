@@ -20,7 +20,7 @@ User-defined CAN base structure, passed as argument to CO_init.
 */
 struct CANbase {
     uintptr_t baseAddress;  /**< Base address of the CAN module */
-};
+}; 
 
 /* Global variables and objects */
 volatile uint16_t   CO_timer1ms = 0U;   /* variable increments each millisecond */
