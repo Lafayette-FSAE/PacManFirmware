@@ -573,8 +573,8 @@ void Core0::checkCells(uint8_t currentCell) {
 
 void Core0::checkForFaults(uint8_t currentCell) {
     CO_LOCK_OD();
-    if (OD_SLOOP_Relay == 1) faults(0, 0); //sl open
-    else if (OD_AIRS == 1) faults(1, 0); //airs open
+    if (OD_SLOOP_Relay == 0) faults(0, 0); //sl open
+    //else if (OD_AIRS == 1) faults(1, 0); //airs open
   
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
     if (OD_fault[cell] == 1) faults(2, cell+1); //high voltage
