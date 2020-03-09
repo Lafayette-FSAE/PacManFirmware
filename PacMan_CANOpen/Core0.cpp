@@ -1,4 +1,4 @@
-/*
+f/*
   Core0.cpp - Library for PacMan Core 0.
   Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
   Released into the public domain.
@@ -43,11 +43,11 @@ void setupCore0() {
   pinMode(PIN_BTN_DOWN,   INPUT); //button
   pinMode(PIN_BTN_LEFT,   INPUT); //button
   pinMode(PIN_BTN_RIGHT,  INPUT); //button
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_CENTER), CButton, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP), UButton, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN), DButton, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT), LButton, RISING);
-  attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), RButton, RISING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_CENTER), CButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP), UButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN), DButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT), LButton, FALLING);
+  attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), RButton, FALLING);
 }
 
 uint8_t regista[3] = {0, 0, 0};
@@ -557,7 +557,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 
   display.updateWindow(5, 5, 118, 286, false);
 
-  //checkForFaults(0);//calls faults();
+  checkForFaults(0);//calls faults();
 }
 
 void Core0::checkCells(uint8_t currentCell) {
@@ -576,15 +576,15 @@ void Core0::checkForFaults(uint8_t currentCell) {
     if (OD_SLOOP_Relay == 1) faults(0, 0); //sl open
     else if (OD_AIRS == 1) faults(1, 0); //airs open
   
-//  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
-//    if (OD_fault[cell] == 1) faults(2, cell+1); //high voltage
-//    if (OD_fault[cell] == 2) faults(3, cell+1); //low voltage
-//    if (OD_fault[cell] == 3) faults(4, cell+1); //high temp
+  for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
+    if (OD_fault[cell] == 1) faults(2, cell+1); //high voltage
+    if (OD_fault[cell] == 2) faults(3, cell+1); //low voltage
+    if (OD_fault[cell] == 3) faults(4, cell+1); //high temp
 //    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
 //    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
 //    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
 //    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
-//  }
+  }
   CO_UNLOCK_OD();
 }
 
