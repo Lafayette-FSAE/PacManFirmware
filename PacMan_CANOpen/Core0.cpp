@@ -1,4 +1,4 @@
-f/*
+/*
   Core0.cpp - Library for PacMan Core 0.
   Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
   Released into the public domain.
