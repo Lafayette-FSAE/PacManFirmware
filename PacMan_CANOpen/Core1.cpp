@@ -22,7 +22,7 @@ void openSafetyLoopCallBack(TimerHandle_t pxTimer){
     
     CO_LOCK_OD();
     for(int i = 0; i < 16; i++){
-        OD_warning[i] = cellFaults[i];
+        OD_fault[i] = cellFaults[i];
     }
     CO_UNLOCK_OD();
 }
@@ -316,13 +316,13 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         }
     // No cells were found below the minimum voltage - stop and reset both counters
     }else{
-        xTimerStop(underVoltageTimer, 0);
-        xTimerStop(underVoltageWarningTimer, 0);
-
+        // Reset puts the timer in an active state - Resets time, but need to stop it to put it in a dormant state
         xTimerReset(underVoltageTimer, 0);
         xTimerReset(underVoltageWarningTimer, 0);
 
-        
+        // Stop puts timer in a dormant state which lets us use xTimerIsTimerActive
+        xTimerStop(underVoltageTimer, 0);
+        xTimerStop(underVoltageWarningTimer, 0);
     }
 
     // At least 1 cell was found above the voltage threshold - start overvoltage counter
@@ -345,11 +345,11 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         }
     // No cells were found above the maximum voltage - stop and reset counters
     }else{
-        xTimerStop(overVoltageTimer, 0);
-        xTimerStop(overVoltageWarningTimer, 0);
-
         xTimerReset(overVoltageTimer, 0);
         xTimerReset(overVoltageWarningTimer, 0);
+
+        xTimerStop(overVoltageTimer, 0);
+        xTimerStop(overVoltageWarningTimer, 0);
     }
 
     // At least 1 cell temp was found above the temp threshold - start overTemperature counter
@@ -372,11 +372,11 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         }
     // No cell temps were found above the maximum temp - stop and reset counter
     }else{
-        xTimerStop(overTemperatureTimer, 0);
-        xTimerStop(overTemperatureWarningTimer, 0);
-
         xTimerReset(overTemperatureTimer, 0);
         xTimerReset(overTemperatureWarningTimer, 0);
+
+        xTimerStop(overTemperatureTimer, 0);
+        xTimerStop(overTemperatureWarningTimer, 0);
     }
 }
 
