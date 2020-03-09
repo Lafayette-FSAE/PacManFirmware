@@ -60,7 +60,7 @@ Core1::Core1(CO_t *CO) {
                                         0,
                                         /* The callback function that switches the LCD back-light
                                         off. */
-                                        openSafetyLoopCallBack);
+                                        warningCallBack);
 
     overVoltageTimer = xTimerCreate(
                                     /* Just a text name, not used by the RTOS kernel. */
@@ -87,7 +87,7 @@ Core1::Core1(CO_t *CO) {
                                     0,
                                     /* The callback function that switches the LCD back-light
                                     off. */
-                                    openSafetyLoopCallBack);
+                                    warningCallBack);
 
 
     overTemperatureTimer = xTimerCreate(
@@ -115,7 +115,7 @@ Core1::Core1(CO_t *CO) {
                                         0,
                                         /* The callback function that switches the LCD back-light
                                         off. */
-                                        openSafetyLoopCallBack);
+                                        warningCallBack);
                                         
 }
 
