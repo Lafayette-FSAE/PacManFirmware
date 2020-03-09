@@ -563,11 +563,11 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 void Core0::checkCells(uint8_t currentCell) {
   CO_LOCK_OD();
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {
-    if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
-    if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
-    if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
-    if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
     if (OD_warning[cell] == 0) cellPartialUpdate(0, cell);
+    else if (OD_cellSOH[cell] == 1) cellPartialUpdate(1, cell);
+    else if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
+    else if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
+    else if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
   }
   CO_UNLOCK_OD();
 }
@@ -607,7 +607,7 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
   if (errorType == 0) { //soh bad
     display.fillRect(box_x+1, box_y - box_h+1, box_w-2, box_h-2, GxEPD_WHITE);
   }
-  if (errorType == 1) { //soh bad
+  else if (errorType == 1) { //soh bad
     display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
   }
   else if (errorType == 2) { //voltage
