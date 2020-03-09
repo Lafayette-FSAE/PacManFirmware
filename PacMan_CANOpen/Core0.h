@@ -74,6 +74,7 @@ class Core0
     //check for faults
     void checkCells(uint8_t currentCell);
     void cellPartialUpdate(int errorType, int cellNum);
+    void changeCellBack(uint8_t cellNum);
     void checkForFaults(uint8_t currentCell);
     void faults(uint8_t errorType, uint8_t cellNum);
 
