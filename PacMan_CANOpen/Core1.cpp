@@ -9,6 +9,7 @@ uint8_t cellFaults[16];
 
 void warningCallBack(TimerHandle_t pxTimer){
     CO_LOCK_OD();
+    Serial.println("15 seconds has pasted setting warnings!");
     for(int i = 0; i < 16; i++){
         OD_warning[i] = cellFaults[i];
     }
@@ -179,7 +180,9 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
             cellFaults[physicalODAddress] = 9;
         }
     }
-    if(!preCollect){
+
+    // Only update the faults if its 0 or 9, otherwise it negates the timer's purpose
+    if(!preCollect && (cellFaults[physicalODAddress] == 9 || cellFaults[physicalODAddress] == 0)){
         CO_LOCK_OD();
         OD_fault[physicalODAddress] = cellFaults[physicalODAddress];
         CO_UNLOCK_OD();
@@ -224,13 +227,13 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         newIndex = physicalLocationFromSortedArray(i);
         
         // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
-        if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex]){
+        if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex] && cellFaults[newIndex] != 9){
             cellFaults[newIndex] = 2;
             tempUV = true;
-        } else if(cellVoltages[newIndex] > OD_maxCellVoltage[newIndex]){
+        } else if(cellVoltages[newIndex] > OD_maxCellVoltage[newIndex] && cellFaults[newIndex] != 9){
             cellFaults[newIndex] = 1;
             tempOV = true;
-        } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex]){
+        } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex] && cellFaults[newIndex] != 9){
             cellFaults[newIndex] = 3;
             tempOT = true;
 
@@ -241,6 +244,10 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
             cellFaults[newIndex] = 0;
             OD_warning[newIndex] = 0;
             OD_fault[newIndex] = 0;
+        }else{
+            cellFaults[newIndex] = 8;
+            OD_warning[newIndex] = 8;
+            OD_fault[newIndex] = 8;
         }
     }
     CO_UNLOCK_OD();
@@ -364,8 +371,18 @@ void Core1::updateCellMenData(){
 
         // Update the Object Dictionary Here
         CO_LOCK_OD();
+        // index i here will go through the array, but in this array the physical stuff is already set - I hate how confusing the indexes are depending on where you are in the code
         for (int i = 0; i < 16; i++) {
-            if(minusTerminalVoltages[i]!=0){  // TODO: Examine this, the first cells should be at zero
+            // If this cell is disconnected, set all its useful data to 0 prior to changing the OD
+            if(cellFaults[i] == 9){
+                Serial.println("Cell got that 9!");
+                cellVoltages[i] = 0;
+                cellTemperatures[i] = 0;
+                cellBalancingEnabled[i] = 0;
+                cellBalanceCurrents[i] = 0;
+            }
+
+            if(minusTerminalVoltages[i] != 0){  // TODO: Examine this, the first cells should be at zero -- Removing this causes shit values so gotta fix this
                 OD_cellPosition[i]         = cellPositions[i];
                 OD_cellVoltage[i]          = cellVoltages[i];
                 OD_cellTemperature[i]      = cellTemperatures[i];
@@ -376,8 +393,9 @@ void Core1::updateCellMenData(){
                 maxCellTemp[i]             = OD_maxCellTemp[i];
             }
         }
-        CO_UNLOCK_OD();
-    }
+
+    CO_UNLOCK_OD();
+    }   
 }
 
 // NOTE TO JON: Please add a low-pass filter for the charge detect input to prevent the bouncing
