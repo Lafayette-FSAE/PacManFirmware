@@ -150,8 +150,10 @@ uint8_t Core1::discoverCellMen() {
         return cellMenCount;
     }
 
-// Request byte array from specified CellMan I2C address
-unsigned char* Core1::requestDataFromSlave(unsigned char address) {
+// Request byte array from specified CellMan I2C address, using index and preCollect we know when to check for I2C faults
+unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index, bool preCollect) {
+    uint8_t physicalODAddress = physicalLocationFromSortedArray(index);
+
     Wire.requestFrom((int) address, REQUEST_LENGTH); // 24 is the max data length expected in bytes
     if (DEBUG) {
         Serial.print("Requesting data from CellMan on Address: ");
@@ -160,6 +162,11 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
 
     if (Wire.available()) {
         if (DEBUG) Serial.println("Wire Available!");
+        if(cellFaults[physicalODAddress] == 9 && !preCollect){
+            Serial.println("CellMan I2C Re-established!");
+            cellFaults[physicalODAddress] = 0;    // If the Cellman comes back online, set the fault back to 0
+        } 
+
         for (int i = 0; i < REQUEST_LENGTH; i++) {
             *(cellDs + i) = Wire.read();                     // Append the read character (byte) to our cellData array
             if (DEBUG) {
@@ -168,7 +175,14 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address) {
             }
         }
     }else{
-        Serial.println("Wire was not Available hoe!");
+        if(!preCollect){
+            cellFaults[physicalODAddress] = 9;
+        }
+    }
+    if(!preCollect){
+        CO_LOCK_OD();
+        OD_fault[physicalODAddress] = cellFaults[physicalODAddress];
+        CO_UNLOCK_OD();
     }
 
     return cellDs;
@@ -219,7 +233,11 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         } else if(cellTemperatures[newIndex] > OD_maxCellTemp[newIndex]){
             cellFaults[newIndex] = 3;
             tempOT = true;
-        }else{ // Reset values here so that we get rid of warnings and reset timers
+
+        /* Reset values here so that we get rid of warnings and reset timers
+           Except if it is 9, since this means the cellman is not on I2C
+           and the data is old and therefore not trustworthy*/
+        }else if(cellFaults[newIndex] != 9){
             cellFaults[newIndex] = 0;
             OD_warning[newIndex] = 0;
             OD_fault[newIndex] = 0;
@@ -339,7 +357,7 @@ void Core1::updateCellMenData(){
     if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
         // Update CellMan Code
         for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-            unsigned char* celldata = requestDataFromSlave(addressVoltages[i].address);
+            unsigned char* celldata = requestDataFromSlave(addressVoltages[i].address, i, false);
             processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
             checkSafety(numberOfDiscoveredCellMen);
         }
@@ -432,7 +450,7 @@ void Core1::start() {
 
     // Put together addressVoltages array by requesting data from each cellman
     for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-        tempCellData = requestDataFromSlave(addresses[i]);
+        tempCellData = requestDataFromSlave(addresses[i], i, true);
 
         addressVoltages[i].address = addresses[i];
         addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
