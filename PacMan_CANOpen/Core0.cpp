@@ -490,9 +490,7 @@ void Core0::setUpMain() {
   }
   
   String fault_string;
-  for (uint8_t i =0; i< NUM_CELLS; i++){
-    if (OD_fault[i]>0) fault_string = "Fault #" + String(OD_fault[i], DEC);
-  }
+  if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
   
   CO_UNLOCK_OD();
 
