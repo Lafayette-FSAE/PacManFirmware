@@ -8,8 +8,8 @@ Released into the public domain.
 uint8_t cellFaults[16];
 
 void warningCallBack(TimerHandle_t pxTimer){
-    CO_LOCK_OD();
     Serial.println("15 seconds has pasted setting warnings!");
+    CO_LOCK_OD();
     for(int i = 0; i < 16; i++){
         OD_warning[i] = cellFaults[i];
     }
@@ -17,9 +17,9 @@ void warningCallBack(TimerHandle_t pxTimer){
 }
 
 void openSafetyLoopCallBack(TimerHandle_t pxTimer){
-    digitalWrite(PIN_SLOOP_EN,   LOW);
+    digitalWrite(PIN_SLOOP_EN, LOW);
     OD_SLOOP_Relay = false;
-    Serial.println("SAFETY LOOP CLOSED!");
+    Serial.println("SAFETY LOOP OPENED!");
     
     CO_LOCK_OD();
     for(int i = 0; i < 16; i++){
@@ -30,7 +30,7 @@ void openSafetyLoopCallBack(TimerHandle_t pxTimer){
 
 // CONSTRUCTOR
 Core1::Core1(CO_t *CO) {
-    // Interrupt Semaphors
+    // Interrupt Semaphores
     I2C_InterrupterSemaphore = xSemaphoreCreateBinary();
     chargeDetectSemaphore = xSemaphoreCreateBinary();
 
@@ -38,25 +38,13 @@ Core1::Core1(CO_t *CO) {
     totalMAH = 0;
 
     // Create safetyloop timers
-    underVoltageTimer = xTimerCreate(
-                                      /* Just a text name, not used by the RTOS kernel. */
-                                      "underVoltageTimer",
-                                      /* The timer period in ticks. From Time To Trigger *1000 for ms */
-                                      pdMS_TO_TICKS(TTT*1000),
-                                      /* The timer is a one-shot timer. */
-                                      pdFALSE,
-                                      /* The id is not used by the callback so can take any
-                                      value. */
-                                      0,
-                                      /* The callback function that switches the LCD back-light
-                                      off. */
-                                      openSafetyLoopCallBack);
-
-    underVoltageWarningTimer = xTimerCreate("underVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
-    overVoltageTimer = xTimerCreate("overVoltageTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
-    overVoltageWarningTimer = xTimerCreate("overVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
-    overTemperatureTimer = xTimerCreate("overTemperatureTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
-    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);                           
+    /* USAGE: softwareTimer     = xTimerCreate("TIMER NAME",                  pdMS_TO_TICKS(DURATION_MS), ONE-SHOT?, 0, callBackFunction); */
+    underVoltageTimer           = xTimerCreate("underVoltageTimer",           pdMS_TO_TICKS(TTT*1000),    pdFALSE,   0, openSafetyLoopCallBack);
+    underVoltageWarningTimer    = xTimerCreate("underVoltageWarningTimer",    pdMS_TO_TICKS(TTT*1000/2),  pdFALSE,   0, warningCallBack);
+    overVoltageTimer            = xTimerCreate("overVoltageTimer",            pdMS_TO_TICKS(TTT*1000),    pdFALSE,   0, openSafetyLoopCallBack);
+    overVoltageWarningTimer     = xTimerCreate("overVoltageWarningTimer",     pdMS_TO_TICKS(TTT*1000/2),  pdFALSE,   0, warningCallBack);
+    overTemperatureTimer        = xTimerCreate("overTemperatureTimer",        pdMS_TO_TICKS(TTT*1000),    pdFALSE,   0, openSafetyLoopCallBack);
+    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/2),  pdFALSE,   0, warningCallBack);                           
 }
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
@@ -115,7 +103,8 @@ uint8_t Core1::discoverCellMen() {
     }
 
     // Start the scan for I2C devices between 1 and 127
-    for (int address = 1; address < 127; address++ ) {
+    for (int address = 1; address < 127; address++ )
+    {
         // The I2C scanner uses the return value of
         // the Write.endTransmisstion to see if
         // a device did acknowledge to the address.
@@ -123,33 +112,33 @@ uint8_t Core1::discoverCellMen() {
         byte error = Wire.endTransmission();
 
         if (error == 0) {
-            // Exclude PacMan ICs
+            // Exclude PacMan I2C devices
             if (address != I2C_ADDR_MCP9804
                 && address != I2C_ADDR_MCP23008
                 && address != I2C_ADDR_BQ32002
                 && address != I2C_ADDR_LTC4151
-                && address != I2C_ADDR_LTC4151_GLOB) {
-                    Serial.print("CellMan I2C device found at address 0x");
-                    if (address < 16) Serial.print("0");
-                    Serial.print(address, HEX);
-                    Serial.println("  !");
-
-                    // Add the new address to our address array and increment the number we have found
-                    addresses[cellMenCount] = address;
-                    cellMenCount++;
-                }
-            }
-            else if (error == 4) {
-                Serial.print("Unknown error at address 0x");
-                if (address < 16)
-                Serial.print("0");
+                && address != I2C_ADDR_LTC4151_GLOB)
+            {
+                Serial.print("CellMan I2C device found at address 0x");
+                if (address < 16) Serial.print("0");
                 Serial.print(address, HEX);
-                Serial.println(" skipping...");
+                Serial.println("  !");
+
+                // Add the new address to our address array and increment the number we have found
+                addresses[cellMenCount] = address;
+                cellMenCount++;
             }
         }
-
-        return cellMenCount;
+        else if (error == 4) {
+            Serial.print("Unknown error at address 0x");
+            if (address < 16)
+            Serial.print("0");
+            Serial.print(address, HEX);
+            Serial.println(" skipping...");
+        }
     }
+    return cellMenCount;
+}
 
 // Request byte array from specified CellMan I2C address, using index and preCollect we know when to check for I2C faults
 unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index, bool preCollect) {
@@ -373,8 +362,10 @@ void Core1::updateCellMenData(){
         // index i here will go through the array, but in this array the physical stuff is already set - I hate how confusing the indexes are depending on where you are in the code
         for (int i = 0; i < 16; i++) {
             // If this cell is disconnected, set all its useful data to 0 prior to changing the O
-            if(minusTerminalVoltages[i] != 0){  // TODO: Examine this, the first cells should be at zero -- Removing this causes shit values so gotta fix this
-                if(cellFaults[i] == 9){
+            if(minusTerminalVoltages[i] != 0)  // TODO: Examine this, the first cells should be at zero -- Removing this causes shit values so gotta fix this
+            {
+                if(cellFaults[i] == 9)
+                {
                     cellVoltages[i] = 0;
                     cellTemperatures[i] = 0;
                     cellBalancingEnabled[i] = 0;
@@ -391,26 +382,24 @@ void Core1::updateCellMenData(){
                 maxCellTemp[i]             = OD_maxCellTemp[i];
             }
         }
-
-    CO_UNLOCK_OD();
-    }   
+        CO_UNLOCK_OD();
+    }
 }
 
-// NOTE TO JON: Please add a low-pass filter for the charge detect input to prevent the bouncing
 void Core1::handleCharging(){
-    // Charge detect interrupt
-        charge = true;
-        int newIndex; // Gets us the actual physical location which is how the array in defined
+    charge = true;
+    int newIndex; // Gets us the actual physical location which is how the array in defined
 
-        // Check all cells are within spec -- This might cause issue for balancing if 1 cell becomes too high it'll turn off the relay, voltage will drop, and we will have relay oscillations
-        // UPDATE: ^ Above statement fixed by haiving the currentlyCharging variable which gives us hysteresis until the plug is taken out and put back in
-        for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-            newIndex = physicalLocationFromSortedArray(i);
-            if(cellVoltages[newIndex] > maxCellVoltage[newIndex] || cellTemperatures[newIndex] > maxCellTemp[newIndex]){
-                charge = false;
-            }
+    // Check all cells are within spec -- This might cause issue for balancing if 1 cell becomes too high it'll turn off the relay, voltage will drop, and we will have relay oscillations
+    // UPDATE: ^ Above statement fixed by haiving the currentlyCharging variable which gives us hysteresis until the plug is taken out and put back in
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
+        newIndex = physicalLocationFromSortedArray(i);
+        if(cellVoltages[newIndex] > maxCellVoltage[newIndex] || cellTemperatures[newIndex] > maxCellTemp[newIndex]){
+            charge = false;
         }
+    }
 
+    // Charge detect interrupt
     if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
         if(DEBUG) Serial.println("Detected Charging thing!");
 
@@ -449,10 +438,8 @@ void Core1::start() {
         minusTerminalVoltages[i]=0;
     }
 
-    // Get all CellMan Addresses
-    numberOfDiscoveredCellMen = discoverCellMen();
-
-    // Loop where trying to discovery until we get some devices to prevent crashing of the CPU
+    // Get all CellMan Addresses - loop discovering until we get some devices to prevent crashing of the CPU
+    numberOfDiscoveredCellMen = 0;
     while (numberOfDiscoveredCellMen == 0) {
         if(DEBUG) Serial.println("In the while loop, looking for CellMen");
         numberOfDiscoveredCellMen = discoverCellMen();
