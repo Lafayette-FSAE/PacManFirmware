@@ -124,11 +124,11 @@ uint8_t Core1::discoverCellMen() {
 
         if (error == 0) {
             // Exclude PacMan ICs
-            if (address != TEMPERATURE_SENSOR_ADDRESS
-                && address != IO_EXPANDER_ADDRESS
-                && address != REAL_TIME_CLOCK_ADDRESS
-                && address != POWER_MONITOR_ADDRESS
-                && address != POWER_MONITOR_GLOBAL_ADDRESS) {
+            if (address != I2C_ADDR_MCP9804
+                && address != I2C_ADDR_MCP23008
+                && address != I2C_ADDR_BQ32002
+                && address != I2C_ADDR_LTC4151
+                && address != I2C_ADDR_LTC4151_GLOB) {
                     Serial.print("CellMan I2C device found at address 0x");
                     if (address < 16) Serial.print("0");
                     Serial.print(address, HEX);
