@@ -579,16 +579,32 @@ void Core0::checkForFaults(uint8_t currentCell) {
     //else if (OD_AIRS == 1) faults(1, 0); //airs open
   
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
-    if (OD_fault[cell] == 1 && triggered!=1){
+    if (OD_fault[cell] == 1 && triggered!=1){            //can do a nested for loop
       faults(2, cell+1); //high voltage
       triggered = 1;
     }
-    if (OD_fault[cell] == 2) faults(3, cell+1); //low voltage
-    if (OD_fault[cell] == 3) faults(4, cell+1); //high temp
+    if (OD_fault[cell] == 2 && triggered!=2){
+      faults(3, cell+1); //low voltage
+      triggered = 2;
+    }
+    if (OD_fault[cell] == 3 && triggered!=3) {
+      faults(4, cell+1); //high temp
+      triggered = 3;
+    }
 //    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
 //    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
 //    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
 //    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
+
+
+/*for(uint8_t i = 1; i<8; i++) {
+   if (OD_fault[cell] == i && triggered!=i){            //can do a nested for loop
+      faults(i+1, cell+1);
+      triggered = i;
+    }
+   }
+*/
+ */
   }
   CO_UNLOCK_OD();
 }
@@ -644,14 +660,14 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
   faults1[errorType].triggered = true;
   faultNum = errorType;*/
   
-  const GFXfont* font = &FreeSansBold24pt7b;
+  const GFXfont* font = &FreeSansBold12pt7b;
   display.setFont(font);
 
   display.fillScreen(GxEPD_BLACK);
   display.setTextColor(GxEPD_WHITE);
   display.setCursor(30, 75);
   String message = faults1[errorType].message;
-  if (cellNum>0) message += " - Cell # " + cellNum;
+  if (cellNum>0) message += " - Cell # " + String(cellNum, DEC);
   display.print(message);
 
   display.update();
