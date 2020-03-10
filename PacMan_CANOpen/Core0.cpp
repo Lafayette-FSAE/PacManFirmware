@@ -68,6 +68,7 @@ Fault faults1[] = {
 Core0::Core0() {}
 
 float voltage1; float current1; float temp1; uint16_t soc_test;
+uint8_t triggered = 0;
 
 void Core0::startCore0() {
   for (;;) {
@@ -483,10 +484,10 @@ void Core0::setUpMain() {
   if (OD_packNodeID == 4) display.print("1");
   else display.print("2");
 
-  if (OD_chargeCableDetected || OD_chargingEnabled) {
+ /* if (OD_chargeCableDetected || OD_chargingEnabled) {
     display.setCursor(265, 15);
     display.print("Ch");
-  }
+  }*/
   
   String fault_string;
   for (uint8_t i =0; i< NUM_CELLS; i++){
@@ -527,6 +528,15 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   uint16_t y = 65;
   uint16_t x = 11;
 
+  CO_LOCK_OD();
+  if (OD_chargeCableDetected || OD_chargingEnabled) {
+    display.setCursor(265, 15);
+    display.print("Ch");
+  }
+  CO_UNLOCK_OD();
+  String fault_string;
+  if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
+  
   display.fillRect(108, 19 - h, 76, h, GxEPD_WHITE);
   display.fillRect(x, y - h, 296 - x * 2, h, GxEPD_WHITE);
 
@@ -574,7 +584,7 @@ void Core0::checkCells(uint8_t currentCell) {
   }
   CO_UNLOCK_OD();
 }
-uint8_t triggered = 0;
+
 void Core0::checkForFaults(uint8_t currentCell) {
     CO_LOCK_OD();
     //if (OD_SLOOP_Relay == 0) faults(0, 0); //sl open
