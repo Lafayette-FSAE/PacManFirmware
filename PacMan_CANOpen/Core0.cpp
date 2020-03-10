@@ -571,14 +571,18 @@ void Core0::checkCells(uint8_t currentCell) {
   }
   CO_UNLOCK_OD();
 }
-
+uint8_t triggered = 0;
 void Core0::checkForFaults(uint8_t currentCell) {
     CO_LOCK_OD();
-    if (OD_SLOOP_Relay == 0) faults(0, 0); //sl open
+    //if (OD_SLOOP_Relay == 0) faults(0, 0); //sl open
+    if (OD_SLOOP_Relay == 1) triggered = 0;
     //else if (OD_AIRS == 1) faults(1, 0); //airs open
   
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
-    if (OD_fault[cell] == 1) faults(2, cell+1); //high voltage
+    if (OD_fault[cell] == 1 && triggered!=1){
+      faults(2, cell+1); //high voltage
+      triggered = 1;
+    }
     if (OD_fault[cell] == 2) faults(3, cell+1); //low voltage
     if (OD_fault[cell] == 3) faults(4, cell+1); //high temp
 //    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
@@ -721,12 +725,18 @@ void Core0::cellData(uint8_t cellNum)
   uint8_t line = 20;
   uint8_t y_point = top;
   CO_LOCK_OD();
-  String num = String("Cell #" + String(cellNum + 1, DEC));
-  String temp = String("Temp " + String(OD_cellTemperature[cellNum], 1));
-  String volt = String("Volt " + String(OD_cellVoltage[cellNum], 1));
-  String curr = String("Curr " + String(OD_cellBalancingCurrent[cellNum], 1));
-  String soc = String("SOH " + String(OD_cellSOC[cellNum], DEC));
+  float temperature = OD_cellTemperature[cellNum]/10.0;
+  float voltage = OD_cellVoltage[cellNum]/1000.0;
+  float current = OD_cellBalancingCurrent[cellNum]/1000.0;
+  uint16_t cellSOC = OD_cellSOC[cellNum];
   CO_UNLOCK_OD();
+  
+  String num = String("Cell #" + String(cellNum + 1, DEC));
+  String temp = String("Temp " + String(temperature, 1));
+  String volt = String("Volt " + String(voltage, 1));
+  String curr = String("Curr " + String(current, 1));
+  String soc = String("SOH " + String(cellSOC, DEC));
+
   display.fillScreen(GxEPD_WHITE);
   display.setTextColor(GxEPD_BLACK);
   display.setCursor(110, 30);
