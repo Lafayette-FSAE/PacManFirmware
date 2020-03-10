@@ -164,7 +164,7 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
     if (Wire.available()) {
         if (DEBUG) Serial.println("Wire Available!");
         if(cellFaults[physicalODAddress] == 9 && !preCollect){
-            Serial.println("CellMan I2C Re-established!");
+            if(DEBUG) Serial.println("CellMan I2C Re-established!");
             cellFaults[physicalODAddress] = 0;    // If the Cellman comes back online, set the fault back to 0
         } 
 
@@ -176,16 +176,19 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
             }
         }
     }else{
-        if(!preCollect){
+        if(!preCollect && cellFaults[physicalODAddress] != 9){
+            if(DEBUG) Serial.println("Got a fault!");
             cellFaults[physicalODAddress] = 9;
         }
     }
 
-    // Only update the faults if its 0 or 9, otherwise it negates the timer's purpose
-    if(!preCollect && (cellFaults[physicalODAddress] == 9 || cellFaults[physicalODAddress] == 0)){
-        CO_LOCK_OD();
-        OD_fault[physicalODAddress] = cellFaults[physicalODAddress];
-        CO_UNLOCK_OD();
+    // Only update the faults if its 0 or 9, otherwise it negates the timer's purpose - Gets called a lot, maybe we can reduce the OD usage here sometime
+    if(!preCollect){
+        if(cellFaults[physicalODAddress] == 9 || cellFaults[physicalODAddress] == 0){
+            CO_LOCK_OD();
+            OD_fault[physicalODAddress] = cellFaults[physicalODAddress];
+            CO_UNLOCK_OD();
+        }
     }
 
     return cellDs;
@@ -244,10 +247,6 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
             cellFaults[newIndex] = 0;
             OD_warning[newIndex] = 0;
             OD_fault[newIndex] = 0;
-        }else{
-            cellFaults[newIndex] = 8;
-            OD_warning[newIndex] = 8;
-            OD_fault[newIndex] = 8;
         }
     }
     CO_UNLOCK_OD();
@@ -373,16 +372,15 @@ void Core1::updateCellMenData(){
         CO_LOCK_OD();
         // index i here will go through the array, but in this array the physical stuff is already set - I hate how confusing the indexes are depending on where you are in the code
         for (int i = 0; i < 16; i++) {
-            // If this cell is disconnected, set all its useful data to 0 prior to changing the OD
-            if(cellFaults[i] == 9){
-                Serial.println("Cell got that 9!");
-                cellVoltages[i] = 0;
-                cellTemperatures[i] = 0;
-                cellBalancingEnabled[i] = 0;
-                cellBalanceCurrents[i] = 0;
-            }
-
+            // If this cell is disconnected, set all its useful data to 0 prior to changing the O
             if(minusTerminalVoltages[i] != 0){  // TODO: Examine this, the first cells should be at zero -- Removing this causes shit values so gotta fix this
+                if(cellFaults[i] == 9){
+                    cellVoltages[i] = 0;
+                    cellTemperatures[i] = 0;
+                    cellBalancingEnabled[i] = 0;
+                    cellBalanceCurrents[i] = 0;
+                }
+                
                 OD_cellPosition[i]         = cellPositions[i];
                 OD_cellVoltage[i]          = cellVoltages[i];
                 OD_cellTemperature[i]      = cellTemperatures[i];
