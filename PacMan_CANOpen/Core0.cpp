@@ -595,6 +595,16 @@ void Core0::checkForFaults(uint8_t currentCell) {
 //    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
 //    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
 //    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
+
+
+/*for(uint8_t i = 1; i<8; i++) {
+   if (OD_fault[cell] == i && triggered!=i){            //can do a nested for loop
+      faults(i+1, cell+1);
+      triggered = i;
+    }
+   }
+*/
+ */
   }
   CO_UNLOCK_OD();
 }
