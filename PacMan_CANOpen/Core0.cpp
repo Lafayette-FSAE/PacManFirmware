@@ -481,7 +481,6 @@ void Core0::setUpMain() {
   display.setCursor(175, 16);
 
   if (OD_packNodeID == 4) display.print("1");
-
   else display.print("2");
 
   if (OD_chargeCableDetected || OD_chargingEnabled) {
@@ -582,31 +581,24 @@ void Core0::checkForFaults(uint8_t currentCell) {
     //else if (OD_AIRS == 1) faults(1, 0); //airs open
   
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
-    if (OD_fault[cell] == 1 && triggered!=1){            //can do a nested for loop
+    if (OD_fault[cell] == 1 && triggered!=1 && OD_faultHV_Disable[cell]){            //can do a nested for loop
       faults(2, cell+1); //high voltage
       triggered = 1;
     }
-    if (OD_fault[cell] == 2 && triggered!=2){
+    if (OD_fault[cell] == 2 && triggered!=2 && OD_faultLV_Disable[cell]){
       faults(3, cell+1); //low voltage
       triggered = 2;
     }
-    if (OD_fault[cell] == 3 && triggered!=3) {
+    if (OD_fault[cell] == 3 && triggered!=3 && OD_faultHT_Disable[cell]) {
       faults(4, cell+1); //high temp
       triggered = 3;
     }
-//    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
-//    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
-//    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
-//    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
+//    if (OD_fault[cell] == 4 && triggered!=4 && OD_faultLT_Disable[cell]) faults(5, cell+1); //low temp
+//    if (OD_fault[cell] == 5 && triggered!=5 && OD_faultHC_Disable[cell]) faults(6, cell+1); //high current
+//    if (OD_fault[cell] == 6 && triggered!=6 && OD_faultLC_Disable[cell]) faults(7, cell+1); //low current
+//    if (OD_fault[cell] == 7 && triggered!=7 && OD_faultLSOC_Disable[cell]) faults(8, cell+1); //low soc
 
 
-/*for(uint8_t i = 1; i<8; i++) {
-   if (OD_fault[cell] == i && triggered!=i){            //can do a nested for loop
-      faults(i+1, cell+1);
-      triggered = i;
-    }
-   }
-*/
   }
   CO_UNLOCK_OD();
 }
@@ -661,7 +653,6 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
   /*if (faults1[errorType].enabled==true){
   faults1[errorType].triggered = true;
   faultNum = errorType;*/
-  backToHome = 0;
   const GFXfont* font = &FreeSansBold12pt7b;
   display.setFont(font);
 

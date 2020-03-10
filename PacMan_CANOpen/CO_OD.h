@@ -839,6 +839,197 @@
         #define OD_3013_14_warning_cell14                           14
         #define OD_3013_15_warning_cell15                           15
         #define OD_3013_16_warning_cell16                           16
+
+/*3014 */
+        #define OD_3014_faultHV_Disable                             0x3014
+
+        #define OD_3014_0_faultHV_Disable_maxSubIndex               0
+        #define OD_3014_1_faultHV_Disable_                          1
+        #define OD_3014_2_faultHV_Disable_                          2
+        #define OD_3014_3_faultHV_Disable_                          3
+        #define OD_3014_4_faultHV_Disable_                          4
+        #define OD_3014_5_faultHV_Disable_                          5
+        #define OD_3014_6_faultHV_Disable_                          6
+        #define OD_3014_7_faultHV_Disable_                          7
+        #define OD_3014_8_faultHV_Disable_                          8
+        #define OD_3014_9_faultHV_Disable_                          9
+        #define OD_3014_10_faultHV_Disable_                         10
+        #define OD_3014_11_faultHV_Disable_                         11
+        #define OD_3014_12_faultHV_Disable_                         12
+        #define OD_3014_13_faultHV_Disable_                         13
+        #define OD_3014_14_faultHV_Disable_                         14
+        #define OD_3014_15_faultHV_Disable_                         15
+        #define OD_3014_16_faultHV_Disable_                         16
+
+/*3015 */
+        #define OD_3015_faultLV_Disable                             0x3015
+
+        #define OD_3015_0_faultLV_Disable_maxSubIndex               0
+        #define OD_3015_1_faultLV_Disable_                          1
+        #define OD_3015_2_faultLV_Disable_                          2
+        #define OD_3015_3_faultLV_Disable_                          3
+        #define OD_3015_4_faultLV_Disable_                          4
+        #define OD_3015_5_faultLV_Disable_                          5
+        #define OD_3015_6_faultLV_Disable_                          6
+        #define OD_3015_7_faultLV_Disable_                          7
+        #define OD_3015_8_faultLV_Disable_                          8
+        #define OD_3015_9_faultLV_Disable_                          9
+        #define OD_3015_10_faultLV_Disable_                         10
+        #define OD_3015_11_faultLV_Disable_                         11
+        #define OD_3015_12_faultLV_Disable_                         12
+        #define OD_3015_13_faultLV_Disable_                         13
+        #define OD_3015_14_faultLV_Disable_                         14
+        #define OD_3015_15_faultLV_Disable_                         15
+        #define OD_3015_16_faultLV_Disable_                         16
+
+/*3016 */
+        #define OD_3016_faultHT_Disable                             0x3016
+
+        #define OD_3016_0_faultHT_Disable_maxSubIndex               0
+        #define OD_3016_1_faultHT_Disable_                          1
+        #define OD_3016_2_faultHT_Disable_                          2
+        #define OD_3016_3_faultHT_Disable_                          3
+        #define OD_3016_4_faultHT_Disable_                          4
+        #define OD_3016_5_faultHT_Disable_                          5
+        #define OD_3016_6_faultHT_Disable_                          6
+        #define OD_3016_7_faultHT_Disable_                          7
+        #define OD_3016_8_faultHT_Disable_                          8
+        #define OD_3016_9_faultHT_Disable_                          9
+        #define OD_3016_10_faultHT_Disable_                         10
+        #define OD_3016_11_faultHT_Disable_                         11
+        #define OD_3016_12_faultHT_Disable_                         12
+        #define OD_3016_13_faultHT_Disable_                         13
+        #define OD_3016_14_faultHT_Disable_                         14
+        #define OD_3016_15_faultHT_Disable_                         15
+        #define OD_3016_16_faultHT_Disable_                         16
+
+/*3017 */
+        #define OD_3017_faultLT_Disable                             0x3017
+
+        #define OD_3017_0_faultLT_Disable_maxSubIndex               0
+        #define OD_3017_1_faultLT_Disable_                          1
+        #define OD_3017_2_faultLT_Disable_                          2
+        #define OD_3017_3_faultLT_Disable_                          3
+        #define OD_3017_4_faultLT_Disable_                          4
+        #define OD_3017_5_faultLT_Disable_                          5
+        #define OD_3017_6_faultLT_Disable_                          6
+        #define OD_3017_7_faultLT_Disable_                          7
+        #define OD_3017_8_faultLT_Disable_                          8
+        #define OD_3017_9_faultLT_Disable_                          9
+        #define OD_3017_10_faultLT_Disable_                         10
+        #define OD_3017_11_faultLT_Disable_                         11
+        #define OD_3017_12_faultLT_Disable_                         12
+        #define OD_3017_13_faultLT_Disable_                         13
+        #define OD_3017_14_faultLT_Disable_                         14
+        #define OD_3017_15_faultLT_Disable_                         15
+        #define OD_3017_16_faultLT_Disable_                         16
+
+/*3018 */
+        #define OD_3018_faultHC_Disable                             0x3018
+
+        #define OD_3018_0_faultHC_Disable_maxSubIndex               0
+        #define OD_3018_1_faultHC_Disable_                          1
+        #define OD_3018_2_faultHC_Disable_                          2
+        #define OD_3018_3_faultHC_Disable_                          3
+        #define OD_3018_4_faultHC_Disable_                          4
+        #define OD_3018_5_faultHC_Disable_                          5
+        #define OD_3018_6_faultHC_Disable_                          6
+        #define OD_3018_7_faultHC_Disable_                          7
+        #define OD_3018_8_faultHC_Disable_                          8
+        #define OD_3018_9_faultHC_Disable_                          9
+        #define OD_3018_10_faultHC_Disable_                         10
+        #define OD_3018_11_faultHC_Disable_                         11
+        #define OD_3018_12_faultHC_Disable_                         12
+        #define OD_3018_13_faultHC_Disable_                         13
+        #define OD_3018_14_faultHC_Disable_                         14
+        #define OD_3018_15_faultHC_Disable_                         15
+        #define OD_3018_16_faultHC_Disable_                         16
+
+/*3019 */
+        #define OD_3019_faultLC_Disable                             0x3019
+
+        #define OD_3019_0_faultLC_Disable_maxSubIndex               0
+        #define OD_3019_1_faultLC_Disable_                          1
+        #define OD_3019_2_faultLC_Disable_                          2
+        #define OD_3019_3_faultLC_Disable_                          3
+        #define OD_3019_4_faultLC_Disable_                          4
+        #define OD_3019_5_faultLC_Disable_                          5
+        #define OD_3019_6_faultLC_Disable_                          6
+        #define OD_3019_7_faultLC_Disable_                          7
+        #define OD_3019_8_faultLC_Disable_                          8
+        #define OD_3019_9_faultLC_Disable_                          9
+        #define OD_3019_10_faultLC_Disable_                         10
+        #define OD_3019_11_faultLC_Disable_                         11
+        #define OD_3019_12_faultLC_Disable_                         12
+        #define OD_3019_13_faultLC_Disable_                         13
+        #define OD_3019_14_faultLC_Disable_                         14
+        #define OD_3019_15_faultLC_Disable_                         15
+        #define OD_3019_16_faultLC_Disable_                         16
+
+/*3020 */
+        #define OD_3020_faultLSOC_Disable                           0x3020
+
+        #define OD_3020_0_faultLSOC_Disable_maxSubIndex             0
+        #define OD_3020_1_faultLSOC_Disable_                        1
+        #define OD_3020_2_faultLSOC_Disable_                        2
+        #define OD_3020_3_faultLSOC_Disable_                        3
+        #define OD_3020_4_faultLSOC_Disable_                        4
+        #define OD_3020_5_faultLSOC_Disable_                        5
+        #define OD_3020_6_faultLSOC_Disable_                        6
+        #define OD_3020_7_faultLSOC_Disable_                        7
+        #define OD_3020_8_faultLSOC_Disable_                        8
+        #define OD_3020_9_faultLSOC_Disable_                        9
+        #define OD_3020_10_faultLSOC_Disable_                       10
+        #define OD_3020_11_faultLSOC_Disable_                       11
+        #define OD_3020_12_faultLSOC_Disable_                       12
+        #define OD_3020_13_faultLSOC_Disable_                       13
+        #define OD_3020_14_faultLSOC_Disable_                       14
+        #define OD_3020_15_faultLSOC_Disable_                       15
+        #define OD_3020_16_faultLSOC_Disable_                       16
+
+/*3021 */
+        #define OD_3021_faultMiscDisable                            0x3021
+
+        #define OD_3021_0_faultMiscDisable_maxSubIndex              0
+        #define OD_3021_1_faultMiscDisable_                         1
+        #define OD_3021_2_faultMiscDisable_                         2
+        #define OD_3021_3_faultMiscDisable_                         3
+        #define OD_3021_4_faultMiscDisable_                         4
+        #define OD_3021_5_faultMiscDisable_                         5
+        #define OD_3021_6_faultMiscDisable_                         6
+        #define OD_3021_7_faultMiscDisable_                         7
+        #define OD_3021_8_faultMiscDisable_                         8
+        #define OD_3021_9_faultMiscDisable_                         9
+        #define OD_3021_10_faultMiscDisable_                        10
+        #define OD_3021_11_faultMiscDisable_                        11
+        #define OD_3021_12_faultMiscDisable_                        12
+        #define OD_3021_13_faultMiscDisable_                        13
+        #define OD_3021_14_faultMiscDisable_                        14
+        #define OD_3021_15_faultMiscDisable_                        15
+        #define OD_3021_16_faultMiscDisable_                        16
+
+/*3022 */
+        #define OD_3022_faultI2C_Disable                            0x3022
+
+        #define OD_3022_0_faultI2C_Disable_maxSubIndex              0
+        #define OD_3022_1_faultI2C_Disable_                         1
+        #define OD_3022_2_faultI2C_Disable_                         2
+        #define OD_3022_3_faultI2C_Disable_                         3
+        #define OD_3022_4_faultI2C_Disable_                         4
+        #define OD_3022_5_faultI2C_Disable_                         5
+        #define OD_3022_6_faultI2C_Disable_                         6
+        #define OD_3022_7_faultI2C_Disable_                         7
+        #define OD_3022_8_faultI2C_Disable_                         8
+        #define OD_3022_9_faultI2C_Disable_                         9
+        #define OD_3022_10_faultI2C_Disable_                        10
+        #define OD_3022_11_faultI2C_Disable_                        11
+        #define OD_3022_12_faultI2C_Disable_                        12
+        #define OD_3022_13_faultI2C_Disable_                        13
+        #define OD_3022_14_faultI2C_Disable_                        14
+        #define OD_3022_15_faultI2C_Disable_                        15
+        #define OD_3022_16_faultI2C_Disable_                        16
+
+        
 /*******************************************************************************
    STRUCTURES FOR VARIABLES IN DIFFERENT MEMORY LOCATIONS
 *******************************************************************************/
@@ -926,6 +1117,15 @@ struct sCO_OD_EEPROM{
 /*300e      */ UNSIGNED16      maxCellCurrent[16];
 /*300f      */ UNSIGNED16      maxCellChargeVoltage[16];
 /*3010      */ UNSIGNED8       cellSOC_Min[16];
+/*3014      */ BOOLEAN         faultHV_Disable[16];
+/*3015      */ BOOLEAN         faultLV_Disable[16];
+/*3016      */ BOOLEAN         faultHT_Disable[16];
+/*3017      */ BOOLEAN         faultLT_Disable[16];
+/*3018      */ BOOLEAN         faultHC_Disable[16];
+/*3019      */ BOOLEAN         faultLC_Disable[16];
+/*3020      */ BOOLEAN         faultLSOC_Disable[16];
+/*3021      */ BOOLEAN         faultMiscDisable[16];
+/*3022      */ BOOLEAN         faultI2C_Disable[16];
 
                UNSIGNED32     LastWord;
 };
@@ -1616,7 +1816,187 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define ODA_warning_cell13                                  12
         #define ODA_warning_cell14                                  13
         #define ODA_warning_cell15                                  14
-        #define ODA_warning_cell16                                  15        
+        #define ODA_warning_cell16                                  15    
+
+/*3014, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultHV_Disable                                  CO_OD_EEPROM.faultHV_Disable
+        #define ODL_faultHV_Disable_arrayLength                     16
+        #define ODA_faultHV_Disable_cell1                            0
+        #define ODA_faultHV_Disable_cell2                            1
+        #define ODA_faultHV_Disable_cell3                            2
+        #define ODA_faultHV_Disable_cell4                            3
+        #define ODA_faultHV_Disable_cell5                            4
+        #define ODA_faultHV_Disable_cell6                            5
+        #define ODA_faultHV_Disable_cell7                            6
+        #define ODA_faultHV_Disable_cell8                            7
+        #define ODA_faultHV_Disable_cell9                            8
+        #define ODA_faultHV_Disable_cell10                           9
+        #define ODA_faultHV_Disable_cell11                           10
+        #define ODA_faultHV_Disable_cell12                           11
+        #define ODA_faultHV_Disable_cell13                           12
+        #define ODA_faultHV_Disable_cell14                           13
+        #define ODA_faultHV_Disable_cell15                           14
+        #define ODA_faultHV_Disable_cell16                           15  
+
+/*3015, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultLV_Disable                                  CO_OD_EEPROM.faultLV_Disable
+        #define ODL_faultLV_Disable_arrayLength                     16
+        #define ODA_faultLV_Disable_cell1                            0
+        #define ODA_faultLV_Disable_cell2                            1
+        #define ODA_faultLV_Disable_cell3                            2
+        #define ODA_faultLV_Disable_cell4                            3
+        #define ODA_faultLV_Disable_cell5                            4
+        #define ODA_faultLV_Disable_cell6                            5
+        #define ODA_faultLV_Disable_cell7                            6
+        #define ODA_faultLV_Disable_cell8                            7
+        #define ODA_faultLV_Disable_cell9                            8
+        #define ODA_faultLV_Disable_cell10                           9
+        #define ODA_faultLV_Disable_cell11                           10
+        #define ODA_faultLV_Disable_cell12                           11
+        #define ODA_faultLV_Disable_cell13                           12
+        #define ODA_faultLV_Disable_cell14                           13
+        #define ODA_faultLV_Disable_cell15                           14
+        #define ODA_faultLV_Disable_cell16                           15  
+
+/*3016, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultHT_Disable                                  CO_OD_EEPROM.faultHT_Disable
+        #define ODL_faultHT_Disable_arrayLength                     16
+        #define ODA_faultHT_Disable_cell1                            0
+        #define ODA_faultHT_Disable_cell2                            1
+        #define ODA_faultHT_Disable_cell3                            2
+        #define ODA_faultHT_Disable_cell4                            3
+        #define ODA_faultHT_Disable_cell5                            4
+        #define ODA_faultHT_Disable_cell6                            5
+        #define ODA_faultHT_Disable_cell7                            6
+        #define ODA_faultHT_Disable_cell8                            7
+        #define ODA_faultHT_Disable_cell9                            8
+        #define ODA_faultHT_Disable_cell10                           9
+        #define ODA_faultHT_Disable_cell11                           10
+        #define ODA_faultHT_Disable_cell12                           11
+        #define ODA_faultHT_Disable_cell13                           12
+        #define ODA_faultHT_Disable_cell14                           13
+        #define ODA_faultHT_Disable_cell15                           14
+        #define ODA_faultHT_Disable_cell16                           15  
+
+/*3017, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultLT_Disable                                  CO_OD_EEPROM.faultLT_Disable
+        #define ODL_faultLT_Disable_arrayLength                     16
+        #define ODA_faultLT_Disable_cell1                            0
+        #define ODA_faultLT_Disable_cell2                            1
+        #define ODA_faultLT_Disable_cell3                            2
+        #define ODA_faultLT_Disable_cell4                            3
+        #define ODA_faultLT_Disable_cell5                            4
+        #define ODA_faultLT_Disable_cell6                            5
+        #define ODA_faultLT_Disable_cell7                            6
+        #define ODA_faultLT_Disable_cell8                            7
+        #define ODA_faultLT_Disable_cell9                            8
+        #define ODA_faultLT_Disable_cell10                           9
+        #define ODA_faultLT_Disable_cell11                           10
+        #define ODA_faultLT_Disable_cell12                           11
+        #define ODA_faultLT_Disable_cell13                           12
+        #define ODA_faultLT_Disable_cell14                           13
+        #define ODA_faultLT_Disable_cell15                           14
+        #define ODA_faultLT_Disable_cell16                           15  
+
+/*3018, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultHC_Disable                                  CO_OD_EEPROM.faultHC_Disable
+        #define ODL_faultHC_Disable_arrayLength                     16
+        #define ODA_faultHC_Disable_cell1                            0
+        #define ODA_faultHC_Disable_cell2                            1
+        #define ODA_faultHC_Disable_cell3                            2
+        #define ODA_faultHC_Disable_cell4                            3
+        #define ODA_faultHC_Disable_cell5                            4
+        #define ODA_faultHC_Disable_cell6                            5
+        #define ODA_faultHC_Disable_cell7                            6
+        #define ODA_faultHC_Disable_cell8                            7
+        #define ODA_faultHC_Disable_cell9                            8
+        #define ODA_faultHC_Disable_cell10                           9
+        #define ODA_faultHC_Disable_cell11                           10
+        #define ODA_faultHC_Disable_cell12                           11
+        #define ODA_faultHC_Disable_cell13                           12
+        #define ODA_faultHC_Disable_cell14                           13
+        #define ODA_faultHC_Disable_cell15                           14
+        #define ODA_faultHC_Disable_cell16                           15  
+
+/*3019, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultLC_Disable                                  CO_OD_EEPROM.faultLC_Disable
+        #define ODL_faultLC_Disable_arrayLength                     16
+        #define ODA_faultLC_Disable_cell1                            0
+        #define ODA_faultLC_Disable_cell2                            1
+        #define ODA_faultLC_Disable_cell3                            2
+        #define ODA_faultLC_Disable_cell4                            3
+        #define ODA_faultLC_Disable_cell5                            4
+        #define ODA_faultLC_Disable_cell6                            5
+        #define ODA_faultLC_Disable_cell7                            6
+        #define ODA_faultLC_Disable_cell8                            7
+        #define ODA_faultLC_Disable_cell9                            8
+        #define ODA_faultLC_Disable_cell10                           9
+        #define ODA_faultLC_Disable_cell11                           10
+        #define ODA_faultLC_Disable_cell12                           11
+        #define ODA_faultLC_Disable_cell13                           12
+        #define ODA_faultLC_Disable_cell14                           13
+        #define ODA_faultLC_Disable_cell15                           14
+        #define ODA_faultLC_Disable_cell16                           15  
+
+/*3020, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultLSOC_Disable                                CO_OD_EEPROM.faultLSOC_Disable
+        #define ODL_faultLSOC_Disable_arrayLength                   16
+        #define ODA_faultLSOC_Disable_cell1                            0
+        #define ODA_faultLSOC_Disable_cell2                            1
+        #define ODA_faultLSOC_Disable_cell3                            2
+        #define ODA_faultLSOC_Disable_cell4                            3
+        #define ODA_faultLSOC_Disable_cell5                            4
+        #define ODA_faultLSOC_Disable_cell6                            5
+        #define ODA_faultLSOC_Disable_cell7                            6
+        #define ODA_faultLSOC_Disable_cell8                            7
+        #define ODA_faultLSOC_Disable_cell9                            8
+        #define ODA_faultLSOC_Disable_cell10                           9
+        #define ODA_faultLSOC_Disable_cell11                           10
+        #define ODA_faultLSOC_Disable_cell12                           11
+        #define ODA_faultLSOC_Disable_cell13                           12
+        #define ODA_faultLSOC_Disable_cell14                           13
+        #define ODA_faultLSOC_Disable_cell15                           14
+        #define ODA_faultLSOC_Disable_cell16                           15  
+
+/*3021, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultMiscDisable                                 CO_OD_EEPROM.faultMiscDisable
+        #define ODL_faultMiscDisable_arrayLength                    16
+        #define ODA_faultMiscDisable_cell1                            0
+        #define ODA_faultMiscDisable_cell2                            1
+        #define ODA_faultMiscDisable_cell3                            2
+        #define ODA_faultMiscDisable_cell4                            3
+        #define ODA_faultMiscDisable_cell5                            4
+        #define ODA_faultMiscDisable_cell6                            5
+        #define ODA_faultMiscDisable_cell7                            6
+        #define ODA_faultMiscDisable_cell8                            7
+        #define ODA_faultMiscDisable_cell9                            8
+        #define ODA_faultMiscDisable_cell10                           9
+        #define ODA_faultMiscDisable_cell11                           10
+        #define ODA_faultMiscDisable_cell12                           11
+        #define ODA_faultMiscDisable_cell13                           12
+        #define ODA_faultMiscDisable_cell14                           13
+        #define ODA_faultMiscDisable_cell15                           14
+        #define ODA_faultMiscDisable_cell16                           15  
+
+/*3022, Data Type: BOOLEAN, Array[16] */
+        #define OD_faultI2C_Disable                                 CO_OD_EEPROM.faultI2C_Disable
+        #define ODL_faultI2C_Disable_arrayLength                    16
+        #define ODA_faultI2C_Disable_cell1                            0
+        #define ODA_faultI2C_Disable_cell2                            1
+        #define ODA_faultI2C_Disable_cell3                            2
+        #define ODA_faultI2C_Disable_cell4                            3
+        #define ODA_faultI2C_Disable_cell5                            4
+        #define ODA_faultI2C_Disable_cell6                            5
+        #define ODA_faultI2C_Disable_cell7                            6
+        #define ODA_faultI2C_Disable_cell8                            7
+        #define ODA_faultI2C_Disable_cell9                            8
+        #define ODA_faultI2C_Disable_cell10                           9
+        #define ODA_faultI2C_Disable_cell11                           10
+        #define ODA_faultI2C_Disable_cell12                           11
+        #define ODA_faultI2C_Disable_cell13                           12
+        #define ODA_faultI2C_Disable_cell14                           13
+        #define ODA_faultI2C_Disable_cell15                           14
+        #define ODA_faultI2C_Disable_cell16                           15          
 
 
 /*6000, Data Type: UNSIGNED8, Array[8] */
