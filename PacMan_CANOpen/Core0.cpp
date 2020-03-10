@@ -190,6 +190,7 @@ void Core0::fsm() {
     switch (nextState) {
       case Main: {
           if (state != Main || backToHome == 1) {
+            backToHome = 0;
             Serial.println("hello hello over here yes yes yes");
             setUpMain();
             main_index = 0;
