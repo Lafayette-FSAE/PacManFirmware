@@ -34,6 +34,7 @@ private:
     // VARIABLES
     uint8_t addresses[16];              // Hold discovered I2C Addresses
     unsigned char cellDs[REQUEST_LENGTH];
+    uint8_t numberOfDiscoveredCellMen;
 
     unsigned char I2CError;             // Holds potential error when discoverying I2C devices
     float dischargeCurrent;             // Holds currently read discharge current from I2C sensor
@@ -46,6 +47,7 @@ private:
     bool tempUV;
     bool tempOV;
     bool tempOT;
+    bool charge;
     
     TimerHandle_t underVoltageTimer;
     TimerHandle_t underVoltageWarningTimer;
@@ -91,7 +93,8 @@ private:
     void checkSafety(uint8_t numberOfDiscoveredCellMen);
     uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);                        // Returns a physical location in the pack counting up in voltage levels based off of an index. 50/50 chance it is correct due to hardware bug rn
     void calculateTotalPackSOC();                                                       // Calculate SOC from voltage TODO: Make this more powerful
-
+    void updateCellMenData();
+    void handleCharging();
 
 public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
