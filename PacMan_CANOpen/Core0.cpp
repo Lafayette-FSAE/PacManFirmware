@@ -554,10 +554,9 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.print(temp);
 
   checkCells(0); //calls cell partial update if need be
+  checkForFaults(0);//calls faults();
 
   display.updateWindow(5, 5, 118, 286, false);
-
-  checkForFaults(0);//calls faults();
 }
 
 void Core0::checkCells(uint8_t currentCell) {
@@ -604,7 +603,6 @@ void Core0::checkForFaults(uint8_t currentCell) {
     }
    }
 */
- */
   }
   CO_UNLOCK_OD();
 }
@@ -675,6 +673,7 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
     delay(20);
   }
   centerPress = false;
+  setUpMain();
  // }
 }
 
