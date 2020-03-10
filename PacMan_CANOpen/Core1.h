@@ -43,6 +43,7 @@ private:
     int totalMAH;                       // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
     float packSOC;                      // Keeps track of the Pack's total SOC
+    bool currentlyCharging;             // Haha get it, cause its current and its currently charging
 
     bool tempUV;
     bool tempOV;
@@ -61,7 +62,9 @@ private:
     // Normal Cells Data
     uint8_t cellPositions[16];          // Cell Position calculated from the voltages
     uint16_t cellVoltages[16];          // Cell Voltage data for all cells in Pack
+    uint16_t maxCellVoltage[16];
     uint16_t cellTemperatures[16];      // Cell Temperature data for all the cells
+    uint16_t maxCellTemp[16];
     uint16_t minusTerminalVoltages[16]; // Cell voltages at each cellman's minus terminal with respect to ground (which ground...?)
     uint8_t  cellBalancingEnabled[16];  // Is this cellman balancing or not?
     uint16_t cellBalanceCurrents[16];   // Balancing Currents for each cellman

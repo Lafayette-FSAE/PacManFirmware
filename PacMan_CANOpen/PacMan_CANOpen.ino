@@ -13,8 +13,8 @@
 #define TIMER_DIVIDER   80               /*!< Hardware timer clock divider, 80 to get 1MHz clock to timer */
 #define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value BASE CLK is 80MHz */
 #define TIMER_FINE_ADJ   (0*(TIMER_BASE_CLK / TIMER_DIVIDER)/1000000) /*!< used to compensate alarm value */
-#define TIMER_INTERVAL0_SEC   (0.001)    /*!< test interval for timer 0 CANopen */
-#define TIMER_INTERVAL1_SEC   (0.1)      /*!< test interval for timer 1 I2C */
+#define TIMER_INTERVAL0_SEC   (0.001)    /*!< test interval for timer 0 CANopen - 1ms */
+#define TIMER_INTERVAL1_SEC   (0.1)      /*!< test interval for timer 1 I2C - 100ms */
 /**
 User-defined CAN base structure, passed as argument to CO_init.
 */
@@ -129,11 +129,6 @@ void setup() {
     Serial.begin(115200);
     reset = CO_RESET_NOT;
 
-    /* Configure microcontroller. */
-    xTaskCreatePinnedToCore(&codeForTask0,"Core0Task",10000,NULL,1,&Task0,0);
-    delay(500);
-    xTaskCreatePinnedToCore(&codeForTask1,"Core1Task",10000,NULL,1,&Task1,0);
-
     pinMode(PIN_LED_GREEN,  OUTPUT);
     pinMode(PIN_LED_ORANGE, OUTPUT);
     pinMode(PIN_SLOOP_EN,   OUTPUT);
@@ -151,6 +146,11 @@ void setup() {
     digitalWrite(PIN_WATCHDOG,   LOW);
 
     digitalWrite(PIN_LED_ORANGE,  HIGH);
+
+    /* Configure microcontroller. */
+    xTaskCreatePinnedToCore(&codeForTask0,"Core0Task",10000,NULL,1,&Task0,0);
+    delay(500);
+    xTaskCreatePinnedToCore(&codeForTask1,"Core1Task",10000,NULL,1,&Task1,0);
 
     /* initialize EEPROM */
     // initialize EEPROM with predefined size

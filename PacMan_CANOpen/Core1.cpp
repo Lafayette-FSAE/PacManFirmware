@@ -202,11 +202,12 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
     tempOV = false;
     tempOT = false;
     int i;
+    int newIndex;
 
     CO_LOCK_OD();
     for(i = 0; i < numberOfDiscoveredCellMen; i++){
         // Because we have everything stored in physical locations in the array. e.g. 0 goes to Cell 0, 1 goes to Cell 8 in the array since they are in different segments
-        int newIndex = physicalLocationFromSortedArray(i);
+        newIndex = physicalLocationFromSortedArray(i);
         
         // Voltages are below the threshold trigger the tempValue to symbolise at least one voltage low
         if(cellVoltages[newIndex] < OD_minCellVoltage[newIndex]){
@@ -353,50 +354,48 @@ void Core1::updateCellMenData(){
                 OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
                 OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
                 OD_cellBalancingCurrent[i] = cellBalanceCurrents[i];
+                maxCellVoltage[i]          = OD_maxCellVoltage[i];
+                maxCellTemp[i]             = OD_maxCellTemp[i];
             }
         }
         CO_UNLOCK_OD();
     }
 }
 
+// NOTE TO JON: Please add a low-pass filter for the charge detect input to prevent the bouncing
 void Core1::handleCharging(){
     // Charge detect interrupt
-    if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
         charge = true;
-        Serial.println("Detected Charging thing!");
+        int newIndex; // Gets us the actual physical location which is how the array in defined
+
+        // Check all cells are within spec -- This might cause issue for balancing if 1 cell becomes too high it'll turn off the relay, voltage will drop, and we will have relay oscillations
+        // UPDATE: ^ Above statement fixed by haiving the currentlyCharging variable which gives us hysteresis until the plug is taken out and put back in
         for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
-
-            CO_LOCK_OD();
-            if(OD_cellVoltage[i] > OD_maxCellVoltage[i]){
-                Serial.println("----Voltage----");
-                Serial.println(OD_maxCellVoltage[i]);
-                Serial.println(OD_cellVoltage[i]);
-                charge = false;
-            }
-
-            // Current max value of 168 is too low for 251 (25.1C)
-            if(OD_maxCellTemp[i]<OD_cellTemperature[i]){
-                Serial.println("----Temperature----");
-                Serial.println(OD_maxCellTemp[i]);
-                Serial.println(OD_cellTemperature[i]);
-
+            newIndex = physicalLocationFromSortedArray(i);
+            if(cellVoltages[newIndex] > maxCellVoltage[newIndex] || cellTemperatures[newIndex] > maxCellTemp[newIndex]){
                 charge = false;
             }
         }
-        CO_UNLOCK_OD();
+
+    if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
+        if(DEBUG) Serial.println("Detected Charging thing!");
 
         // TODO: Prevent inverted state from occuring when lowering voltage when connector is in and then unplugging
         if(charge == true){
-            if(digitalRead(PIN_CHRG_EN) == LOW){ // It's not already on, e.g. we've plugged the cable in
+            if(digitalRead(PIN_CHRG_EN) == LOW && currentlyCharging == false){ // It's not already on, e.g. we've plugged the cable in
                 digitalWrite(PIN_CHRG_EN, HIGH);
+                currentlyCharging = true;
 
             }else{ // The state changed because we removed the connector
                 digitalWrite(PIN_CHRG_EN, LOW);
+                currentlyCharging = false;
             }
-
-        }else{
-            digitalWrite(PIN_CHRG_EN, LOW);
         }
+    }
+
+    if(charge == false){
+        digitalWrite(PIN_CHRG_EN, LOW);
+        //currentlyCharging = false; -- Don't do this here, this gives us hysteresis without this and fixes bug that when we lower voltage and remove plug it turns on
     }
 }
 
@@ -404,6 +403,9 @@ void Core1::handleCharging(){
 void Core1::start() {
     ///// Initial Functions
     unsigned char* tempCellData;
+    /* We know this because in the PacMan.ino file we start
+     the ESP32 with charging false and this occurs before we start checking */
+    currentlyCharging = false; 
 
     // Not really needed to zero the array of structures but why not
     for (int i = 0; i < 16; i++) {
@@ -448,6 +450,6 @@ void Core1::start() {
         handleCharging();
 
         // High Priority Main Loop Code Here -- If empty put a fucking delay you faff
-        delay(100);
+        delay(10);
     }
 }
