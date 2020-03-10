@@ -169,6 +169,8 @@ typedef enum {
   Reg_Not_Found
 } State;
 
+boolean backToHome = 0;
+
 void Core0::fsm() {
 
   boolean config_index = true;
@@ -187,7 +189,7 @@ void Core0::fsm() {
   while (1) {
     switch (nextState) {
       case Main: {
-          if (state != Main) {
+          if (state != Main || backToHome == 1) {
             Serial.println("hello hello over here yes yes yes");
             setUpMain();
             main_index = 0;
@@ -554,9 +556,8 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.print(temp);
 
   checkCells(0); //calls cell partial update if need be
-  checkForFaults(0);//calls faults();
-
   display.updateWindow(5, 5, 118, 286, false);
+  checkForFaults(0);//calls faults();
 }
 
 void Core0::checkCells(uint8_t currentCell) {
@@ -657,7 +658,7 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
   /*if (faults1[errorType].enabled==true){
   faults1[errorType].triggered = true;
   faultNum = errorType;*/
-  
+  backToHome = 0;
   const GFXfont* font = &FreeSansBold12pt7b;
   display.setFont(font);
 
@@ -673,7 +674,7 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
     delay(20);
   }
   centerPress = false;
-  setUpMain();
+  backToHome = 1;
  // }
 }
 
