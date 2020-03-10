@@ -9,7 +9,7 @@ uint8_t cellFaults[16];
 
 void warningCallBack(TimerHandle_t pxTimer){
     CO_LOCK_OD();
-    Serial.println("15 seconds has pasted setting warnings!");
+    //Serial.println("15 seconds has pasted setting warnings!");
     for(int i = 0; i < 16; i++){
         OD_warning[i] = cellFaults[i];
     }
@@ -52,11 +52,11 @@ Core1::Core1(CO_t *CO) {
                                       off. */
                                       openSafetyLoopCallBack);
 
-    underVoltageWarningTimer = xTimerCreate("underVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
+    underVoltageWarningTimer = xTimerCreate("underVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);
     overVoltageTimer = xTimerCreate("overVoltageTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
-    overVoltageWarningTimer = xTimerCreate("overVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);
+    overVoltageWarningTimer = xTimerCreate("overVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);
     overTemperatureTimer = xTimerCreate("overTemperatureTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
-    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/2), pdFALSE, 0, warningCallBack);                           
+    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);                           
 }
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
