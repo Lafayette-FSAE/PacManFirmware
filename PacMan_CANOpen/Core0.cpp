@@ -570,6 +570,7 @@ void Core0::checkCells(uint8_t currentCell) {
     else if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
     else if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
     else if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
+    else if (OD_warning[cell] == 9) cellPartialUpdate(5, cell); //misc
   }
   CO_UNLOCK_OD();
 }
@@ -641,6 +642,12 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
     display.setTextColor(GxEPD_WHITE);
     display.setCursor(box_x + 1, box_y - 6);
     display.print("C");
+  }
+  else if (errorType == 5) { //current
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(box_x + 1, box_y - 6);
+    display.print("!");
   }
 //  if (cellNum < NUM_CELLS - 1) {
 //    checkCells(cellNum + 1);
