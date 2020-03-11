@@ -578,11 +578,13 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   uint16_t x = 11;
 
   CO_LOCK_OD();
-  if (OD_chargeCableDetected || OD_chargingEnabled) {
-    display.setCursor(265, 15);
-    display.print("Ch");
-  }
+  if (!(OD_chargeCableDetected || OD_chargingEnabled)) display.setTextColor(GxEPD_WHITE);
   CO_UNLOCK_OD();
+
+    display.setCursor(250, 15);
+    display.print("Chrg");
+    display.setTextColor(GxEPD_BLACK);
+    
   String fault_string;
   if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
   
