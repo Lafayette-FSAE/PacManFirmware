@@ -419,6 +419,16 @@
 
 /*201A */
         #define OD_201A_errorTriggerTime                            0x201A
+
+/*201b */
+        #define OD_201b_dateTime                                    0x201b
+
+        #define OD_201b_0_dateTime_maxSubIndex                      0
+        #define OD_201b_1_dateTime_minute                           1
+        #define OD_201b_2_dateTime_hour                             2
+        #define OD_201b_3_dateTime_day                              3
+        #define OD_201b_4_dateTime_month                            4
+        #define OD_201b_5_dateTime_year                             5        
         
 /*3000 */
         #define OD_3000_I2C_Address                                 0x3000
@@ -1068,6 +1078,7 @@ struct sCO_OD_RAM{
 /*2013      */ UNSIGNED16      greatestCellTemp;
 /*2014      */ UNSIGNED16      averageCellTemperature;
 /*2016      */ UNSIGNED8       numberOfDetectedCells;
+/*201b      */ UNSIGNED8       dateTime[5];
 /*2100      */ OCTET_STRING    errorStatusBits[10];
 /*2103      */ UNSIGNED16      SYNCCounter;
 /*2104      */ UNSIGNED16      SYNCTime;
@@ -1359,7 +1370,16 @@ extern struct sCO_OD_ROM CO_OD_ROM;
         #define OD_displayOrientation                               CO_OD_EEPROM.displayOrientation
 
 /*201A, Data Type: UNSIGNED8 */
-        #define OD_errorTriggerTime                                 CO_OD_EEPROM.errorTriggerTime        
+        #define OD_errorTriggerTime                                 CO_OD_EEPROM.errorTriggerTime
+
+/*201b, Data Type: UNSIGNED8, Array[5] */
+        #define OD_dateTime                                         CO_OD_RAM.dateTime
+        #define ODL_dateTime_arrayLength                            5
+        #define ODA_dateTime_minute                                 0
+        #define ODA_dateTime_hour                                   1
+        #define ODA_dateTime_day                                    2
+        #define ODA_dateTime_month                                  3
+        #define ODA_dateTime_year                                   4                
 
 /*2100, Data Type: OCTET_STRING, Array[10] */
       #define OD_errorStatusBits                         CO_OD_RAM.errorStatusBits
