@@ -575,8 +575,11 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   uint16_t y = 65;
   uint16_t x = 11;
 
+  String dateTime;
+
   CO_LOCK_OD();
   if (!(OD_chargeCableDetected || OD_chargingEnabled)) display.setTextColor(GxEPD_WHITE);
+  dateTime = String(ODA_dateTime_hour, DEC) + ":" + String(ODA_dateTime_minute, DEC);
   CO_UNLOCK_OD();
 
     display.setCursor(250, 15);
@@ -589,6 +592,9 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   
   display.setCursor(5, 15);
   display.print(fault_string);
+
+  display.setCursor(124, 64);
+  display.print(dateTime);
 
   display.fillRect(108, 19 - h, 76, h, GxEPD_WHITE);
   display.fillRect(x, y - h, 296 - x * 2, h, GxEPD_WHITE);
