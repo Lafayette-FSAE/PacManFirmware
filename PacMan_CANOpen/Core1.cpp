@@ -419,10 +419,12 @@ void Core1::handleCharging(){
         if(charge == true){
             if(digitalRead(PIN_CHRG_EN) == LOW && currentlyCharging == false){ // It's not already on, e.g. we've plugged the cable in
                 digitalWrite(PIN_CHRG_EN, HIGH);
+                OD_chargingEnabled = true;
                 currentlyCharging = true;
 
             }else{ // The state changed because we removed the connector
                 digitalWrite(PIN_CHRG_EN, LOW);
+                OD_chargingEnabled = false;
                 currentlyCharging = false;
             }
         }
@@ -430,6 +432,7 @@ void Core1::handleCharging(){
 
     if(charge == false){
         digitalWrite(PIN_CHRG_EN, LOW);
+        OD_chargingEnabled = false;
         //currentlyCharging = false; -- Don't do this here, this gives us hysteresis without this and fixes bug that when we lower voltage and remove plug it turns on
     }
 }
