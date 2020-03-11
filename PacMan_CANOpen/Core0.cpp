@@ -513,6 +513,7 @@ void Core0::setUpMain() {
   display.setRotation(rotation);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
   display.setFont(f);
+  display.setTextColor(GxEPD_BLACK);
 
   display.setCursor(175, 16);
 
