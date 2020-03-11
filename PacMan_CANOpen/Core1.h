@@ -98,6 +98,7 @@ private:
     void calculateTotalPackSOC();                                                       // Calculate SOC from voltage TODO: Make this more powerful
     void updateCellMenData();
     void handleCharging();
+    void indicateCellMen();
 
 public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
