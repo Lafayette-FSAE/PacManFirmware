@@ -1,14 +1,16 @@
 #include "I2C_Devices.h"
 
+#define DEBOUNCE_DELAY 50000
+
 // Semaphores to allow detection of interrupts from the main loop
 volatile SemaphoreHandle_t timerCellManSemaphore;
 volatile SemaphoreHandle_t chargeDetectSemaphore;
 volatile SemaphoreHandle_t ioExpanderSemaphore;
-volatile SemaphoreHandle_t CButtonSemaphore;
-volatile SemaphoreHandle_t LButtonSemaphore;
-volatile SemaphoreHandle_t RButtonSemaphore;
-volatile SemaphoreHandle_t UButtonSemaphore;
-volatile SemaphoreHandle_t DButtonSemaphore;
+// volatile SemaphoreHandle_t CButtonSemaphore;
+// volatile SemaphoreHandle_t LButtonSemaphore;
+// volatile SemaphoreHandle_t RButtonSemaphore;
+// volatile SemaphoreHandle_t UButtonSemaphore;
+// volatile SemaphoreHandle_t DButtonSemaphore;
 
 TaskHandle_t Task0, Task1;
 hw_timer_t * timer0 = NULL;
@@ -29,30 +31,43 @@ void IRAM_ATTR ioExpanderInt()
 	xSemaphoreGiveFromISR(ioExpanderSemaphore, NULL);
 }
 
-void IRAM_ATTR CBUTTON()
-{
-	xSemaphoreGiveFromISR(CButtonSemaphore, NULL);
-}
+// volatile int numberOfButtonInterrupts = 0;
+// volatile bool lastState;
+// volatile uint32_t debounceTimeout = 0;
+// portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 
-void IRAM_ATTR LBUTTON()
-{
-	xSemaphoreGiveFromISR(LButtonSemaphore, NULL);
-}
+// uint32_t saveDebounceTimeout;
+// bool saveLastState;
+// int save;
 
-void IRAM_ATTR RBUTTON()
-{
-	xSemaphoreGiveFromISR(RButtonSemaphore, NULL);
-}
+// void IRAM_ATTR CBUTTON()
+// {
+// 	portENTER_CRITICAL_ISR(&mux);
+// 	numberOfButtonInterrupts++;
+// 	lastState = digitalRead(PIN_BTN_CENTER);
+// 	debounceTimeout = xTaskGetTickCount();
+// 	portEXIT_CRITICAL_ISR(&mux);
+// }
 
-void IRAM_ATTR UBUTTON()
-{
-	xSemaphoreGiveFromISR(UButtonSemaphore, NULL);
-}
+// void IRAM_ATTR LBUTTON()
+// {
+// 	xSemaphoreGiveFromISR(LButtonSemaphore, NULL);
+// }
 
-void IRAM_ATTR DBUTTON()
-{
-	xSemaphoreGiveFromISR(DButtonSemaphore, NULL);
-}
+// void IRAM_ATTR RBUTTON()
+// {
+// 	xSemaphoreGiveFromISR(RButtonSemaphore, NULL);
+// }
+
+// void IRAM_ATTR UBUTTON()
+// {
+// 	xSemaphoreGiveFromISR(UButtonSemaphore, NULL);
+// }
+
+// void IRAM_ATTR DBUTTON()
+// {
+// 	xSemaphoreGiveFromISR(DButtonSemaphore, NULL);
+// }
 
 
 // Configures the ESP32
@@ -86,20 +101,20 @@ void setup() {
 	timerCellManSemaphore = xSemaphoreCreateBinary();
 	chargeDetectSemaphore = xSemaphoreCreateBinary();
 	ioExpanderSemaphore   = xSemaphoreCreateBinary();
-	CButtonSemaphore      = xSemaphoreCreateBinary();
-	LButtonSemaphore      = xSemaphoreCreateBinary();
-	RButtonSemaphore      = xSemaphoreCreateBinary();
-	UButtonSemaphore      = xSemaphoreCreateBinary();
-	DButtonSemaphore      = xSemaphoreCreateBinary();
+	// CButtonSemaphore      = xSemaphoreCreateBinary();
+	// LButtonSemaphore      = xSemaphoreCreateBinary();
+	// RButtonSemaphore      = xSemaphoreCreateBinary();
+	// UButtonSemaphore      = xSemaphoreCreateBinary();
+	// DButtonSemaphore      = xSemaphoreCreateBinary();
 
 	// Map interrupts
-	attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),  chargeDetectInt, CHANGE);
-	attachInterrupt(digitalPinToInterrupt(PIN_IO_INT),    ioExpanderInt,   RISING);
-	attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP),    CBUTTON,         FALLING);
-	attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT),  CBUTTON,         FALLING);
-	attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT), CBUTTON,         FALLING);
-	attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP),    CBUTTON,         FALLING);
-	attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN),  CBUTTON,         FALLING);
+	attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),   chargeDetectInt, CHANGE);
+	attachInterrupt(digitalPinToInterrupt(PIN_IO_INT),     ioExpanderInt,   RISING);
+	// attachInterrupt(digitalPinToInterrupt(PIN_BTN_CENTER), CBUTTON,         FALLING);
+	// attachInterrupt(digitalPinToInterrupt(PIN_BTN_LEFT),   LBUTTON,         FALLING);
+	// attachInterrupt(digitalPinToInterrupt(PIN_BTN_RIGHT),  RBUTTON,         FALLING);
+	// attachInterrupt(digitalPinToInterrupt(PIN_BTN_UP),     UBUTTON,         FALLING);
+	// attachInterrupt(digitalPinToInterrupt(PIN_BTN_DOWN),   DBUTTON,         FALLING);
 
 	// Configure timer for polling of the CellMen
 	timer0 = timerBegin(0, 80, true);
@@ -139,50 +154,84 @@ void loop() {
 		Serial.println(MCP23008_readGPIO());
 	}
 
-	if (xSemaphoreTake(CButtonSemaphore, 0) == pdTRUE) {
-		if (digitalRead(PIN_LED_GREEN)) {
-			digitalWrite(PIN_LED_GREEN, LOW);
-		}
-		else {
-			digitalWrite(PIN_LED_GREEN, HIGH);
-		}
+	if (digitalRead(PIN_CHRG_DET) == LOW)
+	{
+		digitalWrite(PIN_CHRG_EN, HIGH);
+	}
+	else
+	{
+		digitalWrite(PIN_CHRG_EN, LOW);
 	}
 
-	if (xSemaphoreTake(LButtonSemaphore, 0) == pdTRUE) {
-		if (digitalRead(PIN_LED_GREEN)) {
-			digitalWrite(PIN_LED_GREEN, LOW);
-		}
-		else {
-			digitalWrite(PIN_LED_GREEN, HIGH);
-		}
-	}
 
-	if (xSemaphoreTake(RButtonSemaphore, 0) == pdTRUE) {
-		if (digitalRead(PIN_LED_GREEN)) {
-			digitalWrite(PIN_LED_GREEN, LOW);
-		}
-		else {
-			digitalWrite(PIN_LED_GREEN, HIGH);
-		}
-	}
+	// portENTER_CRITICAL_ISR(&mux);
+	// save = numberOfButtonInterrupts;
+	// saveDebounceTimeout = debounceTimeout;
+	// saveLastState = lastState;
+	// portEXIT_CRITICAL_ISR(&mux);
 
-	if (xSemaphoreTake(UButtonSemaphore, 0) == pdTRUE) {
-		if (digitalRead(PIN_LED_GREEN)) {
-			digitalWrite(PIN_LED_GREEN, LOW);
-		}
-		else {
-			digitalWrite(PIN_LED_GREEN, HIGH);
-		}
-	}
+	// bool currentState = digitalRead(PIN_BTN_CENTER);
 
-	if (xSemaphoreTake(DButtonSemaphore, 0) == pdTRUE) {
-		if (digitalRead(PIN_LED_GREEN)) {
-			digitalWrite(PIN_LED_GREEN, LOW);
-		}
-		else {
-			digitalWrite(PIN_LED_GREEN, HIGH);
-		}
-	}
+	// if ((save != 0) && (currentState == saveLastState) && (millis() - saveDebounceTimeout > DEBOUNCE_TIME))
+	// {
+	// 	if (currentState == LOW)
+	// 	{
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// 	else
+	// 	{
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+
+	// 	Serial.println("Button interrupt triggered %d times, current state is %u, time since last trigger is %dms\n", save, currentState, millis() - saveDebounceTimeout);
+		
+	// }
+
+
+	// if (xSemaphoreTake(CButtonSemaphore, 0) == pdTRUE) {
+	// 	if (digitalRead(PIN_LED_GREEN)) {
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+	// 	else {
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// }
+
+	// if (xSemaphoreTake(LButtonSemaphore, 0) == pdTRUE) {
+	// 	if (digitalRead(PIN_LED_GREEN)) {
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+	// 	else {
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// }
+
+	// if (xSemaphoreTake(RButtonSemaphore, 0) == pdTRUE) {
+	// 	if (digitalRead(PIN_LED_GREEN)) {
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+	// 	else {
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// }
+
+	// if (xSemaphoreTake(UButtonSemaphore, 0) == pdTRUE) {
+	// 	if (digitalRead(PIN_LED_GREEN)) {
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+	// 	else {
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// }
+
+	// if (xSemaphoreTake(DButtonSemaphore, 0) == pdTRUE) {
+	// 	if (digitalRead(PIN_LED_GREEN)) {
+	// 		digitalWrite(PIN_LED_GREEN, LOW);
+	// 	}
+	// 	else {
+	// 		digitalWrite(PIN_LED_GREEN, HIGH);
+	// 	}
+	// }
 }
 
 // void codeForTask0(void * parameter) {

@@ -16,19 +16,20 @@ void i2cWriteByteToMem(uint8_t addr, uint8_t reg, uint8_t value)
 // Reads a byte from the specified memory location of an I2C device
 uint8_t i2cReadByteFromMem(uint8_t addr, uint8_t reg)
 {
-  Serial.print("Reg: ");
-  Serial.println(reg);
+	Serial.print("Reg: ");
+	Serial.println(reg);
 	Wire.beginTransmission(addr);
 	Wire.write((byte)reg);
 	byte error = Wire.endTransmission();
 	Serial.print("Error code: ");
 	Serial.println(error);
 	Wire.requestFrom(addr, 1);
-//	return Wire.read();
-  while (Wire.available()) {
-    Serial.println(Wire.read());
-  }
-  return -1;
+	//	return Wire.read();
+	while (Wire.available())
+	{
+		Serial.println(Wire.read());
+	}
+	return -1;
 }
 
 

@@ -4,22 +4,21 @@ Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
 Released into the public domain.
 */
 
-#include "Arduino.h"
-#include "Wire.h"
-
 #include "Core1.h"
 #include "PacMan.h"
-#include "MCP23008.h"
 
-Core1::Core1() {
+Core1::Core1()
+{
     
 }
 
-void Core1::init() {
-    Wire.begin(PIN_SDA, PIN_SCL);
+void Core1::init()
+{
+
 }
 
-void Core1::update() {
+void Core1::update()
+{
     byte error, address;
     int nDevices;
 
