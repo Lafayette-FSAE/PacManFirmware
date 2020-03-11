@@ -585,6 +585,8 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
     
   String fault_string;
   if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
+  else display.fillRect(5, 15, 30, 15, GxEPD_WHITE);
+  
   display.setCursor(5, 15);
   display.print(fault_string);
 
