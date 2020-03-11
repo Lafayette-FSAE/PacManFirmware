@@ -359,6 +359,60 @@ void Core1::calculateTotalPackSOC() {
     packSOC = (float)(SOCTotal / 16); // Return the average SOC from the cells
 }
 
+// Toggle LEDs on CellMen in segment position order to indicate that they are properly connected and communicating
+// addressVoltages should be sorted at this point
+// Will need to modify when the segments are distinguishable so that the order is correct
+void Core1::indicateCellMen()
+{
+    Serial.print("Flashing CellMen LEDs at time ");
+    Serial.println(millis());
+    // Light up each LED incrementally every 250ms
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    {
+        Wire.beginTransmission(addressVoltages[i].address);
+        Wire.write(0x23); // 0x23 is the LED register
+        Wire.write(0x00); // MSB
+        Wire.write(0x01); // LSB
+        Wire.endTransmission();
+        delay(250);
+    }
+
+    // Blink the LEDs off and on 4 times
+    for (int j = 0; j < 4; j++)
+    {
+        for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+        {
+            Wire.beginTransmission(addressVoltages[i].address);
+            Wire.write(0x23); // 0x23 is the LED register
+            Wire.write(0x00); // MSB
+            Wire.write(0x00); // LSB
+            Wire.endTransmission();
+        }
+        delay(250);
+        for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+        {
+            Wire.beginTransmission(addressVoltages[i].address);
+            Wire.write(0x23); // 0x23 is the LED register
+            Wire.write(0x00); // MSB
+            Wire.write(0x01); // LSB
+            Wire.endTransmission();
+        }
+        delay(250);
+    }
+
+    // Turn each LED off
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    {
+        Wire.beginTransmission(addressVoltages[i].address);
+        Wire.write(0x23); // 0x23 is the LED register
+        Wire.write(0x00); // MSB
+        Wire.write(0x00); // LSB
+        Wire.endTransmission();
+    }
+    Serial.print("Done flashing CellMen LEDs at time ");
+    Serial.println(millis());
+}
+
 void Core1::updateCellMenData(){
     //Collect data from all the CellMen & Update Object Dictionary Interrupt
     if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
@@ -476,6 +530,9 @@ void Core1::start() {
 
     // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
     addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
+
+    // Flash the LEDs on each CellMen in position order
+    indicateCellMen();
     
     ///// Main Loop
     for (;;) {
