@@ -519,22 +519,19 @@ void Core0::setUpMain() {
   if (OD_packNodeID == 4) display.print("1");
   else display.print("2");
 
- /* if (OD_chargeCableDetected || OD_chargingEnabled) {
-    display.setCursor(265, 15);
-    display.print("Ch");
-  }*/
-  
-  String fault_string;
+    CO_UNLOCK_OD();
+ 
+/*  String fault_string;
   for (uint8_t i =0; i< NUM_CELLS; i++){
     if (OD_fault[i]>0) fault_string = "Fault #" + String(OD_fault[i], DEC);
-  }
+  }*/
 
   //if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
   
-  CO_UNLOCK_OD();
 
-  display.setCursor(5, 15);
-  display.print(fault_string);
+
+//  display.setCursor(5, 15);
+//  display.print(fault_string);
   
   // if(updating == false){
   //     updateTask = xTaskCreate(
@@ -587,7 +584,9 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
     
   String fault_string;
   if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
-  
+  display.setCursor(5, 15);
+  display.print(fault_string);
+
   display.fillRect(108, 19 - h, 76, h, GxEPD_WHITE);
   display.fillRect(x, y - h, 296 - x * 2, h, GxEPD_WHITE);
 
@@ -750,6 +749,7 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
     delay(20);
   }
   centerPress = false;
+  Serial.println("center");
   backToHome = 1;
  // }
 }
