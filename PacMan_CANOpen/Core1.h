@@ -17,7 +17,7 @@ Released into the public domain.
 
 #define DEBUG false
 // TTT =  Time To Trip in seconds
-#define TTT 15
+#define TTT 30
 
 #if DEBUG == true
     #define REQUEST_LENGTH 9 // Should be 7 at the moment since balancing is not workingunderVoltageWarningTimer

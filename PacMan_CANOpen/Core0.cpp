@@ -27,6 +27,40 @@
 GxIO_Class io(SPI, PIN_DISP_CS, PIN_DISP_DC, PIN_DISP_RST);
 GxEPD_Class display(io, PIN_DISP_RST, PIN_DISP_BUSY);
 
+
+static BaseType_t updateTask;
+static TaskHandle_t updateTaskHandle;
+static bool updating = false;
+static bool updatingWindow = false;
+
+// Task to update the screen
+void updateTaskMethod(void* pvParameters){
+    display.update();
+    display.update();
+
+    updating = false;
+    vTaskDelete(NULL); // Safety kill this task since they should not return normally
+}
+
+static BaseType_t updateWindowTask;
+static TaskHandle_t updateWindowTaskHandle;
+
+// Task to update the screen
+void updateWindowTaskMethod(void* pvParameters){
+    // void* updateWindowParams = (void*) pvParameters;
+    // // Cast before ya dereferences!
+    // uint16_t x = *((uint16_t*) (updateWindowParams));
+    // uint16_t y = *((uint16_t*) (updateWindowParams + 1*sizeof(uint16_t)));
+    // uint16_t w = *((uint16_t*) (updateWindowParams + 2*sizeof(uint16_t)));
+    // uint16_t h = *((uint16_t*) (updateWindowParams + 3*sizeof(uint16_t)));
+    // bool rotation = *((bool*)  (updateWindowParams + 3*sizeof(uint16_t)+sizeof(bool)));
+
+    display.updateWindow(5, 5, 118, 286, false);
+    updatingWindow = false;
+
+    vTaskDelete(NULL); // Safety kill this task since they should not return normally
+}
+
 uint8_t rotation = 45;
 void setupCore0() {
 
@@ -187,6 +221,7 @@ void Core0::fsm() {
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
 
   while (1) {
+    delay(10);
     switch (nextState) {
       case Main: {
           if (state != Main || backToHome == 1) {
@@ -271,12 +306,12 @@ void Core0::fsm() {
           if (centerPress && cell_index == true) {
             centerPress = false;
             Serial.println("center");    //testing
-            nextState = Choose_Cell_Register;
+            nextState = Cell_Data;
           }
           else if (centerPress && cell_index == false) {
             centerPress = false;
             Serial.println("center");    //testing
-            nextState = Cell_Data;
+            nextState = Choose_Cell_Register;
           }
           else if (upPress || downPress || leftPress || rightPress) {
             upPress = false; downPress = false; leftPress = false; rightPress = false;
@@ -294,7 +329,7 @@ void Core0::fsm() {
         break;
 
       case Choose_Register: {
-          if (state!= Choose_Register) state = Choose_Register;
+          if (state != Choose_Register) state = Choose_Register;
           uint8_t regnum = chooseRegister();
           if (regnum == 3) {
             regNumb = 0x2000 + (regista[0] * 100) + (regista[1] * 10) + regista[2];
@@ -500,8 +535,22 @@ void Core0::setUpMain() {
 
   display.setCursor(5, 15);
   display.print(fault_string);
+  
+  // if(updating == false){
+  //     updateTask = xTaskCreate(
+  //     updateTaskMethod,       /* Function that implements the task. */
+  //     "updateTask",          /* Text name for the task. */
+  //     1000,      /* Stack size in words, not bytes. */
+  //     ( void * ) NULL,    /* Parameter passed into the task. */
+  //     tskIDLE_PRIORITY,/* Priority at which the task is created. */
+  //     &updateTaskHandle );      /* Used to pass out the created task's handle. */
+  //     updating = true;
+  //     Serial.println("Update Task Created!");
+  // }
+
   display.update();
   display.update();
+
   display.setRotation(rotation);
 }
 
@@ -559,7 +608,21 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   display.print(temp);
 
   checkCells(0); //calls cell partial update if need be
-  display.updateWindow(5, 5, 118, 286, false);
+  //display.updateWindow(5, 5, 118, 286, false);
+
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(
+      updateWindowTaskMethod,       /* Function that implements the task. */
+      "updateWindowTask",          /* Text name for the task. */
+      2000,      /* Stack size in words, not bytes. */
+      ( void * ) NULL,    /* Parameter passed into the task. */
+      tskIDLE_PRIORITY,/* Priority at which the task is created. */
+      &updateWindowTaskHandle);      /* Used to pass out the created task's handle. */
+
+      //display.updateWindow(5, 5, 118, 286, false);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
   checkForFaults(0);//calls faults();
 }
 
@@ -693,7 +756,11 @@ void Core0::mainConfigScreen()
   display.setCursor(30, 80);
   display.print("Fault Resolved");
   display.fillRect(20, 41, 4, 4, GxEPD_BLACK);
-  display.updateWindow(5, 5, 118, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 void Core0::mainCellScreen(uint8_t main_index)
@@ -706,10 +773,15 @@ void Core0::mainCellScreen(uint8_t main_index)
   display.setCursor(100, 20);
   display.print("Cell #" + String(main_index, DEC));
   display.setCursor(30, 50);
-  display.print("Cell Configs");
-  display.setCursor(30, 80);
   display.print("Cell Data");
+  display.setCursor(30, 80);
+  display.print("Cell Configs");
   display.fillRect(20, 41, 4, 4, GxEPD_BLACK);
+  // if(updatingWindow == false){
+  //     updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+  //     updatingWindow = true;
+  //     Serial.println("UpdateWindow Task Created!");
+  // }
   display.updateWindow(5, 5, 118, 286, false);
 }
 
@@ -775,7 +847,11 @@ void Core0::cellData(uint8_t cellNum)
   display.setCursor(right, y_point);
   y_point += line;
   display.print(soc);
-  display.updateWindow(5, 5, 118, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
   //  while (!centerPress) {
   //    delay(20);
   //  }
@@ -869,7 +945,12 @@ void Core0::printChooseRegister(uint8_t reg) {
   if (reg == 1) display.fillRect(140, 84, 20, 2, GxEPD_BLACK);
   if (reg == 2) display.fillRect(167, 84, 20, 2, GxEPD_BLACK);
 
-  display.updateWindow(5, 5, 108, 286, false);
+  // if(updatingWindow == false){
+  //     updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+  //     updatingWindow = true;
+  //     Serial.println("UpdateWindow Task Created!");
+  // }
+  display.updateWindow(5, 5, 118, 286, false);
 }
 
 
@@ -892,7 +973,11 @@ void Core0::moveRegister(uint8_t reg) {
   else if (reg == 3) display.fillRect(5, 112, 4, 4, GxEPD_BLACK);
   else if (reg == 4) display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
 
-  display.updateWindow(5, 5, 108, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 void Core0::regNotFound(uint16_t regNumb) {
@@ -909,7 +994,11 @@ void Core0::regNotFound(uint16_t regNumb) {
   display.print("HOME");
   display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
 
-  display.updateWindow(5, 5, 108, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
   while(!centerPress){ delay(10);}
   centerPress = false;
 }
@@ -958,7 +1047,11 @@ void Core0::printEditValue(Object_Dictionary od, uint8_t reg, int8_t conversion)
   if (reg == 3) display.fillRect(170, 84, 20, 2, GxEPD_BLACK);
   if (reg == 4) display.fillRect(200, 84, 20, 2, GxEPD_BLACK);
   if (reg == 5) display.fillRect(5, 112, 4, 4, GxEPD_BLACK);
-  display.updateWindow(5, 5, 108, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 int8_t Core0::convert(uint16_t index){
@@ -1131,7 +1224,11 @@ void Core0::printViewValue(Object_Dictionary od, int8_t conversion) {
   
   display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
 
-  display.updateWindow(5, 5, 108, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 Object_Dictionary Core0::updateValue(Object_Dictionary od, uint8_t place, boolean direction, int8_t conversion) {
@@ -1163,7 +1260,11 @@ void Core0::moveEdit(uint8_t reg) {
   else if (reg == 5) display.fillRect(5,  112,  4, 4, GxEPD_BLACK);
   else if (reg == 6) display.fillRect(230, 112, 4, 4, GxEPD_BLACK);
 
-  display.updateWindow(5, 5, 108, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 void Core0::chargeScreen() {
@@ -1181,7 +1282,11 @@ void Core0::chargeScreen() {
   display.setCursor(235, 120);
   display.print("HOME");
   display.fillRect(20, 45, 4, 4, GxEPD_BLACK);
-  display.updateWindow(5, 5, 118, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
 
 
@@ -1205,5 +1310,9 @@ void Core0::faultDisablePartial(uint8_t charge_index) {
   display.fillRect(20, 45, 4, 35, GxEPD_WHITE);
   display.fillRect(230, 112, 4, 4, GxEPD_WHITE);
   display.fillRect(x_point, y_point, 4, 4, GxEPD_BLACK);
-  display.updateWindow(5, 5, 118, 286, false);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
 }
