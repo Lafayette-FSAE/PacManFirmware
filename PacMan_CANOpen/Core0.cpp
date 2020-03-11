@@ -102,6 +102,7 @@ Fault faults1[] = {
 Core0::Core0() {}
 
 float voltage1; float current1; float temp1; uint16_t soc_test;
+uint8_t triggered = 0;
 
 void Core0::startCore0() {
   for (;;) {
@@ -516,13 +517,12 @@ void Core0::setUpMain() {
   display.setCursor(175, 16);
 
   if (OD_packNodeID == 4) display.print("1");
-
   else display.print("2");
 
-  if (OD_chargeCableDetected || OD_chargingEnabled) {
+ /* if (OD_chargeCableDetected || OD_chargingEnabled) {
     display.setCursor(265, 15);
     display.print("Ch");
-  }
+  }*/
   
   String fault_string;
   for (uint8_t i =0; i< NUM_CELLS; i++){
@@ -577,6 +577,15 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
   uint16_t y = 65;
   uint16_t x = 11;
 
+  CO_LOCK_OD();
+  if (OD_chargeCableDetected || OD_chargingEnabled) {
+    display.setCursor(265, 15);
+    display.print("Ch");
+  }
+  CO_UNLOCK_OD();
+  String fault_string;
+  if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
+  
   display.fillRect(108, 19 - h, 76, h, GxEPD_WHITE);
   display.fillRect(x, y - h, 296 - x * 2, h, GxEPD_WHITE);
 
@@ -634,10 +643,11 @@ void Core0::checkCells(uint8_t currentCell) {
     else if (OD_warning[cell] == 1 || OD_warning[cell] == 2) cellPartialUpdate(2, cell); //voltage
     else if (OD_warning[cell] == 3 || OD_warning[cell] == 4) cellPartialUpdate(3, cell); //temp
     else if (OD_warning[cell] == 5 || OD_warning[cell] == 6) cellPartialUpdate(4, cell); //current
+    else if (OD_warning[cell] == 9) cellPartialUpdate(5, cell); //misc
   }
   CO_UNLOCK_OD();
 }
-uint8_t triggered = 0;
+
 void Core0::checkForFaults(uint8_t currentCell) {
     CO_LOCK_OD();
     //if (OD_SLOOP_Relay == 0) faults(0, 0); //sl open
@@ -645,31 +655,24 @@ void Core0::checkForFaults(uint8_t currentCell) {
     //else if (OD_AIRS == 1) faults(1, 0); //airs open
   
   for (uint8_t cell = currentCell; cell < NUM_CELLS; cell++) {   //ADD SOH AS A MEASURE
-    if (OD_fault[cell] == 1 && triggered!=1){            //can do a nested for loop
+    if (OD_fault[cell] == 1 && triggered!=1 && !OD_faultHV_Disable[cell]){            //can do a nested for loop
       faults(2, cell+1); //high voltage
       triggered = 1;
     }
-    if (OD_fault[cell] == 2 && triggered!=2){
+    if (OD_fault[cell] == 2 && triggered!=2 && !OD_faultLV_Disable[cell]){
       faults(3, cell+1); //low voltage
       triggered = 2;
     }
-    if (OD_fault[cell] == 3 && triggered!=3) {
+    if (OD_fault[cell] == 3 && triggered!=3 && !OD_faultHT_Disable[cell]) {
       faults(4, cell+1); //high temp
       triggered = 3;
     }
-//    if (OD_fault[cell] == 4) faults(5, cell+1); //low temp
-//    if (OD_fault[cell] == 5) faults(6, cell+1); //high current
-//    if (OD_fault[cell] == 6) faults(7, cell+1); //low current
-//    if (OD_fault[cell] == 7) faults(8, cell+1); //low soc
+//    if (OD_fault[cell] == 4 && triggered!=4 && !OD_faultLT_Disable[cell]) faults(5, cell+1); //low temp
+//    if (OD_fault[cell] == 5 && triggered!=5 && !OD_faultHC_Disable[cell]) faults(6, cell+1); //high current
+//    if (OD_fault[cell] == 6 && triggered!=6 && !OD_faultLC_Disable[cell]) faults(7, cell+1); //low current
+//    if (OD_fault[cell] == 7 && triggered!=7 && !OD_faultLSOC_Disable[cell]) faults(8, cell+1); //low soc
 
 
-/*for(uint8_t i = 1; i<8; i++) {
-   if (OD_fault[cell] == i && triggered!=i){            //can do a nested for loop
-      faults(i+1, cell+1);
-      triggered = i;
-    }
-   }
-*/
   }
   CO_UNLOCK_OD();
 }
@@ -713,6 +716,12 @@ void Core0::cellPartialUpdate(int errorType, int cellNum)
     display.setCursor(box_x + 1, box_y - 6);
     display.print("C");
   }
+  else if (errorType == 5) { //current
+    display.fillRect(box_x, box_y - box_h, box_w, box_h, GxEPD_BLACK);
+    display.setTextColor(GxEPD_WHITE);
+    display.setCursor(box_x + 1, box_y - 6);
+    display.print("!");
+  }
 //  if (cellNum < NUM_CELLS - 1) {
 //    checkCells(cellNum + 1);
 //  }
@@ -724,7 +733,6 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
   /*if (faults1[errorType].enabled==true){
   faults1[errorType].triggered = true;
   faultNum = errorType;*/
-  backToHome = 0;
   const GFXfont* font = &FreeSansBold12pt7b;
   display.setFont(font);
 
