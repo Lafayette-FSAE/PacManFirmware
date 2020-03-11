@@ -187,7 +187,7 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
     if(!preCollect){
         if(cellFaults[physicalODAddress] == 9 || cellFaults[physicalODAddress] == 0){
             CO_LOCK_OD();
-            OD_fault[physicalODAddress] = cellFaults[physicalODAddress];
+            OD_warning[physicalODAddress] = cellFaults[physicalODAddress];
             CO_UNLOCK_OD();
         }
     }
