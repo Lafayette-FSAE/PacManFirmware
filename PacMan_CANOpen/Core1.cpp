@@ -347,7 +347,8 @@ uint8_t Core1::physicalLocationFromSortedArray(uint8_t arrayIndex) {
         physicalAddress = ((arrayIndex - 1) / 2) + 8;
     }
 
-    return physicalAddress;
+    // return physicalAddress;
+    return arrayIndex;
 }
 
 // Simple voltage-based SOC - Very inaccurate
@@ -384,6 +385,7 @@ void Core1::toggleCellManLED(unsigned char address, bool state){
 void Core1::indicateCellMen()
 {
     Serial.print("Flashing CellMen LEDs at time ");
+    Serial.println(millis());
     // Light up each LED incrementally every 250ms
     for (int i = 0; i < numberOfDiscoveredCellMen; i++)
     {
@@ -412,11 +414,14 @@ void Core1::indicateCellMen()
         toggleCellManLED(addressVoltages[i].address, false);
     }
     Serial.print("Done flashing CellMen LEDs at time ");
+    Serial.println(millis());
 }
 
 void Core1::updateCellMenData(){
     //Collect data from all the CellMen & Update Object Dictionary Interrupt
     if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
+        Serial.print("Updating CellMen at ");
+        Serial.println(millis());
         // Update CellMan Code
         for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
             unsigned char* celldata = requestDataFromSlave(addressVoltages[i].address, i, false);
@@ -441,6 +446,12 @@ void Core1::updateCellMenData(){
                 
                 OD_cellPosition[i]         = cellPositions[i];
                 OD_cellVoltage[i]          = cellVoltages[i];
+                Serial.print("Cell ");
+                Serial.print(i);
+                Serial.print(" Voltage: ");
+                Serial.print(OD_cellVoltage[i]);
+                Serial.print(" mV at time ");
+                Serial.println(millis());
                 OD_cellTemperature[i]      = cellTemperatures[i];
                 OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
                 OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
@@ -527,10 +538,36 @@ void Core1::start() {
 
         addressVoltages[i].address = addresses[i];
         addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
+        Serial.print("Address minus voltage for address ");
+        Serial.print(addressVoltages[i].address);
+        Serial.print(": ");
+        Serial.println(addressVoltages[i].addressMinusVoltage);
+    }
+
+    Serial.println("Before quicksort:");
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    {
+        Serial.print("Index ");
+        Serial.print(i);
+        Serial.print(": ");
+        Serial.print(addressVoltages[i].address);
+        Serial.print(", ");
+        Serial.println(addressVoltages[i].addressMinusVoltage);
     }
 
     // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
     addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
+
+    Serial.println("After quicksort:");
+    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    {
+        Serial.print("Index ");
+        Serial.print(i);
+        Serial.print(": ");
+        Serial.print(addressVoltages[i].address);
+        Serial.print(", ");
+        Serial.println(addressVoltages[i].addressMinusVoltage);
+    }
 
     // Flash the LEDs on each CellMen in position order
     indicateCellMen();

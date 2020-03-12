@@ -13,7 +13,7 @@
 #define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value BASE CLK is 80MHz */
 #define TIMER_FINE_ADJ   (0*(TIMER_BASE_CLK / TIMER_DIVIDER)/1000000) /*!< used to compensate alarm value */
 #define TIMER_INTERVAL0_SEC   (0.001)    /*!< test interval for timer 0 CANopen - 1ms */
-#define TIMER_INTERVAL1_SEC   (0.1)      /*!< test interval for timer 1 I2C - 100ms */
+#define TIMER_INTERVAL1_SEC   (1)      /*!< test interval for timer 1 I2C - 100ms */
 /**
 User-defined CAN base structure, passed as argument to CO_init.
 */
