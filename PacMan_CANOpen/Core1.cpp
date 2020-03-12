@@ -155,6 +155,7 @@ uint8_t Core1::discoverCellMen() {
 // Request byte array from specified CellMan I2C address, using index and preCollect we know when to check for I2C faults
 unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index, bool preCollect) {
     uint8_t physicalODAddress = physicalLocationFromSortedArray(index);
+    if(!preCollect) toggleCellManLED(address, true);
 
     Wire.requestFrom((int) address, REQUEST_LENGTH); // 24 is the max data length expected in bytes
     if (DEBUG) {
@@ -183,6 +184,7 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
         }
     }
 
+    if(!preCollect) toggleCellManLED(address, false);
     // Only update the faults if its 0 or 9, otherwise it negates the timer's purpose - Gets called a lot, maybe we can reduce the OD usage here sometime
     if(!preCollect){
         if(cellFaults[physicalODAddress] == 9 || cellFaults[physicalODAddress] == 0){
@@ -359,21 +361,33 @@ void Core1::calculateTotalPackSOC() {
     packSOC = (float)(SOCTotal / 16); // Return the average SOC from the cells
 }
 
+void Core1::toggleCellManLED(unsigned char address, bool state){
+    // If on
+    if(state){
+        Wire.beginTransmission(address);
+        Wire.write(0x23); // 0x23 is the LED register
+        Wire.write(0x00); // MSB
+        Wire.write(0x01); // LSB
+        Wire.endTransmission();
+    }else{ //If off
+        Wire.beginTransmission(address);
+        Wire.write(0x23); // 0x23 is the LED register
+        Wire.write(0x00); // MSB
+        Wire.write(0x00); // LSB
+        Wire.endTransmission();
+    }
+}
+
 // Toggle LEDs on CellMen in segment position order to indicate that they are properly connected and communicating
 // addressVoltages should be sorted at this point
 // Will need to modify when the segments are distinguishable so that the order is correct
 void Core1::indicateCellMen()
 {
     Serial.print("Flashing CellMen LEDs at time ");
-    Serial.println(millis());
     // Light up each LED incrementally every 250ms
     for (int i = 0; i < numberOfDiscoveredCellMen; i++)
     {
-        Wire.beginTransmission(addressVoltages[i].address);
-        Wire.write(0x23); // 0x23 is the LED register
-        Wire.write(0x00); // MSB
-        Wire.write(0x01); // LSB
-        Wire.endTransmission();
+        toggleCellManLED(addressVoltages[i].address, true);
         delay(250);
     }
 
@@ -382,20 +396,12 @@ void Core1::indicateCellMen()
     {
         for (int i = 0; i < numberOfDiscoveredCellMen; i++)
         {
-            Wire.beginTransmission(addressVoltages[i].address);
-            Wire.write(0x23); // 0x23 is the LED register
-            Wire.write(0x00); // MSB
-            Wire.write(0x00); // LSB
-            Wire.endTransmission();
+            toggleCellManLED(addressVoltages[i].address, false);
         }
         delay(250);
         for (int i = 0; i < numberOfDiscoveredCellMen; i++)
         {
-            Wire.beginTransmission(addressVoltages[i].address);
-            Wire.write(0x23); // 0x23 is the LED register
-            Wire.write(0x00); // MSB
-            Wire.write(0x01); // LSB
-            Wire.endTransmission();
+            toggleCellManLED(addressVoltages[i].address, true);
         }
         delay(250);
     }
@@ -403,14 +409,9 @@ void Core1::indicateCellMen()
     // Turn each LED off
     for (int i = 0; i < numberOfDiscoveredCellMen; i++)
     {
-        Wire.beginTransmission(addressVoltages[i].address);
-        Wire.write(0x23); // 0x23 is the LED register
-        Wire.write(0x00); // MSB
-        Wire.write(0x00); // LSB
-        Wire.endTransmission();
+        toggleCellManLED(addressVoltages[i].address, false);
     }
     Serial.print("Done flashing CellMen LEDs at time ");
-    Serial.println(millis());
 }
 
 void Core1::updateCellMenData(){

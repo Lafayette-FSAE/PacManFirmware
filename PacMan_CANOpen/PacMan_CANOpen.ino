@@ -8,7 +8,6 @@
 
 #define TMR_TASK_INTERVAL   (1000)          /* Interval of tmrTask thread in microseconds */
 #define INCREMENT_1MS(var)  (var++)         /* Increment 1ms variable in tmrTask */
-
 #define TIMER_INTR_SEL TIMER_INTR_LEVEL  /*!< Timer level interrupt */
 #define TIMER_DIVIDER   80               /*!< Hardware timer clock divider, 80 to get 1MHz clock to timer */
 #define TIMER_SCALE    (TIMER_BASE_CLK / TIMER_DIVIDER)  /*!< used to calculate counter value BASE CLK is 80MHz */

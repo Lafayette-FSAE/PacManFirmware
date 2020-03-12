@@ -96,9 +96,10 @@ private:
     void checkSafety(uint8_t numberOfDiscoveredCellMen);
     uint8_t physicalLocationFromSortedArray(uint8_t arrayIndex);                        // Returns a physical location in the pack counting up in voltage levels based off of an index. 50/50 chance it is correct due to hardware bug rn
     void calculateTotalPackSOC();                                                       // Calculate SOC from voltage TODO: Make this more powerful
+    void toggleCellManLED(unsigned char address, bool state);
+    void indicateCellMen();
     void updateCellMenData();
     void handleCharging();
-    void indicateCellMen();
 
 public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
