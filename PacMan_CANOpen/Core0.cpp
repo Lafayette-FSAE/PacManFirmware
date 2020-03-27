@@ -62,12 +62,12 @@ uint8_t faultNum=0;
 Fault faults1[] = {
   {"SL Open", true, false},
   {"Airs Open", true, false},
-  {"High Voltage", true, false},
-  {"Low Voltage", true, false},
-  {"High Temperature", true, false},
-  {"Low Temperature", true, false},
-  {"High Current", true, false},
-  {"Low Current", true, false},
+  {"High Volt", true, false},
+  {"Low Volt", true, false},
+  {"High Temp", true, false},
+  {"Low Temp", true, false},
+  {"High Curr", true, false},
+  {"Low Curr", true, false},
   {"Low SOC", true, false}
   };
 
@@ -470,7 +470,7 @@ void Core0::mainPartialUpdate(float temperature, uint16_t soc, float volt, float
 
 //fault number displays in top left when acknowledged
   String fault_string;
-  if (triggered > 0) fault_string = "Fault #" + String(triggered, DEC);
+  if (triggered > 0) fault_string = faults1[triggered + 1].message;
   else display.fillRect(5, 15, 30, 15, GxEPD_WHITE);
   
   display.setCursor(5, 15);
@@ -565,7 +565,7 @@ void Core0::checkForFaults(uint8_t currentCell) {
       triggered = 3;
     }
     //ADD THESE IN EVENTUALLY
-//    if (OD_fault[cell] == 4 && triggered!=4 && !OD_faultLT_Disable[cell])   faults(5, cell+1); triggered = 4; //low temp
+//    if (OD_fault[cell] == 4 && !=4 && !OD_faultLT_Disable[cell])   faults(5, cell+1); triggered = 4; //low temp
 //    if (OD_fault[cell] == 5 && triggered!=5 && !OD_faultHC_Disable[cell])   faults(6, cell+1); triggered = 5; //high current
 //    if (OD_fault[cell] == 6 && triggered!=6 && !OD_faultLC_Disable[cell])   faults(7, cell+1); triggered = 6; //low current
 //    if (OD_fault[cell] == 7 && triggered!=7 && !OD_faultLSOC_Disable[cell]) faults(8, cell+1); triggered = 7; //low soc
