@@ -173,7 +173,9 @@ void DButton() //interrupt with debounce
 typedef enum {
   Main,
   Cell_State,
+  Config_State,
   Choose_Register,
+  Choose_CAN_Register,
   Choose_Cell_Register,
   Cell_Data,
   Edit_Value,
@@ -187,6 +189,7 @@ boolean backToHome = 0; //set to one when a fault is acknowledged
 
 void Core0::fsm() {
 
+  boolean config_index = true;
   boolean cell_index = true; //cursor on cell state screen
   uint8_t main_index = 0; //cursor on the main screen
   uint16_t regNumb = 0;
@@ -278,9 +281,36 @@ void Core0::fsm() {
         }
         break;
 
+      case Config_State: {
+          if (centerPress && config_index == true) {
+            centerPress = false;
+            Serial.println("center");  //testing
+            nextState = Choose_Register;
+          }
+          else if (centerPress && config_index == false) {
+            centerPress = false;
+            Serial.println("center");  //testing
+            nextState = Choose_CAN_Register;
+          }
+          else if (upPress || downPress || leftPress || rightPress) {
+            upPress = false; downPress = false; leftPress = false; rightPress = false;
+            Serial.println("up/down/left/right");
+            config_index = !config_index;
+            configPartial(config_index);
+          }
+          else if (state != Config_State) {
+            config_index = true;
+            mainConfigScreen();
+            state = Config_State;
+          }
+          delay(20);
+        }
+        break;
+
       case Choose_Register: {
           if (state != Choose_Register) state = Choose_Register;
-          uint8_t regnum = chooseRegister();
+          String title = "Choose Pack Register";
+          uint8_t regnum = chooseRegister(title);
           if (regnum == 3) {
             regNumb = 0x2000 + (regista[0] * 100) + (regista[1] * 10) + regista[2]; //convert regnum to OD location
             Object_Dictionary od(regNumb, 0);
@@ -295,9 +325,28 @@ void Core0::fsm() {
         }
         break;
 
+        case Choose_CAN_Register: {
+          if (state != Choose_CAN_Register) state = Choose_CAN_Register;
+          String title = "Choose CAN Register";
+          uint8_t regnum = chooseRegister(title);
+          if (regnum == 3) {
+            regNumb = 0x1000 + (regista[0] * 100) + (regista[1] * 10) + regista[2]; //convert regnum to OD location
+            Object_Dictionary od(regNumb, 0);
+            if (od.location == 0xFFFF || regNumb >= 0x2000){ //check to see if register exists
+              regNumb-= 0x1000;
+              nextState = Reg_Not_Found;
+            }
+            else if (od.attribute < 0x80) nextState = Edit_Value; //check to see if register is configurable--CHECK THIS
+            else nextState = View_Value;
+          }
+          else if (regnum == 4) nextState = Main; //exits function if on home button
+        }
+        break;
+
       case Choose_Cell_Register: {
         if (state!= Choose_Cell_Register) state = Choose_Cell_Register;
-          uint8_t regnum = chooseRegister();
+          String title = String("Choose Cell #" + String(main_index, DEC) + "Register");
+          uint8_t regnum = chooseRegister(title);
           if (regnum == 3) {
             regNumb = 0x3000 + (regista[0] * 100) + (regista[1] * 10) + regista[2]; //convert regnum to OD location
             Object_Dictionary od1(regNumb, main_index-1);
@@ -642,6 +691,28 @@ void Core0::faults(uint8_t errorType, uint8_t cellNum)
 }
 
 /*******************************************************************************************************
+ * CHOOSE BETWEEN PACK AND CAN CONFIGS
+ ******************************************************************************************************/
+void Core0::mainConfigScreen()
+{
+  const GFXfont* font = &FreeSansBold12pt7b;
+  display.setFont(font);
+
+  display.fillScreen(GxEPD_WHITE);
+  display.setTextColor(GxEPD_BLACK);
+  display.setCursor(30, 50);
+  display.print("Pack Configs");
+  display.setCursor(30, 80);
+  display.print("CAN Configs");
+  display.fillRect(20, 41, 4, 4, GxEPD_BLACK);
+  if(updatingWindow == false){
+      updateWindowTask = xTaskCreate(updateWindowTaskMethod, "updateWindowTask", 2000, ( void * ) NULL, tskIDLE_PRIORITY, &updateWindowTaskHandle);
+      updatingWindow = true;
+      Serial.println("UpdateWindow Task Created!");
+  }
+}
+
+/*******************************************************************************************************
  * CHOOSE BETWEEN CELL DATA AND CELL CONFIGS
  ******************************************************************************************************/
 
@@ -741,10 +812,10 @@ void Core0::cellData(uint8_t cellNum)
  ******************************************************************************************************/
 
 //logic for moving cursor in choose register screen
-uint8_t Core0::chooseRegister()
+uint8_t Core0::chooseRegister(String title)
 {
   regista[0] = 0; regista[1] = 0; regista[2] = 0;
-  printChooseRegister(0);
+  printChooseRegister(0, title);
   centerPress = false; upPress = false; downPress = false; leftPress = false; rightPress = false;
   uint8_t reg = 0;
   boolean confirmed = false;
@@ -771,19 +842,19 @@ uint8_t Core0::chooseRegister()
     else if (upPress && reg <= 2) { //increase value
       upPress = false;
       delay(50);
-      updateRegister(reg, true);
+      updateRegister(reg, true, title);
     }
     else if (downPress && reg <= 2) { //decrease value
       downPress = false;
       delay(50);
-      updateRegister(reg, false);
+      updateRegister(reg, false, title);
     }
     delay(20);
   }
 }
 
 //print values on screen
-void Core0::printChooseRegister(uint8_t reg) {
+void Core0::printChooseRegister(uint8_t reg, String title) {
 
   display.fillScreen(GxEPD_WHITE);
   const GFXfont* f = &FreeSansBold9pt7b;  //set font
@@ -813,12 +884,12 @@ void Core0::printChooseRegister(uint8_t reg) {
 }
 
 //increment or decrement register value with looping
-void Core0::updateRegister(uint8_t reg, boolean direction) {
+void Core0::updateRegister(uint8_t reg, boolean direction, String title) {
   if (direction & regista[reg] != 9) regista[reg] += 1;
   else if (direction & regista[reg] == 9) regista[reg] = 0;
   else if (!direction & regista[reg] != 0) regista[reg] -= 1;
   else if (!direction & regista[reg] == 0) regista[reg] = 9;
-  printChooseRegister(reg);
+  printChooseRegister(reg, title);
 }
 
 //move cursor based on logic

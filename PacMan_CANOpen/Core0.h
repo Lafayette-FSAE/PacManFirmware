@@ -83,7 +83,7 @@ class Core0
     void faults(uint8_t errorType, uint8_t cellNum);
 
     //main cell and configuration screens - choose between viewing cell data and editing cell configs
-//    void mainConfigScreen();
+    void mainConfigScreen();
     void mainCellScreen(uint8_t main_index);
     void configPartial(boolean index);
 
@@ -91,9 +91,9 @@ class Core0
     void cellData(uint8_t cellNum);
 
     //choose register screen - input a register number from OD to view/edit it
-    uint8_t chooseRegister(); 
-    void printChooseRegister(uint8_t reg);
-    void updateRegister(uint8_t reg, boolean direction);
+    uint8_t chooseRegister(String title); 
+    void printChooseRegister(uint8_t reg, String title);
+    void updateRegister(uint8_t reg, boolean direction, String title);
     void moveRegister(uint8_t reg);
 
     //edit/view value screen - can either edit or view a register from the OD depending on whether or not it is configurable
