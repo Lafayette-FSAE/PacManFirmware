@@ -28,11 +28,7 @@ Detailed instructions for this are located in the TSV User-Manual (TODO: Put a l
 
 ## Process Diagram
 
-<div style="text-align:center">
-
-![PacMan Process Diagram](images/process_diagram.png)
-
-</div>
+<div style="text-align:center"><img src="images/process_diagram.png"></div>
 
 <u>Key:</u>
 
