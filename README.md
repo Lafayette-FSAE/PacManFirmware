@@ -26,7 +26,12 @@ Insert details about the display and front panel buttons here. Reach out to me a
 
 Detailed instructions for this are located in the TSV User-Manual (TODO: Put a link to it here on the website) since this ties heavily with the overall assembly of the pack.
 
+## Process Diagram
+
+![PacMan Process Diagram](images/process_diagram.png)
+
 ## Notes & Further Documentation
+
 - You can expand the documentation here by using the Doxygen documentation included in our code. A tutorial can be found [here](http://www.doxygen.nl/manual/starting.html). You should have Doxygen installed on your system beforehand. This can easily be done on Debian linux based systems like Raspbian on the RaspberryPi by entering the following commands into the Terminal:
 
   - ```bash
