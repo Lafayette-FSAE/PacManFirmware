@@ -30,6 +30,11 @@ Detailed instructions for this are located in the TSV User-Manual (TODO: Put a l
 
 ![PacMan Process Diagram](images/process_diagram.png)
 
+<u>Key:</u>
+
+- Blue: Core 1 running code
+- Purple: Core 0 running code
+
 ## Notes & Further Documentation
 
 - You can expand the documentation here by using the Doxygen documentation included in our code. A tutorial can be found [here](http://www.doxygen.nl/manual/starting.html). You should have Doxygen installed on your system beforehand. This can easily be done on Debian linux based systems like Raspbian on the RaspberryPi by entering the following commands into the Terminal:
