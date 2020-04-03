@@ -1,6 +1,6 @@
 # PacMan Firmware
 
-This repository contains the firmware code for Lafayette College's 2019/2020 PacMan Board. It is written in C/C++ with extensive use of Arduino & ESP-IDF specific functions and libraries. We also have rather extensively modified the [CANopenNode](https://github.com/CANopenNode/CANopenNode) library to work on the ESP32 and the ESP-IDF's CAN driver. Branches are used in this repository and it is recommended to check other branches for the bleeding edge.
+This repository contains the firmware code for Lafayette College's 2019/2020 PacMan Board. It is written in C/C++ with extensive use of Arduino & [ESP-IDF](https://github.com/espressif/esp-idf) specific functions and libraries. We also have rather extensively modified the [CANopenNode](https://github.com/CANopenNode/CANopenNode) library to work on the ESP32 and the [ESP-IDF's CAN driver](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/can.html). Branches are used in this repository and it is recommended to check other branches for the bleeding edge.
 
 ## Description
 
