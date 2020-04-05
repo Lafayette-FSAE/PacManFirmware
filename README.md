@@ -20,7 +20,8 @@ This project provides the firmware for the ESP32 processor used on the [PacMan b
 
 ## Using the PacMan
 
-Insert details about the display and front panel buttons here. Reach out to me about how to put images if you want here Simone!
+The Packs have a user-friendly display that may be used to view data and configure registers for the packs or CANbus. Screens on the display may be navigated through via the button panel found beneath it. 
+A detailed instructional video can be found [here](TODO: add link to video).
 
 ## Connecting up the PacMan
 
