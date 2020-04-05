@@ -49,7 +49,7 @@ Detailed instructions for this are located in the TSV User-Manual (TODO: Put a l
 
 * Setting the `#define DEBUG` in our code to `true` will allow more serial output to be displayed to the user for debugging purposes to see the state of the PacMan more clearly
 * A tutorial on how to setup a RaspberryPi from scratch can be found [here](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up). Note that to get internet you will have to register the device (if it has fallen out of registration from our accounts) on Lafayette's network like you do on your laptop or desktop. IP addresses can often change on Lafayette's network so it is recommended to setup the Pi on a monitor and keyboard and mouse and then [setup the RaspberryPi to email it's IP upon boot-up](https://elinux.org/RPi_Email_IP_On_Boot_Debian) (Note: add a [delay](https://realpython.com/python-sleep/) into this code to allow the RaspberryPi to connect to WiFi first or it could easily fail).
-  * A pre-built image including the repository and the Arduino IDE can be found here, including the drivers needed for the CAN hat. You can use this to easily compile and upload the code onto the PacMan. This image will not have the IP script.
+  * A pre-built image including the repository and the Arduino IDE can be found [here](https://drive.google.com/a/lafayette.edu/file/d/1ZdgW6_UGEl1k3szYxt-K21V9etrqQY8c/view?usp=sharing), including the drivers needed for the CAN hat. You can use this to easily compile and upload the code onto the PacMan. This image will not have the IP script.
 
 ## Useful Documents
 
