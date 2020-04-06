@@ -18,6 +18,20 @@ This project provides the firmware for the ESP32 processor used on the [PacMan b
 8. Click on the compile and upload button (The right-facing arrow on the upper-left of the IDE)
 9. Open the Serial Monitor by clicking on the Magnifying glass in the top right corner or going to "Tools" -> "Serial Monitor" after the computer has compiled and uploaded the code
 
+## Uploading with a pre-compiled binary
+
+1. Install ESPtool (esptool.py) using `pip install esptool`
+   1. This requires Python which is installed by default on most Linux Distros (including the RaspberryPi), but otherwise can be downloaded and found [here](https://www.python.org/downloads/)
+2. Plug in the ESP32 on the PacMan board via it's USB cable
+3. Locate it's serial port:
+   1. [Debian (Ubuntu/Raspbian) Tutorial](https://www.cyberciti.biz/faq/find-out-linux-serial-ports-with-setserial/)
+   2. [Mac OS X Tutorial](https://www.pololu.com/docs/0J36/5.b)
+   3. [Windows Tutorial](https://answers.microsoft.com/en-us/windows/forum/all/how-to-identify-com-ports-in-windows10/2591ed8b-805e-4e66-9513-836cdd49ed80) (First answer)
+4. In Terminal / Command Prompt type (excluding bracketed information):
+   1. `esptool [or esptool.py] --chip esp32 erase_flash`
+   2. `esptool [or esptool.py] --chip esp32 --port [port you found in part 3] write_flash 0x1000 [Latest binary file]`
+5. Wait for flashing to complete and you should be good to go!
+
 ## Using the PacMan
 
 The Packs have a user-friendly display that may be used to view data and configure registers for the packs or CANbus. Screens on the display may be navigated through via the button panel found beneath it. 
