@@ -6,6 +6,8 @@ This repository contains the firmware code for Lafayette College's 2019/2020 Pac
 
 This project provides the firmware for the ESP32 processor used on the [PacMan board](https://github.com/Lafayette-FSAE/PacMan). It provides essential functions for the board, including but not limited to, CAN Bus communication via the CANopen protocol, Pack e-ink Display operation, I2C-based CellMen communication, and other various important operational and safety checks.
 
+Tested and working on PacMan board version: 1.3
+
 ## Getting Started
 
 1. Install the [Arduino IDE](https://www.arduino.cc/en/main/software). Tested on version 1.8.10
