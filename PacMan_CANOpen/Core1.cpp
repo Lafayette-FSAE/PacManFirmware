@@ -31,10 +31,14 @@ void openSafetyLoopCallBack(TimerHandle_t pxTimer){
 // CONSTRUCTOR
 Core1::Core1(CO_t *CO) {
     // Interrupt Semaphores
+    if (DEBUG) printf("Core 1: Initialising");
+
     I2C_InterrupterSemaphore = xSemaphoreCreateBinary();
     chargeDetectSemaphore = xSemaphoreCreateBinary();
+    if (DEBUG) printf("Core 1: I2C and Charge Detect Interrupt Semaphores Created");
 
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
+    if (DEBUG) printf("Core 1: Joined I2C Bus");
     totalMAH = 0;
 
     // Create safetyloop timers
@@ -51,12 +55,13 @@ Core1::Core1(CO_t *CO) {
                                       /* The callback function that switches the LCD back-light
                                       off. */
                                       openSafetyLoopCallBack);
-
+    
     underVoltageWarningTimer = xTimerCreate("underVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);
     overVoltageTimer = xTimerCreate("overVoltageTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
     overVoltageWarningTimer = xTimerCreate("overVoltageWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);
     overTemperatureTimer = xTimerCreate("overTemperatureTimer", pdMS_TO_TICKS(TTT*1000), pdFALSE, 0, openSafetyLoopCallBack);
-    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);                           
+    overTemperatureWarningTimer = xTimerCreate("overTemperatureWarningTimer", pdMS_TO_TICKS(TTT*1000/6), pdFALSE, 0, warningCallBack);
+    if (DEBUG) printf("Core 1: Created Software Safety Timers!");                           
 }
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
@@ -227,7 +232,9 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
     int i;
     int newIndex;
 
+    if (DEBUG) printf("Core 1: Checking Safety of Data in Object Dictionary");
     CO_LOCK_OD();
+    if (DEBUG) printf("Core 1: Obtained Object Dictionary Lock");
     for(i = 0; i < numberOfDiscoveredCellMen; i++){
         // Because we have everything stored in physical locations in the array. e.g. 0 goes to Cell 0, 1 goes to Cell 8 in the array since they are in different segments
         newIndex = physicalLocationFromSortedArray(i);
@@ -253,23 +260,24 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         }
     }
     CO_UNLOCK_OD();
+    if (DEBUG) printf("Core 1: Released Object Dictionary Lock");
 
     // At least 1 cell was found below the voltage threshold - start undervoltage counter
     if(tempUV){
         if(xTimerIsTimerActive(underVoltageTimer) == pdFALSE){
             if(xTimerStart(underVoltageTimer, 0) != pdPASS ){
                 /* The timer could not be set into the Active state. */
-                Serial.println("Could not start underVoltage Timer");
+                if(DEBUG) Serial.println("Core 1: Could not start underVoltage Timer");
             }else{
-                Serial.println("underVoltage Timer as begun!");
+                if(DEBUG) Serial.println("Core 1: underVoltage Timer as begun!");
             }
         }
         if(xTimerIsTimerActive(underVoltageWarningTimer) == pdFALSE){
             if(xTimerStart(underVoltageWarningTimer, 0) != pdPASS ){
                 /* The timer could not be set into the Active state. */
-                Serial.println("Could not start underVoltage Warning Timer");
+                if(DEBUG) Serial.println("Core 1: Could not start underVoltage Warning Timer");
             }else{
-                Serial.println("underVoltage Warning Timer as begun!");
+                if(DEBUG) Serial.println("Core 1: underVoltage Warning Timer as begun!");
             }
         }
     // No cells were found below the minimum voltage - stop and reset both counters
@@ -288,16 +296,16 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         if(xTimerIsTimerActive(overVoltageTimer) == pdFALSE){ // Check to see if the timer has not been started yet, we don't want to start an already started timer
             if(xTimerStart(overVoltageTimer, 0) != pdPASS ){
                 /* The timer could not be set into the Active state. */
-                Serial.println("Could not start overVoltage Timer");
+                if(DEBUG) Serial.println("Core 1: Could not start overVoltage Timer");
             }else{
-                Serial.println("overVoltage Timer as begun!");
+                if(DEBUG) Serial.println("Core 1: overVoltage Timer as begun!");
             }
             if(xTimerIsTimerActive(overVoltageWarningTimer) == pdFALSE){ // Check to see if the timer has not been started yet, we don't want to start an already started timer
                 if(xTimerStart(overVoltageWarningTimer, 0) != pdPASS ){
                     /* The timer could not be set into the Active state. */
-                    Serial.println("Could not start overVoltage Warning Timer");
+                    if(DEBUG) Serial.println("Core 1: Could not start overVoltage Warning Timer");
                 }else{
-                    Serial.println("overVoltage Timer warning as begun!");
+                    if(DEBUG) Serial.println("Core 1: overVoltage Timer warning as begun!");
                 }
             }
         }
@@ -315,17 +323,17 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
         if(xTimerIsTimerActive(overTemperatureTimer) == pdFALSE){
             if(xTimerStart(overTemperatureTimer, 0) != pdPASS ){
                 /* The timer could not be set into the Active state. */
-                Serial.println("Could not start overTemperature Timer");
+                if(DEBUG) Serial.println("Core 1: Could not start overTemperature Timer");
             }else{
-                Serial.println("overTemperature Timer as begun!");
+                if(DEBUG) Serial.println("Core 1: overTemperature Timer as begun!");
             }
         }
         if(xTimerIsTimerActive(overTemperatureWarningTimer) == pdFALSE){
             if(xTimerStart(overTemperatureWarningTimer, 0) != pdPASS ){
                 /* The timer could not be set into the Active state. */
-                Serial.println("Could not start overTemperature Warning Timer");
+                if(DEBUG) Serial.println("Core 1: Could not start overTemperature Warning Timer");
             }else{
-                Serial.println("overTemperature Timer Warning as begun!");
+                if (DEBUG) Serial.println("Core 1: overTemperature Timer Warning as begun!");
             }
         }
     // No cell temps were found above the maximum temp - stop and reset counter
@@ -382,10 +390,11 @@ void Core1::toggleCellManLED(unsigned char address, bool state){
 // Toggle LEDs on CellMen in segment position order to indicate that they are properly connected and communicating
 // addressVoltages should be sorted at this point
 // Will need to modify when the segments are distinguishable so that the order is correct
-void Core1::indicateCellMen()
-{
-    Serial.print("Flashing CellMen LEDs at time ");
-    Serial.println(millis());
+void Core1::indicateCellMen(){
+    if(DEBUG){
+        Serial.print("Flashing CellMen LEDs at time ");
+        Serial.println(millis());
+    }
     // Light up each LED incrementally every 250ms
     for (int i = 0; i < numberOfDiscoveredCellMen; i++)
     {
@@ -413,24 +422,33 @@ void Core1::indicateCellMen()
     {
         toggleCellManLED(addressVoltages[i].address, false);
     }
-    Serial.print("Done flashing CellMen LEDs at time ");
-    Serial.println(millis());
+    if(DEBUG){
+        Serial.print("Done flashing CellMen LEDs at time ");
+        Serial.println(millis());
+    }
 }
 
 void Core1::updateCellMenData(){
     //Collect data from all the CellMen & Update Object Dictionary Interrupt
+    if (DEBUG) printf("Core 1: Attempting to take I2C Interrupt Semaphore");
     if (xSemaphoreTake(I2C_InterrupterSemaphore, 0) == pdTRUE) {
-        Serial.print("Updating CellMen at ");
-        Serial.println(millis());
+        if (DEBUG) printf("Core 1: Took I2C Interrupt Semaphore");
+        
         // Update CellMan Code
         for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
+            if (DEBUG) printf("Core 1: Requesting Data From CellMan");
             unsigned char* celldata = requestDataFromSlave(addressVoltages[i].address, i, false);
+            if (DEBUG) printf("Core 1: Processing Collected Data");
             processCellData(celldata, physicalLocationFromSortedArray(i)); // Process data retrieved from each cellman and is inerted based off of physicalAddress
+            if (DEBUG) printf("Core 1: Checking Safety of Collected Data");
             checkSafety(numberOfDiscoveredCellMen);
         }
+        if (DEBUG) printf("Core 1: Finishing Collecting CellMen Data");
 
         // Update the Object Dictionary Here
+        if (DEBUG) printf("Core 1: Updating Object Dictionary");
         CO_LOCK_OD();
+        if (DEBUG) printf("Core 1: Obtained Object Dictionary Lock");
         // index i here will go through the array, but in this array the physical stuff is already set - I hate how confusing the indexes are depending on where you are in the code
         for (int i = 0; i < 16; i++) {
             // If this cell is disconnected, set all its useful data to 0 prior to changing the O
@@ -446,12 +464,6 @@ void Core1::updateCellMenData(){
                 
                 OD_cellPosition[i]         = cellPositions[i];
                 OD_cellVoltage[i]          = cellVoltages[i];
-                Serial.print("Cell ");
-                Serial.print(i);
-                Serial.print(" Voltage: ");
-                Serial.print(OD_cellVoltage[i]);
-                Serial.print(" mV at time ");
-                Serial.println(millis());
                 OD_cellTemperature[i]      = cellTemperatures[i];
                 OD_minusTerminalVoltage[i] = minusTerminalVoltages[i];
                 OD_cellBalancingEnabled[i] = cellBalancingEnabled[i];
@@ -461,6 +473,7 @@ void Core1::updateCellMenData(){
             }
         }
         CO_UNLOCK_OD();
+        if (DEBUG) printf("Core 1: Updated Object Dictionary and Released OD Lock");
     }
 }
 
@@ -505,6 +518,7 @@ void Core1::handleCharging(){
 
 // Start main loop for thread
 void Core1::start() {
+    if (DEBUG) printf("Core 1: Starting");
     ///// Initial Functions
     unsigned char* tempCellData;
     /* We know this because in the PacMan.ino file we start
@@ -518,61 +532,69 @@ void Core1::start() {
         cellPositions[i]=i;
         minusTerminalVoltages[i]=0;
     }
+    if (DEBUG) printf("Core 1: Initalised & Zeroed AddressVoltages Array");
 
     // Get all CellMan Addresses - loop discovering until we get some devices to prevent crashing of the CPU
     numberOfDiscoveredCellMen = 0;
+    if (DEBUG) printf("Core 1: Beginning Discovery of CellMen on I2C Bus");
     while (numberOfDiscoveredCellMen == 0) {
         if(DEBUG) Serial.println("In the while loop, looking for CellMen");
         numberOfDiscoveredCellMen = discoverCellMen();
     }
+    if (DEBUG) printf("Core 1: Finished Discoverying CellMen");
 
     if (DEBUG) {
-        Serial.print("The number of address found: ");
+        Serial.print("Core 1: The number of address found: ");
         Serial.println(numberOfDiscoveredCellMen);
     }
 
 
     // Put together addressVoltages array by requesting data from each cellman
+    if (DEBUG) printf("Core 1: Collecting Initial Data from CellMen for Location Calculation");
     for (int i = 0; i < numberOfDiscoveredCellMen; i++) {
         tempCellData = requestDataFromSlave(addresses[i], i, true);
 
         addressVoltages[i].address = addresses[i];
         addressVoltages[i].addressMinusVoltage = (uint16_t)((tempCellData[6] << 8) + tempCellData[5]);
-        Serial.print("Address minus voltage for address ");
-        Serial.print(addressVoltages[i].address);
-        Serial.print(": ");
-        Serial.println(addressVoltages[i].addressMinusVoltage);
+        if(DEBUG){
+            Serial.print("Cell 1: Address minus voltage for address ");
+            Serial.print(addressVoltages[i].address);
+            Serial.print(": ");
+            Serial.println(addressVoltages[i].addressMinusVoltage);
+        }
     }
 
-    Serial.println("Before quicksort:");
-    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
-    {
-        Serial.print("Index ");
-        Serial.print(i);
-        Serial.print(": ");
-        Serial.print(addressVoltages[i].address);
-        Serial.print(", ");
-        Serial.println(addressVoltages[i].addressMinusVoltage);
-    }
+    if (DEBUG) printf("Core 1: Quicksorting the AddressVoltage Array");
+    // for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    // {
+    //     Serial.print("Index ");
+    //     Serial.print(i);
+    //     Serial.print(": ");
+    //     Serial.print(addressVoltages[i].address);
+    //     Serial.print(", ");
+    //     Serial.println(addressVoltages[i].addressMinusVoltage);
+    // }
 
     // Sort the addressVoltages by ascending voltages - Wow this bug fix took FOREVER, forgot the -1 (haha jouny) after the numberOfDiscoveredCellMen oof
     addressVoltageQuickSort(addressVoltages, 0, numberOfDiscoveredCellMen - 1);
 
-    Serial.println("After quicksort:");
-    for (int i = 0; i < numberOfDiscoveredCellMen; i++)
-    {
-        Serial.print("Index ");
-        Serial.print(i);
-        Serial.print(": ");
-        Serial.print(addressVoltages[i].address);
-        Serial.print(", ");
-        Serial.println(addressVoltages[i].addressMinusVoltage);
-    }
+    // Serial.println("After quicksort:");
+    // for (int i = 0; i < numberOfDiscoveredCellMen; i++)
+    // {
+    //     Serial.print("Index ");
+    //     Serial.print(i);
+    //     Serial.print(": ");
+    //     Serial.print(addressVoltages[i].address);
+    //     Serial.print(", ");
+    //     Serial.println(addressVoltages[i].addressMinusVoltage);
+    // }
 
     // Flash the LEDs on each CellMen in position order
+    if (DEBUG) printf("Core 1: Flashing CellMen in Detected Order");
     indicateCellMen();
     
     ///// Main Loop
+    if (DEBUG) printf("Core 1: Entering Main Loop");
     for (;;) {
         // Interrupt based updating of CellMen data and OD
         updateCellMenData();
