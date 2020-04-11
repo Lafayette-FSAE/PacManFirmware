@@ -126,6 +126,7 @@ static void setup_timer(void){
 
 void setup() {
     Serial.begin(115200);
+    if (DEBUG) printf("PacMan: Serial Begun");
     reset = CO_RESET_NOT;
 
     pinMode(PIN_LED_GREEN,  OUTPUT);
@@ -133,6 +134,7 @@ void setup() {
     pinMode(PIN_SLOOP_EN,   OUTPUT);
     pinMode(PIN_CHRG_EN,    OUTPUT);
     pinMode(PIN_WATCHDOG,   OUTPUT);
+    if (DEBUG) printf("PacMan: Setup PinModes");
 
 
     // Set default values for GPIO
@@ -145,20 +147,24 @@ void setup() {
     digitalWrite(PIN_WATCHDOG,   LOW);
 
     digitalWrite(PIN_LED_ORANGE,  HIGH);
+    if (DEBUG) printf("PacMan: Set Default Output Pin States");
 
     /* Configure microcontroller. */
     xTaskCreatePinnedToCore(&codeForTask0,"Core0Task",10000,NULL,1,&Task0,0);
+    if (DEBUG) printf("PacMan: Launched Core 0");
     delay(500);
     xTaskCreatePinnedToCore(&codeForTask1,"Core1Task",10000,NULL,1,&Task1,0);
+    if (DEBUG) printf("PacMan: Launched Core 1");
 
     /* initialize EEPROM */
     // initialize EEPROM with predefined size
     EEPROM.begin(EEPROM_SIZE);
+    if (DEBUG) printf("PacMan: Initliased EEPROM -- Does this work properly?");
 
     /* increase variable each startup. Variable is stored in EEPROM. */
     OD_powerOnCounter++;
 
-
+    if (DEBUG) printf("PacMan: Beginning 1st CANopenNode loop");
     while (reset != CO_RESET_APP) {
         /* CANopen communication reset - initialize CANopen objects *******************/
         CO_ReturnError_t err;
@@ -175,27 +181,32 @@ void setup() {
             while (1);
             /* CO_errorReport(CO->em, CO_EM_MEMORY_ALLOCATION_ERROR, CO_EMC_SOFTWARE_INTERNAL, err); */
         }
+        if (DEBUG) printf("PacMan: Initialised CANopenNode");
 
 
         /* Configure Timer interrupt function for execution every 1 millisecond */
         //setup_timer();
         setup_I2C_timer();
-        Serial.println("Setup timers");
+        if (DEBUG) printf("PacMan: Setup I2C HW Timer");
 
         // Setup interrupts
         attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DET),  chargeDetectInt, CHANGE);
+        if (DEBUG) printf("PacMan: Attached Charge Detect Interrupt to Pin");
 
         /* Configure CAN transmit and receive interrupt */
-        Serial.println("Before start can");
         /* start CAN */
         CO_CANsetNormalMode(CO->CANmodule[0]);
+        if (DEBUG) printf("PacMan: Started CAN");
 
         reset = CO_RESET_NOT;
         timer1msPrevious = CO_timer1ms;
 
         xTaskCreatePinnedToCore(&tmrTask_thread,"tmrTask_thread",10000,NULL,1,&tmrTask_thread1,0);
+        if (DEBUG) printf("PacMan: Created PDO Processing Thread Task");
 
         //Serial.println((int)(timererr==ESP_OK));
+        if (DEBUG) printf("PacMan: Entering 2nd CANopenNode Loop for Processing SDO Packets");
+        
         while (reset == CO_RESET_NOT) {
             /* loop for normal program execution ******************************************/
             uint16_t timer1msCopy, timer1msDiff;
