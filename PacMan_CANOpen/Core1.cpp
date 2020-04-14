@@ -1,21 +1,40 @@
-/*
-Core1.cpp - Library for PacMan Core 1.
-Created by Clement Hathaway & Simone Khalifa, October 30, 2019.
-Released into the public domain.
-*/
+/**
+ * @file Core1.cpp
+ * @author Clement Hathaway (cwbh10@gmail.com)
+ * @brief The Code running on Core1 controlling much of the data processing
+ * @version 1.0
+ * @date 2020-04-13
+ * 
+ * @copyright Copyright (c) 2020
+ * 
+ */
 #include "Core1.h"
 
 uint8_t cellFaults[16];
 
+/**
+ * @brief A Callback triggered by the warning timer
+ * Locks Object Dictionary
+ * Updates the Object Dictionary with the cellFaults warnings that have been set prior to their appropriate values
+ * Unlocks Object Dictionary
+ * @param pxTimer parameter used in the callback in the timers - given by ESP IDF guidelines
+ */
 void warningCallBack(TimerHandle_t pxTimer){
     CO_LOCK_OD();
-    //Serial.println("15 seconds has pasted setting warnings!");
+    //Serial.println("15 seconds has past setting warnings!");
     for(int i = 0; i < 16; i++){
         OD_warning[i] = cellFaults[i];
     }
     CO_UNLOCK_OD();
 }
-
+/**
+ * @brief A Callback triggered by the safetyloop timer
+ * Opens Safety loop
+ * Locks Object Dictionary
+ * Updates the Object Dictionary with the cellFaults faults that have been set prior to their appropriate values
+ * Unlocks Object Dictionary
+ * @param pxTimer parameter used in the callback in the timers - given by ESP IDF guideline
+ */
 void openSafetyLoopCallBack(TimerHandle_t pxTimer){
     digitalWrite(PIN_SLOOP_EN, LOW);
     OD_SLOOP_Relay = false;
