@@ -32,7 +32,7 @@ void warningCallBack(TimerHandle_t pxTimer){
  * Opens Safety loop
  * Locks Object Dictionary
  * Updates the Object Dictionary with the cellFaults faults that have been set prior to their appropriate values
- * Unlocks Object Dictionary
+ * Unlocks Object Dictionary+
  * @param pxTimer parameter used in the callback in the timers - given by ESP IDF guideline
  */
 void openSafetyLoopCallBack(TimerHandle_t pxTimer){
@@ -48,6 +48,13 @@ void openSafetyLoopCallBack(TimerHandle_t pxTimer){
 }
 
 // CONSTRUCTOR
+/**
+ * @brief Constructs a new Core 1::Core 1 object
+ * Created interrupt Semaphores
+ * Starts I2C driver and joins the bus on specified pins in PacMan.h
+ * Creates all the warning and fault timers
+ * @param CO The CANopen object which is passed in via the toplevel PacMan file
+ */
 Core1::Core1(CO_t *CO) {
     // Interrupt Semaphores
     if (DEBUG) printf("Core 1: Initialising");
@@ -84,6 +91,13 @@ Core1::Core1(CO_t *CO) {
 }
 
 // Quick sorts out struct of addressVoltage based off of the .addressMinusVoltage property
+/**
+ * @brief Sorts an array of AddressVoltage structs by ascending voltage reference level
+ * Uses quicksort as the main sorting method
+ * @param addressVoltages The array of structs of type addressVoltage
+ * @param first Part of the recursion in Quicksort
+ * @param last Part of the recursion in Quicksort
+ */
 void Core1::addressVoltageQuickSort(addressVoltage* addressVoltages, int first, int last) {
     int i, j, pivot;
     uint16_t tempVoltage;
@@ -130,6 +144,12 @@ bool Core1::addressVoltageSorter(addressVoltage const lhs, addressVoltage const 
 }
 
 // Discovery I2C devices, excluding I2C devices on PacMan
+/**
+ * @brief Discover the CellMen that are connected to the I2C bus
+ * Scans for devices between all available I2C addresses (1-127)
+ * Excludes known non-cellman devices defined in PacMan.h
+ * @return uint8_t number of CellMen found
+ */
 uint8_t Core1::discoverCellMen() {
     uint8_t cellMenCount = 0;
 
@@ -177,6 +197,15 @@ uint8_t Core1::discoverCellMen() {
 }
 
 // Request byte array from specified CellMan I2C address, using index and preCollect we know when to check for I2C faults
+/**
+ * @brief Requests data from an I2C slave
+ * Requests data from I2C slaves, used for collecting data from CellMen
+ * Can be used before we have information about what CellMan is in what position during precollection
+ * @param address The address of the I2C Device/CellMan
+ * @param index The index for where the data will be stored - Not relevant in precollection mode
+ * @param preCollect A boolean to decide if the method is collecting data in the beginning for processing or just gathering new data
+ * @return unsigned* char returns data array sent from the I2C slave
+ */
 unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index, bool preCollect) {
     uint8_t physicalODAddress = physicalLocationFromSortedArray(index);
     if(!preCollect) toggleCellManLED(address, true);
@@ -222,6 +251,13 @@ unsigned char* Core1::requestDataFromSlave(unsigned char address, uint8_t index,
 }
 
 // Process the celldata into our private arrays to be stored into the OD later
+/**
+ * @brief Process the collected cellData array from the CellMan into its respective arrays in the class
+ * Since we get data from each CellMan at a time, but in the Object Dictionary it is stored by Data and then CellMan
+ * We have to preprocess the data so it is ready to be inserted in the OD with minimal locking time
+ * @param cellData Pass in the CellData array of bytes obtained from requestDataFromSlave
+ * @param cellPhysicalLocation Pass in the physical location of the cell so it matches in the array, e.g. physical location 8 is 7 in the array
+ */
 void Core1::processCellData(unsigned char* cellData, uint8_t cellPhysicalLocation) {
     cellPositions[cellPhysicalLocation]          = cellPhysicalLocation;
     cellVoltages[cellPhysicalLocation]           = (uint16_t)((cellData[2] << 8) + cellData[1]); // Shift MSBs over 8 bits, then add the LSBs to the first 8 bits and cast as a uint16_t
@@ -244,6 +280,13 @@ void Core1::processCellData(unsigned char* cellData, uint8_t cellPhysicalLocatio
 }
 
 // Check the safety of our measurements, trigger warnings and safetyloop here
+/**
+ * @brief Checks the safety our of CellMen Data in the Object Dictionary
+ * Looks through the number of CellMen we have detected and checks their values for
+ * Undervoltage, Overvoltage, Overtemperature, and I2C disconnect/error
+ * Starts/Stops appropriate warning and fault timers
+ * @param numberOfDiscoveredCellMen Integer with the number of detected CellMan so we don't check bad data
+ */
 void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
     tempUV = false;
     tempOV = false;
@@ -366,6 +409,17 @@ void Core1::checkSafety(uint8_t numberOfDiscoveredCellMen){
 }
 
 // Maps the arrayIndex to a physical cell location in the packs (since we can't tell between segments right now) by saying the second instance of a same voltage potential cell is in the other segment
+/**
+ * @brief Maps an arrayIndex into the physical Cell Location in the Packs
+ * This method is using a work around since the PacMan hardware this firmware was developed on has a flaw
+ * We cannot differentiate between segments since they have their own grounds.
+ * A PacMan board revision should have been made to fix this but this method randomises in which seg a cell gets placed 
+ * This way you have a 50% chance of knowing what cell the data is about by looking in the Packs, this is better than otherwise
+ * This function will need to be rewritten or swapped for something else once segment detection works
+ * Segment detection will eventually be done by reseting a known segment and performing a CellMen discovery 
+ * @param arrayIndex Integer of the array's Index (not physical location!)
+ * @return uint8_t Returns an integer of the physical location which can be used as an index for physically indexed arrays (e.g OD)
+ */
 uint8_t Core1::physicalLocationFromSortedArray(uint8_t arrayIndex) {
     uint8_t physicalAddress;
     if (arrayIndex % 2 == 0) { // If Even
@@ -379,6 +433,12 @@ uint8_t Core1::physicalLocationFromSortedArray(uint8_t arrayIndex) {
 }
 
 // Simple voltage-based SOC - Very inaccurate
+/**
+ * @brief Calculates a simple Voltage based State of Charge
+ * This shouldn't be used in production and should be replaced
+ * A simple EKF based model would be best here
+ * Columb counting is the easier and better soltion than voltage but worse than EKF models
+ */
 void Core1::calculateTotalPackSOC() {
     int SOCTotal = 0;
 
@@ -409,6 +469,10 @@ void Core1::toggleCellManLED(unsigned char address, bool state){
 // Toggle LEDs on CellMen in segment position order to indicate that they are properly connected and communicating
 // addressVoltages should be sorted at this point
 // Will need to modify when the segments are distinguishable so that the order is correct
+/**
+ * @brief Flashes CellMen LEDs in order of detection
+ * Follows the order of flashing each CellMan and then all of them at once
+ */
 void Core1::indicateCellMen(){
     if(DEBUG){
         Serial.print("Flashing CellMen LEDs at time ");
@@ -447,6 +511,13 @@ void Core1::indicateCellMen(){
     }
 }
 
+/**
+ * @brief Updates the Object Dictionary with udpated local CellMan data that was collected
+ * Goes through the detected CellMen and collects, processes, and checks safety of CellMen Data
+ * Locks the Object Dictionary
+ * Updates all of the data from the warnings, faults, and measurements into the OD
+ * Unlocks the OD
+ */
 void Core1::updateCellMenData(){
     //Collect data from all the CellMen & Update Object Dictionary Interrupt
     if (DEBUG) printf("Core 1: Attempting to take I2C Interrupt Semaphore");
@@ -496,6 +567,14 @@ void Core1::updateCellMenData(){
     }
 }
 
+/**
+ * @brief Handles the charging interrupt and relays
+ * Checks to make sure all cells are within acceptable voltage ranges
+ * Trys to take the interrupt semaphore for the charge connector
+ * Adjusts the state of the relay based on the safety and state of charge connector
+ * This provides some hysteresis until the connector is replugged in if a cell goes out of safety spec
+ * @bug Can get the state inverted in certain cases (Relay on when plug out, and vice-versa), some additional logic should be put in to fix this
+ */
 void Core1::handleCharging(){
     charge = true;
     int newIndex; // Gets us the actual physical location which is how the array in defined
@@ -536,6 +615,16 @@ void Core1::handleCharging(){
 }
 
 // Start main loop for thread
+/**
+ * @brief The main loop for Core 1 thread
+ * Initialises various variables
+ * Discovers CellMen
+ * Quick Sorts discovered CellMen into voltage ascending over
+ * Begins main loop of:
+ * Updating CellMen Data
+ * Handling Charging
+ * Short delay to avoid triggering the Watchdog built into the ESP due to overloading Core1 
+ */
 void Core1::start() {
     if (DEBUG) printf("Core 1: Starting");
     ///// Initial Functions
