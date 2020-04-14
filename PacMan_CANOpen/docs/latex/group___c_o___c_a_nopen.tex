@@ -1,0 +1,656 @@
+\hypertarget{group___c_o___c_a_nopen}{}\doxysection{C\+A\+Nopen stack}
+\label{group___c_o___c_a_nopen}\index{CANopen stack@{CANopen stack}}
+
+
+C\+A\+Nopen\+Node is free and open source C\+A\+Nopen Stack.  
+
+
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_o__driver}{Driver}}
+\item 
+\mbox{\hyperlink{group___c_o___emergency}{Emergency}}
+\item 
+\mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}}
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat}{N\+M\+T and Heartbeat}}
+\item 
+\mbox{\hyperlink{group___c_o___p_d_o}{P\+DO}}
+\item 
+\mbox{\hyperlink{group___c_o___s_d_o}{S\+D\+O server}}
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster}{S\+D\+O client}}
+\item 
+\mbox{\hyperlink{group___c_o___s_y_n_c}{S\+Y\+NC}}
+\item 
+\mbox{\hyperlink{group___c_o___t_i_m_e}{T\+I\+ME}}
+\item 
+\mbox{\hyperlink{group___c_o__crc16__ccitt}{C\+R\+C 16 C\+C\+I\+TT}}
+\item 
+\mbox{\hyperlink{group___c_o__eeprom}{Nonvolatile storage}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_a_nopen_8h}{C\+A\+Nopen.\+h}}
+\item 
+file \mbox{\hyperlink{_c_o__types_8h}{C\+O\+\_\+types.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_a_nopen_8h}{C\+A\+Nopen.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h}{C\+O\+\_\+types.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE}} = 0x000, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME}} = 0x100, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1}} = 0x180, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1}} = 0x200, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2}} = 0x280, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2}} = 0x300, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3}} = 0x380, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3}} = 0x400, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4}} = 0x480, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4}} = 0x500, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO}} = 0x580, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO}} = 0x600, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}} = 0x700, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI}} = 0x7\+E4, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV}} = 0x7\+E5, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE}} = 0x000, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY}} = 0x080, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME}} = 0x100, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1}} = 0x180, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1}} = 0x200, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2}} = 0x280, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2}} = 0x300, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3}} = 0x380, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3}} = 0x400, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4}} = 0x480, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4}} = 0x500, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO}} = 0x580, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO}} = 0x600, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}} = 0x700, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI}} = 0x7\+E4, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV}} = 0x7\+E5
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE}} = 0x000, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME}} = 0x100, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1}} = 0x180, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1}} = 0x200, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2}} = 0x280, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2}} = 0x300, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3}} = 0x380, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3}} = 0x400, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4}} = 0x480, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4}} = 0x500, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO}} = 0x580, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO}} = 0x600, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}} = 0x700, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI}} = 0x7\+E4, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV}} = 0x7\+E5, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE}} = 0x000, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC}} = 0x080, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY}} = 0x080, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME}} = 0x100, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1}} = 0x180, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1}} = 0x200, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2}} = 0x280, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2}} = 0x300, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3}} = 0x380, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3}} = 0x400, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4}} = 0x480, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4}} = 0x500, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO}} = 0x580, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO}} = 0x600, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}} = 0x700, 
+\newline
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI}} = 0x7\+E4, 
+\mbox{\hyperlink{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}{C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV}} = 0x7\+E5
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___c_a_nopen_ga43862d7055b7456705a9845bbe075583}{C\+O\+\_\+init}} (void $\ast$C\+A\+Ndriver\+State, uint8\+\_\+t node\+Id, uint16\+\_\+t bit\+Rate)
+\item 
+void \mbox{\hyperlink{group___c_o___c_a_nopen_gaf14b247f614c4fe1313bb99b34102270}{C\+O\+\_\+delete}} (void $\ast$C\+A\+Ndriver\+State)
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{group___c_o___c_a_nopen_ga2f4679e8c6399b6b1b24886d52d65780}{C\+O\+\_\+process}} (\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$co, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{group___c_o___c_a_nopen_gac5f2002fb6c4a14f08167139188e9c78}{C\+O\+\_\+process\+\_\+\+S\+Y\+NC}} (\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$co, uint32\+\_\+t time\+Difference\+\_\+us)
+\item 
+void \mbox{\hyperlink{group___c_o___c_a_nopen_ga4318848921c35e8bb5a7d97dca5668a0}{C\+O\+\_\+process\+\_\+\+R\+P\+DO}} (\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$co, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} sync\+Was)
+\item 
+void \mbox{\hyperlink{group___c_o___c_a_nopen_ga5aa95c06dfed3e6e3d8a2ce9d2d3ab72}{C\+O\+\_\+process\+\_\+\+T\+P\+DO}} (\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$co, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} sync\+Was, uint32\+\_\+t time\+Difference\+\_\+us)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$ \mbox{\hyperlink{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}{CO}}
+\item 
+\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$ \mbox{\hyperlink{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}{CO}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen\+Node is free and open source C\+A\+Nopen Stack. 
+
+C\+A\+Nopen is the internationally standardized (EN 50325-\/4) (CiA D\+S-\/301) C\+A\+N-\/based higher-\/layer protocol for embedded control system. For more information on C\+A\+Nopen see \href{http://www.can-cia.org/}{\texttt{ http\+://www.\+can-\/cia.\+org/}}
+
+C\+A\+Nopen\+Node homepage is \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}}
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}\label{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}} 
+\index{CANopen stack@{CANopen stack}!CO\_Default\_CAN\_ID\_t@{CO\_Default\_CAN\_ID\_t}}
+\index{CO\_Default\_CAN\_ID\_t@{CO\_Default\_CAN\_ID\_t}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_Default\_CAN\_ID\_t}{CO\_Default\_CAN\_ID\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}}
+
+Default C\+A\+Nopen identifiers.
+
+Default C\+A\+Nopen identifiers for C\+A\+Nopen communication objects. Same as 11-\/bit addresses of C\+AN messages. These are default identifiers and can be changed in C\+A\+Nopen. Especially P\+DO identifiers are confgured in P\+DO linking phase of the C\+A\+Nopen network configuration. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE&0x000, Network management \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC&0x080, Synchronous message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY&0x080, Emergency messages (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME&0x100, Time message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1&0x180, Default T\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1&0x200, Default R\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2&0x280, Default T\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2&0x300, Default R\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3&0x380, Default T\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3&0x400, Default R\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4&0x480, Default T\+P\+D\+O4 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4&0x500, Default R\+P\+D\+O5 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO&0x580, S\+DO response from server (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO&0x600, S\+DO request from client (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT&0x700, Heartbeat message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI&0x7\+E4, L\+SS response from server to client \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV&0x7\+E5, L\+SS request from client to server \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE&0x000, Network management \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC&0x080, Synchronous message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY&0x080, Emergency messages (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME&0x100, Time message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1&0x180, Default T\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1&0x200, Default R\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2&0x280, Default T\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2&0x300, Default R\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3&0x380, Default T\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3&0x400, Default R\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4&0x480, Default T\+P\+D\+O4 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4&0x500, Default R\+P\+D\+O5 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO&0x580, S\+DO response from server (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO&0x600, S\+DO request from client (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT&0x700, Heartbeat message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI&0x7\+E4, L\+SS response from server to client \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV&0x7\+E5, L\+SS request from client to server \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 98 of file C\+A\+Nopen.\+h.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}\label{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}} 
+\index{CANopen stack@{CANopen stack}!CO\_Default\_CAN\_ID\_t@{CO\_Default\_CAN\_ID\_t}}
+\index{CO\_Default\_CAN\_ID\_t@{CO\_Default\_CAN\_ID\_t}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_Default\_CAN\_ID\_t}{CO\_Default\_CAN\_ID\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}}
+
+Default C\+A\+Nopen identifiers.
+
+Default C\+A\+Nopen identifiers for C\+A\+Nopen communication objects. Same as 11-\/bit addresses of C\+AN messages. These are default identifiers and can be changed in C\+A\+Nopen. Especially P\+DO identifiers are confgured in P\+DO linking phase of the C\+A\+Nopen network configuration. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE&0x000, Network management \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC&0x080, Synchronous message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY&0x080, Emergency messages (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME&0x100, Time message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1&0x180, Default T\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1&0x200, Default R\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2&0x280, Default T\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2&0x300, Default R\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3&0x380, Default T\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3&0x400, Default R\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4&0x480, Default T\+P\+D\+O4 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4&0x500, Default R\+P\+D\+O5 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO&0x580, S\+DO response from server (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO&0x600, S\+DO request from client (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT&0x700, Heartbeat message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI&0x7\+E4, L\+SS response from server to client \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV&0x7\+E5, L\+SS request from client to server \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_NMT\_SERVICE@{CO\_CAN\_ID\_NMT\_SERVICE}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a335d0f6204819d267ba396b715f66ead}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+N\+M\+T\+\_\+\+S\+E\+R\+V\+I\+CE&0x000, Network management \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_SYNC@{CO\_CAN\_ID\_SYNC}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a7a8486aaf2f35eb83c6ca690d0cdce06}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+S\+Y\+NC&0x080, Synchronous message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_EMERGENCY@{CO\_CAN\_ID\_EMERGENCY}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a94ffef8babcef5b807c5f8c865ef7666}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+E\+M\+E\+R\+G\+E\+N\+CY&0x080, Emergency messages (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TIME@{CO\_CAN\_ID\_TIME}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ab2e20e54189f5cb565e80b05eb8c4931}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+ME&0x100, Time message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_1@{CO\_CAN\_ID\_TPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a848f2bdb085bc3a342400a6b43c37f82}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+1&0x180, Default T\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_1@{CO\_CAN\_ID\_RPDO\_1}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0ab4be02961987ad817a99a4ef379517}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+1&0x200, Default R\+P\+D\+O1 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_2@{CO\_CAN\_ID\_TPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06acb90f0dab2e31982df1bebae6dd02e4b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+2&0x280, Default T\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_2@{CO\_CAN\_ID\_RPDO\_2}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a60081a7b09921c6bfce3762a3dd4e49f}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+2&0x300, Default R\+P\+D\+O2 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_3@{CO\_CAN\_ID\_TPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a83b73730655607582d1dabc8f78f7ca4}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+3&0x380, Default T\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_3@{CO\_CAN\_ID\_RPDO\_3}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06ad634b89f227db86bc8c633dda327e5fb}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+3&0x400, Default R\+P\+D\+O3 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TPDO\_4@{CO\_CAN\_ID\_TPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06abe92c9f7938ad6566e8aa010ab6f5cae}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+P\+D\+O\+\_\+4&0x480, Default T\+P\+D\+O4 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RPDO\_4@{CO\_CAN\_ID\_RPDO\_4}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06afec9dfa33a34beef50c434e5cde68c6b}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+P\+D\+O\+\_\+4&0x500, Default R\+P\+D\+O5 (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_TSDO@{CO\_CAN\_ID\_TSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a3e5f9abdbba1e8670957a346c7b582df}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+S\+DO&0x580, S\+DO response from server (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_RSDO@{CO\_CAN\_ID\_RSDO}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a4d5f1b9b3d193fa1bcec6433d5d40ea3}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+R\+S\+DO&0x600, S\+DO request from client (+node\+ID) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_HEARTBEAT@{CO\_CAN\_ID\_HEARTBEAT}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0cfd21623475a1a8522b30b8b16d9874}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT&0x700, Heartbeat message \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_CLI@{CO\_CAN\_ID\_LSS\_CLI}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a28363584dcc0c274b2039d0e6b3fb146}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+C\+LI&0x7\+E4, L\+SS response from server to client \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}!CANopen stack@{CANopen stack}}\index{CANopen stack@{CANopen stack}!CO\_CAN\_ID\_LSS\_SRV@{CO\_CAN\_ID\_LSS\_SRV}}}\mbox{\Hypertarget{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}\label{group___c_o___c_a_nopen_gga01dd35ae53fd2209ceccabdc8bf8dd06a0b325cbd0afb9d490e86b664094b81ef}} 
+C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+L\+S\+S\+\_\+\+S\+RV&0x7\+E5, L\+SS request from client to server \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 98 of file C\+A\+Nopen.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___c_a_nopen_gaf14b247f614c4fe1313bb99b34102270}\label{group___c_o___c_a_nopen_gaf14b247f614c4fe1313bb99b34102270}} 
+\index{CANopen stack@{CANopen stack}!CO\_delete@{CO\_delete}}
+\index{CO\_delete@{CO\_delete}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_delete()}{CO\_delete()}}
+{\footnotesize\ttfamily void C\+O\+\_\+delete (\begin{DoxyParamCaption}\item[{void $\ast$}]{C\+A\+Ndriver\+State }\end{DoxyParamCaption})}
+
+Delete C\+A\+Nopen object and free memory. Must be called at program exit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Ndriver\+State} & Pointer to the user-\/defined C\+AN base structure, passed to \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 758 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga43862d7055b7456705a9845bbe075583}\label{group___c_o___c_a_nopen_ga43862d7055b7456705a9845bbe075583}} 
+\index{CANopen stack@{CANopen stack}!CO\_init@{CO\_init}}
+\index{CO\_init@{CO\_init}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_init()}{CO\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+init (\begin{DoxyParamCaption}\item[{void $\ast$}]{C\+A\+Ndriver\+State,  }\item[{uint8\+\_\+t}]{node\+Id,  }\item[{uint16\+\_\+t}]{bit\+Rate }\end{DoxyParamCaption})}
+
+Function C\+O\+\_\+send\+N\+M\+Tcommand() is simple function, which sends C\+A\+Nopen message. This part of code is an example of custom definition of simple C\+A\+Nopen object. Follow the code in C\+A\+Nopen.\+c file. If macro C\+O\+\_\+\+N\+O\+\_\+\+N\+M\+T\+\_\+\+M\+A\+S\+T\+ER is 1, function C\+O\+\_\+send\+N\+M\+Tcommand can be used to send N\+MT master message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em co} & C\+A\+Nopen object. \\
+\hline
+{\em command} & N\+MT command. \\
+\hline
+{\em node\+ID} & Node ID.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: Operation completed successfully. 
+
+other\+: same as \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}}. Initialize C\+A\+Nopen stack.
+\end{DoxyReturn}
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Ndriver\+State} & Pointer to the user-\/defined C\+AN base structure, passed to \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}}. \\
+\hline
+{\em node\+Id} & Node ID of the C\+A\+Nopen device (1 ... 127). \\
+\hline
+{\em bit\+Rate} & C\+AN bit rate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+M\+E\+M\+O\+RY, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+B\+A\+U\+D\+R\+A\+TE 
+\end{DoxyReturn}
+
+
+Definition at line 729 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga2f4679e8c6399b6b1b24886d52d65780}\label{group___c_o___c_a_nopen_ga2f4679e8c6399b6b1b24886d52d65780}} 
+\index{CANopen stack@{CANopen stack}!CO\_process@{CO\_process}}
+\index{CO\_process@{CO\_process}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_process()}{CO\_process()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} C\+O\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$}]{co,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+ms,  }\item[{uint16\+\_\+t $\ast$}]{timer\+Next\+\_\+ms }\end{DoxyParamCaption})}
+
+Process C\+A\+Nopen objects.
+
+Function must be called cyclically. It processes all \char`\"{}asynchronous\char`\"{} C\+A\+Nopen objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em co} & C\+A\+Nopen object. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}. \\
+\hline
+{\em timer\+Next\+\_\+ms} & Return value -\/ info to OS -\/ maximum delay after function should be called next time in \mbox{[}milliseconds\mbox{]}. Value can be used for OS sleep time. Initial value must be set to something, 50ms typically. Output will be equal or lower to initial value. If there is new object to process, delay should be suspended and this function should be called immediately. Parameter is ignored if N\+U\+LL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} from \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process()}}. 
+\end{DoxyReturn}
+
+
+Definition at line 815 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga4318848921c35e8bb5a7d97dca5668a0}\label{group___c_o___c_a_nopen_ga4318848921c35e8bb5a7d97dca5668a0}} 
+\index{CANopen stack@{CANopen stack}!CO\_process\_RPDO@{CO\_process\_RPDO}}
+\index{CO\_process\_RPDO@{CO\_process\_RPDO}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_process\_RPDO()}{CO\_process\_RPDO()}}
+{\footnotesize\ttfamily void C\+O\+\_\+process\+\_\+\+R\+P\+DO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$}]{co,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{sync\+Was }\end{DoxyParamCaption})}
+
+Process C\+A\+Nopen R\+P\+DO objects.
+
+Function must be called cyclically from real time thread with constant. interval (1ms typically). It processes receive P\+DO C\+A\+Nopen objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em co} & C\+A\+Nopen object. \\
+\hline
+{\em sync\+Was} & True, if C\+A\+Nopen S\+Y\+NC message was just received or transmitted. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 908 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_gac5f2002fb6c4a14f08167139188e9c78}\label{group___c_o___c_a_nopen_gac5f2002fb6c4a14f08167139188e9c78}} 
+\index{CANopen stack@{CANopen stack}!CO\_process\_SYNC@{CO\_process\_SYNC}}
+\index{CO\_process\_SYNC@{CO\_process\_SYNC}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_process\_SYNC()}{CO\_process\_SYNC()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+process\+\_\+\+S\+Y\+NC (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$}]{co,  }\item[{uint32\+\_\+t}]{time\+Difference\+\_\+us }\end{DoxyParamCaption})}
+
+Process C\+A\+Nopen S\+Y\+NC objects.
+
+Function must be called cyclically from real time thread with constant interval (1ms typically). It processes S\+Y\+NC C\+A\+Nopen objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em co} & C\+A\+Nopen object. \\
+\hline
+{\em time\+Difference\+\_\+us} & Time difference from previous function call in \mbox{[}microseconds\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True, if C\+A\+Nopen S\+Y\+NC message was just received or transmitted. 
+\end{DoxyReturn}
+
+
+Definition at line 888 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_ga5aa95c06dfed3e6e3d8a2ce9d2d3ab72}\label{group___c_o___c_a_nopen_ga5aa95c06dfed3e6e3d8a2ce9d2d3ab72}} 
+\index{CANopen stack@{CANopen stack}!CO\_process\_TPDO@{CO\_process\_TPDO}}
+\index{CO\_process\_TPDO@{CO\_process\_TPDO}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO\_process\_TPDO()}{CO\_process\_TPDO()}}
+{\footnotesize\ttfamily void C\+O\+\_\+process\+\_\+\+T\+P\+DO (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$}]{co,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{sync\+Was,  }\item[{uint32\+\_\+t}]{time\+Difference\+\_\+us }\end{DoxyParamCaption})}
+
+Process C\+A\+Nopen T\+P\+DO objects.
+
+Function must be called cyclically from real time thread with constant. interval (1ms typically). It processes transmit P\+DO C\+A\+Nopen objects.
+
+
+\begin{DoxyParams}{Parameters}
+{\em co} & C\+A\+Nopen object. \\
+\hline
+{\em sync\+Was} & True, if C\+A\+Nopen S\+Y\+NC message was just received or transmitted. \\
+\hline
+{\em time\+Difference\+\_\+us} & Time difference from previous function call in \mbox{[}microseconds\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 921 of file C\+A\+Nopen.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}\label{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}} 
+\index{CANopen stack@{CANopen stack}!CO@{CO}}
+\index{CO@{CO}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO}{CO}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}}$\ast$ CO}
+
+C\+A\+Nopen object 
+
+Definition at line 48 of file C\+A\+Nopen.\+c.
+
+\mbox{\Hypertarget{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}\label{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}} 
+\index{CANopen stack@{CANopen stack}!CO@{CO}}
+\index{CO@{CO}!CANopen stack@{CANopen stack}}
+\doxysubsubsection{\texorpdfstring{CO}{CO}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}}$\ast$ CO}
+
+C\+A\+Nopen object 
+
+Definition at line 48 of file C\+A\+Nopen.\+c.
+

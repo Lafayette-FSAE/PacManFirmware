@@ -1,0 +1,113 @@
+\hypertarget{group___c_o___s_y_n_c}{}\doxysection{S\+Y\+NC}
+\label{group___c_o___s_y_n_c}\index{SYNC@{SYNC}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___s_y_n_c_8h}{C\+O\+\_\+\+S\+Y\+N\+C.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_y_n_c_8h}{C\+O\+\_\+\+S\+Y\+N\+C.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___s_y_n_c__t}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init}} (\mbox{\hyperlink{struct_c_o___s_y_n_c__t}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t}} $\ast$S\+Y\+NC, \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint8\+\_\+t $\ast$operating\+State, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+\_\+\+S\+Y\+N\+C\+Message, uint32\+\_\+t communication\+Cycle\+Period, uint8\+\_\+t synchronous\+Counter\+Overflow\+Value, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___c_o___s_y_n_c_ga47f7425d84a2bb34c5f2fde30eb418ba}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+process}} (\mbox{\hyperlink{struct_c_o___s_y_n_c__t}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t}} $\ast$S\+Y\+NC, uint32\+\_\+t time\+Difference\+\_\+us, uint32\+\_\+t Obj\+Dict\+\_\+synchronous\+Window\+Length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen S\+Y\+NC object protocol.
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+S\+Y\+NC message is used for synchronization of the nodes on network. One node can be S\+Y\+NC producer, others can be S\+Y\+NC consumers. Synchronous T\+P\+D\+Os are transmitted after the C\+A\+Nopen S\+Y\+NC message. Synchronous received P\+D\+Os are accepted(copied to O\+D) immediatelly after the reception of the next S\+Y\+NC message.\hypertarget{group___c_o___s_y_n_c_autotoc_md29}{}\doxysubparagraph{Contents of S\+Y\+N\+C message}\label{group___c_o___s_y_n_c_autotoc_md29}
+By default S\+Y\+NC message has no data. If {\itshape Synchronous counter overflow value} from Object dictionary (index 0x1019) is different than 0, S\+Y\+NC message has one data byte\+: {\itshape counter} incremented by 1 with every S\+Y\+NC transmission.\hypertarget{group___c_o___s_y_n_c_autotoc_md30}{}\doxysubparagraph{S\+Y\+N\+C in C\+A\+Nopen\+Node}\label{group___c_o___s_y_n_c_autotoc_md30}
+According to C\+A\+Nopen, synchronous R\+P\+D\+Os must be processed after reception of the next sync messsage. For that reason, there is a double receive buffer for each synchronous R\+P\+DO. At the moment, when S\+Y\+NC is received or transmitted, internal variable C\+A\+Nrx\+Toggle toggles. That variable is then used by synchronous R\+P\+DO to determine, which of the two buffers is used for R\+P\+DO reception and which for R\+P\+DO processing.
+
+C\+A\+Nopen S\+Y\+NC object protocol.
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+S\+Y\+NC message is used for synchronization of the nodes on network. One node can be S\+Y\+NC producer, others can be S\+Y\+NC consumers. Synchronous T\+P\+D\+Os are transmitted after the C\+A\+Nopen S\+Y\+NC message. Synchronous received P\+D\+Os are accepted(copied to O\+D) immediatelly after the reception of the next S\+Y\+NC message.\hypertarget{group___c_o___s_y_n_c_autotoc_md74}{}\doxysubparagraph{Contents of S\+Y\+N\+C message}\label{group___c_o___s_y_n_c_autotoc_md74}
+By default S\+Y\+NC message has no data. If {\itshape Synchronous counter overflow value} from Object dictionary (index 0x1019) is different than 0, S\+Y\+NC message has one data byte\+: {\itshape counter} incremented by 1 with every S\+Y\+NC transmission.\hypertarget{group___c_o___s_y_n_c_autotoc_md75}{}\doxysubparagraph{S\+Y\+N\+C in C\+A\+Nopen\+Node}\label{group___c_o___s_y_n_c_autotoc_md75}
+According to C\+A\+Nopen, synchronous R\+P\+D\+Os must be processed after reception of the next sync messsage. For that reason, there is a double receive buffer for each synchronous R\+P\+DO. At the moment, when S\+Y\+NC is received or transmitted, internal variable C\+A\+Nrx\+Toggle toggles. That variable is then used by synchronous R\+P\+DO to determine, which of the two buffers is used for R\+P\+DO reception and which for R\+P\+DO processing. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}\label{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}} 
+\index{SYNC@{SYNC}!CO\_SYNC\_init@{CO\_SYNC\_init}}
+\index{CO\_SYNC\_init@{CO\_SYNC\_init}!SYNC@{SYNC}}
+\doxysubsubsection{\texorpdfstring{CO\_SYNC\_init()}{CO\_SYNC\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_y_n_c__t}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t}} $\ast$}]{S\+Y\+NC,  }\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{uint8\+\_\+t $\ast$}]{operating\+State,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+\_\+\+S\+Y\+N\+C\+Message,  }\item[{uint32\+\_\+t}]{communication\+Cycle\+Period,  }\item[{uint8\+\_\+t}]{synchronous\+Counter\+Overflow\+Value,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Tx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Tx\+Idx }\end{DoxyParamCaption})}
+
+Initialize S\+Y\+NC object.
+
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+Y\+NC} & This object will be initialized. \\
+\hline
+{\em em} & Emergency object. \\
+\hline
+{\em S\+DO} & S\+DO server object. \\
+\hline
+{\em operating\+State} & Pointer to variable indicating C\+A\+Nopen device N\+MT internal state. \\
+\hline
+{\em C\+O\+B\+\_\+\+I\+D\+\_\+\+S\+Y\+N\+C\+Message} & From Object dictionary (index 0x1005). \\
+\hline
+{\em communication\+Cycle\+Period} & From Object dictionary (index 0x1006). \\
+\hline
+{\em synchronous\+Counter\+Overflow\+Value} & From Object dictionary (index 0x1019). \\
+\hline
+{\em C\+A\+Ndev\+Rx} & C\+AN device for S\+Y\+NC reception. \\
+\hline
+{\em C\+A\+Ndev\+Rx\+Idx} & Index of receive buffer in the above C\+AN device. \\
+\hline
+{\em C\+A\+Ndev\+Tx} & C\+AN device for S\+Y\+NC transmission. \\
+\hline
+{\em C\+A\+Ndev\+Tx\+Idx} & Index of transmit buffer in the above C\+AN device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file C\+O\+\_\+\+S\+Y\+N\+C.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_y_n_c_ga47f7425d84a2bb34c5f2fde30eb418ba}\label{group___c_o___s_y_n_c_ga47f7425d84a2bb34c5f2fde30eb418ba}} 
+\index{SYNC@{SYNC}!CO\_SYNC\_process@{CO\_SYNC\_process}}
+\index{CO\_SYNC\_process@{CO\_SYNC\_process}!SYNC@{SYNC}}
+\doxysubsubsection{\texorpdfstring{CO\_SYNC\_process()}{CO\_SYNC\_process()}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_y_n_c__t}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t}} $\ast$}]{S\+Y\+NC,  }\item[{uint32\+\_\+t}]{time\+Difference\+\_\+us,  }\item[{uint32\+\_\+t}]{Obj\+Dict\+\_\+synchronous\+Window\+Length }\end{DoxyParamCaption})}
+
+Process S\+Y\+NC communication.
+
+Function must be called cyclically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+Y\+NC} & This object. \\
+\hline
+{\em time\+Difference\+\_\+us} & Time difference from previous function call in \mbox{[}microseconds\mbox{]}. \\
+\hline
+{\em Obj\+Dict\+\_\+synchronous\+Window\+Length} & {\itshape Synchronous window length} variable from Object dictionary (index 0x1007).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: No special meaning. 
+
+1\+: New S\+Y\+NC message recently received or was just transmitted. 
+
+2\+: S\+Y\+NC time was just passed out of window. 
+\end{DoxyReturn}
+
+
+Definition at line 299 of file C\+O\+\_\+\+S\+Y\+N\+C.\+c.
+

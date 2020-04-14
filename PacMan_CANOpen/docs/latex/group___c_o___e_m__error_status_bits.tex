@@ -1,0 +1,1226 @@
+\hypertarget{group___c_o___e_m__error_status_bits}{}\doxysection{Error status bits}
+\label{group___c_o___e_m__error_status_bits}\index{Error status bits@{Error status bits}}
+
+
+Internal indication of the error condition.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}{C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}~0x00U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+W\+A\+R\+N\+I\+NG}}~0x01U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}{C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}~0x02U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}{C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x03U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}{C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}~0x04U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}{C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x05U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x06U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x07U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}{C\+O\+\_\+\+E\+M\+\_\+\+N\+M\+T\+\_\+\+W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND}}~0x08U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}{C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+T\+I\+M\+E\+O\+UT}}~0x09U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}{C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}~0x0\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}{C\+O\+\_\+\+E\+M\+\_\+0\+B\+\_\+unused}}~0x0\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}{C\+O\+\_\+\+E\+M\+\_\+0\+C\+\_\+unused}}~0x0\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}{C\+O\+\_\+\+E\+M\+\_\+0\+D\+\_\+unused}}~0x0\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}{C\+O\+\_\+\+E\+M\+\_\+0\+E\+\_\+unused}}~0x0\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}{C\+O\+\_\+\+E\+M\+\_\+0\+F\+\_\+unused}}~0x0\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}{C\+O\+\_\+\+E\+M\+\_\+10\+\_\+unused}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}{C\+O\+\_\+\+E\+M\+\_\+11\+\_\+unused}}~0x11U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+O\+FF}}~0x12U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+B\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x13U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x14U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}{C\+O\+\_\+\+E\+M\+\_\+\+T\+P\+D\+O\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+W\+I\+N\+D\+OW}}~0x15U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}{C\+O\+\_\+\+E\+M\+\_\+16\+\_\+unused}}~0x16U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}{C\+O\+\_\+\+E\+M\+\_\+17\+\_\+unused}}~0x17U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}{C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+I\+M\+E\+\_\+\+O\+UT}}~0x18U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}{C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+L\+E\+N\+G\+TH}}~0x19U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}{C\+O\+\_\+\+E\+M\+\_\+\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+M\+A\+P\+P\+I\+NG}}~0x1\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}{C\+O\+\_\+\+E\+M\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+C\+O\+N\+S\+U\+M\+ER}}~0x1\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}{C\+O\+\_\+\+E\+M\+\_\+\+H\+B\+\_\+\+C\+O\+N\+S\+U\+M\+E\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+S\+ET}}~0x1\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}{C\+O\+\_\+\+E\+M\+\_\+1\+D\+\_\+unused}}~0x1\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}{C\+O\+\_\+\+E\+M\+\_\+1\+E\+\_\+unused}}~0x1\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}{C\+O\+\_\+\+E\+M\+\_\+1\+F\+\_\+unused}}~0x1\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}{C\+O\+\_\+\+E\+M\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+F\+U\+LL}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}{C\+O\+\_\+\+E\+M\+\_\+21\+\_\+unused}}~0x21U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}{C\+O\+\_\+\+E\+M\+\_\+\+M\+I\+C\+R\+O\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+\_\+\+R\+E\+S\+ET}}~0x22U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}{C\+O\+\_\+\+E\+M\+\_\+23\+\_\+unused}}~0x23U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}{C\+O\+\_\+\+E\+M\+\_\+24\+\_\+unused}}~0x24U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}{C\+O\+\_\+\+E\+M\+\_\+25\+\_\+unused}}~0x25U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}{C\+O\+\_\+\+E\+M\+\_\+26\+\_\+unused}}~0x26U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}{C\+O\+\_\+\+E\+M\+\_\+27\+\_\+unused}}~0x27U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}{C\+O\+\_\+\+E\+M\+\_\+\+W\+R\+O\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+E\+P\+O\+RT}}~0x28U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}{C\+O\+\_\+\+E\+M\+\_\+\+I\+S\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x29U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}{C\+O\+\_\+\+E\+M\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR}}~0x2\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}{C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+R\+R\+OR}}~0x2\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}{C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+E\+R\+R\+OR}}~0x2\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}{C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+C\+O\+N\+S\+I\+S\+T\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+D\+I\+CT}}~0x2\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+O\+F\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}~0x2\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}{C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+N\+\_\+\+V\+O\+L\+A\+T\+I\+L\+E\+\_\+\+M\+E\+M\+O\+RY}}~0x2\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+S\+T\+A\+RT}}~0x30U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+E\+ND}}~0x\+F\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}{C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}~0x00U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+W\+A\+R\+N\+I\+NG}}~0x01U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}{C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}~0x02U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}{C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x03U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}{C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}~0x04U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}{C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x05U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x06U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x07U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}{C\+O\+\_\+\+E\+M\+\_\+\+N\+M\+T\+\_\+\+W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND}}~0x08U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}{C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+T\+I\+M\+E\+O\+UT}}~0x09U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}{C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}~0x0\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}{C\+O\+\_\+\+E\+M\+\_\+0\+B\+\_\+unused}}~0x0\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}{C\+O\+\_\+\+E\+M\+\_\+0\+C\+\_\+unused}}~0x0\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}{C\+O\+\_\+\+E\+M\+\_\+0\+D\+\_\+unused}}~0x0\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}{C\+O\+\_\+\+E\+M\+\_\+0\+E\+\_\+unused}}~0x0\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}{C\+O\+\_\+\+E\+M\+\_\+0\+F\+\_\+unused}}~0x0\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}{C\+O\+\_\+\+E\+M\+\_\+10\+\_\+unused}}~0x10U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}{C\+O\+\_\+\+E\+M\+\_\+11\+\_\+unused}}~0x11U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+O\+FF}}~0x12U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+B\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x13U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x14U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}{C\+O\+\_\+\+E\+M\+\_\+\+T\+P\+D\+O\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+W\+I\+N\+D\+OW}}~0x15U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}{C\+O\+\_\+\+E\+M\+\_\+16\+\_\+unused}}~0x16U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}{C\+O\+\_\+\+E\+M\+\_\+17\+\_\+unused}}~0x17U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}{C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+I\+M\+E\+\_\+\+O\+UT}}~0x18U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}{C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+L\+E\+N\+G\+TH}}~0x19U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}{C\+O\+\_\+\+E\+M\+\_\+\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+M\+A\+P\+P\+I\+NG}}~0x1\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}{C\+O\+\_\+\+E\+M\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+C\+O\+N\+S\+U\+M\+ER}}~0x1\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}{C\+O\+\_\+\+E\+M\+\_\+\+H\+B\+\_\+\+C\+O\+N\+S\+U\+M\+E\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+S\+ET}}~0x1\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}{C\+O\+\_\+\+E\+M\+\_\+1\+D\+\_\+unused}}~0x1\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}{C\+O\+\_\+\+E\+M\+\_\+1\+E\+\_\+unused}}~0x1\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}{C\+O\+\_\+\+E\+M\+\_\+1\+F\+\_\+unused}}~0x1\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}{C\+O\+\_\+\+E\+M\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+F\+U\+LL}}~0x20U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}{C\+O\+\_\+\+E\+M\+\_\+21\+\_\+unused}}~0x21U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}{C\+O\+\_\+\+E\+M\+\_\+\+M\+I\+C\+R\+O\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+\_\+\+R\+E\+S\+ET}}~0x22U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}{C\+O\+\_\+\+E\+M\+\_\+23\+\_\+unused}}~0x23U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}{C\+O\+\_\+\+E\+M\+\_\+24\+\_\+unused}}~0x24U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}{C\+O\+\_\+\+E\+M\+\_\+25\+\_\+unused}}~0x25U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}{C\+O\+\_\+\+E\+M\+\_\+26\+\_\+unused}}~0x26U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}{C\+O\+\_\+\+E\+M\+\_\+27\+\_\+unused}}~0x27U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}{C\+O\+\_\+\+E\+M\+\_\+\+W\+R\+O\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+E\+P\+O\+RT}}~0x28U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}{C\+O\+\_\+\+E\+M\+\_\+\+I\+S\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}~0x29U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}{C\+O\+\_\+\+E\+M\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR}}~0x2\+AU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}{C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+R\+R\+OR}}~0x2\+BU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}{C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+E\+R\+R\+OR}}~0x2\+CU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}{C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+C\+O\+N\+S\+I\+S\+T\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+D\+I\+CT}}~0x2\+DU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}{C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+O\+F\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS}}~0x2\+EU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}{C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+N\+\_\+\+V\+O\+L\+A\+T\+I\+L\+E\+\_\+\+M\+E\+M\+O\+RY}}~0x2\+FU
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+S\+T\+A\+RT}}~0x30U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+E\+ND}}~0x\+F\+FU
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Internal indication of the error condition. 
+
+Each error condition is specified by unique index from 0x00 up to 0x\+FF. Variable (from manufacturer section in the Object Dictionary) contains up to 0x\+FF bits (32bytes) for the identification of the specific error condition. (Type of the variable is C\+A\+Nopen O\+C\+T\+E\+T\+\_\+\+S\+T\+R\+I\+NG.)
+
+If specific error occurs in the stack or in the application, \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} sets specific bit in the {\itshape Error Status Bits} variable. If bit was already set, function returns without any action. Otherwise it prepares emergency message.
+
+\mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}, \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} or \mbox{\hyperlink{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}{C\+O\+\_\+is\+Error()}} functions are called with unique index as an argument. (However \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}, for example, may be used with the same index on multiple places in the code.)
+
+Macros defined below are combination of two constants\+: index and \mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}}. They represents specific error conditions. They are used as double argument for \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}, \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} and \mbox{\hyperlink{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}{C\+O\+\_\+is\+Error()}} functions.
+
+Stack uses first 6 bytes of the {\itshape Error Status Bits} variable. Device profile or application may define own macros for Error status bits using \mbox{\hyperlink{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+S\+T\+A\+RT}} and \mbox{\hyperlink{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}{C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+E\+ND}} values. Note that {\itshape Error Status Bits} must be large enough (up to 32 bytes). 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}\label{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0B\_unused@{CO\_EM\_0B\_unused}}
+\index{CO\_EM\_0B\_unused@{CO\_EM\_0B\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0B\_unused}{CO\_EM\_0B\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+B\+\_\+unused~0x0\+BU}
+
+0x0B, (unused) 
+
+Definition at line 197 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}\label{group___c_o___e_m__error_status_bits_gae97b532684351becda32984d5b765914}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0B\_unused@{CO\_EM\_0B\_unused}}
+\index{CO\_EM\_0B\_unused@{CO\_EM\_0B\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0B\_unused}{CO\_EM\_0B\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+B\+\_\+unused~0x0\+BU}
+
+0x0B, (unused) 
+
+Definition at line 197 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}\label{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0C\_unused@{CO\_EM\_0C\_unused}}
+\index{CO\_EM\_0C\_unused@{CO\_EM\_0C\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0C\_unused}{CO\_EM\_0C\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+C\+\_\+unused~0x0\+CU}
+
+0x0C, (unused) 
+
+Definition at line 198 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}\label{group___c_o___e_m__error_status_bits_ga5344b6c384ef91db4195ab97f8b35a74}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0C\_unused@{CO\_EM\_0C\_unused}}
+\index{CO\_EM\_0C\_unused@{CO\_EM\_0C\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0C\_unused}{CO\_EM\_0C\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+C\+\_\+unused~0x0\+CU}
+
+0x0C, (unused) 
+
+Definition at line 198 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}\label{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0D\_unused@{CO\_EM\_0D\_unused}}
+\index{CO\_EM\_0D\_unused@{CO\_EM\_0D\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0D\_unused}{CO\_EM\_0D\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+D\+\_\+unused~0x0\+DU}
+
+0x0D, (unused) 
+
+Definition at line 199 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}\label{group___c_o___e_m__error_status_bits_ga667ea64cc84911575736b71806a1f265}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0D\_unused@{CO\_EM\_0D\_unused}}
+\index{CO\_EM\_0D\_unused@{CO\_EM\_0D\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0D\_unused}{CO\_EM\_0D\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+D\+\_\+unused~0x0\+DU}
+
+0x0D, (unused) 
+
+Definition at line 199 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}\label{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0E\_unused@{CO\_EM\_0E\_unused}}
+\index{CO\_EM\_0E\_unused@{CO\_EM\_0E\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0E\_unused}{CO\_EM\_0E\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+E\+\_\+unused~0x0\+EU}
+
+0x0E, (unused) 
+
+Definition at line 200 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}\label{group___c_o___e_m__error_status_bits_gadc491fa57e620bc05c2821fe84b512a9}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0E\_unused@{CO\_EM\_0E\_unused}}
+\index{CO\_EM\_0E\_unused@{CO\_EM\_0E\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0E\_unused}{CO\_EM\_0E\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+E\+\_\+unused~0x0\+EU}
+
+0x0E, (unused) 
+
+Definition at line 200 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}\label{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0F\_unused@{CO\_EM\_0F\_unused}}
+\index{CO\_EM\_0F\_unused@{CO\_EM\_0F\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0F\_unused}{CO\_EM\_0F\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+F\+\_\+unused~0x0\+FU}
+
+0x0F, (unused) 
+
+Definition at line 201 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}\label{group___c_o___e_m__error_status_bits_ga8ea8bf110b419b460ec07920230d1bf4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_0F\_unused@{CO\_EM\_0F\_unused}}
+\index{CO\_EM\_0F\_unused@{CO\_EM\_0F\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_0F\_unused}{CO\_EM\_0F\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+0\+F\+\_\+unused~0x0\+FU}
+
+0x0F, (unused) 
+
+Definition at line 201 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}\label{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_10\_unused@{CO\_EM\_10\_unused}}
+\index{CO\_EM\_10\_unused@{CO\_EM\_10\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_10\_unused}{CO\_EM\_10\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+10\+\_\+unused~0x10U}
+
+0x10, (unused) 
+
+Definition at line 203 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}\label{group___c_o___e_m__error_status_bits_ga4f106fcbf52daaa0b5753d6ac4e0fe4a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_10\_unused@{CO\_EM\_10\_unused}}
+\index{CO\_EM\_10\_unused@{CO\_EM\_10\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_10\_unused}{CO\_EM\_10\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+10\+\_\+unused~0x10U}
+
+0x10, (unused) 
+
+Definition at line 203 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}\label{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_11\_unused@{CO\_EM\_11\_unused}}
+\index{CO\_EM\_11\_unused@{CO\_EM\_11\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_11\_unused}{CO\_EM\_11\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+11\+\_\+unused~0x11U}
+
+0x11, (unused) 
+
+Definition at line 204 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}\label{group___c_o___e_m__error_status_bits_gab74ac530e13efb108bcb3f74ce9e28f4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_11\_unused@{CO\_EM\_11\_unused}}
+\index{CO\_EM\_11\_unused@{CO\_EM\_11\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_11\_unused}{CO\_EM\_11\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+11\+\_\+unused~0x11U}
+
+0x11, (unused) 
+
+Definition at line 204 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}\label{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_16\_unused@{CO\_EM\_16\_unused}}
+\index{CO\_EM\_16\_unused@{CO\_EM\_16\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_16\_unused}{CO\_EM\_16\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+16\+\_\+unused~0x16U}
+
+0x16, (unused) 
+
+Definition at line 209 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}\label{group___c_o___e_m__error_status_bits_ga8a43bc95fdbafabcf05a6f8db9b5713b}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_16\_unused@{CO\_EM\_16\_unused}}
+\index{CO\_EM\_16\_unused@{CO\_EM\_16\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_16\_unused}{CO\_EM\_16\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+16\+\_\+unused~0x16U}
+
+0x16, (unused) 
+
+Definition at line 209 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}\label{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_17\_unused@{CO\_EM\_17\_unused}}
+\index{CO\_EM\_17\_unused@{CO\_EM\_17\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_17\_unused}{CO\_EM\_17\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+17\+\_\+unused~0x17U}
+
+0x17, (unused) 
+
+Definition at line 210 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}\label{group___c_o___e_m__error_status_bits_gaf0735c197acea4c18455572735a4b039}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_17\_unused@{CO\_EM\_17\_unused}}
+\index{CO\_EM\_17\_unused@{CO\_EM\_17\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_17\_unused}{CO\_EM\_17\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+17\+\_\+unused~0x17U}
+
+0x17, (unused) 
+
+Definition at line 210 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}\label{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1D\_unused@{CO\_EM\_1D\_unused}}
+\index{CO\_EM\_1D\_unused@{CO\_EM\_1D\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1D\_unused}{CO\_EM\_1D\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+D\+\_\+unused~0x1\+DU}
+
+0x1D, (unused) 
+
+Definition at line 216 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}\label{group___c_o___e_m__error_status_bits_ga1206c0dad053f648fe7e06a92b21a154}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1D\_unused@{CO\_EM\_1D\_unused}}
+\index{CO\_EM\_1D\_unused@{CO\_EM\_1D\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1D\_unused}{CO\_EM\_1D\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+D\+\_\+unused~0x1\+DU}
+
+0x1D, (unused) 
+
+Definition at line 216 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}\label{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1E\_unused@{CO\_EM\_1E\_unused}}
+\index{CO\_EM\_1E\_unused@{CO\_EM\_1E\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1E\_unused}{CO\_EM\_1E\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+E\+\_\+unused~0x1\+EU}
+
+0x1E, (unused) 
+
+Definition at line 217 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}\label{group___c_o___e_m__error_status_bits_ga40444e6d1a104d4b15f0132507e09027}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1E\_unused@{CO\_EM\_1E\_unused}}
+\index{CO\_EM\_1E\_unused@{CO\_EM\_1E\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1E\_unused}{CO\_EM\_1E\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+E\+\_\+unused~0x1\+EU}
+
+0x1E, (unused) 
+
+Definition at line 217 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}\label{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1F\_unused@{CO\_EM\_1F\_unused}}
+\index{CO\_EM\_1F\_unused@{CO\_EM\_1F\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1F\_unused}{CO\_EM\_1F\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+F\+\_\+unused~0x1\+FU}
+
+0x1F, (unused) 
+
+Definition at line 218 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}\label{group___c_o___e_m__error_status_bits_gafe3ede749aeddb7c8e2764bf9baa2d46}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_1F\_unused@{CO\_EM\_1F\_unused}}
+\index{CO\_EM\_1F\_unused@{CO\_EM\_1F\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_1F\_unused}{CO\_EM\_1F\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+1\+F\+\_\+unused~0x1\+FU}
+
+0x1F, (unused) 
+
+Definition at line 218 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}\label{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_21\_unused@{CO\_EM\_21\_unused}}
+\index{CO\_EM\_21\_unused@{CO\_EM\_21\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_21\_unused}{CO\_EM\_21\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+21\+\_\+unused~0x21U}
+
+0x21, (unused) 
+
+Definition at line 221 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}\label{group___c_o___e_m__error_status_bits_gad2f0cd1b245b2aae6804d79425a51fa8}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_21\_unused@{CO\_EM\_21\_unused}}
+\index{CO\_EM\_21\_unused@{CO\_EM\_21\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_21\_unused}{CO\_EM\_21\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+21\+\_\+unused~0x21U}
+
+0x21, (unused) 
+
+Definition at line 221 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}\label{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_23\_unused@{CO\_EM\_23\_unused}}
+\index{CO\_EM\_23\_unused@{CO\_EM\_23\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_23\_unused}{CO\_EM\_23\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+23\+\_\+unused~0x23U}
+
+0x23, (unused) 
+
+Definition at line 223 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}\label{group___c_o___e_m__error_status_bits_ga97eb797930163e410e9476c00e6eaf57}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_23\_unused@{CO\_EM\_23\_unused}}
+\index{CO\_EM\_23\_unused@{CO\_EM\_23\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_23\_unused}{CO\_EM\_23\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+23\+\_\+unused~0x23U}
+
+0x23, (unused) 
+
+Definition at line 223 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}\label{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_24\_unused@{CO\_EM\_24\_unused}}
+\index{CO\_EM\_24\_unused@{CO\_EM\_24\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_24\_unused}{CO\_EM\_24\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+24\+\_\+unused~0x24U}
+
+0x24, (unused) 
+
+Definition at line 224 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}\label{group___c_o___e_m__error_status_bits_ga5134548c33cd5a30f0ad597e428b4262}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_24\_unused@{CO\_EM\_24\_unused}}
+\index{CO\_EM\_24\_unused@{CO\_EM\_24\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_24\_unused}{CO\_EM\_24\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+24\+\_\+unused~0x24U}
+
+0x24, (unused) 
+
+Definition at line 224 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}\label{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_25\_unused@{CO\_EM\_25\_unused}}
+\index{CO\_EM\_25\_unused@{CO\_EM\_25\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_25\_unused}{CO\_EM\_25\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+25\+\_\+unused~0x25U}
+
+0x25, (unused) 
+
+Definition at line 225 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}\label{group___c_o___e_m__error_status_bits_ga46ca1d8283857949f68b58ac1243f332}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_25\_unused@{CO\_EM\_25\_unused}}
+\index{CO\_EM\_25\_unused@{CO\_EM\_25\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_25\_unused}{CO\_EM\_25\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+25\+\_\+unused~0x25U}
+
+0x25, (unused) 
+
+Definition at line 225 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}\label{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_26\_unused@{CO\_EM\_26\_unused}}
+\index{CO\_EM\_26\_unused@{CO\_EM\_26\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_26\_unused}{CO\_EM\_26\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+26\+\_\+unused~0x26U}
+
+0x26, (unused) 
+
+Definition at line 226 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}\label{group___c_o___e_m__error_status_bits_gabfc08ab1b0814c515c18ac92208fa849}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_26\_unused@{CO\_EM\_26\_unused}}
+\index{CO\_EM\_26\_unused@{CO\_EM\_26\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_26\_unused}{CO\_EM\_26\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+26\+\_\+unused~0x26U}
+
+0x26, (unused) 
+
+Definition at line 226 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}\label{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_27\_unused@{CO\_EM\_27\_unused}}
+\index{CO\_EM\_27\_unused@{CO\_EM\_27\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_27\_unused}{CO\_EM\_27\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+27\+\_\+unused~0x27U}
+
+0x27, (unused) 
+
+Definition at line 227 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}\label{group___c_o___e_m__error_status_bits_ga1cc8df1a3fdb66980b65c5d607fca7cc}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_27\_unused@{CO\_EM\_27\_unused}}
+\index{CO\_EM\_27\_unused@{CO\_EM\_27\_unused}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_27\_unused}{CO\_EM\_27\_unused}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+27\+\_\+unused~0x27U}
+
+0x27, (unused) 
+
+Definition at line 227 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}\label{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CALCULATION\_OF\_PARAMETERS@{CO\_EM\_CALCULATION\_OF\_PARAMETERS}}
+\index{CO\_EM\_CALCULATION\_OF\_PARAMETERS@{CO\_EM\_CALCULATION\_OF\_PARAMETERS}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CALCULATION\_OF\_PARAMETERS}{CO\_EM\_CALCULATION\_OF\_PARAMETERS}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+O\+F\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS~0x2\+EU}
+
+0x2E, generic, critical, Error in calculation of device parameters 
+
+Definition at line 235 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}\label{group___c_o___e_m__error_status_bits_ga2a8b9787cb4a4983eb167e61e359001a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CALCULATION\_OF\_PARAMETERS@{CO\_EM\_CALCULATION\_OF\_PARAMETERS}}
+\index{CO\_EM\_CALCULATION\_OF\_PARAMETERS@{CO\_EM\_CALCULATION\_OF\_PARAMETERS}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CALCULATION\_OF\_PARAMETERS}{CO\_EM\_CALCULATION\_OF\_PARAMETERS}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+L\+C\+U\+L\+A\+T\+I\+O\+N\+\_\+\+O\+F\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+RS~0x2\+EU}
+
+0x2E, generic, critical, Error in calculation of device parameters 
+
+Definition at line 235 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}\label{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_BUS\_WARNING@{CO\_EM\_CAN\_BUS\_WARNING}}
+\index{CO\_EM\_CAN\_BUS\_WARNING@{CO\_EM\_CAN\_BUS\_WARNING}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_BUS\_WARNING}{CO\_EM\_CAN\_BUS\_WARNING}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+W\+A\+R\+N\+I\+NG~0x01U}
+
+0x01, communication, info, C\+AN bus warning limit reached 
+
+Definition at line 187 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}\label{group___c_o___e_m__error_status_bits_ga205ecae15d4c25703d801b0ce838368e}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_BUS\_WARNING@{CO\_EM\_CAN\_BUS\_WARNING}}
+\index{CO\_EM\_CAN\_BUS\_WARNING@{CO\_EM\_CAN\_BUS\_WARNING}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_BUS\_WARNING}{CO\_EM\_CAN\_BUS\_WARNING}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+B\+U\+S\+\_\+\+W\+A\+R\+N\+I\+NG~0x01U}
+
+0x01, communication, info, C\+AN bus warning limit reached 
+
+Definition at line 187 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}\label{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_RX\_BUS\_PASSIVE@{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}}
+\index{CO\_EM\_CAN\_RX\_BUS\_PASSIVE@{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE~0x06U}
+
+0x06, communication, info, C\+AN receive bus is passive 
+
+Definition at line 192 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}\label{group___c_o___e_m__error_status_bits_ga73da49bef87b1c8e598ff089e9a82eb2}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_RX\_BUS\_PASSIVE@{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}}
+\index{CO\_EM\_CAN\_RX\_BUS\_PASSIVE@{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}{CO\_EM\_CAN\_RX\_BUS\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE~0x06U}
+
+0x06, communication, info, C\+AN receive bus is passive 
+
+Definition at line 192 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}\label{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_RXB\_OVERFLOW@{CO\_EM\_CAN\_RXB\_OVERFLOW}}
+\index{CO\_EM\_CAN\_RXB\_OVERFLOW@{CO\_EM\_CAN\_RXB\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_RXB\_OVERFLOW}{CO\_EM\_CAN\_RXB\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+B\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x13U}
+
+0x13, communication, critical, C\+AN module receive buffer has overflowed 
+
+Definition at line 206 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}\label{group___c_o___e_m__error_status_bits_gaf177d3e0f47e5f8889159b0271d2f03d}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_RXB\_OVERFLOW@{CO\_EM\_CAN\_RXB\_OVERFLOW}}
+\index{CO\_EM\_CAN\_RXB\_OVERFLOW@{CO\_EM\_CAN\_RXB\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_RXB\_OVERFLOW}{CO\_EM\_CAN\_RXB\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+R\+X\+B\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x13U}
+
+0x13, communication, critical, C\+AN module receive buffer has overflowed 
+
+Definition at line 206 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}\label{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_BUS\_OFF@{CO\_EM\_CAN\_TX\_BUS\_OFF}}
+\index{CO\_EM\_CAN\_TX\_BUS\_OFF@{CO\_EM\_CAN\_TX\_BUS\_OFF}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_BUS\_OFF}{CO\_EM\_CAN\_TX\_BUS\_OFF}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+O\+FF~0x12U}
+
+0x12, communication, critical, C\+AN transmit bus is off 
+
+Definition at line 205 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}\label{group___c_o___e_m__error_status_bits_ga0869e6139cedc6625b5d303ef374775f}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_BUS\_OFF@{CO\_EM\_CAN\_TX\_BUS\_OFF}}
+\index{CO\_EM\_CAN\_TX\_BUS\_OFF@{CO\_EM\_CAN\_TX\_BUS\_OFF}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_BUS\_OFF}{CO\_EM\_CAN\_TX\_BUS\_OFF}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+O\+FF~0x12U}
+
+0x12, communication, critical, C\+AN transmit bus is off 
+
+Definition at line 205 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}\label{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_BUS\_PASSIVE@{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}}
+\index{CO\_EM\_CAN\_TX\_BUS\_PASSIVE@{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE~0x07U}
+
+0x07, communication, info, C\+AN transmit bus is passive 
+
+Definition at line 193 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}\label{group___c_o___e_m__error_status_bits_gaffb6ad6bf3ce5b20ef4e048755607751}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_BUS\_PASSIVE@{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}}
+\index{CO\_EM\_CAN\_TX\_BUS\_PASSIVE@{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}{CO\_EM\_CAN\_TX\_BUS\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+B\+U\+S\+\_\+\+P\+A\+S\+S\+I\+VE~0x07U}
+
+0x07, communication, info, C\+AN transmit bus is passive 
+
+Definition at line 193 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}\label{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_OVERFLOW@{CO\_EM\_CAN\_TX\_OVERFLOW}}
+\index{CO\_EM\_CAN\_TX\_OVERFLOW@{CO\_EM\_CAN\_TX\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_OVERFLOW}{CO\_EM\_CAN\_TX\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x14U}
+
+0x14, communication, critical, C\+AN transmit buffer has overflowed 
+
+Definition at line 207 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}\label{group___c_o___e_m__error_status_bits_gaeca449c74383654e80103040f1659bf1}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_CAN\_TX\_OVERFLOW@{CO\_EM\_CAN\_TX\_OVERFLOW}}
+\index{CO\_EM\_CAN\_TX\_OVERFLOW@{CO\_EM\_CAN\_TX\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_CAN\_TX\_OVERFLOW}{CO\_EM\_CAN\_TX\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+C\+A\+N\+\_\+\+T\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x14U}
+
+0x14, communication, critical, C\+AN transmit buffer has overflowed 
+
+Definition at line 207 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}\label{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_EMERGENCY\_BUFFER\_FULL@{CO\_EM\_EMERGENCY\_BUFFER\_FULL}}
+\index{CO\_EM\_EMERGENCY\_BUFFER\_FULL@{CO\_EM\_EMERGENCY\_BUFFER\_FULL}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_EMERGENCY\_BUFFER\_FULL}{CO\_EM\_EMERGENCY\_BUFFER\_FULL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+F\+U\+LL~0x20U}
+
+0x20, generic, info, Emergency buffer is full, Emergency message wasn\textquotesingle{}t sent 
+
+Definition at line 220 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}\label{group___c_o___e_m__error_status_bits_gae75d033d942123463fbfdfb81d3a85bf}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_EMERGENCY\_BUFFER\_FULL@{CO\_EM\_EMERGENCY\_BUFFER\_FULL}}
+\index{CO\_EM\_EMERGENCY\_BUFFER\_FULL@{CO\_EM\_EMERGENCY\_BUFFER\_FULL}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_EMERGENCY\_BUFFER\_FULL}{CO\_EM\_EMERGENCY\_BUFFER\_FULL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+E\+M\+E\+R\+G\+E\+N\+C\+Y\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+F\+U\+LL~0x20U}
+
+0x20, generic, info, Emergency buffer is full, Emergency message wasn\textquotesingle{}t sent 
+
+Definition at line 220 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}\label{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_GENERIC\_ERROR@{CO\_EM\_GENERIC\_ERROR}}
+\index{CO\_EM\_GENERIC\_ERROR@{CO\_EM\_GENERIC\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_GENERIC\_ERROR}{CO\_EM\_GENERIC\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+R\+R\+OR~0x2\+BU}
+
+0x2B, generic, critical, Generic error, test usage 
+
+Definition at line 232 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}\label{group___c_o___e_m__error_status_bits_gae9122f80116da63762ad1a51b0cba61f}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_GENERIC\_ERROR@{CO\_EM\_GENERIC\_ERROR}}
+\index{CO\_EM\_GENERIC\_ERROR@{CO\_EM\_GENERIC\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_GENERIC\_ERROR}{CO\_EM\_GENERIC\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+R\+R\+OR~0x2\+BU}
+
+0x2B, generic, critical, Generic error, test usage 
+
+Definition at line 232 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}\label{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_GENERIC\_SOFTWARE\_ERROR@{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}}
+\index{CO\_EM\_GENERIC\_SOFTWARE\_ERROR@{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+E\+R\+R\+OR~0x2\+CU}
+
+0x2C, generic, critical, Software error 
+
+Definition at line 233 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}\label{group___c_o___e_m__error_status_bits_ga09d9f5bd09f54ec806c6d9f6908e9aa8}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_GENERIC\_SOFTWARE\_ERROR@{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}}
+\index{CO\_EM\_GENERIC\_SOFTWARE\_ERROR@{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}{CO\_EM\_GENERIC\_SOFTWARE\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+E\+R\+R\+OR~0x2\+CU}
+
+0x2C, generic, critical, Software error 
+
+Definition at line 233 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}\label{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET@{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}}
+\index{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET@{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+H\+B\+\_\+\+C\+O\+N\+S\+U\+M\+E\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+S\+ET~0x1\+CU}
+
+0x1C, communication, critical, Heartbeat consumer detected remote node reset 
+
+Definition at line 215 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}\label{group___c_o___e_m__error_status_bits_ga12061d396e53c6ebaa22f083e8cd0bc3}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET@{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}}
+\index{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET@{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}{CO\_EM\_HB\_CONSUMER\_REMOTE\_RESET}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+H\+B\+\_\+\+C\+O\+N\+S\+U\+M\+E\+R\+\_\+\+R\+E\+M\+O\+T\+E\+\_\+\+R\+E\+S\+ET~0x1\+CU}
+
+0x1C, communication, critical, Heartbeat consumer detected remote node reset 
+
+Definition at line 215 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}\label{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_HEARTBEAT\_CONSUMER@{CO\_EM\_HEARTBEAT\_CONSUMER}}
+\index{CO\_EM\_HEARTBEAT\_CONSUMER@{CO\_EM\_HEARTBEAT\_CONSUMER}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_HEARTBEAT\_CONSUMER}{CO\_EM\_HEARTBEAT\_CONSUMER}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+C\+O\+N\+S\+U\+M\+ER~0x1\+BU}
+
+0x1B, communication, critical, Heartbeat consumer timeout 
+
+Definition at line 214 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}\label{group___c_o___e_m__error_status_bits_gad812fc39d9f24a739bf3108ee789f35a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_HEARTBEAT\_CONSUMER@{CO\_EM\_HEARTBEAT\_CONSUMER}}
+\index{CO\_EM\_HEARTBEAT\_CONSUMER@{CO\_EM\_HEARTBEAT\_CONSUMER}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_HEARTBEAT\_CONSUMER}{CO\_EM\_HEARTBEAT\_CONSUMER}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+H\+E\+A\+R\+T\+B\+E\+A\+T\+\_\+\+C\+O\+N\+S\+U\+M\+ER~0x1\+BU}
+
+0x1B, communication, critical, Heartbeat consumer timeout 
+
+Definition at line 214 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}\label{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_INCONSISTENT\_OBJECT\_DICT@{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}}
+\index{CO\_EM\_INCONSISTENT\_OBJECT\_DICT@{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+C\+O\+N\+S\+I\+S\+T\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+D\+I\+CT~0x2\+DU}
+
+0x2D, generic, critical, Object dictionary does not match the software 
+
+Definition at line 234 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}\label{group___c_o___e_m__error_status_bits_ga7805a3c62f63a7a8bafda3e131fb9909}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_INCONSISTENT\_OBJECT\_DICT@{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}}
+\index{CO\_EM\_INCONSISTENT\_OBJECT\_DICT@{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}{CO\_EM\_INCONSISTENT\_OBJECT\_DICT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+C\+O\+N\+S\+I\+S\+T\+E\+N\+T\+\_\+\+O\+B\+J\+E\+C\+T\+\_\+\+D\+I\+CT~0x2\+DU}
+
+0x2D, generic, critical, Object dictionary does not match the software 
+
+Definition at line 234 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}\label{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_ISR\_TIMER\_OVERFLOW@{CO\_EM\_ISR\_TIMER\_OVERFLOW}}
+\index{CO\_EM\_ISR\_TIMER\_OVERFLOW@{CO\_EM\_ISR\_TIMER\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_ISR\_TIMER\_OVERFLOW}{CO\_EM\_ISR\_TIMER\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+S\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x29U}
+
+0x29, generic, critical, Timer task has overflowed 
+
+Definition at line 230 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}\label{group___c_o___e_m__error_status_bits_gad7d99813b453873deaa8a19dc0d95a05}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_ISR\_TIMER\_OVERFLOW@{CO\_EM\_ISR\_TIMER\_OVERFLOW}}
+\index{CO\_EM\_ISR\_TIMER\_OVERFLOW@{CO\_EM\_ISR\_TIMER\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_ISR\_TIMER\_OVERFLOW}{CO\_EM\_ISR\_TIMER\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+S\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x29U}
+
+0x29, generic, critical, Timer task has overflowed 
+
+Definition at line 230 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}\label{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MANUFACTURER\_END@{CO\_EM\_MANUFACTURER\_END}}
+\index{CO\_EM\_MANUFACTURER\_END@{CO\_EM\_MANUFACTURER\_END}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MANUFACTURER\_END}{CO\_EM\_MANUFACTURER\_END}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+E\+ND~0x\+F\+FU}
+
+0x\+FF, manufacturer, info, This can be used by macros to check error codes 
+
+Definition at line 239 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}\label{group___c_o___e_m__error_status_bits_gadf273028f8a34935d32df9905448f9d6}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MANUFACTURER\_END@{CO\_EM\_MANUFACTURER\_END}}
+\index{CO\_EM\_MANUFACTURER\_END@{CO\_EM\_MANUFACTURER\_END}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MANUFACTURER\_END}{CO\_EM\_MANUFACTURER\_END}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+E\+ND~0x\+F\+FU}
+
+0x\+FF, manufacturer, info, This can be used by macros to check error codes 
+
+Definition at line 239 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}\label{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MANUFACTURER\_START@{CO\_EM\_MANUFACTURER\_START}}
+\index{CO\_EM\_MANUFACTURER\_START@{CO\_EM\_MANUFACTURER\_START}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MANUFACTURER\_START}{CO\_EM\_MANUFACTURER\_START}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+S\+T\+A\+RT~0x30U}
+
+0x30, manufacturer, info, This can be used by macros to calculate error codes 
+
+Definition at line 238 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}\label{group___c_o___e_m__error_status_bits_ga643499974d43b6f758f8cd67718305e4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MANUFACTURER\_START@{CO\_EM\_MANUFACTURER\_START}}
+\index{CO\_EM\_MANUFACTURER\_START@{CO\_EM\_MANUFACTURER\_START}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MANUFACTURER\_START}{CO\_EM\_MANUFACTURER\_START}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+E\+R\+\_\+\+S\+T\+A\+RT~0x30U}
+
+0x30, manufacturer, info, This can be used by macros to calculate error codes 
+
+Definition at line 238 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}\label{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MEMORY\_ALLOCATION\_ERROR@{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}}
+\index{CO\_EM\_MEMORY\_ALLOCATION\_ERROR@{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR~0x2\+AU}
+
+0x2A, generic, critical, Unable to allocate memory for objects 
+
+Definition at line 231 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}\label{group___c_o___e_m__error_status_bits_gacbb82492ebe0cfa0db9462dfb8a94e57}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MEMORY\_ALLOCATION\_ERROR@{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}}
+\index{CO\_EM\_MEMORY\_ALLOCATION\_ERROR@{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}{CO\_EM\_MEMORY\_ALLOCATION\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+E\+M\+O\+R\+Y\+\_\+\+A\+L\+L\+O\+C\+A\+T\+I\+O\+N\+\_\+\+E\+R\+R\+OR~0x2\+AU}
+
+0x2A, generic, critical, Unable to allocate memory for objects 
+
+Definition at line 231 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}\label{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MICROCONTROLLER\_RESET@{CO\_EM\_MICROCONTROLLER\_RESET}}
+\index{CO\_EM\_MICROCONTROLLER\_RESET@{CO\_EM\_MICROCONTROLLER\_RESET}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MICROCONTROLLER\_RESET}{CO\_EM\_MICROCONTROLLER\_RESET}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+I\+C\+R\+O\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+\_\+\+R\+E\+S\+ET~0x22U}
+
+0x22, generic, info, Microcontroller has just started 
+
+Definition at line 222 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}\label{group___c_o___e_m__error_status_bits_ga28be6681c8b44b3e3538a379260aa526}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_MICROCONTROLLER\_RESET@{CO\_EM\_MICROCONTROLLER\_RESET}}
+\index{CO\_EM\_MICROCONTROLLER\_RESET@{CO\_EM\_MICROCONTROLLER\_RESET}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_MICROCONTROLLER\_RESET}{CO\_EM\_MICROCONTROLLER\_RESET}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+M\+I\+C\+R\+O\+C\+O\+N\+T\+R\+O\+L\+L\+E\+R\+\_\+\+R\+E\+S\+ET~0x22U}
+
+0x22, generic, info, Microcontroller has just started 
+
+Definition at line 222 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}\label{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NMT\_WRONG\_COMMAND@{CO\_EM\_NMT\_WRONG\_COMMAND}}
+\index{CO\_EM\_NMT\_WRONG\_COMMAND@{CO\_EM\_NMT\_WRONG\_COMMAND}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NMT\_WRONG\_COMMAND}{CO\_EM\_NMT\_WRONG\_COMMAND}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+M\+T\+\_\+\+W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND~0x08U}
+
+0x08, communication, info, Wrong N\+MT command received 
+
+Definition at line 194 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}\label{group___c_o___e_m__error_status_bits_ga7e32e80c1b7f7140544cb92e17ee3d71}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NMT\_WRONG\_COMMAND@{CO\_EM\_NMT\_WRONG\_COMMAND}}
+\index{CO\_EM\_NMT\_WRONG\_COMMAND@{CO\_EM\_NMT\_WRONG\_COMMAND}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NMT\_WRONG\_COMMAND}{CO\_EM\_NMT\_WRONG\_COMMAND}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+M\+T\+\_\+\+W\+R\+O\+N\+G\+\_\+\+C\+O\+M\+M\+A\+ND~0x08U}
+
+0x08, communication, info, Wrong N\+MT command received 
+
+Definition at line 194 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}\label{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NO\_ERROR@{CO\_EM\_NO\_ERROR}}
+\index{CO\_EM\_NO\_ERROR@{CO\_EM\_NO\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NO\_ERROR}{CO\_EM\_NO\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR~0x00U}
+
+0x00, Error Reset or No Error 
+
+Definition at line 186 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}\label{group___c_o___e_m__error_status_bits_ga945ebb7fbfdc0435b8d13359b366ec8a}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NO\_ERROR@{CO\_EM\_NO\_ERROR}}
+\index{CO\_EM\_NO\_ERROR@{CO\_EM\_NO\_ERROR}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NO\_ERROR}{CO\_EM\_NO\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR~0x00U}
+
+0x00, Error Reset or No Error 
+
+Definition at line 186 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}\label{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NON\_VOLATILE\_MEMORY@{CO\_EM\_NON\_VOLATILE\_MEMORY}}
+\index{CO\_EM\_NON\_VOLATILE\_MEMORY@{CO\_EM\_NON\_VOLATILE\_MEMORY}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NON\_VOLATILE\_MEMORY}{CO\_EM\_NON\_VOLATILE\_MEMORY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+N\+\_\+\+V\+O\+L\+A\+T\+I\+L\+E\+\_\+\+M\+E\+M\+O\+RY~0x2\+FU}
+
+0x2F, generic, critical, Error with access to non volatile device memory 
+
+Definition at line 236 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}\label{group___c_o___e_m__error_status_bits_ga1a26463d4de41064a4bf49992de8cfde}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_NON\_VOLATILE\_MEMORY@{CO\_EM\_NON\_VOLATILE\_MEMORY}}
+\index{CO\_EM\_NON\_VOLATILE\_MEMORY@{CO\_EM\_NON\_VOLATILE\_MEMORY}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_NON\_VOLATILE\_MEMORY}{CO\_EM\_NON\_VOLATILE\_MEMORY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+N\+\_\+\+V\+O\+L\+A\+T\+I\+L\+E\+\_\+\+M\+E\+M\+O\+RY~0x2\+FU}
+
+0x2F, generic, critical, Error with access to non volatile device memory 
+
+Definition at line 236 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}\label{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_PDO\_WRONG\_MAPPING@{CO\_EM\_PDO\_WRONG\_MAPPING}}
+\index{CO\_EM\_PDO\_WRONG\_MAPPING@{CO\_EM\_PDO\_WRONG\_MAPPING}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_PDO\_WRONG\_MAPPING}{CO\_EM\_PDO\_WRONG\_MAPPING}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+M\+A\+P\+P\+I\+NG~0x1\+AU}
+
+0x1A, communication, critical, Error with P\+DO mapping 
+
+Definition at line 213 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}\label{group___c_o___e_m__error_status_bits_ga9e345736c503a9b3c82ee5fc833a77b9}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_PDO\_WRONG\_MAPPING@{CO\_EM\_PDO\_WRONG\_MAPPING}}
+\index{CO\_EM\_PDO\_WRONG\_MAPPING@{CO\_EM\_PDO\_WRONG\_MAPPING}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_PDO\_WRONG\_MAPPING}{CO\_EM\_PDO\_WRONG\_MAPPING}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+M\+A\+P\+P\+I\+NG~0x1\+AU}
+
+0x1A, communication, critical, Error with P\+DO mapping 
+
+Definition at line 213 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}\label{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RPDO\_OVERFLOW@{CO\_EM\_RPDO\_OVERFLOW}}
+\index{CO\_EM\_RPDO\_OVERFLOW@{CO\_EM\_RPDO\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RPDO\_OVERFLOW}{CO\_EM\_RPDO\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x05U}
+
+0x05, communication, info, Previous received P\+DO wasn\textquotesingle{}t processed yet 
+
+Definition at line 191 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}\label{group___c_o___e_m__error_status_bits_ga5c4d5b41c3dfb76e6e7daf5e8de89b51}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RPDO\_OVERFLOW@{CO\_EM\_RPDO\_OVERFLOW}}
+\index{CO\_EM\_RPDO\_OVERFLOW@{CO\_EM\_RPDO\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RPDO\_OVERFLOW}{CO\_EM\_RPDO\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x05U}
+
+0x05, communication, info, Previous received P\+DO wasn\textquotesingle{}t processed yet 
+
+Definition at line 191 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}\label{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RPDO\_WRONG\_LENGTH@{CO\_EM\_RPDO\_WRONG\_LENGTH}}
+\index{CO\_EM\_RPDO\_WRONG\_LENGTH@{CO\_EM\_RPDO\_WRONG\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RPDO\_WRONG\_LENGTH}{CO\_EM\_RPDO\_WRONG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH~0x04U}
+
+0x04, communication, info, Wrong data length of received P\+DO 
+
+Definition at line 190 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}\label{group___c_o___e_m__error_status_bits_ga889a9b8a268dd912ad0498abef48dcb4}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RPDO\_WRONG\_LENGTH@{CO\_EM\_RPDO\_WRONG\_LENGTH}}
+\index{CO\_EM\_RPDO\_WRONG\_LENGTH@{CO\_EM\_RPDO\_WRONG\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RPDO\_WRONG\_LENGTH}{CO\_EM\_RPDO\_WRONG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+P\+D\+O\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH~0x04U}
+
+0x04, communication, info, Wrong data length of received P\+DO 
+
+Definition at line 190 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}\label{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RXMSG\_OVERFLOW@{CO\_EM\_RXMSG\_OVERFLOW}}
+\index{CO\_EM\_RXMSG\_OVERFLOW@{CO\_EM\_RXMSG\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RXMSG\_OVERFLOW}{CO\_EM\_RXMSG\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x03U}
+
+0x03, communication, info, Previous received C\+AN message wasn\textquotesingle{}t processed yet 
+
+Definition at line 189 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}\label{group___c_o___e_m__error_status_bits_gaf526eded2b4e8090ff466a4bdb831398}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RXMSG\_OVERFLOW@{CO\_EM\_RXMSG\_OVERFLOW}}
+\index{CO\_EM\_RXMSG\_OVERFLOW@{CO\_EM\_RXMSG\_OVERFLOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RXMSG\_OVERFLOW}{CO\_EM\_RXMSG\_OVERFLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+O\+V\+E\+R\+F\+L\+OW~0x03U}
+
+0x03, communication, info, Previous received C\+AN message wasn\textquotesingle{}t processed yet 
+
+Definition at line 189 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}\label{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RXMSG\_WRONG\_LENGTH@{CO\_EM\_RXMSG\_WRONG\_LENGTH}}
+\index{CO\_EM\_RXMSG\_WRONG\_LENGTH@{CO\_EM\_RXMSG\_WRONG\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RXMSG\_WRONG\_LENGTH}{CO\_EM\_RXMSG\_WRONG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH~0x02U}
+
+0x02, communication, info, Wrong data length of the received C\+AN message 
+
+Definition at line 188 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}\label{group___c_o___e_m__error_status_bits_gaee4a0d8abf48c798a496795056b5a0f6}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_RXMSG\_WRONG\_LENGTH@{CO\_EM\_RXMSG\_WRONG\_LENGTH}}
+\index{CO\_EM\_RXMSG\_WRONG\_LENGTH@{CO\_EM\_RXMSG\_WRONG\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_RXMSG\_WRONG\_LENGTH}{CO\_EM\_RXMSG\_WRONG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+R\+X\+M\+S\+G\+\_\+\+W\+R\+O\+N\+G\+\_\+\+L\+E\+N\+G\+TH~0x02U}
+
+0x02, communication, info, Wrong data length of the received C\+AN message 
+
+Definition at line 188 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}\label{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_SYNC\_LENGTH@{CO\_EM\_SYNC\_LENGTH}}
+\index{CO\_EM\_SYNC\_LENGTH@{CO\_EM\_SYNC\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_SYNC\_LENGTH}{CO\_EM\_SYNC\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+L\+E\+N\+G\+TH~0x19U}
+
+0x19, communication, critical, Unexpected S\+Y\+NC data length 
+
+Definition at line 212 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}\label{group___c_o___e_m__error_status_bits_gacdf0058e4d4556caf2b59e8215ec8a66}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_SYNC\_LENGTH@{CO\_EM\_SYNC\_LENGTH}}
+\index{CO\_EM\_SYNC\_LENGTH@{CO\_EM\_SYNC\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_SYNC\_LENGTH}{CO\_EM\_SYNC\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+L\+E\+N\+G\+TH~0x19U}
+
+0x19, communication, critical, Unexpected S\+Y\+NC data length 
+
+Definition at line 212 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}\label{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_SYNC\_TIME\_OUT@{CO\_EM\_SYNC\_TIME\_OUT}}
+\index{CO\_EM\_SYNC\_TIME\_OUT@{CO\_EM\_SYNC\_TIME\_OUT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_SYNC\_TIME\_OUT}{CO\_EM\_SYNC\_TIME\_OUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+I\+M\+E\+\_\+\+O\+UT~0x18U}
+
+0x18, communication, critical, S\+Y\+NC message timeout 
+
+Definition at line 211 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}\label{group___c_o___e_m__error_status_bits_gaa215f109369ef7420da43e2e28ee65dd}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_SYNC\_TIME\_OUT@{CO\_EM\_SYNC\_TIME\_OUT}}
+\index{CO\_EM\_SYNC\_TIME\_OUT@{CO\_EM\_SYNC\_TIME\_OUT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_SYNC\_TIME\_OUT}{CO\_EM\_SYNC\_TIME\_OUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+S\+Y\+N\+C\+\_\+\+T\+I\+M\+E\+\_\+\+O\+UT~0x18U}
+
+0x18, communication, critical, S\+Y\+NC message timeout 
+
+Definition at line 211 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}\label{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TIME\_LENGTH@{CO\_EM\_TIME\_LENGTH}}
+\index{CO\_EM\_TIME\_LENGTH@{CO\_EM\_TIME\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TIME\_LENGTH}{CO\_EM\_TIME\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+L\+E\+N\+G\+TH~0x0\+AU}
+
+0x0A, communication, info, Unexpected T\+I\+ME data length 
+
+Definition at line 196 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}\label{group___c_o___e_m__error_status_bits_ga0b4527967a4af5e903f38a54b4aed963}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TIME\_LENGTH@{CO\_EM\_TIME\_LENGTH}}
+\index{CO\_EM\_TIME\_LENGTH@{CO\_EM\_TIME\_LENGTH}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TIME\_LENGTH}{CO\_EM\_TIME\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+L\+E\+N\+G\+TH~0x0\+AU}
+
+0x0A, communication, info, Unexpected T\+I\+ME data length 
+
+Definition at line 196 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}\label{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TIME\_TIMEOUT@{CO\_EM\_TIME\_TIMEOUT}}
+\index{CO\_EM\_TIME\_TIMEOUT@{CO\_EM\_TIME\_TIMEOUT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TIME\_TIMEOUT}{CO\_EM\_TIME\_TIMEOUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+T\+I\+M\+E\+O\+UT~0x09U}
+
+0x09, communication, info, T\+I\+ME message timeout 
+
+Definition at line 195 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}\label{group___c_o___e_m__error_status_bits_ga0a0b7674f7bcf4d78cdaa3fbf12e9345}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TIME\_TIMEOUT@{CO\_EM\_TIME\_TIMEOUT}}
+\index{CO\_EM\_TIME\_TIMEOUT@{CO\_EM\_TIME\_TIMEOUT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TIME\_TIMEOUT}{CO\_EM\_TIME\_TIMEOUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+I\+M\+E\+\_\+\+T\+I\+M\+E\+O\+UT~0x09U}
+
+0x09, communication, info, T\+I\+ME message timeout 
+
+Definition at line 195 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}\label{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TPDO\_OUTSIDE\_WINDOW@{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}}
+\index{CO\_EM\_TPDO\_OUTSIDE\_WINDOW@{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+P\+D\+O\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+W\+I\+N\+D\+OW~0x15U}
+
+0x15, communication, critical, T\+P\+DO is outside S\+Y\+NC window 
+
+Definition at line 208 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}\label{group___c_o___e_m__error_status_bits_ga470e690ba227e4b367ad80f1d8fec2b7}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_TPDO\_OUTSIDE\_WINDOW@{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}}
+\index{CO\_EM\_TPDO\_OUTSIDE\_WINDOW@{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}{CO\_EM\_TPDO\_OUTSIDE\_WINDOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+T\+P\+D\+O\+\_\+\+O\+U\+T\+S\+I\+D\+E\+\_\+\+W\+I\+N\+D\+OW~0x15U}
+
+0x15, communication, critical, T\+P\+DO is outside S\+Y\+NC window 
+
+Definition at line 208 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}\label{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_WRONG\_ERROR\_REPORT@{CO\_EM\_WRONG\_ERROR\_REPORT}}
+\index{CO\_EM\_WRONG\_ERROR\_REPORT@{CO\_EM\_WRONG\_ERROR\_REPORT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_WRONG\_ERROR\_REPORT}{CO\_EM\_WRONG\_ERROR\_REPORT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+W\+R\+O\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+E\+P\+O\+RT~0x28U}
+
+0x28, generic, critical, Wrong parameters to \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function 
+
+Definition at line 229 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}\label{group___c_o___e_m__error_status_bits_ga155f43c9f40045ca12646334b18cab4c}} 
+\index{Error status bits@{Error status bits}!CO\_EM\_WRONG\_ERROR\_REPORT@{CO\_EM\_WRONG\_ERROR\_REPORT}}
+\index{CO\_EM\_WRONG\_ERROR\_REPORT@{CO\_EM\_WRONG\_ERROR\_REPORT}!Error status bits@{Error status bits}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_WRONG\_ERROR\_REPORT}{CO\_EM\_WRONG\_ERROR\_REPORT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+W\+R\+O\+N\+G\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+E\+P\+O\+RT~0x28U}
+
+0x28, generic, critical, Wrong parameters to \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function 
+
+Definition at line 229 of file C\+O\+\_\+\+Emergency.\+h.
+

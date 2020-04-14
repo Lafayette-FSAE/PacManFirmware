@@ -1,0 +1,155 @@
+\hypertarget{_c_o___s_d_o_8c}{}\doxysection{C\+O\+\_\+\+S\+D\+O.\+c File Reference}
+\label{_c_o___s_d_o_8c}\index{CO\_SDO.c@{CO\_SDO.c}}
+{\ttfamily \#include \char`\"{}C\+O\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crc16-\/ccitt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~1U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_a945373ee4bd7de7961b46b886188a712}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~0U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_a8b915d95f0cf085ec2df5dcc7bd86326}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~2U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_a587e4d37c031e984a44aef07b12ebc50}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~3U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_ab674213d5cbde44235192e35f7001ad0}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~6U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_a17ac36fd204758dab7b0a273cb34e3d9}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~5U
+\item 
+\#define \mbox{\hyperlink{_c_o___s_d_o_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}{C\+C\+S\+\_\+\+A\+B\+O\+RT}}~0x80U
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_gac916f32b3ad18b49650f7191bdf28c45}{C\+O\+\_\+memcpy}} (uint8\+\_\+t dest\mbox{[}$\,$\mbox{]}, const uint8\+\_\+t src\mbox{[}$\,$\mbox{]}, const uint16\+\_\+t size)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_ga704b2471b9c1ef8664b829d1d4774e55}{C\+O\+\_\+memset}} (uint8\+\_\+t dest\mbox{[}$\,$\mbox{]}, uint8\+\_\+t c, const uint16\+\_\+t size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_gabbf8ff994f14ee992933b89f65d0115b}{C\+O\+\_\+get\+Uint16}} (const uint8\+\_\+t data\mbox{[}$\,$\mbox{]})
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_ga1068f0fd34b65f0c8b0fe2d3f2f8f694}{C\+O\+\_\+get\+Uint32}} (const uint8\+\_\+t data\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_gafa69793847aba8e7a5d08e2c5e5b9afd}{C\+O\+\_\+set\+Uint16}} (uint8\+\_\+t data\mbox{[}$\,$\mbox{]}, const uint16\+\_\+t value)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_ga6db7d886a56fd556acf87ed8a6f62908}{C\+O\+\_\+set\+Uint32}} (uint8\+\_\+t data\mbox{[}$\,$\mbox{]}, const uint32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_ga3484e66a2b0459d22e8ddb45ae8ef3c7}{C\+O\+\_\+memcpy\+Swap2}} (void $\ast$dest, const void $\ast$src)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_ga9b52a42483a1ab02246b7bdcba9de3f1}{C\+O\+\_\+memcpy\+Swap4}} (void $\ast$dest, const void $\ast$src)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_gad77ff01b3a4e32b83ce975a9248243d2}{C\+O\+\_\+memcpy\+Swap8}} (void $\ast$dest, const void $\ast$src)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{_c_o___s_d_o_8c_aae6fc3ab2f3165f555d3415a9d672f39}{C\+O\+\_\+\+S\+D\+O\+\_\+init}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client, uint16\+\_\+t Obj\+Dict\+Index\+\_\+\+S\+D\+O\+Server\+Parameter, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$parent\+S\+DO, const \mbox{\hyperlink{struct_c_o___o_d__entry__t}{C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t}} OD\mbox{[}$\,$\mbox{]}, uint16\+\_\+t O\+D\+Size, \mbox{\hyperlink{struct_c_o___o_d__extension__t}{C\+O\+\_\+\+O\+D\+\_\+extension\+\_\+t}} $\ast$O\+D\+Extensions, uint8\+\_\+t node\+Id, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_ga6546e32ef9999eaa43f210ada3cdfe4b}{C\+O\+\_\+\+S\+D\+O\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, void($\ast$p\+Funct\+Signal)(void))
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_o_gab433430abe125bb16c08e7be3e034985}{C\+O\+\_\+\+O\+D\+\_\+configure}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t index, \mbox{\hyperlink{group___c_o___s_d_o_ga7587ddcf798747fe6d97d03bf1bf2979}{C\+O\+\_\+\+S\+D\+O\+\_\+abort\+Code\+\_\+t}}($\ast$p\+O\+D\+Func)(\mbox{\hyperlink{struct_c_o___o_d_f__arg__t}{C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t}} $\ast$O\+D\+F\+\_\+arg), void $\ast$object, uint8\+\_\+t $\ast$flags, uint8\+\_\+t flags\+Size)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_ga2532cf0445a91285b6e06e67abb1135d}{C\+O\+\_\+\+O\+D\+\_\+find}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t index)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_gad492842213f493a27c274b01c4e02075}{C\+O\+\_\+\+O\+D\+\_\+get\+Length}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t entry\+No, uint8\+\_\+t sub\+Index)
+\item 
+char $\ast$ \mbox{\hyperlink{group___c_o___s_d_o_gaabc7a4dfb691d23a3657d8b36e7373cb}{C\+O\+\_\+\+O\+D\+\_\+get\+Name}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t entry\+No, uint8\+\_\+t sub\+Index)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_ga8adf901d3819dbbbc3bc978dd4783e9a}{C\+O\+\_\+\+O\+D\+\_\+get\+Attribute}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t entry\+No, uint8\+\_\+t sub\+Index)
+\item 
+void $\ast$ \mbox{\hyperlink{group___c_o___s_d_o_ga3ee04247261fbe560132584f727ed99d}{C\+O\+\_\+\+O\+D\+\_\+get\+Data\+Pointer}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t entry\+No, uint8\+\_\+t sub\+Index)
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{group___c_o___s_d_o_ga197661bebb5c451b3f4588fe1604f77d}{C\+O\+\_\+\+O\+D\+\_\+get\+Flags\+Pointer}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t entry\+No, uint8\+\_\+t sub\+Index)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_ga872ca0abe8a4e717e5c03c93ab2b67bd}{C\+O\+\_\+\+S\+D\+O\+\_\+init\+Transfer}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t index, uint8\+\_\+t sub\+Index)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_gae4ed459948ee35f9417a16ea90257b18}{C\+O\+\_\+\+S\+D\+O\+\_\+read\+OD}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t S\+D\+O\+Buffer\+Size)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_ga037d8b815828458a887aad47c3ca3f71}{C\+O\+\_\+\+S\+D\+O\+\_\+write\+OD}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint16\+\_\+t length)
+\item 
+int8\+\_\+t \mbox{\hyperlink{group___c_o___s_d_o_gafccf986c3ed506955852852179ed4517}{C\+O\+\_\+\+S\+D\+O\+\_\+process}} (\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} N\+M\+Tis\+Pre\+Or\+Operational, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t S\+D\+Otimeout\+Time, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_c_o___s_d_o_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}\label{_c_o___s_d_o_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_ABORT@{CCS\_ABORT}}
+\index{CCS\_ABORT@{CCS\_ABORT}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_ABORT}{CCS\_ABORT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+A\+B\+O\+RT~0x80U}
+
+
+
+Definition at line 40 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_ab674213d5cbde44235192e35f7001ad0}\label{_c_o___s_d_o_8c_ab674213d5cbde44235192e35f7001ad0}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_DOWNLOAD\_BLOCK@{CCS\_DOWNLOAD\_BLOCK}}
+\index{CCS\_DOWNLOAD\_BLOCK@{CCS\_DOWNLOAD\_BLOCK}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_BLOCK}{CCS\_DOWNLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~6U}
+
+
+
+Definition at line 38 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}\label{_c_o___s_d_o_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_DOWNLOAD\_INITIATE@{CCS\_DOWNLOAD\_INITIATE}}
+\index{CCS\_DOWNLOAD\_INITIATE@{CCS\_DOWNLOAD\_INITIATE}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_INITIATE}{CCS\_DOWNLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~1U}
+
+
+
+Definition at line 34 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_a945373ee4bd7de7961b46b886188a712}\label{_c_o___s_d_o_8c_a945373ee4bd7de7961b46b886188a712}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_DOWNLOAD\_SEGMENT@{CCS\_DOWNLOAD\_SEGMENT}}
+\index{CCS\_DOWNLOAD\_SEGMENT@{CCS\_DOWNLOAD\_SEGMENT}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_SEGMENT}{CCS\_DOWNLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~0U}
+
+
+
+Definition at line 35 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_a17ac36fd204758dab7b0a273cb34e3d9}\label{_c_o___s_d_o_8c_a17ac36fd204758dab7b0a273cb34e3d9}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_UPLOAD\_BLOCK@{CCS\_UPLOAD\_BLOCK}}
+\index{CCS\_UPLOAD\_BLOCK@{CCS\_UPLOAD\_BLOCK}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_BLOCK}{CCS\_UPLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~5U}
+
+
+
+Definition at line 39 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_a8b915d95f0cf085ec2df5dcc7bd86326}\label{_c_o___s_d_o_8c_a8b915d95f0cf085ec2df5dcc7bd86326}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_UPLOAD\_INITIATE@{CCS\_UPLOAD\_INITIATE}}
+\index{CCS\_UPLOAD\_INITIATE@{CCS\_UPLOAD\_INITIATE}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_INITIATE}{CCS\_UPLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~2U}
+
+
+
+Definition at line 36 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+\mbox{\Hypertarget{_c_o___s_d_o_8c_a587e4d37c031e984a44aef07b12ebc50}\label{_c_o___s_d_o_8c_a587e4d37c031e984a44aef07b12ebc50}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CCS\_UPLOAD\_SEGMENT@{CCS\_UPLOAD\_SEGMENT}}
+\index{CCS\_UPLOAD\_SEGMENT@{CCS\_UPLOAD\_SEGMENT}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_SEGMENT}{CCS\_UPLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~3U}
+
+
+
+Definition at line 37 of file C\+O\+\_\+\+S\+D\+O.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_c_o___s_d_o_8c_aae6fc3ab2f3165f555d3415a9d672f39}\label{_c_o___s_d_o_8c_aae6fc3ab2f3165f555d3415a9d672f39}} 
+\index{CO\_SDO.c@{CO\_SDO.c}!CO\_SDO\_init@{CO\_SDO\_init}}
+\index{CO\_SDO\_init@{CO\_SDO\_init}!CO\_SDO.c@{CO\_SDO.c}}
+\doxysubsubsection{\texorpdfstring{CO\_SDO\_init()}{CO\_SDO\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+S\+D\+O\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client,  }\item[{uint16\+\_\+t}]{Obj\+Dict\+Index\+\_\+\+S\+D\+O\+Server\+Parameter,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{parent\+S\+DO,  }\item[{const \mbox{\hyperlink{struct_c_o___o_d__entry__t}{C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t}}}]{OD\mbox{[}$\,$\mbox{]},  }\item[{uint16\+\_\+t}]{O\+D\+Size,  }\item[{\mbox{\hyperlink{struct_c_o___o_d__extension__t}{C\+O\+\_\+\+O\+D\+\_\+extension\+\_\+t}} $\ast$}]{O\+D\+Extensions,  }\item[{uint8\+\_\+t}]{node\+Id,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Tx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Tx\+Idx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 273 of file C\+O\+\_\+\+S\+D\+O.\+c.
+

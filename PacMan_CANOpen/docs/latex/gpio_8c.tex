@@ -1,0 +1,885 @@
+\hypertarget{gpio_8c}{}\doxysection{gpio.\+c File Reference}
+\label{gpio_8c}\index{gpio.c@{gpio.c}}
+{\ttfamily \#include $<$esp\+\_\+types.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+err.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+intr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+intr\+\_\+alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/\+Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/xtensa\+\_\+api.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/rtc\+\_\+io.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}soc/soc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}soc/gpio\+\_\+periph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+ipc.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structgpio__isr__func__t}{gpio\+\_\+isr\+\_\+func\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structgpio__isr__alloc__t}{gpio\+\_\+isr\+\_\+alloc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gpio_8c_ad121a57fbd67c37ad7eb334ae1f1bc63}{G\+P\+I\+O\+\_\+\+C\+H\+E\+CK}}(a,  str,  ret\+\_\+val)
+\item 
+\#define \mbox{\hyperlink{gpio_8c_a5341d7b17ab062db941c3df066699132}{G\+P\+I\+O\+\_\+\+I\+S\+R\+\_\+\+C\+O\+R\+E\+\_\+\+I\+D\+\_\+\+U\+N\+I\+N\+IT}}~(3)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a042006a8dca808bcc66d8054233f6e17}{gpio\+\_\+pullup\+\_\+en}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable pull-\/up on G\+P\+IO. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a5768de2196af2dd321852258cb82202b}{gpio\+\_\+pullup\+\_\+dis}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable pull-\/up on G\+P\+IO. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a8860c21c03a83bd431d026db223592b9}{gpio\+\_\+pulldown\+\_\+en}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable pull-\/down on G\+P\+IO. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_af5f70a96b8d737622c4623aab7a13cbd}{gpio\+\_\+pulldown\+\_\+dis}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable pull-\/down on G\+P\+IO. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_ad786cce417256036f213d7c3d9bb646f}{gpio\+\_\+set\+\_\+intr\+\_\+type}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_ae1d9cd0ebd0b0ac65ffc486396e0edc9}{gpio\+\_\+int\+\_\+type\+\_\+t}} intr\+\_\+type)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO set interrupt trigger type. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_ab412b597c318316e1fb7da1af0e74577}{gpio\+\_\+intr\+\_\+enable}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable G\+P\+IO module interrupt signal. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_abde4080e9d805a2c3ebd60c6c0385dae}{gpio\+\_\+intr\+\_\+disable}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable G\+P\+IO module interrupt signal. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_afadd72970c01a00f25df734eba0d2b29}{gpio\+\_\+set\+\_\+level}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, uint32\+\_\+t level)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO set output level. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gpio_8c_a50241613208689a83e0a72e4dc0ed7c3}{gpio\+\_\+get\+\_\+level}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO get input level. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a7a7b8d376c4de80421df41320ed916e7}{gpio\+\_\+set\+\_\+pull\+\_\+mode}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_a266ff011afc89703be5a5152113d635d}{gpio\+\_\+pull\+\_\+mode\+\_\+t}} pull)
+\begin{DoxyCompactList}\small\item\em Configure G\+P\+IO pull-\/up/pull-\/down resistors. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_abea1de9763f4754edc8d3f815d11efc1}{gpio\+\_\+set\+\_\+direction}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_a491a2cbfb4e94f2afcc0d5bdef2dc454}{gpio\+\_\+mode\+\_\+t}} mode)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO set direction. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a994c5b8ab2930c7cb0e13427bba38658}{gpio\+\_\+config}} (const \mbox{\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t}} $\ast$p\+G\+P\+I\+O\+Config)
+\begin{DoxyCompactList}\small\item\em G\+P\+IO common configuration. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a79bea7977973d514581e42f9505f146f}{gpio\+\_\+reset\+\_\+pin}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Reset an gpio to default state (select gpio function, enable pullup and disable input and output). \end{DoxyCompactList}\item 
+void I\+R\+A\+M\+\_\+\+A\+T\+TR \mbox{\hyperlink{gpio_8c_a5790b9cd5360833168e92cc9402c1db0}{gpio\+\_\+intr\+\_\+service}} (void $\ast$arg)
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a612767be29fc6e8209d2a4a774d325f8}{gpio\+\_\+isr\+\_\+handler\+\_\+add}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{_references_2_c_a_n___files_2gpio_8h_a56448a07dc9b773e888365445a2dc1b2}{gpio\+\_\+isr\+\_\+t}} isr\+\_\+handler, void $\ast$args)
+\begin{DoxyCompactList}\small\item\em Add I\+SR handler for the corresponding G\+P\+IO pin. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a6089e615a3b223313a1303854edbac62}{gpio\+\_\+isr\+\_\+handler\+\_\+remove}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Remove I\+SR handler for the corresponding G\+P\+IO pin. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a3c66e3a547639d382d62497b39800de9}{gpio\+\_\+install\+\_\+isr\+\_\+service}} (int intr\+\_\+alloc\+\_\+flags)
+\begin{DoxyCompactList}\small\item\em Install the driver\textquotesingle{}s G\+P\+IO I\+SR handler service, which allows per-\/pin G\+P\+IO interrupt handlers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8c_a3384dfe7d0247f95ec26aef2aec8ca0a}{gpio\+\_\+uninstall\+\_\+isr\+\_\+service}} ()
+\begin{DoxyCompactList}\small\item\em Uninstall the driver\textquotesingle{}s G\+P\+IO I\+SR service, freeing related resources. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a16f3aef75c5a9cbad10264cc7f0f66c1}{gpio\+\_\+isr\+\_\+register}} (void($\ast$fn)(void $\ast$), void $\ast$arg, int intr\+\_\+alloc\+\_\+flags, \mbox{\hyperlink{gpio_8h_a8f1cd5285765352c503728d7c6c9a5ba}{gpio\+\_\+isr\+\_\+handle\+\_\+t}} $\ast$handle)
+\begin{DoxyCompactList}\small\item\em Register G\+P\+IO interrupt handler, the handler is an I\+SR. The handler will be attached to the same C\+PU core that this function is running on. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_ab0625f4ec860635bcfd744a18e56b029}{gpio\+\_\+wakeup\+\_\+enable}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_ae1d9cd0ebd0b0ac65ffc486396e0edc9}{gpio\+\_\+int\+\_\+type\+\_\+t}} intr\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Enable G\+P\+IO wake-\/up function. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_ad4b048f8bdfbc3e65e7a0f8111861939}{gpio\+\_\+wakeup\+\_\+disable}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable G\+P\+IO wake-\/up function. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a77767afdf86aa491ae2bcc55f9b46d0e}{gpio\+\_\+set\+\_\+drive\+\_\+capability}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_a6044c7d9b6498b60289134b3210d7679}{gpio\+\_\+drive\+\_\+cap\+\_\+t}} strength)
+\begin{DoxyCompactList}\small\item\em Set G\+P\+IO pad drive capability. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a5d337f165475712e547c6558b436b8bf}{gpio\+\_\+get\+\_\+drive\+\_\+capability}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num, \mbox{\hyperlink{gpio_8h_a6044c7d9b6498b60289134b3210d7679}{gpio\+\_\+drive\+\_\+cap\+\_\+t}} $\ast$strength)
+\begin{DoxyCompactList}\small\item\em Get G\+P\+IO pad drive capability. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a36256f51d3e64b672dfcab489c256f2e}{gpio\+\_\+hold\+\_\+en}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Enable gpio pad hold function. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{gpio_8c_a81146ff13f2cc3b8b22b5a6b887396fa}{gpio\+\_\+hold\+\_\+dis}} (\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} gpio\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Disable gpio pad hold function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8c_a87f647d7f3bfb18b229d6cba649ef6e3}{gpio\+\_\+deep\+\_\+sleep\+\_\+hold\+\_\+en}} (void)
+\begin{DoxyCompactList}\small\item\em Enable all digital gpio pad hold function during Deep-\/sleep. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8c_ab717b4544b06a4d7f0ad714d846fca4c}{gpio\+\_\+deep\+\_\+sleep\+\_\+hold\+\_\+dis}} (void)
+\begin{DoxyCompactList}\small\item\em Disable all digital gpio pad hold function during Deep-\/sleep. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8c_aac3bc1358b83a524ca5d66b9b876f1cc}{gpio\+\_\+iomux\+\_\+in}} (uint32\+\_\+t gpio, uint32\+\_\+t signal\+\_\+idx)
+\begin{DoxyCompactList}\small\item\em Set pad input to a peripheral signal through the I\+O\+M\+UX. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gpio_8c_a38683a77c422f8209e1747a3d7143661}{gpio\+\_\+iomux\+\_\+out}} (uint8\+\_\+t gpio\+\_\+num, int func, bool oen\+\_\+inv)
+\begin{DoxyCompactList}\small\item\em Set peripheral output to an G\+P\+IO pad through the I\+O\+M\+UX. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{gpio_8c_ad121a57fbd67c37ad7eb334ae1f1bc63}\label{gpio_8c_ad121a57fbd67c37ad7eb334ae1f1bc63}} 
+\index{gpio.c@{gpio.c}!GPIO\_CHECK@{GPIO\_CHECK}}
+\index{GPIO\_CHECK@{GPIO\_CHECK}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_CHECK}{GPIO\_CHECK}}
+{\footnotesize\ttfamily \#define G\+P\+I\+O\+\_\+\+C\+H\+E\+CK(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{str,  }\item[{}]{ret\+\_\+val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (!(a)) \{ \(\backslash\)}
+\DoxyCodeLine{        ESP\_LOGE(GPIO\_TAG,\textcolor{stringliteral}{"\%s(\%d): \%s"}, \_\_FUNCTION\_\_, \_\_LINE\_\_, str); \(\backslash\)}
+\DoxyCodeLine{        return (ret\_val); \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line 28 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a5341d7b17ab062db941c3df066699132}\label{gpio_8c_a5341d7b17ab062db941c3df066699132}} 
+\index{gpio.c@{gpio.c}!GPIO\_ISR\_CORE\_ID\_UNINIT@{GPIO\_ISR\_CORE\_ID\_UNINIT}}
+\index{GPIO\_ISR\_CORE\_ID\_UNINIT@{GPIO\_ISR\_CORE\_ID\_UNINIT}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_ISR\_CORE\_ID\_UNINIT}{GPIO\_ISR\_CORE\_ID\_UNINIT}}
+{\footnotesize\ttfamily \#define G\+P\+I\+O\+\_\+\+I\+S\+R\+\_\+\+C\+O\+R\+E\+\_\+\+I\+D\+\_\+\+U\+N\+I\+N\+IT~(3)}
+
+
+
+Definition at line 33 of file gpio.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{gpio_8c_a994c5b8ab2930c7cb0e13427bba38658}\label{gpio_8c_a994c5b8ab2930c7cb0e13427bba38658}} 
+\index{gpio.c@{gpio.c}!gpio\_config@{gpio\_config}}
+\index{gpio\_config@{gpio\_config}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_config()}{gpio\_config()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+config (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t}} $\ast$}]{p\+G\+P\+I\+O\+Config }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO common configuration. 
+
+\begin{DoxyVerb}   Configure GPIO's Mode,pull-up,PullDown,IntrType
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+G\+P\+I\+O\+Config} & Pointer to G\+P\+IO configure struct\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 258 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_ab717b4544b06a4d7f0ad714d846fca4c}\label{gpio_8c_ab717b4544b06a4d7f0ad714d846fca4c}} 
+\index{gpio.c@{gpio.c}!gpio\_deep\_sleep\_hold\_dis@{gpio\_deep\_sleep\_hold\_dis}}
+\index{gpio\_deep\_sleep\_hold\_dis@{gpio\_deep\_sleep\_hold\_dis}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_deep\_sleep\_hold\_dis()}{gpio\_deep\_sleep\_hold\_dis()}}
+{\footnotesize\ttfamily void gpio\+\_\+deep\+\_\+sleep\+\_\+hold\+\_\+dis (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Disable all digital gpio pad hold function during Deep-\/sleep. 
+
+
+
+Definition at line 588 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a87f647d7f3bfb18b229d6cba649ef6e3}\label{gpio_8c_a87f647d7f3bfb18b229d6cba649ef6e3}} 
+\index{gpio.c@{gpio.c}!gpio\_deep\_sleep\_hold\_en@{gpio\_deep\_sleep\_hold\_en}}
+\index{gpio\_deep\_sleep\_hold\_en@{gpio\_deep\_sleep\_hold\_en}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_deep\_sleep\_hold\_en()}{gpio\_deep\_sleep\_hold\_en()}}
+{\footnotesize\ttfamily void gpio\+\_\+deep\+\_\+sleep\+\_\+hold\+\_\+en (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Enable all digital gpio pad hold function during Deep-\/sleep. 
+
+When the chip is in Deep-\/sleep mode, all digital gpio will hold the state before sleep, and when the chip is woken up, the status of digital gpio will not be held. Note that the pad hold feature only works when the chip is in Deep-\/sleep mode, when not in sleep mode, the digital gpio state can be changed even you have called this function.
+
+Power down or call gpio\+\_\+hold\+\_\+dis will disable this function, otherwise, the digital gpio hold feature works as long as the chip enter Deep-\/sleep. 
+
+Definition at line 581 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a5d337f165475712e547c6558b436b8bf}\label{gpio_8c_a5d337f165475712e547c6558b436b8bf}} 
+\index{gpio.c@{gpio.c}!gpio\_get\_drive\_capability@{gpio\_get\_drive\_capability}}
+\index{gpio\_get\_drive\_capability@{gpio\_get\_drive\_capability}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_get\_drive\_capability()}{gpio\_get\_drive\_capability()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+get\+\_\+drive\+\_\+capability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_a6044c7d9b6498b60289134b3210d7679}{gpio\+\_\+drive\+\_\+cap\+\_\+t}} $\ast$}]{strength }\end{DoxyParamCaption})}
+
+
+
+Get G\+P\+IO pad drive capability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number, only support output G\+P\+I\+Os \\
+\hline
+{\em strength} & Pointer to accept drive capability of the pad\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 503 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a50241613208689a83e0a72e4dc0ed7c3}\label{gpio_8c_a50241613208689a83e0a72e4dc0ed7c3}} 
+\index{gpio.c@{gpio.c}!gpio\_get\_level@{gpio\_get\_level}}
+\index{gpio\_get\_level@{gpio\_get\_level}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_get\_level()}{gpio\_get\_level()}}
+{\footnotesize\ttfamily int gpio\+\_\+get\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO get input level. 
+
+\begin{DoxyWarning}{Warning}
+If the pad is not configured for input (or input and output) the returned value is always 0.
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to get the logic level of e.\+g. pin G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16);\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item 0 the G\+P\+IO input level is 0
+\item 1 the G\+P\+IO input level is 1 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 193 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a81146ff13f2cc3b8b22b5a6b887396fa}\label{gpio_8c_a81146ff13f2cc3b8b22b5a6b887396fa}} 
+\index{gpio.c@{gpio.c}!gpio\_hold\_dis@{gpio\_hold\_dis}}
+\index{gpio\_hold\_dis@{gpio\_hold\_dis}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_hold\_dis()}{gpio\_hold\_dis()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+hold\+\_\+dis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Disable gpio pad hold function. 
+
+When the chip is woken up from Deep-\/sleep, the gpio will be set to the default mode, so, the gpio will output the default level if this function is called. If you dont\textquotesingle{}t want the level changes, the gpio should be configured to a known state before this function is called. e.\+g. If you hold gpio18 high during Deep-\/sleep, after the chip is woken up and {\ttfamily gpio\+\_\+hold\+\_\+dis} is called, gpio18 will output low level(because gpio18 is input mode by default). If you don\textquotesingle{}t want this behavior, you should configure gpio18 as output mode and set it to hight level before calling {\ttfamily gpio\+\_\+hold\+\_\+dis}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number, only support output-\/capable G\+P\+I\+Os\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+S\+U\+P\+P\+O\+R\+T\+ED Not support pad hold function 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 567 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a36256f51d3e64b672dfcab489c256f2e}\label{gpio_8c_a36256f51d3e64b672dfcab489c256f2e}} 
+\index{gpio.c@{gpio.c}!gpio\_hold\_en@{gpio\_hold\_en}}
+\index{gpio\_hold\_en@{gpio\_hold\_en}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_hold\_en()}{gpio\_hold\_en()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+hold\+\_\+en (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Enable gpio pad hold function. 
+
+The gpio pad hold function works in both input and output modes, but must be output-\/capable gpios. If pad hold enabled\+: in output mode\+: the output level of the pad will be force locked and can not be changed. in input mode\+: the input value read will not change, regardless the changes of input signal.
+
+The state of digital gpio cannot be held during Deep-\/sleep, and it will resume the hold function when the chip wakes up from Deep-\/sleep. If the digital gpio also needs to be held during Deep-\/sleep, {\ttfamily gpio\+\_\+deep\+\_\+sleep\+\_\+hold\+\_\+en} should also be called.
+
+Power down or call gpio\+\_\+hold\+\_\+dis will disable this function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number, only support output-\/capable G\+P\+I\+Os\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+S\+U\+P\+P\+O\+R\+T\+ED Not support pad hold function 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 553 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a3c66e3a547639d382d62497b39800de9}\label{gpio_8c_a3c66e3a547639d382d62497b39800de9}} 
+\index{gpio.c@{gpio.c}!gpio\_install\_isr\_service@{gpio\_install\_isr\_service}}
+\index{gpio\_install\_isr\_service@{gpio\_install\_isr\_service}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_install\_isr\_service()}{gpio\_install\_isr\_service()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+install\+\_\+isr\+\_\+service (\begin{DoxyParamCaption}\item[{int}]{intr\+\_\+alloc\+\_\+flags }\end{DoxyParamCaption})}
+
+
+
+Install the driver\textquotesingle{}s G\+P\+IO I\+SR handler service, which allows per-\/pin G\+P\+IO interrupt handlers. 
+
+This function is incompatible with \mbox{\hyperlink{gpio_8h_a16f3aef75c5a9cbad10264cc7f0f66c1}{gpio\+\_\+isr\+\_\+register()}} -\/ if that function is used, a single global I\+SR is registered for all G\+P\+IO interrupts. If this function is used, the I\+SR service provides a global G\+P\+IO I\+SR and individual pin handlers are registered via the \mbox{\hyperlink{gpio_8h_a612767be29fc6e8209d2a4a774d325f8}{gpio\+\_\+isr\+\_\+handler\+\_\+add()}} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em intr\+\_\+alloc\+\_\+flags} & Flags used to allocate the interrupt. One or multiple (O\+Rred) E\+S\+P\+\_\+\+I\+N\+T\+R\+\_\+\+F\+L\+A\+G\+\_\+$\ast$ values. See esp\+\_\+intr\+\_\+alloc.\+h for more info.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+M\+EM No memory to install this service
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE I\+SR service already installed.
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND No free interrupt found with the specified flags
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG G\+P\+IO error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 408 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_abde4080e9d805a2c3ebd60c6c0385dae}\label{gpio_8c_abde4080e9d805a2c3ebd60c6c0385dae}} 
+\index{gpio.c@{gpio.c}!gpio\_intr\_disable@{gpio\_intr\_disable}}
+\index{gpio\_intr\_disable@{gpio\_intr\_disable}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_intr\_disable()}{gpio\_intr\_disable()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+intr\+\_\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Disable G\+P\+IO module interrupt signal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to disable the interrupt of e.\+g. G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16);\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 138 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_ab412b597c318316e1fb7da1af0e74577}\label{gpio_8c_ab412b597c318316e1fb7da1af0e74577}} 
+\index{gpio.c@{gpio.c}!gpio\_intr\_enable@{gpio\_intr\_enable}}
+\index{gpio\_intr\_enable@{gpio\_intr\_enable}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_intr\_enable()}{gpio\_intr\_enable()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+intr\+\_\+enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Enable G\+P\+IO module interrupt signal. 
+
+\begin{DoxyNote}{Note}
+Please do not use the interrupt of G\+P\+I\+O36 and G\+P\+I\+O39 when using A\+DC. Please refer to the comments of {\ttfamily adc1\+\_\+get\+\_\+raw}. Please refer to section 3.\+11 of \textquotesingle{}E\+C\+O\+\_\+and\+\_\+\+Workarounds\+\_\+for\+\_\+\+Bugs\+\_\+in\+\_\+\+E\+S\+P32\textquotesingle{} for the description of this issue.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to enable an interrupt on e.\+g. G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16);\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 127 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a5790b9cd5360833168e92cc9402c1db0}\label{gpio_8c_a5790b9cd5360833168e92cc9402c1db0}} 
+\index{gpio.c@{gpio.c}!gpio\_intr\_service@{gpio\_intr\_service}}
+\index{gpio\_intr\_service@{gpio\_intr\_service}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_intr\_service()}{gpio\_intr\_service()}}
+{\footnotesize\ttfamily void I\+R\+A\+M\+\_\+\+A\+T\+TR gpio\+\_\+intr\+\_\+service (\begin{DoxyParamCaption}\item[{void $\ast$}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 348 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_aac3bc1358b83a524ca5d66b9b876f1cc}\label{gpio_8c_aac3bc1358b83a524ca5d66b9b876f1cc}} 
+\index{gpio.c@{gpio.c}!gpio\_iomux\_in@{gpio\_iomux\_in}}
+\index{gpio\_iomux\_in@{gpio\_iomux\_in}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_iomux\_in()}{gpio\_iomux\_in()}}
+{\footnotesize\ttfamily void gpio\+\_\+iomux\+\_\+in (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{gpio\+\_\+num,  }\item[{uint32\+\_\+t}]{signal\+\_\+idx }\end{DoxyParamCaption})}
+
+
+
+Set pad input to a peripheral signal through the I\+O\+M\+UX. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number of the pad. \\
+\hline
+{\em signal\+\_\+idx} & Peripheral signal id to input. One of the {\ttfamily $\ast$\+\_\+\+I\+N\+\_\+\+I\+DX} signals in {\ttfamily soc/gpio\+\_\+sig\+\_\+map.\+h}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 595 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a38683a77c422f8209e1747a3d7143661}\label{gpio_8c_a38683a77c422f8209e1747a3d7143661}} 
+\index{gpio.c@{gpio.c}!gpio\_iomux\_out@{gpio\_iomux\_out}}
+\index{gpio\_iomux\_out@{gpio\_iomux\_out}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_iomux\_out()}{gpio\_iomux\_out()}}
+{\footnotesize\ttfamily void gpio\+\_\+iomux\+\_\+out (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{gpio\+\_\+num,  }\item[{int}]{func,  }\item[{bool}]{oen\+\_\+inv }\end{DoxyParamCaption})}
+
+
+
+Set peripheral output to an G\+P\+IO pad through the I\+O\+M\+UX. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & gpio\+\_\+num G\+P\+IO number of the pad. \\
+\hline
+{\em func} & The function number of the peripheral pin to output pin. One of the {\ttfamily F\+U\+N\+C\+\_\+\+X\+\_\+$\ast$} of specified pin (X) in {\ttfamily soc/io\+\_\+mux\+\_\+reg.\+h}. \\
+\hline
+{\em oen\+\_\+inv} & True if the output enable needs to be inversed, otherwise False. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 601 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a612767be29fc6e8209d2a4a774d325f8}\label{gpio_8c_a612767be29fc6e8209d2a4a774d325f8}} 
+\index{gpio.c@{gpio.c}!gpio\_isr\_handler\_add@{gpio\_isr\_handler\_add}}
+\index{gpio\_isr\_handler\_add@{gpio\_isr\_handler\_add}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_isr\_handler\_add()}{gpio\_isr\_handler\_add()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+isr\+\_\+handler\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{_references_2_c_a_n___files_2gpio_8h_a56448a07dc9b773e888365445a2dc1b2}{gpio\+\_\+isr\+\_\+t}}}]{isr\+\_\+handler,  }\item[{void $\ast$}]{args }\end{DoxyParamCaption})}
+
+
+
+Add I\+SR handler for the corresponding G\+P\+IO pin. 
+
+Call this function after using \mbox{\hyperlink{gpio_8h_a3c66e3a547639d382d62497b39800de9}{gpio\+\_\+install\+\_\+isr\+\_\+service()}} to install the driver\textquotesingle{}s G\+P\+IO I\+SR handler service.
+
+The pin I\+SR handlers no longer need to be declared with I\+R\+A\+M\+\_\+\+A\+T\+TR, unless you pass the E\+S\+P\+\_\+\+I\+N\+T\+R\+\_\+\+F\+L\+A\+G\+\_\+\+I\+R\+AM flag when allocating the I\+SR in \mbox{\hyperlink{gpio_8h_a3c66e3a547639d382d62497b39800de9}{gpio\+\_\+install\+\_\+isr\+\_\+service()}}.
+
+This I\+SR handler will be called from an I\+SR. So there is a stack size limit (configurable as \char`\"{}\+I\+S\+R stack size\char`\"{} in menuconfig). This limit is smaller compared to a global G\+P\+IO interrupt handler due to the additional level of indirection.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number \\
+\hline
+{\em isr\+\_\+handler} & I\+SR handler function for the corresponding G\+P\+IO number. \\
+\hline
+{\em args} & parameter for I\+SR handler.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE Wrong state, the I\+SR service has not been initialized.
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 379 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a6089e615a3b223313a1303854edbac62}\label{gpio_8c_a6089e615a3b223313a1303854edbac62}} 
+\index{gpio.c@{gpio.c}!gpio\_isr\_handler\_remove@{gpio\_isr\_handler\_remove}}
+\index{gpio\_isr\_handler\_remove@{gpio\_isr\_handler\_remove}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_isr\_handler\_remove()}{gpio\_isr\_handler\_remove()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+isr\+\_\+handler\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Remove I\+SR handler for the corresponding G\+P\+IO pin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE Wrong state, the I\+SR service has not been initialized.
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 394 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a16f3aef75c5a9cbad10264cc7f0f66c1}\label{gpio_8c_a16f3aef75c5a9cbad10264cc7f0f66c1}} 
+\index{gpio.c@{gpio.c}!gpio\_isr\_register@{gpio\_isr\_register}}
+\index{gpio\_isr\_register@{gpio\_isr\_register}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_isr\_register()}{gpio\_isr\_register()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+isr\+\_\+register (\begin{DoxyParamCaption}\item[{void($\ast$)(void $\ast$)}]{fn,  }\item[{void $\ast$}]{arg,  }\item[{int}]{intr\+\_\+alloc\+\_\+flags,  }\item[{\mbox{\hyperlink{gpio_8h_a8f1cd5285765352c503728d7c6c9a5ba}{gpio\+\_\+isr\+\_\+handle\+\_\+t}} $\ast$}]{handle }\end{DoxyParamCaption})}
+
+
+
+Register G\+P\+IO interrupt handler, the handler is an I\+SR. The handler will be attached to the same C\+PU core that this function is running on. 
+
+This I\+SR function is called whenever any G\+P\+IO interrupt occurs. See the alternative \mbox{\hyperlink{gpio_8h_a3c66e3a547639d382d62497b39800de9}{gpio\+\_\+install\+\_\+isr\+\_\+service()}} and \mbox{\hyperlink{gpio_8h_a612767be29fc6e8209d2a4a774d325f8}{gpio\+\_\+isr\+\_\+handler\+\_\+add()}} A\+PI in order to have the driver support per-\/\+G\+P\+IO I\+S\+Rs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Interrupt handler function. \\
+\hline
+{\em intr\+\_\+alloc\+\_\+flags} & Flags used to allocate the interrupt. One or multiple (O\+Rred) E\+S\+P\+\_\+\+I\+N\+T\+R\+\_\+\+F\+L\+A\+G\+\_\+$\ast$ values. See esp\+\_\+intr\+\_\+alloc.\+h for more info. \\
+\hline
+{\em arg} & Parameter for handler function \\
+\hline
+{\em handle} & Pointer to return handle. If non-\/\+N\+U\+LL, a handle for the interrupt will be returned here.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyVerb}embed:rst:leading-asterisk
+* To disable or remove the ISR, pass the returned handle to the :doc:`interrupt allocation functions </api-reference/system/intr_alloc>`.
+* \end{DoxyVerb}
+
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success ;
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG G\+P\+IO error
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+F\+O\+U\+ND No free interrupt found with the specified flags 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 444 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_af5f70a96b8d737622c4623aab7a13cbd}\label{gpio_8c_af5f70a96b8d737622c4623aab7a13cbd}} 
+\index{gpio.c@{gpio.c}!gpio\_pulldown\_dis@{gpio\_pulldown\_dis}}
+\index{gpio\_pulldown\_dis@{gpio\_pulldown\_dis}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_pulldown\_dis()}{gpio\_pulldown\_dis()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+pulldown\+\_\+dis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Disable pull-\/down on G\+P\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 88 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a8860c21c03a83bd431d026db223592b9}\label{gpio_8c_a8860c21c03a83bd431d026db223592b9}} 
+\index{gpio.c@{gpio.c}!gpio\_pulldown\_en@{gpio\_pulldown\_en}}
+\index{gpio\_pulldown\_en@{gpio\_pulldown\_en}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_pulldown\_en()}{gpio\_pulldown\_en()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+pulldown\+\_\+en (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Enable pull-\/down on G\+P\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 77 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a5768de2196af2dd321852258cb82202b}\label{gpio_8c_a5768de2196af2dd321852258cb82202b}} 
+\index{gpio.c@{gpio.c}!gpio\_pullup\_dis@{gpio\_pullup\_dis}}
+\index{gpio\_pullup\_dis@{gpio\_pullup\_dis}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_pullup\_dis()}{gpio\_pullup\_dis()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+pullup\+\_\+dis (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Disable pull-\/up on G\+P\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 66 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a042006a8dca808bcc66d8054233f6e17}\label{gpio_8c_a042006a8dca808bcc66d8054233f6e17}} 
+\index{gpio.c@{gpio.c}!gpio\_pullup\_en@{gpio\_pullup\_en}}
+\index{gpio\_pullup\_en@{gpio\_pullup\_en}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_pullup\_en()}{gpio\_pullup\_en()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+pullup\+\_\+en (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Enable pull-\/up on G\+P\+IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 55 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a79bea7977973d514581e42f9505f146f}\label{gpio_8c_a79bea7977973d514581e42f9505f146f}} 
+\index{gpio.c@{gpio.c}!gpio\_reset\_pin@{gpio\_reset\_pin}}
+\index{gpio\_reset\_pin@{gpio\_reset\_pin}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_reset\_pin()}{gpio\_reset\_pin()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+reset\+\_\+pin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Reset an gpio to default state (select gpio function, enable pullup and disable input and output). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function also configures the I\+O\+M\+UX for this pin to the G\+P\+IO function, and disconnects any other peripheral output configured via G\+P\+IO Matrix.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+Always return E\+S\+P\+\_\+\+OK. 
+\end{DoxyReturn}
+
+
+Definition at line 333 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_abea1de9763f4754edc8d3f815d11efc1}\label{gpio_8c_abea1de9763f4754edc8d3f815d11efc1}} 
+\index{gpio.c@{gpio.c}!gpio\_set\_direction@{gpio\_set\_direction}}
+\index{gpio\_set\_direction@{gpio\_set\_direction}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_direction()}{gpio\_set\_direction()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+set\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_a491a2cbfb4e94f2afcc0d5bdef2dc454}{gpio\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO set direction. 
+
+Configure G\+P\+IO direction,such as output\+\_\+only,input\+\_\+only,output\+\_\+and\+\_\+input
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & Configure G\+P\+IO pins number, it should be G\+P\+IO number. If you want to set direction of e.\+g. G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16); \\
+\hline
+{\em mode} & G\+P\+IO direction\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG G\+P\+IO error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 232 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a77767afdf86aa491ae2bcc55f9b46d0e}\label{gpio_8c_a77767afdf86aa491ae2bcc55f9b46d0e}} 
+\index{gpio.c@{gpio.c}!gpio\_set\_drive\_capability@{gpio\_set\_drive\_capability}}
+\index{gpio\_set\_drive\_capability@{gpio\_set\_drive\_capability}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_drive\_capability()}{gpio\_set\_drive\_capability()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+set\+\_\+drive\+\_\+capability (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_a6044c7d9b6498b60289134b3210d7679}{gpio\+\_\+drive\+\_\+cap\+\_\+t}}}]{strength }\end{DoxyParamCaption})}
+
+
+
+Set G\+P\+IO pad drive capability. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number, only support output G\+P\+I\+Os \\
+\hline
+{\em strength} & Drive capability of the pad\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 490 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_ad786cce417256036f213d7c3d9bb646f}\label{gpio_8c_ad786cce417256036f213d7c3d9bb646f}} 
+\index{gpio.c@{gpio.c}!gpio\_set\_intr\_type@{gpio\_set\_intr\_type}}
+\index{gpio\_set\_intr\_type@{gpio\_set\_intr\_type}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_intr\_type()}{gpio\_set\_intr\_type()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+set\+\_\+intr\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_ae1d9cd0ebd0b0ac65ffc486396e0edc9}{gpio\+\_\+int\+\_\+type\+\_\+t}}}]{intr\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO set interrupt trigger type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to set the trigger type of e.\+g. of G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16); \\
+\hline
+{\em intr\+\_\+type} & Interrupt type, select from gpio\+\_\+int\+\_\+type\+\_\+t\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 99 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_afadd72970c01a00f25df734eba0d2b29}\label{gpio_8c_afadd72970c01a00f25df734eba0d2b29}} 
+\index{gpio.c@{gpio.c}!gpio\_set\_level@{gpio\_set\_level}}
+\index{gpio\_set\_level@{gpio\_set\_level}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_level()}{gpio\_set\_level()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+set\+\_\+level (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{uint32\+\_\+t}]{level }\end{DoxyParamCaption})}
+
+
+
+G\+P\+IO set output level. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to set the output level of e.\+g. G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16); \\
+\hline
+{\em level} & Output level. 0\+: low ; 1\+: high\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG G\+P\+IO number error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 174 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a7a7b8d376c4de80421df41320ed916e7}\label{gpio_8c_a7a7b8d376c4de80421df41320ed916e7}} 
+\index{gpio.c@{gpio.c}!gpio\_set\_pull\_mode@{gpio\_set\_pull\_mode}}
+\index{gpio\_set\_pull\_mode@{gpio\_set\_pull\_mode}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_set\_pull\_mode()}{gpio\_set\_pull\_mode()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+set\+\_\+pull\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_a266ff011afc89703be5a5152113d635d}{gpio\+\_\+pull\+\_\+mode\+\_\+t}}}]{pull }\end{DoxyParamCaption})}
+
+
+
+Configure G\+P\+IO pull-\/up/pull-\/down resistors. 
+
+Only pins that support both input \& output have integrated pull-\/up and pull-\/down resistors. Input-\/only G\+P\+I\+Os 34-\/39 do not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number. If you want to set pull up or down mode for e.\+g. G\+P\+I\+O16, gpio\+\_\+num should be G\+P\+I\+O\+\_\+\+N\+U\+M\+\_\+16 (16); \\
+\hline
+{\em pull} & G\+P\+IO pull up/down mode.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG \+: Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 202 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_a3384dfe7d0247f95ec26aef2aec8ca0a}\label{gpio_8c_a3384dfe7d0247f95ec26aef2aec8ca0a}} 
+\index{gpio.c@{gpio.c}!gpio\_uninstall\_isr\_service@{gpio\_uninstall\_isr\_service}}
+\index{gpio\_uninstall\_isr\_service@{gpio\_uninstall\_isr\_service}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_uninstall\_isr\_service()}{gpio\_uninstall\_isr\_service()}}
+{\footnotesize\ttfamily void gpio\+\_\+uninstall\+\_\+isr\+\_\+service (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Uninstall the driver\textquotesingle{}s G\+P\+IO I\+SR service, freeing related resources. 
+
+
+
+Definition at line 423 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_ad4b048f8bdfbc3e65e7a0f8111861939}\label{gpio_8c_ad4b048f8bdfbc3e65e7a0f8111861939}} 
+\index{gpio.c@{gpio.c}!gpio\_wakeup\_disable@{gpio\_wakeup\_disable}}
+\index{gpio\_wakeup\_disable@{gpio\_wakeup\_disable}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_wakeup\_disable()}{gpio\_wakeup\_disable()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+wakeup\+\_\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Disable G\+P\+IO wake-\/up function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 483 of file gpio.\+c.
+
+\mbox{\Hypertarget{gpio_8c_ab0625f4ec860635bcfd744a18e56b029}\label{gpio_8c_ab0625f4ec860635bcfd744a18e56b029}} 
+\index{gpio.c@{gpio.c}!gpio\_wakeup\_enable@{gpio\_wakeup\_enable}}
+\index{gpio\_wakeup\_enable@{gpio\_wakeup\_enable}!gpio.c@{gpio.c}}
+\doxysubsubsection{\texorpdfstring{gpio\_wakeup\_enable()}{gpio\_wakeup\_enable()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t gpio\+\_\+wakeup\+\_\+enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}}}]{gpio\+\_\+num,  }\item[{\mbox{\hyperlink{gpio_8h_ae1d9cd0ebd0b0ac65ffc486396e0edc9}{gpio\+\_\+int\+\_\+type\+\_\+t}}}]{intr\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Enable G\+P\+IO wake-\/up function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+num} & G\+P\+IO number.\\
+\hline
+{\em intr\+\_\+type} & G\+P\+IO wake-\/up type. Only G\+P\+I\+O\+\_\+\+I\+N\+T\+R\+\_\+\+L\+O\+W\+\_\+\+L\+E\+V\+EL or G\+P\+I\+O\+\_\+\+I\+N\+T\+R\+\_\+\+H\+I\+G\+H\+\_\+\+L\+E\+V\+EL can be used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK Success
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG Parameter error 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 465 of file gpio.\+c.
+

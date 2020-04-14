@@ -1,0 +1,451 @@
+\hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c}{}\doxysection{References/\+C\+A\+N\+\_\+\+Files/\+C\+O\+\_\+\+S\+D\+Omaster.c File Reference}
+\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c}\index{References/CAN\_Files/CO\_SDOmaster.c@{References/CAN\_Files/CO\_SDOmaster.c}}
+{\ttfamily \#include \char`\"{}C\+O\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+S\+D\+Omaster.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}crc16-\/ccitt.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~1
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a945373ee4bd7de7961b46b886188a712}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~0
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a8b915d95f0cf085ec2df5dcc7bd86326}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~2
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a587e4d37c031e984a44aef07b12ebc50}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~3
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}{C\+C\+S\+\_\+\+A\+B\+O\+RT}}~4
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a17ac36fd204758dab7b0a273cb34e3d9}{C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~5
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab674213d5cbde44235192e35f7001ad0}{C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~6
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a13819590c06e5b62020deedea0ac6127}{S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~2
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a48ee3eb24e644aa8bd224e591ca139b6}{S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~0
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a01339e22df443941f3a3ecfb949bb497}{S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+ED}}~3
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a135b546aab0a0611a91e129e93f3984c}{S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT}}~1
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ac6da6145db4740ba12bd413fe9cdaa39}{S\+C\+S\+\_\+\+A\+B\+O\+RT}}~4
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad81f559b48362b55581547cf9ac1d04f}{S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~5
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5aec99d8b473b15fe28d662b68575d1e}{S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK}}~6
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06b90c620bb79ddf5033e52f1c8ea074}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+N\+O\+T\+D\+E\+F\+I\+N\+ED}}~0
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a704c1c8cade68f9e83062bd86cdf6115}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+A\+B\+O\+RT}}~1
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06a49e9c81f2cc8a5c1b4835eeb6e184}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~10
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab35fa3a7ab4f8c7bd7b25184d5387045}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST}}~11
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a6cd7debc551f7c9ec6da8753686d3cd4}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+R\+E\+S\+P\+O\+N\+SE}}~12
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad999b9aca00251e917911b68835c6c99}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+ED}}~20
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3cb08eaa73b85d8be9ae4016386656e2}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST}}~21
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b6966b6a6cafdeb61d56860e0fe133d}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+R\+E\+S\+P\+O\+N\+SE}}~22
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a9be7db3baa10b649e1f3d89058cc998a}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~100
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a84bae8b00171bc3201b964510b09d4df}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+P\+R\+O\+G\+R\+ES}}~101
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_abd638f9aeda2138a2a5601567e256613}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+CK}}~102
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a0866f1bc8b924ad1805302a7591e97ca}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+C\+RC}}~103
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a68fea0d4b86ff160fd9c286a0c5fd675}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+C\+R\+C\+\_\+\+A\+CK}}~104
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a46b0adc11def2c76e1616e6a10a9a284}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE}}~200
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b16f2957c47cef9ba1150ee57c9b856}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+E\+\_\+\+A\+CK}}~201
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ae0f43b4b66fc0592cfcb2266e161dff2}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+P\+R\+O\+G\+R\+ES}}~202
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a44d39bcbe835ee9383c1595b02e4ffb8}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+S\+U\+B\+\_\+\+E\+ND}}~203
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a81c14d6b7ca23cc79753318057218733}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+CK}}~204
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad7ae4c86bf9c63bfb32287336f37bea4}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+C\+K\+\_\+\+L\+A\+ST}}~205
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a7f18bb5e4fe64b45e3eefed3afb503f5}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+C\+RC}}~206
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3fd0db8a8b5fe757025bccef2782323e}{S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+E\+ND}}~207
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}} $\ast$S\+D\+O\+Client\+Par, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_omaster_ga9cd169d7b20c36457efef68e5260bb62}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+Oclient, void($\ast$p\+Funct\+Signal)(void))
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gaba54e09c9987d34cbef7d982d3b1c6c3}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+setup}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client, uint8\+\_\+t node\+I\+D\+Of\+The\+S\+D\+O\+Server)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga231aaa2799bb26077e803412671ba721}{C\+O\+\_\+\+S\+D\+Oclient\+Download\+Initiate}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t index, uint8\+\_\+t sub\+Index, uint8\+\_\+t $\ast$data\+Tx, uint32\+\_\+t data\+Size, uint8\+\_\+t block\+Enable)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gaeafa202df247453d1d4f498ff2d4b57e}{C\+O\+\_\+\+S\+D\+Oclient\+Download}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t S\+D\+Otimeout\+Time, uint32\+\_\+t $\ast$p\+S\+D\+Oabort\+Code)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga5a8d3411ad9ed5438a360c355f1e9627}{C\+O\+\_\+\+S\+D\+Oclient\+Upload\+Initiate}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t index, uint8\+\_\+t sub\+Index, uint8\+\_\+t $\ast$data\+Rx, uint32\+\_\+t data\+Rx\+Size, uint8\+\_\+t block\+Enable)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gab00d3d28804c9daa6bf627dbb6f632aa}{C\+O\+\_\+\+S\+D\+Oclient\+Upload}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t S\+D\+Otimeout\+Time, uint32\+\_\+t $\ast$p\+Data\+Size, uint32\+\_\+t $\ast$p\+S\+D\+Oabort\+Code)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_omaster_ga9b98ea2c36f864f1a589c842528b12ab}{C\+O\+\_\+\+S\+D\+Oclient\+Close}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_aa3f3a388ce05cf8e20d84aa99dc5d6db}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_ABORT@{CCS\_ABORT}}
+\index{CCS\_ABORT@{CCS\_ABORT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_ABORT}{CCS\_ABORT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+A\+B\+O\+RT~4}
+
+
+
+Definition at line 42 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab674213d5cbde44235192e35f7001ad0}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab674213d5cbde44235192e35f7001ad0}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_DOWNLOAD\_BLOCK@{CCS\_DOWNLOAD\_BLOCK}}
+\index{CCS\_DOWNLOAD\_BLOCK@{CCS\_DOWNLOAD\_BLOCK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_BLOCK}{CCS\_DOWNLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~6}
+
+
+
+Definition at line 45 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a43e4fda68d1bb8d6bb20efdc07a7ce92}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_DOWNLOAD\_INITIATE@{CCS\_DOWNLOAD\_INITIATE}}
+\index{CCS\_DOWNLOAD\_INITIATE@{CCS\_DOWNLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_INITIATE}{CCS\_DOWNLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~1}
+
+
+
+Definition at line 36 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a945373ee4bd7de7961b46b886188a712}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a945373ee4bd7de7961b46b886188a712}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_DOWNLOAD\_SEGMENT@{CCS\_DOWNLOAD\_SEGMENT}}
+\index{CCS\_DOWNLOAD\_SEGMENT@{CCS\_DOWNLOAD\_SEGMENT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_DOWNLOAD\_SEGMENT}{CCS\_DOWNLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~0}
+
+
+
+Definition at line 37 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a17ac36fd204758dab7b0a273cb34e3d9}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a17ac36fd204758dab7b0a273cb34e3d9}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_UPLOAD\_BLOCK@{CCS\_UPLOAD\_BLOCK}}
+\index{CCS\_UPLOAD\_BLOCK@{CCS\_UPLOAD\_BLOCK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_BLOCK}{CCS\_UPLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~5}
+
+
+
+Definition at line 44 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a8b915d95f0cf085ec2df5dcc7bd86326}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a8b915d95f0cf085ec2df5dcc7bd86326}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_UPLOAD\_INITIATE@{CCS\_UPLOAD\_INITIATE}}
+\index{CCS\_UPLOAD\_INITIATE@{CCS\_UPLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_INITIATE}{CCS\_UPLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~2}
+
+
+
+Definition at line 39 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a587e4d37c031e984a44aef07b12ebc50}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a587e4d37c031e984a44aef07b12ebc50}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!CCS\_UPLOAD\_SEGMENT@{CCS\_UPLOAD\_SEGMENT}}
+\index{CCS\_UPLOAD\_SEGMENT@{CCS\_UPLOAD\_SEGMENT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{CCS\_UPLOAD\_SEGMENT}{CCS\_UPLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define C\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~3}
+
+
+
+Definition at line 40 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ac6da6145db4740ba12bd413fe9cdaa39}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ac6da6145db4740ba12bd413fe9cdaa39}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_ABORT@{SCS\_ABORT}}
+\index{SCS\_ABORT@{SCS\_ABORT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_ABORT}{SCS\_ABORT}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+A\+B\+O\+RT~4}
+
+
+
+Definition at line 54 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad81f559b48362b55581547cf9ac1d04f}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad81f559b48362b55581547cf9ac1d04f}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_DOWNLOAD\_BLOCK@{SCS\_DOWNLOAD\_BLOCK}}
+\index{SCS\_DOWNLOAD\_BLOCK@{SCS\_DOWNLOAD\_BLOCK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_DOWNLOAD\_BLOCK}{SCS\_DOWNLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~5}
+
+
+
+Definition at line 56 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a01339e22df443941f3a3ecfb949bb497}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a01339e22df443941f3a3ecfb949bb497}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_DOWNLOAD\_INITIATED@{SCS\_DOWNLOAD\_INITIATED}}
+\index{SCS\_DOWNLOAD\_INITIATED@{SCS\_DOWNLOAD\_INITIATED}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_DOWNLOAD\_INITIATED}{SCS\_DOWNLOAD\_INITIATED}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+ED~3}
+
+
+
+Definition at line 51 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a135b546aab0a0611a91e129e93f3984c}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a135b546aab0a0611a91e129e93f3984c}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_DOWNLOAD\_SEGMENT@{SCS\_DOWNLOAD\_SEGMENT}}
+\index{SCS\_DOWNLOAD\_SEGMENT@{SCS\_DOWNLOAD\_SEGMENT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_DOWNLOAD\_SEGMENT}{SCS\_DOWNLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~1}
+
+
+
+Definition at line 52 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5aec99d8b473b15fe28d662b68575d1e}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5aec99d8b473b15fe28d662b68575d1e}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_UPLOAD\_BLOCK@{SCS\_UPLOAD\_BLOCK}}
+\index{SCS\_UPLOAD\_BLOCK@{SCS\_UPLOAD\_BLOCK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_UPLOAD\_BLOCK}{SCS\_UPLOAD\_BLOCK}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+CK~6}
+
+
+
+Definition at line 57 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a13819590c06e5b62020deedea0ac6127}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a13819590c06e5b62020deedea0ac6127}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_UPLOAD\_INITIATE@{SCS\_UPLOAD\_INITIATE}}
+\index{SCS\_UPLOAD\_INITIATE@{SCS\_UPLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_UPLOAD\_INITIATE}{SCS\_UPLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~2}
+
+
+
+Definition at line 48 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a48ee3eb24e644aa8bd224e591ca139b6}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a48ee3eb24e644aa8bd224e591ca139b6}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SCS\_UPLOAD\_SEGMENT@{SCS\_UPLOAD\_SEGMENT}}
+\index{SCS\_UPLOAD\_SEGMENT@{SCS\_UPLOAD\_SEGMENT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SCS\_UPLOAD\_SEGMENT}{SCS\_UPLOAD\_SEGMENT}}
+{\footnotesize\ttfamily \#define S\+C\+S\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+S\+E\+G\+M\+E\+NT~0}
+
+
+
+Definition at line 49 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a704c1c8cade68f9e83062bd86cdf6115}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a704c1c8cade68f9e83062bd86cdf6115}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_ABORT@{SDO\_STATE\_ABORT}}
+\index{SDO\_STATE\_ABORT@{SDO\_STATE\_ABORT}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_ABORT}{SDO\_STATE\_ABORT}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+A\+B\+O\+RT~1}
+
+
+
+Definition at line 62 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_abd638f9aeda2138a2a5601567e256613}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_abd638f9aeda2138a2a5601567e256613}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK@{SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK}}
+\index{SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK@{SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK}{SDO\_STATE\_BLOCKDOWNLOAD\_BLOCK\_ACK}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+CK~102}
+
+
+
+Definition at line 77 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a0866f1bc8b924ad1805302a7591e97ca}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a0866f1bc8b924ad1805302a7591e97ca}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKDOWNLOAD\_CRC@{SDO\_STATE\_BLOCKDOWNLOAD\_CRC}}
+\index{SDO\_STATE\_BLOCKDOWNLOAD\_CRC@{SDO\_STATE\_BLOCKDOWNLOAD\_CRC}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKDOWNLOAD\_CRC}{SDO\_STATE\_BLOCKDOWNLOAD\_CRC}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+C\+RC~103}
+
+
+
+Definition at line 78 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a68fea0d4b86ff160fd9c286a0c5fd675}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a68fea0d4b86ff160fd9c286a0c5fd675}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK@{SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK}}
+\index{SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK@{SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK}{SDO\_STATE\_BLOCKDOWNLOAD\_CRC\_ACK}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+C\+R\+C\+\_\+\+A\+CK~104}
+
+
+
+Definition at line 79 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a9be7db3baa10b649e1f3d89058cc998a}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a9be7db3baa10b649e1f3d89058cc998a}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE@{SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE}}
+\index{SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE@{SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE}{SDO\_STATE\_BLOCKDOWNLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~100}
+
+
+
+Definition at line 75 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a84bae8b00171bc3201b964510b09d4df}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a84bae8b00171bc3201b964510b09d4df}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES@{SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES}}
+\index{SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES@{SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES}{SDO\_STATE\_BLOCKDOWNLOAD\_INPROGRES}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+P\+R\+O\+G\+R\+ES~101}
+
+
+
+Definition at line 76 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a81c14d6b7ca23cc79753318057218733}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a81c14d6b7ca23cc79753318057218733}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK}{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+CK~204}
+
+
+
+Definition at line 86 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad7ae4c86bf9c63bfb32287336f37bea4}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad7ae4c86bf9c63bfb32287336f37bea4}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST}{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_ACK\_LAST}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+A\+C\+K\+\_\+\+L\+A\+ST~205}
+
+
+
+Definition at line 87 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a7f18bb5e4fe64b45e3eefed3afb503f5}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a7f18bb5e4fe64b45e3eefed3afb503f5}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC}{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_CRC}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+C\+RC~206}
+
+
+
+Definition at line 88 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3fd0db8a8b5fe757025bccef2782323e}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3fd0db8a8b5fe757025bccef2782323e}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END@{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END}{SDO\_STATE\_BLOCKUPLOAD\_BLOCK\_END}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+B\+L\+O\+C\+K\+\_\+\+E\+ND~207}
+
+
+
+Definition at line 89 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a46b0adc11def2c76e1616e6a10a9a284}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a46b0adc11def2c76e1616e6a10a9a284}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_INITIATE@{SDO\_STATE\_BLOCKUPLOAD\_INITIATE}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_INITIATE@{SDO\_STATE\_BLOCKUPLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_INITIATE}{SDO\_STATE\_BLOCKUPLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~200}
+
+
+
+Definition at line 82 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b16f2957c47cef9ba1150ee57c9b856}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b16f2957c47cef9ba1150ee57c9b856}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK@{SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK@{SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK}{SDO\_STATE\_BLOCKUPLOAD\_INITIATE\_ACK}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+E\+\_\+\+A\+CK~201}
+
+
+
+Definition at line 83 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ae0f43b4b66fc0592cfcb2266e161dff2}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ae0f43b4b66fc0592cfcb2266e161dff2}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_INPROGRES@{SDO\_STATE\_BLOCKUPLOAD\_INPROGRES}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_INPROGRES@{SDO\_STATE\_BLOCKUPLOAD\_INPROGRES}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_INPROGRES}{SDO\_STATE\_BLOCKUPLOAD\_INPROGRES}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+P\+R\+O\+G\+R\+ES~202}
+
+
+
+Definition at line 84 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a44d39bcbe835ee9383c1595b02e4ffb8}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a44d39bcbe835ee9383c1595b02e4ffb8}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_BLOCKUPLOAD\_SUB\_END@{SDO\_STATE\_BLOCKUPLOAD\_SUB\_END}}
+\index{SDO\_STATE\_BLOCKUPLOAD\_SUB\_END@{SDO\_STATE\_BLOCKUPLOAD\_SUB\_END}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_BLOCKUPLOAD\_SUB\_END}{SDO\_STATE\_BLOCKUPLOAD\_SUB\_END}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+B\+L\+O\+C\+K\+U\+P\+L\+O\+A\+D\+\_\+\+S\+U\+B\+\_\+\+E\+ND~203}
+
+
+
+Definition at line 85 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06a49e9c81f2cc8a5c1b4835eeb6e184}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06a49e9c81f2cc8a5c1b4835eeb6e184}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_DOWNLOAD\_INITIATE@{SDO\_STATE\_DOWNLOAD\_INITIATE}}
+\index{SDO\_STATE\_DOWNLOAD\_INITIATE@{SDO\_STATE\_DOWNLOAD\_INITIATE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_DOWNLOAD\_INITIATE}{SDO\_STATE\_DOWNLOAD\_INITIATE}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+TE~10}
+
+
+
+Definition at line 65 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab35fa3a7ab4f8c7bd7b25184d5387045}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ab35fa3a7ab4f8c7bd7b25184d5387045}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_DOWNLOAD\_REQUEST@{SDO\_STATE\_DOWNLOAD\_REQUEST}}
+\index{SDO\_STATE\_DOWNLOAD\_REQUEST@{SDO\_STATE\_DOWNLOAD\_REQUEST}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_DOWNLOAD\_REQUEST}{SDO\_STATE\_DOWNLOAD\_REQUEST}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST~11}
+
+
+
+Definition at line 66 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a6cd7debc551f7c9ec6da8753686d3cd4}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a6cd7debc551f7c9ec6da8753686d3cd4}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_DOWNLOAD\_RESPONSE@{SDO\_STATE\_DOWNLOAD\_RESPONSE}}
+\index{SDO\_STATE\_DOWNLOAD\_RESPONSE@{SDO\_STATE\_DOWNLOAD\_RESPONSE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_DOWNLOAD\_RESPONSE}{SDO\_STATE\_DOWNLOAD\_RESPONSE}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+D\+O\+W\+N\+L\+O\+A\+D\+\_\+\+R\+E\+S\+P\+O\+N\+SE~12}
+
+
+
+Definition at line 67 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06b90c620bb79ddf5033e52f1c8ea074}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a06b90c620bb79ddf5033e52f1c8ea074}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_NOTDEFINED@{SDO\_STATE\_NOTDEFINED}}
+\index{SDO\_STATE\_NOTDEFINED@{SDO\_STATE\_NOTDEFINED}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_NOTDEFINED}{SDO\_STATE\_NOTDEFINED}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+N\+O\+T\+D\+E\+F\+I\+N\+ED~0}
+
+
+
+Definition at line 61 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad999b9aca00251e917911b68835c6c99}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_ad999b9aca00251e917911b68835c6c99}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_UPLOAD\_INITIATED@{SDO\_STATE\_UPLOAD\_INITIATED}}
+\index{SDO\_STATE\_UPLOAD\_INITIATED@{SDO\_STATE\_UPLOAD\_INITIATED}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_UPLOAD\_INITIATED}{SDO\_STATE\_UPLOAD\_INITIATED}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+I\+N\+I\+T\+I\+A\+T\+ED~20}
+
+
+
+Definition at line 70 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3cb08eaa73b85d8be9ae4016386656e2}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a3cb08eaa73b85d8be9ae4016386656e2}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_UPLOAD\_REQUEST@{SDO\_STATE\_UPLOAD\_REQUEST}}
+\index{SDO\_STATE\_UPLOAD\_REQUEST@{SDO\_STATE\_UPLOAD\_REQUEST}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_UPLOAD\_REQUEST}{SDO\_STATE\_UPLOAD\_REQUEST}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+R\+E\+Q\+U\+E\+ST~21}
+
+
+
+Definition at line 71 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b6966b6a6cafdeb61d56860e0fe133d}\label{_references_2_c_a_n___files_2_c_o___s_d_omaster_8c_a5b6966b6a6cafdeb61d56860e0fe133d}} 
+\index{CO\_SDOmaster.c@{CO\_SDOmaster.c}!SDO\_STATE\_UPLOAD\_RESPONSE@{SDO\_STATE\_UPLOAD\_RESPONSE}}
+\index{SDO\_STATE\_UPLOAD\_RESPONSE@{SDO\_STATE\_UPLOAD\_RESPONSE}!CO\_SDOmaster.c@{CO\_SDOmaster.c}}
+\doxysubsubsection{\texorpdfstring{SDO\_STATE\_UPLOAD\_RESPONSE}{SDO\_STATE\_UPLOAD\_RESPONSE}}
+{\footnotesize\ttfamily \#define S\+D\+O\+\_\+\+S\+T\+A\+T\+E\+\_\+\+U\+P\+L\+O\+A\+D\+\_\+\+R\+E\+S\+P\+O\+N\+SE~22}
+
+
+
+Definition at line 72 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+

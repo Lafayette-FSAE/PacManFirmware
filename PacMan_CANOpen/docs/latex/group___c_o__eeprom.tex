@@ -1,0 +1,99 @@
+\hypertarget{group___c_o__eeprom}{}\doxysection{Nonvolatile storage}
+\label{group___c_o__eeprom}\index{Nonvolatile storage@{Nonvolatile storage}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{eeprom_8h}{eeprom.\+h}}
+\item 
+file \mbox{\hyperlink{eeprom_8h}{eeprom.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__eeprom_ga4b797a6385a4b108051d0985bfabe215}{C\+O\+\_\+\+E\+E\+\_\+init\+\_\+1}} (\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$ee, uint8\+\_\+t $\ast$O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Address, uint32\+\_\+t O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Size, uint8\+\_\+t $\ast$O\+D\+\_\+\+R\+O\+M\+Address, uint32\+\_\+t O\+D\+\_\+\+R\+O\+M\+Size)
+\item 
+void \mbox{\hyperlink{group___c_o__eeprom_gaed0fd50a6a5e4265709d814389288fb9}{C\+O\+\_\+\+E\+E\+\_\+init\+\_\+2}} (\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$ee, \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} ee\+Status, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em)
+\item 
+void \mbox{\hyperlink{group___c_o__eeprom_ga7372082da3852c94e9ab3a71b5f2ede5}{C\+O\+\_\+\+E\+E\+\_\+process}} (\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$ee)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Storage of nonvolatile C\+A\+Nopen variables into the eeprom. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o__eeprom_ga4b797a6385a4b108051d0985bfabe215}\label{group___c_o__eeprom_ga4b797a6385a4b108051d0985bfabe215}} 
+\index{Nonvolatile storage@{Nonvolatile storage}!CO\_EE\_init\_1@{CO\_EE\_init\_1}}
+\index{CO\_EE\_init\_1@{CO\_EE\_init\_1}!Nonvolatile storage@{Nonvolatile storage}}
+\doxysubsubsection{\texorpdfstring{CO\_EE\_init\_1()}{CO\_EE\_init\_1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+E\+E\+\_\+init\+\_\+1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$}]{ee,  }\item[{uint8\+\_\+t $\ast$}]{O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Address,  }\item[{uint32\+\_\+t}]{O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Size,  }\item[{uint8\+\_\+t $\ast$}]{O\+D\+\_\+\+R\+O\+M\+Address,  }\item[{uint32\+\_\+t}]{O\+D\+\_\+\+R\+O\+M\+Size }\end{DoxyParamCaption})}
+
+First part of eeprom initialization. Called after microcontroller reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ee} & This object will be initialized. \\
+\hline
+{\em O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Address} & Address of O\+D\+\_\+\+E\+E\+P\+R\+OM structure from object dictionary. \\
+\hline
+{\em O\+D\+\_\+\+E\+E\+P\+R\+O\+M\+Size} & Size of O\+D\+\_\+\+E\+E\+P\+R\+OM structure from object dictionary. \\
+\hline
+{\em O\+D\+\_\+\+R\+O\+M\+Address} & Address of O\+D\+\_\+\+R\+OM structure from object dictionary. \\
+\hline
+{\em O\+D\+\_\+\+R\+O\+M\+Size} & Size of O\+D\+\_\+\+R\+OM structure from object dictionary.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+D\+A\+T\+A\+\_\+\+C\+O\+R\+R\+U\+PT (Data in eeprom corrupt) or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+C\+RC (C\+RC from M\+BR does not match the C\+RC of O\+D\+\_\+\+R\+OM block in eeprom). 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file eeprom.\+c.
+
+\mbox{\Hypertarget{group___c_o__eeprom_gaed0fd50a6a5e4265709d814389288fb9}\label{group___c_o__eeprom_gaed0fd50a6a5e4265709d814389288fb9}} 
+\index{Nonvolatile storage@{Nonvolatile storage}!CO\_EE\_init\_2@{CO\_EE\_init\_2}}
+\index{CO\_EE\_init\_2@{CO\_EE\_init\_2}!Nonvolatile storage@{Nonvolatile storage}}
+\doxysubsubsection{\texorpdfstring{CO\_EE\_init\_2()}{CO\_EE\_init\_2()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+E\+E\+\_\+init\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$}]{ee,  }\item[{\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}}]{ee\+Status,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em }\end{DoxyParamCaption})}
+
+Second part of eeprom initialization. Called after C\+A\+Nopen communication reset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ee} & -\/ This object. \\
+\hline
+{\em ee\+Status} & -\/ Return value from \mbox{\hyperlink{group___c_o__eeprom_ga4b797a6385a4b108051d0985bfabe215}{C\+O\+\_\+\+E\+E\+\_\+init\+\_\+1()}}. \\
+\hline
+{\em S\+DO} & -\/ S\+DO object. \\
+\hline
+{\em em} & -\/ Emergency object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file eeprom.\+c.
+
+\mbox{\Hypertarget{group___c_o__eeprom_ga7372082da3852c94e9ab3a71b5f2ede5}\label{group___c_o__eeprom_ga7372082da3852c94e9ab3a71b5f2ede5}} 
+\index{Nonvolatile storage@{Nonvolatile storage}!CO\_EE\_process@{CO\_EE\_process}}
+\index{CO\_EE\_process@{CO\_EE\_process}!Nonvolatile storage@{Nonvolatile storage}}
+\doxysubsubsection{\texorpdfstring{CO\_EE\_process()}{CO\_EE\_process()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+E\+E\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_e__t}{C\+O\+\_\+\+E\+E\+\_\+t}} $\ast$}]{ee }\end{DoxyParamCaption})}
+
+Process eeprom object.
+
+Function must be called cyclically. It strores variables from O\+D\+\_\+\+E\+E\+P\+R\+OM data block into eeprom byte by byte (only if values are different).
+
+
+\begin{DoxyParams}{Parameters}
+{\em ee} & This object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file eeprom.\+c.
+

@@ -1,0 +1,148 @@
+\hypertarget{class_g_f_xcanvas1}{}\doxysection{G\+F\+Xcanvas1 Class Reference}
+\label{class_g_f_xcanvas1}\index{GFXcanvas1@{GFXcanvas1}}
+
+
+A G\+FX 1-\/bit canvas context for graphics.  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+G\+F\+X.\+h$>$}
+
+Inheritance diagram for G\+F\+Xcanvas1\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_xcanvas1}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_f_xcanvas1_a3d8047501178f976fb6af095572eb5d0}{G\+F\+Xcanvas1}} (uint16\+\_\+t w, uint16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Instatiate a G\+FX 1-\/bit canvas context for graphics. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_f_xcanvas1_a5c6dad65db4c9a99544f3b5bad4c86e8}{$\sim$\+G\+F\+Xcanvas1}} (void)
+\begin{DoxyCompactList}\small\item\em Delete the canvas, free memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas1_a0859d124c8dcaa147ef22a54d6e843a8}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a pixel to the canvas framebuffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas1_aa282792bbb854a4a045be5ba1c8a7afc}{fill\+Screen}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill the framebuffer completely with one color. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{class_g_f_xcanvas1_a600a4aca735d657230b37a5486be6f47}{get\+Buffer}} (void) const
+\begin{DoxyCompactList}\small\item\em Get a pointer to the internal buffer memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A G\+FX 1-\/bit canvas context for graphics. 
+
+Definition at line 296 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas1_a3d8047501178f976fb6af095572eb5d0}\label{class_g_f_xcanvas1_a3d8047501178f976fb6af095572eb5d0}} 
+\index{GFXcanvas1@{GFXcanvas1}!GFXcanvas1@{GFXcanvas1}}
+\index{GFXcanvas1@{GFXcanvas1}!GFXcanvas1@{GFXcanvas1}}
+\doxysubsubsection{\texorpdfstring{GFXcanvas1()}{GFXcanvas1()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas1\+::\+G\+F\+Xcanvas1 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Instatiate a G\+FX 1-\/bit canvas context for graphics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width, in pixels \\
+\hline
+{\em h} & Display height, in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1666 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas1_a5c6dad65db4c9a99544f3b5bad4c86e8}\label{class_g_f_xcanvas1_a5c6dad65db4c9a99544f3b5bad4c86e8}} 
+\index{GFXcanvas1@{GFXcanvas1}!````~GFXcanvas1@{$\sim$GFXcanvas1}}
+\index{````~GFXcanvas1@{$\sim$GFXcanvas1}!GFXcanvas1@{GFXcanvas1}}
+\doxysubsubsection{\texorpdfstring{$\sim$GFXcanvas1()}{~GFXcanvas1()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas1\+::$\sim$\+G\+F\+Xcanvas1 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Delete the canvas, free memory. 
+
+
+
+Definition at line 1678 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas1_a0859d124c8dcaa147ef22a54d6e843a8}\label{class_g_f_xcanvas1_a0859d124c8dcaa147ef22a54d6e843a8}} 
+\index{GFXcanvas1@{GFXcanvas1}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!GFXcanvas1@{GFXcanvas1}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas1\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a pixel to the canvas framebuffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1690 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas1_aa282792bbb854a4a045be5ba1c8a7afc}\label{class_g_f_xcanvas1_aa282792bbb854a4a045be5ba1c8a7afc}} 
+\index{GFXcanvas1@{GFXcanvas1}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!GFXcanvas1@{GFXcanvas1}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas1\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill the framebuffer completely with one color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1736 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas1_a600a4aca735d657230b37a5486be6f47}\label{class_g_f_xcanvas1_a600a4aca735d657230b37a5486be6f47}} 
+\index{GFXcanvas1@{GFXcanvas1}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!GFXcanvas1@{GFXcanvas1}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ G\+F\+Xcanvas1\+::get\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a pointer to the internal buffer memory. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated buffer 
+\end{DoxyReturn}
+
+
+Definition at line 308 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8h}{Adafruit\+\_\+\+G\+F\+X.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8cpp}{Adafruit\+\_\+\+G\+F\+X.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,171 @@
+C\+A\+Nopen\+Node is free and open source C\+A\+Nopen Stack.
+
+C\+A\+Nopen is the internationally standardized (EN 50325-\/4) (\href{http://can-cia.org/standardization/technical-documents}{\texttt{ Ci\+A301}}) C\+A\+N-\/based higher-\/layer protocol for embedded control system. For more information on C\+A\+Nopen see \href{http://www.can-cia.org/}{\texttt{ http\+://www.\+can-\/cia.\+org/}}
+
+C\+A\+Nopen\+Node is written in A\+N\+SI C in object-\/oriented way. It runs on different microcontrollers, as standalone application or with R\+T\+OS. Stack includes master functionalities. For Linux implementation with C\+A\+Nopen master functionalities see \href{https://github.com/CANopenNode/CANopenSocket}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Socket}}.
+
+Variables (communication, device, custom) are ordered in C\+A\+Nopen Object Dictionary and are accessible from both\+: C code and from C\+AN network.
+
+C\+A\+Nopen\+Node homepage is \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}}\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysection{C\+A\+Nopen Features}\label{md__r_e_a_d_m_e_autotoc_md33}
+
+\begin{DoxyItemize}
+\item N\+MT slave to start, stop, reset device. Simple N\+MT master.
+\item Heartbeat producer/consumer error control.
+\item P\+DO linking and dynamic mapping for fast exchange of process variables.
+\item S\+DO expedited, segmented and block transfer for service access to all parameters.
+\item S\+DO master.
+\item Emergency message.
+\item Sync producer/consumer.
+\item Time protocol (producer/consumer).
+\item Non-\/volatile storage.
+\item L\+SS master and slave, L\+SS fastscan
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md34}{}\doxysubsection{R\+TR}\label{md__r_e_a_d_m_e_autotoc_md34}
+R\+TR (remote transmission request) is a feature of C\+AN bus. Usage of R\+TR is not recommended for C\+A\+Nopen and it is not implemented in C\+A\+Nopen\+Node.\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysubsection{Self start}\label{md__r_e_a_d_m_e_autotoc_md35}
+Object {\bfseries{0x1\+F80}} from Object Dictionary enables the N\+MT slaves to start automatically or allows it to start the whole network. It is specified in D\+S\+P302-\/2 standard. Standard allows two values for slaves for object 0x1\+F80\+:
+\begin{DoxyItemize}
+\item Object 0x1\+F80, value = {\bfseries{0x8}} -\/ \char`\"{}\+N\+M\+T slave shall enter the N\+M\+T state
+  Operational after the N\+M\+T state Initialization autonomously (self starting)\char`\"{}
+\item Object 0x1\+F80, value = {\bfseries{0x2}} -\/ \char`\"{}\+N\+M\+T slave shall execute the N\+M\+T service
+  start remote node with node-\/\+I\+D set to 0\char`\"{}
+\end{DoxyItemize}
+
+Note\+: When node is stated (in N\+MT operational state), it is allowed to send or receive Process Data Objects (P\+DO). If Error Register (object 0x1001) is set, then N\+MT operational state is not allowed.\hypertarget{md__r_e_a_d_m_e_autotoc_md36}{}\doxysection{Usage of the C\+A\+Nopen\+Node}\label{md__r_e_a_d_m_e_autotoc_md36}
+C\+A\+Nopen\+Node itself doesn\textquotesingle{}t have complete working code for any microcontroller. It is only the library with the stack It has example, which should compile on any system with template driver (drv\+Template), which actually doesn\textquotesingle{}t access C\+AN hardware. C\+A\+Nopen\+Node should be used as a git submodule included in a project with specific hardware and specific application.\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxysection{Documentation, support and contributions}\label{md__r_e_a_d_m_e_autotoc_md37}
+Code is documented in header files. Running \href{http://www.doxygen.nl/}{\texttt{ doxygen}} or {\ttfamily make doc} in project base folder will produce complete html documentation. Just open C\+A\+Nopen\+Node/doc/html/index.\+html in browser.
+
+Report issues on \href{https://github.com/CANopenNode/CANopenNode/issues}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node/issues}}
+
+Older and still active discussion group is on Sourceforge \href{http://sourceforge.net/p/canopennode/discussion/387151/}{\texttt{ http\+://sourceforge.\+net/p/canopennode/discussion/387151/}}
+
+For some implementations of C\+A\+Nopen\+Node on real hardware see \href{\#device-support}{\texttt{ Device support}} section. \href{https://github.com/CANopenNode/CANopenSocket}{\texttt{ C\+A\+Nopen\+Socket}} is nice implementation for Linux devices. It includes command line interface for master access of the C\+A\+Nopen network. There is also some Getting started.
+
+Contributions are welcome. Best way to contribute your code is to fork a project, modify it and then send a pull request. Some basic formatting rules should be followed\+: Linux style with indentation of 4 spaces. There is also a configuration file for {\ttfamily clang-\/format} tool.\hypertarget{md__r_e_a_d_m_e_autotoc_md38}{}\doxysection{Flowchart of a typical C\+A\+Nopen\+Node implementation}\label{md__r_e_a_d_m_e_autotoc_md38}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                           |     Program start     |}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                                       |}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                           |     CANopen init      |}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                                       |}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                           |     Start threads     |}
+\DoxyCodeLine{                            -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{                                 |     |     |}
+\DoxyCodeLine{             -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/      |      -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{            |                          |                          |}
+\DoxyCodeLine{ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/    -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/    -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{| CAN receive thread    |  | Timer interval thread |  | Mainline thread       |}
+\DoxyCodeLine{|                       |  |                       |  |                       |}
+\DoxyCodeLine{| -\/ Fast response.      |  | -\/ Realtime thread with|  | -\/ Processing of time  |}
+\DoxyCodeLine{| -\/ Detect CAN ID.      |  |   constant interval,  |  |   consuming tasks     |}
+\DoxyCodeLine{| -\/ Partially process   |  |   typically 1ms.      |  |   in CANopen objects: |}
+\DoxyCodeLine{|   messages and copy   |  | -\/ Network synchronized|  |    -\/ SDO server,      |}
+\DoxyCodeLine{|   data to target      |  | -\/ Copy inputs (RPDOs, |  |    -\/ Emergency,       |}
+\DoxyCodeLine{|   CANopen objects.    |  |   HW) to Object Dict. |  |    -\/ Network state,   |}
+\DoxyCodeLine{|                       |  | -\/ May call application|  |    -\/ Heartbeat.       |}
+\DoxyCodeLine{|                       |  |   for some processing.|  | -\/ May cyclically call |}
+\DoxyCodeLine{|                       |  | -\/ Copy variables from |  |   application code.   |}
+\DoxyCodeLine{|                       |  |   Object Dictionary to|  |                       |}
+\DoxyCodeLine{|                       |  |   outputs (TPDOs, HW).|  |                       |}
+\DoxyCodeLine{ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/    -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/    -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{              -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{             | SDO client (optional) |}
+\DoxyCodeLine{             |                       |}
+\DoxyCodeLine{             | -\/ Can be called by    |}
+\DoxyCodeLine{             |   external application|}
+\DoxyCodeLine{             | -\/ Can read or write   |}
+\DoxyCodeLine{             |   any variable from   |}
+\DoxyCodeLine{             |   Object Dictionary   |}
+\DoxyCodeLine{             |   from any node in the|}
+\DoxyCodeLine{             |   CANopen network.    |}
+\DoxyCodeLine{              -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{              -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{             | LSS client (optional) |}
+\DoxyCodeLine{             |                       |}
+\DoxyCodeLine{             | -\/ Can be called by    |}
+\DoxyCodeLine{             |   external application|}
+\DoxyCodeLine{             | -\/ Can do LSS requests |}
+\DoxyCodeLine{             | -\/ Can request node    |}
+\DoxyCodeLine{             |   enumeration         |}
+\DoxyCodeLine{              -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysection{File structure}\label{md__r_e_a_d_m_e_autotoc_md39}
+
+\begin{DoxyItemize}
+\item {\bfseries{C\+A\+Nopen.\+h/.c}} -\/ Initialization and processing of C\+A\+Nopen objects. Most usual implementation of C\+A\+Nopen device.
+\item {\bfseries{stack}} -\/ Directory with all C\+A\+Nopen objects in separate files.
+\begin{DoxyItemize}
+\item {\bfseries{C\+O\+\_\+\+Emergency.\+h/.c}} -\/ C\+A\+Nopen Emergency object.
+\item {\bfseries{C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h/.c}} -\/ C\+A\+Nopen Network slave and Heartbeat producer object.
+\item {\bfseries{C\+O\+\_\+\+H\+Bconsumer.\+h/.c}} -\/ C\+A\+Nopen Heartbeat consumer object.
+\item {\bfseries{C\+O\+\_\+\+L\+S\+S.\+h}} -\/ C\+A\+Nopen L\+SS common. This is common to L\+SS master and slave.
+\item {\bfseries{C\+O\+\_\+\+L\+S\+Smaster.\+h/.c}} -\/ C\+A\+Nopen L\+SS master functionality.
+\item {\bfseries{C\+O\+\_\+\+L\+S\+Sslave.\+h/.c}} -\/ C\+A\+Nopen L\+SS slave functionality.
+\item {\bfseries{C\+O\+\_\+\+S\+Y\+N\+C.\+h/.c}} -\/ C\+A\+Nopen S\+Y\+NC producer and consumer object.
+\item {\bfseries{C\+O\+\_\+\+T\+I\+M\+E.\+h/.c}} -\/ C\+A\+Nopen T\+I\+ME protocol object.
+\item {\bfseries{C\+O\+\_\+\+S\+D\+O.\+h/.c}} -\/ C\+A\+Nopen S\+DO server object. It serves data from Object dictionary.
+\item {\bfseries{C\+O\+\_\+\+P\+D\+O.\+h/.c}} -\/ C\+A\+Nopen P\+DO object. It configures, receives and transmits C\+A\+Nopen process data.
+\item {\bfseries{C\+O\+\_\+\+S\+D\+Omaster.\+h/.c}} -\/ C\+A\+Nopen S\+DO client object (master functionality).
+\item {\bfseries{C\+O\+\_\+trace.\+h/.c}} -\/ Trace object with timestamp for monitoring variables from Object Dictionary (optional).
+\item {\bfseries{crc16-\/ccitt.\+h/.c}} -\/ C\+RC calculation object.
+\item {\bfseries{drv\+Template}} -\/ Directory with microcontroller specific files. In this case it is template for new implementations. It is also documented, other directories are not.
+\begin{DoxyItemize}
+\item {\bfseries{C\+O\+\_\+driver.\+h/.c}} -\/ Microcontroller specific objects for C\+AN module.
+\item {\bfseries{\mbox{\hyperlink{eeprom_8h}{eeprom.\+h}}/.c}} -\/ Functions for storage of Object dictionary, optional.
+\item {\bfseries{helpers.\+h/.c}} -\/ Some optional files with specific helper functions.
+\end{DoxyItemize}
+\item {\bfseries{socket\+C\+AN}} -\/ Directory for Linux socket\+C\+AN interface.
+\item {\bfseries{P\+I\+C32}} -\/ Directory for P\+I\+C32 devices from Microchip.
+\item {\bfseries{P\+I\+C24\+\_\+ds\+P\+I\+C33}} -\/ Directory for P\+I\+C24 and ds\+P\+I\+C33 devices from Microchip.
+\item {\bfseries{ds\+P\+I\+C30F}} -\/ Directory for ds\+P\+I\+C30F devices from Microchip.
+\item {\bfseries{e\+Cos}} -\/ Directory for all devices supported by e\+Cos R\+T\+OS.
+\item {\bfseries{S\+A\+M3X}} -\/ Directory for S\+A\+M3X A\+RM Cortex M3 devices with A\+SF library from Atmel.
+\item {\bfseries{S\+T\+M32}} -\/ Directory for S\+T\+M32 A\+RM devices from ST.
+\item {\bfseries{L\+P\+C177x\+\_\+8x}} -\/ Directory for L\+P\+C177x (Cortex M3) devices with Free\+R\+T\+OS from N\+XP.
+\item {\bfseries{M\+C\+F5282}} -\/ Directory for M\+C\+F5282 (Cold\+Fire V2) device from Freescale.
+\end{DoxyItemize}
+\item {\bfseries{coding\+Style}} -\/ Description of the coding style.
+\item {\bfseries{Doxyfile}} -\/ Configuration file for the documentation generator {\itshape doxygen}.
+\item {\bfseries{Makefile}} -\/ Basic makefile.
+\item {\bfseries{L\+I\+C\+E\+N\+SE}} -\/ License.
+\item {\bfseries{\mbox{\hyperlink{_r_e_a_d_m_e_8md}{R\+E\+A\+D\+M\+E.\+md}}}} -\/ This file.
+\item {\bfseries{example}} -\/ Directory with basic example.
+\begin{DoxyItemize}
+\item {\bfseries{main.\+c}} -\/ Mainline and other threads -\/ example template.
+\item {\bfseries{application.\+h/.c}} -\/ Separate file with some functions, which are called from main.\+c. May be used for application specific code.
+\item {\bfseries{C\+O\+\_\+\+O\+D.\+h/.c}} -\/ C\+A\+Nopen Object dictionary. Automatically generated files.
+\item {\bfseries{I\+O.\+eds}} -\/ Standard C\+A\+Nopen E\+DS file, which may be used from C\+A\+Nopen configuration tool. Automatically generated file.
+\item \+\_\+ {\bfseries{project.\+xml}} -\/ X\+ML file contains all data for C\+A\+Nopen Object dictionary. It is used by {\itshape Object dictionary editor} application, which generates other files.
+\item \+\_\+ {\bfseries{project.\+html}} -\/ {\itshape Object dictionary editor} launcher.
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md40}{}\doxysubsection{Object dictionary editor}\label{md__r_e_a_d_m_e_autotoc_md40}
+Object Dictionary is one of the most important parts of C\+A\+Nopen. Its implementation in C\+A\+Nopen\+Node is quite outdated and there are efforts to rewrite it. Anyway, currently it is fully operational and works well.
+
+To customize the Object Dictionary it is necessary to use the external application. There are two\+:
+\begin{DoxyItemize}
+\item \href{https://github.com/robincornelius/libedssharp}{\texttt{ libedssharp}} -\/ recommended, can be used with mono.
+\item \href{http://sourceforge.net/p/canopennode/code_complete/}{\texttt{ Object\+\_\+\+Dictionary\+\_\+\+Editor}} -\/ originally part of C\+A\+Nopen\+Node. It is still operational, but requiers very old version of Firefox to run.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxysection{Device support}\label{md__r_e_a_d_m_e_autotoc_md41}
+C\+A\+Nopen\+Node can be implemented on many different devices. It is necessary to implement interface to specific hardware, so called \textquotesingle{}driver\textquotesingle{}. Currently driver files are part of C\+A\+Nopen\+Node, but they will be split from it in the future.
+
+Most up to date information on device support can be found on \href{https://github.com/CANopenNode/CANopenNode/wiki}{\texttt{ C\+A\+Nopen\+Node/wiki}}.\hypertarget{md__r_e_a_d_m_e_autotoc_md42}{}\doxysubsection{Note for contributors}\label{md__r_e_a_d_m_e_autotoc_md42}
+For the driver developers, who wish to share and cooperate, I recommend the following approach\+:
+\begin{DoxyEnumerate}
+\item Make own git repo for the Device specific demo project on the Github or somewhere.
+\item Add \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}} into your project (or at side of your project). For example, include it in your project as a git submodule\+: {\ttfamily git submodule add \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}}}
+\item Add specific driver and other files.
+\item {\bfseries{Add a note}} about your specific implementation here on \href{https://github.com/CANopenNode/CANopenNode/wiki}{\texttt{ C\+A\+Nopen\+Node/wiki}} with some basic description and status. Write a note, even it has an Alpha status.
+\item Make a demo folder, which contains project files, etc., necessary to run the demo.
+\item Write a good \mbox{\hyperlink{_r_e_a_d_m_e_8md}{R\+E\+A\+D\+M\+E.\+md}} file, where you describe your project, specify demo board, tools used, etc.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md43}{}\doxysection{History of the project}\label{md__r_e_a_d_m_e_autotoc_md43}
+Project was initially hosted on \href{http://sourceforge.net/projects/canopennode/}{\texttt{ http\+://sourceforge.\+net/projects/canopennode/}} It started in 2004 with P\+I\+C18F microcontrollers from Microchip. Fresh, cleaned repository of C\+A\+Nopen\+Node stack started on 25.\+7.\+2015. For older history see \href{http://sourceforge.net/p/canopennode/code_complete/}{\texttt{ http\+://sourceforge.\+net/p/canopennode/code\+\_\+complete/}}\hypertarget{md__r_e_a_d_m_e_autotoc_md44}{}\doxysection{License}\label{md__r_e_a_d_m_e_autotoc_md44}
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+\href{http://www.apache.org/licenses/LICENSE-2.0}{\texttt{ http\+://www.\+apache.\+org/licenses/\+L\+I\+C\+E\+N\+S\+E-\/2.\+0}}
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 

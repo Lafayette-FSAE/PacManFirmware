@@ -1,0 +1,66 @@
+\hypertarget{_references_2_c_a_n___files_2_c_o___emergency_8c}{}\doxysection{References/\+C\+A\+N\+\_\+\+Files/\+C\+O\+\_\+\+Emergency.c File Reference}
+\label{_references_2_c_a_n___files_2_c_o___emergency_8c}\index{References/CAN\_Files/CO\_Emergency.c@{References/CAN\_Files/CO\_Emergency.c}}
+{\ttfamily \#include \char`\"{}C\+O\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+Emergency.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+A\+Nopen.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___emergency_8c_a7d833d23c88bca06ac52094f1a521e41}{C\+O\+\_\+\+E\+M\+\_\+init}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$em\+Pr, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint8\+\_\+t $\ast$error\+Status\+Bits, uint8\+\_\+t error\+Status\+Bits\+Size, uint8\+\_\+t $\ast$error\+Register, uint32\+\_\+t $\ast$pre\+Def\+Err, uint8\+\_\+t pre\+Def\+Err\+Size, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx, uint16\+\_\+t C\+A\+Nid\+Tx\+EM)
+\item 
+void \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___emergency_8c_abed4b68105e40e7e8da784d6cc53b50c}{C\+O\+\_\+\+E\+M\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, void($\ast$p\+Funct\+Signal)(void))
+\item 
+void \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___emergency_8c_a583245c954327c3cf7f9fdb97854e76b}{C\+O\+\_\+\+E\+M\+\_\+init\+Callback\+Rx}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, void($\ast$p\+Funct\+Signal\+Rx)(const uint16\+\_\+t ident, const uint16\+\_\+t error\+Code, const uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code))
+\item 
+void \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}{C\+O\+\_\+\+E\+M\+\_\+process}} (C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$em\+Pr, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} N\+M\+Tis\+Pre\+Or\+Operational, uint16\+\_\+t time\+Difference\+\_\+100us, uint16\+\_\+t em\+Inh\+Time, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\item 
+void \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit, const uint16\+\_\+t error\+Code, const uint32\+\_\+t info\+Code)
+\item 
+void \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code)
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}{C\+O\+\_\+is\+Error}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___emergency_8c_a7d833d23c88bca06ac52094f1a521e41}\label{_references_2_c_a_n___files_2_c_o___emergency_8c_a7d833d23c88bca06ac52094f1a521e41}} 
+\index{CO\_Emergency.c@{CO\_Emergency.c}!CO\_EM\_init@{CO\_EM\_init}}
+\index{CO\_EM\_init@{CO\_EM\_init}!CO\_Emergency.c@{CO\_Emergency.c}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_init()}{CO\_EM\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+E\+M\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$}]{em\+Pr,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{uint8\+\_\+t $\ast$}]{error\+Status\+Bits,  }\item[{uint8\+\_\+t}]{error\+Status\+Bits\+Size,  }\item[{uint8\+\_\+t $\ast$}]{error\+Register,  }\item[{uint32\+\_\+t $\ast$}]{pre\+Def\+Err,  }\item[{uint8\+\_\+t}]{pre\+Def\+Err\+Size,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Tx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Tx\+Idx,  }\item[{uint16\+\_\+t}]{C\+A\+Nid\+Tx\+EM }\end{DoxyParamCaption})}
+
+
+
+Definition at line 129 of file C\+O\+\_\+\+Emergency.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___emergency_8c_abed4b68105e40e7e8da784d6cc53b50c}\label{_references_2_c_a_n___files_2_c_o___emergency_8c_abed4b68105e40e7e8da784d6cc53b50c}} 
+\index{CO\_Emergency.c@{CO\_Emergency.c}!CO\_EM\_initCallback@{CO\_EM\_initCallback}}
+\index{CO\_EM\_initCallback@{CO\_EM\_initCallback}!CO\_Emergency.c@{CO\_Emergency.c}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_initCallback()}{CO\_EM\_initCallback()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+E\+M\+\_\+init\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{void($\ast$)(void)}]{p\+Funct\+Signal }\end{DoxyParamCaption})}
+
+
+
+Definition at line 205 of file C\+O\+\_\+\+Emergency.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___emergency_8c_a583245c954327c3cf7f9fdb97854e76b}\label{_references_2_c_a_n___files_2_c_o___emergency_8c_a583245c954327c3cf7f9fdb97854e76b}} 
+\index{CO\_Emergency.c@{CO\_Emergency.c}!CO\_EM\_initCallbackRx@{CO\_EM\_initCallbackRx}}
+\index{CO\_EM\_initCallbackRx@{CO\_EM\_initCallbackRx}!CO\_Emergency.c@{CO\_Emergency.c}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_initCallbackRx()}{CO\_EM\_initCallbackRx()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+E\+M\+\_\+init\+Callback\+Rx (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{void($\ast$)(const uint16\+\_\+t ident, const uint16\+\_\+t error\+Code, const uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code)}]{p\+Funct\+Signal\+Rx }\end{DoxyParamCaption})}
+
+
+
+Definition at line 216 of file C\+O\+\_\+\+Emergency.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}\label{_references_2_c_a_n___files_2_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}} 
+\index{CO\_Emergency.c@{CO\_Emergency.c}!CO\_EM\_process@{CO\_EM\_process}}
+\index{CO\_EM\_process@{CO\_EM\_process}!CO\_Emergency.c@{CO\_Emergency.c}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_process()}{CO\_EM\_process()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+E\+M\+\_\+process (\begin{DoxyParamCaption}\item[{C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$}]{em\+Pr,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{N\+M\+Tis\+Pre\+Or\+Operational,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+100us,  }\item[{uint16\+\_\+t}]{em\+Inh\+Time,  }\item[{uint16\+\_\+t $\ast$}]{timer\+Next\+\_\+ms }\end{DoxyParamCaption})}
+
+
+
+Definition at line 231 of file C\+O\+\_\+\+Emergency.\+c.
+

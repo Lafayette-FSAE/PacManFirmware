@@ -1,0 +1,490 @@
+\hypertarget{group___c_o___s_d_omaster}{}\doxysection{S\+DO client}
+\label{group___c_o___s_d_omaster}\index{SDO client@{SDO client}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___s_d_omaster_8h}{C\+O\+\_\+\+S\+D\+Omaster.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___s_d_omaster_8h}{C\+O\+\_\+\+S\+D\+Omaster.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full}} = 4, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress}} = 3, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress}} = 2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response}} = 1, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End}} = 0, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments}} = -\/2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort}} = -\/9, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort}} = -\/10, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout}} = -\/11, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full}} = 4, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress}} = 3, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress}} = 2, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response}} = 1, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End}} = 0, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments}} = -\/2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort}} = -\/9, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort}} = -\/10, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout}} = -\/11
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full}} = 4, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress}} = 3, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress}} = 2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response}} = 1, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End}} = 0, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments}} = -\/2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort}} = -\/9, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort}} = -\/10, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout}} = -\/11, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full}} = 4, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress}} = 3, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress}} = 2, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response}} = 1, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End}} = 0, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments}} = -\/2, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort}} = -\/9, 
+\newline
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort}} = -\/10, 
+\mbox{\hyperlink{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}{C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout}} = -\/11
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}} $\ast$S\+D\+O\+Client\+Par, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_omaster_ga9cd169d7b20c36457efef68e5260bb62}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+Oclient, void($\ast$p\+Funct\+Signal)(void))
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gaba54e09c9987d34cbef7d982d3b1c6c3}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+setup}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client, uint8\+\_\+t node\+I\+D\+Of\+The\+S\+D\+O\+Server)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga231aaa2799bb26077e803412671ba721}{C\+O\+\_\+\+S\+D\+Oclient\+Download\+Initiate}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t index, uint8\+\_\+t sub\+Index, uint8\+\_\+t $\ast$data\+Tx, uint32\+\_\+t data\+Size, uint8\+\_\+t block\+Enable)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gaeafa202df247453d1d4f498ff2d4b57e}{C\+O\+\_\+\+S\+D\+Oclient\+Download}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t S\+D\+Otimeout\+Time, uint32\+\_\+t $\ast$p\+S\+D\+Oabort\+Code)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_ga5a8d3411ad9ed5438a360c355f1e9627}{C\+O\+\_\+\+S\+D\+Oclient\+Upload\+Initiate}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t index, uint8\+\_\+t sub\+Index, uint8\+\_\+t $\ast$data\+Rx, uint32\+\_\+t data\+Rx\+Size, uint8\+\_\+t block\+Enable)
+\item 
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} \mbox{\hyperlink{group___c_o___s_d_omaster_gab00d3d28804c9daa6bf627dbb6f632aa}{C\+O\+\_\+\+S\+D\+Oclient\+Upload}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t S\+D\+Otimeout\+Time, uint32\+\_\+t $\ast$p\+Data\+Size, uint32\+\_\+t $\ast$p\+S\+D\+Oabort\+Code)
+\item 
+void \mbox{\hyperlink{group___c_o___s_d_omaster_ga9b98ea2c36f864f1a589c842528b12ab}{C\+O\+\_\+\+S\+D\+Oclient\+Close}} (\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$S\+D\+O\+\_\+C)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen Service Data Object -\/ client protocol.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___s_d_o}{S\+DO server}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}\label{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}} 
+\index{SDO client@{SDO client}!CO\_SDOclient\_return\_t@{CO\_SDOclient\_return\_t}}
+\index{CO\_SDOclient\_return\_t@{CO\_SDOclient\_return\_t}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclient\_return\_t}{CO\_SDOclient\_return\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}}}
+
+Return values of S\+DO client functions. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full&Transmit buffer is full. Waiting \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress&Block download is in progress. Sending train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress&Block upload in progress. Receiving train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response&Waiting server response \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End&Success, end of communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments&Error in arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort&Communication ended with client abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort&Communication ended with server abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout&Communication ended with timeout \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full&Transmit buffer is full. Waiting \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress&Block download is in progress. Sending train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress&Block upload in progress. Receiving train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response&Waiting server response \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End&Success, end of communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments&Error in arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort&Communication ended with client abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort&Communication ended with server abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout&Communication ended with timeout \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 49 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}\label{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}} 
+\index{SDO client@{SDO client}!CO\_SDOclient\_return\_t@{CO\_SDOclient\_return\_t}}
+\index{CO\_SDOclient\_return\_t@{CO\_SDOclient\_return\_t}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclient\_return\_t}{CO\_SDOclient\_return\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}}}
+
+Return values of S\+DO client functions. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full&Transmit buffer is full. Waiting \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress&Block download is in progress. Sending train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress&Block upload in progress. Receiving train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response&Waiting server response \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End&Success, end of communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments&Error in arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort&Communication ended with client abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort&Communication ended with server abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout&Communication ended with timeout \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_transmittBufferFull@{CO\_SDOcli\_transmittBufferFull}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa157507e44bca426b45f2e4c13686c0d3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+transmitt\+Buffer\+Full&Transmit buffer is full. Waiting \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockDownldInProgress@{CO\_SDOcli\_blockDownldInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa4123d07a663696fa4cd515f8c5b36397}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Downld\+In\+Progress&Block download is in progress. Sending train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_blockUploadInProgress@{CO\_SDOcli\_blockUploadInProgress}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa168222ee38f4c7d9744fc67a467a839d}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+block\+Upload\+In\+Progress&Block upload in progress. Receiving train of messages \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_waitingServerResponse@{CO\_SDOcli\_waitingServerResponse}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa266a7c597a30e81cb5dc18284bb8d900}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+waiting\+Server\+Response&Waiting server response \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_ok\_communicationEnd@{CO\_SDOcli\_ok\_communicationEnd}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa9faf7563ad5be1d9b4c5a11a2e537384}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ok\+\_\+communication\+End&Success, end of communication \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_wrongArguments@{CO\_SDOcli\_wrongArguments}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabac6580473faee60bd0c60a8db437f59}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+wrong\+Arguments&Error in arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithClientAbort@{CO\_SDOcli\_endedWithClientAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aaf4a482ebc8986ff3c61ab035a7a81ba1}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Client\+Abort&Communication ended with client abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithServerAbort@{CO\_SDOcli\_endedWithServerAbort}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aabdf47f3f44f5afee32dd4cbf010f7018}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Server\+Abort&Communication ended with server abort \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}!SDO client@{SDO client}}\index{SDO client@{SDO client}!CO\_SDOcli\_endedWithTimeout@{CO\_SDOcli\_endedWithTimeout}}}\mbox{\Hypertarget{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}\label{group___c_o___s_d_omaster_ggaa38d674b172da3c57fddace8fa0b868aa65b4d791edb8d278441cf2ba30d2eee3}} 
+C\+O\+\_\+\+S\+D\+Ocli\+\_\+ended\+With\+Timeout&Communication ended with timeout \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 49 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}\label{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}} 
+\index{SDO client@{SDO client}!CO\_SDOclient\_init@{CO\_SDOclient\_init}}
+\index{CO\_SDOclient\_init@{CO\_SDOclient\_init}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclient\_init()}{CO\_SDOclient\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}} $\ast$}]{S\+D\+O\+Client\+Par,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Tx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Tx\+Idx }\end{DoxyParamCaption})}
+
+Initialize S\+DO client object.
+
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object will be initialized. \\
+\hline
+{\em S\+DO} & S\+DO server object. It is used in case, if client is accessing object dictionary from its own device. If N\+U\+LL, it will be ignored. \\
+\hline
+{\em S\+D\+O\+Client\+Par} & Pointer to {\itshape S\+DO Client Parameter} record from Object dictionary (index 0x1280+). Will be written. \\
+\hline
+{\em C\+A\+Ndev\+Rx} & C\+AN device for S\+DO client reception. \\
+\hline
+{\em C\+A\+Ndev\+Rx\+Idx} & Index of receive buffer in the above C\+AN device. \\
+\hline
+{\em C\+A\+Ndev\+Tx} & C\+AN device for S\+DO client transmission. \\
+\hline
+{\em C\+A\+Ndev\+Tx\+Idx} & Index of transmit buffer in the above C\+AN device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+\end{DoxyReturn}
+
+
+Definition at line 170 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_ga9cd169d7b20c36457efef68e5260bb62}\label{group___c_o___s_d_omaster_ga9cd169d7b20c36457efef68e5260bb62}} 
+\index{SDO client@{SDO client}!CO\_SDOclient\_initCallback@{CO\_SDOclient\_initCallback}}
+\index{CO\_SDOclient\_initCallback@{CO\_SDOclient\_initCallback}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclient\_initCallback()}{CO\_SDOclient\_initCallback()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+S\+D\+Oclient\+\_\+init\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+Oclient,  }\item[{void($\ast$)(void)}]{p\+Funct\+Signal }\end{DoxyParamCaption})}
+
+Initialize S\+D\+Oclient\+Rx callback function.
+
+Function initializes optional callback function, which is called after new message is received from the C\+AN bus. Function may wake up external task, which processes mainline C\+A\+Nopen functions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+Oclient} & This object. \\
+\hline
+{\em p\+Funct\+Signal} & Pointer to the callback function. Not called if N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 213 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_gaba54e09c9987d34cbef7d982d3b1c6c3}\label{group___c_o___s_d_omaster_gaba54e09c9987d34cbef7d982d3b1c6c3}} 
+\index{SDO client@{SDO client}!CO\_SDOclient\_setup@{CO\_SDOclient\_setup}}
+\index{CO\_SDOclient\_setup@{CO\_SDOclient\_setup}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclient\_setup()}{CO\_SDOclient\_setup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+\_\+setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client,  }\item[{uint8\+\_\+t}]{node\+I\+D\+Of\+The\+S\+D\+O\+Server }\end{DoxyParamCaption})}
+
+Setup S\+DO client object.
+
+Function must be called before new S\+DO communication. If previous S\+DO communication was with the same node, function does not need to be called.
+
+\begin{DoxyRemark}{Remarks}
+If configuring S\+DO client from network is required, this function should be set as callback for the corresponding S\+DO client parameter OD entry.
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object. \\
+\hline
+{\em C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server} & See \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}}. If zero, then node\+I\+D\+Of\+The\+S\+D\+O\+Server is used with default C\+O\+B-\/\+ID. \\
+\hline
+{\em C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client} & See \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}}. If zero, then node\+I\+D\+Of\+The\+S\+D\+O\+Server is used with default C\+O\+B-\/\+ID. \\
+\hline
+{\em node\+I\+D\+Of\+The\+S\+D\+O\+Server} & Node-\/\+ID of the S\+DO server. If zero, S\+DO client object is not used. If it is the same as node-\/\+ID of this node, then data will be exchanged with this node (without C\+AN communication).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_ga9b98ea2c36f864f1a589c842528b12ab}\label{group___c_o___s_d_omaster_ga9b98ea2c36f864f1a589c842528b12ab}} 
+\index{SDO client@{SDO client}!CO\_SDOclientClose@{CO\_SDOclientClose}}
+\index{CO\_SDOclientClose@{CO\_SDOclientClose}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclientClose()}{CO\_SDOclientClose()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+S\+D\+Oclient\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C }\end{DoxyParamCaption})}
+
+Close S\+DO communication temporary.
+
+Function must be called after finish of each S\+DO client communication cycle. It disables reception of S\+DO client C\+AN messages. It is necessary, because C\+O\+\_\+\+S\+D\+Oclient\+\_\+receive function may otherwise write into undefined S\+DO buffer. 
+
+Definition at line 1241 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_gaeafa202df247453d1d4f498ff2d4b57e}\label{group___c_o___s_d_omaster_gaeafa202df247453d1d4f498ff2d4b57e}} 
+\index{SDO client@{SDO client}!CO\_SDOclientDownload@{CO\_SDOclientDownload}}
+\index{CO\_SDOclientDownload@{CO\_SDOclientDownload}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclientDownload()}{CO\_SDOclientDownload()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+Download (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+ms,  }\item[{uint16\+\_\+t}]{S\+D\+Otimeout\+Time,  }\item[{uint32\+\_\+t $\ast$}]{p\+S\+D\+Oabort\+Code }\end{DoxyParamCaption})}
+
+Process S\+DO download communication.
+
+Function must be called cyclically until it returns $<$=0. It Proceeds S\+DO download communication initiated with \mbox{\hyperlink{group___c_o___s_d_omaster_ga231aaa2799bb26077e803412671ba721}{C\+O\+\_\+\+S\+D\+Oclient\+Download\+Initiate()}}. Function is non-\/blocking.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}. \\
+\hline
+{\em S\+D\+Otimeout\+Time} & Timeout time for S\+DO communication in milliseconds. \\
+\hline
+{\em p\+S\+D\+Oabort\+Code} & Pointer to external variable written by this function in case of error in communication.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 408 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_ga231aaa2799bb26077e803412671ba721}\label{group___c_o___s_d_omaster_ga231aaa2799bb26077e803412671ba721}} 
+\index{SDO client@{SDO client}!CO\_SDOclientDownloadInitiate@{CO\_SDOclientDownloadInitiate}}
+\index{CO\_SDOclientDownloadInitiate@{CO\_SDOclientDownloadInitiate}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclientDownloadInitiate()}{CO\_SDOclientDownloadInitiate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+Download\+Initiate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{uint16\+\_\+t}]{index,  }\item[{uint8\+\_\+t}]{sub\+Index,  }\item[{uint8\+\_\+t $\ast$}]{data\+Tx,  }\item[{uint32\+\_\+t}]{data\+Size,  }\item[{uint8\+\_\+t}]{block\+Enable }\end{DoxyParamCaption})}
+
+Initiate S\+DO download communication.
+
+Function initiates S\+DO download communication with server specified in \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} function. Data will be written to remote node. Function is non-\/blocking.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object. \\
+\hline
+{\em index} & Index of object in object dictionary in remote node. \\
+\hline
+{\em sub\+Index} & Subindex of object in object dictionary in remote node. \\
+\hline
+{\em data\+Tx} & Pointer to data to be written. Data must be valid until end of communication. Note that data are aligned in little-\/endian format, because C\+A\+Nopen itself uses little-\/endian. Take care, when using processors with big-\/endian. \\
+\hline
+{\em data\+Size} & Size of data in data\+Tx. \\
+\hline
+{\em block\+Enable} & Try to initiate block transfer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 325 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_gab00d3d28804c9daa6bf627dbb6f632aa}\label{group___c_o___s_d_omaster_gab00d3d28804c9daa6bf627dbb6f632aa}} 
+\index{SDO client@{SDO client}!CO\_SDOclientUpload@{CO\_SDOclientUpload}}
+\index{CO\_SDOclientUpload@{CO\_SDOclientUpload}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclientUpload()}{CO\_SDOclientUpload()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+Upload (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+ms,  }\item[{uint16\+\_\+t}]{S\+D\+Otimeout\+Time,  }\item[{uint32\+\_\+t $\ast$}]{p\+Data\+Size,  }\item[{uint32\+\_\+t $\ast$}]{p\+S\+D\+Oabort\+Code }\end{DoxyParamCaption})}
+
+Process S\+DO upload communication.
+
+Function must be called cyclically until it returns $<$=0. It Proceeds S\+DO upload communication initiated with \mbox{\hyperlink{group___c_o___s_d_omaster_ga5a8d3411ad9ed5438a360c355f1e9627}{C\+O\+\_\+\+S\+D\+Oclient\+Upload\+Initiate()}}. Function is non-\/blocking.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}. \\
+\hline
+{\em S\+D\+Otimeout\+Time} & Timeout time for S\+DO communication in milliseconds. \\
+\hline
+{\em p\+Data\+Size} & pointer to external variable, where size of received data will be written. \\
+\hline
+{\em p\+S\+D\+Oabort\+Code} & Pointer to external variable written by this function in case of error in communication.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 814 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+
+\mbox{\Hypertarget{group___c_o___s_d_omaster_ga5a8d3411ad9ed5438a360c355f1e9627}\label{group___c_o___s_d_omaster_ga5a8d3411ad9ed5438a360c355f1e9627}} 
+\index{SDO client@{SDO client}!CO\_SDOclientUploadInitiate@{CO\_SDOclientUploadInitiate}}
+\index{CO\_SDOclientUploadInitiate@{CO\_SDOclientUploadInitiate}!SDO client@{SDO client}}
+\doxysubsubsection{\texorpdfstring{CO\_SDOclientUploadInitiate()}{CO\_SDOclientUploadInitiate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} C\+O\+\_\+\+S\+D\+Oclient\+Upload\+Initiate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___s_d_oclient__t}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t}} $\ast$}]{S\+D\+O\+\_\+C,  }\item[{uint16\+\_\+t}]{index,  }\item[{uint8\+\_\+t}]{sub\+Index,  }\item[{uint8\+\_\+t $\ast$}]{data\+Rx,  }\item[{uint32\+\_\+t}]{data\+Rx\+Size,  }\item[{uint8\+\_\+t}]{block\+Enable }\end{DoxyParamCaption})}
+
+Initiate S\+DO upload communication.
+
+Function initiates S\+DO upload communication with server specified in \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} function. Data will be read from remote node. Function is non-\/blocking.
+
+
+\begin{DoxyParams}{Parameters}
+{\em S\+D\+O\+\_\+C} & This object. \\
+\hline
+{\em index} & Index of object in object dictionary in remote node. \\
+\hline
+{\em sub\+Index} & Subindex of object in object dictionary in remote node. \\
+\hline
+{\em data\+Rx} & Pointer to data buffer, into which received data will be written. Buffer must be valid until end of communication. Note that data are aligned in little-\/endian format, because C\+A\+Nopen itself uses little-\/endian. Take care, when using processors with big-\/endian. \\
+\hline
+{\em data\+Rx\+Size} & Size of data\+Rx. \\
+\hline
+{\em block\+Enable} & Try to initiate block transfer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___s_d_omaster_gaa38d674b172da3c57fddace8fa0b868a}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+return\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 738 of file C\+O\+\_\+\+S\+D\+Omaster.\+c.
+

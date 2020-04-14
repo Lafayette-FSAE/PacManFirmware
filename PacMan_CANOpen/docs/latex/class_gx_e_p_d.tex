@@ -1,0 +1,376 @@
+\hypertarget{class_gx_e_p_d}{}\doxysection{Gx\+E\+PD Class Reference}
+\label{class_gx_e_p_d}\index{GxEPD@{GxEPD}}
+
+
+{\ttfamily \#include $<$Gx\+E\+P\+D.\+h$>$}
+
+Inheritance diagram for Gx\+E\+PD\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_gx_e_p_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647}{bm\+\_\+mode}} \{ \newline
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}} = 0, 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}{bm\+\_\+default}} = 1, 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ac0684d9dcb12129edf6df94165928c77}{bm\+\_\+invert}} = (1 $<$$<$ 1), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ad3ad16525806dfc1522599e34338b89f}{bm\+\_\+flip\+\_\+x}} = (1 $<$$<$ 2), 
+\newline
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ae186412810d139ed7d495db0eef2f86d}{bm\+\_\+flip\+\_\+y}} = (1 $<$$<$ 3), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a4079ab69b487bb46ace088062c41f71c}{bm\+\_\+r90}} = (1 $<$$<$ 4), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a11fa8b1ffefb8a43358979da2b64b5fb}{bm\+\_\+r180}} = (1 $<$$<$ 5), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a7fe67dd8f0a87c57684bca3ac2ec9b90}{bm\+\_\+r270}} = bm\+\_\+r90 $\vert$ bm\+\_\+r180, 
+\newline
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a0fc94681bb80482e2fde25e7728402c2}{bm\+\_\+partial\+\_\+update}} = (1 $<$$<$ 6), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647aa10234cca81f6cf94e591c794ec6e932}{bm\+\_\+invert\+\_\+red}} = (1 $<$$<$ 7), 
+\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a8f2539ceed5ba4918e5acc2afd719006}{bm\+\_\+transparent}} = (1 $<$$<$ 8)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gx_e_p_d_acd7fa3568f42e60e7894ed2c7f268e60}{Gx\+E\+PD}} (int16\+\_\+t w, int16\+\_\+t h)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)=0
+\begin{DoxyCompactList}\small\item\em Virtual \mbox{\hyperlink{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_afe73999ddf75b172ab95b8e114c6e589}{init}} (uint32\+\_\+t serial\+\_\+diag\+\_\+bitrate=0)=0
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_aa17f0e533bddb6dc16eb6bbff18aab76}{fill\+Screen}} (uint16\+\_\+t color)=0
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a187febcf1544b0c51a1fb7530c15afe9}{update}} (void)=0
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a0aa921df6e6e4c42600353706855ed7f}{draw\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color, int16\+\_\+t m=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}})=0
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_ad36154df7666222a865f988755883308}{draw\+Example\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color, int16\+\_\+t m=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}{bm\+\_\+default}})
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a373a83f94fc01f35190ac16806b772de}{draw\+Picture}} (const uint8\+\_\+t $\ast$picture, uint32\+\_\+t size)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_ae75374a3e5526ff8dc2c8e1bdb984e11}{draw\+Example\+Picture}} (const uint8\+\_\+t $\ast$black\+\_\+bitmap, const uint8\+\_\+t $\ast$red\+\_\+bitmap, uint32\+\_\+t black\+\_\+size, uint32\+\_\+t red\+\_\+size)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a159dbcf6a17153236e0999b9af641f95}{draw\+Picture}} (const uint8\+\_\+t $\ast$black\+\_\+bitmap, const uint8\+\_\+t $\ast$red\+\_\+bitmap, uint32\+\_\+t black\+\_\+size, uint32\+\_\+t red\+\_\+size, int16\+\_\+t mode=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}})
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a443c0145c103a9878ba5dbd8cb10050c}{draw\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint32\+\_\+t size, int16\+\_\+t m=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}})=0
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a39a744911808a617e799b8ef9c2adf27}{draw\+Example\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint32\+\_\+t size, int16\+\_\+t m=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}{bm\+\_\+default}})
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_ab8c2527a25725507bc491c826b868558}{erase\+Display}} (bool using\+\_\+partial\+\_\+update=false)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_af71f11829e7f6a1a05a06ffb83b9e38c}{update\+Window}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, bool using\+\_\+rotation=true)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a7196c4906c6700ca914c08e28902dfc1}{update\+To\+Window}} (uint16\+\_\+t xs, uint16\+\_\+t ys, uint16\+\_\+t xd, uint16\+\_\+t yd, uint16\+\_\+t w, uint16\+\_\+t h, bool using\+\_\+rotation=true)
+\item 
+virtual void \mbox{\hyperlink{class_gx_e_p_d_a99d135cfe1eb49922f5333492cf8f07a}{power\+Down}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_gx_e_p_d_a0793c8d76e7c92b517cfc796b4597b91}{draw\+Bitmap\+BM}} (const uint8\+\_\+t $\ast$bitmap, uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color, int16\+\_\+t m)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint16\+\_\+t \mbox{\hyperlink{class_gx_e_p_d_a65da93aa3081dd6ad5e9fd79a837a4b3}{gx\+\_\+uint16\+\_\+min}} (uint16\+\_\+t a, uint16\+\_\+t b)
+\item 
+static uint16\+\_\+t \mbox{\hyperlink{class_gx_e_p_d_ae7853d0d9904bb6707cb68802bf53b0b}{gx\+\_\+uint16\+\_\+max}} (uint16\+\_\+t a, uint16\+\_\+t b)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 30 of file Gx\+E\+P\+D.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647}} 
+\index{GxEPD@{GxEPD}!bm\_mode@{bm\_mode}}
+\index{bm\_mode@{bm\_mode}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{bm\_mode}{bm\_mode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647}{Gx\+E\+P\+D\+::bm\+\_\+mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_normal@{bm\_normal}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_normal@{bm\_normal}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}} 
+bm\+\_\+normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_default@{bm\_default}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_default@{bm\_default}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}} 
+bm\+\_\+default&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_invert@{bm\_invert}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_invert@{bm\_invert}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ac0684d9dcb12129edf6df94165928c77}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ac0684d9dcb12129edf6df94165928c77}} 
+bm\+\_\+invert&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_flip\_x@{bm\_flip\_x}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_flip\_x@{bm\_flip\_x}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ad3ad16525806dfc1522599e34338b89f}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ad3ad16525806dfc1522599e34338b89f}} 
+bm\+\_\+flip\+\_\+x&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_flip\_y@{bm\_flip\_y}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_flip\_y@{bm\_flip\_y}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ae186412810d139ed7d495db0eef2f86d}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647ae186412810d139ed7d495db0eef2f86d}} 
+bm\+\_\+flip\+\_\+y&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_r90@{bm\_r90}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_r90@{bm\_r90}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a4079ab69b487bb46ace088062c41f71c}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a4079ab69b487bb46ace088062c41f71c}} 
+bm\+\_\+r90&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_r180@{bm\_r180}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_r180@{bm\_r180}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a11fa8b1ffefb8a43358979da2b64b5fb}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a11fa8b1ffefb8a43358979da2b64b5fb}} 
+bm\+\_\+r180&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_r270@{bm\_r270}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_r270@{bm\_r270}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a7fe67dd8f0a87c57684bca3ac2ec9b90}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a7fe67dd8f0a87c57684bca3ac2ec9b90}} 
+bm\+\_\+r270&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_partial\_update@{bm\_partial\_update}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_partial\_update@{bm\_partial\_update}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a0fc94681bb80482e2fde25e7728402c2}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a0fc94681bb80482e2fde25e7728402c2}} 
+bm\+\_\+partial\+\_\+update&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_invert\_red@{bm\_invert\_red}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_invert\_red@{bm\_invert\_red}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647aa10234cca81f6cf94e591c794ec6e932}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647aa10234cca81f6cf94e591c794ec6e932}} 
+bm\+\_\+invert\+\_\+red&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bm\_transparent@{bm\_transparent}!GxEPD@{GxEPD}}\index{GxEPD@{GxEPD}!bm\_transparent@{bm\_transparent}}}\mbox{\Hypertarget{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a8f2539ceed5ba4918e5acc2afd719006}\label{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a8f2539ceed5ba4918e5acc2afd719006}} 
+bm\+\_\+transparent&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 34 of file Gx\+E\+P\+D.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gx_e_p_d_acd7fa3568f42e60e7894ed2c7f268e60}\label{class_gx_e_p_d_acd7fa3568f42e60e7894ed2c7f268e60}} 
+\index{GxEPD@{GxEPD}!GxEPD@{GxEPD}}
+\index{GxEPD@{GxEPD}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{GxEPD()}{GxEPD()}}
+{\footnotesize\ttfamily Gx\+E\+P\+D\+::\+Gx\+E\+PD (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 51 of file Gx\+E\+P\+D.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gx_e_p_d_a0aa921df6e6e4c42600353706855ed7f}\label{class_gx_e_p_d_a0aa921df6e6e4c42600353706855ed7f}} 
+\index{GxEPD@{GxEPD}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{int16\+\_\+t}]{m = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a3c2804901d1391ef0e24fad2907c05f4}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a443c0145c103a9878ba5dbd8cb10050c}\label{class_gx_e_p_d_a443c0145c103a9878ba5dbd8cb10050c}} 
+\index{GxEPD@{GxEPD}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint32\+\_\+t}]{size,  }\item[{int16\+\_\+t}]{m = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_afcc5bdd17e78d92d316e1ab2ca17c0c0}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a0793c8d76e7c92b517cfc796b4597b91}\label{class_gx_e_p_d_a0793c8d76e7c92b517cfc796b4597b91}} 
+\index{GxEPD@{GxEPD}!drawBitmapBM@{drawBitmapBM}}
+\index{drawBitmapBM@{drawBitmapBM}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawBitmapBM()}{drawBitmapBM()}}
+{\footnotesize\ttfamily void Gx\+E\+P\+D\+::draw\+Bitmap\+BM (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{int16\+\_\+t}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 21 of file Gx\+E\+P\+D.\+cpp.
+
+\mbox{\Hypertarget{class_gx_e_p_d_ad36154df7666222a865f988755883308}\label{class_gx_e_p_d_ad36154df7666222a865f988755883308}} 
+\index{GxEPD@{GxEPD}!drawExampleBitmap@{drawExampleBitmap}}
+\index{drawExampleBitmap@{drawExampleBitmap}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawExampleBitmap()}{drawExampleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Example\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{int16\+\_\+t}]{m = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}{bm\+\_\+default}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 59 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a39a744911808a617e799b8ef9c2adf27}\label{class_gx_e_p_d_a39a744911808a617e799b8ef9c2adf27}} 
+\index{GxEPD@{GxEPD}!drawExampleBitmap@{drawExampleBitmap}}
+\index{drawExampleBitmap@{drawExampleBitmap}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawExampleBitmap()}{drawExampleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Example\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint32\+\_\+t}]{size,  }\item[{int16\+\_\+t}]{m = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a814dfba5762852bff8ffce7b76b312b1}{bm\+\_\+default}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 74 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_ae75374a3e5526ff8dc2c8e1bdb984e11}\label{class_gx_e_p_d_ae75374a3e5526ff8dc2c8e1bdb984e11}} 
+\index{GxEPD@{GxEPD}!drawExamplePicture@{drawExamplePicture}}
+\index{drawExamplePicture@{drawExamplePicture}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawExamplePicture()}{drawExamplePicture()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Example\+Picture (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{black\+\_\+bitmap,  }\item[{const uint8\+\_\+t $\ast$}]{red\+\_\+bitmap,  }\item[{uint32\+\_\+t}]{black\+\_\+size,  }\item[{uint32\+\_\+t}]{red\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 69 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a159dbcf6a17153236e0999b9af641f95}\label{class_gx_e_p_d_a159dbcf6a17153236e0999b9af641f95}} 
+\index{GxEPD@{GxEPD}!drawPicture@{drawPicture}}
+\index{drawPicture@{drawPicture}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawPicture()}{drawPicture()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Picture (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{black\+\_\+bitmap,  }\item[{const uint8\+\_\+t $\ast$}]{red\+\_\+bitmap,  }\item[{uint32\+\_\+t}]{black\+\_\+size,  }\item[{uint32\+\_\+t}]{red\+\_\+size,  }\item[{int16\+\_\+t}]{mode = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 71 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a373a83f94fc01f35190ac16806b772de}\label{class_gx_e_p_d_a373a83f94fc01f35190ac16806b772de}} 
+\index{GxEPD@{GxEPD}!drawPicture@{drawPicture}}
+\index{drawPicture@{drawPicture}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawPicture()}{drawPicture()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Picture (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{picture,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 64 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}\label{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}} 
+\index{GxEPD@{GxEPD}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Virtual \mbox{\hyperlink{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate.\\
+\hline
+{\em y} & Y coordinate.\\
+\hline
+{\em color} & 16-\/bit pixel color. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_ab8c2527a25725507bc491c826b868558}\label{class_gx_e_p_d_ab8c2527a25725507bc491c826b868558}} 
+\index{GxEPD@{GxEPD}!eraseDisplay@{eraseDisplay}}
+\index{eraseDisplay@{eraseDisplay}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{eraseDisplay()}{eraseDisplay()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::erase\+Display (\begin{DoxyParamCaption}\item[{bool}]{using\+\_\+partial\+\_\+update = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_abfc7938e20a232219c8a712a39229eaa}{Gx\+G\+D\+E\+H029\+A1}}.
+
+
+
+Definition at line 78 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_aa17f0e533bddb6dc16eb6bbff18aab76}\label{class_gx_e_p_d_aa17f0e533bddb6dc16eb6bbff18aab76}} 
+\index{GxEPD@{GxEPD}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a0aa7fb45dba05d1b6fc514448625d911}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_ae7853d0d9904bb6707cb68802bf53b0b}\label{class_gx_e_p_d_ae7853d0d9904bb6707cb68802bf53b0b}} 
+\index{GxEPD@{GxEPD}!gx\_uint16\_max@{gx\_uint16\_max}}
+\index{gx\_uint16\_max@{gx\_uint16\_max}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{gx\_uint16\_max()}{gx\_uint16\_max()}}
+{\footnotesize\ttfamily static uint16\+\_\+t Gx\+E\+P\+D\+::gx\+\_\+uint16\+\_\+max (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a,  }\item[{uint16\+\_\+t}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 88 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a65da93aa3081dd6ad5e9fd79a837a4b3}\label{class_gx_e_p_d_a65da93aa3081dd6ad5e9fd79a837a4b3}} 
+\index{GxEPD@{GxEPD}!gx\_uint16\_min@{gx\_uint16\_min}}
+\index{gx\_uint16\_min@{gx\_uint16\_min}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{gx\_uint16\_min()}{gx\_uint16\_min()}}
+{\footnotesize\ttfamily static uint16\+\_\+t Gx\+E\+P\+D\+::gx\+\_\+uint16\+\_\+min (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{a,  }\item[{uint16\+\_\+t}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 87 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_afe73999ddf75b172ab95b8e114c6e589}\label{class_gx_e_p_d_afe73999ddf75b172ab95b8e114c6e589}} 
+\index{GxEPD@{GxEPD}!init@{init}}
+\index{init@{init}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{serial\+\_\+diag\+\_\+bitrate = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a9e3bc32593f835f5b44722b4f8c57634}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a99d135cfe1eb49922f5333492cf8f07a}\label{class_gx_e_p_d_a99d135cfe1eb49922f5333492cf8f07a}} 
+\index{GxEPD@{GxEPD}!powerDown@{powerDown}}
+\index{powerDown@{powerDown}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{powerDown()}{powerDown()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::power\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a63da8f3ebe6236961fc72778b268d188}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a187febcf1544b0c51a1fb7530c15afe9}\label{class_gx_e_p_d_a187febcf1544b0c51a1fb7530c15afe9}} 
+\index{GxEPD@{GxEPD}!update@{update}}
+\index{update@{update}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a4f561a4025c94eac42165b5244d812f1}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_gx_e_p_d_a7196c4906c6700ca914c08e28902dfc1}\label{class_gx_e_p_d_a7196c4906c6700ca914c08e28902dfc1}} 
+\index{GxEPD@{GxEPD}!updateToWindow@{updateToWindow}}
+\index{updateToWindow@{updateToWindow}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{updateToWindow()}{updateToWindow()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::update\+To\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xs,  }\item[{uint16\+\_\+t}]{ys,  }\item[{uint16\+\_\+t}]{xd,  }\item[{uint16\+\_\+t}]{yd,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{bool}]{using\+\_\+rotation = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a3a060ad180b1945f6dbd84045b1c462d}{Gx\+G\+D\+E\+H029\+A1}}.
+
+
+
+Definition at line 82 of file Gx\+E\+P\+D.\+h.
+
+\mbox{\Hypertarget{class_gx_e_p_d_af71f11829e7f6a1a05a06ffb83b9e38c}\label{class_gx_e_p_d_af71f11829e7f6a1a05a06ffb83b9e38c}} 
+\index{GxEPD@{GxEPD}!updateWindow@{updateWindow}}
+\index{updateWindow@{updateWindow}!GxEPD@{GxEPD}}
+\doxysubsubsection{\texorpdfstring{updateWindow()}{updateWindow()}}
+{\footnotesize\ttfamily virtual void Gx\+E\+P\+D\+::update\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{bool}]{using\+\_\+rotation = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_gx_g_d_e_h029_a1_afca1203b83378261a1e9118c73308a9b}{Gx\+G\+D\+E\+H029\+A1}}.
+
+
+
+Definition at line 80 of file Gx\+E\+P\+D.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_gx_e_p_d_8h}{Gx\+E\+P\+D.\+h}}\item 
+References/\mbox{\hyperlink{_gx_e_p_d_8cpp}{Gx\+E\+P\+D.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,179 @@
+\hypertarget{class_g_f_xcanvas8}{}\doxysection{G\+F\+Xcanvas8 Class Reference}
+\label{class_g_f_xcanvas8}\index{GFXcanvas8@{GFXcanvas8}}
+
+
+A G\+FX 8-\/bit canvas context for graphics.  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+G\+F\+X.\+h$>$}
+
+Inheritance diagram for G\+F\+Xcanvas8\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_xcanvas8}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_f_xcanvas8_a57dcdb940a56a37cdfbb3a596f9e0ecd}{G\+F\+Xcanvas8}} (uint16\+\_\+t w, uint16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Instatiate a G\+FX 8-\/bit canvas context for graphics. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_f_xcanvas8_a340fa7ddf55936e16748bd37255d2f19}{$\sim$\+G\+F\+Xcanvas8}} (void)
+\begin{DoxyCompactList}\small\item\em Delete the canvas, free memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas8_a596553ea995b2d7830cc3eef0c4085fc}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a pixel to the canvas framebuffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas8_a9362b64e0e24b34172226cab358f5a45}{fill\+Screen}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill the framebuffer completely with one color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas8_a5eadf69798e020345107af6cdb86f222}{write\+Fast\+H\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a perfectly horizontal line, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{class_g_f_xcanvas8_a1928e73eeb06e56a8e8c75738b57e304}{get\+Buffer}} (void) const
+\begin{DoxyCompactList}\small\item\em Get a pointer to the internal buffer memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A G\+FX 8-\/bit canvas context for graphics. 
+
+Definition at line 315 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas8_a57dcdb940a56a37cdfbb3a596f9e0ecd}\label{class_g_f_xcanvas8_a57dcdb940a56a37cdfbb3a596f9e0ecd}} 
+\index{GFXcanvas8@{GFXcanvas8}!GFXcanvas8@{GFXcanvas8}}
+\index{GFXcanvas8@{GFXcanvas8}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{GFXcanvas8()}{GFXcanvas8()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas8\+::\+G\+F\+Xcanvas8 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Instatiate a G\+FX 8-\/bit canvas context for graphics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width, in pixels \\
+\hline
+{\em h} & Display height, in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1750 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas8_a340fa7ddf55936e16748bd37255d2f19}\label{class_g_f_xcanvas8_a340fa7ddf55936e16748bd37255d2f19}} 
+\index{GFXcanvas8@{GFXcanvas8}!````~GFXcanvas8@{$\sim$GFXcanvas8}}
+\index{````~GFXcanvas8@{$\sim$GFXcanvas8}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{$\sim$GFXcanvas8()}{~GFXcanvas8()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas8\+::$\sim$\+G\+F\+Xcanvas8 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Delete the canvas, free memory. 
+
+
+
+Definition at line 1762 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas8_a596553ea995b2d7830cc3eef0c4085fc}\label{class_g_f_xcanvas8_a596553ea995b2d7830cc3eef0c4085fc}} 
+\index{GFXcanvas8@{GFXcanvas8}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas8\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a pixel to the canvas framebuffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1774 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas8_a9362b64e0e24b34172226cab358f5a45}\label{class_g_f_xcanvas8_a9362b64e0e24b34172226cab358f5a45}} 
+\index{GFXcanvas8@{GFXcanvas8}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas8\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill the framebuffer completely with one color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1806 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas8_a1928e73eeb06e56a8e8c75738b57e304}\label{class_g_f_xcanvas8_a1928e73eeb06e56a8e8c75738b57e304}} 
+\index{GFXcanvas8@{GFXcanvas8}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ G\+F\+Xcanvas8\+::get\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a pointer to the internal buffer memory. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated buffer 
+\end{DoxyReturn}
+
+
+Definition at line 328 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_g_f_xcanvas8_a5eadf69798e020345107af6cdb86f222}\label{class_g_f_xcanvas8_a5eadf69798e020345107af6cdb86f222}} 
+\index{GFXcanvas8@{GFXcanvas8}!writeFastHLine@{writeFastHLine}}
+\index{writeFastHLine@{writeFastHLine}!GFXcanvas8@{GFXcanvas8}}
+\doxysubsubsection{\texorpdfstring{writeFastHLine()}{writeFastHLine()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas8\+::write\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a perfectly horizontal line, overwrite in subclasses if start\+Write is defined! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Left-\/most x coordinate \\
+\hline
+{\em y} & Left-\/most y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_ad85469e8be73f90932058fba1d4e5cbd}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1812 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8h}{Adafruit\+\_\+\+G\+F\+X.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8cpp}{Adafruit\+\_\+\+G\+F\+X.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,94 @@
+\hypertarget{structcan__timing__config__t}{}\doxysection{can\+\_\+timing\+\_\+config\+\_\+t Struct Reference}
+\label{structcan__timing__config__t}\index{can\_timing\_config\_t@{can\_timing\_config\_t}}
+
+
+Structure for bit timing configuration of the C\+AN driver.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__timing__config__t_a9b1e5236b097c55f8c81f14c528e4120}{brp}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__timing__config__t_a7e50caca26109e86fd6fa3815330fb9e}{tseg\+\_\+1}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__timing__config__t_a8aa2748ec79b3ea9f57488917a0758cf}{tseg\+\_\+2}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__timing__config__t_a2c1b59e1cd04c281587783b227b510fe}{sjw}}
+\item 
+bool \mbox{\hyperlink{structcan__timing__config__t_a30cea67001a6358236a35034eddb54e1}{triple\+\_\+sampling}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for bit timing configuration of the C\+AN driver. 
+
+\begin{DoxyNote}{Note}
+Macro initializers are available for this structure 
+\end{DoxyNote}
+
+
+Definition at line 156 of file can.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcan__timing__config__t_a9b1e5236b097c55f8c81f14c528e4120}\label{structcan__timing__config__t_a9b1e5236b097c55f8c81f14c528e4120}} 
+\index{can\_timing\_config\_t@{can\_timing\_config\_t}!brp@{brp}}
+\index{brp@{brp}!can\_timing\_config\_t@{can\_timing\_config\_t}}
+\doxysubsubsection{\texorpdfstring{brp}{brp}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+timing\+\_\+config\+\_\+t\+::brp}
+
+Baudrate prescaler (A\+PB clock divider, even number from 2 to 128) 
+
+Definition at line 157 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__timing__config__t_a2c1b59e1cd04c281587783b227b510fe}\label{structcan__timing__config__t_a2c1b59e1cd04c281587783b227b510fe}} 
+\index{can\_timing\_config\_t@{can\_timing\_config\_t}!sjw@{sjw}}
+\index{sjw@{sjw}!can\_timing\_config\_t@{can\_timing\_config\_t}}
+\doxysubsubsection{\texorpdfstring{sjw}{sjw}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+timing\+\_\+config\+\_\+t\+::sjw}
+
+Synchronization Jump Width (Max time quanta jump for synchronize from 1 to 4) 
+
+Definition at line 160 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__timing__config__t_a30cea67001a6358236a35034eddb54e1}\label{structcan__timing__config__t_a30cea67001a6358236a35034eddb54e1}} 
+\index{can\_timing\_config\_t@{can\_timing\_config\_t}!triple\_sampling@{triple\_sampling}}
+\index{triple\_sampling@{triple\_sampling}!can\_timing\_config\_t@{can\_timing\_config\_t}}
+\doxysubsubsection{\texorpdfstring{triple\_sampling}{triple\_sampling}}
+{\footnotesize\ttfamily bool can\+\_\+timing\+\_\+config\+\_\+t\+::triple\+\_\+sampling}
+
+Enables triple sampling when the C\+AN controller samples a bit 
+
+Definition at line 161 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__timing__config__t_a7e50caca26109e86fd6fa3815330fb9e}\label{structcan__timing__config__t_a7e50caca26109e86fd6fa3815330fb9e}} 
+\index{can\_timing\_config\_t@{can\_timing\_config\_t}!tseg\_1@{tseg\_1}}
+\index{tseg\_1@{tseg\_1}!can\_timing\_config\_t@{can\_timing\_config\_t}}
+\doxysubsubsection{\texorpdfstring{tseg\_1}{tseg\_1}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+timing\+\_\+config\+\_\+t\+::tseg\+\_\+1}
+
+Timing segment 1 (Number of time quanta, between 1 to 16) 
+
+Definition at line 158 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__timing__config__t_a8aa2748ec79b3ea9f57488917a0758cf}\label{structcan__timing__config__t_a8aa2748ec79b3ea9f57488917a0758cf}} 
+\index{can\_timing\_config\_t@{can\_timing\_config\_t}!tseg\_2@{tseg\_2}}
+\index{tseg\_2@{tseg\_2}!can\_timing\_config\_t@{can\_timing\_config\_t}}
+\doxysubsubsection{\texorpdfstring{tseg\_2}{tseg\_2}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+timing\+\_\+config\+\_\+t\+::tseg\+\_\+2}
+
+Timing segment 2 (Number of time quanta, 1 to 8) 
+
+Definition at line 159 of file can.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

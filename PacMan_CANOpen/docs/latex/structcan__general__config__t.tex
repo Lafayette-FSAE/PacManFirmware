@@ -1,0 +1,142 @@
+\hypertarget{structcan__general__config__t}{}\doxysection{can\+\_\+general\+\_\+config\+\_\+t Struct Reference}
+\label{structcan__general__config__t}\index{can\_general\_config\_t@{can\_general\_config\_t}}
+
+
+Structure for general configuration of the C\+AN driver.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h_ad6f5bfd4c152b830a94c2066e9c81710}{can\+\_\+mode\+\_\+t}} \mbox{\hyperlink{structcan__general__config__t_a74c07e66e8bfe4cb7f9ca7a4ba88a40d}{mode}}
+\item 
+\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} \mbox{\hyperlink{structcan__general__config__t_add3046b9254932aac53b70788cc849c4}{tx\+\_\+io}}
+\item 
+\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} \mbox{\hyperlink{structcan__general__config__t_af9ad16ba924e8b218e7fdef911847cb2}{rx\+\_\+io}}
+\item 
+\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} \mbox{\hyperlink{structcan__general__config__t_a87de9993c23f8e12c137dfd0e57eb9f4}{clkout\+\_\+io}}
+\item 
+\mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} \mbox{\hyperlink{structcan__general__config__t_aa865490b8c029f19f25339b9f76955e8}{bus\+\_\+off\+\_\+io}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__general__config__t_a898cc6124e020c1372d7ef6716d0d2ca}{tx\+\_\+queue\+\_\+len}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__general__config__t_a29b32ceaeaea85a8708bb1153710c60d}{rx\+\_\+queue\+\_\+len}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__general__config__t_ac2b5339d689987b37c01cc7832b95fbb}{alerts\+\_\+enabled}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__general__config__t_a250b44ef90148ada7968e3557aee3b76}{clkout\+\_\+divider}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure for general configuration of the C\+AN driver. 
+
+\begin{DoxyNote}{Note}
+Macro initializers are available for this structure 
+\end{DoxyNote}
+
+
+Definition at line 139 of file can.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcan__general__config__t_ac2b5339d689987b37c01cc7832b95fbb}\label{structcan__general__config__t_ac2b5339d689987b37c01cc7832b95fbb}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!alerts\_enabled@{alerts\_enabled}}
+\index{alerts\_enabled@{alerts\_enabled}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{alerts\_enabled}{alerts\_enabled}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+general\+\_\+config\+\_\+t\+::alerts\+\_\+enabled}
+
+Bit field of alerts to enable (see documentation) 
+
+Definition at line 147 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_aa865490b8c029f19f25339b9f76955e8}\label{structcan__general__config__t_aa865490b8c029f19f25339b9f76955e8}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!bus\_off\_io@{bus\_off\_io}}
+\index{bus\_off\_io@{bus\_off\_io}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{bus\_off\_io}{bus\_off\_io}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} can\+\_\+general\+\_\+config\+\_\+t\+::bus\+\_\+off\+\_\+io}
+
+Bus off indicator G\+P\+IO number (optional, set to -\/1 if unused) 
+
+Definition at line 144 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_a250b44ef90148ada7968e3557aee3b76}\label{structcan__general__config__t_a250b44ef90148ada7968e3557aee3b76}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!clkout\_divider@{clkout\_divider}}
+\index{clkout\_divider@{clkout\_divider}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{clkout\_divider}{clkout\_divider}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+general\+\_\+config\+\_\+t\+::clkout\+\_\+divider}
+
+C\+L\+K\+O\+UT divider. Can be 1 or any even number from 2 to 14 (optional, set to 0 if unused) 
+
+Definition at line 148 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_a87de9993c23f8e12c137dfd0e57eb9f4}\label{structcan__general__config__t_a87de9993c23f8e12c137dfd0e57eb9f4}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!clkout\_io@{clkout\_io}}
+\index{clkout\_io@{clkout\_io}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{clkout\_io}{clkout\_io}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} can\+\_\+general\+\_\+config\+\_\+t\+::clkout\+\_\+io}
+
+C\+L\+K\+O\+UT G\+P\+IO number (optional, set to -\/1 if unused) 
+
+Definition at line 143 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_a74c07e66e8bfe4cb7f9ca7a4ba88a40d}\label{structcan__general__config__t_a74c07e66e8bfe4cb7f9ca7a4ba88a40d}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!mode@{mode}}
+\index{mode@{mode}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_ad6f5bfd4c152b830a94c2066e9c81710}{can\+\_\+mode\+\_\+t}} can\+\_\+general\+\_\+config\+\_\+t\+::mode}
+
+Mode of C\+AN controller 
+
+Definition at line 140 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_af9ad16ba924e8b218e7fdef911847cb2}\label{structcan__general__config__t_af9ad16ba924e8b218e7fdef911847cb2}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!rx\_io@{rx\_io}}
+\index{rx\_io@{rx\_io}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_io}{rx\_io}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} can\+\_\+general\+\_\+config\+\_\+t\+::rx\+\_\+io}
+
+Receive G\+P\+IO number 
+
+Definition at line 142 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_a29b32ceaeaea85a8708bb1153710c60d}\label{structcan__general__config__t_a29b32ceaeaea85a8708bb1153710c60d}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!rx\_queue\_len@{rx\_queue\_len}}
+\index{rx\_queue\_len@{rx\_queue\_len}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_queue\_len}{rx\_queue\_len}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+general\+\_\+config\+\_\+t\+::rx\+\_\+queue\+\_\+len}
+
+Number of messages RX queue can hold 
+
+Definition at line 146 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_add3046b9254932aac53b70788cc849c4}\label{structcan__general__config__t_add3046b9254932aac53b70788cc849c4}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!tx\_io@{tx\_io}}
+\index{tx\_io@{tx\_io}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_io}{tx\_io}}
+{\footnotesize\ttfamily \mbox{\hyperlink{gpio_8h_acc3163c5ca8280a1d2ae3890a39ddd48}{gpio\+\_\+num\+\_\+t}} can\+\_\+general\+\_\+config\+\_\+t\+::tx\+\_\+io}
+
+Transmit G\+P\+IO number 
+
+Definition at line 141 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__general__config__t_a898cc6124e020c1372d7ef6716d0d2ca}\label{structcan__general__config__t_a898cc6124e020c1372d7ef6716d0d2ca}} 
+\index{can\_general\_config\_t@{can\_general\_config\_t}!tx\_queue\_len@{tx\_queue\_len}}
+\index{tx\_queue\_len@{tx\_queue\_len}!can\_general\_config\_t@{can\_general\_config\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_queue\_len}{tx\_queue\_len}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+general\+\_\+config\+\_\+t\+::tx\+\_\+queue\+\_\+len}
+
+Number of messages TX queue can hold (set to 0 to disable TX Queue) 
+
+Definition at line 145 of file can.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

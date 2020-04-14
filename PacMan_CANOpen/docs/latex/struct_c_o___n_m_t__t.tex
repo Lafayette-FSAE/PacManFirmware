@@ -1,0 +1,132 @@
+\hypertarget{struct_c_o___n_m_t__t}{}\doxysection{C\+O\+\_\+\+N\+M\+T\+\_\+t Struct Reference}
+\label{struct_c_o___n_m_t__t}\index{CO\_NMT\_t@{CO\_NMT\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___n_m_t__t_abebf973c819c48fa36c48ba2eb84818a}{operating\+State}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___n_m_t__t_a13b628972063a5452a4e16e829a549e4}{reset\+Command}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___n_m_t__t_a6cf0441aff58a3e208d1ed221a26709c}{node\+Id}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___n_m_t__t_ae5922dda813f6df173362738f2e3b51f}{H\+Bproducer\+Timer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___n_m_t__t_ae5a45fe2345217220cd331df3284f4d4}{first\+H\+B\+Time}}
+\item 
+C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___n_m_t__t_ad9aa0a1fb51655dae5be9037f9461494}{em\+Pr}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___n_m_t__t_a73279a3e78b41941d7b1ed7e8c7bf31c}{H\+B\+\_\+\+C\+A\+Ndev}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___n_m_t__t_a0899fd887ff7febabcac4d4ebf05dc4b}{p\+Funct\+N\+MT}} )(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state)
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___n_m_t__t_af6396b7da4c4ae640ea03fb394abe326}{H\+B\+\_\+\+T\+Xbuff}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+N\+MT consumer and Heartbeat producer object. It includes also variables for \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes}{Status L\+ED diodes}}. Object is initialized by \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init()}}. 
+
+Definition at line 131 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_ad9aa0a1fb51655dae5be9037f9461494}\label{struct_c_o___n_m_t__t_ad9aa0a1fb51655dae5be9037f9461494}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!emPr@{emPr}}
+\index{emPr@{emPr}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{emPr}{emPr}}
+{\footnotesize\ttfamily C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$ C\+O\+\_\+\+N\+M\+T\+\_\+t\+::em\+Pr}
+
+From \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init()}} 
+
+Definition at line 148 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_ae5a45fe2345217220cd331df3284f4d4}\label{struct_c_o___n_m_t__t_ae5a45fe2345217220cd331df3284f4d4}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!firstHBTime@{firstHBTime}}
+\index{firstHBTime@{firstHBTime}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{firstHBTime}{firstHBTime}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+N\+M\+T\+\_\+t\+::first\+H\+B\+Time}
+
+From \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init()}} 
+
+Definition at line 147 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_a73279a3e78b41941d7b1ed7e8c7bf31c}\label{struct_c_o___n_m_t__t_a73279a3e78b41941d7b1ed7e8c7bf31c}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!HB\_CANdev@{HB\_CANdev}}
+\index{HB\_CANdev@{HB\_CANdev}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{HB\_CANdev}{HB\_CANdev}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+N\+M\+T\+\_\+t\+::\+H\+B\+\_\+\+C\+A\+Ndev}
+
+From \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init()}} 
+
+Definition at line 149 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_af6396b7da4c4ae640ea03fb394abe326}\label{struct_c_o___n_m_t__t_af6396b7da4c4ae640ea03fb394abe326}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!HB\_TXbuff@{HB\_TXbuff}}
+\index{HB\_TXbuff@{HB\_TXbuff}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{HB\_TXbuff}{HB\_TXbuff}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ C\+O\+\_\+\+N\+M\+T\+\_\+t\+::\+H\+B\+\_\+\+T\+Xbuff}
+
+C\+AN transmit buffer 
+
+Definition at line 151 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_ae5922dda813f6df173362738f2e3b51f}\label{struct_c_o___n_m_t__t_ae5922dda813f6df173362738f2e3b51f}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!HBproducerTimer@{HBproducerTimer}}
+\index{HBproducerTimer@{HBproducerTimer}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{HBproducerTimer}{HBproducerTimer}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+N\+M\+T\+\_\+t\+::\+H\+Bproducer\+Timer}
+
+Internal timer for HB producer 
+
+Definition at line 146 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_a6cf0441aff58a3e208d1ed221a26709c}\label{struct_c_o___n_m_t__t_a6cf0441aff58a3e208d1ed221a26709c}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!nodeId@{nodeId}}
+\index{nodeId@{nodeId}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{nodeId}{nodeId}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+N\+M\+T\+\_\+t\+::node\+Id}
+
+C\+A\+Nopen Node ID of this device 
+
+Definition at line 145 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_abebf973c819c48fa36c48ba2eb84818a}\label{struct_c_o___n_m_t__t_abebf973c819c48fa36c48ba2eb84818a}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!operatingState@{operatingState}}
+\index{operatingState@{operatingState}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{operatingState}{operatingState}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+N\+M\+T\+\_\+t\+::operating\+State}
+
+See \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} 
+
+Definition at line 132 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_a0899fd887ff7febabcac4d4ebf05dc4b}\label{struct_c_o___n_m_t__t_a0899fd887ff7febabcac4d4ebf05dc4b}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!pFunctNMT@{pFunctNMT}}
+\index{pFunctNMT@{pFunctNMT}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctNMT}{pFunctNMT}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+N\+M\+T\+\_\+t\+::p\+Funct\+N\+MT)(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state)}
+
+From \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}{C\+O\+\_\+\+N\+M\+T\+\_\+init\+Callback()}} or N\+U\+LL 
+
+Definition at line 150 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{struct_c_o___n_m_t__t_a13b628972063a5452a4e16e829a549e4}\label{struct_c_o___n_m_t__t_a13b628972063a5452a4e16e829a549e4}} 
+\index{CO\_NMT\_t@{CO\_NMT\_t}!resetCommand@{resetCommand}}
+\index{resetCommand@{resetCommand}!CO\_NMT\_t@{CO\_NMT\_t}}
+\doxysubsubsection{\texorpdfstring{resetCommand}{resetCommand}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+N\+M\+T\+\_\+t\+::reset\+Command}
+
+If different than zero, device will reset 
+
+Definition at line 144 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___n_m_t___heartbeat_8h}{C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h}}\end{DoxyCompactItemize}

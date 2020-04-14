@@ -1,0 +1,177 @@
+\hypertarget{group___c_o___t_i_m_e}{}\doxysection{T\+I\+ME}
+\label{group___c_o___t_i_m_e}\index{TIME@{TIME}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___t_i_m_e_8c}{C\+O\+\_\+\+T\+I\+M\+E.\+c}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___t_i_m_e_8c}{C\+O\+\_\+\+T\+I\+M\+E.\+c}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___t_i_m_e__t}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}{T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH}}~6U
+\item 
+\#define \mbox{\hyperlink{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}{T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH}}~6U
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init}} (\mbox{\hyperlink{struct_c_o___t_i_m_e__t}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t}} $\ast$T\+I\+ME, \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, uint8\+\_\+t $\ast$operating\+State, uint32\+\_\+t C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+M\+E\+Message, uint32\+\_\+t T\+I\+M\+E\+Cycle\+Period, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Tx, uint16\+\_\+t C\+A\+Ndev\+Tx\+Idx)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___c_o___t_i_m_e_gafb348c7a14a2faaa7dfe5cc6f8b7c063}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+process}} (\mbox{\hyperlink{struct_c_o___t_i_m_e__t}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t}} $\ast$T\+I\+ME, uint32\+\_\+t time\+Difference\+\_\+ms)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen T\+I\+ME object protocol.
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+T\+I\+ME message is used for time synchronization of the nodes on network. One node should be T\+I\+ME producer, others can be T\+I\+ME consumers. This is configured with C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME object 0x1012 \+:
+
+
+\begin{DoxyItemize}
+\item bit 31 should be set for a consumer
+\item bit 30 should be set for a producer
+\end{DoxyItemize}\hypertarget{group___c_o___t_i_m_e_autotoc_md31}{}\doxyparagraph{T\+I\+M\+E C\+O\+N\+S\+U\+M\+ER}\label{group___c_o___t_i_m_e_autotoc_md31}
+\mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} configuration \+:
+\begin{DoxyItemize}
+\item C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME \+: 0x80000100L -\/$>$ T\+I\+ME consumer with T\+I\+M\+E\+\_\+\+C\+O\+B\+\_\+\+ID = 0x100
+\item T\+I\+M\+E\+Cycle\+Period \+:
+\begin{DoxyItemize}
+\item 0 -\/$>$ no E\+M\+CY will be transmitted in case of T\+I\+ME timeout
+\item X -\/$>$ an E\+M\+CY will be transmitted in case of T\+I\+ME timeout (X $\ast$ 1.\+5) ms
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Latest time value is stored in {\ttfamily C\+O-\/$>$T\+I\+M\+E-\/$>$Time} variable.\hypertarget{group___c_o___t_i_m_e_autotoc_md32}{}\doxyparagraph{T\+I\+M\+E P\+R\+O\+D\+U\+C\+ER}\label{group___c_o___t_i_m_e_autotoc_md32}
+\mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} configuration \+:
+\begin{DoxyItemize}
+\item C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME \+: 0x40000100L -\/$>$ T\+I\+ME producer with T\+I\+M\+E\+\_\+\+C\+O\+B\+\_\+\+ID = 0x100
+\item T\+I\+M\+E\+Cycle\+Period \+: Time transmit period in ms
+\end{DoxyItemize}
+
+Write time value in {\ttfamily C\+O-\/$>$T\+I\+M\+E-\/$>$Time} variable, this will be sent at T\+I\+M\+E\+Cycle\+Period.
+
+C\+A\+Nopen T\+I\+ME object protocol.
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+T\+I\+ME message is used for time synchronization of the nodes on network. One node should be T\+I\+ME producer, others can be T\+I\+ME consumers. This is configured with C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME object 0x1012 \+:
+
+
+\begin{DoxyItemize}
+\item bit 31 should be set for a consumer
+\item bit 30 should be set for a producer
+\end{DoxyItemize}\hypertarget{group___c_o___t_i_m_e_autotoc_md76}{}\doxyparagraph{T\+I\+M\+E C\+O\+N\+S\+U\+M\+ER}\label{group___c_o___t_i_m_e_autotoc_md76}
+\mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} configuration \+:
+\begin{DoxyItemize}
+\item C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME \+: 0x80000100L -\/$>$ T\+I\+ME consumer with T\+I\+M\+E\+\_\+\+C\+O\+B\+\_\+\+ID = 0x100
+\item T\+I\+M\+E\+Cycle\+Period \+:
+\begin{DoxyItemize}
+\item 0 -\/$>$ no E\+M\+CY will be transmitted in case of T\+I\+ME timeout
+\item X -\/$>$ an E\+M\+CY will be transmitted in case of T\+I\+ME timeout (X $\ast$ 1.\+5) ms
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Latest time value is stored in {\ttfamily C\+O-\/$>$T\+I\+M\+E-\/$>$Time} variable.\hypertarget{group___c_o___t_i_m_e_autotoc_md77}{}\doxyparagraph{T\+I\+M\+E P\+R\+O\+D\+U\+C\+ER}\label{group___c_o___t_i_m_e_autotoc_md77}
+\mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} configuration \+:
+\begin{DoxyItemize}
+\item C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+ME \+: 0x40000100L -\/$>$ T\+I\+ME producer with T\+I\+M\+E\+\_\+\+C\+O\+B\+\_\+\+ID = 0x100
+\item T\+I\+M\+E\+Cycle\+Period \+: Time transmit period in ms
+\end{DoxyItemize}
+
+Write time value in {\ttfamily C\+O-\/$>$T\+I\+M\+E-\/$>$Time} variable, this will be sent at T\+I\+M\+E\+Cycle\+Period. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}\label{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}} 
+\index{TIME@{TIME}!TIME\_MSG\_LENGTH@{TIME\_MSG\_LENGTH}}
+\index{TIME\_MSG\_LENGTH@{TIME\_MSG\_LENGTH}!TIME@{TIME}}
+\doxysubsubsection{\texorpdfstring{TIME\_MSG\_LENGTH}{TIME\_MSG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH~6U}
+
+
+
+Definition at line 75 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}\label{group___c_o___t_i_m_e_ga72bfa20e18c695bb1810081f63e325d0}} 
+\index{TIME@{TIME}!TIME\_MSG\_LENGTH@{TIME\_MSG\_LENGTH}}
+\index{TIME\_MSG\_LENGTH@{TIME\_MSG\_LENGTH}!TIME@{TIME}}
+\doxysubsubsection{\texorpdfstring{TIME\_MSG\_LENGTH}{TIME\_MSG\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH~6U}
+
+
+
+Definition at line 75 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}\label{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}} 
+\index{TIME@{TIME}!CO\_TIME\_init@{CO\_TIME\_init}}
+\index{CO\_TIME\_init@{CO\_TIME\_init}!TIME@{TIME}}
+\doxysubsubsection{\texorpdfstring{CO\_TIME\_init()}{CO\_TIME\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+T\+I\+M\+E\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___t_i_m_e__t}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t}} $\ast$}]{T\+I\+ME,  }\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{uint8\+\_\+t $\ast$}]{operating\+State,  }\item[{uint32\+\_\+t}]{C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+M\+E\+Message,  }\item[{uint32\+\_\+t}]{T\+I\+M\+E\+Cycle\+Period,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Tx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Tx\+Idx }\end{DoxyParamCaption})}
+
+Initialize T\+I\+ME object.
+
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+ME} & This object will be initialized. \\
+\hline
+{\em em} & Emergency object. \\
+\hline
+{\em S\+DO} & S\+DO server object. \\
+\hline
+{\em operating\+State} & Pointer to variable indicating C\+A\+Nopen device N\+MT internal state. \\
+\hline
+{\em C\+O\+B\+\_\+\+I\+D\+\_\+\+T\+I\+M\+E\+Message} & Should be intialized with C\+O\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+T\+I\+M\+E\+\_\+\+S\+T\+A\+MP \\
+\hline
+{\em T\+I\+M\+E\+Cycle\+Period} & T\+I\+ME period in ms (may also be used in consumer mode for timeout detection (1.\+5x period)). \\
+\hline
+{\em C\+A\+Ndev\+Rx} & C\+AN device for T\+I\+ME reception. \\
+\hline
+{\em C\+A\+Ndev\+Rx\+Idx} & Index of receive buffer in the above C\+AN device.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file C\+O\+\_\+\+T\+I\+M\+E.\+c.
+
+\mbox{\Hypertarget{group___c_o___t_i_m_e_gafb348c7a14a2faaa7dfe5cc6f8b7c063}\label{group___c_o___t_i_m_e_gafb348c7a14a2faaa7dfe5cc6f8b7c063}} 
+\index{TIME@{TIME}!CO\_TIME\_process@{CO\_TIME\_process}}
+\index{CO\_TIME\_process@{CO\_TIME\_process}!TIME@{TIME}}
+\doxysubsubsection{\texorpdfstring{CO\_TIME\_process()}{CO\_TIME\_process()}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___t_i_m_e__t}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t}} $\ast$}]{T\+I\+ME,  }\item[{uint32\+\_\+t}]{time\+Difference\+\_\+ms }\end{DoxyParamCaption})}
+
+Process T\+I\+ME communication.
+
+Function must be called cyclically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\+I\+ME} & This object. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: No special meaning. 
+
+1\+: New T\+I\+ME message recently received (consumer) / transmited (producer). 
+\end{DoxyReturn}
+
+
+Definition at line 120 of file C\+O\+\_\+\+T\+I\+M\+E.\+c.
+

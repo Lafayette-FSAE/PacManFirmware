@@ -1,0 +1,173 @@
+\hypertarget{_i2_c___devices_8h}{}\doxysection{I2\+C\+\_\+\+Devices.\+h File Reference}
+\label{_i2_c___devices_8h}\index{I2C\_Devices.h@{I2C\_Devices.h}}
+{\ttfamily \#include \char`\"{}Arduino.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Wire.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pac\+Man.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_i2_c___devices_8h_a197fde4535ba2a5408b4bb85a494d5bb}{i2c\+Write\+Byte\+To\+Mem}} (uint8\+\_\+t addr, uint8\+\_\+t reg, uint8\+\_\+t value)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c___devices_8h_ab69f3a618ddfd745e371e44c6d4e49eb}{i2c\+Read\+Byte\+From\+Mem}} (uint8\+\_\+t addr, uint8\+\_\+t reg)
+\item 
+void \mbox{\hyperlink{_i2_c___devices_8h_ac6e80b947c80e75d68c23adad964300e}{M\+C\+P23008\+\_\+setup}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_i2_c___devices_8h_a11227d5ae2696f306e046d90dbca6c1b}{M\+C\+P23008\+\_\+read\+G\+P\+IO}} ()
+\item 
+void \mbox{\hyperlink{_i2_c___devices_8h_ad9707db5ff4568111985442b34d61fe7}{L\+T\+C4151\+\_\+setup}} ()
+\item 
+void \mbox{\hyperlink{_i2_c___devices_8h_a4bb489f834e1eeb085597c2c14a394bf}{L\+T\+C4151\+\_\+update}} ()
+\item 
+float \mbox{\hyperlink{_i2_c___devices_8h_a5e65f3be0d1cc7edf0fdd1d5a3cd6843}{L\+T\+C4151\+\_\+get\+Voltage}} ()
+\item 
+float \mbox{\hyperlink{_i2_c___devices_8h_a0a1956f3063db070f7aab9000c036b50}{L\+T\+C4151\+\_\+get\+CurrentA}} ()
+\item 
+float \mbox{\hyperlink{_i2_c___devices_8h_acdb905a2f2a2cfeee63a8d389494b57b}{L\+T\+C4151\+\_\+get\+CurrentmA}} ()
+\item 
+float \mbox{\hyperlink{_i2_c___devices_8h_ad5a77dde48606b46e1dc919ee10c534e}{L\+T\+C4151\+\_\+get\+Diff}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_i2_c___devices_8h_ab6b9d02fce6fe30ee725c9d778588d46}{L\+T\+C4151\+\_\+\+Vsense}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_i2_c___devices_8h_a19a628e36a7de5b4a19e989d078d6761}{L\+T\+C4151\+\_\+\+Vin}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_i2_c___devices_8h_a476d9fcd5b23fe7cb0534291eaafa48c}{L\+T\+C4151\+\_\+\+A\+Din}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_i2_c___devices_8h_ab69f3a618ddfd745e371e44c6d4e49eb}\label{_i2_c___devices_8h_ab69f3a618ddfd745e371e44c6d4e49eb}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!i2cReadByteFromMem@{i2cReadByteFromMem}}
+\index{i2cReadByteFromMem@{i2cReadByteFromMem}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{i2cReadByteFromMem()}{i2cReadByteFromMem()}}
+{\footnotesize\ttfamily uint8\+\_\+t i2c\+Read\+Byte\+From\+Mem (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{reg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a197fde4535ba2a5408b4bb85a494d5bb}\label{_i2_c___devices_8h_a197fde4535ba2a5408b4bb85a494d5bb}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!i2cWriteByteToMem@{i2cWriteByteToMem}}
+\index{i2cWriteByteToMem@{i2cWriteByteToMem}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{i2cWriteByteToMem()}{i2cWriteByteToMem()}}
+{\footnotesize\ttfamily void i2c\+Write\+Byte\+To\+Mem (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{reg,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a0a1956f3063db070f7aab9000c036b50}\label{_i2_c___devices_8h_a0a1956f3063db070f7aab9000c036b50}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_getCurrentA@{LTC4151\_getCurrentA}}
+\index{LTC4151\_getCurrentA@{LTC4151\_getCurrentA}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_getCurrentA()}{LTC4151\_getCurrentA()}}
+{\footnotesize\ttfamily float L\+T\+C4151\+\_\+get\+CurrentA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_acdb905a2f2a2cfeee63a8d389494b57b}\label{_i2_c___devices_8h_acdb905a2f2a2cfeee63a8d389494b57b}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_getCurrentmA@{LTC4151\_getCurrentmA}}
+\index{LTC4151\_getCurrentmA@{LTC4151\_getCurrentmA}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_getCurrentmA()}{LTC4151\_getCurrentmA()}}
+{\footnotesize\ttfamily float L\+T\+C4151\+\_\+get\+CurrentmA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_ad5a77dde48606b46e1dc919ee10c534e}\label{_i2_c___devices_8h_ad5a77dde48606b46e1dc919ee10c534e}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_getDiff@{LTC4151\_getDiff}}
+\index{LTC4151\_getDiff@{LTC4151\_getDiff}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_getDiff()}{LTC4151\_getDiff()}}
+{\footnotesize\ttfamily float L\+T\+C4151\+\_\+get\+Diff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a5e65f3be0d1cc7edf0fdd1d5a3cd6843}\label{_i2_c___devices_8h_a5e65f3be0d1cc7edf0fdd1d5a3cd6843}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_getVoltage@{LTC4151\_getVoltage}}
+\index{LTC4151\_getVoltage@{LTC4151\_getVoltage}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_getVoltage()}{LTC4151\_getVoltage()}}
+{\footnotesize\ttfamily float L\+T\+C4151\+\_\+get\+Voltage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_ad9707db5ff4568111985442b34d61fe7}\label{_i2_c___devices_8h_ad9707db5ff4568111985442b34d61fe7}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_setup@{LTC4151\_setup}}
+\index{LTC4151\_setup@{LTC4151\_setup}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_setup()}{LTC4151\_setup()}}
+{\footnotesize\ttfamily void L\+T\+C4151\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a4bb489f834e1eeb085597c2c14a394bf}\label{_i2_c___devices_8h_a4bb489f834e1eeb085597c2c14a394bf}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_update@{LTC4151\_update}}
+\index{LTC4151\_update@{LTC4151\_update}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_update()}{LTC4151\_update()}}
+{\footnotesize\ttfamily void L\+T\+C4151\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a11227d5ae2696f306e046d90dbca6c1b}\label{_i2_c___devices_8h_a11227d5ae2696f306e046d90dbca6c1b}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!MCP23008\_readGPIO@{MCP23008\_readGPIO}}
+\index{MCP23008\_readGPIO@{MCP23008\_readGPIO}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_readGPIO()}{MCP23008\_readGPIO()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+C\+P23008\+\_\+read\+G\+P\+IO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_ac6e80b947c80e75d68c23adad964300e}\label{_i2_c___devices_8h_ac6e80b947c80e75d68c23adad964300e}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!MCP23008\_setup@{MCP23008\_setup}}
+\index{MCP23008\_setup@{MCP23008\_setup}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_setup()}{MCP23008\_setup()}}
+{\footnotesize\ttfamily void M\+C\+P23008\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_i2_c___devices_8h_a476d9fcd5b23fe7cb0534291eaafa48c}\label{_i2_c___devices_8h_a476d9fcd5b23fe7cb0534291eaafa48c}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_ADin@{LTC4151\_ADin}}
+\index{LTC4151\_ADin@{LTC4151\_ADin}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_ADin}{LTC4151\_ADin}}
+{\footnotesize\ttfamily uint16\+\_\+t L\+T\+C4151\+\_\+\+A\+Din}
+
+
+
+Definition at line 61 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_a19a628e36a7de5b4a19e989d078d6761}\label{_i2_c___devices_8h_a19a628e36a7de5b4a19e989d078d6761}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_Vin@{LTC4151\_Vin}}
+\index{LTC4151\_Vin@{LTC4151\_Vin}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_Vin}{LTC4151\_Vin}}
+{\footnotesize\ttfamily uint16\+\_\+t L\+T\+C4151\+\_\+\+Vin}
+
+
+
+Definition at line 60 of file I2\+C\+\_\+\+Devices.\+cpp.
+
+\mbox{\Hypertarget{_i2_c___devices_8h_ab6b9d02fce6fe30ee725c9d778588d46}\label{_i2_c___devices_8h_ab6b9d02fce6fe30ee725c9d778588d46}} 
+\index{I2C\_Devices.h@{I2C\_Devices.h}!LTC4151\_Vsense@{LTC4151\_Vsense}}
+\index{LTC4151\_Vsense@{LTC4151\_Vsense}!I2C\_Devices.h@{I2C\_Devices.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_Vsense}{LTC4151\_Vsense}}
+{\footnotesize\ttfamily uint16\+\_\+t L\+T\+C4151\+\_\+\+Vsense}
+
+
+
+Definition at line 59 of file I2\+C\+\_\+\+Devices.\+cpp.
+

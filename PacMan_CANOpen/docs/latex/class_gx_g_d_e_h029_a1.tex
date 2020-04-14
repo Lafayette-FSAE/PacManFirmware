@@ -1,0 +1,346 @@
+\hypertarget{class_gx_g_d_e_h029_a1}{}\doxysection{Gx\+G\+D\+E\+H029\+A1 Class Reference}
+\label{class_gx_g_d_e_h029_a1}\index{GxGDEH029A1@{GxGDEH029A1}}
+
+
+{\ttfamily \#include $<$Gx\+G\+D\+E\+H029\+A1.\+h$>$}
+
+Inheritance diagram for Gx\+G\+D\+E\+H029\+A1\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_gx_g_d_e_h029_a1}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gx_g_d_e_h029_a1_a1dd9bba406a588b71e8804e9ab2869eb}{Gx\+G\+D\+E\+H029\+A1}} (\mbox{\hyperlink{class_gx_i_o}{Gx\+IO}} \&\mbox{\hyperlink{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}{io}}, int8\+\_\+t rst=9, int8\+\_\+t busy=7)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Virtual \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a9e3bc32593f835f5b44722b4f8c57634}{init}} (uint32\+\_\+t serial\+\_\+diag\+\_\+bitrate=0)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a0aa7fb45dba05d1b6fc514448625d911}{fill\+Screen}} (uint16\+\_\+t color)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a4f561a4025c94eac42165b5244d812f1}{update}} (void)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a3c2804901d1391ef0e24fad2907c05f4}{draw\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color, int16\+\_\+t mode=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}})
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_afcc5bdd17e78d92d316e1ab2ca17c0c0}{draw\+Bitmap}} (const uint8\+\_\+t $\ast$bitmap, uint32\+\_\+t size, int16\+\_\+t mode=\mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}})
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_abfc7938e20a232219c8a712a39229eaa}{erase\+Display}} (bool using\+\_\+partial\+\_\+update=false)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_afca1203b83378261a1e9118c73308a9b}{update\+Window}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, bool using\+\_\+rotation=true)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a3a060ad180b1945f6dbd84045b1c462d}{update\+To\+Window}} (uint16\+\_\+t xs, uint16\+\_\+t ys, uint16\+\_\+t xd, uint16\+\_\+t yd, uint16\+\_\+t w, uint16\+\_\+t h, bool using\+\_\+rotation=true)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a63da8f3ebe6236961fc72778b268d188}{power\+Down}} ()
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_aedda81130822c21926a4daacdafd1e91}{draw\+Paged}} (void($\ast$draw\+Callback)(void))
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a1ab786816a1d3abf59c4bc6a05f49884}{draw\+Paged}} (void($\ast$draw\+Callback)(uint32\+\_\+t), uint32\+\_\+t)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_ab01622e627ff4f11da9f5dc615876dc8}{draw\+Paged}} (void($\ast$draw\+Callback)(const void $\ast$), const void $\ast$)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_aea2de28314388c9bd6c65bc0884924e4}{draw\+Paged}} (void($\ast$draw\+Callback)(const void $\ast$, const void $\ast$), const void $\ast$, const void $\ast$)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a9672c8530cdb3b377eca3b5cb1ae97ce}{draw\+Paged\+To\+Window}} (void($\ast$draw\+Callback)(void), uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_aa045519c1d4a14f1eb3e995bc04cfb2b}{draw\+Paged\+To\+Window}} (void($\ast$draw\+Callback)(uint32\+\_\+t), uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint32\+\_\+t)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a2336c2913a2d20b93b7365c80364cb21}{draw\+Paged\+To\+Window}} (void($\ast$draw\+Callback)(const void $\ast$), uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, const void $\ast$)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_aa201a24def3143a6e68a55a6bd39c5a6}{draw\+Paged\+To\+Window}} (void($\ast$draw\+Callback)(const void $\ast$, const void $\ast$), uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, const void $\ast$, const void $\ast$)
+\item 
+void \mbox{\hyperlink{class_gx_g_d_e_h029_a1_aadec6126f88f1ce0e7edcb1b7db3f788}{draw\+Corner\+Test}} (uint8\+\_\+t em=0x01)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a045bbfe7ccb69533c5ba4ffd9ab6af45}{\+\_\+buffer}} \mbox{[}\mbox{\hyperlink{_gx_g_d_e_h029_a1_8h_ae380b3ce32449dbe4782f36e0aeb769a}{Gx\+G\+D\+E\+H029\+A1\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 35 of file Gx\+G\+D\+E\+H029\+A1.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a1dd9bba406a588b71e8804e9ab2869eb}\label{class_gx_g_d_e_h029_a1_a1dd9bba406a588b71e8804e9ab2869eb}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!GxGDEH029A1@{GxGDEH029A1}}
+\index{GxGDEH029A1@{GxGDEH029A1}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{GxGDEH029A1()}{GxGDEH029A1()}}
+{\footnotesize\ttfamily Gx\+G\+D\+E\+H029\+A1\+::\+Gx\+G\+D\+E\+H029\+A1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gx_i_o}{Gx\+IO}} \&}]{io,  }\item[{int8\+\_\+t}]{rst = {\ttfamily 9},  }\item[{int8\+\_\+t}]{busy = {\ttfamily 7} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a3c2804901d1391ef0e24fad2907c05f4}\label{class_gx_g_d_e_h029_a1_a3c2804901d1391ef0e24fad2907c05f4}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{int16\+\_\+t}]{mode = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_a0aa921df6e6e4c42600353706855ed7f}{Gx\+E\+PD}}.
+
+
+
+Definition at line 142 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_afcc5bdd17e78d92d316e1ab2ca17c0c0}\label{class_gx_g_d_e_h029_a1_afcc5bdd17e78d92d316e1ab2ca17c0c0}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint32\+\_\+t}]{size,  }\item[{int16\+\_\+t}]{mode = {\ttfamily \mbox{\hyperlink{class_gx_e_p_d_acf27bf7a381ff5a89442f378d78ad647a62ba9726e95f6e8227c0f7320e751d7f}{bm\+\_\+normal}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_a443c0145c103a9878ba5dbd8cb10050c}{Gx\+E\+PD}}.
+
+
+
+Definition at line 148 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_aadec6126f88f1ce0e7edcb1b7db3f788}\label{class_gx_g_d_e_h029_a1_aadec6126f88f1ce0e7edcb1b7db3f788}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawCornerTest@{drawCornerTest}}
+\index{drawCornerTest@{drawCornerTest}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawCornerTest()}{drawCornerTest()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Corner\+Test (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{em = {\ttfamily 0x01} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 843 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_ab01622e627ff4f11da9f5dc615876dc8}\label{class_gx_g_d_e_h029_a1_ab01622e627ff4f11da9f5dc615876dc8}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPaged@{drawPaged}}
+\index{drawPaged@{drawPaged}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPaged()}{drawPaged()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged (\begin{DoxyParamCaption}\item[{void($\ast$)(const void $\ast$)}]{draw\+Callback,  }\item[{const void $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 600 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_aea2de28314388c9bd6c65bc0884924e4}\label{class_gx_g_d_e_h029_a1_aea2de28314388c9bd6c65bc0884924e4}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPaged@{drawPaged}}
+\index{drawPaged@{drawPaged}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPaged()}{drawPaged()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged (\begin{DoxyParamCaption}\item[{void($\ast$)(const void $\ast$, const void $\ast$)}]{draw\+Callback,  }\item[{const void $\ast$}]{p1,  }\item[{const void $\ast$}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 625 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a1ab786816a1d3abf59c4bc6a05f49884}\label{class_gx_g_d_e_h029_a1_a1ab786816a1d3abf59c4bc6a05f49884}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPaged@{drawPaged}}
+\index{drawPaged@{drawPaged}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPaged()}{drawPaged()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged (\begin{DoxyParamCaption}\item[{void($\ast$)(uint32\+\_\+t)}]{draw\+Callback,  }\item[{uint32\+\_\+t}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 575 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_aedda81130822c21926a4daacdafd1e91}\label{class_gx_g_d_e_h029_a1_aedda81130822c21926a4daacdafd1e91}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPaged@{drawPaged}}
+\index{drawPaged@{drawPaged}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPaged()}{drawPaged()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{draw\+Callback }\end{DoxyParamCaption})}
+
+
+
+Definition at line 550 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a2336c2913a2d20b93b7365c80364cb21}\label{class_gx_g_d_e_h029_a1_a2336c2913a2d20b93b7365c80364cb21}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPagedToWindow@{drawPagedToWindow}}
+\index{drawPagedToWindow@{drawPagedToWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPagedToWindow()}{drawPagedToWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged\+To\+Window (\begin{DoxyParamCaption}\item[{void($\ast$)(const void $\ast$)}]{draw\+Callback,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{const void $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 757 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_aa201a24def3143a6e68a55a6bd39c5a6}\label{class_gx_g_d_e_h029_a1_aa201a24def3143a6e68a55a6bd39c5a6}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPagedToWindow@{drawPagedToWindow}}
+\index{drawPagedToWindow@{drawPagedToWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPagedToWindow()}{drawPagedToWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged\+To\+Window (\begin{DoxyParamCaption}\item[{void($\ast$)(const void $\ast$, const void $\ast$)}]{draw\+Callback,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{const void $\ast$}]{p1,  }\item[{const void $\ast$}]{p2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 800 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_aa045519c1d4a14f1eb3e995bc04cfb2b}\label{class_gx_g_d_e_h029_a1_aa045519c1d4a14f1eb3e995bc04cfb2b}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPagedToWindow@{drawPagedToWindow}}
+\index{drawPagedToWindow@{drawPagedToWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPagedToWindow()}{drawPagedToWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged\+To\+Window (\begin{DoxyParamCaption}\item[{void($\ast$)(uint32\+\_\+t)}]{draw\+Callback,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint32\+\_\+t}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 714 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a9672c8530cdb3b377eca3b5cb1ae97ce}\label{class_gx_g_d_e_h029_a1_a9672c8530cdb3b377eca3b5cb1ae97ce}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPagedToWindow@{drawPagedToWindow}}
+\index{drawPagedToWindow@{drawPagedToWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPagedToWindow()}{drawPagedToWindow()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Paged\+To\+Window (\begin{DoxyParamCaption}\item[{void($\ast$)(void)}]{draw\+Callback,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Definition at line 671 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}\label{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Virtual \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate.\\
+\hline
+{\em y} & Y coordinate.\\
+\hline
+{\em color} & 16-\/bit pixel color. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}{Gx\+E\+PD}}.
+
+
+
+Definition at line 54 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_abfc7938e20a232219c8a712a39229eaa}\label{class_gx_g_d_e_h029_a1_abfc7938e20a232219c8a712a39229eaa}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!eraseDisplay@{eraseDisplay}}
+\index{eraseDisplay@{eraseDisplay}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{eraseDisplay()}{eraseDisplay()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::erase\+Display (\begin{DoxyParamCaption}\item[{bool}]{using\+\_\+partial\+\_\+update = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_e_p_d_ab8c2527a25725507bc491c826b868558}{Gx\+E\+PD}}.
+
+
+
+Definition at line 222 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a0aa7fb45dba05d1b6fc514448625d911}\label{class_gx_g_d_e_h029_a1_a0aa7fb45dba05d1b6fc514448625d911}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_aa17f0e533bddb6dc16eb6bbff18aab76}{Gx\+E\+PD}}.
+
+
+
+Definition at line 112 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a9e3bc32593f835f5b44722b4f8c57634}\label{class_gx_g_d_e_h029_a1_a9e3bc32593f835f5b44722b4f8c57634}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!init@{init}}
+\index{init@{init}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{serial\+\_\+diag\+\_\+bitrate = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_afe73999ddf75b172ab95b8e114c6e589}{Gx\+E\+PD}}.
+
+
+
+Definition at line 92 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a63da8f3ebe6236961fc72778b268d188}\label{class_gx_g_d_e_h029_a1_a63da8f3ebe6236961fc72778b268d188}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!powerDown@{powerDown}}
+\index{powerDown@{powerDown}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{powerDown()}{powerDown()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::power\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_a99d135cfe1eb49922f5333492cf8f07a}{Gx\+E\+PD}}.
+
+
+
+Definition at line 372 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a4f561a4025c94eac42165b5244d812f1}\label{class_gx_g_d_e_h029_a1_a4f561a4025c94eac42165b5244d812f1}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!update@{update}}
+\index{update@{update}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_gx_e_p_d_a187febcf1544b0c51a1fb7530c15afe9}{Gx\+E\+PD}}.
+
+
+
+Definition at line 121 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a3a060ad180b1945f6dbd84045b1c462d}\label{class_gx_g_d_e_h029_a1_a3a060ad180b1945f6dbd84045b1c462d}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!updateToWindow@{updateToWindow}}
+\index{updateToWindow@{updateToWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{updateToWindow()}{updateToWindow()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::update\+To\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{xs,  }\item[{uint16\+\_\+t}]{ys,  }\item[{uint16\+\_\+t}]{xd,  }\item[{uint16\+\_\+t}]{yd,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{bool}]{using\+\_\+rotation = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_e_p_d_a7196c4906c6700ca914c08e28902dfc1}{Gx\+E\+PD}}.
+
+
+
+Definition at line 335 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_afca1203b83378261a1e9118c73308a9b}\label{class_gx_g_d_e_h029_a1_afca1203b83378261a1e9118c73308a9b}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!updateWindow@{updateWindow}}
+\index{updateWindow@{updateWindow}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{updateWindow()}{updateWindow()}}
+{\footnotesize\ttfamily void Gx\+G\+D\+E\+H029\+A1\+::update\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{bool}]{using\+\_\+rotation = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_e_p_d_af71f11829e7f6a1a05a06ffb83b9e38c}{Gx\+E\+PD}}.
+
+
+
+Definition at line 259 of file Gx\+G\+D\+E\+H029\+A1.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_gx_g_d_e_h029_a1_a045bbfe7ccb69533c5ba4ffd9ab6af45}\label{class_gx_g_d_e_h029_a1_a045bbfe7ccb69533c5ba4ffd9ab6af45}} 
+\index{GxGDEH029A1@{GxGDEH029A1}!\_buffer@{\_buffer}}
+\index{\_buffer@{\_buffer}!GxGDEH029A1@{GxGDEH029A1}}
+\doxysubsubsection{\texorpdfstring{\_buffer}{\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t Gx\+G\+D\+E\+H029\+A1\+::\+\_\+buffer\mbox{[}\mbox{\hyperlink{_gx_g_d_e_h029_a1_8h_ae380b3ce32449dbe4782f36e0aeb769a}{Gx\+G\+D\+E\+H029\+A1\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 100 of file Gx\+G\+D\+E\+H029\+A1.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\+Gx\+G\+D\+E\+H029\+A1/\mbox{\hyperlink{_gx_g_d_e_h029_a1_8h}{Gx\+G\+D\+E\+H029\+A1.\+h}}\item 
+References/\+Gx\+G\+D\+E\+H029\+A1/\mbox{\hyperlink{_gx_g_d_e_h029_a1_8cpp}{Gx\+G\+D\+E\+H029\+A1.\+cpp}}\end{DoxyCompactItemize}

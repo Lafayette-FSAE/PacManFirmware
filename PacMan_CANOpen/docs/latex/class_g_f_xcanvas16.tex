@@ -1,0 +1,164 @@
+\hypertarget{class_g_f_xcanvas16}{}\doxysection{G\+F\+Xcanvas16 Class Reference}
+\label{class_g_f_xcanvas16}\index{GFXcanvas16@{GFXcanvas16}}
+
+
+A G\+FX 16-\/bit canvas context for graphics.  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+G\+F\+X.\+h$>$}
+
+Inheritance diagram for G\+F\+Xcanvas16\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_f_xcanvas16}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_f_xcanvas16_a1087f17778b9c60db81162e66220b600}{G\+F\+Xcanvas16}} (uint16\+\_\+t w, uint16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Instatiate a G\+FX 16-\/bit canvas context for graphics. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_f_xcanvas16_a15a79ebb2f3d86cb6a6bdc4ab1f3e9b7}{$\sim$\+G\+F\+Xcanvas16}} (void)
+\begin{DoxyCompactList}\small\item\em Delete the canvas, free memory. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas16_ade30ed51e7dd07be0436b4f9407b6fd8}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a pixel to the canvas framebuffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas16_ae46db6d49d2943e7cb227fd0bb50b1f8}{fill\+Screen}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill the framebuffer completely with one color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_f_xcanvas16_a1d0f26a1252ad384612ca14b07cee98e}{byte\+Swap}} (void)
+\begin{DoxyCompactList}\small\item\em Reverses the \char`\"{}endian-\/ness\char`\"{} of each 16-\/bit pixel within the canvas; little-\/endian to big-\/endian, or big-\/endian to little. Most microcontrollers (such as S\+A\+MD) are little-\/endian, while most displays tend toward big-\/endianness. All the drawing functions (including R\+GB bitmap drawing) take care of this automatically, but some specialized code (usually involving D\+MA) can benefit from having pixel data already in the display-\/native order. Note that this does N\+OT convert to a S\+P\+E\+C\+I\+F\+IC endian-\/ness, it just flips the bytes within each word. \end{DoxyCompactList}\item 
+uint16\+\_\+t $\ast$ \mbox{\hyperlink{class_g_f_xcanvas16_a6b524ecbbe1e562b49caef524694a91c}{get\+Buffer}} (void) const
+\begin{DoxyCompactList}\small\item\em Get a pointer to the internal buffer memory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+A G\+FX 16-\/bit canvas context for graphics. 
+
+Definition at line 335 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas16_a1087f17778b9c60db81162e66220b600}\label{class_g_f_xcanvas16_a1087f17778b9c60db81162e66220b600}} 
+\index{GFXcanvas16@{GFXcanvas16}!GFXcanvas16@{GFXcanvas16}}
+\index{GFXcanvas16@{GFXcanvas16}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{GFXcanvas16()}{GFXcanvas16()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas16\+::\+G\+F\+Xcanvas16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Instatiate a G\+FX 16-\/bit canvas context for graphics. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width, in pixels \\
+\hline
+{\em h} & Display height, in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1854 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas16_a15a79ebb2f3d86cb6a6bdc4ab1f3e9b7}\label{class_g_f_xcanvas16_a15a79ebb2f3d86cb6a6bdc4ab1f3e9b7}} 
+\index{GFXcanvas16@{GFXcanvas16}!````~GFXcanvas16@{$\sim$GFXcanvas16}}
+\index{````~GFXcanvas16@{$\sim$GFXcanvas16}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{$\sim$GFXcanvas16()}{~GFXcanvas16()}}
+{\footnotesize\ttfamily G\+F\+Xcanvas16\+::$\sim$\+G\+F\+Xcanvas16 (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Delete the canvas, free memory. 
+
+
+
+Definition at line 1866 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_f_xcanvas16_a1d0f26a1252ad384612ca14b07cee98e}\label{class_g_f_xcanvas16_a1d0f26a1252ad384612ca14b07cee98e}} 
+\index{GFXcanvas16@{GFXcanvas16}!byteSwap@{byteSwap}}
+\index{byteSwap@{byteSwap}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{byteSwap()}{byteSwap()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas16\+::byte\+Swap (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Reverses the \char`\"{}endian-\/ness\char`\"{} of each 16-\/bit pixel within the canvas; little-\/endian to big-\/endian, or big-\/endian to little. Most microcontrollers (such as S\+A\+MD) are little-\/endian, while most displays tend toward big-\/endianness. All the drawing functions (including R\+GB bitmap drawing) take care of this automatically, but some specialized code (usually involving D\+MA) can benefit from having pixel data already in the display-\/native order. Note that this does N\+OT convert to a S\+P\+E\+C\+I\+F\+IC endian-\/ness, it just flips the bytes within each word. 
+
+
+
+Definition at line 1935 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas16_ade30ed51e7dd07be0436b4f9407b6fd8}\label{class_g_f_xcanvas16_ade30ed51e7dd07be0436b4f9407b6fd8}} 
+\index{GFXcanvas16@{GFXcanvas16}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas16\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a pixel to the canvas framebuffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1878 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas16_ae46db6d49d2943e7cb227fd0bb50b1f8}\label{class_g_f_xcanvas16_ae46db6d49d2943e7cb227fd0bb50b1f8}} 
+\index{GFXcanvas16@{GFXcanvas16}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily void G\+F\+Xcanvas16\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill the framebuffer completely with one color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1910 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_g_f_xcanvas16_a6b524ecbbe1e562b49caef524694a91c}\label{class_g_f_xcanvas16_a6b524ecbbe1e562b49caef524694a91c}} 
+\index{GFXcanvas16@{GFXcanvas16}!getBuffer@{getBuffer}}
+\index{getBuffer@{getBuffer}!GFXcanvas16@{GFXcanvas16}}
+\doxysubsubsection{\texorpdfstring{getBuffer()}{getBuffer()}}
+{\footnotesize\ttfamily uint16\+\_\+t$\ast$ G\+F\+Xcanvas16\+::get\+Buffer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get a pointer to the internal buffer memory. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the allocated buffer 
+\end{DoxyReturn}
+
+
+Definition at line 348 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8h}{Adafruit\+\_\+\+G\+F\+X.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8cpp}{Adafruit\+\_\+\+G\+F\+X.\+cpp}}\end{DoxyCompactItemize}

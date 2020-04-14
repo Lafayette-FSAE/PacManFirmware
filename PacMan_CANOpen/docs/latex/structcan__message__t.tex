@@ -1,0 +1,178 @@
+\hypertarget{structcan__message__t}{}\doxysection{can\+\_\+message\+\_\+t Struct Reference}
+\label{structcan__message__t}\index{can\_message\_t@{can\_message\_t}}
+
+
+Structure to store a C\+AN message.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a873a6fb3688bfad00dd42a629dd08ad1}{extd}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a2535cc52d099268ad1ec48498473f2eb}{rtr}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a139f96177d664db87994819505b76652}{ss}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_ae2f72f53d378ac8812c4692cfc5e8da1}{self}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_ae9fd8ccf3bbcf5f57a24878637bce366}{dlc\_non\_comp}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_aa54892a0fb8f8312b3827512affd5878}{reserved}}: 27\\
+\>\} \\
+\>uint32\_t \mbox{\hyperlink{structcan__message__t_a76bf3e04a7f145c74bd85110061af1a6}{flags}}\\
+\}; \\
+
+\end{tabbing}\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__message__t_a8bfc6352f104c72e3d88c83c7d353519}{identifier}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__message__t_a4cad34a22b2e65b3826f0c88da41606f}{data\+\_\+length\+\_\+code}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structcan__message__t_aada88bba6370d67dbb06ace58bc7cc9a}{data}} \mbox{[}C\+A\+N\+\_\+\+F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+D\+LC\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a873a6fb3688bfad00dd42a629dd08ad1}{extd}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a2535cc52d099268ad1ec48498473f2eb}{rtr}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_a139f96177d664db87994819505b76652}{ss}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_ae2f72f53d378ac8812c4692cfc5e8da1}{self}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_ae9fd8ccf3bbcf5f57a24878637bce366}{dlc\_non\_comp}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{structcan__message__t_aa54892a0fb8f8312b3827512affd5878}{reserved}}: 27\\
+\>\} \\
+\>uint32\_t \mbox{\hyperlink{structcan__message__t_a76bf3e04a7f145c74bd85110061af1a6}{flags}}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store a C\+AN message. 
+
+\begin{DoxyNote}{Note}
+The flags member is used to control the message type, and transmission type (see documentation for message flags) 
+\end{DoxyNote}
+
+
+Definition at line 206 of file can.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcan__message__t_a0240c9421a61fb8d767170f25ddfc495}\label{structcan__message__t_a0240c9421a61fb8d767170f25ddfc495}} 
+\doxysubsubsection{\texorpdfstring{"@26}{@26}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{structcan__message__t_a36ad245348730c6b949892aaadb4f06b}\label{structcan__message__t_a36ad245348730c6b949892aaadb4f06b}} 
+\doxysubsubsection{\texorpdfstring{"@9}{@9}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{structcan__message__t_aada88bba6370d67dbb06ace58bc7cc9a}\label{structcan__message__t_aada88bba6370d67dbb06ace58bc7cc9a}} 
+\index{can\_message\_t@{can\_message\_t}!data@{data}}
+\index{data@{data}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+message\+\_\+t\+::data}
+
+Data bytes (not relevant in R\+TR frame) 
+
+Definition at line 222 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a4cad34a22b2e65b3826f0c88da41606f}\label{structcan__message__t_a4cad34a22b2e65b3826f0c88da41606f}} 
+\index{can\_message\_t@{can\_message\_t}!data\_length\_code@{data\_length\_code}}
+\index{data\_length\_code@{data\_length\_code}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{data\_length\_code}{data\_length\_code}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+message\+\_\+t\+::data\+\_\+length\+\_\+code}
+
+Data length code 
+
+Definition at line 221 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_ae9fd8ccf3bbcf5f57a24878637bce366}\label{structcan__message__t_ae9fd8ccf3bbcf5f57a24878637bce366}} 
+\index{can\_message\_t@{can\_message\_t}!dlc\_non\_comp@{dlc\_non\_comp}}
+\index{dlc\_non\_comp@{dlc\_non\_comp}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{dlc\_non\_comp}{dlc\_non\_comp}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::dlc\+\_\+non\+\_\+comp}
+
+Message\textquotesingle{}s Data length code is larger than 8. This will break compliance with C\+A\+N2.\+0B. 
+
+Definition at line 214 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a873a6fb3688bfad00dd42a629dd08ad1}\label{structcan__message__t_a873a6fb3688bfad00dd42a629dd08ad1}} 
+\index{can\_message\_t@{can\_message\_t}!extd@{extd}}
+\index{extd@{extd}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{extd}{extd}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::extd}
+
+Extended Frame Format (29bit ID) 
+
+Definition at line 210 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a76bf3e04a7f145c74bd85110061af1a6}\label{structcan__message__t_a76bf3e04a7f145c74bd85110061af1a6}} 
+\index{can\_message\_t@{can\_message\_t}!flags@{flags}}
+\index{flags@{flags}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::flags}
+
+Alternate way to set message flags using message flag macros (see documentation) 
+
+Definition at line 218 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a8bfc6352f104c72e3d88c83c7d353519}\label{structcan__message__t_a8bfc6352f104c72e3d88c83c7d353519}} 
+\index{can\_message\_t@{can\_message\_t}!identifier@{identifier}}
+\index{identifier@{identifier}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{identifier}{identifier}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::identifier}
+
+11 or 29 bit identifier 
+
+Definition at line 220 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_aa54892a0fb8f8312b3827512affd5878}\label{structcan__message__t_aa54892a0fb8f8312b3827512affd5878}} 
+\index{can\_message\_t@{can\_message\_t}!reserved@{reserved}}
+\index{reserved@{reserved}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{reserved}{reserved}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::reserved}
+
+Reserved bits 
+
+Definition at line 215 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a2535cc52d099268ad1ec48498473f2eb}\label{structcan__message__t_a2535cc52d099268ad1ec48498473f2eb}} 
+\index{can\_message\_t@{can\_message\_t}!rtr@{rtr}}
+\index{rtr@{rtr}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{rtr}{rtr}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::rtr}
+
+Message is a Remote Transmit Request 
+
+Definition at line 211 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_ae2f72f53d378ac8812c4692cfc5e8da1}\label{structcan__message__t_ae2f72f53d378ac8812c4692cfc5e8da1}} 
+\index{can\_message\_t@{can\_message\_t}!self@{self}}
+\index{self@{self}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{self}{self}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::self}
+
+Transmit as a Self Reception Request. Unused for received. 
+
+Definition at line 213 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__message__t_a139f96177d664db87994819505b76652}\label{structcan__message__t_a139f96177d664db87994819505b76652}} 
+\index{can\_message\_t@{can\_message\_t}!ss@{ss}}
+\index{ss@{ss}!can\_message\_t@{can\_message\_t}}
+\doxysubsubsection{\texorpdfstring{ss}{ss}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+message\+\_\+t\+::ss}
+
+Transmit as a Single Shot Transmission. Unused for received. 
+
+Definition at line 212 of file can.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

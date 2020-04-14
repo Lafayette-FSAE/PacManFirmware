@@ -1,0 +1,82 @@
+\hypertarget{struct_c_o___s_d_oclient_par__t}{}\doxysection{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t Struct Reference}
+\label{struct_c_o___s_d_oclient_par__t}\index{CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+S\+D\+Omaster.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t_a5ef89763f1af3c4a5aa3b6cf825d5e83}{max\+Sub\+Index}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t_a97156e903912e377a0da080cac37f18c}{C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t_a220dbc2cb1bccb5c5fb8f946432b4690}{C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t_ae6ac6800e3544fe66fe4fada680606b4}{node\+I\+D\+Of\+The\+S\+D\+O\+Server}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\+DO Client Parameter. The same as record from Object dictionary (index 0x1280+). 
+
+Definition at line 74 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___s_d_oclient_par__t_a97156e903912e377a0da080cac37f18c}\label{struct_c_o___s_d_oclient_par__t_a97156e903912e377a0da080cac37f18c}} 
+\index{CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}!COB\_IDClientToServer@{COB\_IDClientToServer}}
+\index{COB\_IDClientToServer@{COB\_IDClientToServer}!CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDClientToServer}{COB\_IDClientToServer}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server}
+
+Communication object identifier for client transmission. Meaning of the specific bits\+:
+\begin{DoxyItemize}
+\item Bit 0...10\+: 11-\/bit C\+AN identifier.
+\item Bit 11..30\+: reserved, set to 0.
+\item Bit 31\+: if 1, S\+DO client object is not used. 
+\end{DoxyItemize}
+
+Definition at line 81 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient_par__t_a220dbc2cb1bccb5c5fb8f946432b4690}\label{struct_c_o___s_d_oclient_par__t_a220dbc2cb1bccb5c5fb8f946432b4690}} 
+\index{CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}!COB\_IDServerToClient@{COB\_IDServerToClient}}
+\index{COB\_IDServerToClient@{COB\_IDServerToClient}!CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDServerToClient}{COB\_IDServerToClient}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client}
+
+Communication object identifier for message received from server. Meaning of the specific bits\+:
+\begin{DoxyItemize}
+\item Bit 0...10\+: 11-\/bit C\+AN identifier.
+\item Bit 11..30\+: reserved, set to 0.
+\item Bit 31\+: if 1, S\+DO client object is not used. 
+\end{DoxyItemize}
+
+Definition at line 86 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient_par__t_a5ef89763f1af3c4a5aa3b6cf825d5e83}\label{struct_c_o___s_d_oclient_par__t_a5ef89763f1af3c4a5aa3b6cf825d5e83}} 
+\index{CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}!maxSubIndex@{maxSubIndex}}
+\index{maxSubIndex@{maxSubIndex}!CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}}
+\doxysubsubsection{\texorpdfstring{maxSubIndex}{maxSubIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t\+::max\+Sub\+Index}
+
+Equal to 3 
+
+Definition at line 76 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient_par__t_ae6ac6800e3544fe66fe4fada680606b4}\label{struct_c_o___s_d_oclient_par__t_ae6ac6800e3544fe66fe4fada680606b4}} 
+\index{CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}!nodeIDOfTheSDOServer@{nodeIDOfTheSDOServer}}
+\index{nodeIDOfTheSDOServer@{nodeIDOfTheSDOServer}!CO\_SDOclientPar\_t@{CO\_SDOclientPar\_t}}
+\doxysubsubsection{\texorpdfstring{nodeIDOfTheSDOServer}{nodeIDOfTheSDOServer}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t\+::node\+I\+D\+Of\+The\+S\+D\+O\+Server}
+
+Node-\/\+ID of the S\+DO server 
+
+Definition at line 88 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___s_d_omaster_8h}{C\+O\+\_\+\+S\+D\+Omaster.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,1098 @@
+\hypertarget{group___c_o___e_m__error_codes}{}\doxysection{C\+A\+Nopen Error codes}
+\label{group___c_o___e_m__error_codes}\index{CANopen Error codes@{CANopen Error codes}}
+
+
+Standard error codes according to CiA D\+S-\/301 and D\+S-\/401.  
+
+
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}{C\+O\+\_\+\+E\+M\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}~0x0000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}{C\+O\+\_\+\+E\+M\+C\+\_\+\+G\+E\+N\+E\+R\+IC}}~0x1000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+NT}}~0x2000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+P\+UT}}~0x2100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+S\+I\+DE}}~0x2200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+U\+T\+P\+UT}}~0x2300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+GE}}~0x3000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+M\+A\+I\+NS}}~0x3100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+I\+N\+S\+I\+DE}}~0x3200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+O\+U\+T\+P\+UT}}~0x3300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}}~0x4000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+A\+M\+B\+I\+E\+NT}}~0x4100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+D\+E\+V\+I\+CE}}~0x4200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}{C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+A\+R\+D\+W\+A\+RE}}~0x5000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+D\+E\+V\+I\+CE}}~0x6000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}}~0x6100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+U\+S\+ER}}~0x6200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+T\+A\+\_\+\+S\+ET}}~0x6300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}{C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+M\+O\+D\+UL}}~0x7000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}{C\+O\+\_\+\+E\+M\+C\+\_\+\+M\+O\+N\+I\+T\+O\+R\+I\+NG}}~0x8000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}}~0x8100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+O\+V\+E\+R\+R\+UN}}~0x8110U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x8120U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}{C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}}~0x8130U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}{C\+O\+\_\+\+E\+M\+C\+\_\+\+B\+U\+S\+\_\+\+O\+F\+F\+\_\+\+R\+E\+C\+O\+V\+E\+R\+ED}}~0x8140U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON}}~0x8150U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+E\+R\+R\+OR}}~0x8200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH}}~0x8210U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+E\+XC}}~0x8220U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+M\+\_\+\+M\+P\+DO}}~0x8230U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+Y\+N\+C\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH}}~0x8240U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}{C\+O\+\_\+\+E\+M\+C\+\_\+\+R\+P\+D\+O\+\_\+\+T\+I\+M\+E\+O\+UT}}~0x8250U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+I\+M\+E\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH}}~0x8260U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}{C\+O\+\_\+\+E\+M\+C\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+E\+R\+R\+OR}}~0x9000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}{C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+F\+U\+NC}}~0x\+F000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+S\+P\+E\+C\+I\+F\+IC}}~0x\+F\+F00U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+C\+U\+R\+\_\+\+HI}}~0x2310U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+S\+H\+O\+R\+T\+ED}}~0x2320U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+L\+O\+A\+D\+\_\+\+D\+U\+MP}}~0x2330U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI}}~0x3110U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW}}~0x3120U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI}}~0x3210U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+LO}}~0x3220U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+H\+I\+GH}}~0x3310U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW}}~0x3320U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}{C\+O\+\_\+\+E\+M\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR}}~0x0000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}{C\+O\+\_\+\+E\+M\+C\+\_\+\+G\+E\+N\+E\+R\+IC}}~0x1000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+NT}}~0x2000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+P\+UT}}~0x2100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+S\+I\+DE}}~0x2200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+U\+T\+P\+UT}}~0x2300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+GE}}~0x3000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+M\+A\+I\+NS}}~0x3100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+I\+N\+S\+I\+DE}}~0x3200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}{C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+O\+U\+T\+P\+UT}}~0x3300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}}~0x4000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+A\+M\+B\+I\+E\+NT}}~0x4100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+D\+E\+V\+I\+CE}}~0x4200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}{C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+A\+R\+D\+W\+A\+RE}}~0x5000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+D\+E\+V\+I\+CE}}~0x6000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL}}~0x6100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+U\+S\+ER}}~0x6200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+T\+A\+\_\+\+S\+ET}}~0x6300U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}{C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+M\+O\+D\+UL}}~0x7000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}{C\+O\+\_\+\+E\+M\+C\+\_\+\+M\+O\+N\+I\+T\+O\+R\+I\+NG}}~0x8000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}}~0x8100U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+O\+V\+E\+R\+R\+UN}}~0x8110U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x8120U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}{C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT}}~0x8130U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}{C\+O\+\_\+\+E\+M\+C\+\_\+\+B\+U\+S\+\_\+\+O\+F\+F\+\_\+\+R\+E\+C\+O\+V\+E\+R\+ED}}~0x8140U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}{C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON}}~0x8150U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+E\+R\+R\+OR}}~0x8200U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH}}~0x8210U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}{C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+E\+XC}}~0x8220U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+M\+\_\+\+M\+P\+DO}}~0x8230U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}{C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+Y\+N\+C\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH}}~0x8240U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}{C\+O\+\_\+\+E\+M\+C\+\_\+\+R\+P\+D\+O\+\_\+\+T\+I\+M\+E\+O\+UT}}~0x8250U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}{C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+I\+M\+E\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH}}~0x8260U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}{C\+O\+\_\+\+E\+M\+C\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+E\+R\+R\+OR}}~0x9000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}{C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+F\+U\+NC}}~0x\+F000U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}{C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+S\+P\+E\+C\+I\+F\+IC}}~0x\+F\+F00U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+C\+U\+R\+\_\+\+HI}}~0x2310U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+S\+H\+O\+R\+T\+ED}}~0x2320U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+L\+O\+A\+D\+\_\+\+D\+U\+MP}}~0x2330U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI}}~0x3110U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW}}~0x3120U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI}}~0x3210U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+LO}}~0x3220U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+H\+I\+GH}}~0x3310U
+\item 
+\#define \mbox{\hyperlink{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}{C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW}}~0x3320U
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Standard error codes according to CiA D\+S-\/301 and D\+S-\/401. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}\label{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_IN\_VOLT\_HI@{CO\_EMC401\_IN\_VOLT\_HI}}
+\index{CO\_EMC401\_IN\_VOLT\_HI@{CO\_EMC401\_IN\_VOLT\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_IN\_VOLT\_HI}{CO\_EMC401\_IN\_VOLT\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI~0x3110U}
+
+0x3110, D\+S401, Input voltage too high 
+
+Definition at line 147 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}\label{group___c_o___e_m__error_codes_ga1b40083a323c33894a8e374d59c0a6c7}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_IN\_VOLT\_HI@{CO\_EMC401\_IN\_VOLT\_HI}}
+\index{CO\_EMC401\_IN\_VOLT\_HI@{CO\_EMC401\_IN\_VOLT\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_IN\_VOLT\_HI}{CO\_EMC401\_IN\_VOLT\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI~0x3110U}
+
+0x3110, D\+S401, Input voltage too high 
+
+Definition at line 147 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}\label{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_IN\_VOLT\_LOW@{CO\_EMC401\_IN\_VOLT\_LOW}}
+\index{CO\_EMC401\_IN\_VOLT\_LOW@{CO\_EMC401\_IN\_VOLT\_LOW}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_IN\_VOLT\_LOW}{CO\_EMC401\_IN\_VOLT\_LOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW~0x3120U}
+
+0x3120, D\+S401, Input voltage too low 
+
+Definition at line 148 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}\label{group___c_o___e_m__error_codes_ga798dac8fcfb0c741fe79474b7440bb62}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_IN\_VOLT\_LOW@{CO\_EMC401\_IN\_VOLT\_LOW}}
+\index{CO\_EMC401\_IN\_VOLT\_LOW@{CO\_EMC401\_IN\_VOLT\_LOW}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_IN\_VOLT\_LOW}{CO\_EMC401\_IN\_VOLT\_LOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW~0x3120U}
+
+0x3120, D\+S401, Input voltage too low 
+
+Definition at line 148 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}\label{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_INTERN\_VOLT\_HI@{CO\_EMC401\_INTERN\_VOLT\_HI}}
+\index{CO\_EMC401\_INTERN\_VOLT\_HI@{CO\_EMC401\_INTERN\_VOLT\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_INTERN\_VOLT\_HI}{CO\_EMC401\_INTERN\_VOLT\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI~0x3210U}
+
+0x3210, D\+S401, Internal voltage too high 
+
+Definition at line 149 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}\label{group___c_o___e_m__error_codes_ga3fa590def2b113eb1eb6b45c551011c3}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_INTERN\_VOLT\_HI@{CO\_EMC401\_INTERN\_VOLT\_HI}}
+\index{CO\_EMC401\_INTERN\_VOLT\_HI@{CO\_EMC401\_INTERN\_VOLT\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_INTERN\_VOLT\_HI}{CO\_EMC401\_INTERN\_VOLT\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+HI~0x3210U}
+
+0x3210, D\+S401, Internal voltage too high 
+
+Definition at line 149 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}\label{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_INTERN\_VOLT\_LO@{CO\_EMC401\_INTERN\_VOLT\_LO}}
+\index{CO\_EMC401\_INTERN\_VOLT\_LO@{CO\_EMC401\_INTERN\_VOLT\_LO}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_INTERN\_VOLT\_LO}{CO\_EMC401\_INTERN\_VOLT\_LO}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+LO~0x3220U}
+
+0x3220, D\+S401, Internal voltage too low 
+
+Definition at line 150 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}\label{group___c_o___e_m__error_codes_ga56c67d643e8871dfed1df4027d884226}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_INTERN\_VOLT\_LO@{CO\_EMC401\_INTERN\_VOLT\_LO}}
+\index{CO\_EMC401\_INTERN\_VOLT\_LO@{CO\_EMC401\_INTERN\_VOLT\_LO}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_INTERN\_VOLT\_LO}{CO\_EMC401\_INTERN\_VOLT\_LO}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+I\+N\+T\+E\+R\+N\+\_\+\+V\+O\+L\+T\+\_\+\+LO~0x3220U}
+
+0x3220, D\+S401, Internal voltage too low 
+
+Definition at line 150 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}\label{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_CUR\_HI@{CO\_EMC401\_OUT\_CUR\_HI}}
+\index{CO\_EMC401\_OUT\_CUR\_HI@{CO\_EMC401\_OUT\_CUR\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_CUR\_HI}{CO\_EMC401\_OUT\_CUR\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+C\+U\+R\+\_\+\+HI~0x2310U}
+
+0x2310, D\+S401, Current at outputs too high (overload) 
+
+Definition at line 144 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}\label{group___c_o___e_m__error_codes_ga768d388ba477f839a8eb57b367b79793}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_CUR\_HI@{CO\_EMC401\_OUT\_CUR\_HI}}
+\index{CO\_EMC401\_OUT\_CUR\_HI@{CO\_EMC401\_OUT\_CUR\_HI}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_CUR\_HI}{CO\_EMC401\_OUT\_CUR\_HI}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+C\+U\+R\+\_\+\+HI~0x2310U}
+
+0x2310, D\+S401, Current at outputs too high (overload) 
+
+Definition at line 144 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}\label{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_LOAD\_DUMP@{CO\_EMC401\_OUT\_LOAD\_DUMP}}
+\index{CO\_EMC401\_OUT\_LOAD\_DUMP@{CO\_EMC401\_OUT\_LOAD\_DUMP}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_LOAD\_DUMP}{CO\_EMC401\_OUT\_LOAD\_DUMP}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+L\+O\+A\+D\+\_\+\+D\+U\+MP~0x2330U}
+
+0x2330, D\+S401, Load dump at outputs 
+
+Definition at line 146 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}\label{group___c_o___e_m__error_codes_gad47d4205acd3f6cf36aeb31f86717c64}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_LOAD\_DUMP@{CO\_EMC401\_OUT\_LOAD\_DUMP}}
+\index{CO\_EMC401\_OUT\_LOAD\_DUMP@{CO\_EMC401\_OUT\_LOAD\_DUMP}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_LOAD\_DUMP}{CO\_EMC401\_OUT\_LOAD\_DUMP}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+L\+O\+A\+D\+\_\+\+D\+U\+MP~0x2330U}
+
+0x2330, D\+S401, Load dump at outputs 
+
+Definition at line 146 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}\label{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_SHORTED@{CO\_EMC401\_OUT\_SHORTED}}
+\index{CO\_EMC401\_OUT\_SHORTED@{CO\_EMC401\_OUT\_SHORTED}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_SHORTED}{CO\_EMC401\_OUT\_SHORTED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+S\+H\+O\+R\+T\+ED~0x2320U}
+
+0x2320, D\+S401, Short circuit at outputs 
+
+Definition at line 145 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}\label{group___c_o___e_m__error_codes_gad3f0ed100e5076d0c488024b0bdaa43a}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_SHORTED@{CO\_EMC401\_OUT\_SHORTED}}
+\index{CO\_EMC401\_OUT\_SHORTED@{CO\_EMC401\_OUT\_SHORTED}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_SHORTED}{CO\_EMC401\_OUT\_SHORTED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+S\+H\+O\+R\+T\+ED~0x2320U}
+
+0x2320, D\+S401, Short circuit at outputs 
+
+Definition at line 145 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}\label{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_VOLT\_HIGH@{CO\_EMC401\_OUT\_VOLT\_HIGH}}
+\index{CO\_EMC401\_OUT\_VOLT\_HIGH@{CO\_EMC401\_OUT\_VOLT\_HIGH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_VOLT\_HIGH}{CO\_EMC401\_OUT\_VOLT\_HIGH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+H\+I\+GH~0x3310U}
+
+0x3310, D\+S401, Output voltage too high 
+
+Definition at line 151 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}\label{group___c_o___e_m__error_codes_ga7b9b8a4328b74a0b61d85784c6cd262e}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_VOLT\_HIGH@{CO\_EMC401\_OUT\_VOLT\_HIGH}}
+\index{CO\_EMC401\_OUT\_VOLT\_HIGH@{CO\_EMC401\_OUT\_VOLT\_HIGH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_VOLT\_HIGH}{CO\_EMC401\_OUT\_VOLT\_HIGH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+H\+I\+GH~0x3310U}
+
+0x3310, D\+S401, Output voltage too high 
+
+Definition at line 151 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}\label{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_VOLT\_LOW@{CO\_EMC401\_OUT\_VOLT\_LOW}}
+\index{CO\_EMC401\_OUT\_VOLT\_LOW@{CO\_EMC401\_OUT\_VOLT\_LOW}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_VOLT\_LOW}{CO\_EMC401\_OUT\_VOLT\_LOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW~0x3320U}
+
+0x3320, D\+S401, Output voltage too low 
+
+Definition at line 152 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}\label{group___c_o___e_m__error_codes_ga289fcb4a4dd2521ff1a88d5ed7903e7f}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC401\_OUT\_VOLT\_LOW@{CO\_EMC401\_OUT\_VOLT\_LOW}}
+\index{CO\_EMC401\_OUT\_VOLT\_LOW@{CO\_EMC401\_OUT\_VOLT\_LOW}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC401\_OUT\_VOLT\_LOW}{CO\_EMC401\_OUT\_VOLT\_LOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C401\+\_\+\+O\+U\+T\+\_\+\+V\+O\+L\+T\+\_\+\+L\+OW~0x3320U}
+
+0x3320, D\+S401, Output voltage too low 
+
+Definition at line 152 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}\label{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_ADDITIONAL\_FUNC@{CO\_EMC\_ADDITIONAL\_FUNC}}
+\index{CO\_EMC\_ADDITIONAL\_FUNC@{CO\_EMC\_ADDITIONAL\_FUNC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_ADDITIONAL\_FUNC}{CO\_EMC\_ADDITIONAL\_FUNC}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+F\+U\+NC~0x\+F000U}
+
+0x\+F0xx, Additional Functions 
+
+Definition at line 141 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}\label{group___c_o___e_m__error_codes_gaba02ab0719acd2de88bbf0a8c4ef3346}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_ADDITIONAL\_FUNC@{CO\_EMC\_ADDITIONAL\_FUNC}}
+\index{CO\_EMC\_ADDITIONAL\_FUNC@{CO\_EMC\_ADDITIONAL\_FUNC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_ADDITIONAL\_FUNC}{CO\_EMC\_ADDITIONAL\_FUNC}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+F\+U\+NC~0x\+F000U}
+
+0x\+F0xx, Additional Functions 
+
+Definition at line 141 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}\label{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_ADDITIONAL\_MODUL@{CO\_EMC\_ADDITIONAL\_MODUL}}
+\index{CO\_EMC\_ADDITIONAL\_MODUL@{CO\_EMC\_ADDITIONAL\_MODUL}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_ADDITIONAL\_MODUL}{CO\_EMC\_ADDITIONAL\_MODUL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+M\+O\+D\+UL~0x7000U}
+
+0x70xx, Additional Modules 
+
+Definition at line 125 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}\label{group___c_o___e_m__error_codes_ga5c6e8336ffb7561406d174bb5b6caf4b}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_ADDITIONAL\_MODUL@{CO\_EMC\_ADDITIONAL\_MODUL}}
+\index{CO\_EMC\_ADDITIONAL\_MODUL@{CO\_EMC\_ADDITIONAL\_MODUL}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_ADDITIONAL\_MODUL}{CO\_EMC\_ADDITIONAL\_MODUL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+A\+D\+D\+I\+T\+I\+O\+N\+A\+L\+\_\+\+M\+O\+D\+UL~0x7000U}
+
+0x70xx, Additional Modules 
+
+Definition at line 125 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}\label{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_BUS\_OFF\_RECOVERED@{CO\_EMC\_BUS\_OFF\_RECOVERED}}
+\index{CO\_EMC\_BUS\_OFF\_RECOVERED@{CO\_EMC\_BUS\_OFF\_RECOVERED}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_BUS\_OFF\_RECOVERED}{CO\_EMC\_BUS\_OFF\_RECOVERED}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+B\+U\+S\+\_\+\+O\+F\+F\+\_\+\+R\+E\+C\+O\+V\+E\+R\+ED~0x8140U}
+
+0x8140, recovered from bus off 
+
+Definition at line 131 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}\label{group___c_o___e_m__error_codes_gadc85ed14e906a94823828b6c4a1d6111}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_BUS\_OFF\_RECOVERED@{CO\_EMC\_BUS\_OFF\_RECOVERED}}
+\index{CO\_EMC\_BUS\_OFF\_RECOVERED@{CO\_EMC\_BUS\_OFF\_RECOVERED}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_BUS\_OFF\_RECOVERED}{CO\_EMC\_BUS\_OFF\_RECOVERED}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+B\+U\+S\+\_\+\+O\+F\+F\+\_\+\+R\+E\+C\+O\+V\+E\+R\+ED~0x8140U}
+
+0x8140, recovered from bus off 
+
+Definition at line 131 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}\label{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_ID\_COLLISION@{CO\_EMC\_CAN\_ID\_COLLISION}}
+\index{CO\_EMC\_CAN\_ID\_COLLISION@{CO\_EMC\_CAN\_ID\_COLLISION}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_ID\_COLLISION}{CO\_EMC\_CAN\_ID\_COLLISION}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON~0x8150U}
+
+0x8150, C\+A\+N-\/\+ID collision 
+
+Definition at line 132 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}\label{group___c_o___e_m__error_codes_ga35db6f30376552ff5fc4e7a959d428d8}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_ID\_COLLISION@{CO\_EMC\_CAN\_ID\_COLLISION}}
+\index{CO\_EMC\_CAN\_ID\_COLLISION@{CO\_EMC\_CAN\_ID\_COLLISION}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_ID\_COLLISION}{CO\_EMC\_CAN\_ID\_COLLISION}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+\+C\+O\+L\+L\+I\+S\+I\+ON~0x8150U}
+
+0x8150, C\+A\+N-\/\+ID collision 
+
+Definition at line 132 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}\label{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_OVERRUN@{CO\_EMC\_CAN\_OVERRUN}}
+\index{CO\_EMC\_CAN\_OVERRUN@{CO\_EMC\_CAN\_OVERRUN}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_OVERRUN}{CO\_EMC\_CAN\_OVERRUN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+O\+V\+E\+R\+R\+UN~0x8110U}
+
+0x8110, C\+AN Overrun (Objects lost) 
+
+Definition at line 128 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}\label{group___c_o___e_m__error_codes_gade3366f2e7d4dd89be39e00150c8d0c5}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_OVERRUN@{CO\_EMC\_CAN\_OVERRUN}}
+\index{CO\_EMC\_CAN\_OVERRUN@{CO\_EMC\_CAN\_OVERRUN}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_OVERRUN}{CO\_EMC\_CAN\_OVERRUN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+O\+V\+E\+R\+R\+UN~0x8110U}
+
+0x8110, C\+AN Overrun (Objects lost) 
+
+Definition at line 128 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}\label{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_PASSIVE@{CO\_EMC\_CAN\_PASSIVE}}
+\index{CO\_EMC\_CAN\_PASSIVE@{CO\_EMC\_CAN\_PASSIVE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_PASSIVE}{CO\_EMC\_CAN\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+P\+A\+S\+S\+I\+VE~0x8120U}
+
+0x8120, C\+AN in Error Passive Mode 
+
+Definition at line 129 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}\label{group___c_o___e_m__error_codes_gaeead0c18f063e5134d62d9a1677cef32}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CAN\_PASSIVE@{CO\_EMC\_CAN\_PASSIVE}}
+\index{CO\_EMC\_CAN\_PASSIVE@{CO\_EMC\_CAN\_PASSIVE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CAN\_PASSIVE}{CO\_EMC\_CAN\_PASSIVE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+A\+N\+\_\+\+P\+A\+S\+S\+I\+VE~0x8120U}
+
+0x8120, C\+AN in Error Passive Mode 
+
+Definition at line 129 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}\label{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_COMMUNICATION@{CO\_EMC\_COMMUNICATION}}
+\index{CO\_EMC\_COMMUNICATION@{CO\_EMC\_COMMUNICATION}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_COMMUNICATION}{CO\_EMC\_COMMUNICATION}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON~0x8100U}
+
+0x81xx, Communication 
+
+Definition at line 127 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}\label{group___c_o___e_m__error_codes_gabcdeeb7597bbfae650ba0bc51fbab039}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_COMMUNICATION@{CO\_EMC\_COMMUNICATION}}
+\index{CO\_EMC\_COMMUNICATION@{CO\_EMC\_COMMUNICATION}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_COMMUNICATION}{CO\_EMC\_COMMUNICATION}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON~0x8100U}
+
+0x81xx, Communication 
+
+Definition at line 127 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}\label{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT@{CO\_EMC\_CURRENT}}
+\index{CO\_EMC\_CURRENT@{CO\_EMC\_CURRENT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT}{CO\_EMC\_CURRENT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+NT~0x2000U}
+
+0x20xx, Current 
+
+Definition at line 109 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}\label{group___c_o___e_m__error_codes_ga55b68e3e488382903a10b5a040f4bb4e}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT@{CO\_EMC\_CURRENT}}
+\index{CO\_EMC\_CURRENT@{CO\_EMC\_CURRENT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT}{CO\_EMC\_CURRENT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+NT~0x2000U}
+
+0x20xx, Current 
+
+Definition at line 109 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}\label{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_INPUT@{CO\_EMC\_CURRENT\_INPUT}}
+\index{CO\_EMC\_CURRENT\_INPUT@{CO\_EMC\_CURRENT\_INPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_INPUT}{CO\_EMC\_CURRENT\_INPUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+P\+UT~0x2100U}
+
+0x21xx, Current, device input side 
+
+Definition at line 110 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}\label{group___c_o___e_m__error_codes_ga831834f6843fec4b9ec4705a8d4cdf0c}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_INPUT@{CO\_EMC\_CURRENT\_INPUT}}
+\index{CO\_EMC\_CURRENT\_INPUT@{CO\_EMC\_CURRENT\_INPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_INPUT}{CO\_EMC\_CURRENT\_INPUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+P\+UT~0x2100U}
+
+0x21xx, Current, device input side 
+
+Definition at line 110 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}\label{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_INSIDE@{CO\_EMC\_CURRENT\_INSIDE}}
+\index{CO\_EMC\_CURRENT\_INSIDE@{CO\_EMC\_CURRENT\_INSIDE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_INSIDE}{CO\_EMC\_CURRENT\_INSIDE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+S\+I\+DE~0x2200U}
+
+0x22xx, Current inside the device 
+
+Definition at line 111 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}\label{group___c_o___e_m__error_codes_ga00f7933dee94a2d52b92b8fa9364e924}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_INSIDE@{CO\_EMC\_CURRENT\_INSIDE}}
+\index{CO\_EMC\_CURRENT\_INSIDE@{CO\_EMC\_CURRENT\_INSIDE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_INSIDE}{CO\_EMC\_CURRENT\_INSIDE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+N\+S\+I\+DE~0x2200U}
+
+0x22xx, Current inside the device 
+
+Definition at line 111 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}\label{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_OUTPUT@{CO\_EMC\_CURRENT\_OUTPUT}}
+\index{CO\_EMC\_CURRENT\_OUTPUT@{CO\_EMC\_CURRENT\_OUTPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_OUTPUT}{CO\_EMC\_CURRENT\_OUTPUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+U\+T\+P\+UT~0x2300U}
+
+0x23xx, Current, device output side 
+
+Definition at line 112 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}\label{group___c_o___e_m__error_codes_ga40c4eb878eaed394c4603d18701e993d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_CURRENT\_OUTPUT@{CO\_EMC\_CURRENT\_OUTPUT}}
+\index{CO\_EMC\_CURRENT\_OUTPUT@{CO\_EMC\_CURRENT\_OUTPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_CURRENT\_OUTPUT}{CO\_EMC\_CURRENT\_OUTPUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+O\+U\+T\+P\+UT~0x2300U}
+
+0x23xx, Current, device output side 
+
+Definition at line 112 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}\label{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DAM\_MPDO@{CO\_EMC\_DAM\_MPDO}}
+\index{CO\_EMC\_DAM\_MPDO@{CO\_EMC\_DAM\_MPDO}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DAM\_MPDO}{CO\_EMC\_DAM\_MPDO}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+M\+\_\+\+M\+P\+DO~0x8230U}
+
+0x8230, D\+AM M\+P\+DO not processed, destination object not available 
+
+Definition at line 136 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}\label{group___c_o___e_m__error_codes_ga1f211f1a7e1201f5e8f5f241a322469d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DAM\_MPDO@{CO\_EMC\_DAM\_MPDO}}
+\index{CO\_EMC\_DAM\_MPDO@{CO\_EMC\_DAM\_MPDO}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DAM\_MPDO}{CO\_EMC\_DAM\_MPDO}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+M\+\_\+\+M\+P\+DO~0x8230U}
+
+0x8230, D\+AM M\+P\+DO not processed, destination object not available 
+
+Definition at line 136 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}\label{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DATA\_SET@{CO\_EMC\_DATA\_SET}}
+\index{CO\_EMC\_DATA\_SET@{CO\_EMC\_DATA\_SET}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DATA\_SET}{CO\_EMC\_DATA\_SET}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+T\+A\+\_\+\+S\+ET~0x6300U}
+
+0x63xx, Data Set 
+
+Definition at line 124 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}\label{group___c_o___e_m__error_codes_ga44689248039b7e7f29818e19d1c98132}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DATA\_SET@{CO\_EMC\_DATA\_SET}}
+\index{CO\_EMC\_DATA\_SET@{CO\_EMC\_DATA\_SET}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DATA\_SET}{CO\_EMC\_DATA\_SET}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+A\+T\+A\+\_\+\+S\+ET~0x6300U}
+
+0x63xx, Data Set 
+
+Definition at line 124 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}\label{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DEVICE\_SPECIFIC@{CO\_EMC\_DEVICE\_SPECIFIC}}
+\index{CO\_EMC\_DEVICE\_SPECIFIC@{CO\_EMC\_DEVICE\_SPECIFIC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DEVICE\_SPECIFIC}{CO\_EMC\_DEVICE\_SPECIFIC}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+S\+P\+E\+C\+I\+F\+IC~0x\+F\+F00U}
+
+0x\+F\+Fxx, Device specific 
+
+Definition at line 142 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}\label{group___c_o___e_m__error_codes_ga312bdad23ce37709362e9b8dfd8da3c7}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_DEVICE\_SPECIFIC@{CO\_EMC\_DEVICE\_SPECIFIC}}
+\index{CO\_EMC\_DEVICE\_SPECIFIC@{CO\_EMC\_DEVICE\_SPECIFIC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_DEVICE\_SPECIFIC}{CO\_EMC\_DEVICE\_SPECIFIC}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+S\+P\+E\+C\+I\+F\+IC~0x\+F\+F00U}
+
+0x\+F\+Fxx, Device specific 
+
+Definition at line 142 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}\label{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_EXTERNAL\_ERROR@{CO\_EMC\_EXTERNAL\_ERROR}}
+\index{CO\_EMC\_EXTERNAL\_ERROR@{CO\_EMC\_EXTERNAL\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_EXTERNAL\_ERROR}{CO\_EMC\_EXTERNAL\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+E\+R\+R\+OR~0x9000U}
+
+0x90xx, External Error 
+
+Definition at line 140 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}\label{group___c_o___e_m__error_codes_gad92e5ff4f55281d204a67969d0266a11}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_EXTERNAL\_ERROR@{CO\_EMC\_EXTERNAL\_ERROR}}
+\index{CO\_EMC\_EXTERNAL\_ERROR@{CO\_EMC\_EXTERNAL\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_EXTERNAL\_ERROR}{CO\_EMC\_EXTERNAL\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+E\+X\+T\+E\+R\+N\+A\+L\+\_\+\+E\+R\+R\+OR~0x9000U}
+
+0x90xx, External Error 
+
+Definition at line 140 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}\label{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_GENERIC@{CO\_EMC\_GENERIC}}
+\index{CO\_EMC\_GENERIC@{CO\_EMC\_GENERIC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_GENERIC}{CO\_EMC\_GENERIC}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+G\+E\+N\+E\+R\+IC~0x1000U}
+
+0x10xx, Generic Error 
+
+Definition at line 108 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}\label{group___c_o___e_m__error_codes_gab5fb864f66783cc31d46bff9cf742946}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_GENERIC@{CO\_EMC\_GENERIC}}
+\index{CO\_EMC\_GENERIC@{CO\_EMC\_GENERIC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_GENERIC}{CO\_EMC\_GENERIC}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+G\+E\+N\+E\+R\+IC~0x1000U}
+
+0x10xx, Generic Error 
+
+Definition at line 108 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}\label{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_HARDWARE@{CO\_EMC\_HARDWARE}}
+\index{CO\_EMC\_HARDWARE@{CO\_EMC\_HARDWARE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_HARDWARE}{CO\_EMC\_HARDWARE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+A\+R\+D\+W\+A\+RE~0x5000U}
+
+0x50xx, Device Hardware 
+
+Definition at line 120 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}\label{group___c_o___e_m__error_codes_gad4fa09c69969be0e24c157e3282a5727}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_HARDWARE@{CO\_EMC\_HARDWARE}}
+\index{CO\_EMC\_HARDWARE@{CO\_EMC\_HARDWARE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_HARDWARE}{CO\_EMC\_HARDWARE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+A\+R\+D\+W\+A\+RE~0x5000U}
+
+0x50xx, Device Hardware 
+
+Definition at line 120 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}\label{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_HEARTBEAT@{CO\_EMC\_HEARTBEAT}}
+\index{CO\_EMC\_HEARTBEAT@{CO\_EMC\_HEARTBEAT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_HEARTBEAT}{CO\_EMC\_HEARTBEAT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT~0x8130U}
+
+0x8130, Life Guard Error or Heartbeat Error 
+
+Definition at line 130 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}\label{group___c_o___e_m__error_codes_ga09d2b0be9b533084abafc824e5424b57}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_HEARTBEAT@{CO\_EMC\_HEARTBEAT}}
+\index{CO\_EMC\_HEARTBEAT@{CO\_EMC\_HEARTBEAT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_HEARTBEAT}{CO\_EMC\_HEARTBEAT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+H\+E\+A\+R\+T\+B\+E\+AT~0x8130U}
+
+0x8130, Life Guard Error or Heartbeat Error 
+
+Definition at line 130 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}\label{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_MONITORING@{CO\_EMC\_MONITORING}}
+\index{CO\_EMC\_MONITORING@{CO\_EMC\_MONITORING}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_MONITORING}{CO\_EMC\_MONITORING}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+M\+O\+N\+I\+T\+O\+R\+I\+NG~0x8000U}
+
+0x80xx, Monitoring 
+
+Definition at line 126 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}\label{group___c_o___e_m__error_codes_gaf6ad557d07c257baa0da6ac79044c258}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_MONITORING@{CO\_EMC\_MONITORING}}
+\index{CO\_EMC\_MONITORING@{CO\_EMC\_MONITORING}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_MONITORING}{CO\_EMC\_MONITORING}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+M\+O\+N\+I\+T\+O\+R\+I\+NG~0x8000U}
+
+0x80xx, Monitoring 
+
+Definition at line 126 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}\label{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_NO\_ERROR@{CO\_EMC\_NO\_ERROR}}
+\index{CO\_EMC\_NO\_ERROR@{CO\_EMC\_NO\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_NO\_ERROR}{CO\_EMC\_NO\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR~0x0000U}
+
+0x00xx, error Reset or No Error 
+
+Definition at line 107 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}\label{group___c_o___e_m__error_codes_ga529e20206c177d9fff20fe1d5579feb3}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_NO\_ERROR@{CO\_EMC\_NO\_ERROR}}
+\index{CO\_EMC\_NO\_ERROR@{CO\_EMC\_NO\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_NO\_ERROR}{CO\_EMC\_NO\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR~0x0000U}
+
+0x00xx, error Reset or No Error 
+
+Definition at line 107 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}\label{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PDO\_LENGTH@{CO\_EMC\_PDO\_LENGTH}}
+\index{CO\_EMC\_PDO\_LENGTH@{CO\_EMC\_PDO\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PDO\_LENGTH}{CO\_EMC\_PDO\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH~0x8210U}
+
+0x8210, P\+DO not processed due to length error 
+
+Definition at line 134 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}\label{group___c_o___e_m__error_codes_gaf48139606b8856fda331003611af32fe}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PDO\_LENGTH@{CO\_EMC\_PDO\_LENGTH}}
+\index{CO\_EMC\_PDO\_LENGTH@{CO\_EMC\_PDO\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PDO\_LENGTH}{CO\_EMC\_PDO\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH~0x8210U}
+
+0x8210, P\+DO not processed due to length error 
+
+Definition at line 134 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}\label{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PDO\_LENGTH\_EXC@{CO\_EMC\_PDO\_LENGTH\_EXC}}
+\index{CO\_EMC\_PDO\_LENGTH\_EXC@{CO\_EMC\_PDO\_LENGTH\_EXC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PDO\_LENGTH\_EXC}{CO\_EMC\_PDO\_LENGTH\_EXC}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+E\+XC~0x8220U}
+
+0x8220, P\+DO length exceeded 
+
+Definition at line 135 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}\label{group___c_o___e_m__error_codes_ga38dcd6241d98617d18a2999352a8d97f}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PDO\_LENGTH\_EXC@{CO\_EMC\_PDO\_LENGTH\_EXC}}
+\index{CO\_EMC\_PDO\_LENGTH\_EXC@{CO\_EMC\_PDO\_LENGTH\_EXC}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PDO\_LENGTH\_EXC}{CO\_EMC\_PDO\_LENGTH\_EXC}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+E\+XC~0x8220U}
+
+0x8220, P\+DO length exceeded 
+
+Definition at line 135 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}\label{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PROTOCOL\_ERROR@{CO\_EMC\_PROTOCOL\_ERROR}}
+\index{CO\_EMC\_PROTOCOL\_ERROR@{CO\_EMC\_PROTOCOL\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PROTOCOL\_ERROR}{CO\_EMC\_PROTOCOL\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+E\+R\+R\+OR~0x8200U}
+
+0x82xx, Protocol Error 
+
+Definition at line 133 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}\label{group___c_o___e_m__error_codes_ga8196093f0267634a862a40ca52a33086}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_PROTOCOL\_ERROR@{CO\_EMC\_PROTOCOL\_ERROR}}
+\index{CO\_EMC\_PROTOCOL\_ERROR@{CO\_EMC\_PROTOCOL\_ERROR}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_PROTOCOL\_ERROR}{CO\_EMC\_PROTOCOL\_ERROR}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+P\+R\+O\+T\+O\+C\+O\+L\+\_\+\+E\+R\+R\+OR~0x8200U}
+
+0x82xx, Protocol Error 
+
+Definition at line 133 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}\label{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_RPDO\_TIMEOUT@{CO\_EMC\_RPDO\_TIMEOUT}}
+\index{CO\_EMC\_RPDO\_TIMEOUT@{CO\_EMC\_RPDO\_TIMEOUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_RPDO\_TIMEOUT}{CO\_EMC\_RPDO\_TIMEOUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+R\+P\+D\+O\+\_\+\+T\+I\+M\+E\+O\+UT~0x8250U}
+
+0x8250, R\+P\+DO timeout 
+
+Definition at line 138 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}\label{group___c_o___e_m__error_codes_ga28f3e9c8c510ccc035765c2338fa94bf}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_RPDO\_TIMEOUT@{CO\_EMC\_RPDO\_TIMEOUT}}
+\index{CO\_EMC\_RPDO\_TIMEOUT@{CO\_EMC\_RPDO\_TIMEOUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_RPDO\_TIMEOUT}{CO\_EMC\_RPDO\_TIMEOUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+R\+P\+D\+O\+\_\+\+T\+I\+M\+E\+O\+UT~0x8250U}
+
+0x8250, R\+P\+DO timeout 
+
+Definition at line 138 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}\label{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_DEVICE@{CO\_EMC\_SOFTWARE\_DEVICE}}
+\index{CO\_EMC\_SOFTWARE\_DEVICE@{CO\_EMC\_SOFTWARE\_DEVICE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_DEVICE}{CO\_EMC\_SOFTWARE\_DEVICE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+D\+E\+V\+I\+CE~0x6000U}
+
+0x60xx, Device Software 
+
+Definition at line 121 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}\label{group___c_o___e_m__error_codes_ga1d4f5b78034e0b1f12d7aacd12466289}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_DEVICE@{CO\_EMC\_SOFTWARE\_DEVICE}}
+\index{CO\_EMC\_SOFTWARE\_DEVICE@{CO\_EMC\_SOFTWARE\_DEVICE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_DEVICE}{CO\_EMC\_SOFTWARE\_DEVICE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+D\+E\+V\+I\+CE~0x6000U}
+
+0x60xx, Device Software 
+
+Definition at line 121 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}\label{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_INTERNAL@{CO\_EMC\_SOFTWARE\_INTERNAL}}
+\index{CO\_EMC\_SOFTWARE\_INTERNAL@{CO\_EMC\_SOFTWARE\_INTERNAL}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_INTERNAL}{CO\_EMC\_SOFTWARE\_INTERNAL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL~0x6100U}
+
+0x61xx, Internal Software 
+
+Definition at line 122 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}\label{group___c_o___e_m__error_codes_ga386ee56db45214285947191e7021e441}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_INTERNAL@{CO\_EMC\_SOFTWARE\_INTERNAL}}
+\index{CO\_EMC\_SOFTWARE\_INTERNAL@{CO\_EMC\_SOFTWARE\_INTERNAL}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_INTERNAL}{CO\_EMC\_SOFTWARE\_INTERNAL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+I\+N\+T\+E\+R\+N\+AL~0x6100U}
+
+0x61xx, Internal Software 
+
+Definition at line 122 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}\label{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_USER@{CO\_EMC\_SOFTWARE\_USER}}
+\index{CO\_EMC\_SOFTWARE\_USER@{CO\_EMC\_SOFTWARE\_USER}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_USER}{CO\_EMC\_SOFTWARE\_USER}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+U\+S\+ER~0x6200U}
+
+0x62xx, User Software 
+
+Definition at line 123 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}\label{group___c_o___e_m__error_codes_ga6b557158c6f78b58d6e5d1eda5f11af1}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SOFTWARE\_USER@{CO\_EMC\_SOFTWARE\_USER}}
+\index{CO\_EMC\_SOFTWARE\_USER@{CO\_EMC\_SOFTWARE\_USER}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SOFTWARE\_USER}{CO\_EMC\_SOFTWARE\_USER}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+O\+F\+T\+W\+A\+R\+E\+\_\+\+U\+S\+ER~0x6200U}
+
+0x62xx, User Software 
+
+Definition at line 123 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}\label{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SYNC\_DATA\_LENGTH@{CO\_EMC\_SYNC\_DATA\_LENGTH}}
+\index{CO\_EMC\_SYNC\_DATA\_LENGTH@{CO\_EMC\_SYNC\_DATA\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SYNC\_DATA\_LENGTH}{CO\_EMC\_SYNC\_DATA\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+Y\+N\+C\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH~0x8240U}
+
+0x8240, Unexpected S\+Y\+NC data length 
+
+Definition at line 137 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}\label{group___c_o___e_m__error_codes_ga2ddf1c5af83dd82e002aa6b66a2d2eb2}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_SYNC\_DATA\_LENGTH@{CO\_EMC\_SYNC\_DATA\_LENGTH}}
+\index{CO\_EMC\_SYNC\_DATA\_LENGTH@{CO\_EMC\_SYNC\_DATA\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_SYNC\_DATA\_LENGTH}{CO\_EMC\_SYNC\_DATA\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+S\+Y\+N\+C\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH~0x8240U}
+
+0x8240, Unexpected S\+Y\+NC data length 
+
+Definition at line 137 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}\label{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMP\_AMBIENT@{CO\_EMC\_TEMP\_AMBIENT}}
+\index{CO\_EMC\_TEMP\_AMBIENT@{CO\_EMC\_TEMP\_AMBIENT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMP\_AMBIENT}{CO\_EMC\_TEMP\_AMBIENT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+A\+M\+B\+I\+E\+NT~0x4100U}
+
+0x41xx, Ambient Temperature 
+
+Definition at line 118 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}\label{group___c_o___e_m__error_codes_ga71900e0c60080e029943231d76a59016}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMP\_AMBIENT@{CO\_EMC\_TEMP\_AMBIENT}}
+\index{CO\_EMC\_TEMP\_AMBIENT@{CO\_EMC\_TEMP\_AMBIENT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMP\_AMBIENT}{CO\_EMC\_TEMP\_AMBIENT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+A\+M\+B\+I\+E\+NT~0x4100U}
+
+0x41xx, Ambient Temperature 
+
+Definition at line 118 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}\label{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMP\_DEVICE@{CO\_EMC\_TEMP\_DEVICE}}
+\index{CO\_EMC\_TEMP\_DEVICE@{CO\_EMC\_TEMP\_DEVICE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMP\_DEVICE}{CO\_EMC\_TEMP\_DEVICE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+D\+E\+V\+I\+CE~0x4200U}
+
+0x42xx, Device Temperature 
+
+Definition at line 119 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}\label{group___c_o___e_m__error_codes_ga4048ceda12bd820facf23c0d8a7bab0d}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMP\_DEVICE@{CO\_EMC\_TEMP\_DEVICE}}
+\index{CO\_EMC\_TEMP\_DEVICE@{CO\_EMC\_TEMP\_DEVICE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMP\_DEVICE}{CO\_EMC\_TEMP\_DEVICE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+\_\+\+D\+E\+V\+I\+CE~0x4200U}
+
+0x42xx, Device Temperature 
+
+Definition at line 119 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}\label{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMPERATURE@{CO\_EMC\_TEMPERATURE}}
+\index{CO\_EMC\_TEMPERATURE@{CO\_EMC\_TEMPERATURE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMPERATURE}{CO\_EMC\_TEMPERATURE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE~0x4000U}
+
+0x40xx, Temperature 
+
+Definition at line 117 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}\label{group___c_o___e_m__error_codes_ga57d62995eebfcdea388b13f748560413}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TEMPERATURE@{CO\_EMC\_TEMPERATURE}}
+\index{CO\_EMC\_TEMPERATURE@{CO\_EMC\_TEMPERATURE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TEMPERATURE}{CO\_EMC\_TEMPERATURE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE~0x4000U}
+
+0x40xx, Temperature 
+
+Definition at line 117 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}\label{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TIME\_DATA\_LENGTH@{CO\_EMC\_TIME\_DATA\_LENGTH}}
+\index{CO\_EMC\_TIME\_DATA\_LENGTH@{CO\_EMC\_TIME\_DATA\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TIME\_DATA\_LENGTH}{CO\_EMC\_TIME\_DATA\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+I\+M\+E\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH~0x8260U}
+
+0x8260, Unexpected T\+I\+ME data length 
+
+Definition at line 139 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}\label{group___c_o___e_m__error_codes_ga008c2abb792f774637dd4b946ebcc616}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_TIME\_DATA\_LENGTH@{CO\_EMC\_TIME\_DATA\_LENGTH}}
+\index{CO\_EMC\_TIME\_DATA\_LENGTH@{CO\_EMC\_TIME\_DATA\_LENGTH}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_TIME\_DATA\_LENGTH}{CO\_EMC\_TIME\_DATA\_LENGTH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+T\+I\+M\+E\+\_\+\+D\+A\+T\+A\+\_\+\+L\+E\+N\+G\+TH~0x8260U}
+
+0x8260, Unexpected T\+I\+ME data length 
+
+Definition at line 139 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}\label{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE@{CO\_EMC\_VOLTAGE}}
+\index{CO\_EMC\_VOLTAGE@{CO\_EMC\_VOLTAGE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE}{CO\_EMC\_VOLTAGE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+GE~0x3000U}
+
+0x30xx, Voltage 
+
+Definition at line 113 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}\label{group___c_o___e_m__error_codes_gab6c4cdc640bb484484dec0cab07e22fd}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE@{CO\_EMC\_VOLTAGE}}
+\index{CO\_EMC\_VOLTAGE@{CO\_EMC\_VOLTAGE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE}{CO\_EMC\_VOLTAGE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+GE~0x3000U}
+
+0x30xx, Voltage 
+
+Definition at line 113 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}\label{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_INSIDE@{CO\_EMC\_VOLTAGE\_INSIDE}}
+\index{CO\_EMC\_VOLTAGE\_INSIDE@{CO\_EMC\_VOLTAGE\_INSIDE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_INSIDE}{CO\_EMC\_VOLTAGE\_INSIDE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+I\+N\+S\+I\+DE~0x3200U}
+
+0x32xx, Voltage inside the device 
+
+Definition at line 115 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}\label{group___c_o___e_m__error_codes_ga40ea6cc68f8f6ff7f748ff75e43e5348}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_INSIDE@{CO\_EMC\_VOLTAGE\_INSIDE}}
+\index{CO\_EMC\_VOLTAGE\_INSIDE@{CO\_EMC\_VOLTAGE\_INSIDE}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_INSIDE}{CO\_EMC\_VOLTAGE\_INSIDE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+I\+N\+S\+I\+DE~0x3200U}
+
+0x32xx, Voltage inside the device 
+
+Definition at line 115 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}\label{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_MAINS@{CO\_EMC\_VOLTAGE\_MAINS}}
+\index{CO\_EMC\_VOLTAGE\_MAINS@{CO\_EMC\_VOLTAGE\_MAINS}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_MAINS}{CO\_EMC\_VOLTAGE\_MAINS}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+M\+A\+I\+NS~0x3100U}
+
+0x31xx, Mains Voltage 
+
+Definition at line 114 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}\label{group___c_o___e_m__error_codes_ga6ac56fffd1a8e402b44ad646ef0cbcbb}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_MAINS@{CO\_EMC\_VOLTAGE\_MAINS}}
+\index{CO\_EMC\_VOLTAGE\_MAINS@{CO\_EMC\_VOLTAGE\_MAINS}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_MAINS}{CO\_EMC\_VOLTAGE\_MAINS}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+M\+A\+I\+NS~0x3100U}
+
+0x31xx, Mains Voltage 
+
+Definition at line 114 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}\label{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_OUTPUT@{CO\_EMC\_VOLTAGE\_OUTPUT}}
+\index{CO\_EMC\_VOLTAGE\_OUTPUT@{CO\_EMC\_VOLTAGE\_OUTPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_OUTPUT}{CO\_EMC\_VOLTAGE\_OUTPUT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+O\+U\+T\+P\+UT~0x3300U}
+
+0x33xx, Output Voltage 
+
+Definition at line 116 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}\label{group___c_o___e_m__error_codes_ga4b3ffa597344469b96cccbd84670cdc5}} 
+\index{CANopen Error codes@{CANopen Error codes}!CO\_EMC\_VOLTAGE\_OUTPUT@{CO\_EMC\_VOLTAGE\_OUTPUT}}
+\index{CO\_EMC\_VOLTAGE\_OUTPUT@{CO\_EMC\_VOLTAGE\_OUTPUT}!CANopen Error codes@{CANopen Error codes}}
+\doxysubsubsection{\texorpdfstring{CO\_EMC\_VOLTAGE\_OUTPUT}{CO\_EMC\_VOLTAGE\_OUTPUT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+C\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+O\+U\+T\+P\+UT~0x3300U}
+
+0x33xx, Output Voltage 
+
+Definition at line 116 of file C\+O\+\_\+\+Emergency.\+h.
+

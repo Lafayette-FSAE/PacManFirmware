@@ -1,0 +1,632 @@
+\hypertarget{_pac_man_8h}{}\doxysection{Pac\+Man.\+h File Reference}
+\label{_pac_man_8h}\index{PacMan.h@{PacMan.h}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a4e0a9a72c12d3d6f6648b55b5f714583}{N\+U\+M\+\_\+\+C\+E\+L\+LS}}~16
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_acd38af8d118a243f969a5aa822bd1b90}{P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+EN}}~2
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a2cefaf1a8a79405f7857533d323e251f}{P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+C\+U\+R\+R\+E\+NT}}~4
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a02e4e814b09d5c412ee012efc58acfa4}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+\+G\+R\+E\+EN}}~5
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_afd4e22c89b45955672ffa026b98d2d13}{P\+I\+N\+\_\+\+S\+L\+O\+O\+P\+\_\+\+EN}}~12
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a407cb9479026f4408421e23b8a0196ed}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+D\+IN}}~13
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a38ddbc68f6778648493f050567174d78}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+C\+LK}}~14
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_ad6596f6a86a7aeca397d1403bc8dc4ee}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+CS}}~15
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_aa745ebe75abca92e678681da8f3c117d}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+B\+U\+SY}}~16
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a9301d0a6c4651ef9253b890d4b8fa337}{P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+D\+ET}}~17
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_ab4874028097ae0777b42cef20ffc913d}{P\+I\+N\+\_\+\+S\+CL}}~18
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a5dfb6a7d75a520f42d21ec9a9f640342}{P\+I\+N\+\_\+\+S\+DA}}~19
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST}}~21
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a58bd8551d247115857b5e04f2abf0b8e}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+DC}}~22
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_afb0f163fbe1675e3f37fa6fee3147c9b}{P\+I\+N\+\_\+\+W\+A\+T\+C\+H\+D\+OG}}~23
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a34d0a0fb787ddde385d23a71024148c1}{P\+I\+N\+\_\+\+C\+A\+N\+\_\+\+TX}}~25
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a4ad8f46104bea853c0562997f1f94e0c}{P\+I\+N\+\_\+\+C\+A\+N\+\_\+\+RX}}~26
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a8a80c4f59402130ce78806a2b40d9184}{P\+I\+N\+\_\+\+I\+O\+\_\+\+I\+NT}}~27
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a0880c075c899d610ecc49135cf9df4b9}{P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+C\+E\+N\+T\+ER}}~32
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a75ccd16535309f9fe06d255ce46ada32}{P\+I\+N\+\_\+\+L\+E\+D\+\_\+\+O\+R\+A\+N\+GE}}~33
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a8e7ad5fc211abebc48312e1c9bff8d08}{P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+UP}}~34
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a2769aa1f119ba6c56d2797bafd7a75dc}{P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+D\+O\+WN}}~35
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_aeab6ca52c889c58d407a11f7feb5c6f1}{P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+L\+E\+FT}}~36
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a8a0ff24781731d7c32d62195f63eb376}{P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+R\+I\+G\+HT}}~39
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a0a9775cc6d0deba7101cc13fe824bf05}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+C\+P9804}}~24
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a1ed710458b3f9c9e4ba4850ecece6439}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+C\+P23008}}~32
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a770eca861e3931e6db5983ca4dd343db}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+B\+Q32002}}~104
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a5fc17a235a1e7c66949e4c44555d481d}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+L\+T\+C4151\+\_\+\+G\+L\+OB}}~102
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a287b5d027c09988051ee1a354447bb99}{I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+L\+T\+C4151}}~111
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a208c0bfbfcad48dd5942ab0d565afd96}{M\+C\+P23008\+\_\+\+I\+O\+D\+IR}}~0x00
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a94b0f36b57ef472e89b5bc44b2a8fbdf}{M\+C\+P23008\+\_\+\+I\+P\+OL}}~0x01
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_aa3c273d9a64d909b07b526e5a813265f}{M\+C\+P23008\+\_\+\+G\+P\+I\+N\+T\+EN}}~0x02
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a14496430a8fa68c1fa39b57c41aaf705}{M\+C\+P23008\+\_\+\+D\+E\+F\+V\+AL}}~0x03
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a347dcb0c564ecd64c2731660478d089a}{M\+C\+P23008\+\_\+\+I\+N\+T\+C\+ON}}~0x04
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a2f82a628f0e68388f04d1c9d1360034a}{M\+C\+P23008\+\_\+\+I\+O\+C\+ON}}~0x05
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a2d694b6bd00d6dfdd4841a04991dcce9}{M\+C\+P23008\+\_\+\+G\+P\+PU}}~0x06
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_ad83ebe20e3471c6258054a77027d206f}{M\+C\+P23008\+\_\+\+I\+N\+TF}}~0x07
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_add0f6b6f00cf2fa2ee1b6829abbb29a2}{M\+C\+P23008\+\_\+\+I\+N\+T\+C\+AP}}~0x08
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a3336a704605df6a7646363f196ce5b3f}{M\+C\+P23008\+\_\+\+G\+P\+IO}}~0x09
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a3010d1af643e32e6416740094eeb8837}{M\+C\+P23008\+\_\+\+O\+L\+AT}}~0x0A
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a06ece2d2d4c5ce7e78a2508c0fdd52b6}{L\+T\+C4151\+\_\+\+S\+E\+N\+S\+E\+\_\+H}}~0x00
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a04286125c8af218b490c3197d819d0a4}{L\+T\+C4151\+\_\+\+S\+E\+N\+S\+E\+\_\+L}}~0x01
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a4743038b2b300af0f5678f09e441172a}{L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+H}}~0x02
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_adbb2c66966dcb0ac0a380bdb462a54eb}{L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+L}}~0x03
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a501114c4f2598b2f990d104d1b2b8fad}{L\+T\+C4151\+\_\+\+A\+D\+I\+N\+\_\+H}}~0x04
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a57af80d8efac19d8a6f6292fc0268e58}{L\+T\+C4151\+\_\+\+A\+D\+I\+N\+\_\+L}}~0x05
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a7ad6ddb85ed07392ba799ee6702db57b}{L\+T\+C4151\+\_\+\+C\+O\+N\+T\+R\+OL}}~0x06
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_af64a098b866158350e3c5ddbae436d5a}{L\+T\+C4151\+\_\+\+R\+S\+H\+U\+NT}}~0.\+82
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a1cd15ec83050cccc923e8645f4b8d43c}{L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+\+F\+A\+C\+T\+OR}}~0.\+025
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_af1a99fe39e93b71b84cf2c1322714dbd}{L\+T\+C4151\+\_\+\+C\+U\+R\+R\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+A}}~0.\+00002439
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_a4d7dddc5bbd3572bc128b5b8bd3e1159}{L\+T\+C4151\+\_\+\+C\+U\+R\+R\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+mA}}~0.\+02439
+\item 
+\#define \mbox{\hyperlink{_pac_man_8h_aeff5eb106fcfbb5603cf3556a22b13eb}{L\+T\+C4151\+\_\+\+A\+D\+\_\+\+F\+A\+C\+T\+OR}}~0.\+0005
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_pac_man_8h_a770eca861e3931e6db5983ca4dd343db}\label{_pac_man_8h_a770eca861e3931e6db5983ca4dd343db}} 
+\index{PacMan.h@{PacMan.h}!I2C\_ADDR\_BQ32002@{I2C\_ADDR\_BQ32002}}
+\index{I2C\_ADDR\_BQ32002@{I2C\_ADDR\_BQ32002}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_BQ32002}{I2C\_ADDR\_BQ32002}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+B\+Q32002~104}
+
+
+
+Definition at line 36 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a287b5d027c09988051ee1a354447bb99}\label{_pac_man_8h_a287b5d027c09988051ee1a354447bb99}} 
+\index{PacMan.h@{PacMan.h}!I2C\_ADDR\_LTC4151@{I2C\_ADDR\_LTC4151}}
+\index{I2C\_ADDR\_LTC4151@{I2C\_ADDR\_LTC4151}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_LTC4151}{I2C\_ADDR\_LTC4151}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+L\+T\+C4151~111}
+
+
+
+Definition at line 38 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a5fc17a235a1e7c66949e4c44555d481d}\label{_pac_man_8h_a5fc17a235a1e7c66949e4c44555d481d}} 
+\index{PacMan.h@{PacMan.h}!I2C\_ADDR\_LTC4151\_GLOB@{I2C\_ADDR\_LTC4151\_GLOB}}
+\index{I2C\_ADDR\_LTC4151\_GLOB@{I2C\_ADDR\_LTC4151\_GLOB}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_LTC4151\_GLOB}{I2C\_ADDR\_LTC4151\_GLOB}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+L\+T\+C4151\+\_\+\+G\+L\+OB~102}
+
+
+
+Definition at line 37 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a1ed710458b3f9c9e4ba4850ecece6439}\label{_pac_man_8h_a1ed710458b3f9c9e4ba4850ecece6439}} 
+\index{PacMan.h@{PacMan.h}!I2C\_ADDR\_MCP23008@{I2C\_ADDR\_MCP23008}}
+\index{I2C\_ADDR\_MCP23008@{I2C\_ADDR\_MCP23008}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_MCP23008}{I2C\_ADDR\_MCP23008}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+C\+P23008~32}
+
+
+
+Definition at line 35 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a0a9775cc6d0deba7101cc13fe824bf05}\label{_pac_man_8h_a0a9775cc6d0deba7101cc13fe824bf05}} 
+\index{PacMan.h@{PacMan.h}!I2C\_ADDR\_MCP9804@{I2C\_ADDR\_MCP9804}}
+\index{I2C\_ADDR\_MCP9804@{I2C\_ADDR\_MCP9804}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_MCP9804}{I2C\_ADDR\_MCP9804}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+A\+D\+D\+R\+\_\+\+M\+C\+P9804~24}
+
+
+
+Definition at line 34 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_aeff5eb106fcfbb5603cf3556a22b13eb}\label{_pac_man_8h_aeff5eb106fcfbb5603cf3556a22b13eb}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_AD\_FACTOR@{LTC4151\_AD\_FACTOR}}
+\index{LTC4151\_AD\_FACTOR@{LTC4151\_AD\_FACTOR}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_AD\_FACTOR}{LTC4151\_AD\_FACTOR}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+A\+D\+\_\+\+F\+A\+C\+T\+OR~0.\+0005}
+
+
+
+Definition at line 69 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a501114c4f2598b2f990d104d1b2b8fad}\label{_pac_man_8h_a501114c4f2598b2f990d104d1b2b8fad}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_ADIN\_H@{LTC4151\_ADIN\_H}}
+\index{LTC4151\_ADIN\_H@{LTC4151\_ADIN\_H}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_ADIN\_H}{LTC4151\_ADIN\_H}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+A\+D\+I\+N\+\_\+H~0x04}
+
+
+
+Definition at line 58 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a57af80d8efac19d8a6f6292fc0268e58}\label{_pac_man_8h_a57af80d8efac19d8a6f6292fc0268e58}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_ADIN\_L@{LTC4151\_ADIN\_L}}
+\index{LTC4151\_ADIN\_L@{LTC4151\_ADIN\_L}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_ADIN\_L}{LTC4151\_ADIN\_L}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+A\+D\+I\+N\+\_\+L~0x05}
+
+
+
+Definition at line 59 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a7ad6ddb85ed07392ba799ee6702db57b}\label{_pac_man_8h_a7ad6ddb85ed07392ba799ee6702db57b}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_CONTROL@{LTC4151\_CONTROL}}
+\index{LTC4151\_CONTROL@{LTC4151\_CONTROL}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_CONTROL}{LTC4151\_CONTROL}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+C\+O\+N\+T\+R\+OL~0x06}
+
+
+
+Definition at line 60 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_af1a99fe39e93b71b84cf2c1322714dbd}\label{_pac_man_8h_af1a99fe39e93b71b84cf2c1322714dbd}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_CURR\_FACTOR\_A@{LTC4151\_CURR\_FACTOR\_A}}
+\index{LTC4151\_CURR\_FACTOR\_A@{LTC4151\_CURR\_FACTOR\_A}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_CURR\_FACTOR\_A}{LTC4151\_CURR\_FACTOR\_A}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+C\+U\+R\+R\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+A~0.\+00002439}
+
+
+
+Definition at line 67 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a4d7dddc5bbd3572bc128b5b8bd3e1159}\label{_pac_man_8h_a4d7dddc5bbd3572bc128b5b8bd3e1159}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_CURR\_FACTOR\_mA@{LTC4151\_CURR\_FACTOR\_mA}}
+\index{LTC4151\_CURR\_FACTOR\_mA@{LTC4151\_CURR\_FACTOR\_mA}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_CURR\_FACTOR\_mA}{LTC4151\_CURR\_FACTOR\_mA}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+C\+U\+R\+R\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+mA~0.\+02439}
+
+
+
+Definition at line 68 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_af64a098b866158350e3c5ddbae436d5a}\label{_pac_man_8h_af64a098b866158350e3c5ddbae436d5a}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_RSHUNT@{LTC4151\_RSHUNT}}
+\index{LTC4151\_RSHUNT@{LTC4151\_RSHUNT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_RSHUNT}{LTC4151\_RSHUNT}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+R\+S\+H\+U\+NT~0.\+82}
+
+
+
+Definition at line 63 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a06ece2d2d4c5ce7e78a2508c0fdd52b6}\label{_pac_man_8h_a06ece2d2d4c5ce7e78a2508c0fdd52b6}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_SENSE\_H@{LTC4151\_SENSE\_H}}
+\index{LTC4151\_SENSE\_H@{LTC4151\_SENSE\_H}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_SENSE\_H}{LTC4151\_SENSE\_H}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+S\+E\+N\+S\+E\+\_\+H~0x00}
+
+
+
+Definition at line 54 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a04286125c8af218b490c3197d819d0a4}\label{_pac_man_8h_a04286125c8af218b490c3197d819d0a4}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_SENSE\_L@{LTC4151\_SENSE\_L}}
+\index{LTC4151\_SENSE\_L@{LTC4151\_SENSE\_L}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_SENSE\_L}{LTC4151\_SENSE\_L}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+S\+E\+N\+S\+E\+\_\+L~0x01}
+
+
+
+Definition at line 55 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a1cd15ec83050cccc923e8645f4b8d43c}\label{_pac_man_8h_a1cd15ec83050cccc923e8645f4b8d43c}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_VIN\_FACTOR@{LTC4151\_VIN\_FACTOR}}
+\index{LTC4151\_VIN\_FACTOR@{LTC4151\_VIN\_FACTOR}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_VIN\_FACTOR}{LTC4151\_VIN\_FACTOR}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+\+F\+A\+C\+T\+OR~0.\+025}
+
+
+
+Definition at line 66 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a4743038b2b300af0f5678f09e441172a}\label{_pac_man_8h_a4743038b2b300af0f5678f09e441172a}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_VIN\_H@{LTC4151\_VIN\_H}}
+\index{LTC4151\_VIN\_H@{LTC4151\_VIN\_H}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_VIN\_H}{LTC4151\_VIN\_H}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+H~0x02}
+
+
+
+Definition at line 56 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_adbb2c66966dcb0ac0a380bdb462a54eb}\label{_pac_man_8h_adbb2c66966dcb0ac0a380bdb462a54eb}} 
+\index{PacMan.h@{PacMan.h}!LTC4151\_VIN\_L@{LTC4151\_VIN\_L}}
+\index{LTC4151\_VIN\_L@{LTC4151\_VIN\_L}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{LTC4151\_VIN\_L}{LTC4151\_VIN\_L}}
+{\footnotesize\ttfamily \#define L\+T\+C4151\+\_\+\+V\+I\+N\+\_\+L~0x03}
+
+
+
+Definition at line 57 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a14496430a8fa68c1fa39b57c41aaf705}\label{_pac_man_8h_a14496430a8fa68c1fa39b57c41aaf705}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_DEFVAL@{MCP23008\_DEFVAL}}
+\index{MCP23008\_DEFVAL@{MCP23008\_DEFVAL}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_DEFVAL}{MCP23008\_DEFVAL}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+D\+E\+F\+V\+AL~0x03}
+
+
+
+Definition at line 44 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_aa3c273d9a64d909b07b526e5a813265f}\label{_pac_man_8h_aa3c273d9a64d909b07b526e5a813265f}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_GPINTEN@{MCP23008\_GPINTEN}}
+\index{MCP23008\_GPINTEN@{MCP23008\_GPINTEN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_GPINTEN}{MCP23008\_GPINTEN}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+G\+P\+I\+N\+T\+EN~0x02}
+
+
+
+Definition at line 43 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a3336a704605df6a7646363f196ce5b3f}\label{_pac_man_8h_a3336a704605df6a7646363f196ce5b3f}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_GPIO@{MCP23008\_GPIO}}
+\index{MCP23008\_GPIO@{MCP23008\_GPIO}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_GPIO}{MCP23008\_GPIO}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+G\+P\+IO~0x09}
+
+
+
+Definition at line 50 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a2d694b6bd00d6dfdd4841a04991dcce9}\label{_pac_man_8h_a2d694b6bd00d6dfdd4841a04991dcce9}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_GPPU@{MCP23008\_GPPU}}
+\index{MCP23008\_GPPU@{MCP23008\_GPPU}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_GPPU}{MCP23008\_GPPU}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+G\+P\+PU~0x06}
+
+
+
+Definition at line 47 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_add0f6b6f00cf2fa2ee1b6829abbb29a2}\label{_pac_man_8h_add0f6b6f00cf2fa2ee1b6829abbb29a2}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_INTCAP@{MCP23008\_INTCAP}}
+\index{MCP23008\_INTCAP@{MCP23008\_INTCAP}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_INTCAP}{MCP23008\_INTCAP}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+N\+T\+C\+AP~0x08}
+
+
+
+Definition at line 49 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a347dcb0c564ecd64c2731660478d089a}\label{_pac_man_8h_a347dcb0c564ecd64c2731660478d089a}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_INTCON@{MCP23008\_INTCON}}
+\index{MCP23008\_INTCON@{MCP23008\_INTCON}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_INTCON}{MCP23008\_INTCON}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+N\+T\+C\+ON~0x04}
+
+
+
+Definition at line 45 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_ad83ebe20e3471c6258054a77027d206f}\label{_pac_man_8h_ad83ebe20e3471c6258054a77027d206f}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_INTF@{MCP23008\_INTF}}
+\index{MCP23008\_INTF@{MCP23008\_INTF}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_INTF}{MCP23008\_INTF}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+N\+TF~0x07}
+
+
+
+Definition at line 48 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a2f82a628f0e68388f04d1c9d1360034a}\label{_pac_man_8h_a2f82a628f0e68388f04d1c9d1360034a}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_IOCON@{MCP23008\_IOCON}}
+\index{MCP23008\_IOCON@{MCP23008\_IOCON}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_IOCON}{MCP23008\_IOCON}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+O\+C\+ON~0x05}
+
+
+
+Definition at line 46 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a208c0bfbfcad48dd5942ab0d565afd96}\label{_pac_man_8h_a208c0bfbfcad48dd5942ab0d565afd96}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_IODIR@{MCP23008\_IODIR}}
+\index{MCP23008\_IODIR@{MCP23008\_IODIR}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_IODIR}{MCP23008\_IODIR}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+O\+D\+IR~0x00}
+
+
+
+Definition at line 41 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a94b0f36b57ef472e89b5bc44b2a8fbdf}\label{_pac_man_8h_a94b0f36b57ef472e89b5bc44b2a8fbdf}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_IPOL@{MCP23008\_IPOL}}
+\index{MCP23008\_IPOL@{MCP23008\_IPOL}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_IPOL}{MCP23008\_IPOL}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+I\+P\+OL~0x01}
+
+
+
+Definition at line 42 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a3010d1af643e32e6416740094eeb8837}\label{_pac_man_8h_a3010d1af643e32e6416740094eeb8837}} 
+\index{PacMan.h@{PacMan.h}!MCP23008\_OLAT@{MCP23008\_OLAT}}
+\index{MCP23008\_OLAT@{MCP23008\_OLAT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{MCP23008\_OLAT}{MCP23008\_OLAT}}
+{\footnotesize\ttfamily \#define M\+C\+P23008\+\_\+\+O\+L\+AT~0x0A}
+
+
+
+Definition at line 51 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a4e0a9a72c12d3d6f6648b55b5f714583}\label{_pac_man_8h_a4e0a9a72c12d3d6f6648b55b5f714583}} 
+\index{PacMan.h@{PacMan.h}!NUM\_CELLS@{NUM\_CELLS}}
+\index{NUM\_CELLS@{NUM\_CELLS}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_CELLS}{NUM\_CELLS}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+C\+E\+L\+LS~16}
+
+
+
+Definition at line 6 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a0880c075c899d610ecc49135cf9df4b9}\label{_pac_man_8h_a0880c075c899d610ecc49135cf9df4b9}} 
+\index{PacMan.h@{PacMan.h}!PIN\_BTN\_CENTER@{PIN\_BTN\_CENTER}}
+\index{PIN\_BTN\_CENTER@{PIN\_BTN\_CENTER}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_BTN\_CENTER}{PIN\_BTN\_CENTER}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+C\+E\+N\+T\+ER~32}
+
+
+
+Definition at line 26 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a2769aa1f119ba6c56d2797bafd7a75dc}\label{_pac_man_8h_a2769aa1f119ba6c56d2797bafd7a75dc}} 
+\index{PacMan.h@{PacMan.h}!PIN\_BTN\_DOWN@{PIN\_BTN\_DOWN}}
+\index{PIN\_BTN\_DOWN@{PIN\_BTN\_DOWN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_BTN\_DOWN}{PIN\_BTN\_DOWN}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+D\+O\+WN~35}
+
+
+
+Definition at line 29 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_aeab6ca52c889c58d407a11f7feb5c6f1}\label{_pac_man_8h_aeab6ca52c889c58d407a11f7feb5c6f1}} 
+\index{PacMan.h@{PacMan.h}!PIN\_BTN\_LEFT@{PIN\_BTN\_LEFT}}
+\index{PIN\_BTN\_LEFT@{PIN\_BTN\_LEFT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_BTN\_LEFT}{PIN\_BTN\_LEFT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+L\+E\+FT~36}
+
+
+
+Definition at line 30 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a8a0ff24781731d7c32d62195f63eb376}\label{_pac_man_8h_a8a0ff24781731d7c32d62195f63eb376}} 
+\index{PacMan.h@{PacMan.h}!PIN\_BTN\_RIGHT@{PIN\_BTN\_RIGHT}}
+\index{PIN\_BTN\_RIGHT@{PIN\_BTN\_RIGHT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_BTN\_RIGHT}{PIN\_BTN\_RIGHT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+R\+I\+G\+HT~39}
+
+
+
+Definition at line 31 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a8e7ad5fc211abebc48312e1c9bff8d08}\label{_pac_man_8h_a8e7ad5fc211abebc48312e1c9bff8d08}} 
+\index{PacMan.h@{PacMan.h}!PIN\_BTN\_UP@{PIN\_BTN\_UP}}
+\index{PIN\_BTN\_UP@{PIN\_BTN\_UP}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_BTN\_UP}{PIN\_BTN\_UP}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+B\+T\+N\+\_\+\+UP~34}
+
+
+
+Definition at line 28 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a4ad8f46104bea853c0562997f1f94e0c}\label{_pac_man_8h_a4ad8f46104bea853c0562997f1f94e0c}} 
+\index{PacMan.h@{PacMan.h}!PIN\_CAN\_RX@{PIN\_CAN\_RX}}
+\index{PIN\_CAN\_RX@{PIN\_CAN\_RX}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_CAN\_RX}{PIN\_CAN\_RX}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+C\+A\+N\+\_\+\+RX~26}
+
+
+
+Definition at line 24 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a34d0a0fb787ddde385d23a71024148c1}\label{_pac_man_8h_a34d0a0fb787ddde385d23a71024148c1}} 
+\index{PacMan.h@{PacMan.h}!PIN\_CAN\_TX@{PIN\_CAN\_TX}}
+\index{PIN\_CAN\_TX@{PIN\_CAN\_TX}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_CAN\_TX}{PIN\_CAN\_TX}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+C\+A\+N\+\_\+\+TX~25}
+
+
+
+Definition at line 23 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a2cefaf1a8a79405f7857533d323e251f}\label{_pac_man_8h_a2cefaf1a8a79405f7857533d323e251f}} 
+\index{PacMan.h@{PacMan.h}!PIN\_CHRG\_CURRENT@{PIN\_CHRG\_CURRENT}}
+\index{PIN\_CHRG\_CURRENT@{PIN\_CHRG\_CURRENT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_CHRG\_CURRENT}{PIN\_CHRG\_CURRENT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+C\+U\+R\+R\+E\+NT~4}
+
+
+
+Definition at line 10 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a9301d0a6c4651ef9253b890d4b8fa337}\label{_pac_man_8h_a9301d0a6c4651ef9253b890d4b8fa337}} 
+\index{PacMan.h@{PacMan.h}!PIN\_CHRG\_DET@{PIN\_CHRG\_DET}}
+\index{PIN\_CHRG\_DET@{PIN\_CHRG\_DET}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_CHRG\_DET}{PIN\_CHRG\_DET}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+D\+ET~17}
+
+
+
+Definition at line 17 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_acd38af8d118a243f969a5aa822bd1b90}\label{_pac_man_8h_acd38af8d118a243f969a5aa822bd1b90}} 
+\index{PacMan.h@{PacMan.h}!PIN\_CHRG\_EN@{PIN\_CHRG\_EN}}
+\index{PIN\_CHRG\_EN@{PIN\_CHRG\_EN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_CHRG\_EN}{PIN\_CHRG\_EN}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+C\+H\+R\+G\+\_\+\+EN~2}
+
+
+
+Definition at line 9 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_aa745ebe75abca92e678681da8f3c117d}\label{_pac_man_8h_aa745ebe75abca92e678681da8f3c117d}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_BUSY@{PIN\_DISP\_BUSY}}
+\index{PIN\_DISP\_BUSY@{PIN\_DISP\_BUSY}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_BUSY}{PIN\_DISP\_BUSY}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+B\+U\+SY~16}
+
+
+
+Definition at line 16 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a38ddbc68f6778648493f050567174d78}\label{_pac_man_8h_a38ddbc68f6778648493f050567174d78}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_CLK@{PIN\_DISP\_CLK}}
+\index{PIN\_DISP\_CLK@{PIN\_DISP\_CLK}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_CLK}{PIN\_DISP\_CLK}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+C\+LK~14}
+
+
+
+Definition at line 14 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_ad6596f6a86a7aeca397d1403bc8dc4ee}\label{_pac_man_8h_ad6596f6a86a7aeca397d1403bc8dc4ee}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_CS@{PIN\_DISP\_CS}}
+\index{PIN\_DISP\_CS@{PIN\_DISP\_CS}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_CS}{PIN\_DISP\_CS}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+CS~15}
+
+
+
+Definition at line 15 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a58bd8551d247115857b5e04f2abf0b8e}\label{_pac_man_8h_a58bd8551d247115857b5e04f2abf0b8e}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_DC@{PIN\_DISP\_DC}}
+\index{PIN\_DISP\_DC@{PIN\_DISP\_DC}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_DC}{PIN\_DISP\_DC}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+DC~22}
+
+
+
+Definition at line 21 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a407cb9479026f4408421e23b8a0196ed}\label{_pac_man_8h_a407cb9479026f4408421e23b8a0196ed}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_DIN@{PIN\_DISP\_DIN}}
+\index{PIN\_DISP\_DIN@{PIN\_DISP\_DIN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_DIN}{PIN\_DISP\_DIN}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+D\+IN~13}
+
+
+
+Definition at line 13 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}\label{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}} 
+\index{PacMan.h@{PacMan.h}!PIN\_DISP\_RST@{PIN\_DISP\_RST}}
+\index{PIN\_DISP\_RST@{PIN\_DISP\_RST}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_DISP\_RST}{PIN\_DISP\_RST}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST~21}
+
+
+
+Definition at line 20 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a8a80c4f59402130ce78806a2b40d9184}\label{_pac_man_8h_a8a80c4f59402130ce78806a2b40d9184}} 
+\index{PacMan.h@{PacMan.h}!PIN\_IO\_INT@{PIN\_IO\_INT}}
+\index{PIN\_IO\_INT@{PIN\_IO\_INT}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_IO\_INT}{PIN\_IO\_INT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+I\+O\+\_\+\+I\+NT~27}
+
+
+
+Definition at line 25 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a02e4e814b09d5c412ee012efc58acfa4}\label{_pac_man_8h_a02e4e814b09d5c412ee012efc58acfa4}} 
+\index{PacMan.h@{PacMan.h}!PIN\_LED\_GREEN@{PIN\_LED\_GREEN}}
+\index{PIN\_LED\_GREEN@{PIN\_LED\_GREEN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LED\_GREEN}{PIN\_LED\_GREEN}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+\+G\+R\+E\+EN~5}
+
+
+
+Definition at line 11 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a75ccd16535309f9fe06d255ce46ada32}\label{_pac_man_8h_a75ccd16535309f9fe06d255ce46ada32}} 
+\index{PacMan.h@{PacMan.h}!PIN\_LED\_ORANGE@{PIN\_LED\_ORANGE}}
+\index{PIN\_LED\_ORANGE@{PIN\_LED\_ORANGE}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_LED\_ORANGE}{PIN\_LED\_ORANGE}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+L\+E\+D\+\_\+\+O\+R\+A\+N\+GE~33}
+
+
+
+Definition at line 27 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_ab4874028097ae0777b42cef20ffc913d}\label{_pac_man_8h_ab4874028097ae0777b42cef20ffc913d}} 
+\index{PacMan.h@{PacMan.h}!PIN\_SCL@{PIN\_SCL}}
+\index{PIN\_SCL@{PIN\_SCL}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SCL}{PIN\_SCL}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+S\+CL~18}
+
+
+
+Definition at line 18 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_a5dfb6a7d75a520f42d21ec9a9f640342}\label{_pac_man_8h_a5dfb6a7d75a520f42d21ec9a9f640342}} 
+\index{PacMan.h@{PacMan.h}!PIN\_SDA@{PIN\_SDA}}
+\index{PIN\_SDA@{PIN\_SDA}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SDA}{PIN\_SDA}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+S\+DA~19}
+
+
+
+Definition at line 19 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_afd4e22c89b45955672ffa026b98d2d13}\label{_pac_man_8h_afd4e22c89b45955672ffa026b98d2d13}} 
+\index{PacMan.h@{PacMan.h}!PIN\_SLOOP\_EN@{PIN\_SLOOP\_EN}}
+\index{PIN\_SLOOP\_EN@{PIN\_SLOOP\_EN}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_SLOOP\_EN}{PIN\_SLOOP\_EN}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+S\+L\+O\+O\+P\+\_\+\+EN~12}
+
+
+
+Definition at line 12 of file Pac\+Man.\+h.
+
+\mbox{\Hypertarget{_pac_man_8h_afb0f163fbe1675e3f37fa6fee3147c9b}\label{_pac_man_8h_afb0f163fbe1675e3f37fa6fee3147c9b}} 
+\index{PacMan.h@{PacMan.h}!PIN\_WATCHDOG@{PIN\_WATCHDOG}}
+\index{PIN\_WATCHDOG@{PIN\_WATCHDOG}!PacMan.h@{PacMan.h}}
+\doxysubsubsection{\texorpdfstring{PIN\_WATCHDOG}{PIN\_WATCHDOG}}
+{\footnotesize\ttfamily \#define P\+I\+N\+\_\+\+W\+A\+T\+C\+H\+D\+OG~23}
+
+
+
+Definition at line 22 of file Pac\+Man.\+h.
+

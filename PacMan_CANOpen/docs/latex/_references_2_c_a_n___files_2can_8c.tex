@@ -1,0 +1,856 @@
+\hypertarget{_references_2_c_a_n___files_2can_8c}{}\doxysection{References/\+C\+A\+N\+\_\+\+Files/can.c File Reference}
+\label{_references_2_c_a_n___files_2can_8c}\index{References/CAN\_Files/can.c@{References/CAN\_Files/can.c}}
+{\ttfamily \#include \char`\"{}freertos/\+Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/portmacro.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/semphr.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+intr\+\_\+alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}esp\+\_\+pm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}soc/dport\+\_\+reg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}soc/can\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/periph\+\_\+ctrl.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/can.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unioncan__frame__t}{can\+\_\+frame\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcan__obj__t}{can\+\_\+obj\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a709025872254237e4cf974097f68030f}{C\+A\+N\+\_\+\+C\+H\+E\+CK}}(cond,  ret\+\_\+val)
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_af91631cd8e8ce914fa7a7606105b4d23}{C\+A\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+R\+O\+M\+\_\+\+C\+R\+IT}}(cond,  ret\+\_\+val)
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a243898285698deaa238721779cee8ac5}{C\+A\+N\+\_\+\+S\+E\+T\+\_\+\+F\+L\+AG}}(var,  mask)~((var) $\vert$= (mask))
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a83a065ba9463f8ecfa3ad2ec4bdd1c07}{C\+A\+N\+\_\+\+R\+E\+S\+E\+T\+\_\+\+F\+L\+AG}}(var,  mask)~((var) \&= $\sim$(mask))
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a4791c142b857f44449cc8ad8d22ef045}{C\+A\+N\+\_\+\+T\+AG}}~\char`\"{}C\+AN\char`\"{}
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_af18d25a3d2b0f2a6e93410762c802c66}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+WL}}~96
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_af8441e50dfd106a29ae6d1a67f01b865}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+EC}}~0
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a11c3226406c8c960ce1490336e47d285}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+EC}}~0
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a8d719001286b0bfe9387602c3ef267c1}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+L\+K\+O\+U\+T\+\_\+\+D\+IV}}~14
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_ab1a5bcd33f91871041b0f1d3482112b6}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+TS}}~0x\+E7
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a347b80b3c901be931aeafd56265c8ba9}{D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+R\+R\+\_\+\+P\+A\+S\+S\+\_\+\+C\+NT}}~128
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a108cb87c7a86230cda99fa0ae982b5d4}{C\+M\+D\+\_\+\+T\+X\+\_\+\+R\+EQ}}~0x01
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a57efef569c4c7ceb9990a2c55d3978f0}{C\+M\+D\+\_\+\+A\+B\+O\+R\+T\+\_\+\+TX}}~0x02
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a263b0757a42fe88c1d562738ec59bd0b}{C\+M\+D\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+X\+\_\+\+B\+U\+FF}}~0x04
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a07879a681efcd08905ee99b5767266b7}{C\+M\+D\+\_\+\+C\+L\+R\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+RN}}~0x08
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_af7293f18374b1c506516f3e28060f3f5}{C\+M\+D\+\_\+\+S\+E\+L\+F\+\_\+\+R\+X\+\_\+\+R\+EQ}}~0x10
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a2bd07d54b0764145f47154af71f9f4b1}{C\+M\+D\+\_\+\+T\+X\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT}}~0x03
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a7d026b899273d749c7821065a41bad82}{C\+M\+D\+\_\+\+S\+E\+L\+F\+\_\+\+R\+X\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT}}~0x12
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a989bd303fa3f5b16dfa873c215b5404c}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+S\+T\+O\+P\+P\+ED}}~0x001
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a79739fa1162db83827e42c54d45a2500}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+R\+E\+C\+O\+V\+E\+R\+I\+NG}}~0x002
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_ad409458fa3367ad0ee646433fc49059b}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+E\+R\+R\+\_\+\+W\+A\+RN}}~0x004
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa503aaf56d68d117cd48b380a3a42350}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+E\+R\+R\+\_\+\+P\+A\+S\+S\+I\+VE}}~0x008
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a6194d08bb36ebb872d572c76b193b370}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+B\+U\+S\+\_\+\+O\+FF}}~0x010
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_ae2fd58d5b19f990dea46f9e8f32fae74}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+O\+C\+C\+U\+P\+I\+ED}}~0x020
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a6ef7d899cb34443b41747d868e59dcf5}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+S\+E\+L\+F\+\_\+\+T\+E\+ST}}~0x040
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a96bf370caed7fefcdf14bd4f7071fb6d}{C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+L\+I\+S\+T\+E\+N\+\_\+\+O\+N\+LY}}~0x080
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a7f406893c44b94072d014c416203b043}{F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+L\+EN}}~13
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+D\+A\+T\+A\+\_\+\+L\+EN}}~8
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}{F\+R\+A\+M\+E\+\_\+\+E\+X\+T\+D\+\_\+\+I\+D\+\_\+\+L\+EN}}~4
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a207e9746c198f4976427d1f6941cd9d5}{F\+R\+A\+M\+E\+\_\+\+S\+T\+D\+\_\+\+I\+D\+\_\+\+L\+EN}}~2
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_ae21bc40d4ece4f9afe28f59c366e3113}{F\+R\+A\+M\+E\+\_\+\+I\+N\+F\+O\+\_\+\+L\+EN}}~1
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa020f7511f3cc1c17e89f00b55561e42}{A\+L\+E\+R\+T\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+W\+A\+R\+N\+I\+NG}}~C\+A\+N\+\_\+\+A\+L\+E\+R\+T\+\_\+\+A\+R\+B\+\_\+\+L\+O\+ST
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a02f82002ebb9feacfacbec18aa5606f6}{A\+L\+E\+R\+T\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+E\+R\+R\+OR}}~C\+A\+N\+\_\+\+A\+L\+E\+R\+T\+\_\+\+T\+X\+\_\+\+F\+A\+I\+L\+ED
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a483485a197f5ac505170b98a48d7d3aa}{C\+A\+N\+\_\+\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL}}()~port\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\&can\+\_\+spinlock)
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a9b34290d6d713ce593daae9d3f20fa68}{C\+A\+N\+\_\+\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL}}()~port\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\&can\+\_\+spinlock)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a5d6d3950c3fa7124d6a86a19ac2bf0f8}{can\+\_\+driver\+\_\+install}} (const \mbox{\hyperlink{structcan__general__config__t}{can\+\_\+general\+\_\+config\+\_\+t}} $\ast$g\+\_\+config, const \mbox{\hyperlink{structcan__timing__config__t}{can\+\_\+timing\+\_\+config\+\_\+t}} $\ast$t\+\_\+config, const \mbox{\hyperlink{structcan__filter__config__t}{can\+\_\+filter\+\_\+config\+\_\+t}} $\ast$f\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Install C\+AN driver. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a02d3175ac035bc5660952df141878c66}{can\+\_\+driver\+\_\+uninstall}} ()
+\begin{DoxyCompactList}\small\item\em Uninstall the C\+AN driver. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_ab448804372f1c31e061ab231f3533077}{can\+\_\+start}} ()
+\begin{DoxyCompactList}\small\item\em Start the C\+AN driver. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a40a4259fc7300b9e3da677c0d30abded}{can\+\_\+stop}} ()
+\begin{DoxyCompactList}\small\item\em Stop the C\+AN driver. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a87560a2fb0417f9502fff53fc19f5fda}{can\+\_\+transmit}} (const \mbox{\hyperlink{structcan__message__t}{can\+\_\+message\+\_\+t}} $\ast$message, Tick\+Type\+\_\+t ticks\+\_\+to\+\_\+wait)
+\begin{DoxyCompactList}\small\item\em Transmit a C\+AN message. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a2a8b5fefa4fc57740cfbf28afc401a66}{can\+\_\+receive}} (\mbox{\hyperlink{structcan__message__t}{can\+\_\+message\+\_\+t}} $\ast$message, Tick\+Type\+\_\+t ticks\+\_\+to\+\_\+wait)
+\begin{DoxyCompactList}\small\item\em Receive a C\+AN message. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a96bc99fa578fb1b175efb4b04c242fee}{can\+\_\+read\+\_\+alerts}} (uint32\+\_\+t $\ast$alerts, Tick\+Type\+\_\+t ticks\+\_\+to\+\_\+wait)
+\begin{DoxyCompactList}\small\item\em Read C\+AN driver alerts. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a09ead5c8ff15ffb0c4a35d376cfdd07a}{can\+\_\+reconfigure\+\_\+alerts}} (uint32\+\_\+t alerts\+\_\+enabled, uint32\+\_\+t $\ast$current\+\_\+alerts)
+\begin{DoxyCompactList}\small\item\em Reconfigure which alerts are enabled. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a1e5f385f761519a7e0f08cbe916f1ded}{can\+\_\+initiate\+\_\+recovery}} ()
+\begin{DoxyCompactList}\small\item\em Start the bus recovery process. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a3aac248f4f28f0e426e33895b4990b96}{can\+\_\+get\+\_\+status\+\_\+info}} (\mbox{\hyperlink{structcan__status__info__t}{can\+\_\+status\+\_\+info\+\_\+t}} $\ast$status\+\_\+info)
+\begin{DoxyCompactList}\small\item\em Get current status information of the C\+AN driver. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a11d9a3b466d57275142cb9a4dd8dc690}{can\+\_\+clear\+\_\+transmit\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Clear the transmit queue. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a28dd6e5c240cf7e67285b66cbf668a04}{can\+\_\+clear\+\_\+receive\+\_\+queue}} ()
+\begin{DoxyCompactList}\small\item\em Clear the receive queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a02f82002ebb9feacfacbec18aa5606f6}\label{_references_2_c_a_n___files_2can_8c_a02f82002ebb9feacfacbec18aa5606f6}} 
+\index{can.c@{can.c}!ALERT\_LOG\_LEVEL\_ERROR@{ALERT\_LOG\_LEVEL\_ERROR}}
+\index{ALERT\_LOG\_LEVEL\_ERROR@{ALERT\_LOG\_LEVEL\_ERROR}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{ALERT\_LOG\_LEVEL\_ERROR}{ALERT\_LOG\_LEVEL\_ERROR}}
+{\footnotesize\ttfamily \#define A\+L\+E\+R\+T\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+E\+R\+R\+OR~C\+A\+N\+\_\+\+A\+L\+E\+R\+T\+\_\+\+T\+X\+\_\+\+F\+A\+I\+L\+ED}
+
+
+
+Definition at line 83 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_aa020f7511f3cc1c17e89f00b55561e42}\label{_references_2_c_a_n___files_2can_8c_aa020f7511f3cc1c17e89f00b55561e42}} 
+\index{can.c@{can.c}!ALERT\_LOG\_LEVEL\_WARNING@{ALERT\_LOG\_LEVEL\_WARNING}}
+\index{ALERT\_LOG\_LEVEL\_WARNING@{ALERT\_LOG\_LEVEL\_WARNING}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{ALERT\_LOG\_LEVEL\_WARNING}{ALERT\_LOG\_LEVEL\_WARNING}}
+{\footnotesize\ttfamily \#define A\+L\+E\+R\+T\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+E\+L\+\_\+\+W\+A\+R\+N\+I\+NG~C\+A\+N\+\_\+\+A\+L\+E\+R\+T\+\_\+\+A\+R\+B\+\_\+\+L\+O\+ST}
+
+
+
+Definition at line 82 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a709025872254237e4cf974097f68030f}\label{_references_2_c_a_n___files_2can_8c_a709025872254237e4cf974097f68030f}} 
+\index{can.c@{can.c}!CAN\_CHECK@{CAN\_CHECK}}
+\index{CAN\_CHECK@{CAN\_CHECK}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_CHECK}{CAN\_CHECK}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+C\+H\+E\+CK(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{ret\+\_\+val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{            (\{                                         \(\backslash\)}
+\DoxyCodeLine{            if (!(cond)) \{                                                  \(\backslash\)}
+\DoxyCodeLine{                return (ret\_val);                                           \(\backslash\)}
+\DoxyCodeLine{            \}                                                               \(\backslash\)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Definition at line 33 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_af91631cd8e8ce914fa7a7606105b4d23}\label{_references_2_c_a_n___files_2can_8c_af91631cd8e8ce914fa7a7606105b4d23}} 
+\index{can.c@{can.c}!CAN\_CHECK\_FROM\_CRIT@{CAN\_CHECK\_FROM\_CRIT}}
+\index{CAN\_CHECK\_FROM\_CRIT@{CAN\_CHECK\_FROM\_CRIT}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_CHECK\_FROM\_CRIT}{CAN\_CHECK\_FROM\_CRIT}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+F\+R\+O\+M\+\_\+\+C\+R\+IT(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{ret\+\_\+val }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{            (\{                               \(\backslash\)}
+\DoxyCodeLine{            if (!(cond)) \{                                                  \(\backslash\)}
+\DoxyCodeLine{                CAN\_EXIT\_CRITICAL();                                        \(\backslash\)}
+\DoxyCodeLine{                return ret\_val;                                             \(\backslash\)}
+\DoxyCodeLine{            \}                                                               \(\backslash\)}
+\DoxyCodeLine{\})}
+
+\end{DoxyCode}
+
+
+Definition at line 38 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a483485a197f5ac505170b98a48d7d3aa}\label{_references_2_c_a_n___files_2can_8c_a483485a197f5ac505170b98a48d7d3aa}} 
+\index{can.c@{can.c}!CAN\_ENTER\_CRITICAL@{CAN\_ENTER\_CRITICAL}}
+\index{CAN\_ENTER\_CRITICAL@{CAN\_ENTER\_CRITICAL}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_ENTER\_CRITICAL}{CAN\_ENTER\_CRITICAL}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~port\+E\+N\+T\+E\+R\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\&can\+\_\+spinlock)}
+
+
+
+Definition at line 141 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a9b34290d6d713ce593daae9d3f20fa68}\label{_references_2_c_a_n___files_2can_8c_a9b34290d6d713ce593daae9d3f20fa68}} 
+\index{can.c@{can.c}!CAN\_EXIT\_CRITICAL@{CAN\_EXIT\_CRITICAL}}
+\index{CAN\_EXIT\_CRITICAL@{CAN\_EXIT\_CRITICAL}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_EXIT\_CRITICAL}{CAN\_EXIT\_CRITICAL}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~port\+E\+X\+I\+T\+\_\+\+C\+R\+I\+T\+I\+C\+AL(\&can\+\_\+spinlock)}
+
+
+
+Definition at line 142 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a83a065ba9463f8ecfa3ad2ec4bdd1c07}\label{_references_2_c_a_n___files_2can_8c_a83a065ba9463f8ecfa3ad2ec4bdd1c07}} 
+\index{can.c@{can.c}!CAN\_RESET\_FLAG@{CAN\_RESET\_FLAG}}
+\index{CAN\_RESET\_FLAG@{CAN\_RESET\_FLAG}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_RESET\_FLAG}{CAN\_RESET\_FLAG}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+R\+E\+S\+E\+T\+\_\+\+F\+L\+AG(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{mask }\end{DoxyParamCaption})~((var) \&= $\sim$(mask))}
+
+
+
+Definition at line 45 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a243898285698deaa238721779cee8ac5}\label{_references_2_c_a_n___files_2can_8c_a243898285698deaa238721779cee8ac5}} 
+\index{can.c@{can.c}!CAN\_SET\_FLAG@{CAN\_SET\_FLAG}}
+\index{CAN\_SET\_FLAG@{CAN\_SET\_FLAG}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_SET\_FLAG}{CAN\_SET\_FLAG}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+S\+E\+T\+\_\+\+F\+L\+AG(\begin{DoxyParamCaption}\item[{}]{var,  }\item[{}]{mask }\end{DoxyParamCaption})~((var) $\vert$= (mask))}
+
+
+
+Definition at line 44 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a4791c142b857f44449cc8ad8d22ef045}\label{_references_2_c_a_n___files_2can_8c_a4791c142b857f44449cc8ad8d22ef045}} 
+\index{can.c@{can.c}!CAN\_TAG@{CAN\_TAG}}
+\index{CAN\_TAG@{CAN\_TAG}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CAN\_TAG}{CAN\_TAG}}
+{\footnotesize\ttfamily \#define C\+A\+N\+\_\+\+T\+AG~\char`\"{}C\+AN\char`\"{}}
+
+
+
+Definition at line 46 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a57efef569c4c7ceb9990a2c55d3978f0}\label{_references_2_c_a_n___files_2can_8c_a57efef569c4c7ceb9990a2c55d3978f0}} 
+\index{can.c@{can.c}!CMD\_ABORT\_TX@{CMD\_ABORT\_TX}}
+\index{CMD\_ABORT\_TX@{CMD\_ABORT\_TX}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_ABORT\_TX}{CMD\_ABORT\_TX}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+A\+B\+O\+R\+T\+\_\+\+TX~0x02}
+
+
+
+Definition at line 58 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a07879a681efcd08905ee99b5767266b7}\label{_references_2_c_a_n___files_2can_8c_a07879a681efcd08905ee99b5767266b7}} 
+\index{can.c@{can.c}!CMD\_CLR\_DATA\_OVRN@{CMD\_CLR\_DATA\_OVRN}}
+\index{CMD\_CLR\_DATA\_OVRN@{CMD\_CLR\_DATA\_OVRN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_CLR\_DATA\_OVRN}{CMD\_CLR\_DATA\_OVRN}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+C\+L\+R\+\_\+\+D\+A\+T\+A\+\_\+\+O\+V\+RN~0x08}
+
+
+
+Definition at line 60 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a263b0757a42fe88c1d562738ec59bd0b}\label{_references_2_c_a_n___files_2can_8c_a263b0757a42fe88c1d562738ec59bd0b}} 
+\index{can.c@{can.c}!CMD\_RELEASE\_RX\_BUFF@{CMD\_RELEASE\_RX\_BUFF}}
+\index{CMD\_RELEASE\_RX\_BUFF@{CMD\_RELEASE\_RX\_BUFF}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_RELEASE\_RX\_BUFF}{CMD\_RELEASE\_RX\_BUFF}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+R\+E\+L\+E\+A\+S\+E\+\_\+\+R\+X\+\_\+\+B\+U\+FF~0x04}
+
+
+
+Definition at line 59 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_af7293f18374b1c506516f3e28060f3f5}\label{_references_2_c_a_n___files_2can_8c_af7293f18374b1c506516f3e28060f3f5}} 
+\index{can.c@{can.c}!CMD\_SELF\_RX\_REQ@{CMD\_SELF\_RX\_REQ}}
+\index{CMD\_SELF\_RX\_REQ@{CMD\_SELF\_RX\_REQ}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_SELF\_RX\_REQ}{CMD\_SELF\_RX\_REQ}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+S\+E\+L\+F\+\_\+\+R\+X\+\_\+\+R\+EQ~0x10}
+
+
+
+Definition at line 61 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a7d026b899273d749c7821065a41bad82}\label{_references_2_c_a_n___files_2can_8c_a7d026b899273d749c7821065a41bad82}} 
+\index{can.c@{can.c}!CMD\_SELF\_RX\_SINGLE\_SHOT@{CMD\_SELF\_RX\_SINGLE\_SHOT}}
+\index{CMD\_SELF\_RX\_SINGLE\_SHOT@{CMD\_SELF\_RX\_SINGLE\_SHOT}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_SELF\_RX\_SINGLE\_SHOT}{CMD\_SELF\_RX\_SINGLE\_SHOT}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+S\+E\+L\+F\+\_\+\+R\+X\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT~0x12}
+
+
+
+Definition at line 63 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a108cb87c7a86230cda99fa0ae982b5d4}\label{_references_2_c_a_n___files_2can_8c_a108cb87c7a86230cda99fa0ae982b5d4}} 
+\index{can.c@{can.c}!CMD\_TX\_REQ@{CMD\_TX\_REQ}}
+\index{CMD\_TX\_REQ@{CMD\_TX\_REQ}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_TX\_REQ}{CMD\_TX\_REQ}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+T\+X\+\_\+\+R\+EQ~0x01}
+
+
+
+Definition at line 57 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a2bd07d54b0764145f47154af71f9f4b1}\label{_references_2_c_a_n___files_2can_8c_a2bd07d54b0764145f47154af71f9f4b1}} 
+\index{can.c@{can.c}!CMD\_TX\_SINGLE\_SHOT@{CMD\_TX\_SINGLE\_SHOT}}
+\index{CMD\_TX\_SINGLE\_SHOT@{CMD\_TX\_SINGLE\_SHOT}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_TX\_SINGLE\_SHOT}{CMD\_TX\_SINGLE\_SHOT}}
+{\footnotesize\ttfamily \#define C\+M\+D\+\_\+\+T\+X\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+S\+H\+OT~0x03}
+
+
+
+Definition at line 62 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a6194d08bb36ebb872d572c76b193b370}\label{_references_2_c_a_n___files_2can_8c_a6194d08bb36ebb872d572c76b193b370}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_BUS\_OFF@{CTRL\_FLAG\_BUS\_OFF}}
+\index{CTRL\_FLAG\_BUS\_OFF@{CTRL\_FLAG\_BUS\_OFF}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_BUS\_OFF}{CTRL\_FLAG\_BUS\_OFF}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+B\+U\+S\+\_\+\+O\+FF~0x010}
+
+
+
+Definition at line 70 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_aa503aaf56d68d117cd48b380a3a42350}\label{_references_2_c_a_n___files_2can_8c_aa503aaf56d68d117cd48b380a3a42350}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_ERR\_PASSIVE@{CTRL\_FLAG\_ERR\_PASSIVE}}
+\index{CTRL\_FLAG\_ERR\_PASSIVE@{CTRL\_FLAG\_ERR\_PASSIVE}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_ERR\_PASSIVE}{CTRL\_FLAG\_ERR\_PASSIVE}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+E\+R\+R\+\_\+\+P\+A\+S\+S\+I\+VE~0x008}
+
+
+
+Definition at line 69 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_ad409458fa3367ad0ee646433fc49059b}\label{_references_2_c_a_n___files_2can_8c_ad409458fa3367ad0ee646433fc49059b}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_ERR\_WARN@{CTRL\_FLAG\_ERR\_WARN}}
+\index{CTRL\_FLAG\_ERR\_WARN@{CTRL\_FLAG\_ERR\_WARN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_ERR\_WARN}{CTRL\_FLAG\_ERR\_WARN}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+E\+R\+R\+\_\+\+W\+A\+RN~0x004}
+
+
+
+Definition at line 68 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a96bf370caed7fefcdf14bd4f7071fb6d}\label{_references_2_c_a_n___files_2can_8c_a96bf370caed7fefcdf14bd4f7071fb6d}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_LISTEN\_ONLY@{CTRL\_FLAG\_LISTEN\_ONLY}}
+\index{CTRL\_FLAG\_LISTEN\_ONLY@{CTRL\_FLAG\_LISTEN\_ONLY}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_LISTEN\_ONLY}{CTRL\_FLAG\_LISTEN\_ONLY}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+L\+I\+S\+T\+E\+N\+\_\+\+O\+N\+LY~0x080}
+
+
+
+Definition at line 73 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a79739fa1162db83827e42c54d45a2500}\label{_references_2_c_a_n___files_2can_8c_a79739fa1162db83827e42c54d45a2500}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_RECOVERING@{CTRL\_FLAG\_RECOVERING}}
+\index{CTRL\_FLAG\_RECOVERING@{CTRL\_FLAG\_RECOVERING}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_RECOVERING}{CTRL\_FLAG\_RECOVERING}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+R\+E\+C\+O\+V\+E\+R\+I\+NG~0x002}
+
+
+
+Definition at line 67 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a6ef7d899cb34443b41747d868e59dcf5}\label{_references_2_c_a_n___files_2can_8c_a6ef7d899cb34443b41747d868e59dcf5}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_SELF\_TEST@{CTRL\_FLAG\_SELF\_TEST}}
+\index{CTRL\_FLAG\_SELF\_TEST@{CTRL\_FLAG\_SELF\_TEST}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_SELF\_TEST}{CTRL\_FLAG\_SELF\_TEST}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+S\+E\+L\+F\+\_\+\+T\+E\+ST~0x040}
+
+
+
+Definition at line 72 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a989bd303fa3f5b16dfa873c215b5404c}\label{_references_2_c_a_n___files_2can_8c_a989bd303fa3f5b16dfa873c215b5404c}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_STOPPED@{CTRL\_FLAG\_STOPPED}}
+\index{CTRL\_FLAG\_STOPPED@{CTRL\_FLAG\_STOPPED}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_STOPPED}{CTRL\_FLAG\_STOPPED}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+S\+T\+O\+P\+P\+ED~0x001}
+
+
+
+Definition at line 66 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_ae2fd58d5b19f990dea46f9e8f32fae74}\label{_references_2_c_a_n___files_2can_8c_ae2fd58d5b19f990dea46f9e8f32fae74}} 
+\index{can.c@{can.c}!CTRL\_FLAG\_TX\_BUFF\_OCCUPIED@{CTRL\_FLAG\_TX\_BUFF\_OCCUPIED}}
+\index{CTRL\_FLAG\_TX\_BUFF\_OCCUPIED@{CTRL\_FLAG\_TX\_BUFF\_OCCUPIED}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{CTRL\_FLAG\_TX\_BUFF\_OCCUPIED}{CTRL\_FLAG\_TX\_BUFF\_OCCUPIED}}
+{\footnotesize\ttfamily \#define C\+T\+R\+L\+\_\+\+F\+L\+A\+G\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+O\+C\+C\+U\+P\+I\+ED~0x020}
+
+
+
+Definition at line 71 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a8d719001286b0bfe9387602c3ef267c1}\label{_references_2_c_a_n___files_2can_8c_a8d719001286b0bfe9387602c3ef267c1}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_CLKOUT\_DIV@{DRIVER\_DEFAULT\_CLKOUT\_DIV}}
+\index{DRIVER\_DEFAULT\_CLKOUT\_DIV@{DRIVER\_DEFAULT\_CLKOUT\_DIV}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_CLKOUT\_DIV}{DRIVER\_DEFAULT\_CLKOUT\_DIV}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+L\+K\+O\+U\+T\+\_\+\+D\+IV~14}
+
+
+
+Definition at line 52 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a347b80b3c901be931aeafd56265c8ba9}\label{_references_2_c_a_n___files_2can_8c_a347b80b3c901be931aeafd56265c8ba9}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_ERR\_PASS\_CNT@{DRIVER\_DEFAULT\_ERR\_PASS\_CNT}}
+\index{DRIVER\_DEFAULT\_ERR\_PASS\_CNT@{DRIVER\_DEFAULT\_ERR\_PASS\_CNT}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_ERR\_PASS\_CNT}{DRIVER\_DEFAULT\_ERR\_PASS\_CNT}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+R\+R\+\_\+\+P\+A\+S\+S\+\_\+\+C\+NT~128}
+
+
+
+Definition at line 54 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_af18d25a3d2b0f2a6e93410762c802c66}\label{_references_2_c_a_n___files_2can_8c_af18d25a3d2b0f2a6e93410762c802c66}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_EWL@{DRIVER\_DEFAULT\_EWL}}
+\index{DRIVER\_DEFAULT\_EWL@{DRIVER\_DEFAULT\_EWL}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_EWL}{DRIVER\_DEFAULT\_EWL}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+E\+WL~96}
+
+
+
+Definition at line 49 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_ab1a5bcd33f91871041b0f1d3482112b6}\label{_references_2_c_a_n___files_2can_8c_ab1a5bcd33f91871041b0f1d3482112b6}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_INTERRUPTS@{DRIVER\_DEFAULT\_INTERRUPTS}}
+\index{DRIVER\_DEFAULT\_INTERRUPTS@{DRIVER\_DEFAULT\_INTERRUPTS}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_INTERRUPTS}{DRIVER\_DEFAULT\_INTERRUPTS}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+TS~0x\+E7}
+
+
+
+Definition at line 53 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a11c3226406c8c960ce1490336e47d285}\label{_references_2_c_a_n___files_2can_8c_a11c3226406c8c960ce1490336e47d285}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_REC@{DRIVER\_DEFAULT\_REC}}
+\index{DRIVER\_DEFAULT\_REC@{DRIVER\_DEFAULT\_REC}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_REC}{DRIVER\_DEFAULT\_REC}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+R\+EC~0}
+
+
+
+Definition at line 51 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_af8441e50dfd106a29ae6d1a67f01b865}\label{_references_2_c_a_n___files_2can_8c_af8441e50dfd106a29ae6d1a67f01b865}} 
+\index{can.c@{can.c}!DRIVER\_DEFAULT\_TEC@{DRIVER\_DEFAULT\_TEC}}
+\index{DRIVER\_DEFAULT\_TEC@{DRIVER\_DEFAULT\_TEC}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{DRIVER\_DEFAULT\_TEC}{DRIVER\_DEFAULT\_TEC}}
+{\footnotesize\ttfamily \#define D\+R\+I\+V\+E\+R\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+EC~0}
+
+
+
+Definition at line 50 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}\label{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}} 
+\index{can.c@{can.c}!FRAME\_EXTD\_ID\_LEN@{FRAME\_EXTD\_ID\_LEN}}
+\index{FRAME\_EXTD\_ID\_LEN@{FRAME\_EXTD\_ID\_LEN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_EXTD\_ID\_LEN}{FRAME\_EXTD\_ID\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+E\+X\+T\+D\+\_\+\+I\+D\+\_\+\+L\+EN~4}
+
+
+
+Definition at line 78 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_ae21bc40d4ece4f9afe28f59c366e3113}\label{_references_2_c_a_n___files_2can_8c_ae21bc40d4ece4f9afe28f59c366e3113}} 
+\index{can.c@{can.c}!FRAME\_INFO\_LEN@{FRAME\_INFO\_LEN}}
+\index{FRAME\_INFO\_LEN@{FRAME\_INFO\_LEN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_INFO\_LEN}{FRAME\_INFO\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+I\+N\+F\+O\+\_\+\+L\+EN~1}
+
+
+
+Definition at line 80 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}\label{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}} 
+\index{can.c@{can.c}!FRAME\_MAX\_DATA\_LEN@{FRAME\_MAX\_DATA\_LEN}}
+\index{FRAME\_MAX\_DATA\_LEN@{FRAME\_MAX\_DATA\_LEN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_MAX\_DATA\_LEN}{FRAME\_MAX\_DATA\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+D\+A\+T\+A\+\_\+\+L\+EN~8}
+
+
+
+Definition at line 77 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a7f406893c44b94072d014c416203b043}\label{_references_2_c_a_n___files_2can_8c_a7f406893c44b94072d014c416203b043}} 
+\index{can.c@{can.c}!FRAME\_MAX\_LEN@{FRAME\_MAX\_LEN}}
+\index{FRAME\_MAX\_LEN@{FRAME\_MAX\_LEN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_MAX\_LEN}{FRAME\_MAX\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+L\+EN~13}
+
+
+
+Definition at line 76 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a207e9746c198f4976427d1f6941cd9d5}\label{_references_2_c_a_n___files_2can_8c_a207e9746c198f4976427d1f6941cd9d5}} 
+\index{can.c@{can.c}!FRAME\_STD\_ID\_LEN@{FRAME\_STD\_ID\_LEN}}
+\index{FRAME\_STD\_ID\_LEN@{FRAME\_STD\_ID\_LEN}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{FRAME\_STD\_ID\_LEN}{FRAME\_STD\_ID\_LEN}}
+{\footnotesize\ttfamily \#define F\+R\+A\+M\+E\+\_\+\+S\+T\+D\+\_\+\+I\+D\+\_\+\+L\+EN~2}
+
+
+
+Definition at line 79 of file can.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a28dd6e5c240cf7e67285b66cbf668a04}\label{_references_2_c_a_n___files_2can_8c_a28dd6e5c240cf7e67285b66cbf668a04}} 
+\index{can.c@{can.c}!can\_clear\_receive\_queue@{can\_clear\_receive\_queue}}
+\index{can\_clear\_receive\_queue@{can\_clear\_receive\_queue}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_clear\_receive\_queue()}{can\_clear\_receive\_queue()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+clear\+\_\+receive\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the receive queue. 
+
+This function will clear the receive queue of all messages.
+
+\begin{DoxyNote}{Note}
+The receive queue is automatically cleared when \mbox{\hyperlink{can_8h_ab448804372f1c31e061ab231f3533077}{can\+\_\+start()}} is called.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Transmit queue cleared
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 996 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a11d9a3b466d57275142cb9a4dd8dc690}\label{_references_2_c_a_n___files_2can_8c_a11d9a3b466d57275142cb9a4dd8dc690}} 
+\index{can.c@{can.c}!can\_clear\_transmit\_queue@{can\_clear\_transmit\_queue}}
+\index{can\_clear\_transmit\_queue@{can\_clear\_transmit\_queue}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_clear\_transmit\_queue()}{can\_clear\_transmit\_queue()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+clear\+\_\+transmit\+\_\+queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clear the transmit queue. 
+
+This function will clear the transmit queue of all messages.
+
+\begin{DoxyNote}{Note}
+The transmit queue is automatically cleared when \mbox{\hyperlink{can_8h_a40a4259fc7300b9e3da677c0d30abded}{can\+\_\+stop()}} or \mbox{\hyperlink{can_8h_a1e5f385f761519a7e0f08cbe916f1ded}{can\+\_\+initiate\+\_\+recovery()}} is called.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Transmit queue cleared
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed or TX queue is disabled 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 981 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a5d6d3950c3fa7124d6a86a19ac2bf0f8}\label{_references_2_c_a_n___files_2can_8c_a5d6d3950c3fa7124d6a86a19ac2bf0f8}} 
+\index{can.c@{can.c}!can\_driver\_install@{can\_driver\_install}}
+\index{can\_driver\_install@{can\_driver\_install}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_driver\_install()}{can\_driver\_install()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+driver\+\_\+install (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcan__general__config__t}{can\+\_\+general\+\_\+config\+\_\+t}} $\ast$}]{g\+\_\+config,  }\item[{const \mbox{\hyperlink{structcan__timing__config__t}{can\+\_\+timing\+\_\+config\+\_\+t}} $\ast$}]{t\+\_\+config,  }\item[{const \mbox{\hyperlink{structcan__filter__config__t}{can\+\_\+filter\+\_\+config\+\_\+t}} $\ast$}]{f\+\_\+config }\end{DoxyParamCaption})}
+
+
+
+Install C\+AN driver. 
+
+This function installs the C\+AN driver using three configuration structures. The required memory is allocated and the C\+AN driver is placed in the stopped state after running this function.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em g\+\_\+config} & General configuration structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em t\+\_\+config} & Timing configuration structure \\
+\hline
+\mbox{\texttt{ in}}  & {\em f\+\_\+config} & Filter configuration structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Macro initializers are available for the configuration structures (see documentation)
+
+To reinstall the C\+AN driver, call \mbox{\hyperlink{can_8h_a02d3175ac035bc5660952df141878c66}{can\+\_\+driver\+\_\+uninstall()}} first
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Successfully installed C\+AN driver
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG\+: Arguments are invalid
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+\_\+\+M\+EM\+: Insufficient memory
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: Driver is already installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 619 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a02d3175ac035bc5660952df141878c66}\label{_references_2_c_a_n___files_2can_8c_a02d3175ac035bc5660952df141878c66}} 
+\index{can.c@{can.c}!can\_driver\_uninstall@{can\_driver\_uninstall}}
+\index{can\_driver\_uninstall@{can\_driver\_uninstall}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_driver\_uninstall()}{can\_driver\_uninstall()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+driver\+\_\+uninstall (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Uninstall the C\+AN driver. 
+
+This function uninstalls the C\+AN driver, freeing the memory utilized by the driver. This function can only be called when the driver is in the stopped state or the bus-\/off state.
+
+\begin{DoxyWarning}{Warning}
+The application must ensure that no tasks are blocked on T\+X/\+RX queues or alerts when this function is called.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Successfully uninstalled C\+AN driver
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: Driver is not in stopped/bus-\/off state, or is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 724 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a3aac248f4f28f0e426e33895b4990b96}\label{_references_2_c_a_n___files_2can_8c_a3aac248f4f28f0e426e33895b4990b96}} 
+\index{can.c@{can.c}!can\_get\_status\_info@{can\_get\_status\_info}}
+\index{can\_get\_status\_info@{can\_get\_status\_info}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_get\_status\_info()}{can\_get\_status\_info()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+get\+\_\+status\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcan__status__info__t}{can\+\_\+status\+\_\+info\+\_\+t}} $\ast$}]{status\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+Get current status information of the C\+AN driver. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em status\+\_\+info} & Status information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Status information retrieved
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG\+: Arguments are invalid
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 950 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a1e5f385f761519a7e0f08cbe916f1ded}\label{_references_2_c_a_n___files_2can_8c_a1e5f385f761519a7e0f08cbe916f1ded}} 
+\index{can.c@{can.c}!can\_initiate\_recovery@{can\_initiate\_recovery}}
+\index{can\_initiate\_recovery@{can\_initiate\_recovery}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_initiate\_recovery()}{can\_initiate\_recovery()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+initiate\+\_\+recovery (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the bus recovery process. 
+
+This function initiates the bus recovery process when the C\+AN driver is in the bus-\/off state. Once initiated, the C\+AN driver will enter the recovering state and wait for 128 occurrences of the bus-\/free signal on the C\+AN bus before returning to the stopped state. This function will reset the TX queue, clearing any messages pending transmission.
+
+\begin{DoxyNote}{Note}
+The B\+U\+S\+\_\+\+R\+E\+C\+O\+V\+E\+R\+ED alert can be enabled to alert the application when the bus recovery process completes.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Bus recovery started
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not in the bus-\/off state, or is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 927 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a96bc99fa578fb1b175efb4b04c242fee}\label{_references_2_c_a_n___files_2can_8c_a96bc99fa578fb1b175efb4b04c242fee}} 
+\index{can.c@{can.c}!can\_read\_alerts@{can\_read\_alerts}}
+\index{can\_read\_alerts@{can\_read\_alerts}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_read\_alerts()}{can\_read\_alerts()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+read\+\_\+alerts (\begin{DoxyParamCaption}\item[{uint32\+\_\+t $\ast$}]{alerts,  }\item[{Tick\+Type\+\_\+t}]{ticks\+\_\+to\+\_\+wait }\end{DoxyParamCaption})}
+
+
+
+Read C\+AN driver alerts. 
+
+This function will read the alerts raised by the C\+AN driver. If no alert has been when this function is called, this function will block until an alert occurs or until it timeouts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em alerts} & Bit field of raised alerts (see documentation for alert flags) \\
+\hline
+\mbox{\texttt{ in}}  & {\em ticks\+\_\+to\+\_\+wait} & Number of Free\+R\+T\+OS ticks to block for alert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Multiple alerts can be raised simultaneously. The application should check for all alerts that have been enabled.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Alerts read
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+T\+I\+M\+E\+O\+UT\+: Timed out waiting for alerts
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG\+: Arguments are invalid
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 893 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a2a8b5fefa4fc57740cfbf28afc401a66}\label{_references_2_c_a_n___files_2can_8c_a2a8b5fefa4fc57740cfbf28afc401a66}} 
+\index{can.c@{can.c}!can\_receive@{can\_receive}}
+\index{can\_receive@{can\_receive}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_receive()}{can\_receive()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+receive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcan__message__t}{can\+\_\+message\+\_\+t}} $\ast$}]{message,  }\item[{Tick\+Type\+\_\+t}]{ticks\+\_\+to\+\_\+wait }\end{DoxyParamCaption})}
+
+
+
+Receive a C\+AN message. 
+
+This function receives a message from the RX queue. The flags field of the message structure will indicate the type of message received. This function will block if there are no messages in the RX queue
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em message} & Received message \\
+\hline
+\mbox{\texttt{ in}}  & {\em ticks\+\_\+to\+\_\+wait} & Number of Free\+R\+T\+OS ticks to block on RX queue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The flags field of the received message should be checked to determine if the received message contains any data bytes.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Message successfully received from RX queue
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+T\+I\+M\+E\+O\+UT\+: Timed out waiting for message
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG\+: Arguments are invalid
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 872 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a09ead5c8ff15ffb0c4a35d376cfdd07a}\label{_references_2_c_a_n___files_2can_8c_a09ead5c8ff15ffb0c4a35d376cfdd07a}} 
+\index{can.c@{can.c}!can\_reconfigure\_alerts@{can\_reconfigure\_alerts}}
+\index{can\_reconfigure\_alerts@{can\_reconfigure\_alerts}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_reconfigure\_alerts()}{can\_reconfigure\_alerts()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+reconfigure\+\_\+alerts (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{alerts\+\_\+enabled,  }\item[{uint32\+\_\+t $\ast$}]{current\+\_\+alerts }\end{DoxyParamCaption})}
+
+
+
+Reconfigure which alerts are enabled. 
+
+This function reconfigures which alerts are enabled. If there are alerts which have not been read whilst reconfiguring, this function can read those alerts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alerts\+\_\+enabled} & Bit field of alerts to enable (see documentation for alert flags) \\
+\hline
+\mbox{\texttt{ out}}  & {\em current\+\_\+alerts} & Bit field of currently raised alerts. Set to N\+U\+LL if unused\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Alerts reconfigured
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 912 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_ab448804372f1c31e061ab231f3533077}\label{_references_2_c_a_n___files_2can_8c_ab448804372f1c31e061ab231f3533077}} 
+\index{can.c@{can.c}!can\_start@{can\_start}}
+\index{can\_start@{can\_start}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_start()}{can\_start()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the C\+AN driver. 
+
+This function starts the C\+AN driver, putting the C\+AN driver into the running state. This allows the C\+AN driver to participate in C\+AN bus activities such as transmitting/receiving messages. The RX queue is reset in this function, clearing any unread messages. This function can only be called when the C\+AN driver is in the stopped state.
+
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: C\+AN driver is now running
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: Driver is not in stopped state, or is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 760 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a40a4259fc7300b9e3da677c0d30abded}\label{_references_2_c_a_n___files_2can_8c_a40a4259fc7300b9e3da677c0d30abded}} 
+\index{can.c@{can.c}!can\_stop@{can\_stop}}
+\index{can\_stop@{can\_stop}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_stop()}{can\_stop()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop the C\+AN driver. 
+
+This function stops the C\+AN driver, preventing any further message from being transmitted or received until \mbox{\hyperlink{can_8h_ab448804372f1c31e061ab231f3533077}{can\+\_\+start()}} is called. Any messages in the TX queue are cleared. Any messages in the RX queue should be read by the application after this function is called. This function can only be called when the C\+AN driver is in the running state.
+
+\begin{DoxyWarning}{Warning}
+A message currently being transmitted/received on the C\+AN bus will be ceased immediately. This may lead to other C\+AN nodes interpreting the unfinished message as an error.
+\end{DoxyWarning}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: C\+AN driver is now Stopped
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: Driver is not in running state, or is not installed 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 790 of file can.\+c.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_8c_a87560a2fb0417f9502fff53fc19f5fda}\label{_references_2_c_a_n___files_2can_8c_a87560a2fb0417f9502fff53fc19f5fda}} 
+\index{can.c@{can.c}!can\_transmit@{can\_transmit}}
+\index{can\_transmit@{can\_transmit}!can.c@{can.c}}
+\doxysubsubsection{\texorpdfstring{can\_transmit()}{can\_transmit()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t can\+\_\+transmit (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structcan__message__t}{can\+\_\+message\+\_\+t}} $\ast$}]{message,  }\item[{Tick\+Type\+\_\+t}]{ticks\+\_\+to\+\_\+wait }\end{DoxyParamCaption})}
+
+
+
+Transmit a C\+AN message. 
+
+This function queues a C\+AN message for transmission. Transmission will start immediately if no other messages are queued for transmission. If the TX queue is full, this function will block until more space becomes available or until it timesout. If the TX queue is disabled (TX queue length = 0 in configuration), this function will return immediately if another message is undergoing transmission. This function can only be called when the C\+AN driver is in the running state and cannot be called under Listen Only Mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em message} & Message to transmit \\
+\hline
+\mbox{\texttt{ in}}  & {\em ticks\+\_\+to\+\_\+wait} & Number of Free\+R\+T\+OS ticks to block on the TX queue\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function does not guarantee that the transmission is successful. The T\+X\+\_\+\+S\+U\+C\+C\+E\+S\+S/\+T\+X\+\_\+\+F\+A\+I\+L\+ED alert can be enabled to alert the application upon the success/failure of a transmission.
+
+The T\+X\+\_\+\+I\+D\+LE alert can be used to alert the application when no other messages are awaiting transmission.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+
+\begin{DoxyItemize}
+\item E\+S\+P\+\_\+\+OK\+: Transmission successfully queued/initiated
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+A\+RG\+: Arguments are invalid
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+T\+I\+M\+E\+O\+UT\+: Timed out waiting for space on TX queue
+\item E\+S\+P\+\_\+\+F\+A\+IL\+: TX queue is disabled and another message is currently transmitting
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+S\+T\+A\+TE\+: C\+AN driver is not in running state, or is not installed
+\item E\+S\+P\+\_\+\+E\+R\+R\+\_\+\+N\+O\+T\+\_\+\+S\+U\+P\+P\+O\+R\+T\+ED\+: Listen Only Mode does not support transmissions 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Definition at line 815 of file can.\+c.
+

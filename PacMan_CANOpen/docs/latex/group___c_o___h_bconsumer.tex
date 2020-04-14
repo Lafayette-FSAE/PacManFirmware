@@ -1,0 +1,407 @@
+\hypertarget{group___c_o___h_bconsumer}{}\doxysection{Heartbeat consumer}
+\label{group___c_o___h_bconsumer}\index{Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___h_bconsumer_8h}{C\+O\+\_\+\+H\+Bconsumer.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___h_bconsumer_8h}{C\+O\+\_\+\+H\+Bconsumer.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___h_bcons_node__t}{C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED}} = 0x00U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT}} = 0x03U, 
+\newline
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED}} = 0x00U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT}} = 0x03U
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED}} = 0x00U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT}} = 0x03U, 
+\newline
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED}} = 0x00U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}{C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT}} = 0x03U
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___h_bconsumer_gacc31c4848a14c9c367505b20e4a6a496}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$S\+DO, const uint32\+\_\+t H\+Bcons\+Time\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{struct_c_o___h_bcons_node__t}{C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t}} monitored\+Nodes\mbox{[}$\,$\mbox{]}, uint8\+\_\+t number\+Of\+Monitored\+Nodes, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Ndev\+Rx, uint16\+\_\+t C\+A\+Ndev\+Rx\+Idx\+Start)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___h_bconsumer_ga977787ac16a326b31b1ca257aa79ee2e}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Entry}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx, uint8\+\_\+t node\+Id, uint16\+\_\+t consumer\+Time)
+\item 
+void \mbox{\hyperlink{group___c_o___h_bconsumer_ga6c9bd0df815428719b9f9429ed4476a9}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Heartbeat\+Started}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx, void $\ast$object, void($\ast$p\+Funct\+Signal)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object))
+\item 
+void \mbox{\hyperlink{group___c_o___h_bconsumer_gaef359610a0cdd1331da266be9c55c2d2}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Timeout}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx, void $\ast$object, void($\ast$p\+Funct\+Signal)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object))
+\item 
+void \mbox{\hyperlink{group___c_o___h_bconsumer_ga8758a7bd92aa458b90d5da9221cc694f}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Remote\+Reset}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx, void $\ast$object, void($\ast$p\+Funct\+Signal)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object))
+\item 
+void \mbox{\hyperlink{group___c_o___h_bconsumer_ga87b4601593551c6cb54cc5f881d72f1d}{C\+O\+\_\+\+H\+Bconsumer\+\_\+process}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} N\+M\+Tis\+Pre\+Or\+Operational, uint16\+\_\+t time\+Difference\+\_\+ms)
+\item 
+int8\+\_\+t \mbox{\hyperlink{group___c_o___h_bconsumer_ga041b92d6feb1774cb7eb87fba842fdf2}{C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+Idx\+By\+Node\+Id}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t node\+Id)
+\item 
+\mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} \mbox{\hyperlink{group___c_o___h_bconsumer_ga7c5d4eccbcb0f1f8965a336fde04e765}{C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+State}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx)
+\item 
+int8\+\_\+t \mbox{\hyperlink{group___c_o___h_bconsumer_ga1731e3860fce5ca5d341d9b7fc32d8d6}{C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+Nmt\+State}} (\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$H\+Bcons, uint8\+\_\+t idx, \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} $\ast$nmt\+State)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen Heartbeat consumer protocol.
+
+Heartbeat consumer monitors Heartbeat messages from remote nodes. If any monitored node don\textquotesingle{}t send his Heartbeat in specified time, Heartbeat consumer sends emergency message. If all monitored nodes are operational, then variable {\itshape all\+Monitored\+Operational} inside \mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} is set to true. Monitoring starts after the reception of the first Heart\+Beat (not bootup).
+
+Heartbeat set up is done by writing to the OD registers 0x1016 or by using the function {\itshape \mbox{\hyperlink{group___c_o___h_bconsumer_ga977787ac16a326b31b1ca257aa79ee2e}{C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Entry()}}}
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat}{N\+MT and Heartbeat}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}\label{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_state\_t@{CO\_HBconsumer\_state\_t}}
+\index{CO\_HBconsumer\_state\_t@{CO\_HBconsumer\_state\_t}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_state\_t}{CO\_HBconsumer\_state\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}}}
+
+Heartbeat state of a node \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED&Consumer entry inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN&Consumer enabled, but no heartbeat received yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE&Heartbeat received within set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT&No heatbeat received for set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED&Consumer entry inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN&Consumer enabled, but no heartbeat received yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE&Heartbeat received within set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT&No heatbeat received for set time \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 56 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}\label{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_state\_t@{CO\_HBconsumer\_state\_t}}
+\index{CO\_HBconsumer\_state\_t@{CO\_HBconsumer\_state\_t}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_state\_t}{CO\_HBconsumer\_state\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}}}
+
+Heartbeat state of a node \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED&Consumer entry inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN&Consumer enabled, but no heartbeat received yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE&Heartbeat received within set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT&No heatbeat received for set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNCONFIGURED@{CO\_HBconsumer\_UNCONFIGURED}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a4c481c1ba58fb71b9870e8b355351211}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+C\+O\+N\+F\+I\+G\+U\+R\+ED&Consumer entry inactive \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_UNKNOWN@{CO\_HBconsumer\_UNKNOWN}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3af36bc5f46fd11044dc2d1d995ad8f28b}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+U\+N\+K\+N\+O\+WN&Consumer enabled, but no heartbeat received yet \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_ACTIVE@{CO\_HBconsumer\_ACTIVE}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3ad80c78b38e6d28927bf3d1b1464b36e9}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+A\+C\+T\+I\+VE&Heartbeat received within set time \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}!Heartbeat consumer@{Heartbeat consumer}}\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_TIMEOUT@{CO\_HBconsumer\_TIMEOUT}}}\mbox{\Hypertarget{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}\label{group___c_o___h_bconsumer_gga7658e41b7c045b7b612e4ef8a2b663f3a8a7ac49e5c809994ee65f365a7a75f22}} 
+C\+O\+\_\+\+H\+Bconsumer\+\_\+\+T\+I\+M\+E\+O\+UT&No heatbeat received for set time \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 56 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga041b92d6feb1774cb7eb87fba842fdf2}\label{group___c_o___h_bconsumer_ga041b92d6feb1774cb7eb87fba842fdf2}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_getIdxByNodeId@{CO\_HBconsumer\_getIdxByNodeId}}
+\index{CO\_HBconsumer\_getIdxByNodeId@{CO\_HBconsumer\_getIdxByNodeId}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_getIdxByNodeId()}{CO\_HBconsumer\_getIdxByNodeId()}}
+{\footnotesize\ttfamily int8\+\_\+t C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+Idx\+By\+Node\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{node\+Id }\end{DoxyParamCaption})}
+
+Get the heartbeat producer object index by node ID
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em node\+Id} & producer node ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+index. -\/1 if not found 
+\end{DoxyReturn}
+
+
+Definition at line 361 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga1731e3860fce5ca5d341d9b7fc32d8d6}\label{group___c_o___h_bconsumer_ga1731e3860fce5ca5d341d9b7fc32d8d6}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_getNmtState@{CO\_HBconsumer\_getNmtState}}
+\index{CO\_HBconsumer\_getNmtState@{CO\_HBconsumer\_getNmtState}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_getNmtState()}{CO\_HBconsumer\_getNmtState()}}
+{\footnotesize\ttfamily int8\+\_\+t C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+Nmt\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx,  }\item[{\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} $\ast$}]{nmt\+State }\end{DoxyParamCaption})}
+
+Get the current N\+MT state of a heartbeat producer by the index in OD 0x1016
+
+N\+MT state is only available when heartbeat is enabled for this index!
+
+
+\begin{DoxyParams}[2]{Parameters}
+ &  & {\em H\+Bcons} & This object. \\
+\hline
+ &  & {\em idx} & object sub index \\
+\hline
+\mbox{\texttt{ out}}  &  & {\em C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t} & of this index \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & N\+MT state has been received and is valid \\
+\hline
+{\em -\/1} & not valid \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 401 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga7c5d4eccbcb0f1f8965a336fde04e765}\label{group___c_o___h_bconsumer_ga7c5d4eccbcb0f1f8965a336fde04e765}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_getState@{CO\_HBconsumer\_getState}}
+\index{CO\_HBconsumer\_getState@{CO\_HBconsumer\_getState}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_getState()}{CO\_HBconsumer\_getState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} C\+O\+\_\+\+H\+Bconsumer\+\_\+get\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+Get the current state of a heartbeat producer by the index in OD 0x1016
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em idx} & object sub index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 386 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_gacc31c4848a14c9c367505b20e4a6a496}\label{group___c_o___h_bconsumer_gacc31c4848a14c9c367505b20e4a6a496}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_init@{CO\_HBconsumer\_init}}
+\index{CO\_HBconsumer\_init@{CO\_HBconsumer\_init}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_init()}{CO\_HBconsumer\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+H\+Bconsumer\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$}]{S\+DO,  }\item[{const uint32\+\_\+t}]{H\+Bcons\+Time\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{struct_c_o___h_bcons_node__t}{C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t}}}]{monitored\+Nodes\mbox{[}$\,$\mbox{]},  }\item[{uint8\+\_\+t}]{number\+Of\+Monitored\+Nodes,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Ndev\+Rx,  }\item[{uint16\+\_\+t}]{C\+A\+Ndev\+Rx\+Idx\+Start }\end{DoxyParamCaption})}
+
+Initialize Heartbeat consumer object.
+
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object will be initialized. \\
+\hline
+{\em em} & Emergency object. \\
+\hline
+{\em S\+DO} & S\+DO server object. \\
+\hline
+{\em H\+Bcons\+Time} & Pointer to {\itshape Consumer Heartbeat Time} array from Object Dictionary (index 0x1016). Size of array is equal to number\+Of\+Monitored\+Nodes. \\
+\hline
+{\em monitored\+Nodes} & Pointer to the externaly defined array of the same size as number\+Of\+Monitored\+Nodes. \\
+\hline
+{\em number\+Of\+Monitored\+Nodes} & Total size of the above arrays. \\
+\hline
+{\em C\+A\+Ndev\+Rx} & C\+AN device for Heartbeat reception. \\
+\hline
+{\em C\+A\+Ndev\+Rx\+Idx\+Start} & Starting index of receive buffer in the above C\+AN device. Number of used indexes is equal to number\+Of\+Monitored\+Nodes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga6c9bd0df815428719b9f9429ed4476a9}\label{group___c_o___h_bconsumer_ga6c9bd0df815428719b9f9429ed4476a9}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_initCallbackHeartbeatStarted@{CO\_HBconsumer\_initCallbackHeartbeatStarted}}
+\index{CO\_HBconsumer\_initCallbackHeartbeatStarted@{CO\_HBconsumer\_initCallbackHeartbeatStarted}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_initCallbackHeartbeatStarted()}{CO\_HBconsumer\_initCallbackHeartbeatStarted()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Heartbeat\+Started (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx,  }\item[{void $\ast$}]{object,  }\item[{void($\ast$)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object)}]{p\+Funct\+Signal }\end{DoxyParamCaption})}
+
+Initialize Heartbeat consumer started callback function.
+
+Function initializes optional callback function, which is called for the first received heartbeat after activating hb consumer or timeout. Function may wake up external task, which handles this event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em idx} & index of the node in H\+Bcons object \\
+\hline
+{\em object} & Pointer to object, which will be passed to p\+Funct\+Signal(). Can be N\+U\+LL \\
+\hline
+{\em p\+Funct\+Signal} & Pointer to the callback function. Not called if N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 206 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga8758a7bd92aa458b90d5da9221cc694f}\label{group___c_o___h_bconsumer_ga8758a7bd92aa458b90d5da9221cc694f}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_initCallbackRemoteReset@{CO\_HBconsumer\_initCallbackRemoteReset}}
+\index{CO\_HBconsumer\_initCallbackRemoteReset@{CO\_HBconsumer\_initCallbackRemoteReset}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_initCallbackRemoteReset()}{CO\_HBconsumer\_initCallbackRemoteReset()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Remote\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx,  }\item[{void $\ast$}]{object,  }\item[{void($\ast$)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object)}]{p\+Funct\+Signal }\end{DoxyParamCaption})}
+
+Initialize Heartbeat consumer remote reset detected callback function.
+
+Function initializes optional callback function, which is called when a bootup message is received from the remote node. Function may wake up external task, which handles this event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em idx} & index of the node in H\+Bcons object \\
+\hline
+{\em object} & Pointer to object, which will be passed to p\+Funct\+Signal(). Can be N\+U\+LL \\
+\hline
+{\em p\+Funct\+Signal} & Pointer to the callback function. Not called if N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 244 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_gaef359610a0cdd1331da266be9c55c2d2}\label{group___c_o___h_bconsumer_gaef359610a0cdd1331da266be9c55c2d2}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_initCallbackTimeout@{CO\_HBconsumer\_initCallbackTimeout}}
+\index{CO\_HBconsumer\_initCallbackTimeout@{CO\_HBconsumer\_initCallbackTimeout}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_initCallbackTimeout()}{CO\_HBconsumer\_initCallbackTimeout()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Callback\+Timeout (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx,  }\item[{void $\ast$}]{object,  }\item[{void($\ast$)(uint8\+\_\+t node\+Id, uint8\+\_\+t idx, void $\ast$object)}]{p\+Funct\+Signal }\end{DoxyParamCaption})}
+
+Initialize Heartbeat consumer timeout callback function.
+
+Function initializes optional callback function, which is called when the node state changes from active to timeout. Function may wake up external task, which handles this event.
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em idx} & index of the node in H\+Bcons object \\
+\hline
+{\em object} & Pointer to object, which will be passed to p\+Funct\+Signal(). Can be N\+U\+LL \\
+\hline
+{\em p\+Funct\+Signal} & Pointer to the callback function. Not called if N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 225 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga977787ac16a326b31b1ca257aa79ee2e}\label{group___c_o___h_bconsumer_ga977787ac16a326b31b1ca257aa79ee2e}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_initEntry@{CO\_HBconsumer\_initEntry}}
+\index{CO\_HBconsumer\_initEntry@{CO\_HBconsumer\_initEntry}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_initEntry()}{CO\_HBconsumer\_initEntry()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{uint8\+\_\+t}]{idx,  }\item[{uint8\+\_\+t}]{node\+Id,  }\item[{uint16\+\_\+t}]{consumer\+Time }\end{DoxyParamCaption})}
+
+Initialize one Heartbeat consumer entry
+
+Calling this function has the same affect as writing to the corresponding entries in the Object Dictionary (index 0x1016) \begin{DoxyRemark}{Remarks}
+The values in the Object Dictionary must be set manually by the calling function so that heartbeat consumer behaviour matches the OD value.
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em idx} & index of the node in H\+Bcons object \\
+\hline
+{\em node\+Id} & see OD 0x1016 description \\
+\hline
+{\em consumer\+Time} & see OD 0x1016 description \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 171 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+
+\mbox{\Hypertarget{group___c_o___h_bconsumer_ga87b4601593551c6cb54cc5f881d72f1d}\label{group___c_o___h_bconsumer_ga87b4601593551c6cb54cc5f881d72f1d}} 
+\index{Heartbeat consumer@{Heartbeat consumer}!CO\_HBconsumer\_process@{CO\_HBconsumer\_process}}
+\index{CO\_HBconsumer\_process@{CO\_HBconsumer\_process}!Heartbeat consumer@{Heartbeat consumer}}
+\doxysubsubsection{\texorpdfstring{CO\_HBconsumer\_process()}{CO\_HBconsumer\_process()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+H\+Bconsumer\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}} $\ast$}]{H\+Bcons,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{N\+M\+Tis\+Pre\+Or\+Operational,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+ms }\end{DoxyParamCaption})}
+
+Process Heartbeat consumer object.
+
+Function must be called cyclically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em H\+Bcons} & This object. \\
+\hline
+{\em N\+M\+Tis\+Pre\+Or\+Operational} & True if this node is N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL or N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 262 of file C\+O\+\_\+\+H\+Bconsumer.\+c.
+

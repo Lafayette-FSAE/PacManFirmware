@@ -1,0 +1,176 @@
+\hypertarget{structcan__obj__t}{}\doxysection{can\+\_\+obj\+\_\+t Struct Reference}
+\label{structcan__obj__t}\index{can\_obj\_t@{can\_obj\_t}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_ac052192b3bedf67df3c25d92e8468385}{control\+\_\+flags}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_a8cc1ffc7286d4191c6affc2668f9fca2}{rx\+\_\+missed\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_ad5abcc335e914db8262704a69be0c751}{tx\+\_\+failed\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_a19bb475acf64e7782ae4613c24859e3d}{arb\+\_\+lost\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_abcaa51e0c8be74fb53682b389a25a10b}{bus\+\_\+error\+\_\+count}}
+\item 
+intr\+\_\+handle\+\_\+t \mbox{\hyperlink{structcan__obj__t_a23cfda33f6c8cc8afd0181afcf934d36}{isr\+\_\+handle}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{structcan__obj__t_a0add3ef073fabcfc7cc17e31fd6a81a7}{tx\+\_\+queue}}
+\item 
+Queue\+Handle\+\_\+t \mbox{\hyperlink{structcan__obj__t_acb9c23a3fe1d11051b42e9015622bdc9}{rx\+\_\+queue}}
+\item 
+int \mbox{\hyperlink{structcan__obj__t_a9de9c95e13752ebb646e22d9f7c645db}{tx\+\_\+msg\+\_\+count}}
+\item 
+int \mbox{\hyperlink{structcan__obj__t_adc7d17fc650472d1b8b915d9877592fd}{rx\+\_\+msg\+\_\+count}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{structcan__obj__t_ad404235375f5180818ab4413119c82ca}{alert\+\_\+semphr}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_ab911f0419c72182ca8ecd6a02423725b}{alerts\+\_\+enabled}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__obj__t_a3dc5e8e503bf9f6d9e33303f8e1a6e4c}{alerts\+\_\+triggered}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 115 of file can.\+c.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcan__obj__t_ad404235375f5180818ab4413119c82ca}\label{structcan__obj__t_ad404235375f5180818ab4413119c82ca}} 
+\index{can\_obj\_t@{can\_obj\_t}!alert\_semphr@{alert\_semphr}}
+\index{alert\_semphr@{alert\_semphr}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{alert\_semphr}{alert\_semphr}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t can\+\_\+obj\+\_\+t\+::alert\+\_\+semphr}
+
+
+
+Definition at line 129 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_ab911f0419c72182ca8ecd6a02423725b}\label{structcan__obj__t_ab911f0419c72182ca8ecd6a02423725b}} 
+\index{can\_obj\_t@{can\_obj\_t}!alerts\_enabled@{alerts\_enabled}}
+\index{alerts\_enabled@{alerts\_enabled}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{alerts\_enabled}{alerts\_enabled}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::alerts\+\_\+enabled}
+
+
+
+Definition at line 130 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a3dc5e8e503bf9f6d9e33303f8e1a6e4c}\label{structcan__obj__t_a3dc5e8e503bf9f6d9e33303f8e1a6e4c}} 
+\index{can\_obj\_t@{can\_obj\_t}!alerts\_triggered@{alerts\_triggered}}
+\index{alerts\_triggered@{alerts\_triggered}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{alerts\_triggered}{alerts\_triggered}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::alerts\+\_\+triggered}
+
+
+
+Definition at line 131 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a19bb475acf64e7782ae4613c24859e3d}\label{structcan__obj__t_a19bb475acf64e7782ae4613c24859e3d}} 
+\index{can\_obj\_t@{can\_obj\_t}!arb\_lost\_count@{arb\_lost\_count}}
+\index{arb\_lost\_count@{arb\_lost\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{arb\_lost\_count}{arb\_lost\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::arb\+\_\+lost\+\_\+count}
+
+
+
+Definition at line 120 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_abcaa51e0c8be74fb53682b389a25a10b}\label{structcan__obj__t_abcaa51e0c8be74fb53682b389a25a10b}} 
+\index{can\_obj\_t@{can\_obj\_t}!bus\_error\_count@{bus\_error\_count}}
+\index{bus\_error\_count@{bus\_error\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{bus\_error\_count}{bus\_error\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::bus\+\_\+error\+\_\+count}
+
+
+
+Definition at line 121 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_ac052192b3bedf67df3c25d92e8468385}\label{structcan__obj__t_ac052192b3bedf67df3c25d92e8468385}} 
+\index{can\_obj\_t@{can\_obj\_t}!control\_flags@{control\_flags}}
+\index{control\_flags@{control\_flags}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{control\_flags}{control\_flags}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::control\+\_\+flags}
+
+
+
+Definition at line 117 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a23cfda33f6c8cc8afd0181afcf934d36}\label{structcan__obj__t_a23cfda33f6c8cc8afd0181afcf934d36}} 
+\index{can\_obj\_t@{can\_obj\_t}!isr\_handle@{isr\_handle}}
+\index{isr\_handle@{isr\_handle}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{isr\_handle}{isr\_handle}}
+{\footnotesize\ttfamily intr\+\_\+handle\+\_\+t can\+\_\+obj\+\_\+t\+::isr\+\_\+handle}
+
+
+
+Definition at line 122 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a8cc1ffc7286d4191c6affc2668f9fca2}\label{structcan__obj__t_a8cc1ffc7286d4191c6affc2668f9fca2}} 
+\index{can\_obj\_t@{can\_obj\_t}!rx\_missed\_count@{rx\_missed\_count}}
+\index{rx\_missed\_count@{rx\_missed\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_missed\_count}{rx\_missed\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::rx\+\_\+missed\+\_\+count}
+
+
+
+Definition at line 118 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_adc7d17fc650472d1b8b915d9877592fd}\label{structcan__obj__t_adc7d17fc650472d1b8b915d9877592fd}} 
+\index{can\_obj\_t@{can\_obj\_t}!rx\_msg\_count@{rx\_msg\_count}}
+\index{rx\_msg\_count@{rx\_msg\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_msg\_count}{rx\_msg\_count}}
+{\footnotesize\ttfamily int can\+\_\+obj\+\_\+t\+::rx\+\_\+msg\+\_\+count}
+
+
+
+Definition at line 127 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_acb9c23a3fe1d11051b42e9015622bdc9}\label{structcan__obj__t_acb9c23a3fe1d11051b42e9015622bdc9}} 
+\index{can\_obj\_t@{can\_obj\_t}!rx\_queue@{rx\_queue}}
+\index{rx\_queue@{rx\_queue}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_queue}{rx\_queue}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t can\+\_\+obj\+\_\+t\+::rx\+\_\+queue}
+
+
+
+Definition at line 125 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_ad5abcc335e914db8262704a69be0c751}\label{structcan__obj__t_ad5abcc335e914db8262704a69be0c751}} 
+\index{can\_obj\_t@{can\_obj\_t}!tx\_failed\_count@{tx\_failed\_count}}
+\index{tx\_failed\_count@{tx\_failed\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_failed\_count}{tx\_failed\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+obj\+\_\+t\+::tx\+\_\+failed\+\_\+count}
+
+
+
+Definition at line 119 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a9de9c95e13752ebb646e22d9f7c645db}\label{structcan__obj__t_a9de9c95e13752ebb646e22d9f7c645db}} 
+\index{can\_obj\_t@{can\_obj\_t}!tx\_msg\_count@{tx\_msg\_count}}
+\index{tx\_msg\_count@{tx\_msg\_count}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_msg\_count}{tx\_msg\_count}}
+{\footnotesize\ttfamily int can\+\_\+obj\+\_\+t\+::tx\+\_\+msg\+\_\+count}
+
+
+
+Definition at line 126 of file can.\+c.
+
+\mbox{\Hypertarget{structcan__obj__t_a0add3ef073fabcfc7cc17e31fd6a81a7}\label{structcan__obj__t_a0add3ef073fabcfc7cc17e31fd6a81a7}} 
+\index{can\_obj\_t@{can\_obj\_t}!tx\_queue@{tx\_queue}}
+\index{tx\_queue@{tx\_queue}!can\_obj\_t@{can\_obj\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_queue}{tx\_queue}}
+{\footnotesize\ttfamily Queue\+Handle\+\_\+t can\+\_\+obj\+\_\+t\+::tx\+\_\+queue}
+
+
+
+Definition at line 124 of file can.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8c}{can.\+c}}\end{DoxyCompactItemize}

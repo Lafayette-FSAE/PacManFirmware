@@ -1,0 +1,429 @@
+\hypertarget{_core0_8cpp}{}\doxysection{Core0.\+cpp File Reference}
+\label{_core0_8cpp}\index{Core0.cpp@{Core0.cpp}}
+{\ttfamily \#include \char`\"{}References/\+Gx\+G\+D\+E\+H029\+A1/\+Gx\+G\+D\+E\+H029\+A1.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Gx\+I\+O/\+Gx\+I\+O\+\_\+\+S\+P\+I/\+Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Gx\+I\+O/\+Gx\+I\+O.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Bitmap\+Graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Fonts/\+Free\+Sans\+Bold24pt7b.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Fonts/\+Free\+Sans\+Bold12pt7b.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Fonts/\+Free\+Sans\+Bold9pt7b.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Adafruit\+\_\+\+G\+F\+X.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/glcdfont.\+c\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Gx\+E\+P\+D.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}References/\+Gx\+Font\+\_\+\+G\+F\+X.\+cpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Core0.\+h\char`\"{}}\newline
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}} \{ \newline
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8ae90de66d8215b01f94324ae4cd562e60}{Main}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a31856a191a0bcb2100e8740899de610b}{Cell\+\_\+\+State}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a33a3bacffbec8f3d7350f627f12ad8ee}{Config\+\_\+\+State}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8adb4e3955756b340749c4adefc90d690f}{Choose\+\_\+\+Register}}, 
+\newline
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a83482a64ac8f174027890cbea7b58cab}{Choose\+\_\+\+C\+A\+N\+\_\+\+Register}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8aa32eaddc39b06e9eb57474cbb867917e}{Choose\+\_\+\+Cell\+\_\+\+Register}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8afb7200f684474d1de760827b838296ca}{Cell\+\_\+\+Data}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a091a1fe2ba91f9a5cf3aec7a7c4743ea}{Edit\+\_\+\+Value}}, 
+\newline
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a8c89a679c7f8e0161623bf34643033d8}{View\+\_\+\+Value}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8af3339823fe1e990a7449efdfd5a06e5c}{Edit\+\_\+\+Cell\+\_\+\+Value}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a92a5094c7a3b46becfab0efdaf4c8358}{View\+\_\+\+Cell\+\_\+\+Value}}, 
+\mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a77131d7387b6868b8c89282fce2983bc}{Reg\+\_\+\+Not\+\_\+\+Found}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_gx_i_o___s_p_i_8h_a7f93ca3c71f0fb177e09b0b07ae2d958}{Gx\+I\+O\+\_\+\+Class}} \mbox{\hyperlink{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}{io}} (S\+PI, \mbox{\hyperlink{_pac_man_8h_ad6596f6a86a7aeca397d1403bc8dc4ee}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+CS}}, \mbox{\hyperlink{_pac_man_8h_a58bd8551d247115857b5e04f2abf0b8e}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+DC}}, \mbox{\hyperlink{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST}})
+\item 
+\mbox{\hyperlink{_gx_g_d_e_h029_a1_8h_acafb6cbb9efc6e214c28e15867eba02e}{Gx\+E\+P\+D\+\_\+\+Class}} \mbox{\hyperlink{_core0_8cpp_a3c04a3d53874c433ac19b2d2ab44ad14}{display}} (\mbox{\hyperlink{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}{io}}, \mbox{\hyperlink{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST}}, \mbox{\hyperlink{_pac_man_8h_aa745ebe75abca92e678681da8f3c117d}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+B\+U\+SY}})
+\item 
+void \mbox{\hyperlink{_core0_8cpp_acd624e0905779eade718f27988717679}{update\+Task\+Method}} (void $\ast$pv\+Parameters)
+\item 
+void \mbox{\hyperlink{_core0_8cpp_acb125f019a8ab908a9cdc3cdd34c4f29}{update\+Window\+Task\+Method}} (void $\ast$pv\+Parameters)
+\item 
+void \mbox{\hyperlink{_core0_8cpp_af2f8f15d784b30bf9bd74b375e5fb7f0}{setup\+Core0}} ()
+\item 
+void \mbox{\hyperlink{_core0_8cpp_ad33d85d4b340bb0dca1f934f69308438}{C\+Button}} ()
+\item 
+void \mbox{\hyperlink{_core0_8cpp_a6e448ae442b3e82906091c7afebe77bc}{L\+Button}} ()
+\item 
+void \mbox{\hyperlink{_core0_8cpp_a6647daa5c6a0f9548a49b8c8a3b40ecd}{R\+Button}} ()
+\item 
+void \mbox{\hyperlink{_core0_8cpp_a286cfc3e5c9ed4b0e80892d082cfc44f}{U\+Button}} ()
+\item 
+void \mbox{\hyperlink{_core0_8cpp_aa5a39b5ff36bbba6e31c4e3a4cf24416}{D\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_core0_8cpp_a31ef40b2ca90f868c7d76754d0100c3b}{rotation}} = 45
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_core0_8cpp_ac5106ca344d88b6774d38affd17052be}{regista}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_core0_8cpp_a3aa66ce228b3afeab63b35c6892b05fc}{fault\+Num}} =0
+\item 
+\mbox{\hyperlink{struct_fault}{Fault}} \mbox{\hyperlink{_core0_8cpp_ad6aa5ce60cf71e516d975cbc010da7ba}{faults1}} \mbox{[}$\,$\mbox{]}
+\item 
+float \mbox{\hyperlink{_core0_8cpp_a12143c4f4c25d7fbd0daa6d46501a05d}{voltage1}}
+\item 
+float \mbox{\hyperlink{_core0_8cpp_abf4de9fc2c8d44e04932f88bd971963d}{current1}}
+\item 
+float \mbox{\hyperlink{_core0_8cpp_a5e005e112ca8edcc1d9b59fdfaefb7fd}{temp1}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{_core0_8cpp_a66e28dee2f169c764c0615cb3ac66442}{soc\+\_\+test}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_core0_8cpp_a5f9ddb3b60ecde29b8f52f186cfdcaa7}{triggered}} = 0
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_af5149e042edf27fab28d95c40decdf59}{center\+Press}} = false
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_ac708cd1f5c45bc67f55b7bb364f0a9ac}{left\+Press}} = false
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_af55ee529aae5fd71572d38835982eb85}{right\+Press}} = false
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_ad7b89d9ccf35b0783f63578f87ce009a}{up\+Press}} = false
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_a2715d37c962e4265c459db98b8c2ecf7}{down\+Press}} = false
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_core0_8cpp_aba95d870340ff03ee8883eeebf8ce437}{db\+Delay}} = 1000
+\item 
+boolean \mbox{\hyperlink{_core0_8cpp_a33b8bf12945d55dafead84f29165ce20}{back\+To\+Home}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8}} 
+\index{Core0.cpp@{Core0.cpp}!State@{State}}
+\index{State@{State}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{State}{State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8}{State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Main@{Main}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Main@{Main}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8ae90de66d8215b01f94324ae4cd562e60}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8ae90de66d8215b01f94324ae4cd562e60}} 
+Main&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cell\_State@{Cell\_State}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Cell\_State@{Cell\_State}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a31856a191a0bcb2100e8740899de610b}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a31856a191a0bcb2100e8740899de610b}} 
+Cell\+\_\+\+State&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Config\_State@{Config\_State}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Config\_State@{Config\_State}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a33a3bacffbec8f3d7350f627f12ad8ee}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a33a3bacffbec8f3d7350f627f12ad8ee}} 
+Config\+\_\+\+State&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Choose\_Register@{Choose\_Register}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Choose\_Register@{Choose\_Register}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8adb4e3955756b340749c4adefc90d690f}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8adb4e3955756b340749c4adefc90d690f}} 
+Choose\+\_\+\+Register&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Choose\_CAN\_Register@{Choose\_CAN\_Register}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Choose\_CAN\_Register@{Choose\_CAN\_Register}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a83482a64ac8f174027890cbea7b58cab}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a83482a64ac8f174027890cbea7b58cab}} 
+Choose\+\_\+\+C\+A\+N\+\_\+\+Register&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Choose\_Cell\_Register@{Choose\_Cell\_Register}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Choose\_Cell\_Register@{Choose\_Cell\_Register}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8aa32eaddc39b06e9eb57474cbb867917e}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8aa32eaddc39b06e9eb57474cbb867917e}} 
+Choose\+\_\+\+Cell\+\_\+\+Register&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Cell\_Data@{Cell\_Data}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Cell\_Data@{Cell\_Data}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8afb7200f684474d1de760827b838296ca}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8afb7200f684474d1de760827b838296ca}} 
+Cell\+\_\+\+Data&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Edit\_Value@{Edit\_Value}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Edit\_Value@{Edit\_Value}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a091a1fe2ba91f9a5cf3aec7a7c4743ea}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a091a1fe2ba91f9a5cf3aec7a7c4743ea}} 
+Edit\+\_\+\+Value&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{View\_Value@{View\_Value}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!View\_Value@{View\_Value}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a8c89a679c7f8e0161623bf34643033d8}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a8c89a679c7f8e0161623bf34643033d8}} 
+View\+\_\+\+Value&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Edit\_Cell\_Value@{Edit\_Cell\_Value}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Edit\_Cell\_Value@{Edit\_Cell\_Value}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8af3339823fe1e990a7449efdfd5a06e5c}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8af3339823fe1e990a7449efdfd5a06e5c}} 
+Edit\+\_\+\+Cell\+\_\+\+Value&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{View\_Cell\_Value@{View\_Cell\_Value}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!View\_Cell\_Value@{View\_Cell\_Value}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a92a5094c7a3b46becfab0efdaf4c8358}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a92a5094c7a3b46becfab0efdaf4c8358}} 
+View\+\_\+\+Cell\+\_\+\+Value&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Reg\_Not\_Found@{Reg\_Not\_Found}!Core0.cpp@{Core0.cpp}}\index{Core0.cpp@{Core0.cpp}!Reg\_Not\_Found@{Reg\_Not\_Found}}}\mbox{\Hypertarget{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a77131d7387b6868b8c89282fce2983bc}\label{_core0_8cpp_a5d74787dedbc4e11c1ab15bf487e61f8a77131d7387b6868b8c89282fce2983bc}} 
+Reg\+\_\+\+Not\+\_\+\+Found&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 173 of file Core0.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_core0_8cpp_ad33d85d4b340bb0dca1f934f69308438}\label{_core0_8cpp_ad33d85d4b340bb0dca1f934f69308438}} 
+\index{Core0.cpp@{Core0.cpp}!CButton@{CButton}}
+\index{CButton@{CButton}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{CButton()}{CButton()}}
+{\footnotesize\ttfamily void C\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 124 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_aa5a39b5ff36bbba6e31c4e3a4cf24416}\label{_core0_8cpp_aa5a39b5ff36bbba6e31c4e3a4cf24416}} 
+\index{Core0.cpp@{Core0.cpp}!DButton@{DButton}}
+\index{DButton@{DButton}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{DButton()}{DButton()}}
+{\footnotesize\ttfamily void D\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a3c04a3d53874c433ac19b2d2ab44ad14}\label{_core0_8cpp_a3c04a3d53874c433ac19b2d2ab44ad14}} 
+\index{Core0.cpp@{Core0.cpp}!display@{display}}
+\index{display@{display}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_gx_g_d_e_h029_a1_8h_acafb6cbb9efc6e214c28e15867eba02e}{Gx\+E\+P\+D\+\_\+\+Class}} display (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}{io}}}]{,  }\item[{\mbox{\hyperlink{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST}}}]{,  }\item[{\mbox{\hyperlink{_pac_man_8h_aa745ebe75abca92e678681da8f3c117d}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+B\+U\+SY}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}\label{_core0_8cpp_a6cee6cedfdd846359d1fb2ae293be9fe}} 
+\index{Core0.cpp@{Core0.cpp}!io@{io}}
+\index{io@{io}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{io()}{io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_gx_i_o___s_p_i_8h_a7f93ca3c71f0fb177e09b0b07ae2d958}{Gx\+I\+O\+\_\+\+Class}} io (\begin{DoxyParamCaption}\item[{S\+PI}]{,  }\item[{\mbox{\hyperlink{_pac_man_8h_ad6596f6a86a7aeca397d1403bc8dc4ee}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+CS}}}]{,  }\item[{\mbox{\hyperlink{_pac_man_8h_a58bd8551d247115857b5e04f2abf0b8e}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+DC}}}]{,  }\item[{\mbox{\hyperlink{_pac_man_8h_a64ae1b1c9e08438b1e96198a71eca3e0}{P\+I\+N\+\_\+\+D\+I\+S\+P\+\_\+\+R\+ST}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_core0_8cpp_a6e448ae442b3e82906091c7afebe77bc}\label{_core0_8cpp_a6e448ae442b3e82906091c7afebe77bc}} 
+\index{Core0.cpp@{Core0.cpp}!LButton@{LButton}}
+\index{LButton@{LButton}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{LButton()}{LButton()}}
+{\footnotesize\ttfamily void L\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 133 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a6647daa5c6a0f9548a49b8c8a3b40ecd}\label{_core0_8cpp_a6647daa5c6a0f9548a49b8c8a3b40ecd}} 
+\index{Core0.cpp@{Core0.cpp}!RButton@{RButton}}
+\index{RButton@{RButton}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{RButton()}{RButton()}}
+{\footnotesize\ttfamily void R\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 142 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_af2f8f15d784b30bf9bd74b375e5fb7f0}\label{_core0_8cpp_af2f8f15d784b30bf9bd74b375e5fb7f0}} 
+\index{Core0.cpp@{Core0.cpp}!setupCore0@{setupCore0}}
+\index{setupCore0@{setupCore0}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{setupCore0()}{setupCore0()}}
+{\footnotesize\ttfamily void setup\+Core0 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a286cfc3e5c9ed4b0e80892d082cfc44f}\label{_core0_8cpp_a286cfc3e5c9ed4b0e80892d082cfc44f}} 
+\index{Core0.cpp@{Core0.cpp}!UButton@{UButton}}
+\index{UButton@{UButton}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{UButton()}{UButton()}}
+{\footnotesize\ttfamily void U\+Button (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_acd624e0905779eade718f27988717679}\label{_core0_8cpp_acd624e0905779eade718f27988717679}} 
+\index{Core0.cpp@{Core0.cpp}!updateTaskMethod@{updateTaskMethod}}
+\index{updateTaskMethod@{updateTaskMethod}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{updateTaskMethod()}{updateTaskMethod()}}
+{\footnotesize\ttfamily void update\+Task\+Method (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_acb125f019a8ab908a9cdc3cdd34c4f29}\label{_core0_8cpp_acb125f019a8ab908a9cdc3cdd34c4f29}} 
+\index{Core0.cpp@{Core0.cpp}!updateWindowTaskMethod@{updateWindowTaskMethod}}
+\index{updateWindowTaskMethod@{updateWindowTaskMethod}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{updateWindowTaskMethod()}{updateWindowTaskMethod()}}
+{\footnotesize\ttfamily void update\+Window\+Task\+Method (\begin{DoxyParamCaption}\item[{void $\ast$}]{pv\+Parameters }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file Core0.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_core0_8cpp_a33b8bf12945d55dafead84f29165ce20}\label{_core0_8cpp_a33b8bf12945d55dafead84f29165ce20}} 
+\index{Core0.cpp@{Core0.cpp}!backToHome@{backToHome}}
+\index{backToHome@{backToHome}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{backToHome}{backToHome}}
+{\footnotesize\ttfamily boolean back\+To\+Home = 0}
+
+
+
+Definition at line 188 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_af5149e042edf27fab28d95c40decdf59}\label{_core0_8cpp_af5149e042edf27fab28d95c40decdf59}} 
+\index{Core0.cpp@{Core0.cpp}!centerPress@{centerPress}}
+\index{centerPress@{centerPress}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{centerPress}{centerPress}}
+{\footnotesize\ttfamily boolean center\+Press = false}
+
+
+
+Definition at line 117 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_abf4de9fc2c8d44e04932f88bd971963d}\label{_core0_8cpp_abf4de9fc2c8d44e04932f88bd971963d}} 
+\index{Core0.cpp@{Core0.cpp}!current1@{current1}}
+\index{current1@{current1}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{current1}{current1}}
+{\footnotesize\ttfamily float current1}
+
+
+
+Definition at line 103 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_aba95d870340ff03ee8883eeebf8ce437}\label{_core0_8cpp_aba95d870340ff03ee8883eeebf8ce437}} 
+\index{Core0.cpp@{Core0.cpp}!dbDelay@{dbDelay}}
+\index{dbDelay@{dbDelay}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{dbDelay}{dbDelay}}
+{\footnotesize\ttfamily uint8\+\_\+t db\+Delay = 1000}
+
+
+
+Definition at line 122 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a2715d37c962e4265c459db98b8c2ecf7}\label{_core0_8cpp_a2715d37c962e4265c459db98b8c2ecf7}} 
+\index{Core0.cpp@{Core0.cpp}!downPress@{downPress}}
+\index{downPress@{downPress}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{downPress}{downPress}}
+{\footnotesize\ttfamily boolean down\+Press = false}
+
+
+
+Definition at line 121 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a3aa66ce228b3afeab63b35c6892b05fc}\label{_core0_8cpp_a3aa66ce228b3afeab63b35c6892b05fc}} 
+\index{Core0.cpp@{Core0.cpp}!faultNum@{faultNum}}
+\index{faultNum@{faultNum}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{faultNum}{faultNum}}
+{\footnotesize\ttfamily uint8\+\_\+t fault\+Num =0}
+
+
+
+Definition at line 61 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_ad6aa5ce60cf71e516d975cbc010da7ba}\label{_core0_8cpp_ad6aa5ce60cf71e516d975cbc010da7ba}} 
+\index{Core0.cpp@{Core0.cpp}!faults1@{faults1}}
+\index{faults1@{faults1}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{faults1}{faults1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_fault}{Fault}} faults1\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"SL Open"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"Airs Open"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"High Volt"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"Low Volt"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"High Temp"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"Low Temp"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"High Curr"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"Low Curr"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\},}
+\DoxyCodeLine{  \{\textcolor{stringliteral}{"Low SOC"}, \textcolor{keyword}{true}, \textcolor{keyword}{false}\}}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+
+
+Definition at line 62 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_ac708cd1f5c45bc67f55b7bb364f0a9ac}\label{_core0_8cpp_ac708cd1f5c45bc67f55b7bb364f0a9ac}} 
+\index{Core0.cpp@{Core0.cpp}!leftPress@{leftPress}}
+\index{leftPress@{leftPress}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{leftPress}{leftPress}}
+{\footnotesize\ttfamily boolean left\+Press = false}
+
+
+
+Definition at line 118 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_ac5106ca344d88b6774d38affd17052be}\label{_core0_8cpp_ac5106ca344d88b6774d38affd17052be}} 
+\index{Core0.cpp@{Core0.cpp}!regista@{regista}}
+\index{regista@{regista}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{regista}{regista}}
+{\footnotesize\ttfamily uint8\+\_\+t regista\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+
+
+Definition at line 60 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_af55ee529aae5fd71572d38835982eb85}\label{_core0_8cpp_af55ee529aae5fd71572d38835982eb85}} 
+\index{Core0.cpp@{Core0.cpp}!rightPress@{rightPress}}
+\index{rightPress@{rightPress}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{rightPress}{rightPress}}
+{\footnotesize\ttfamily boolean right\+Press = false}
+
+
+
+Definition at line 119 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a31ef40b2ca90f868c7d76754d0100c3b}\label{_core0_8cpp_a31ef40b2ca90f868c7d76754d0100c3b}} 
+\index{Core0.cpp@{Core0.cpp}!rotation@{rotation}}
+\index{rotation@{rotation}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily uint8\+\_\+t rotation = 45}
+
+
+
+Definition at line 59 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a66e28dee2f169c764c0615cb3ac66442}\label{_core0_8cpp_a66e28dee2f169c764c0615cb3ac66442}} 
+\index{Core0.cpp@{Core0.cpp}!soc\_test@{soc\_test}}
+\index{soc\_test@{soc\_test}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{soc\_test}{soc\_test}}
+{\footnotesize\ttfamily uint16\+\_\+t soc\+\_\+test}
+
+
+
+Definition at line 103 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a5e005e112ca8edcc1d9b59fdfaefb7fd}\label{_core0_8cpp_a5e005e112ca8edcc1d9b59fdfaefb7fd}} 
+\index{Core0.cpp@{Core0.cpp}!temp1@{temp1}}
+\index{temp1@{temp1}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{temp1}{temp1}}
+{\footnotesize\ttfamily float temp1}
+
+
+
+Definition at line 103 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a5f9ddb3b60ecde29b8f52f186cfdcaa7}\label{_core0_8cpp_a5f9ddb3b60ecde29b8f52f186cfdcaa7}} 
+\index{Core0.cpp@{Core0.cpp}!triggered@{triggered}}
+\index{triggered@{triggered}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{triggered}{triggered}}
+{\footnotesize\ttfamily uint8\+\_\+t triggered = 0}
+
+
+
+Definition at line 104 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_ad7b89d9ccf35b0783f63578f87ce009a}\label{_core0_8cpp_ad7b89d9ccf35b0783f63578f87ce009a}} 
+\index{Core0.cpp@{Core0.cpp}!upPress@{upPress}}
+\index{upPress@{upPress}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{upPress}{upPress}}
+{\footnotesize\ttfamily boolean up\+Press = false}
+
+
+
+Definition at line 120 of file Core0.\+cpp.
+
+\mbox{\Hypertarget{_core0_8cpp_a12143c4f4c25d7fbd0daa6d46501a05d}\label{_core0_8cpp_a12143c4f4c25d7fbd0daa6d46501a05d}} 
+\index{Core0.cpp@{Core0.cpp}!voltage1@{voltage1}}
+\index{voltage1@{voltage1}!Core0.cpp@{Core0.cpp}}
+\doxysubsubsection{\texorpdfstring{voltage1}{voltage1}}
+{\footnotesize\ttfamily float voltage1}
+
+
+
+Definition at line 103 of file Core0.\+cpp.
+

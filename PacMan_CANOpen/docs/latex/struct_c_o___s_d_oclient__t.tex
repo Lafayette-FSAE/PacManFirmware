@@ -1,0 +1,384 @@
+\hypertarget{struct_c_o___s_d_oclient__t}{}\doxysection{C\+O\+\_\+\+S\+D\+Oclient\+\_\+t Struct Reference}
+\label{struct_c_o___s_d_oclient__t}\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+S\+D\+Omaster.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a6ad0bbe5f20f7c08c995282d9be44080}{S\+D\+O\+Client\+Par}}
+\item 
+\mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_aefcbf6e346acdf28f1ea35a6e5c0b68b}{S\+DO}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a54a54b4ac1ca514ab0830489e6340d3a}{state}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_aa6f96531cca720fc2031afdc3e7a0aea}{buffer}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_aa6e5906a6e9440481cb1b31e3129925a}{buffer\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a817425b6e95506f8b645fb1f1799abcd}{buffer\+Offset}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_aedf76def7688eaafc59a9376dd5349b8}{buffer\+Offset\+A\+CK}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a113ee4926018b747c07464b5208678cc}{data\+Size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a9629593e19a318469e71269ce0246ae6}{data\+Size\+Transfered}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a0e7963da4ab9a50f88261b0c8d31ff63}{timeout\+Timer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ac35f1d7dc2fea1a98401e2a7f862c363}{timeout\+Timer\+B\+L\+O\+CK}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ad4fc4deee415a621f3558266ba447455}{index}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a7f36981af65dc318dd69213c408b1b62}{sub\+Index}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ae6ebd1b6d22fa5b3ca9114dff820aabc}{C\+A\+Ndev\+Rx}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_afb8613dbcacfcefb970fabca4106eaeb}{C\+A\+Ndev\+Rx\+Idx}}
+\item 
+volatile void $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ab53ab8ba74aa597ca26e0e30b02db811}{C\+A\+Nrx\+New}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a32de771c6c67f7d8f66aa193510ec8e2}{C\+A\+Nrx\+Data}} \mbox{[}8\mbox{]}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a82c1d05c788d9e25b80d0d3062a3e23f}{p\+Funct\+Signal}} )(void)
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a52d1acd22afe5c8fbc04fb9ed0adde71}{C\+A\+Ndev\+Tx}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a5c47f8aaf592b6f31918de9cf3828a9e}{C\+A\+Ntx\+Buff}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a2a44e72381604a972f0e289495a41c37}{C\+A\+Ndev\+Tx\+Idx}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a5962727f5c1830337146c7b2b389b391}{toggle}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_abfbc2616b1888f2e7afc5f4c52be0efb}{pst}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ac24992a7ca50ef47c1bd2ac66e7ec682}{block\+\_\+size\+\_\+max}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a628780da4dccceab6ce79ad880989b26}{block\+\_\+seqno}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a36b10791595b638309a01418d13a745f}{block\+\_\+blksize}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a26f9fcf95f47a4f7eeaefdf684e317a1}{block\+\_\+no\+Data}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a93ae6addd52031fc6c350dec0a50343c}{crc\+Enabled}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_a8af4865e5007dc2a0ee9fdb6e2f14105}{C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server\+Prev}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_d_oclient__t_ad725cfb0560a725de73f50ec0fc22f3d}{C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client\+Prev}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\+DO client object 
+
+Definition at line 95 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a36b10791595b638309a01418d13a745f}\label{struct_c_o___s_d_oclient__t_a36b10791595b638309a01418d13a745f}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!block\_blksize@{block\_blksize}}
+\index{block\_blksize@{block\_blksize}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{block\_blksize}{block\_blksize}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::block\+\_\+blksize}
+
+Block size in current transfer 
+
+Definition at line 151 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a26f9fcf95f47a4f7eeaefdf684e317a1}\label{struct_c_o___s_d_oclient__t_a26f9fcf95f47a4f7eeaefdf684e317a1}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!block\_noData@{block\_noData}}
+\index{block\_noData@{block\_noData}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{block\_noData}{block\_noData}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::block\+\_\+no\+Data}
+
+Number of bytes in last segment that do not contain data 
+
+Definition at line 153 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a628780da4dccceab6ce79ad880989b26}\label{struct_c_o___s_d_oclient__t_a628780da4dccceab6ce79ad880989b26}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!block\_seqno@{block\_seqno}}
+\index{block\_seqno@{block\_seqno}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{block\_seqno}{block\_seqno}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::block\+\_\+seqno}
+
+Last sector number 
+
+Definition at line 149 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ac24992a7ca50ef47c1bd2ac66e7ec682}\label{struct_c_o___s_d_oclient__t_ac24992a7ca50ef47c1bd2ac66e7ec682}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!block\_size\_max@{block\_size\_max}}
+\index{block\_size\_max@{block\_size\_max}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{block\_size\_max}{block\_size\_max}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::block\+\_\+size\+\_\+max}
+
+Maximum number of segments in one block. Set in \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}}. Can be changed by application to 2 .. 127. 
+
+Definition at line 147 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_aa6f96531cca720fc2031afdc3e7a0aea}\label{struct_c_o___s_d_oclient__t_aa6f96531cca720fc2031afdc3e7a0aea}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!buffer@{buffer}}
+\index{buffer@{buffer}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::buffer}
+
+Pointer to data buffer supplied by user 
+
+Definition at line 103 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a817425b6e95506f8b645fb1f1799abcd}\label{struct_c_o___s_d_oclient__t_a817425b6e95506f8b645fb1f1799abcd}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!bufferOffset@{bufferOffset}}
+\index{bufferOffset@{bufferOffset}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{bufferOffset}{bufferOffset}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::buffer\+Offset}
+
+Offset in buffer of next data segment being read/written 
+
+Definition at line 108 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_aedf76def7688eaafc59a9376dd5349b8}\label{struct_c_o___s_d_oclient__t_aedf76def7688eaafc59a9376dd5349b8}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!bufferOffsetACK@{bufferOffsetACK}}
+\index{bufferOffsetACK@{bufferOffsetACK}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{bufferOffsetACK}{bufferOffsetACK}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::buffer\+Offset\+A\+CK}
+
+Acknowledgement 
+
+Definition at line 110 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_aa6e5906a6e9440481cb1b31e3129925a}\label{struct_c_o___s_d_oclient__t_aa6e5906a6e9440481cb1b31e3129925a}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!bufferSize@{bufferSize}}
+\index{bufferSize@{bufferSize}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{bufferSize}{bufferSize}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::buffer\+Size}
+
+By download application indicates data size in buffer. By upload application indicates buffer size 
+
+Definition at line 106 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ae6ebd1b6d22fa5b3ca9114dff820aabc}\label{struct_c_o___s_d_oclient__t_ae6ebd1b6d22fa5b3ca9114dff820aabc}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANdevRx@{CANdevRx}}
+\index{CANdevRx@{CANdevRx}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRx}{CANdevRx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Ndev\+Rx}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 124 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_afb8613dbcacfcefb970fabca4106eaeb}\label{struct_c_o___s_d_oclient__t_afb8613dbcacfcefb970fabca4106eaeb}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANdevRxIdx@{CANdevRxIdx}}
+\index{CANdevRxIdx@{CANdevRxIdx}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRxIdx}{CANdevRxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Ndev\+Rx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 126 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a52d1acd22afe5c8fbc04fb9ed0adde71}\label{struct_c_o___s_d_oclient__t_a52d1acd22afe5c8fbc04fb9ed0adde71}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANdevTx@{CANdevTx}}
+\index{CANdevTx@{CANdevTx}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTx}{CANdevTx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Ndev\+Tx}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 135 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a2a44e72381604a972f0e289495a41c37}\label{struct_c_o___s_d_oclient__t_a2a44e72381604a972f0e289495a41c37}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANdevTxIdx@{CANdevTxIdx}}
+\index{CANdevTxIdx@{CANdevTxIdx}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTxIdx}{CANdevTxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Ndev\+Tx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 139 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a32de771c6c67f7d8f66aa193510ec8e2}\label{struct_c_o___s_d_oclient__t_a32de771c6c67f7d8f66aa193510ec8e2}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANrxData@{CANrxData}}
+\index{CANrxData@{CANrxData}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxData}{CANrxData}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Nrx\+Data}
+
+8 data bytes of the received message 
+
+Definition at line 131 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ab53ab8ba74aa597ca26e0e30b02db811}\label{struct_c_o___s_d_oclient__t_ab53ab8ba74aa597ca26e0e30b02db811}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANrxNew@{CANrxNew}}
+\index{CANrxNew@{CANrxNew}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxNew}{CANrxNew}}
+{\footnotesize\ttfamily volatile void $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Nrx\+New}
+
+Indicates, if new S\+DO message received from C\+AN bus. It is not cleared, until received message is completely processed. 
+
+Definition at line 129 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a5c47f8aaf592b6f31918de9cf3828a9e}\label{struct_c_o___s_d_oclient__t_a5c47f8aaf592b6f31918de9cf3828a9e}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!CANtxBuff@{CANtxBuff}}
+\index{CANtxBuff@{CANtxBuff}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{CANtxBuff}{CANtxBuff}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+A\+Ntx\+Buff}
+
+C\+AN transmit buffer inside C\+A\+Ndev\+Tx for C\+AN tx message 
+
+Definition at line 137 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a8af4865e5007dc2a0ee9fdb6e2f14105}\label{struct_c_o___s_d_oclient__t_a8af4865e5007dc2a0ee9fdb6e2f14105}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!COB\_IDClientToServerPrev@{COB\_IDClientToServerPrev}}
+\index{COB\_IDClientToServerPrev@{COB\_IDClientToServerPrev}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDClientToServerPrev}{COB\_IDClientToServerPrev}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server\+Prev}
+
+Previous value of the C\+O\+B\+\_\+\+I\+D\+Client\+To\+Server 
+
+Definition at line 157 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ad725cfb0560a725de73f50ec0fc22f3d}\label{struct_c_o___s_d_oclient__t_ad725cfb0560a725de73f50ec0fc22f3d}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!COB\_IDServerToClientPrev@{COB\_IDServerToClientPrev}}
+\index{COB\_IDServerToClientPrev@{COB\_IDServerToClientPrev}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDServerToClientPrev}{COB\_IDServerToClientPrev}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client\+Prev}
+
+Previous value of the C\+O\+B\+\_\+\+I\+D\+Server\+To\+Client 
+
+Definition at line 159 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a93ae6addd52031fc6c350dec0a50343c}\label{struct_c_o___s_d_oclient__t_a93ae6addd52031fc6c350dec0a50343c}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!crcEnabled@{crcEnabled}}
+\index{crcEnabled@{crcEnabled}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{crcEnabled}{crcEnabled}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::crc\+Enabled}
+
+Server C\+RC support in block transfer 
+
+Definition at line 155 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a113ee4926018b747c07464b5208678cc}\label{struct_c_o___s_d_oclient__t_a113ee4926018b747c07464b5208678cc}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!dataSize@{dataSize}}
+\index{dataSize@{dataSize}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{dataSize}{dataSize}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::data\+Size}
+
+data length to be uploaded in block transfer 
+
+Definition at line 112 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a9629593e19a318469e71269ce0246ae6}\label{struct_c_o___s_d_oclient__t_a9629593e19a318469e71269ce0246ae6}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!dataSizeTransfered@{dataSizeTransfered}}
+\index{dataSizeTransfered@{dataSizeTransfered}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{dataSizeTransfered}{dataSizeTransfered}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::data\+Size\+Transfered}
+
+Data length transferred in block transfer 
+
+Definition at line 114 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ad4fc4deee415a621f3558266ba447455}\label{struct_c_o___s_d_oclient__t_ad4fc4deee415a621f3558266ba447455}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!index@{index}}
+\index{index@{index}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::index}
+
+Index of current object in Object Dictionary 
+
+Definition at line 120 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a82c1d05c788d9e25b80d0d3062a3e23f}\label{struct_c_o___s_d_oclient__t_a82c1d05c788d9e25b80d0d3062a3e23f}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!pFunctSignal@{pFunctSignal}}
+\index{pFunctSignal@{pFunctSignal}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignal}{pFunctSignal}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::p\+Funct\+Signal)(void)}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga9cd169d7b20c36457efef68e5260bb62}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init\+Callback()}} or N\+U\+LL 
+
+Definition at line 133 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_abfbc2616b1888f2e7afc5f4c52be0efb}\label{struct_c_o___s_d_oclient__t_abfbc2616b1888f2e7afc5f4c52be0efb}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!pst@{pst}}
+\index{pst@{pst}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{pst}{pst}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::pst}
+
+Server threshold for switch back to segmented transfer, if data size is small. Set in \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}}. Can be changed by application. 0 Disables switching. 
+
+Definition at line 144 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_aefcbf6e346acdf28f1ea35a6e5c0b68b}\label{struct_c_o___s_d_oclient__t_aefcbf6e346acdf28f1ea35a6e5c0b68b}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!SDO@{SDO}}
+\index{SDO@{SDO}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{SDO}{SDO}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+S\+DO}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 99 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a6ad0bbe5f20f7c08c995282d9be44080}\label{struct_c_o___s_d_oclient__t_a6ad0bbe5f20f7c08c995282d9be44080}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!SDOClientPar@{SDOClientPar}}
+\index{SDOClientPar@{SDOClientPar}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{SDOClientPar}{SDOClientPar}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___s_d_oclient_par__t}{C\+O\+\_\+\+S\+D\+Oclient\+Par\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::\+S\+D\+O\+Client\+Par}
+
+From \mbox{\hyperlink{group___c_o___s_d_omaster_ga49d9cee696a2e9d0657f64f6e86bdc9f}{C\+O\+\_\+\+S\+D\+Oclient\+\_\+init()}} 
+
+Definition at line 97 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a54a54b4ac1ca514ab0830489e6340d3a}\label{struct_c_o___s_d_oclient__t_a54a54b4ac1ca514ab0830489e6340d3a}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!state@{state}}
+\index{state@{state}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::state}
+
+Internal state of the S\+DO client 
+
+Definition at line 101 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a7f36981af65dc318dd69213c408b1b62}\label{struct_c_o___s_d_oclient__t_a7f36981af65dc318dd69213c408b1b62}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!subIndex@{subIndex}}
+\index{subIndex@{subIndex}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{subIndex}{subIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::sub\+Index}
+
+Subindex of current object in Object Dictionary 
+
+Definition at line 122 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a0e7963da4ab9a50f88261b0c8d31ff63}\label{struct_c_o___s_d_oclient__t_a0e7963da4ab9a50f88261b0c8d31ff63}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!timeoutTimer@{timeoutTimer}}
+\index{timeoutTimer@{timeoutTimer}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{timeoutTimer}{timeoutTimer}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::timeout\+Timer}
+
+Timeout timer for S\+DO communication 
+
+Definition at line 116 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_ac35f1d7dc2fea1a98401e2a7f862c363}\label{struct_c_o___s_d_oclient__t_ac35f1d7dc2fea1a98401e2a7f862c363}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!timeoutTimerBLOCK@{timeoutTimerBLOCK}}
+\index{timeoutTimerBLOCK@{timeoutTimerBLOCK}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{timeoutTimerBLOCK}{timeoutTimerBLOCK}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::timeout\+Timer\+B\+L\+O\+CK}
+
+Timeout timer for S\+DO block transfer 
+
+Definition at line 118 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_d_oclient__t_a5962727f5c1830337146c7b2b389b391}\label{struct_c_o___s_d_oclient__t_a5962727f5c1830337146c7b2b389b391}} 
+\index{CO\_SDOclient\_t@{CO\_SDOclient\_t}!toggle@{toggle}}
+\index{toggle@{toggle}!CO\_SDOclient\_t@{CO\_SDOclient\_t}}
+\doxysubsubsection{\texorpdfstring{toggle}{toggle}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+D\+Oclient\+\_\+t\+::toggle}
+
+Toggle bit toggled with each subsequent in segmented transfer 
+
+Definition at line 141 of file C\+O\+\_\+\+S\+D\+Omaster.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___s_d_omaster_8h}{C\+O\+\_\+\+S\+D\+Omaster.\+h}}\end{DoxyCompactItemize}

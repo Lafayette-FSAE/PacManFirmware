@@ -1,0 +1,112 @@
+\hypertarget{_adafruit___s_p_i_t_f_t_8h}{}\doxysection{References/\+Adafruit\+\_\+\+S\+P\+I\+T\+FT.h File Reference}
+\label{_adafruit___s_p_i_t_f_t_8h}\index{References/Adafruit\_SPITFT.h@{References/Adafruit\_SPITFT.h}}
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Adafruit\+\_\+\+G\+F\+X.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} is an intermediary class between \mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} and various hardware-\/specific subclasses for different displays. It handles certain operations that are common to a range of displays (address window, area fills, etc.). Originally these were all color T\+FT displays interfaced via S\+PI, but it\textquotesingle{}s since expanded to include color O\+L\+E\+Ds and parallel-\/interfaced T\+F\+Ts. T\+HE N\+A\+ME H\+AS B\+E\+EN K\+E\+PT TO A\+V\+O\+ID B\+R\+E\+A\+K\+I\+NG A L\+OT OF S\+U\+B\+C\+L\+A\+S\+S\+ES A\+ND E\+X\+A\+M\+P\+LE C\+O\+DE. Many of the class member functions similarly live on with names that don\textquotesingle{}t necessarily accurately describe what they\textquotesingle{}re doing, again to avoid breaking a lot of other code. If in doubt, read the comments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a7434818958eb0d2993bbd2021eea141d}{D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+P\+I\+\_\+\+F\+R\+EQ}}~16000000L
+\begin{DoxyCompactList}\small\item\em Hardware S\+PI default speed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint32\+\_\+t \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}{A\+D\+A\+G\+F\+X\+\_\+\+P\+O\+R\+T\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em P\+O\+RT values are 32-\/bit. \end{DoxyCompactList}\item 
+typedef volatile \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}{A\+D\+A\+G\+F\+X\+\_\+\+P\+O\+R\+T\+\_\+t}} $\ast$ \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_ab0549dc77971c6bdff3f3b55b3f374d4}{P\+O\+R\+Treg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em P\+O\+RT register type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}{tft\+Bus\+Width}} \{ \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8a16ca18ac7deba4c2093cf7cd7c2209b4}{tft8bitbus}}, 
+\mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8aa297f8a593b6ec8adbc448f8412197c9}{tft16bitbus}}
+ \}
+\begin{DoxyCompactList}\small\item\em $<$ D\+MA currently for S\+A\+MD chips only \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Part of Adafruit\textquotesingle{}s G\+FX graphics library. Originally this class was written to handle a range of color T\+FT displays connected via S\+PI, but over time this library and some display-\/specific subclasses have mutated to include some color O\+L\+E\+Ds as well as parallel-\/interfaced displays. The name\textquotesingle{}s been kept for the sake of older code.
+
+Adafruit invests time and resources providing this open source code, please support Adafruit and open-\/source hardware by purchasing products from Adafruit!
+
+Written by Limor \char`\"{}ladyada\char`\"{} Fried for Adafruit Industries, with contributions from the open source community.
+
+B\+SD license, all text here must be included in any redistribution. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_a7434818958eb0d2993bbd2021eea141d}\label{_adafruit___s_p_i_t_f_t_8h_a7434818958eb0d2993bbd2021eea141d}} 
+\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!DEFAULT\_SPI\_FREQ@{DEFAULT\_SPI\_FREQ}}
+\index{DEFAULT\_SPI\_FREQ@{DEFAULT\_SPI\_FREQ}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_SPI\_FREQ}{DEFAULT\_SPI\_FREQ}}
+{\footnotesize\ttfamily \#define D\+E\+F\+A\+U\+L\+T\+\_\+\+S\+P\+I\+\_\+\+F\+R\+EQ~16000000L}
+
+
+
+Hardware S\+PI default speed. 
+
+
+
+Definition at line 72 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}\label{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}} 
+\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!ADAGFX\_PORT\_t@{ADAGFX\_PORT\_t}}
+\index{ADAGFX\_PORT\_t@{ADAGFX\_PORT\_t}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}
+\doxysubsubsection{\texorpdfstring{ADAGFX\_PORT\_t}{ADAGFX\_PORT\_t}}
+{\footnotesize\ttfamily typedef uint32\+\_\+t \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}{A\+D\+A\+G\+F\+X\+\_\+\+P\+O\+R\+T\+\_\+t}}}
+
+
+
+P\+O\+RT values are 32-\/bit. 
+
+
+
+Definition at line 64 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_ab0549dc77971c6bdff3f3b55b3f374d4}\label{_adafruit___s_p_i_t_f_t_8h_ab0549dc77971c6bdff3f3b55b3f374d4}} 
+\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!PORTreg\_t@{PORTreg\_t}}
+\index{PORTreg\_t@{PORTreg\_t}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}
+\doxysubsubsection{\texorpdfstring{PORTreg\_t}{PORTreg\_t}}
+{\footnotesize\ttfamily typedef volatile \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a155b656c374ad13b812e6647122abf6e}{A\+D\+A\+G\+F\+X\+\_\+\+P\+O\+R\+T\+\_\+t}}$\ast$ \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_ab0549dc77971c6bdff3f3b55b3f374d4}{P\+O\+R\+Treg\+\_\+t}}}
+
+
+
+P\+O\+RT register type. 
+
+
+
+Definition at line 66 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}\label{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}} 
+\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!tftBusWidth@{tftBusWidth}}
+\index{tftBusWidth@{tftBusWidth}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}
+\doxysubsubsection{\texorpdfstring{tftBusWidth}{tftBusWidth}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}{tft\+Bus\+Width}}}
+
+
+
+$<$ D\+MA currently for S\+A\+MD chips only 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tft8bitbus@{tft8bitbus}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!tft8bitbus@{tft8bitbus}}}\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8a16ca18ac7deba4c2093cf7cd7c2209b4}\label{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8a16ca18ac7deba4c2093cf7cd7c2209b4}} 
+tft8bitbus&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{tft16bitbus@{tft16bitbus}!Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}}\index{Adafruit\_SPITFT.h@{Adafruit\_SPITFT.h}!tft16bitbus@{tft16bitbus}}}\mbox{\Hypertarget{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8aa297f8a593b6ec8adbc448f8412197c9}\label{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8aa297f8a593b6ec8adbc448f8412197c9}} 
+tft16bitbus&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 101 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+

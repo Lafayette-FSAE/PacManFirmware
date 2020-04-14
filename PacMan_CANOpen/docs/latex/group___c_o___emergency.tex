@@ -1,0 +1,418 @@
+\hypertarget{group___c_o___emergency}{}\doxysection{Emergency}
+\label{group___c_o___emergency}\index{Emergency@{Emergency}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}}
+\begin{DoxyCompactList}\small\item\em Standard error codes according to CiA D\+S-\/301 and D\+S-\/401. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}
+\begin{DoxyCompactList}\small\item\em Internal indication of the error condition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___emergency_8h}{C\+O\+\_\+\+Emergency.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___emergency_8h}{C\+O\+\_\+\+Emergency.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}{C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~10
+\item 
+\#define \mbox{\hyperlink{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}{C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE}} = 0x04U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}} = 0x08U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR}} = 0x10U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE}} = 0x20U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED}} = 0x40U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER}} = 0x80U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE}} = 0x04U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}} = 0x08U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR}} = 0x10U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE}} = 0x20U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED}} = 0x40U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER}} = 0x80U
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE}} = 0x04U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}} = 0x08U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR}} = 0x10U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE}} = 0x20U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED}} = 0x40U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER}} = 0x80U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR}} = 0x01U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT}} = 0x02U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE}} = 0x04U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE}} = 0x08U, 
+\newline
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR}} = 0x10U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE}} = 0x20U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED}} = 0x40U, 
+\mbox{\hyperlink{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}{C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER}} = 0x80U
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit, const uint16\+\_\+t error\+Code, const uint32\+\_\+t info\+Code)
+\item 
+void \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code)
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}{C\+O\+\_\+is\+Error}} (\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$em, const uint8\+\_\+t error\+Bit)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen Emergency protocol.
+
+Error control and Emergency is used for control internal error state and for sending a C\+A\+Nopen Emergency message.
+
+In case of error condition stack or application calls \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function with indication of the error. Specific error condition is reported (with C\+A\+Nopen Emergency message) only the first time after it occurs. Internal state of the error condition is controlled with \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. Specific error condition can also be reset by \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} function. If so, Emergency message is sent with C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR indication.
+
+Some error conditions are informative and some are critical. Critical error conditions sets the \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}.
+
+Latest errors can be read from {\itshape Pre Defined Error Field} (object dictionary, index 0x1003). \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}} can also be read form C\+A\+Nopen object dictionary.\hypertarget{group___c_o___emergency_autotoc_md7}{}\doxyparagraph{Emergency message contents\+:}\label{group___c_o___emergency_autotoc_md7}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0..1 &\mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}}.  \\\cline{1-2}
+2 &\mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}.  \\\cline{1-2}
+3 &Index of error condition (see \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}).  \\\cline{1-2}
+4..7 &Additional argument informative to \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{group___c_o___emergency_autotoc_md8}{}\doxysubparagraph{Contents of $<$em$>$\+Pre Defined Error Field$<$/em$>$ (object dictionary, index 0x1003)\+:}\label{group___c_o___emergency_autotoc_md8}
+bytes 0..3 are equal to bytes 0..3 in the Emergency message.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+\end{DoxySeeAlso}
+C\+A\+Nopen Emergency protocol.
+
+Error control and Emergency is used for control internal error state and for sending a C\+A\+Nopen Emergency message.
+
+In case of error condition stack or application calls \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function with indication of the error. Specific error condition is reported (with C\+A\+Nopen Emergency message) only the first time after it occurs. Internal state of the error condition is controlled with \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. Specific error condition can also be reset by \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} function. If so, Emergency message is sent with C\+O\+\_\+\+E\+M\+\_\+\+N\+O\+\_\+\+E\+R\+R\+OR indication.
+
+Some error conditions are informative and some are critical. Critical error conditions sets the \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}.
+
+Latest errors can be read from {\itshape Pre Defined Error Field} (object dictionary, index 0x1003). \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}} can also be read form C\+A\+Nopen object dictionary.\hypertarget{group___c_o___emergency_autotoc_md52}{}\doxyparagraph{Emergency message contents\+:}\label{group___c_o___emergency_autotoc_md52}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0..1 &\mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}}.  \\\cline{1-2}
+2 &\mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}.  \\\cline{1-2}
+3 &Index of error condition (see \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}).  \\\cline{1-2}
+4..7 &Additional argument informative to \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} function.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{group___c_o___emergency_autotoc_md53}{}\doxysubparagraph{Contents of $<$em$>$\+Pre Defined Error Field$<$/em$>$ (object dictionary, index 0x1003)\+:}\label{group___c_o___emergency_autotoc_md53}
+bytes 0..3 are equal to bytes 0..3 in the Emergency message.
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}\label{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}} 
+\index{Emergency@{Emergency}!CO\_EM\_INTERNAL\_BUFFER\_SIZE@{CO\_EM\_INTERNAL\_BUFFER\_SIZE}}
+\index{CO\_EM\_INTERNAL\_BUFFER\_SIZE@{CO\_EM\_INTERNAL\_BUFFER\_SIZE}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_INTERNAL\_BUFFER\_SIZE}{CO\_EM\_INTERNAL\_BUFFER\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~10}
+
+Size of internal buffer, whwre emergencies are stored after \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}. Buffer is cleared by \mbox{\hyperlink{_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}{C\+O\+\_\+\+E\+M\+\_\+process()}}. 
+
+Definition at line 247 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}\label{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}} 
+\index{Emergency@{Emergency}!CO\_EM\_INTERNAL\_BUFFER\_SIZE@{CO\_EM\_INTERNAL\_BUFFER\_SIZE}}
+\index{CO\_EM\_INTERNAL\_BUFFER\_SIZE@{CO\_EM\_INTERNAL\_BUFFER\_SIZE}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_EM\_INTERNAL\_BUFFER\_SIZE}{CO\_EM\_INTERNAL\_BUFFER\_SIZE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~10}
+
+Size of internal buffer, whwre emergencies are stored after \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}. Buffer is cleared by \mbox{\hyperlink{_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}{C\+O\+\_\+\+E\+M\+\_\+process()}}. 
+
+Definition at line 247 of file C\+O\+\_\+\+Emergency.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}\label{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}} 
+\index{Emergency@{Emergency}!CO\_errorRegisterBitmask\_t@{CO\_errorRegisterBitmask\_t}}
+\index{CO\_errorRegisterBitmask\_t@{CO\_errorRegisterBitmask\_t}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_errorRegisterBitmask\_t}{CO\_errorRegisterBitmask\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}}
+
+C\+A\+Nopen Error register.
+
+In object dictionary on index 0x1001.
+
+Error register is calculated from critical internal \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. Generic and communication bits are calculated in C\+O\+\_\+\+E\+M\+\_\+process function, device profile or manufacturer specific bits may be calculated inside the application.
+
+Internal errors may prevent device to stay in N\+MT Operational state. Details are described in {\itshape Error Behavior} object in Object Dictionary at index 0x1029. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR&bit 0, generic error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT&bit 1, current \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE&bit 2, voltage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE&bit 3, temperature \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR&bit 4, communication error (overrun, error state) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE&bit 5, device profile specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED&bit 6, reserved (always 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER&bit 7, manufacturer specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR&bit 0, generic error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT&bit 1, current \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE&bit 2, voltage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE&bit 3, temperature \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR&bit 4, communication error (overrun, error state) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE&bit 5, device profile specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED&bit 6, reserved (always 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER&bit 7, manufacturer specific \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 88 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}\label{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}} 
+\index{Emergency@{Emergency}!CO\_errorRegisterBitmask\_t@{CO\_errorRegisterBitmask\_t}}
+\index{CO\_errorRegisterBitmask\_t@{CO\_errorRegisterBitmask\_t}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_errorRegisterBitmask\_t}{CO\_errorRegisterBitmask\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___emergency_ga333f4f23b66f419418c06c33ed46ebbd}{C\+O\+\_\+error\+Register\+Bitmask\+\_\+t}}}
+
+C\+A\+Nopen Error register.
+
+In object dictionary on index 0x1001.
+
+Error register is calculated from critical internal \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. Generic and communication bits are calculated in C\+O\+\_\+\+E\+M\+\_\+process function, device profile or manufacturer specific bits may be calculated inside the application.
+
+Internal errors may prevent device to stay in N\+MT Operational state. Details are described in {\itshape Error Behavior} object in Object Dictionary at index 0x1029. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR&bit 0, generic error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT&bit 1, current \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE&bit 2, voltage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE&bit 3, temperature \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR&bit 4, communication error (overrun, error state) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE&bit 5, device profile specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED&bit 6, reserved (always 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER&bit 7, manufacturer specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_GENERIC\_ERR@{CO\_ERR\_REG\_GENERIC\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda92a7e121ae04a022fc2fe604eb1c148e}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+G\+E\+N\+E\+R\+I\+C\+\_\+\+E\+RR&bit 0, generic error \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_CURRENT@{CO\_ERR\_REG\_CURRENT}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda61eded29fb0fcd95b2f66c2682de0f2b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+U\+R\+R\+E\+NT&bit 1, current \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_VOLTAGE@{CO\_ERR\_REG\_VOLTAGE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda360c75e04303d1c55e2bc8528407cb87}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+V\+O\+L\+T\+A\+GE&bit 2, voltage \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_TEMPERATURE@{CO\_ERR\_REG\_TEMPERATURE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab12f2b419af0aeb8aae83a13d5c8b7bf}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+T\+E\+M\+P\+E\+R\+A\+T\+U\+RE&bit 3, temperature \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_COMM\_ERR@{CO\_ERR\_REG\_COMM\_ERR}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda479548aa5b1d40c6ef0e221a244301bb}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+C\+O\+M\+M\+\_\+\+E\+RR&bit 4, communication error (overrun, error state) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_DEV\_PROFILE@{CO\_ERR\_REG\_DEV\_PROFILE}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdab137d1705e9ab20e2caeb22f57dd4716}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+D\+E\+V\+\_\+\+P\+R\+O\+F\+I\+LE&bit 5, device profile specific \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_RESERVED@{CO\_ERR\_REG\_RESERVED}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbdaffdf7f5d9f9ae52fa1bf97a3fb3d848b}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+R\+E\+S\+E\+R\+V\+ED&bit 6, reserved (always 0) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}!Emergency@{Emergency}}\index{Emergency@{Emergency}!CO\_ERR\_REG\_MANUFACTURER@{CO\_ERR\_REG\_MANUFACTURER}}}\mbox{\Hypertarget{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}\label{group___c_o___emergency_gga333f4f23b66f419418c06c33ed46ebbda207eee1d9638f61166bc395ee71b84a3}} 
+C\+O\+\_\+\+E\+R\+R\+\_\+\+R\+E\+G\+\_\+\+M\+A\+N\+U\+F\+A\+C\+T\+U\+R\+ER&bit 7, manufacturer specific \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 88 of file C\+O\+\_\+\+Emergency.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}\label{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}} 
+\index{Emergency@{Emergency}!CO\_errorReport@{CO\_errorReport}}
+\index{CO\_errorReport@{CO\_errorReport}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_errorReport()}{CO\_errorReport()}}
+{\footnotesize\ttfamily void C\+O\+\_\+error\+Report (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{const uint8\+\_\+t}]{error\+Bit,  }\item[{const uint16\+\_\+t}]{error\+Code,  }\item[{const uint32\+\_\+t}]{info\+Code }\end{DoxyParamCaption})}
+
+Report error condition.
+
+Function is called on any error condition inside C\+A\+Nopen stack and may also be called by application on custom error condition. Emergency message is sent after the first occurance of specific error. In case of critical error, device will not be able to stay in N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL state.
+
+Function is short and may be used form any task or interrupt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em em} & Emergency object. \\
+\hline
+{\em error\+Bit} & from \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. \\
+\hline
+{\em error\+Code} & from \mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}}. \\
+\hline
+{\em info\+Code} & 32 bit value is passed to bytes 4...7 of the Emergency message. It contains optional additional information inside emergency message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 338 of file C\+O\+\_\+\+Emergency.\+c.
+
+\mbox{\Hypertarget{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}\label{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}} 
+\index{Emergency@{Emergency}!CO\_errorReset@{CO\_errorReset}}
+\index{CO\_errorReset@{CO\_errorReset}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_errorReset()}{CO\_errorReset()}}
+{\footnotesize\ttfamily void C\+O\+\_\+error\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{const uint8\+\_\+t}]{error\+Bit,  }\item[{const uint32\+\_\+t}]{info\+Code }\end{DoxyParamCaption})}
+
+Reset error condition.
+
+Function is called if any error condition is solved. Emergency message is sent with \mbox{\hyperlink{group___c_o___e_m__error_codes}{C\+A\+Nopen Error codes}} 0x0000.
+
+Function is short and may be used form any task or interrupt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em em} & Emergency object. \\
+\hline
+{\em error\+Bit} & from \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}. \\
+\hline
+{\em info\+Code} & 32 bit value is passed to bytes 4...7 of the Emergency message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 399 of file C\+O\+\_\+\+Emergency.\+c.
+
+\mbox{\Hypertarget{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}\label{group___c_o___emergency_ga0f165b478424ddb872dfdfafc9bcfdd0}} 
+\index{Emergency@{Emergency}!CO\_isError@{CO\_isError}}
+\index{CO\_isError@{CO\_isError}!Emergency@{Emergency}}
+\doxysubsubsection{\texorpdfstring{CO\_isError()}{CO\_isError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+is\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$}]{em,  }\item[{const uint8\+\_\+t}]{error\+Bit }\end{DoxyParamCaption})}
+
+Check specific error condition.
+
+Function returns 1, if specific internal error is present. Otherwise it returns 0.
+
+
+\begin{DoxyParams}{Parameters}
+{\em em} & Emergency object. \\
+\hline
+{\em error\+Bit} & from \mbox{\hyperlink{group___c_o___e_m__error_status_bits}{Error status bits}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+false\+: Error is not present. 
+
+true\+: Error is present. 
+\end{DoxyReturn}
+
+
+Definition at line 458 of file C\+O\+\_\+\+Emergency.\+c.
+

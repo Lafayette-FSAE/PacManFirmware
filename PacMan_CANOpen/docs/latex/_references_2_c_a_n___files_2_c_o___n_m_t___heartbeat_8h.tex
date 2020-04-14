@@ -1,0 +1,97 @@
+\hypertarget{_references_2_c_a_n___files_2_c_o___n_m_t___heartbeat_8h}{}\doxysection{References/\+C\+A\+N\+\_\+\+Files/\+C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.h File Reference}
+\label{_references_2_c_a_n___files_2_c_o___n_m_t___heartbeat_8h}\index{References/CAN\_Files/CO\_NMT\_Heartbeat.h@{References/CAN\_Files/CO\_NMT\_Heartbeat.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_gad72934cd92ac1029ee38a9d0165d5ea7}{L\+E\+D\+\_\+\+F\+L\+I\+C\+K\+E\+R\+I\+NG}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dflickering$>$=0)     ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_ga7452812c345e03204fd713d607d66240}{L\+E\+D\+\_\+\+B\+L\+I\+N\+K\+I\+NG}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dblinking$>$=0)       ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_ga26e41fc0cdd2ea89486015b1b202b477}{L\+E\+D\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+F\+L\+A\+SH}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dsingle\+Flash$>$=0)    ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_ga4b7b9877dca2c74ed104a2a5841d34a3}{L\+E\+D\+\_\+\+D\+O\+U\+B\+L\+E\+\_\+\+F\+L\+A\+SH}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Ddouble\+Flash$>$=0)    ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_gafddb7c6bfb277811d46fc1e3a9573fa7}{L\+E\+D\+\_\+\+T\+R\+I\+P\+L\+E\+\_\+\+F\+L\+A\+SH}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dtriple\+Flash$>$=0)    ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_ga8b00f56801fc9fb69b726b341b5627db}{L\+E\+D\+\_\+\+Q\+U\+A\+D\+R\+U\+P\+L\+E\+\_\+\+F\+L\+A\+SH}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dquadruple\+Flash$>$=0) ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_gaeea08ea8f573882942fcc37f43e4577c}{L\+E\+D\+\_\+\+G\+R\+E\+E\+N\+\_\+\+R\+UN}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dgreen\+Run$>$=0)       ? 1 \+: 0)
+\item 
+\#define \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes_ga48958b09ad393928a038176c67e316cc}{L\+E\+D\+\_\+\+R\+E\+D\+\_\+\+E\+R\+R\+OR}}(N\+MT)~(((N\+MT)-\/$>$L\+E\+Dred\+Error$>$=0)       ? 1 \+: 0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$em\+Pr, uint8\+\_\+t node\+Id, uint16\+\_\+t first\+H\+B\+Time, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$N\+M\+T\+\_\+\+C\+A\+Ndev, uint16\+\_\+t N\+M\+T\+\_\+rx\+Idx, uint16\+\_\+t C\+A\+Nid\+Rx\+N\+MT, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$H\+B\+\_\+\+C\+A\+Ndev, uint16\+\_\+t H\+B\+\_\+tx\+Idx, uint16\+\_\+t C\+A\+Nid\+Tx\+HB)
+\item 
+void \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}{C\+O\+\_\+\+N\+M\+T\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, void($\ast$p\+Funct\+N\+MT)(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state))
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t H\+Btime, uint32\+\_\+t N\+M\+Tstartup, uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Behavior\mbox{[}$\,$\mbox{]}, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga831f901d4411f17bd2daa289f17b7914}{C\+O\+\_\+\+N\+M\+T\+\_\+get\+Internal\+State}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen Network management and Heartbeat producer protocol.
+
+\begin{DoxyAuthor}{Author}
+Janez Paternoster 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+2004 -\/ 2020 Janez Paternoster
+\end{DoxyCopyright}
+This file is part of C\+A\+Nopen\+Node, an opensource C\+A\+Nopen Stack. Project home page is \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}}. For more information on C\+A\+Nopen see \href{http://www.can-cia.org/}{\texttt{ http\+://www.\+can-\/cia.\+org/}}.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 

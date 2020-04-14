@@ -1,0 +1,49 @@
+\hypertarget{_c_o__driver_8h}{}\doxysection{C\+O\+\_\+driver.\+h File Reference}
+\label{_c_o__driver_8h}\index{CO\_driver.h@{CO\_driver.h}}
+{\ttfamily \#include \char`\"{}C\+O\+\_\+driver\+\_\+target.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}can.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___c_o__driver_ga499212a81f94cdb9ac84f5f8d082b95b}{C\+O\+\_\+\+C\+A\+Nset\+Configuration\+Mode}} (void $\ast$C\+A\+Ndriver\+State)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gad654edfa651bf7b68263913786697200}{C\+O\+\_\+\+C\+A\+Nset\+Normal\+Mode}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, void $\ast$C\+A\+Ndriver\+State, \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} rx\+Array\mbox{[}$\,$\mbox{]}, uint16\+\_\+t rx\+Size, \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} tx\+Array\mbox{[}$\,$\mbox{]}, uint16\+\_\+t tx\+Size, uint16\+\_\+t C\+A\+Nbit\+Rate)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gac6f60f9da27dda0c9b3950c4e96bd687}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+disable}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o__driver_gaff8768d283f511756924e07f89b76d26}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+read\+Ident}} (const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$rx\+Msg)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, uint16\+\_\+t index, uint16\+\_\+t ident, uint16\+\_\+t mask, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} rtr, void $\ast$object, void($\ast$p\+Funct)(void $\ast$object, const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$message))
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, uint16\+\_\+t index, uint16\+\_\+t ident, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} rtr, uint8\+\_\+t no\+Of\+Bytes, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} sync\+Flag)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$buffer)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gabbeac85cbf513162b11fc3d0717b0753}{C\+O\+\_\+\+C\+A\+Nclear\+Pending\+Sync\+P\+D\+Os}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gafa9e96d1772f3d7b37aa12732e9e4cea}{C\+O\+\_\+\+C\+A\+Nverify\+Errors}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+AN driver functions.
+
+Defines functions that must be implemented for each target.
+
+\begin{DoxyAuthor}{Author}
+Janez Paternoster 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+2004 -\/ 2020 Janez Paternoster
+\end{DoxyCopyright}
+This file is part of C\+A\+Nopen\+Node, an opensource C\+A\+Nopen Stack. Project home page is \href{https://github.com/CANopenNode/CANopenNode}{\texttt{ https\+://github.\+com/\+C\+A\+Nopen\+Node/\+C\+A\+Nopen\+Node}}. For more information on C\+A\+Nopen see \href{http://www.can-cia.org/}{\texttt{ http\+://www.\+can-\/cia.\+org/}}.
+
+Licensed under the Apache License, Version 2.\+0 (the \char`\"{}\+License\char`\"{}); you may not use this file except in compliance with the License. You may obtain a copy of the License at \begin{DoxyVerb}http://www.apache.org/licenses/LICENSE-2.0
+\end{DoxyVerb}
+
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \char`\"{}\+A\+S I\+S\char`\"{} B\+A\+S\+IS, W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+T\+I\+ES OR C\+O\+N\+D\+I\+T\+I\+O\+NS OF A\+NY K\+I\+ND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 

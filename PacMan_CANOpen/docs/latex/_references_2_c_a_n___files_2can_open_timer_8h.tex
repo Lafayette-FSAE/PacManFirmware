@@ -1,0 +1,112 @@
+\hypertarget{_references_2_c_a_n___files_2can_open_timer_8h}{}\doxysection{References/\+C\+A\+N\+\_\+\+Files/can\+Open\+Timer.h File Reference}
+\label{_references_2_c_a_n___files_2can_open_timer_8h}\index{References/CAN\_Files/canOpenTimer.h@{References/CAN\_Files/canOpenTimer.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}freertos/\+Free\+R\+T\+O\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/task.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}freertos/queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver/timer.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a2a29fc09fb656139cdc80d11a2cd1de1}{W\+I\+T\+H\+\_\+\+R\+E\+L\+O\+AD}}~1
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ad04ba4bf0b945174cc6077d9a3116864}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+US}}~7
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ab8573a07cfa51f35caa97d7c9ff8f10b}{T\+I\+M\+E\+R\+\_\+\+D\+I\+V\+I\+D\+ER}}~16
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ac0f36f291efc093e0981308dddcec913}{C\+O\+N\+S\+T\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+2\+\_\+\+PI}}~6.\+2832
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_af5b145137f1ab8cc696cf79afd2245c1}{S\+E\+C\+\_\+\+T\+O\+\_\+\+M\+I\+C\+R\+O\+\_\+\+S\+EC}}(x)~((x) / 1000 / 1000)
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a32dce3380228f1a23cdc1f784263762b}{U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM}}~\+\_\+\+\_\+attribute\+\_\+\+\_\+((unused))
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a440c0038dc67e1e38018d5be62595e42}{T\+I\+M\+E\+R\+\_\+\+T\+I\+C\+KS}}~(T\+I\+M\+E\+R\+\_\+\+B\+A\+S\+E\+\_\+\+C\+LK / \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ab8573a07cfa51f35caa97d7c9ff8f10b}{T\+I\+M\+E\+R\+\_\+\+D\+I\+V\+I\+D\+ER}})
+\item 
+\#define \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a77fb30056acd6ff78405092845ac8b2e}{A\+L\+A\+R\+M\+\_\+\+V\+A\+L\+\_\+\+US}}~\mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_af5b145137f1ab8cc696cf79afd2245c1}{S\+E\+C\+\_\+\+T\+O\+\_\+\+M\+I\+C\+R\+O\+\_\+\+S\+EC}}(\mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ad04ba4bf0b945174cc6077d9a3116864}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+US}} $\ast$ \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a440c0038dc67e1e38018d5be62595e42}{T\+I\+M\+E\+R\+\_\+\+T\+I\+C\+KS}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_a77fb30056acd6ff78405092845ac8b2e}\label{_references_2_c_a_n___files_2can_open_timer_8h_a77fb30056acd6ff78405092845ac8b2e}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!ALARM\_VAL\_US@{ALARM\_VAL\_US}}
+\index{ALARM\_VAL\_US@{ALARM\_VAL\_US}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{ALARM\_VAL\_US}{ALARM\_VAL\_US}}
+{\footnotesize\ttfamily \#define A\+L\+A\+R\+M\+\_\+\+V\+A\+L\+\_\+\+US~\mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_af5b145137f1ab8cc696cf79afd2245c1}{S\+E\+C\+\_\+\+T\+O\+\_\+\+M\+I\+C\+R\+O\+\_\+\+S\+EC}}(\mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ad04ba4bf0b945174cc6077d9a3116864}{T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+US}} $\ast$ \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_a440c0038dc67e1e38018d5be62595e42}{T\+I\+M\+E\+R\+\_\+\+T\+I\+C\+KS}})}
+
+
+
+Definition at line 30 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_ac0f36f291efc093e0981308dddcec913}\label{_references_2_c_a_n___files_2can_open_timer_8h_ac0f36f291efc093e0981308dddcec913}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!CONST\_PERIOD\_2\_PI@{CONST\_PERIOD\_2\_PI}}
+\index{CONST\_PERIOD\_2\_PI@{CONST\_PERIOD\_2\_PI}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{CONST\_PERIOD\_2\_PI}{CONST\_PERIOD\_2\_PI}}
+{\footnotesize\ttfamily \#define C\+O\+N\+S\+T\+\_\+\+P\+E\+R\+I\+O\+D\+\_\+2\+\_\+\+PI~6.\+2832}
+
+
+
+Definition at line 26 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_af5b145137f1ab8cc696cf79afd2245c1}\label{_references_2_c_a_n___files_2can_open_timer_8h_af5b145137f1ab8cc696cf79afd2245c1}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!SEC\_TO\_MICRO\_SEC@{SEC\_TO\_MICRO\_SEC}}
+\index{SEC\_TO\_MICRO\_SEC@{SEC\_TO\_MICRO\_SEC}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{SEC\_TO\_MICRO\_SEC}{SEC\_TO\_MICRO\_SEC}}
+{\footnotesize\ttfamily \#define S\+E\+C\+\_\+\+T\+O\+\_\+\+M\+I\+C\+R\+O\+\_\+\+S\+EC(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x) / 1000 / 1000)}
+
+
+
+Definition at line 27 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_ab8573a07cfa51f35caa97d7c9ff8f10b}\label{_references_2_c_a_n___files_2can_open_timer_8h_ab8573a07cfa51f35caa97d7c9ff8f10b}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!TIMER\_DIVIDER@{TIMER\_DIVIDER}}
+\index{TIMER\_DIVIDER@{TIMER\_DIVIDER}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_DIVIDER}{TIMER\_DIVIDER}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+D\+I\+V\+I\+D\+ER~16}
+
+
+
+Definition at line 25 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_ad04ba4bf0b945174cc6077d9a3116864}\label{_references_2_c_a_n___files_2can_open_timer_8h_ad04ba4bf0b945174cc6077d9a3116864}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!TIMER\_INTR\_US@{TIMER\_INTR\_US}}
+\index{TIMER\_INTR\_US@{TIMER\_INTR\_US}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_INTR\_US}{TIMER\_INTR\_US}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+I\+N\+T\+R\+\_\+\+US~7}
+
+
+
+Definition at line 24 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_a440c0038dc67e1e38018d5be62595e42}\label{_references_2_c_a_n___files_2can_open_timer_8h_a440c0038dc67e1e38018d5be62595e42}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!TIMER\_TICKS@{TIMER\_TICKS}}
+\index{TIMER\_TICKS@{TIMER\_TICKS}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{TIMER\_TICKS}{TIMER\_TICKS}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+T\+I\+C\+KS~(T\+I\+M\+E\+R\+\_\+\+B\+A\+S\+E\+\_\+\+C\+LK / \mbox{\hyperlink{_references_2_c_a_n___files_2can_open_timer_8h_ab8573a07cfa51f35caa97d7c9ff8f10b}{T\+I\+M\+E\+R\+\_\+\+D\+I\+V\+I\+D\+ER}})}
+
+
+
+Definition at line 29 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_a32dce3380228f1a23cdc1f784263762b}\label{_references_2_c_a_n___files_2can_open_timer_8h_a32dce3380228f1a23cdc1f784263762b}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!UNUSED\_PARAM@{UNUSED\_PARAM}}
+\index{UNUSED\_PARAM@{UNUSED\_PARAM}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{UNUSED\_PARAM}{UNUSED\_PARAM}}
+{\footnotesize\ttfamily \#define U\+N\+U\+S\+E\+D\+\_\+\+P\+A\+R\+AM~\+\_\+\+\_\+attribute\+\_\+\+\_\+((unused))}
+
+
+
+Definition at line 28 of file can\+Open\+Timer.\+h.
+
+\mbox{\Hypertarget{_references_2_c_a_n___files_2can_open_timer_8h_a2a29fc09fb656139cdc80d11a2cd1de1}\label{_references_2_c_a_n___files_2can_open_timer_8h_a2a29fc09fb656139cdc80d11a2cd1de1}} 
+\index{canOpenTimer.h@{canOpenTimer.h}!WITH\_RELOAD@{WITH\_RELOAD}}
+\index{WITH\_RELOAD@{WITH\_RELOAD}!canOpenTimer.h@{canOpenTimer.h}}
+\doxysubsubsection{\texorpdfstring{WITH\_RELOAD}{WITH\_RELOAD}}
+{\footnotesize\ttfamily \#define W\+I\+T\+H\+\_\+\+R\+E\+L\+O\+AD~1}
+
+
+
+Definition at line 23 of file can\+Open\+Timer.\+h.
+

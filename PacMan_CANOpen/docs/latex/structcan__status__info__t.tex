@@ -1,0 +1,137 @@
+\hypertarget{structcan__status__info__t}{}\doxysection{can\+\_\+status\+\_\+info\+\_\+t Struct Reference}
+\label{structcan__status__info__t}\index{can\_status\_info\_t@{can\_status\_info\_t}}
+
+
+Structure to store status information of C\+AN driver.  
+
+
+
+
+{\ttfamily \#include $<$can.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h_a69173288ca0cb5f7e7c0ad8be7911fa1}{can\+\_\+state\+\_\+t}} \mbox{\hyperlink{structcan__status__info__t_af03052573567c777ef4670538b93e246}{state}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a0e4b977cbad533f060da564d9b4922d3}{msgs\+\_\+to\+\_\+tx}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a8bf7bb375ba9ed8df468dd9c08c73c61}{msgs\+\_\+to\+\_\+rx}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a4fa26a33b38bcd7f099750c0f4cf2006}{tx\+\_\+error\+\_\+counter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_af7caa36b3f334eef84c7c0ab9a0c457c}{rx\+\_\+error\+\_\+counter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a28957f4f5d43859cd05ea9d88cb87d84}{tx\+\_\+failed\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a511782db44bb861dd982ff82c5ec46c5}{rx\+\_\+missed\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_ade2b9fd4e47850a5616199db05367913}{arb\+\_\+lost\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structcan__status__info__t_a25be7af396e3edabed2006cc098b9449}{bus\+\_\+error\+\_\+count}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store status information of C\+AN driver. 
+
+Definition at line 178 of file can.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structcan__status__info__t_ade2b9fd4e47850a5616199db05367913}\label{structcan__status__info__t_ade2b9fd4e47850a5616199db05367913}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!arb\_lost\_count@{arb\_lost\_count}}
+\index{arb\_lost\_count@{arb\_lost\_count}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{arb\_lost\_count}{arb\_lost\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::arb\+\_\+lost\+\_\+count}
+
+Number of instances arbitration was lost 
+
+Definition at line 186 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a25be7af396e3edabed2006cc098b9449}\label{structcan__status__info__t_a25be7af396e3edabed2006cc098b9449}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!bus\_error\_count@{bus\_error\_count}}
+\index{bus\_error\_count@{bus\_error\_count}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{bus\_error\_count}{bus\_error\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::bus\+\_\+error\+\_\+count}
+
+Number of instances a bus error has occurred 
+
+Definition at line 187 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a8bf7bb375ba9ed8df468dd9c08c73c61}\label{structcan__status__info__t_a8bf7bb375ba9ed8df468dd9c08c73c61}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!msgs\_to\_rx@{msgs\_to\_rx}}
+\index{msgs\_to\_rx@{msgs\_to\_rx}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{msgs\_to\_rx}{msgs\_to\_rx}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::msgs\+\_\+to\+\_\+rx}
+
+Number of messages in RX queue waiting to be read 
+
+Definition at line 181 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a0e4b977cbad533f060da564d9b4922d3}\label{structcan__status__info__t_a0e4b977cbad533f060da564d9b4922d3}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!msgs\_to\_tx@{msgs\_to\_tx}}
+\index{msgs\_to\_tx@{msgs\_to\_tx}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{msgs\_to\_tx}{msgs\_to\_tx}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::msgs\+\_\+to\+\_\+tx}
+
+Number of messages queued for transmission or awaiting transmission completion 
+
+Definition at line 180 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_af7caa36b3f334eef84c7c0ab9a0c457c}\label{structcan__status__info__t_af7caa36b3f334eef84c7c0ab9a0c457c}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!rx\_error\_counter@{rx\_error\_counter}}
+\index{rx\_error\_counter@{rx\_error\_counter}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_error\_counter}{rx\_error\_counter}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::rx\+\_\+error\+\_\+counter}
+
+Current value of Receive Error Counter 
+
+Definition at line 183 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a511782db44bb861dd982ff82c5ec46c5}\label{structcan__status__info__t_a511782db44bb861dd982ff82c5ec46c5}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!rx\_missed\_count@{rx\_missed\_count}}
+\index{rx\_missed\_count@{rx\_missed\_count}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{rx\_missed\_count}{rx\_missed\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::rx\+\_\+missed\+\_\+count}
+
+Number of messages that were lost due to a full RX queue 
+
+Definition at line 185 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_af03052573567c777ef4670538b93e246}\label{structcan__status__info__t_af03052573567c777ef4670538b93e246}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!state@{state}}
+\index{state@{state}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{can_8h_a69173288ca0cb5f7e7c0ad8be7911fa1}{can\+\_\+state\+\_\+t}} can\+\_\+status\+\_\+info\+\_\+t\+::state}
+
+Current state of C\+AN controller (Stopped/\+Running/\+Bus-\/\+Off/\+Recovery) 
+
+Definition at line 179 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a4fa26a33b38bcd7f099750c0f4cf2006}\label{structcan__status__info__t_a4fa26a33b38bcd7f099750c0f4cf2006}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!tx\_error\_counter@{tx\_error\_counter}}
+\index{tx\_error\_counter@{tx\_error\_counter}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_error\_counter}{tx\_error\_counter}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::tx\+\_\+error\+\_\+counter}
+
+Current value of Transmit Error Counter 
+
+Definition at line 182 of file can.\+h.
+
+\mbox{\Hypertarget{structcan__status__info__t_a28957f4f5d43859cd05ea9d88cb87d84}\label{structcan__status__info__t_a28957f4f5d43859cd05ea9d88cb87d84}} 
+\index{can\_status\_info\_t@{can\_status\_info\_t}!tx\_failed\_count@{tx\_failed\_count}}
+\index{tx\_failed\_count@{tx\_failed\_count}!can\_status\_info\_t@{can\_status\_info\_t}}
+\doxysubsubsection{\texorpdfstring{tx\_failed\_count}{tx\_failed\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t can\+\_\+status\+\_\+info\+\_\+t\+::tx\+\_\+failed\+\_\+count}
+
+Number of messages that failed transmissions 
+
+Definition at line 184 of file can.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8h}{can.\+h}}\end{DoxyCompactItemize}

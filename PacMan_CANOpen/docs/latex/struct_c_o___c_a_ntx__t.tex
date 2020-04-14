@@ -1,0 +1,96 @@
+\hypertarget{struct_c_o___c_a_ntx__t}{}\doxysection{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t Struct Reference}
+\label{struct_c_o___c_a_ntx__t}\index{CO\_CANtx\_t@{CO\_CANtx\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+driver\+\_\+target.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a9cc2687eb11da14d4c0aa167352c635c}{ident}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a4cc9802df8108fc0bf4a476090ff9d3f}{esp\+\_\+ident}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a9bb96d60314283061f7619e36d870fa0}{D\+LC}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a2cc9789d9eb13654a904ee919d6babbe}{data}} \mbox{[}8\mbox{]}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a305f0687a4ed7cd533e7937d6ff7d31b}{buffer\+Full}}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_ntx__t_a79c19597a51351b9d6ed1c9bdfd051b3}{sync\+Flag}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Transmit message object. 
+
+Definition at line 238 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a305f0687a4ed7cd533e7937d6ff7d31b}\label{struct_c_o___c_a_ntx__t_a305f0687a4ed7cd533e7937d6ff7d31b}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!bufferFull@{bufferFull}}
+\index{bufferFull@{bufferFull}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{bufferFull}{bufferFull}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::buffer\+Full}
+
+True if previous message is still in buffer 
+
+Definition at line 243 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a2cc9789d9eb13654a904ee919d6babbe}\label{struct_c_o___c_a_ntx__t_a2cc9789d9eb13654a904ee919d6babbe}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!data@{data}}
+\index{data@{data}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::data}
+
+8 data bytes 
+
+Definition at line 242 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a9bb96d60314283061f7619e36d870fa0}\label{struct_c_o___c_a_ntx__t_a9bb96d60314283061f7619e36d870fa0}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!DLC@{DLC}}
+\index{DLC@{DLC}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{DLC}{DLC}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::\+D\+LC}
+
+Length of C\+AN message. (D\+LC may also be part of ident) 
+
+Definition at line 241 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a4cc9802df8108fc0bf4a476090ff9d3f}\label{struct_c_o___c_a_ntx__t_a4cc9802df8108fc0bf4a476090ff9d3f}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!esp\_ident@{esp\_ident}}
+\index{esp\_ident@{esp\_ident}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{esp\_ident}{esp\_ident}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::esp\+\_\+ident}
+
+
+
+Definition at line 240 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a9cc2687eb11da14d4c0aa167352c635c}\label{struct_c_o___c_a_ntx__t_a9cc2687eb11da14d4c0aa167352c635c}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!ident@{ident}}
+\index{ident@{ident}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{ident}{ident}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::ident}
+
+C\+AN identifier as aligned in C\+AN module 
+
+Definition at line 239 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_ntx__t_a79c19597a51351b9d6ed1c9bdfd051b3}\label{struct_c_o___c_a_ntx__t_a79c19597a51351b9d6ed1c9bdfd051b3}} 
+\index{CO\_CANtx\_t@{CO\_CANtx\_t}!syncFlag@{syncFlag}}
+\index{syncFlag@{syncFlag}!CO\_CANtx\_t@{CO\_CANtx\_t}}
+\doxysubsubsection{\texorpdfstring{syncFlag}{syncFlag}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Ntx\+\_\+t\+::sync\+Flag}
+
+Synchronous P\+DO messages has this flag set. It prevents them to be sent outside the synchronous window 
+
+Definition at line 245 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__driver__target_8h}{C\+O\+\_\+driver\+\_\+target.\+h}}\end{DoxyCompactItemize}

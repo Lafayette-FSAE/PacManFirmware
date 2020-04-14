@@ -1,0 +1,72 @@
+\hypertarget{struct_c_o___r_p_d_o_comm_par__t}{}\doxysection{C\+O\+\_\+\+R\+P\+D\+O\+Comm\+Par\+\_\+t Struct Reference}
+\label{struct_c_o___r_p_d_o_comm_par__t}\index{CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+P\+D\+O.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___r_p_d_o_comm_par__t_ac49d1bc96c31ec32015628128a6e60a7}{max\+Sub\+Index}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___r_p_d_o_comm_par__t_a798b8c59ea8f8b627c307f1246b6ee78}{C\+O\+B\+\_\+\+I\+D\+Used\+By\+R\+P\+DO}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___r_p_d_o_comm_par__t_a09eb4787337cf8579c0ff1d4ae968aba}{transmission\+Type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+R\+P\+DO communication parameter. The same as record from Object dictionary (index 0x1400+). 
+
+Definition at line 66 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___r_p_d_o_comm_par__t_a798b8c59ea8f8b627c307f1246b6ee78}\label{struct_c_o___r_p_d_o_comm_par__t_a798b8c59ea8f8b627c307f1246b6ee78}} 
+\index{CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}!COB\_IDUsedByRPDO@{COB\_IDUsedByRPDO}}
+\index{COB\_IDUsedByRPDO@{COB\_IDUsedByRPDO}!CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDUsedByRPDO}{COB\_IDUsedByRPDO}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+R\+P\+D\+O\+Comm\+Par\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Used\+By\+R\+P\+DO}
+
+Communication object identifier for message received. Meaning of the specific bits\+:
+\begin{DoxyItemize}
+\item Bit 0-\/10\+: C\+O\+B-\/\+ID for P\+DO, to change it bit 31 must be set.
+\item Bit 11-\/29\+: set to 0 for 11 bit C\+O\+B-\/\+ID.
+\item Bit 30\+: If true, rtr are N\+OT allowed for P\+DO.
+\item Bit 31\+: If true, node does N\+OT use the P\+DO. 
+\end{DoxyItemize}
+
+Definition at line 73 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___r_p_d_o_comm_par__t_ac49d1bc96c31ec32015628128a6e60a7}\label{struct_c_o___r_p_d_o_comm_par__t_ac49d1bc96c31ec32015628128a6e60a7}} 
+\index{CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}!maxSubIndex@{maxSubIndex}}
+\index{maxSubIndex@{maxSubIndex}!CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{maxSubIndex}{maxSubIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+R\+P\+D\+O\+Comm\+Par\+\_\+t\+::max\+Sub\+Index}
+
+Equal to 2 
+
+Definition at line 67 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___r_p_d_o_comm_par__t_a09eb4787337cf8579c0ff1d4ae968aba}\label{struct_c_o___r_p_d_o_comm_par__t_a09eb4787337cf8579c0ff1d4ae968aba}} 
+\index{CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}!transmissionType@{transmissionType}}
+\index{transmissionType@{transmissionType}!CO\_RPDOCommPar\_t@{CO\_RPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{transmissionType}{transmissionType}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+R\+P\+D\+O\+Comm\+Par\+\_\+t\+::transmission\+Type}
+
+Transmission type. Values\+:
+\begin{DoxyItemize}
+\item 0-\/240\+: Reciving is synchronous, process after next reception of the S\+Y\+NC object.
+\item 241-\/253\+: Not used.
+\item 254\+: Manufacturer specific.
+\item 255\+: Asynchronous. 
+\end{DoxyItemize}
+
+Definition at line 79 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___p_d_o_8h}{C\+O\+\_\+\+P\+D\+O.\+h}}\end{DoxyCompactItemize}

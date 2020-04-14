@@ -1,0 +1,709 @@
+\hypertarget{group___c_o__driver}{}\doxysection{Driver}
+\label{group___c_o__driver}\index{Driver@{Driver}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_o__data_types}{Data types}}
+\begin{DoxyCompactList}\small\item\em According to Misra C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o__driver_8h}{C\+O\+\_\+driver.\+h}}
+\item 
+file \mbox{\hyperlink{_c_o__driver__target_8h}{C\+O\+\_\+driver\+\_\+target.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__driver_8h}{C\+O\+\_\+driver.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__driver__target_8h}{C\+O\+\_\+driver\+\_\+target.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___c_o__driver_ga499212a81f94cdb9ac84f5f8d082b95b}{C\+O\+\_\+\+C\+A\+Nset\+Configuration\+Mode}} (void $\ast$C\+A\+Ndriver\+State)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gad654edfa651bf7b68263913786697200}{C\+O\+\_\+\+C\+A\+Nset\+Normal\+Mode}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, void $\ast$C\+A\+Ndriver\+State, \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} rx\+Array\mbox{[}$\,$\mbox{]}, uint16\+\_\+t rx\+Size, \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} tx\+Array\mbox{[}$\,$\mbox{]}, uint16\+\_\+t tx\+Size, uint16\+\_\+t C\+A\+Nbit\+Rate)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gac6f60f9da27dda0c9b3950c4e96bd687}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+disable}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{group___c_o__driver_gaff8768d283f511756924e07f89b76d26}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+read\+Ident}} (const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$rx\+Msg)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, uint16\+\_\+t index, uint16\+\_\+t ident, uint16\+\_\+t mask, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} rtr, void $\ast$object, void($\ast$p\+Funct)(void $\ast$object, const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$message))
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, uint16\+\_\+t index, uint16\+\_\+t ident, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} rtr, uint8\+\_\+t no\+Of\+Bytes, \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} sync\+Flag)
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule, \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$buffer)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gabbeac85cbf513162b11fc3d0717b0753}{C\+O\+\_\+\+C\+A\+Nclear\+Pending\+Sync\+P\+D\+Os}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gafa9e96d1772f3d7b37aa12732e9e4cea}{C\+O\+\_\+\+C\+A\+Nverify\+Errors}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\item 
+void \mbox{\hyperlink{group___c_o__driver_gae5e1af799bd59ed0a39495241ce6f5e3}{C\+O\+\_\+\+C\+A\+Ninterrupt}} (\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$C\+A\+Nmodule)
+\end{DoxyCompactItemize}
+\doxysubsection*{Critical sections}
+\label{_amgrpacf2c07a1805f83f6469703e99bcf042}%
+C\+A\+Nopen\+Node is designed to run in different threads, as described in R\+E\+A\+D\+ME. Threads are implemented differently in different systems. In microcontrollers threads are interrupts with different priorities, for example. It is necessary to protect sections, where different threads access to the same resource. In simple systems interrupts or scheduler may be temporary disabled between access to the shared resource. Otherwise mutexes or semaphores can be used.\hypertarget{group___c_o__driver_autotoc_md4}{}\doxysubparagraph{Reentrant functions.}\label{group___c_o__driver_autotoc_md4}
+Functions \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} from C\+\_\+driver.\+h, \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} from C\+O\+\_\+\+Emergency.\+h and \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} from C\+O\+\_\+\+Emergency.\+h may be called from different threads. Critical sections must be protected. Eather by disabling scheduler or interrupts or by mutexes or semaphores.\hypertarget{group___c_o__driver_autotoc_md5}{}\doxysubparagraph{Object Dictionary variables.}\label{group___c_o__driver_autotoc_md5}
+In general, there are two threads, which accesses OD variables\+: mainline and timer. C\+A\+Nopen\+Node initialization and S\+DO server runs in mainline. P\+D\+Os runs in faster timer thread. Processing of P\+D\+Os must not be interrupted by mainline. Mainline thread must protect sections, which accesses the same OD variables as timer thread. This care must also take the application. Note that not all variables are allowed to be mapped to P\+D\+Os, so they may not need to be protected. S\+DO server protects sections with access to OD variables.\hypertarget{group___c_o__driver_autotoc_md6}{}\doxysubparagraph{C\+A\+N receive thread.}\label{group___c_o__driver_autotoc_md6}
+It partially processes received C\+AN data and puts them into appropriate objects. Objects are later processed. It does not need protection of critical sections. There is one circumstance, where C\+A\+Nrx should be disabled\+: After presence of S\+Y\+NC message on C\+A\+Nopen bus, C\+A\+Nrx should be temporary disabled until all receive P\+D\+Os are processed. See also C\+O\+\_\+\+S\+Y\+N\+C.\+h file and C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init\+Callback() function. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+E\+M\+CY}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+E\+M\+CY}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+OD}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+OD}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Syncronisation functions}
+\label{_amgrp7d487514a38116083bcf977fffd5573d}%
+syncronisation for message buffer for communication between C\+AN receive and message processing threads.
+
+If receive function runs inside I\+RQ, no further synchronsiation is needed. Otherwise, some kind of synchronsiation has to be included. The following example uses G\+CC builtin memory barrier \+\_\+\+\_\+sync\+\_\+synchronize(). A comprehensive list can be found here\+: \href{https://gist.github.com/leo-yuriev/ba186a6bf5cf3a27bae7}{\texttt{ https\+://gist.\+github.\+com/leo-\/yuriev/ba186a6bf5cf3a27bae7}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define CANrxMemoryBarrier() \{\_\_sync\_synchronize();\}}}
+\end{DoxyCode}
+ \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}{I\+S\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~((uintptr\+\_\+t)rx\+New)
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}{S\+E\+T\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)1L;\}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}{C\+L\+E\+A\+R\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)0L;\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Critical sections}
+\label{_amgrpacf2c07a1805f83f6469703e99bcf042}%
+C\+A\+Nopen\+Node is designed to run in different threads, as described in R\+E\+A\+D\+ME. Threads are implemented differently in different systems. In microcontrollers threads are interrupts with different priorities, for example. It is necessary to protect sections, where different threads access to the same resource. In simple systems interrupts or scheduler may be temporary disabled between access to the shared resource. Otherwise mutexes or semaphores can be used.\hypertarget{group___c_o__driver_autotoc_md49}{}\doxysubparagraph{Reentrant functions.}\label{group___c_o__driver_autotoc_md49}
+Functions \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} from C\+\_\+driver.\+h, \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} from C\+O\+\_\+\+Emergency.\+h and \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} from C\+O\+\_\+\+Emergency.\+h may be called from different threads. Critical sections must be protected. Eather by disabling scheduler or interrupts or by mutexes or semaphores.\hypertarget{group___c_o__driver_autotoc_md50}{}\doxysubparagraph{Object Dictionary variables.}\label{group___c_o__driver_autotoc_md50}
+In general, there are two threads, which accesses OD variables\+: mainline and timer. C\+A\+Nopen\+Node initialization and S\+DO server runs in mainline. P\+D\+Os runs in faster timer thread. Processing of P\+D\+Os must not be interrupted by mainline. Mainline thread must protect sections, which accesses the same OD variables as timer thread. This care must also take the application. Note that not all variables are allowed to be mapped to P\+D\+Os, so they may not need to be protected. S\+DO server protects sections with access to OD variables.\hypertarget{group___c_o__driver_autotoc_md51}{}\doxysubparagraph{C\+A\+N receive thread.}\label{group___c_o__driver_autotoc_md51}
+It partially processes received C\+AN data and puts them into appropriate objects. Objects are later processed. It does not need protection of critical sections. There is one circumstance, where C\+A\+Nrx should be disabled\+: After presence of S\+Y\+NC message on C\+A\+Nopen bus, C\+A\+Nrx should be temporary disabled until all receive P\+D\+Os are processed. See also C\+O\+\_\+\+S\+Y\+N\+C.\+h file and C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init\+Callback() function. \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+E\+M\+CY}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+E\+M\+CY}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}{C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+OD}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}{C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+OD}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Syncronisation functions}
+\label{_amgrp7d487514a38116083bcf977fffd5573d}%
+syncronisation for message buffer for communication between C\+AN receive and message processing threads.
+
+If receive function runs inside I\+RQ, no further synchronsiation is needed. Otherwise, some kind of synchronsiation has to be included. The following example uses G\+CC builtin memory barrier \+\_\+\+\_\+sync\+\_\+synchronize(). A comprehensive list can be found here\+: \href{https://gist.github.com/leo-yuriev/ba186a6bf5cf3a27bae7}{\texttt{ https\+://gist.\+github.\+com/leo-\/yuriev/ba186a6bf5cf3a27bae7}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define CANrxMemoryBarrier() \{\_\_sync\_synchronize();\}}}
+\end{DoxyCode}
+ \begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}()
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}{I\+S\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~((uintptr\+\_\+t)rx\+New)
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}{S\+E\+T\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)1L;\}
+\item 
+\#define \mbox{\hyperlink{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}{C\+L\+E\+A\+R\+\_\+\+C\+A\+Nrx\+New}}(rx\+New)~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)0L;\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Microcontroller specific code for C\+A\+Nopen\+Node.
+
+This file contains type definitions, functions and macros for\+:
+\begin{DoxyItemize}
+\item Basic data types.
+\item Receive and transmit buffers for C\+A\+Nopen messages.
+\item Interaction with C\+AN module on the microcontroller.
+\item C\+AN receive and transmit interrupts.
+\end{DoxyItemize}
+
+This file is not only a C\+AN driver. There are no classic C\+AN queues for C\+AN messages. This file provides direct connection with other C\+A\+Nopen objects. It tries to provide fast responses and tries to avoid unnecessary calculations and memory consumptions.
+
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} contains an array of {\itshape Received message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}) and an array of {\itshape Transmit message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}). Each C\+A\+Nopen communication object owns one member in one of the arrays. For example Heartbeat producer generates one C\+A\+Nopen transmitting object, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array. S\+Y\+NC module may produce sync or consume sync, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} and one member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.\hypertarget{group___c_o__driver_autotoc_md0}{}\doxyparagraph{Reception of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md0}
+Before C\+AN messages can be received, each member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}} uses multiple members in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. (It monitors multiple heartbeat messages from remote nodes.) It must call \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} multiple times.
+
+Main arguments to the \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} function are C\+AN identifier and a pointer to callback function. Those two arguments (and some others) are copied to the member of the \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.
+
+Callback function is a function, specified by specific C\+A\+Nopen module (for example by \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}}). Each C\+A\+Nopen module defines own callback function. Callback function will process the received C\+AN message. It will copy the necessary data from C\+AN message to proper place. It may also trigger additional task, which will further process the received message. Callback function must be fast and must only make the necessary calculations and copying.
+
+Received C\+AN messages are processed by C\+AN receive interrupt function. After C\+AN message is received, function first tries to find matching C\+AN identifier from \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. If found, then a corresponding callback function is called.
+
+Callback function accepts two parameters\+:
+\begin{DoxyItemize}
+\item object is pointer to object registered by \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}}.
+\item msg is pointer to C\+AN message of type \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}}.
+\end{DoxyItemize}
+
+Callback function must return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH.\hypertarget{group___c_o__driver_autotoc_md1}{}\doxyparagraph{Transmission of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md1}
+Before C\+AN messages can be transmitted, each member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example Heartbeat producer must initialize it\textquotesingle{}s member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array.
+
+\mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} returns a pointer of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}, which contains buffer where C\+AN message data can be written. C\+AN message is send with calling \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function. If at that moment C\+AN transmit buffer inside microcontroller\textquotesingle{}s C\+AN module is free, message is copied directly to C\+AN module. Otherwise \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function sets {\itshape buffer\+Full} flag to true. Message will be then sent by C\+AN TX interrupt as soon as C\+AN module is freed. Until message is not copied to C\+AN module, its contents must not change. There may be multiple {\itshape buffer\+Full} flags in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array set to true. In that case messages with lower index inside array will be sent first.
+
+Microcontroller specific code for C\+A\+Nopen\+Node.
+
+This file contains type definitions, functions and macros for\+:
+\begin{DoxyItemize}
+\item Basic data types.
+\item Receive and transmit buffers for C\+A\+Nopen messages.
+\item Interaction with C\+AN module on the microcontroller.
+\item C\+AN receive and transmit interrupts.
+\end{DoxyItemize}
+
+This file is not only a C\+AN driver. There are no classic C\+AN queues for C\+AN messages. This file provides direct connection with other C\+A\+Nopen objects. It tries to provide fast responses and tries to avoid unnecessary calculations and memory consumptions.
+
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} contains an array of {\itshape Received message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}) and an array of {\itshape Transmit message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}). Each C\+A\+Nopen communication object owns one member in one of the arrays. For example Heartbeat producer generates one C\+A\+Nopen transmitting object, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array. S\+Y\+NC module may produce sync or consume sync, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} and one member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.\hypertarget{group___c_o__driver_autotoc_md2}{}\doxyparagraph{Reception of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md2}
+Before C\+AN messages can be received, each member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}} uses multiple members in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. (It monitors multiple heartbeat messages from remote nodes.) It must call \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} multiple times.
+
+Main arguments to the \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} function are C\+AN identifier and a pointer to callback function. Those two arguments (and some others) are copied to the member of the \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.
+
+Callback function is a function, specified by specific C\+A\+Nopen module (for example by \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}}). Each C\+A\+Nopen module defines own callback function. Callback function will process the received C\+AN message. It will copy the necessary data from C\+AN message to proper place. It may also trigger additional task, which will further process the received message. Callback function must be fast and must only make the necessary calculations and copying.
+
+Received C\+AN messages are processed by C\+AN receive interrupt function. After C\+AN message is received, function first tries to find matching C\+AN identifier from \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. If found, then a corresponding callback function is called.
+
+Callback function accepts two parameters\+:
+\begin{DoxyItemize}
+\item object is pointer to object registered by \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}}.
+\item msg is pointer to C\+AN message of type \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}}.
+\end{DoxyItemize}
+
+Callback function must return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH.\hypertarget{group___c_o__driver_autotoc_md3}{}\doxyparagraph{Transmission of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md3}
+Before C\+AN messages can be transmitted, each member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example Heartbeat producer must initialize it\textquotesingle{}s member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array.
+
+\mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} returns a pointer of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}, which contains buffer where C\+AN message data can be written. C\+AN message is send with calling \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function. If at that moment C\+AN transmit buffer inside microcontroller\textquotesingle{}s C\+AN module is free, message is copied directly to C\+AN module. Otherwise \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function sets {\itshape buffer\+Full} flag to true. Message will be then sent by C\+AN TX interrupt as soon as C\+AN module is freed. Until message is not copied to C\+AN module, its contents must not change. There may be multiple {\itshape buffer\+Full} flags in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array set to true. In that case messages with lower index inside array will be sent first.
+
+Microcontroller specific code for C\+A\+Nopen\+Node.
+
+This file contains type definitions, functions and macros for\+:
+\begin{DoxyItemize}
+\item Basic data types.
+\item Receive and transmit buffers for C\+A\+Nopen messages.
+\item Interaction with C\+AN module on the microcontroller.
+\item C\+AN receive and transmit interrupts.
+\end{DoxyItemize}
+
+This file is not only a C\+AN driver. There are no classic C\+AN queues for C\+AN messages. This file provides direct connection with other C\+A\+Nopen objects. It tries to provide fast responses and tries to avoid unnecessary calculations and memory consumptions.
+
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} contains an array of {\itshape Received message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}) and an array of {\itshape Transmit message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}). Each C\+A\+Nopen communication object owns one member in one of the arrays. For example Heartbeat producer generates one C\+A\+Nopen transmitting object, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array. S\+Y\+NC module may produce sync or consume sync, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} and one member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.\hypertarget{group___c_o__driver_autotoc_md45}{}\doxyparagraph{Reception of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md45}
+Before C\+AN messages can be received, each member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}} uses multiple members in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. (It monitors multiple heartbeat messages from remote nodes.) It must call \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} multiple times.
+
+Main arguments to the \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} function are C\+AN identifier and a pointer to callback function. Those two arguments (and some others) are copied to the member of the \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.
+
+Callback function is a function, specified by specific C\+A\+Nopen module (for example by \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}}). Each C\+A\+Nopen module defines own callback function. Callback function will process the received C\+AN message. It will copy the necessary data from C\+AN message to proper place. It may also trigger additional task, which will further process the received message. Callback function must be fast and must only make the necessary calculations and copying.
+
+Received C\+AN messages are processed by C\+AN receive interrupt function. After C\+AN message is received, function first tries to find matching C\+AN identifier from \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. If found, then a corresponding callback function is called.
+
+Callback function accepts two parameters\+:
+\begin{DoxyItemize}
+\item object is pointer to object registered by \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}}.
+\item msg is pointer to C\+AN message of type \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}}.
+\end{DoxyItemize}
+
+Callback function must return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH.\hypertarget{group___c_o__driver_autotoc_md46}{}\doxyparagraph{Transmission of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md46}
+Before C\+AN messages can be transmitted, each member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example Heartbeat producer must initialize it\textquotesingle{}s member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array.
+
+\mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} returns a pointer of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}, which contains buffer where C\+AN message data can be written. C\+AN message is send with calling \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function. If at that moment C\+AN transmit buffer inside microcontroller\textquotesingle{}s C\+AN module is free, message is copied directly to C\+AN module. Otherwise \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function sets {\itshape buffer\+Full} flag to true. Message will be then sent by C\+AN TX interrupt as soon as C\+AN module is freed. Until message is not copied to C\+AN module, its contents must not change. There may be multiple {\itshape buffer\+Full} flags in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array set to true. In that case messages with lower index inside array will be sent first.
+
+Microcontroller specific code for C\+A\+Nopen\+Node.
+
+This file contains type definitions, functions and macros for\+:
+\begin{DoxyItemize}
+\item Basic data types.
+\item Receive and transmit buffers for C\+A\+Nopen messages.
+\item Interaction with C\+AN module on the microcontroller.
+\item C\+AN receive and transmit interrupts.
+\end{DoxyItemize}
+
+This file is not only a C\+AN driver. There are no classic C\+AN queues for C\+AN messages. This file provides direct connection with other C\+A\+Nopen objects. It tries to provide fast responses and tries to avoid unnecessary calculations and memory consumptions.
+
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} contains an array of {\itshape Received message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}) and an array of {\itshape Transmit message objects} (of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}). Each C\+A\+Nopen communication object owns one member in one of the arrays. For example Heartbeat producer generates one C\+A\+Nopen transmitting object, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array. S\+Y\+NC module may produce sync or consume sync, so it has reserved one member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} and one member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.\hypertarget{group___c_o__driver_autotoc_md47}{}\doxyparagraph{Reception of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md47}
+Before C\+AN messages can be received, each member in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}} uses multiple members in \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. (It monitors multiple heartbeat messages from remote nodes.) It must call \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} multiple times.
+
+Main arguments to the \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}} function are C\+AN identifier and a pointer to callback function. Those two arguments (and some others) are copied to the member of the \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array.
+
+Callback function is a function, specified by specific C\+A\+Nopen module (for example by \mbox{\hyperlink{group___c_o___h_bconsumer}{Heartbeat consumer}}). Each C\+A\+Nopen module defines own callback function. Callback function will process the received C\+AN message. It will copy the necessary data from C\+AN message to proper place. It may also trigger additional task, which will further process the received message. Callback function must be fast and must only make the necessary calculations and copying.
+
+Received C\+AN messages are processed by C\+AN receive interrupt function. After C\+AN message is received, function first tries to find matching C\+AN identifier from \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} array. If found, then a corresponding callback function is called.
+
+Callback function accepts two parameters\+:
+\begin{DoxyItemize}
+\item object is pointer to object registered by \mbox{\hyperlink{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}{C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init()}}.
+\item msg is pointer to C\+AN message of type \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}}.
+\end{DoxyItemize}
+
+Callback function must return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+M\+S\+G\+\_\+\+L\+E\+N\+G\+TH or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+R\+X\+\_\+\+P\+D\+O\+\_\+\+L\+E\+N\+G\+TH.\hypertarget{group___c_o__driver_autotoc_md48}{}\doxyparagraph{Transmission of C\+A\+N messages.}\label{group___c_o__driver_autotoc_md48}
+Before C\+AN messages can be transmitted, each member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} must be initialized. \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} is called by C\+A\+Nopen module, which uses specific member. For example Heartbeat producer must initialize it\textquotesingle{}s member in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array.
+
+\mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}} returns a pointer of type \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}, which contains buffer where C\+AN message data can be written. C\+AN message is send with calling \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function. If at that moment C\+AN transmit buffer inside microcontroller\textquotesingle{}s C\+AN module is free, message is copied directly to C\+AN module. Otherwise \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function sets {\itshape buffer\+Full} flag to true. Message will be then sent by C\+AN TX interrupt as soon as C\+AN module is freed. Until message is not copied to C\+AN module, its contents must not change. There may be multiple {\itshape buffer\+Full} flags in \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} array set to true. In that case messages with lower index inside array will be sent first. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}\label{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}} 
+\index{Driver@{Driver}!CANrxMemoryBarrier@{CANrxMemoryBarrier}}
+\index{CANrxMemoryBarrier@{CANrxMemoryBarrier}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CANrxMemoryBarrier}{CANrxMemoryBarrier}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+A\+Nrx\+Memory\+Barrier(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Memory barrier 
+
+Definition at line 188 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}\label{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}} 
+\index{Driver@{Driver}!CANrxMemoryBarrier@{CANrxMemoryBarrier}}
+\index{CANrxMemoryBarrier@{CANrxMemoryBarrier}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CANrxMemoryBarrier}{CANrxMemoryBarrier}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+A\+Nrx\+Memory\+Barrier(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Memory barrier 
+
+Definition at line 188 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}\label{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}} 
+\index{Driver@{Driver}!CLEAR\_CANrxNew@{CLEAR\_CANrxNew}}
+\index{CLEAR\_CANrxNew@{CLEAR\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_CANrxNew}{CLEAR\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+L\+E\+A\+R\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)0L;\}}
+
+Clear new message flag 
+
+Definition at line 194 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}\label{group___c_o__driver_gafe9d8f1d14567463a15d31924fc28876}} 
+\index{Driver@{Driver}!CLEAR\_CANrxNew@{CLEAR\_CANrxNew}}
+\index{CLEAR\_CANrxNew@{CLEAR\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_CANrxNew}{CLEAR\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+L\+E\+A\+R\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)0L;\}}
+
+Clear new message flag 
+
+Definition at line 194 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}\label{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}} 
+\index{Driver@{Driver}!CO\_LOCK\_CAN\_SEND@{CO\_LOCK\_CAN\_SEND}}
+\index{CO\_LOCK\_CAN\_SEND@{CO\_LOCK\_CAN\_SEND}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_CAN\_SEND}{CO\_LOCK\_CAN\_SEND}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section in \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} 
+
+Definition at line 163 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}\label{group___c_o__driver_ga7566ee901bbf1a0d76d771d72d2f826f}} 
+\index{Driver@{Driver}!CO\_LOCK\_CAN\_SEND@{CO\_LOCK\_CAN\_SEND}}
+\index{CO\_LOCK\_CAN\_SEND@{CO\_LOCK\_CAN\_SEND}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_CAN\_SEND}{CO\_LOCK\_CAN\_SEND}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section in \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} 
+
+Definition at line 163 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}\label{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}} 
+\index{Driver@{Driver}!CO\_LOCK\_EMCY@{CO\_LOCK\_EMCY}}
+\index{CO\_LOCK\_EMCY@{CO\_LOCK\_EMCY}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_EMCY}{CO\_LOCK\_EMCY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+E\+M\+CY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section in \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} or \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} 
+
+Definition at line 166 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}\label{group___c_o__driver_ga3052a84235f56d535a14705e0cfda799}} 
+\index{Driver@{Driver}!CO\_LOCK\_EMCY@{CO\_LOCK\_EMCY}}
+\index{CO\_LOCK\_EMCY@{CO\_LOCK\_EMCY}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_EMCY}{CO\_LOCK\_EMCY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+E\+M\+CY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section in \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} or \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} 
+
+Definition at line 166 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}\label{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}} 
+\index{Driver@{Driver}!CO\_LOCK\_OD@{CO\_LOCK\_OD}}
+\index{CO\_LOCK\_OD@{CO\_LOCK\_OD}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_OD}{CO\_LOCK\_OD}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+OD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section when accessing Object Dictionary 
+
+Definition at line 169 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}\label{group___c_o__driver_ga3850830931ced2bd3d7e15821572bbcc}} 
+\index{Driver@{Driver}!CO\_LOCK\_OD@{CO\_LOCK\_OD}}
+\index{CO\_LOCK\_OD@{CO\_LOCK\_OD}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_LOCK\_OD}{CO\_LOCK\_OD}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+L\+O\+C\+K\+\_\+\+OD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lock critical section when accessing Object Dictionary 
+
+Definition at line 169 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}\label{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_CAN\_SEND@{CO\_UNLOCK\_CAN\_SEND}}
+\index{CO\_UNLOCK\_CAN\_SEND@{CO\_UNLOCK\_CAN\_SEND}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_CAN\_SEND}{CO\_UNLOCK\_CAN\_SEND}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unlock critical section in \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} 
+
+Definition at line 164 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}\label{group___c_o__driver_ga511a5a0bf905c2207d5c9e26d35fe3cc}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_CAN\_SEND@{CO\_UNLOCK\_CAN\_SEND}}
+\index{CO\_UNLOCK\_CAN\_SEND@{CO\_UNLOCK\_CAN\_SEND}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_CAN\_SEND}{CO\_UNLOCK\_CAN\_SEND}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unlock critical section in \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} 
+
+Definition at line 164 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}\label{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_EMCY@{CO\_UNLOCK\_EMCY}}
+\index{CO\_UNLOCK\_EMCY@{CO\_UNLOCK\_EMCY}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_EMCY}{CO\_UNLOCK\_EMCY}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+E\+M\+CY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unlock critical section in \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} or \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} 
+
+Definition at line 167 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}\label{group___c_o__driver_ga720a798f2bf7fe20d9c95a212b4df417}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_EMCY@{CO\_UNLOCK\_EMCY}}
+\index{CO\_UNLOCK\_EMCY@{CO\_UNLOCK\_EMCY}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_EMCY}{CO\_UNLOCK\_EMCY}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+E\+M\+CY(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unlock critical section in \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} or \mbox{\hyperlink{group___c_o___emergency_ga14947a08d1c68446ee3356f00159174f}{C\+O\+\_\+error\+Reset()}} 
+
+Definition at line 167 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}\label{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_OD@{CO\_UNLOCK\_OD}}
+\index{CO\_UNLOCK\_OD@{CO\_UNLOCK\_OD}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_OD}{CO\_UNLOCK\_OD}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+OD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unock critical section when accessing Object Dictionary 
+
+Definition at line 170 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}\label{group___c_o__driver_ga2477f5d24fd31a9f4052cf451b87809f}} 
+\index{Driver@{Driver}!CO\_UNLOCK\_OD@{CO\_UNLOCK\_OD}}
+\index{CO\_UNLOCK\_OD@{CO\_UNLOCK\_OD}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_UNLOCK\_OD}{CO\_UNLOCK\_OD}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define C\+O\+\_\+\+U\+N\+L\+O\+C\+K\+\_\+\+OD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Unock critical section when accessing Object Dictionary 
+
+Definition at line 170 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}\label{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}} 
+\index{Driver@{Driver}!IS\_CANrxNew@{IS\_CANrxNew}}
+\index{IS\_CANrxNew@{IS\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{IS\_CANrxNew}{IS\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~((uintptr\+\_\+t)rx\+New)}
+
+Check if new message has arrived 
+
+Definition at line 190 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}\label{group___c_o__driver_ga535c175d53f76b78ac586dd7e313e764}} 
+\index{Driver@{Driver}!IS\_CANrxNew@{IS\_CANrxNew}}
+\index{IS\_CANrxNew@{IS\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{IS\_CANrxNew}{IS\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define I\+S\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~((uintptr\+\_\+t)rx\+New)}
+
+Check if new message has arrived 
+
+Definition at line 190 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}\label{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}} 
+\index{Driver@{Driver}!SET\_CANrxNew@{SET\_CANrxNew}}
+\index{SET\_CANrxNew@{SET\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{SET\_CANrxNew}{SET\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)1L;\}}
+
+Set new message flag 
+
+Definition at line 192 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}\label{group___c_o__driver_gaf9658047fbf7d12298cfa627a4db1fbb}} 
+\index{Driver@{Driver}!SET\_CANrxNew@{SET\_CANrxNew}}
+\index{SET\_CANrxNew@{SET\_CANrxNew}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{SET\_CANrxNew}{SET\_CANrxNew}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define S\+E\+T\+\_\+\+C\+A\+Nrx\+New(\begin{DoxyParamCaption}\item[{}]{rx\+New }\end{DoxyParamCaption})~\{\mbox{\hyperlink{group___c_o__driver_ga0cf4099f9e716769492013b92fdd5a50}{C\+A\+Nrx\+Memory\+Barrier}}(); rx\+New = (void$\ast$)1L;\}}
+
+Set new message flag 
+
+Definition at line 192 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o__driver_gabbeac85cbf513162b11fc3d0717b0753}\label{group___c_o__driver_gabbeac85cbf513162b11fc3d0717b0753}} 
+\index{Driver@{Driver}!CO\_CANclearPendingSyncPDOs@{CO\_CANclearPendingSyncPDOs}}
+\index{CO\_CANclearPendingSyncPDOs@{CO\_CANclearPendingSyncPDOs}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANclearPendingSyncPDOs()}{CO\_CANclearPendingSyncPDOs()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Nclear\+Pending\+Sync\+P\+D\+Os (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule }\end{DoxyParamCaption})}
+
+Clear all synchronous T\+P\+D\+Os from C\+AN module transmit buffers.
+
+C\+A\+Nopen allows synchronous P\+DO communication only inside time between S\+Y\+NC message and S\+Y\+NC Window. If time is outside this window, new synchronous P\+D\+Os must not be sent and all pending sync T\+P\+D\+Os, which may be on C\+AN TX buffers, must be cleared.
+
+This function checks (and aborts transmission if necessary) C\+AN TX buffers when it is called. Function should be called by the stack in the moment, when S\+Y\+NC time was just passed out of synchronous window.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 283 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gae5e1af799bd59ed0a39495241ce6f5e3}\label{group___c_o__driver_gae5e1af799bd59ed0a39495241ce6f5e3}} 
+\index{Driver@{Driver}!CO\_CANinterrupt@{CO\_CANinterrupt}}
+\index{CO\_CANinterrupt@{CO\_CANinterrupt}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANinterrupt()}{CO\_CANinterrupt()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Ninterrupt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule }\end{DoxyParamCaption})}
+
+Receives and transmits C\+AN messages.
+
+Function must be called directly from high priority C\+AN interrupt.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 378 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gac6f60f9da27dda0c9b3950c4e96bd687}\label{group___c_o__driver_gac6f60f9da27dda0c9b3950c4e96bd687}} 
+\index{Driver@{Driver}!CO\_CANmodule\_disable@{CO\_CANmodule\_disable}}
+\index{CO\_CANmodule\_disable@{CO\_CANmodule\_disable}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANmodule\_disable()}{CO\_CANmodule\_disable()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Nmodule\+\_\+disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule }\end{DoxyParamCaption})}
+
+Switch off C\+A\+Nmodule. Call at program exit.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & C\+AN module object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}\label{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}} 
+\index{Driver@{Driver}!CO\_CANmodule\_init@{CO\_CANmodule\_init}}
+\index{CO\_CANmodule\_init@{CO\_CANmodule\_init}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANmodule\_init()}{CO\_CANmodule\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule,  }\item[{void $\ast$}]{C\+A\+Ndriver\+State,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}}}]{rx\+Array\mbox{[}$\,$\mbox{]},  }\item[{uint16\+\_\+t}]{rx\+Size,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}}]{tx\+Array\mbox{[}$\,$\mbox{]},  }\item[{uint16\+\_\+t}]{tx\+Size,  }\item[{uint16\+\_\+t}]{C\+A\+Nbit\+Rate }\end{DoxyParamCaption})}
+
+Initialize C\+AN module object.
+
+Function must be called in the communication reset section. C\+AN module must be in Configuration Mode before.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object will be initialized. \\
+\hline
+{\em C\+A\+Ndriver\+State} & User-\/provided C\+AN module structure.. \\
+\hline
+{\em rx\+Array} & Array for handling received C\+AN messages \\
+\hline
+{\em rx\+Size} & Size of the above array. Must be equal to number of receiving C\+AN objects. \\
+\hline
+{\em tx\+Array} & Array for handling transmitting C\+AN messages \\
+\hline
+{\em tx\+Size} & Size of the above array. Must be equal to number of transmitting C\+AN objects. \\
+\hline
+{\em C\+A\+Nbit\+Rate} & Valid values are (in kbps)\+: 10, 20, 50, 125, 250, 500, 800, 1000. If value is illegal, bitrate defaults to 125.\\
+\hline
+\end{DoxyParams}
+Return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+
+Definition at line 55 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}\label{group___c_o__driver_ga9ead9e6716366d0b1481a9ffe9bbe34d}} 
+\index{Driver@{Driver}!CO\_CANrxBufferInit@{CO\_CANrxBufferInit}}
+\index{CO\_CANrxBufferInit@{CO\_CANrxBufferInit}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANrxBufferInit()}{CO\_CANrxBufferInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+C\+A\+Nrx\+Buffer\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule,  }\item[{uint16\+\_\+t}]{index,  }\item[{uint16\+\_\+t}]{ident,  }\item[{uint16\+\_\+t}]{mask,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{rtr,  }\item[{void $\ast$}]{object,  }\item[{void($\ast$)(void $\ast$object, const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$message)}]{p\+Funct }\end{DoxyParamCaption})}
+
+Configure C\+AN message receive buffer.
+
+Function configures specific C\+AN receive buffer. It sets C\+AN identifier and connects buffer with specific object. Function must be called for each member in {\itshape rx\+Array} from \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+{\em index} & Index of the specific buffer in {\itshape rx\+Array}. \\
+\hline
+{\em ident} & 11-\/bit standard C\+AN Identifier. \\
+\hline
+{\em mask} & 11-\/bit mask for identifier. Most usually set to 0x7\+FF. Received message (rcv\+Msg) will be accepted if the following condition is true\+: (((rcv\+Msg\+Id $^\wedge$ ident) \& mask) == 0). \\
+\hline
+{\em rtr} & If true, \textquotesingle{}Remote Transmit Request\textquotesingle{} messages will be accepted. \\
+\hline
+{\em object} & C\+A\+Nopen object, to which buffer is connected. It will be used as an argument to p\+Funct. Its type is (void), p\+Funct will change its type back to the correct object type. \\
+\hline
+{\em p\+Funct} & Pointer to function, which will be called, if received C\+AN message matches the identifier. It must be fast function.\\
+\hline
+\end{DoxyParams}
+Return \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+M\+E\+M\+O\+RY (not enough masks for configuration). 
+
+Definition at line 167 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gaff8768d283f511756924e07f89b76d26}\label{group___c_o__driver_gaff8768d283f511756924e07f89b76d26}} 
+\index{Driver@{Driver}!CO\_CANrxMsg\_readIdent@{CO\_CANrxMsg\_readIdent}}
+\index{CO\_CANrxMsg\_readIdent@{CO\_CANrxMsg\_readIdent}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANrxMsg\_readIdent()}{CO\_CANrxMsg\_readIdent()}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+read\+Ident (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_c_o___c_a_nrx_msg__t}{C\+O\+\_\+\+C\+A\+Nrx\+Msg\+\_\+t}} $\ast$}]{rx\+Msg }\end{DoxyParamCaption})}
+
+Read C\+AN identifier from received message
+
+
+\begin{DoxyParams}{Parameters}
+{\em rx\+Msg} & Pointer to received message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+11-\/bit C\+AN standard identifier. 
+\end{DoxyReturn}
+
+
+Definition at line 161 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}\label{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}} 
+\index{Driver@{Driver}!CO\_CANsend@{CO\_CANsend}}
+\index{CO\_CANsend@{CO\_CANsend}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANsend()}{CO\_CANsend()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+C\+A\+Nsend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+Send C\+AN message.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+{\em buffer} & Pointer to transmit buffer, returned by \mbox{\hyperlink{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}{C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init()}}. Data bytes must be written in buffer before function call.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}}\+: C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO, C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+T\+X\+\_\+\+O\+V\+E\+R\+F\+L\+OW or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+T\+X\+\_\+\+P\+D\+O\+\_\+\+W\+I\+N\+D\+OW (Synchronous T\+P\+DO is outside window). 
+\end{DoxyReturn}
+
+
+Definition at line 237 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_ga499212a81f94cdb9ac84f5f8d082b95b}\label{group___c_o__driver_ga499212a81f94cdb9ac84f5f8d082b95b}} 
+\index{Driver@{Driver}!CO\_CANsetConfigurationMode@{CO\_CANsetConfigurationMode}}
+\index{CO\_CANsetConfigurationMode@{CO\_CANsetConfigurationMode}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANsetConfigurationMode()}{CO\_CANsetConfigurationMode()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Nset\+Configuration\+Mode (\begin{DoxyParamCaption}\item[{void $\ast$}]{C\+A\+Ndriver\+State }\end{DoxyParamCaption})}
+
+Request C\+AN configuration (stopped) mode and {\itshape wait} untill it is set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Ndriver\+State} & User-\/provided C\+AN module structure. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 38 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gad654edfa651bf7b68263913786697200}\label{group___c_o__driver_gad654edfa651bf7b68263913786697200}} 
+\index{Driver@{Driver}!CO\_CANsetNormalMode@{CO\_CANsetNormalMode}}
+\index{CO\_CANsetNormalMode@{CO\_CANsetNormalMode}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANsetNormalMode()}{CO\_CANsetNormalMode()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Nset\+Normal\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule }\end{DoxyParamCaption})}
+
+Request C\+AN normal (opearational) mode and {\itshape wait} untill it is set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 47 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}\label{group___c_o__driver_ga01e2ee79e7e3a8b321dac831e7e00976}} 
+\index{Driver@{Driver}!CO\_CANtxBufferInit@{CO\_CANtxBufferInit}}
+\index{CO\_CANtxBufferInit@{CO\_CANtxBufferInit}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANtxBufferInit()}{CO\_CANtxBufferInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}}$\ast$ C\+O\+\_\+\+C\+A\+Ntx\+Buffer\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule,  }\item[{uint16\+\_\+t}]{index,  }\item[{uint16\+\_\+t}]{ident,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{rtr,  }\item[{uint8\+\_\+t}]{no\+Of\+Bytes,  }\item[{\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}}}]{sync\+Flag }\end{DoxyParamCaption})}
+
+Configure C\+AN message transmit buffer.
+
+Function configures specific C\+AN transmit buffer. Function must be called for each member in {\itshape tx\+Array} from \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+{\em index} & Index of the specific buffer in {\itshape tx\+Array}. \\
+\hline
+{\em ident} & 11-\/bit standard C\+AN Identifier. \\
+\hline
+{\em rtr} & If true, \textquotesingle{}Remote Transmit Request\textquotesingle{} messages will be transmitted. \\
+\hline
+{\em no\+Of\+Bytes} & Length of C\+AN message in bytes (0 to 8 bytes). \\
+\hline
+{\em sync\+Flag} & This flag bit is used for synchronous T\+P\+DO messages. If it is set, message will not be sent, if curent time is outside synchronous window.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to C\+AN transmit message buffer. 8 bytes data array inside buffer should be written, before \mbox{\hyperlink{group___c_o__driver_ga4664a9f5d547cb0605a9e929fb079f2e}{C\+O\+\_\+\+C\+A\+Nsend()}} function is called. Zero is returned in case of wrong arguments. 
+\end{DoxyReturn}
+
+
+Definition at line 207 of file C\+O\+\_\+driver.\+c.
+
+\mbox{\Hypertarget{group___c_o__driver_gafa9e96d1772f3d7b37aa12732e9e4cea}\label{group___c_o__driver_gafa9e96d1772f3d7b37aa12732e9e4cea}} 
+\index{Driver@{Driver}!CO\_CANverifyErrors@{CO\_CANverifyErrors}}
+\index{CO\_CANverifyErrors@{CO\_CANverifyErrors}!Driver@{Driver}}
+\doxysubsubsection{\texorpdfstring{CO\_CANverifyErrors()}{CO\_CANverifyErrors()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+C\+A\+Nverify\+Errors (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{C\+A\+Nmodule }\end{DoxyParamCaption})}
+
+Verify all errors of C\+AN module.
+
+Function is called directly from \mbox{\hyperlink{_c_o___emergency_8c_aff607e6d9b26d2fe5874aeb456481024}{C\+O\+\_\+\+E\+M\+\_\+process()}} function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em C\+A\+Nmodule} & This object. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 319 of file C\+O\+\_\+driver.\+c.
+

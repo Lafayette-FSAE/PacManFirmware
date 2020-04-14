@@ -1,0 +1,1851 @@
+\hypertarget{class_adafruit___g_f_x}{}\doxysection{Adafruit\+\_\+\+G\+FX Class Reference}
+\label{class_adafruit___g_f_x}\index{Adafruit\_GFX@{Adafruit\_GFX}}
+
+
+A generic graphics superclass that can handle all sorts of drawing. At a minimum you can subclass and provide \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{draw\+Pixel()}}. At a maximum you can do a ton of overriding to optimize. Used for any/all Adafruit displays!  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+G\+F\+X.\+h$>$}
+
+Inheritance diagram for Adafruit\+\_\+\+G\+FX\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.955752cm]{class_adafruit___g_f_x}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_adafruit___g_f_x_a6f6f1abccf677eac244fa17d105133ea}{Adafruit\+\_\+\+G\+FX}} (int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Instatiate a G\+FX context for graphics! Can only be done by a superclass. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)=0
+\begin{DoxyCompactList}\small\item\em Virtual \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_aa991435d3d38f6818fc93f9370c0b3e5}{start\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Start a display-\/writing routine, overwrite in subclasses. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ab66a1577ec595a254e4492d641b36fd8}{write\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a pixel, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a60133faeabc10f9d909674bc4c5aabc6}{write\+Fill\+Rect}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a rectangle completely with one color, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ae12d09670433af17e666a203b51715f7}{write\+Fast\+V\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a perfectly vertical line, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ad85469e8be73f90932058fba1d4e5cbd}{write\+Fast\+H\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a perfectly horizontal line, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ae1e5204b9251a04a57c821f69a8e638b}{write\+Line}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Write a line. Bresenham\textquotesingle{}s algorithm -\/ thx wikpedia. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_ab9be8787f3683151e86c1f3b5c8685d6}{end\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em End a display-\/writing routine, overwrite in subclasses if start\+Write is defined! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a6ac337c49876cee23ed062a928724675}{set\+Rotation}} (uint8\+\_\+t r)
+\begin{DoxyCompactList}\small\item\em Set rotation setting for display. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a2fa315803f39a5e73b1841874daf0483}{invert\+Display}} (boolean i)
+\begin{DoxyCompactList}\small\item\em Invert the display (ideally using built-\/in hardware command) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a1cffbb1d69c5faf49cd0cff27686a837}{draw\+Fast\+V\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a perfectly vertical line (this is often optimized in a subclass!) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a4d42e7cc577c1eb5b06fe656786c9c79}{draw\+Fast\+H\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a perfectly horizontal line (this is often optimized in a subclass!) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_aa43cf1dfe6c17d040a0f1fd5ffbe9d69}{fill\+Rect}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill a rectangle completely with one color. Update in subclasses if desired! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a2b2730aaf2208990928f9c0f85558527}{fill\+Screen}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Fill the screen completely with one color. Update in subclasses if desired! \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_aa0ff662c2b2b48c3bac51f98c777776d}{draw\+Line}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a line. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a9ec2c2ab426503e4f7deddb93bb916f6}{draw\+Rect}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a rectangle with no fill color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a648d2d6765e488b4556e802167d885fb}{draw\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a circle outline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a3f2dd7b698e7b95ebf9fecf992ff802e}{draw\+Circle\+Helper}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint8\+\_\+t cornername, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Quarter-\/circle drawer, used to do circles and roundrects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a623e031e58492fb41e9fde6a05d97c12}{fill\+Circle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a circle with filled color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a2242d3560b08c6480084152b6660052a}{fill\+Circle\+Helper}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint8\+\_\+t cornername, int16\+\_\+t delta, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Quarter-\/circle drawer with fill, used for circles and roundrects. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a49284b9cea16ecf8c15dfd0b51a841e6}{draw\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a triangle with no fill color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a4cd646a3d9c9d5b3ee50010d0aa387cd}{fill\+Triangle}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a triangle with color-\/fill. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_ab496b247abec724ef80e17a30257972b}{draw\+Round\+Rect}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t w, int16\+\_\+t h, int16\+\_\+t radius, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a rounded rectangle with no fill color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a78dc59f6a508bcd3d5ac7af957b8b1ac}{fill\+Round\+Rect}} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t w, int16\+\_\+t h, int16\+\_\+t radius, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a rounded rectangle with fill color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}{draw\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint8\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground color (unset bits are transparent). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a0def482cb5ab6010cac6936de8e07188}{draw\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint8\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color, uint16\+\_\+t bg)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground (for set bits) and background (unset bits) colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a957c2d2fc53e3121c5914a8bd9e5c3da}{draw\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint8\+\_\+t $\ast$bitmap, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground color (unset bits are transparent). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a25dfb7db5b7446406b9204c738f0885e}{draw\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint8\+\_\+t $\ast$bitmap, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color, uint16\+\_\+t bg)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground (for set bits) and background (unset bits) colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_aa7797117fef7d18592d352c14fa7d820}{draw\+X\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint8\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw P\+R\+O\+G\+M\+E\+M-\/resident X\+Bit\+Map Files ($\ast$.xbm), exported from G\+I\+MP. Usage\+: Export from G\+I\+MP to $\ast$.xbm, rename $\ast$.xbm to $\ast$.c and open in editor. C Array can be directly used with this function. There is no R\+A\+M-\/resident version of this function; if generating bitmaps in R\+AM, use the format defined by \mbox{\hyperlink{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}{draw\+Bitmap()}} and call that instead. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_af7f146631268e8940d9c44c64c69ab80}{draw\+Grayscale\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint8\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 8-\/bit image (grayscale) at the specified (x,y) pos. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a00b26b1e2ac05476fdbd44214001954d}{draw\+Grayscale\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint8\+\_\+t $\ast$bitmap, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 8-\/bit image (grayscale) at the specified (x,y) pos. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a880b422ce35d0e3956dcd00638a421e4}{draw\+Grayscale\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint8\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, const uint8\+\_\+t mask\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 8-\/bit image (grayscale) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (grayscale and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a7543eee2c983daea5eb46a0c2db92692}{draw\+Grayscale\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint8\+\_\+t $\ast$bitmap, uint8\+\_\+t $\ast$mask, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 8-\/bit image (grayscale) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (grayscale and mask) must be R\+A\+M-\/residentt, no mix-\/and-\/match Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_af90e317367f3ac6dae3aa46d549ca535}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint16\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a70768127ee8548d2a3690440c1694169}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t $\ast$bitmap, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_ad1d249d742f83ddc4c4f3867643d6eb0}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint16\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, const uint8\+\_\+t mask\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_aac6f64d394f8d3557aa6f613b4219866}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t $\ast$bitmap, uint8\+\_\+t $\ast$mask, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be R\+A\+M-\/resident. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_ab7f5a29b3a3dffe30c6a3f4c1f604a5a}{draw\+Char}} (int16\+\_\+t x, int16\+\_\+t y, unsigned char c, uint16\+\_\+t color, uint16\+\_\+t bg, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Draw a single character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_aa6ee1ead075d0e87c34116f917a5f06b}{draw\+Char}} (int16\+\_\+t x, int16\+\_\+t y, unsigned char c, uint16\+\_\+t color, uint16\+\_\+t bg, uint8\+\_\+t size\+\_\+x, uint8\+\_\+t size\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Draw a single character. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a90983ed41807de26d48bcf588d7c9a19}{get\+Text\+Bounds}} (const char $\ast$string, int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t $\ast$x1, int16\+\_\+t $\ast$y1, uint16\+\_\+t $\ast$w, uint16\+\_\+t $\ast$h)
+\begin{DoxyCompactList}\small\item\em Helper to determine size of a string with current font/size. Pass string and a cursor position, returns UL corner and W,H. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a97525abb71dbe38c6551e4d0da4052b8}{get\+Text\+Bounds}} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$s, int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t $\ast$x1, int16\+\_\+t $\ast$y1, uint16\+\_\+t $\ast$w, uint16\+\_\+t $\ast$h)
+\begin{DoxyCompactList}\small\item\em Helper to determine size of a P\+R\+O\+G\+M\+EM string with current font/size. Pass string and a cursor position, returns UL corner and W,H. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a4258c8e7e5e897a3e5e87748e4585579}{get\+Text\+Bounds}} (const String \&str, int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t $\ast$x1, int16\+\_\+t $\ast$y1, uint16\+\_\+t $\ast$w, uint16\+\_\+t $\ast$h)
+\begin{DoxyCompactList}\small\item\em Helper to determine size of a string with current font/size. Pass string and a cursor position, returns UL corner and W,H. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a39eb4a8a2c9fa4ab7d58ceffd19535d5}{set\+Text\+Size}} (uint8\+\_\+t s)
+\begin{DoxyCompactList}\small\item\em Set text \textquotesingle{}magnification\textquotesingle{} size. Each increase in s makes 1 pixel that much bigger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_abd8ea7d9203db38d7b601979f1252e37}{set\+Text\+Size}} (uint8\+\_\+t sx, uint8\+\_\+t sy)
+\begin{DoxyCompactList}\small\item\em Set text \textquotesingle{}magnification\textquotesingle{} size. Each increase in s makes 1 pixel that much bigger. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_ab0479a2bb4e09e7c39c35e35c55d6ed1}{set\+Font}} (const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$f=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Set the font to display when print()ing, either custom or default. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_aaf96a40cad0f34dd8ec73494b3866c33}{set\+Cursor}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Set text cursor location. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a59178a0e0c845a14a39b457c43567dd9}{set\+Text\+Color}} (uint16\+\_\+t c)
+\begin{DoxyCompactList}\small\item\em Set text font color with transparant background. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_ab6e88c585d3ab6b4f95199361f224fc6}{set\+Text\+Color}} (uint16\+\_\+t c, uint16\+\_\+t bg)
+\begin{DoxyCompactList}\small\item\em Set text font color with custom background color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_aeeacd62bf26f3e7abbdc4b5b50faa6fa}{set\+Text\+Wrap}} (boolean w)
+\begin{DoxyCompactList}\small\item\em Set whether text that is too long for the screen width should automatically wrap around to the next line (else clip right). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a6d447fe274e3f0ff12f12afa538d0afe}{cp437}} (boolean x=true)
+\begin{DoxyCompactList}\small\item\em Enable (or disable) Code Page 437-\/compatible charset. There was an error in \mbox{\hyperlink{glcdfont_8c}{glcdfont.\+c}} for the longest time -- one character (\#176, the \textquotesingle{}light shade\textquotesingle{} block) was missing -- this threw off the index of every character that followed it. But a T\+ON of code has been written with the erroneous character indices. By default, the library uses the original \textquotesingle{}wrong\textquotesingle{} behavior and old sketches will still work. Pass \textquotesingle{}true\textquotesingle{} to this function to use correct C\+P437 character values in your code. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___g_f_x_a8773d92cafa93d3f749fb55c535d8f2e}{write}} (uint8\+\_\+t)
+\begin{DoxyCompactList}\small\item\em Print one byte/character of data, used to support print() \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a324b5361e7198ef0e79eaf4c80bddfc7}{width}} (void) const
+\begin{DoxyCompactList}\small\item\em Get width of the display, accounting for current rotation. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a49da524caa19e5202ed2ed7fd5a3baea}{height}} (void) const
+\begin{DoxyCompactList}\small\item\em Get height of the display, accounting for current rotation. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_ab90e1378511b93189a7b557d7dda5d73}{get\+Rotation}} (void) const
+\begin{DoxyCompactList}\small\item\em Get rotation setting for display. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a0d1d15f5f15cad95b4c20f0e9ac9c74b}{get\+CursorX}} (void) const
+\begin{DoxyCompactList}\small\item\em Get text cursor X location. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a81c8558cfcb717c4cfbd5475998daed1}{get\+CursorY}} (void) const
+\begin{DoxyCompactList}\small\item\em Get text cursor Y location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x_a21c19ed786f8291613d082e81ad4e3c4}{char\+Bounds}} (char c, int16\+\_\+t $\ast$x, int16\+\_\+t $\ast$y, int16\+\_\+t $\ast$minx, int16\+\_\+t $\ast$miny, int16\+\_\+t $\ast$maxx, int16\+\_\+t $\ast$maxy)
+\begin{DoxyCompactList}\small\item\em Helper to determine size of a character with current font/size. Broke this out as it\textquotesingle{}s used by both the P\+R\+O\+G\+M\+E\+M-\/ and R\+A\+M-\/resident \mbox{\hyperlink{class_adafruit___g_f_x_a90983ed41807de26d48bcf588d7c9a19}{get\+Text\+Bounds()}} functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_aded338777abeac3c457660023f5c0724}{W\+I\+D\+TH}}
+\begin{DoxyCompactList}\small\item\em This is the \textquotesingle{}raw\textquotesingle{} display width -\/ never changes. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a2b7801fc9c405a61abe6e5916b55825b}{H\+E\+I\+G\+HT}}
+\begin{DoxyCompactList}\small\item\em This is the \textquotesingle{}raw\textquotesingle{} display height -\/ never changes. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_ab237f850a033492f5e745d79405a097a}{\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em Display width as modified by current rotation. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_ab9bb0cbc2455f64dce2a5ec36307aa94}{\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em Display height as modified by current rotation. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a8f8983cea8d81a7c8e9d05eef36318e2}{cursor\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em x location to start print()ing text \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_aebe0a38f6e6fd59cb81620c4696286c9}{cursor\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em y location to start print()ing text \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a8c6d23a386651136fd9530a5b7046591}{textcolor}}
+\begin{DoxyCompactList}\small\item\em 16-\/bit background color for print() \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a23e7a4efcab0b1588dc0cafa14b1fac1}{textbgcolor}}
+\begin{DoxyCompactList}\small\item\em 16-\/bit text color for print() \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a9c33cd6928ad6738a633e97727ae8773}{textsize\+\_\+x}}
+\begin{DoxyCompactList}\small\item\em Desired magnification in X-\/axis of text to print() \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_aa8588c3941eec083563c853ada3dd771}{textsize\+\_\+y}}
+\begin{DoxyCompactList}\small\item\em Desired magnification in Y-\/axis of text to print() \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___g_f_x_a37a479d28fb11906ce516e983b1af926}{rotation}}
+\begin{DoxyCompactList}\small\item\em Display rotation (0 thru 3) \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x_ad6bd603e01861212829d536312a7190b}{wrap}}
+\begin{DoxyCompactList}\small\item\em If set, \textquotesingle{}wrap\textquotesingle{} text at right edge of display. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x_aaef3d4d239641084cd3825a8b1042e01}{\+\_\+cp437}}
+\begin{DoxyCompactList}\small\item\em If set, use correct C\+P437 charset (default is off) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$ \mbox{\hyperlink{class_adafruit___g_f_x_afeb94c3253f43dada05e1270e322fa06}{gfx\+Font}}
+\begin{DoxyCompactList}\small\item\em Pointer to special font. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A generic graphics superclass that can handle all sorts of drawing. At a minimum you can subclass and provide \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{draw\+Pixel()}}. At a maximum you can do a ton of overriding to optimize. Used for any/all Adafruit displays! 
+
+Definition at line 13 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_adafruit___g_f_x_a6f6f1abccf677eac244fa17d105133ea}\label{class_adafruit___g_f_x_a6f6f1abccf677eac244fa17d105133ea}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!Adafruit\_GFX@{Adafruit\_GFX}}
+\index{Adafruit\_GFX@{Adafruit\_GFX}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_GFX()}{Adafruit\_GFX()}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+G\+F\+X\+::\+Adafruit\+\_\+\+G\+FX (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Instatiate a G\+FX context for graphics! Can only be done by a superclass. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width, in pixels \\
+\hline
+{\em h} & Display height, in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 104 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_adafruit___g_f_x_a21c19ed786f8291613d082e81ad4e3c4}\label{class_adafruit___g_f_x_a21c19ed786f8291613d082e81ad4e3c4}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!charBounds@{charBounds}}
+\index{charBounds@{charBounds}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{charBounds()}{charBounds()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::char\+Bounds (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{int16\+\_\+t $\ast$}]{x,  }\item[{int16\+\_\+t $\ast$}]{y,  }\item[{int16\+\_\+t $\ast$}]{minx,  }\item[{int16\+\_\+t $\ast$}]{miny,  }\item[{int16\+\_\+t $\ast$}]{maxx,  }\item[{int16\+\_\+t $\ast$}]{maxy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Helper to determine size of a character with current font/size. Broke this out as it\textquotesingle{}s used by both the P\+R\+O\+G\+M\+E\+M-\/ and R\+A\+M-\/resident \mbox{\hyperlink{class_adafruit___g_f_x_a90983ed41807de26d48bcf588d7c9a19}{get\+Text\+Bounds()}} functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The ascii character in question \\
+\hline
+{\em x} & Pointer to x location of character \\
+\hline
+{\em y} & Pointer to y location of character \\
+\hline
+{\em minx} & Minimum clipping value for X \\
+\hline
+{\em miny} & Minimum clipping value for Y \\
+\hline
+{\em maxx} & Maximum clipping value for X \\
+\hline
+{\em maxy} & Maximum clipping value for Y \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1302 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a6d447fe274e3f0ff12f12afa538d0afe}\label{class_adafruit___g_f_x_a6d447fe274e3f0ff12f12afa538d0afe}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!cp437@{cp437}}
+\index{cp437@{cp437}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{cp437()}{cp437()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::cp437 (\begin{DoxyParamCaption}\item[{boolean}]{x = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enable (or disable) Code Page 437-\/compatible charset. There was an error in \mbox{\hyperlink{glcdfont_8c}{glcdfont.\+c}} for the longest time -- one character (\#176, the \textquotesingle{}light shade\textquotesingle{} block) was missing -- this threw off the index of every character that followed it. But a T\+ON of code has been written with the erroneous character indices. By default, the library uses the original \textquotesingle{}wrong\textquotesingle{} behavior and old sketches will still work. Pass \textquotesingle{}true\textquotesingle{} to this function to use correct C\+P437 character values in your code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & true = enable (new behavior), false = disable (old behavior) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}\label{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint8\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground color (unset bits are transparent). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with monochrome bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 693 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a0def482cb5ab6010cac6936de8e07188}\label{class_adafruit___g_f_x_a0def482cb5ab6010cac6936de8e07188}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint8\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground (for set bits) and background (unset bits) colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with monochrome bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw pixels with \\
+\hline
+{\em bg} & 16-\/bit 5-\/6-\/5 Color to draw background with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 722 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a957c2d2fc53e3121c5914a8bd9e5c3da}\label{class_adafruit___g_f_x_a957c2d2fc53e3121c5914a8bd9e5c3da}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint8\+\_\+t $\ast$}]{bitmap,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground color (unset bits are transparent). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with monochrome bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 751 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a25dfb7db5b7446406b9204c738f0885e}\label{class_adafruit___g_f_x_a25dfb7db5b7446406b9204c738f0885e}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawBitmap@{drawBitmap}}
+\index{drawBitmap@{drawBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawBitmap()}{drawBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint8\+\_\+t $\ast$}]{bitmap,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{bg }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 1-\/bit image at the specified (x,y) position, using the specified foreground (for set bits) and background (unset bits) colors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with monochrome bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw pixels with \\
+\hline
+{\em bg} & 16-\/bit 5-\/6-\/5 Color to draw background with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 780 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab7f5a29b3a3dffe30c6a3f4c1f604a5a}\label{class_adafruit___g_f_x_ab7f5a29b3a3dffe30c6a3f4c1f604a5a}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawChar@{drawChar}}
+\index{drawChar@{drawChar}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawChar()}{drawChar()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Char (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{unsigned char}]{c,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{bg,  }\item[{uint8\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Draw a single character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Bottom left corner x coordinate \\
+\hline
+{\em y} & Bottom left corner y coordinate \\
+\hline
+{\em c} & The 8-\/bit font-\/indexed character (likely ascii) \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw chraracter with \\
+\hline
+{\em bg} & 16-\/bit 5-\/6-\/5 Color to fill background with (if same as color, no background) \\
+\hline
+{\em size} & Font magnification level, 1 is \textquotesingle{}original\textquotesingle{} size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1057 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa6ee1ead075d0e87c34116f917a5f06b}\label{class_adafruit___g_f_x_aa6ee1ead075d0e87c34116f917a5f06b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawChar@{drawChar}}
+\index{drawChar@{drawChar}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawChar()}{drawChar()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Char (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{unsigned char}]{c,  }\item[{uint16\+\_\+t}]{color,  }\item[{uint16\+\_\+t}]{bg,  }\item[{uint8\+\_\+t}]{size\+\_\+x,  }\item[{uint8\+\_\+t}]{size\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Draw a single character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Bottom left corner x coordinate \\
+\hline
+{\em y} & Bottom left corner y coordinate \\
+\hline
+{\em c} & The 8-\/bit font-\/indexed character (likely ascii) \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw chraracter with \\
+\hline
+{\em bg} & 16-\/bit 5-\/6-\/5 Color to fill background with (if same as color, no background) \\
+\hline
+{\em size\+\_\+x} & Font magnification level in X-\/axis, 1 is \textquotesingle{}original\textquotesingle{} size \\
+\hline
+{\em size\+\_\+y} & Font magnification level in Y-\/axis, 1 is \textquotesingle{}original\textquotesingle{} size \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1075 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a648d2d6765e488b4556e802167d885fb}\label{class_adafruit___g_f_x_a648d2d6765e488b4556e802167d885fb}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawCircle@{drawCircle}}
+\index{drawCircle@{drawCircle}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawCircle()}{drawCircle()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Circle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a circle outline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Center-\/point x coordinate \\
+\hline
+{\em y0} & Center-\/point y coordinate \\
+\hline
+{\em r} & Radius of circle \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 345 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a3f2dd7b698e7b95ebf9fecf992ff802e}\label{class_adafruit___g_f_x_a3f2dd7b698e7b95ebf9fecf992ff802e}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawCircleHelper@{drawCircleHelper}}
+\index{drawCircleHelper@{drawCircleHelper}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawCircleHelper()}{drawCircleHelper()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Circle\+Helper (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{cornername,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Quarter-\/circle drawer, used to do circles and roundrects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Center-\/point x coordinate \\
+\hline
+{\em y0} & Center-\/point y coordinate \\
+\hline
+{\em r} & Radius of circle \\
+\hline
+{\em cornername} & Mask bit \#1 or bit \#2 to indicate which quarters of the circle we\textquotesingle{}re doing \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 394 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a4d42e7cc577c1eb5b06fe656786c9c79}\label{class_adafruit___g_f_x_a4d42e7cc577c1eb5b06fe656786c9c79}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawFastHLine@{drawFastHLine}}
+\index{drawFastHLine@{drawFastHLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawFastHLine()}{drawFastHLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a perfectly horizontal line (this is often optimized in a subclass!) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Left-\/most x coordinate \\
+\hline
+{\em y} & Left-\/most y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 274 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a1cffbb1d69c5faf49cd0cff27686a837}\label{class_adafruit___g_f_x_a1cffbb1d69c5faf49cd0cff27686a837}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawFastVLine@{drawFastVLine}}
+\index{drawFastVLine@{drawFastVLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawFastVLine()}{drawFastVLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Fast\+V\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a perfectly vertical line (this is often optimized in a subclass!) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top-\/most x coordinate \\
+\hline
+{\em y} & Top-\/most y coordinate \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 258 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a880b422ce35d0e3956dcd00638a421e4}\label{class_adafruit___g_f_x_a880b422ce35d0e3956dcd00638a421e4}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawGrayscaleBitmap@{drawGrayscaleBitmap}}
+\index{drawGrayscaleBitmap@{drawGrayscaleBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawGrayscaleBitmap()}{drawGrayscaleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Grayscale\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint8\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{const uint8\+\_\+t}]{mask\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 8-\/bit image (grayscale) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (grayscale and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with grayscale bitmap \\
+\hline
+{\em mask} & byte array with mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 891 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_af7f146631268e8940d9c44c64c69ab80}\label{class_adafruit___g_f_x_af7f146631268e8940d9c44c64c69ab80}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawGrayscaleBitmap@{drawGrayscaleBitmap}}
+\index{drawGrayscaleBitmap@{drawGrayscaleBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawGrayscaleBitmap()}{drawGrayscaleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Grayscale\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint8\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 8-\/bit image (grayscale) at the specified (x,y) pos. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with grayscale bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 843 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a00b26b1e2ac05476fdbd44214001954d}\label{class_adafruit___g_f_x_a00b26b1e2ac05476fdbd44214001954d}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawGrayscaleBitmap@{drawGrayscaleBitmap}}
+\index{drawGrayscaleBitmap@{drawGrayscaleBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawGrayscaleBitmap()}{drawGrayscaleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Grayscale\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint8\+\_\+t $\ast$}]{bitmap,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 8-\/bit image (grayscale) at the specified (x,y) pos. Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with grayscale bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 865 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a7543eee2c983daea5eb46a0c2db92692}\label{class_adafruit___g_f_x_a7543eee2c983daea5eb46a0c2db92692}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawGrayscaleBitmap@{drawGrayscaleBitmap}}
+\index{drawGrayscaleBitmap@{drawGrayscaleBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawGrayscaleBitmap()}{drawGrayscaleBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Grayscale\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint8\+\_\+t $\ast$}]{bitmap,  }\item[{uint8\+\_\+t $\ast$}]{mask,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 8-\/bit image (grayscale) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (grayscale and mask) must be R\+A\+M-\/residentt, no mix-\/and-\/match Specifically for 8-\/bit display devices such as I\+S31\+F\+L3731; no color reduction/expansion is performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with grayscale bitmap \\
+\hline
+{\em mask} & byte array with mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 923 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa0ff662c2b2b48c3bac51f98c777776d}\label{class_adafruit___g_f_x_aa0ff662c2b2b48c3bac51f98c777776d}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawLine@{drawLine}}
+\index{drawLine@{drawLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawLine()}{drawLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a line. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Start point x coordinate \\
+\hline
+{\em y0} & Start point y coordinate \\
+\hline
+{\em x1} & End point x coordinate \\
+\hline
+{\em y1} & End point y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 320 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}\label{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily virtual void Adafruit\+\_\+\+G\+F\+X\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Virtual \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{draw\+Pixel()}} function to draw to the screen/framebuffer/etc, must be overridden in subclass. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate.\\
+\hline
+{\em y} & Y coordinate.\\
+\hline
+{\em color} & 16-\/bit pixel color. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_gx_e_p_d_a6b88a76dccacee0be73a322cec456db4}{Gx\+E\+PD}}, \mbox{\hyperlink{class_g_f_xcanvas16_ade30ed51e7dd07be0436b4f9407b6fd8}{G\+F\+Xcanvas16}}, \mbox{\hyperlink{class_g_f_xcanvas8_a596553ea995b2d7830cc3eef0c4085fc}{G\+F\+Xcanvas8}}, \mbox{\hyperlink{class_g_f_xcanvas1_a0859d124c8dcaa147ef22a54d6e843a8}{G\+F\+Xcanvas1}}, \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5e118fc9c0fb141c8ee9f14e49f20704}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}, and \mbox{\hyperlink{class_gx_g_d_e_h029_a1_a8644879adfe571b3062c4022784cba85}{Gx\+G\+D\+E\+H029\+A1}}.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a9ec2c2ab426503e4f7deddb93bb916f6}\label{class_adafruit___g_f_x_a9ec2c2ab426503e4f7deddb93bb916f6}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRect@{drawRect}}
+\index{drawRect@{drawRect}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRect()}{drawRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a rectangle with no fill color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 506 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ad1d249d742f83ddc4c4f3867643d6eb0}\label{class_adafruit___g_f_x_ad1d249d742f83ddc4c4f3867643d6eb0}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint16\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{const uint8\+\_\+t}]{mask\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em mask} & byte array with monochrome mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 997 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_af90e317367f3ac6dae3aa46d549ca535}\label{class_adafruit___g_f_x_af90e317367f3ac6dae3aa46d549ca535}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint16\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 952 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a70768127ee8548d2a3690440c1694169}\label{class_adafruit___g_f_x_a70768127ee8548d2a3690440c1694169}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t $\ast$}]{bitmap,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 974 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aac6f64d394f8d3557aa6f613b4219866}\label{class_adafruit___g_f_x_aac6f64d394f8d3557aa6f613b4219866}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t $\ast$}]{bitmap,  }\item[{uint8\+\_\+t $\ast$}]{mask,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be R\+A\+M-\/resident. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em mask} & byte array with monochrome mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1026 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab496b247abec724ef80e17a30257972b}\label{class_adafruit___g_f_x_ab496b247abec724ef80e17a30257972b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawRoundRect@{drawRoundRect}}
+\index{drawRoundRect@{drawRoundRect}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawRoundRect()}{drawRoundRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Round\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a rounded rectangle with no fill color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em r} & Radius of corner rounding \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 527 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a49284b9cea16ecf8c15dfd0b51a841e6}\label{class_adafruit___g_f_x_a49284b9cea16ecf8c15dfd0b51a841e6}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawTriangle@{drawTriangle}}
+\index{drawTriangle@{drawTriangle}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawTriangle()}{drawTriangle()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+Triangle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{int16\+\_\+t}]{x2,  }\item[{int16\+\_\+t}]{y2,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a triangle with no fill color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Vertex \#0 x coordinate \\
+\hline
+{\em y0} & Vertex \#0 y coordinate \\
+\hline
+{\em x1} & Vertex \#1 x coordinate \\
+\hline
+{\em y1} & Vertex \#1 y coordinate \\
+\hline
+{\em x2} & Vertex \#2 x coordinate \\
+\hline
+{\em y2} & Vertex \#2 y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 581 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa7797117fef7d18592d352c14fa7d820}\label{class_adafruit___g_f_x_aa7797117fef7d18592d352c14fa7d820}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!drawXBitmap@{drawXBitmap}}
+\index{drawXBitmap@{drawXBitmap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{drawXBitmap()}{drawXBitmap()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+X\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{const uint8\+\_\+t}]{bitmap\mbox{[}$\,$\mbox{]},  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw P\+R\+O\+G\+M\+E\+M-\/resident X\+Bit\+Map Files ($\ast$.xbm), exported from G\+I\+MP. Usage\+: Export from G\+I\+MP to $\ast$.xbm, rename $\ast$.xbm to $\ast$.c and open in editor. C Array can be directly used with this function. There is no R\+A\+M-\/resident version of this function; if generating bitmaps in R\+AM, use the format defined by \mbox{\hyperlink{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}{draw\+Bitmap()}} and call that instead. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with monochrome bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw pixels with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 812 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab9be8787f3683151e86c1f3b5c8685d6}\label{class_adafruit___g_f_x_ab9be8787f3683151e86c1f3b5c8685d6}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!endWrite@{endWrite}}
+\index{endWrite@{endWrite}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{endWrite()}{endWrite()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::end\+Write (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+End a display-\/writing routine, overwrite in subclasses if start\+Write is defined! 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 246 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a623e031e58492fb41e9fde6a05d97c12}\label{class_adafruit___g_f_x_a623e031e58492fb41e9fde6a05d97c12}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillCircle@{fillCircle}}
+\index{fillCircle@{fillCircle}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillCircle()}{fillCircle()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Circle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a circle with filled color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Center-\/point x coordinate \\
+\hline
+{\em y0} & Center-\/point y coordinate \\
+\hline
+{\em r} & Radius of circle \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 439 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a2242d3560b08c6480084152b6660052a}\label{class_adafruit___g_f_x_a2242d3560b08c6480084152b6660052a}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillCircleHelper@{fillCircleHelper}}
+\index{fillCircleHelper@{fillCircleHelper}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillCircleHelper()}{fillCircleHelper()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Circle\+Helper (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{r,  }\item[{uint8\+\_\+t}]{corners,  }\item[{int16\+\_\+t}]{delta,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Quarter-\/circle drawer with fill, used for circles and roundrects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Center-\/point x coordinate \\
+\hline
+{\em y0} & Center-\/point y coordinate \\
+\hline
+{\em r} & Radius of circle \\
+\hline
+{\em corners} & Mask bits indicating which quarters we\textquotesingle{}re doing \\
+\hline
+{\em delta} & Offset from center-\/point, used for round-\/rects \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 459 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa43cf1dfe6c17d040a0f1fd5ffbe9d69}\label{class_adafruit___g_f_x_aa43cf1dfe6c17d040a0f1fd5ffbe9d69}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillRect@{fillRect}}
+\index{fillRect@{fillRect}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillRect()}{fillRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill a rectangle completely with one color. Update in subclasses if desired! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 291 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a78dc59f6a508bcd3d5ac7af957b8b1ac}\label{class_adafruit___g_f_x_a78dc59f6a508bcd3d5ac7af957b8b1ac}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillRoundRect@{fillRoundRect}}
+\index{fillRoundRect@{fillRoundRect}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillRoundRect()}{fillRoundRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Round\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{int16\+\_\+t}]{r,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a rounded rectangle with fill color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em r} & Radius of corner rounding \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw/fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 556 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a2b2730aaf2208990928f9c0f85558527}\label{class_adafruit___g_f_x_a2b2730aaf2208990928f9c0f85558527}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillScreen@{fillScreen}}
+\index{fillScreen@{fillScreen}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillScreen()}{fillScreen()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Screen (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Fill the screen completely with one color. Update in subclasses if desired! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 306 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a4cd646a3d9c9d5b3ee50010d0aa387cd}\label{class_adafruit___g_f_x_a4cd646a3d9c9d5b3ee50010d0aa387cd}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!fillTriangle@{fillTriangle}}
+\index{fillTriangle@{fillTriangle}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{fillTriangle()}{fillTriangle()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::fill\+Triangle (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{int16\+\_\+t}]{x2,  }\item[{int16\+\_\+t}]{y2,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a triangle with color-\/fill. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Vertex \#0 x coordinate \\
+\hline
+{\em y0} & Vertex \#0 y coordinate \\
+\hline
+{\em x1} & Vertex \#1 x coordinate \\
+\hline
+{\em y1} & Vertex \#1 y coordinate \\
+\hline
+{\em x2} & Vertex \#2 x coordinate \\
+\hline
+{\em y2} & Vertex \#2 y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill/draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 600 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a0d1d15f5f15cad95b4c20f0e9ac9c74b}\label{class_adafruit___g_f_x_a0d1d15f5f15cad95b4c20f0e9ac9c74b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getCursorX@{getCursorX}}
+\index{getCursorX@{getCursorX}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getCursorX()}{getCursorX()}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::get\+CursorX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get text cursor X location. 
+
+\begin{DoxyReturn}{Returns}
+X coordinate in pixels 
+\end{DoxyReturn}
+
+
+Definition at line 204 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a81c8558cfcb717c4cfbd5475998daed1}\label{class_adafruit___g_f_x_a81c8558cfcb717c4cfbd5475998daed1}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getCursorY@{getCursorY}}
+\index{getCursorY@{getCursorY}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getCursorY()}{getCursorY()}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::get\+CursorY (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get text cursor Y location. 
+
+\begin{DoxyReturn}{Returns}
+Y coordinate in pixels 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab90e1378511b93189a7b557d7dda5d73}\label{class_adafruit___g_f_x_ab90e1378511b93189a7b557d7dda5d73}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::get\+Rotation (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get rotation setting for display. 
+
+\begin{DoxyReturn}{Returns}
+0 thru 3 corresponding to 4 cardinal rotations 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a97525abb71dbe38c6551e4d0da4052b8}\label{class_adafruit___g_f_x_a97525abb71dbe38c6551e4d0da4052b8}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getTextBounds@{getTextBounds}}
+\index{getTextBounds@{getTextBounds}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getTextBounds()}{getTextBounds()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::get\+Text\+Bounds (\begin{DoxyParamCaption}\item[{const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$}]{str,  }\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t $\ast$}]{x1,  }\item[{int16\+\_\+t $\ast$}]{y1,  }\item[{uint16\+\_\+t $\ast$}]{w,  }\item[{uint16\+\_\+t $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+Helper to determine size of a P\+R\+O\+G\+M\+EM string with current font/size. Pass string and a cursor position, returns UL corner and W,H. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The flash-\/memory ascii string to measure \\
+\hline
+{\em x} & The current cursor X \\
+\hline
+{\em y} & The current cursor Y \\
+\hline
+{\em x1} & The boundary X coordinate, set by function \\
+\hline
+{\em y1} & The boundary Y coordinate, set by function \\
+\hline
+{\em w} & The boundary width, set by function \\
+\hline
+{\em h} & The boundary height, set by function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1427 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a90983ed41807de26d48bcf588d7c9a19}\label{class_adafruit___g_f_x_a90983ed41807de26d48bcf588d7c9a19}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getTextBounds@{getTextBounds}}
+\index{getTextBounds@{getTextBounds}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getTextBounds()}{getTextBounds()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::get\+Text\+Bounds (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t $\ast$}]{x1,  }\item[{int16\+\_\+t $\ast$}]{y1,  }\item[{uint16\+\_\+t $\ast$}]{w,  }\item[{uint16\+\_\+t $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+Helper to determine size of a string with current font/size. Pass string and a cursor position, returns UL corner and W,H. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The ascii string to measure \\
+\hline
+{\em x} & The current cursor X \\
+\hline
+{\em y} & The current cursor Y \\
+\hline
+{\em x1} & The boundary X coordinate, set by function \\
+\hline
+{\em y1} & The boundary Y coordinate, set by function \\
+\hline
+{\em w} & The boundary width, set by function \\
+\hline
+{\em h} & The boundary height, set by function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1372 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a4258c8e7e5e897a3e5e87748e4585579}\label{class_adafruit___g_f_x_a4258c8e7e5e897a3e5e87748e4585579}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!getTextBounds@{getTextBounds}}
+\index{getTextBounds@{getTextBounds}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{getTextBounds()}{getTextBounds()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::get\+Text\+Bounds (\begin{DoxyParamCaption}\item[{const String \&}]{str,  }\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t $\ast$}]{x1,  }\item[{int16\+\_\+t $\ast$}]{y1,  }\item[{uint16\+\_\+t $\ast$}]{w,  }\item[{uint16\+\_\+t $\ast$}]{h }\end{DoxyParamCaption})}
+
+
+
+Helper to determine size of a string with current font/size. Pass string and a cursor position, returns UL corner and W,H. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The ascii string to measure (as an arduino String() class) \\
+\hline
+{\em x} & The current cursor X \\
+\hline
+{\em y} & The current cursor Y \\
+\hline
+{\em x1} & The boundary X coordinate, set by function \\
+\hline
+{\em y1} & The boundary Y coordinate, set by function \\
+\hline
+{\em w} & The boundary width, set by function \\
+\hline
+{\em h} & The boundary height, set by function \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1407 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a49da524caa19e5202ed2ed7fd5a3baea}\label{class_adafruit___g_f_x_a49da524caa19e5202ed2ed7fd5a3baea}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!height@{height}}
+\index{height@{height}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::height (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get height of the display, accounting for current rotation. 
+
+\begin{DoxyReturn}{Returns}
+Height in pixels 
+\end{DoxyReturn}
+
+
+Definition at line 186 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a2fa315803f39a5e73b1841874daf0483}\label{class_adafruit___g_f_x_a2fa315803f39a5e73b1841874daf0483}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!invertDisplay@{invertDisplay}}
+\index{invertDisplay@{invertDisplay}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{invertDisplay()}{invertDisplay()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::invert\+Display (\begin{DoxyParamCaption}\item[{boolean}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Invert the display (ideally using built-\/in hardware command) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & True if you want to invert, false to make \textquotesingle{}normal\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1456 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aaf96a40cad0f34dd8ec73494b3866c33}\label{class_adafruit___g_f_x_aaf96a40cad0f34dd8ec73494b3866c33}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setCursor@{setCursor}}
+\index{setCursor@{setCursor}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setCursor()}{setCursor()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Cursor (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set text cursor location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate in pixels \\
+\hline
+{\em y} & Y coordinate in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 117 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab0479a2bb4e09e7c39c35e35c55d6ed1}\label{class_adafruit___g_f_x_ab0479a2bb4e09e7c39c35e35c55d6ed1}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setFont@{setFont}}
+\index{setFont@{setFont}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setFont()}{setFont()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Font (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$}]{f = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Set the font to display when print()ing, either custom or default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} object, if N\+U\+LL use built in 6x8 font \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1273 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a6ac337c49876cee23ed062a928724675}\label{class_adafruit___g_f_x_a6ac337c49876cee23ed062a928724675}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setRotation@{setRotation}}
+\index{setRotation@{setRotation}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setRotation()}{setRotation()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Rotation (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Set rotation setting for display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 0 thru 3 corresponding to 4 cardinal rotations \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1251 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a59178a0e0c845a14a39b457c43567dd9}\label{class_adafruit___g_f_x_a59178a0e0c845a14a39b457c43567dd9}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setTextColor@{setTextColor}}
+\index{setTextColor@{setTextColor}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setTextColor()}{setTextColor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Text\+Color (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set text font color with transparant background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & 16-\/bit 5-\/6-\/5 Color to draw text with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+For \textquotesingle{}transparent\textquotesingle{} background, background and foreground are set to same color rather than using a separate flag. 
+\end{DoxyNote}
+
+
+Definition at line 127 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab6e88c585d3ab6b4f95199361f224fc6}\label{class_adafruit___g_f_x_ab6e88c585d3ab6b4f95199361f224fc6}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setTextColor@{setTextColor}}
+\index{setTextColor@{setTextColor}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setTextColor()}{setTextColor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Text\+Color (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{c,  }\item[{uint16\+\_\+t}]{bg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set text font color with custom background color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & 16-\/bit 5-\/6-\/5 Color to draw text with \\
+\hline
+{\em bg} & 16-\/bit 5-\/6-\/5 Color to draw background/fill with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 136 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a39eb4a8a2c9fa4ab7d58ceffd19535d5}\label{class_adafruit___g_f_x_a39eb4a8a2c9fa4ab7d58ceffd19535d5}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setTextSize@{setTextSize}}
+\index{setTextSize@{setTextSize}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setTextSize()}{setTextSize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Text\+Size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{s }\end{DoxyParamCaption})}
+
+
+
+Set text \textquotesingle{}magnification\textquotesingle{} size. Each increase in s makes 1 pixel that much bigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Desired text size. 1 is default 6x8, 2 is 12x16, 3 is 18x24, etc \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1229 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_abd8ea7d9203db38d7b601979f1252e37}\label{class_adafruit___g_f_x_abd8ea7d9203db38d7b601979f1252e37}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setTextSize@{setTextSize}}
+\index{setTextSize@{setTextSize}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setTextSize()}{setTextSize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Text\+Size (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{s\+\_\+x,  }\item[{uint8\+\_\+t}]{s\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Set text \textquotesingle{}magnification\textquotesingle{} size. Each increase in s makes 1 pixel that much bigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s\+\_\+x} & Desired text width magnification level in X-\/axis. 1 is default \\
+\hline
+{\em s\+\_\+y} & Desired text width magnification level in Y-\/axis. 1 is default \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1240 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aeeacd62bf26f3e7abbdc4b5b50faa6fa}\label{class_adafruit___g_f_x_aeeacd62bf26f3e7abbdc4b5b50faa6fa}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!setTextWrap@{setTextWrap}}
+\index{setTextWrap@{setTextWrap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{setTextWrap()}{setTextWrap()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::set\+Text\+Wrap (\begin{DoxyParamCaption}\item[{boolean}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set whether text that is too long for the screen width should automatically wrap around to the next line (else clip right). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & true for wrapping, false for clipping \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 148 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa991435d3d38f6818fc93f9370c0b3e5}\label{class_adafruit___g_f_x_aa991435d3d38f6818fc93f9370c0b3e5}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!startWrite@{startWrite}}
+\index{startWrite@{startWrite}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{startWrite()}{startWrite()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::start\+Write (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Start a display-\/writing routine, overwrite in subclasses. 
+
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 176 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a324b5361e7198ef0e79eaf4c80bddfc7}\label{class_adafruit___g_f_x_a324b5361e7198ef0e79eaf4c80bddfc7}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!width@{width}}
+\index{width@{width}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::width (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get width of the display, accounting for current rotation. 
+
+\begin{DoxyReturn}{Returns}
+Width in pixels 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a8773d92cafa93d3f749fb55c535d8f2e}\label{class_adafruit___g_f_x_a8773d92cafa93d3f749fb55c535d8f2e}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!write@{write}}
+\index{write@{write}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily size\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Print one byte/character of data, used to support print() 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The 8-\/bit ascii character to write \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1179 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ad85469e8be73f90932058fba1d4e5cbd}\label{class_adafruit___g_f_x_ad85469e8be73f90932058fba1d4e5cbd}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!writeFastHLine@{writeFastHLine}}
+\index{writeFastHLine@{writeFastHLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{writeFastHLine()}{writeFastHLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::write\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a perfectly horizontal line, overwrite in subclasses if start\+Write is defined! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Left-\/most x coordinate \\
+\hline
+{\em y} & Left-\/most y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_g_f_xcanvas8_a5eadf69798e020345107af6cdb86f222}{G\+F\+Xcanvas8}}, and \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 217 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ae12d09670433af17e666a203b51715f7}\label{class_adafruit___g_f_x_ae12d09670433af17e666a203b51715f7}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!writeFastVLine@{writeFastVLine}}
+\index{writeFastVLine@{writeFastVLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{writeFastVLine()}{writeFastVLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::write\+Fast\+V\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a perfectly vertical line, overwrite in subclasses if start\+Write is defined! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top-\/most x coordinate \\
+\hline
+{\em y} & Top-\/most y coordinate \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 200 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a60133faeabc10f9d909674bc4c5aabc6}\label{class_adafruit___g_f_x_a60133faeabc10f9d909674bc4c5aabc6}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!writeFillRect@{writeFillRect}}
+\index{writeFillRect@{writeFillRect}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{writeFillRect()}{writeFillRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::write\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a rectangle completely with one color, overwrite in subclasses if start\+Write is defined! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em w} & Width in pixels \\
+\hline
+{\em h} & Height in pixels \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 235 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ae1e5204b9251a04a57c821f69a8e638b}\label{class_adafruit___g_f_x_ae1e5204b9251a04a57c821f69a8e638b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!writeLine@{writeLine}}
+\index{writeLine@{writeLine}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{writeLine()}{writeLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::write\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x0,  }\item[{int16\+\_\+t}]{y0,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a line. Bresenham\textquotesingle{}s algorithm -\/ thx wikpedia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x0} & Start point x coordinate \\
+\hline
+{\em y0} & Start point y coordinate \\
+\hline
+{\em x1} & End point x coordinate \\
+\hline
+{\em y1} & End point y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to draw with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 128 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab66a1577ec595a254e4492d641b36fd8}\label{class_adafruit___g_f_x_ab66a1577ec595a254e4492d641b36fd8}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!writePixel@{writePixel}}
+\index{writePixel@{writePixel}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{writePixel()}{writePixel()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::write\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Write a pixel, overwrite in subclasses if start\+Write is defined! 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x coordinate \\
+\hline
+{\em y} & y coordinate \\
+\hline
+{\em color} & 16-\/bit 5-\/6-\/5 Color to fill with \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}}.
+
+
+
+Definition at line 187 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_adafruit___g_f_x_aaef3d4d239641084cd3825a8b1042e01}\label{class_adafruit___g_f_x_aaef3d4d239641084cd3825a8b1042e01}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!\_cp437@{\_cp437}}
+\index{\_cp437@{\_cp437}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{\_cp437}{\_cp437}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+::\+\_\+cp437\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+If set, use correct C\+P437 charset (default is off) 
+
+
+
+Definition at line 235 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab9bb0cbc2455f64dce2a5ec36307aa94}\label{class_adafruit___g_f_x_ab9bb0cbc2455f64dce2a5ec36307aa94}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!\_height@{\_height}}
+\index{\_height@{\_height}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{\_height}{\_height}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::\+\_\+height\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Display height as modified by current rotation. 
+
+
+
+Definition at line 223 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ab237f850a033492f5e745d79405a097a}\label{class_adafruit___g_f_x_ab237f850a033492f5e745d79405a097a}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!\_width@{\_width}}
+\index{\_width@{\_width}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{\_width}{\_width}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::\+\_\+width\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Display width as modified by current rotation. 
+
+
+
+Definition at line 222 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a8f8983cea8d81a7c8e9d05eef36318e2}\label{class_adafruit___g_f_x_a8f8983cea8d81a7c8e9d05eef36318e2}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!cursor\_x@{cursor\_x}}
+\index{cursor\_x@{cursor\_x}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{cursor\_x}{cursor\_x}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::cursor\+\_\+x\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+x location to start print()ing text 
+
+
+
+Definition at line 224 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aebe0a38f6e6fd59cb81620c4696286c9}\label{class_adafruit___g_f_x_aebe0a38f6e6fd59cb81620c4696286c9}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!cursor\_y@{cursor\_y}}
+\index{cursor\_y@{cursor\_y}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{cursor\_y}{cursor\_y}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::cursor\+\_\+y\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+y location to start print()ing text 
+
+
+
+Definition at line 225 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_afeb94c3253f43dada05e1270e322fa06}\label{class_adafruit___g_f_x_afeb94c3253f43dada05e1270e322fa06}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!gfxFont@{gfxFont}}
+\index{gfxFont@{gfxFont}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{gfxFont}{gfxFont}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}}$\ast$ Adafruit\+\_\+\+G\+F\+X\+::gfx\+Font\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Pointer to special font. 
+
+
+
+Definition at line 237 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a2b7801fc9c405a61abe6e5916b55825b}\label{class_adafruit___g_f_x_a2b7801fc9c405a61abe6e5916b55825b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!HEIGHT@{HEIGHT}}
+\index{HEIGHT@{HEIGHT}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{HEIGHT}{HEIGHT}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::\+H\+E\+I\+G\+HT\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This is the \textquotesingle{}raw\textquotesingle{} display height -\/ never changes. 
+
+
+
+Definition at line 220 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a37a479d28fb11906ce516e983b1af926}\label{class_adafruit___g_f_x_a37a479d28fb11906ce516e983b1af926}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!rotation@{rotation}}
+\index{rotation@{rotation}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::rotation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Display rotation (0 thru 3) 
+
+
+
+Definition at line 232 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a23e7a4efcab0b1588dc0cafa14b1fac1}\label{class_adafruit___g_f_x_a23e7a4efcab0b1588dc0cafa14b1fac1}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!textbgcolor@{textbgcolor}}
+\index{textbgcolor@{textbgcolor}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{textbgcolor}{textbgcolor}}
+{\footnotesize\ttfamily uint16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::textbgcolor\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+16-\/bit text color for print() 
+
+
+
+Definition at line 228 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a8c6d23a386651136fd9530a5b7046591}\label{class_adafruit___g_f_x_a8c6d23a386651136fd9530a5b7046591}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!textcolor@{textcolor}}
+\index{textcolor@{textcolor}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{textcolor}{textcolor}}
+{\footnotesize\ttfamily uint16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::textcolor\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+16-\/bit background color for print() 
+
+
+
+Definition at line 227 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_a9c33cd6928ad6738a633e97727ae8773}\label{class_adafruit___g_f_x_a9c33cd6928ad6738a633e97727ae8773}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!textsize\_x@{textsize\_x}}
+\index{textsize\_x@{textsize\_x}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{textsize\_x}{textsize\_x}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::textsize\+\_\+x\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Desired magnification in X-\/axis of text to print() 
+
+
+
+Definition at line 230 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aa8588c3941eec083563c853ada3dd771}\label{class_adafruit___g_f_x_aa8588c3941eec083563c853ada3dd771}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!textsize\_y@{textsize\_y}}
+\index{textsize\_y@{textsize\_y}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{textsize\_y}{textsize\_y}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::textsize\+\_\+y\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Desired magnification in Y-\/axis of text to print() 
+
+
+
+Definition at line 231 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_aded338777abeac3c457660023f5c0724}\label{class_adafruit___g_f_x_aded338777abeac3c457660023f5c0724}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{WIDTH}{WIDTH}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+G\+F\+X\+::\+W\+I\+D\+TH\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This is the \textquotesingle{}raw\textquotesingle{} display width -\/ never changes. 
+
+
+
+Definition at line 219 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x_ad6bd603e01861212829d536312a7190b}\label{class_adafruit___g_f_x_ad6bd603e01861212829d536312a7190b}} 
+\index{Adafruit\_GFX@{Adafruit\_GFX}!wrap@{wrap}}
+\index{wrap@{wrap}!Adafruit\_GFX@{Adafruit\_GFX}}
+\doxysubsubsection{\texorpdfstring{wrap}{wrap}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+::wrap\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+If set, \textquotesingle{}wrap\textquotesingle{} text at right edge of display. 
+
+
+
+Definition at line 234 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8h}{Adafruit\+\_\+\+G\+F\+X.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8cpp}{Adafruit\+\_\+\+G\+F\+X.\+cpp}}\end{DoxyCompactItemize}

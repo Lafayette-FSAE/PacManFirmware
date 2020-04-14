@@ -1,0 +1,475 @@
+\hypertarget{class_gx_i_o___s_p_i}{}\doxysection{Gx\+I\+O\+\_\+\+S\+PI Class Reference}
+\label{class_gx_i_o___s_p_i}\index{GxIO\_SPI@{GxIO\_SPI}}
+
+
+{\ttfamily \#include $<$Gx\+I\+O\+\_\+\+S\+P\+I.\+h$>$}
+
+Inheritance diagram for Gx\+I\+O\+\_\+\+S\+PI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gx_i_o___s_p_i}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gx_i_o___s_p_i_a3b64e5dcbd71c62f3a6d4f886282e35c}{Gx\+I\+O\+\_\+\+S\+PI}} (S\+P\+I\+Class \&spi, int8\+\_\+t cs, int8\+\_\+t dc, int8\+\_\+t rst=-\/1, int8\+\_\+t bl=-\/1)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a896510237d47b8b653fc16eee72e7629}{reset}} ()
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_aaeaf7f03be9174edba0f797607cdb210}{init}} ()
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_aded95674bf65f5cbc13e84d4b8672a0b}{set\+Frequency}} (uint32\+\_\+t freq)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_adac8ad5a4ad34af9f6360ff890d59e90}{transfer\+Transaction}} (uint8\+\_\+t d)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_a8c2ca877e276879376b6ba10dd50eccf}{transfer16\+Transaction}} (uint16\+\_\+t d)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_a45415bef927101349611cefb36a072f0}{read\+Data\+Transaction}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_aafef6d75d37c55b077833e7bb5ed19ba}{read\+Data16\+Transaction}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_ac305c71a7630520dfe223566d62a7b44}{read\+Data}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_a5f05b3555e46aa04c9af67be0911fa8e}{read\+Data16}} ()
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_adaf01137ae99d208ed4844fc120de3d0}{write\+Command\+Transaction}} (uint8\+\_\+t c)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a7eb81114ba36c313e30030164312c1a6}{write\+Data\+Transaction}} (uint8\+\_\+t d)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a0995beeff20029abe0fb572c2b8a155f}{write\+Data16\+Transaction}} (uint16\+\_\+t d, uint32\+\_\+t num=1)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a81d2ee0d7c1a6a4a2b22efc7af693f00}{write\+Command}} (uint8\+\_\+t c)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a571ec329a77d56de68429b7bd46edd74}{write\+Data}} (uint8\+\_\+t d)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_acbc2800fdb8da025da59ed9be5808f85}{write\+Data}} (uint8\+\_\+t $\ast$d, uint32\+\_\+t num)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a04d204f41e6cd3c4e9fe20d79ffe8c26}{write\+Data16}} (uint16\+\_\+t d, uint32\+\_\+t num=1)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a9faad2bcd2529e714f49b22e2cef198d}{write\+Addr\+M\+S\+Bfirst}} (uint16\+\_\+t d)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_af5055bdcf7dd80ee02e17a2b3de48b14}{start\+Transaction}} ()
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_a806306854c5260e163a358d533a51d4a}{end\+Transaction}} ()
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_ac330b9446e1ce699c29e20f39cd0a8d1}{select\+Register}} (bool rs\+\_\+low)
+\item 
+void \mbox{\hyperlink{class_gx_i_o___s_p_i_ae552cfebfae4a53d8fb36e29eed694cf}{set\+Back\+Light}} (bool lit)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{class_gx_i_o___s_p_i_ab3a12dfca18147aadda0f2ca2d1f8948}{name}} = \char`\"{}Gx\+I\+O\+\_\+\+S\+PI\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+S\+P\+I\+Class \& \mbox{\hyperlink{class_gx_i_o___s_p_i_a983cc0ccaaed58b2051538f6eee7fa28}{\+\_\+spi}}
+\item 
+S\+P\+I\+Settings \mbox{\hyperlink{class_gx_i_o___s_p_i_afac2cbce4becbe75a0e5884335d6d7b4}{\+\_\+spi\+\_\+settings}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_a0e4b96071b0ede53e72554eed1309ecd}{\+\_\+cs}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_a9a2a217ebd2e11de8433573297bb8c8c}{\+\_\+dc}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_ab0d43bfd8f4e35c0179f8902ab42d44b}{\+\_\+rst}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{class_gx_i_o___s_p_i_ad823a81e255be94cb5233203e55f928f}{\+\_\+bl}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a3b64e5dcbd71c62f3a6d4f886282e35c}\label{class_gx_i_o___s_p_i_a3b64e5dcbd71c62f3a6d4f886282e35c}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!GxIO\_SPI@{GxIO\_SPI}}
+\index{GxIO\_SPI@{GxIO\_SPI}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{GxIO\_SPI()}{GxIO\_SPI()}}
+{\footnotesize\ttfamily Gx\+I\+O\+\_\+\+S\+P\+I\+::\+Gx\+I\+O\+\_\+\+S\+PI (\begin{DoxyParamCaption}\item[{S\+P\+I\+Class \&}]{spi,  }\item[{int8\+\_\+t}]{cs,  }\item[{int8\+\_\+t}]{dc,  }\item[{int8\+\_\+t}]{rst = {\ttfamily -\/1},  }\item[{int8\+\_\+t}]{bl = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a806306854c5260e163a358d533a51d4a}\label{class_gx_i_o___s_p_i_a806306854c5260e163a358d533a51d4a}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!endTransaction@{endTransaction}}
+\index{endTransaction@{endTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{endTransaction()}{endTransaction()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::end\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_ad670bfc76c60e653a44aea4429af3f4f}{Gx\+IO}}.
+
+
+
+Definition at line 195 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_aaeaf7f03be9174edba0f797607cdb210}\label{class_gx_i_o___s_p_i_aaeaf7f03be9174edba0f797607cdb210}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!init@{init}}
+\index{init@{init}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_aeeb0dc6c770a09be8a59880f13bb8d46}{Gx\+IO}}.
+
+
+
+Definition at line 31 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ac305c71a7630520dfe223566d62a7b44}\label{class_gx_i_o___s_p_i_ac305c71a7630520dfe223566d62a7b44}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!readData@{readData}}
+\index{readData@{readData}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily uint8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::read\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a981e1e284b61d7a41e2aed5ca6ed4ea8}{Gx\+IO}}.
+
+
+
+Definition at line 102 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a5f05b3555e46aa04c9af67be0911fa8e}\label{class_gx_i_o___s_p_i_a5f05b3555e46aa04c9af67be0911fa8e}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!readData16@{readData16}}
+\index{readData16@{readData16}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{readData16()}{readData16()}}
+{\footnotesize\ttfamily uint16\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::read\+Data16 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a71260ce003437ec95fe1cf99c0762654}{Gx\+IO}}.
+
+
+
+Definition at line 108 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_aafef6d75d37c55b077833e7bb5ed19ba}\label{class_gx_i_o___s_p_i_aafef6d75d37c55b077833e7bb5ed19ba}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!readData16Transaction@{readData16Transaction}}
+\index{readData16Transaction@{readData16Transaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{readData16Transaction()}{readData16Transaction()}}
+{\footnotesize\ttfamily uint16\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::read\+Data16\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_abc866e9b4b5ea9f03228e642fb59ce05}{Gx\+IO}}.
+
+
+
+Definition at line 92 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a45415bef927101349611cefb36a072f0}\label{class_gx_i_o___s_p_i_a45415bef927101349611cefb36a072f0}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!readDataTransaction@{readDataTransaction}}
+\index{readDataTransaction@{readDataTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{readDataTransaction()}{readDataTransaction()}}
+{\footnotesize\ttfamily uint8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::read\+Data\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a2b391d75c12cd9710dc2406ce31fb62e}{Gx\+IO}}.
+
+
+
+Definition at line 82 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a896510237d47b8b653fc16eee72e7629}\label{class_gx_i_o___s_p_i_a896510237d47b8b653fc16eee72e7629}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!reset@{reset}}
+\index{reset@{reset}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_aaf86d6ead1528649c58f9c4ef054365a}{Gx\+IO}}.
+
+
+
+Definition at line 19 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ac330b9446e1ce699c29e20f39cd0a8d1}\label{class_gx_i_o___s_p_i_ac330b9446e1ce699c29e20f39cd0a8d1}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!selectRegister@{selectRegister}}
+\index{selectRegister@{selectRegister}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{selectRegister()}{selectRegister()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::select\+Register (\begin{DoxyParamCaption}\item[{bool}]{rs\+\_\+low }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a00ac805e988133d8dbcb52b0988a807b}{Gx\+IO}}.
+
+
+
+Definition at line 201 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ae552cfebfae4a53d8fb36e29eed694cf}\label{class_gx_i_o___s_p_i_ae552cfebfae4a53d8fb36e29eed694cf}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!setBackLight@{setBackLight}}
+\index{setBackLight@{setBackLight}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{setBackLight()}{setBackLight()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::set\+Back\+Light (\begin{DoxyParamCaption}\item[{bool}]{lit }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_afca10899f13efbc50ecfc286cc6f1be2}{Gx\+IO}}.
+
+
+
+Definition at line 206 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_aded95674bf65f5cbc13e84d4b8672a0b}\label{class_gx_i_o___s_p_i_aded95674bf65f5cbc13e84d4b8672a0b}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!setFrequency@{setFrequency}}
+\index{setFrequency@{setFrequency}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{setFrequency()}{setFrequency()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::set\+Frequency (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a9f605fc559ce240c78f21a2cdbcfe6ff}{Gx\+IO}}.
+
+
+
+Definition at line 57 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_af5055bdcf7dd80ee02e17a2b3de48b14}\label{class_gx_i_o___s_p_i_af5055bdcf7dd80ee02e17a2b3de48b14}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!startTransaction@{startTransaction}}
+\index{startTransaction@{startTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{startTransaction()}{startTransaction()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::start\+Transaction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a4658744c712c72aac6eba2fd0d91d11e}{Gx\+IO}}.
+
+
+
+Definition at line 189 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a8c2ca877e276879376b6ba10dd50eccf}\label{class_gx_i_o___s_p_i_a8c2ca877e276879376b6ba10dd50eccf}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!transfer16Transaction@{transfer16Transaction}}
+\index{transfer16Transaction@{transfer16Transaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{transfer16Transaction()}{transfer16Transaction()}}
+{\footnotesize\ttfamily uint16\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::transfer16\+Transaction (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a234313a98c1d58ed8b66888feef92892}{Gx\+IO}}.
+
+
+
+Definition at line 72 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_adac8ad5a4ad34af9f6360ff890d59e90}\label{class_gx_i_o___s_p_i_adac8ad5a4ad34af9f6360ff890d59e90}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!transferTransaction@{transferTransaction}}
+\index{transferTransaction@{transferTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{transferTransaction()}{transferTransaction()}}
+{\footnotesize\ttfamily uint8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::transfer\+Transaction (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_ace866f38a35e34d7b89a1f1544c088d6}{Gx\+IO}}.
+
+
+
+Definition at line 62 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a9faad2bcd2529e714f49b22e2cef198d}\label{class_gx_i_o___s_p_i_a9faad2bcd2529e714f49b22e2cef198d}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeAddrMSBfirst@{writeAddrMSBfirst}}
+\index{writeAddrMSBfirst@{writeAddrMSBfirst}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeAddrMSBfirst()}{writeAddrMSBfirst()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Addr\+M\+S\+Bfirst (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_af1fd6ff3b6a9609a017691064e995ff9}{Gx\+IO}}.
+
+
+
+Definition at line 183 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a81d2ee0d7c1a6a4a2b22efc7af693f00}\label{class_gx_i_o___s_p_i_a81d2ee0d7c1a6a4a2b22efc7af693f00}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeCommand@{writeCommand}}
+\index{writeCommand@{writeCommand}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeCommand()}{writeCommand()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_ae42120fd8036613af744047788f7bc38}{Gx\+IO}}.
+
+
+
+Definition at line 143 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_adaf01137ae99d208ed4844fc120de3d0}\label{class_gx_i_o___s_p_i_adaf01137ae99d208ed4844fc120de3d0}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeCommandTransaction@{writeCommandTransaction}}
+\index{writeCommandTransaction@{writeCommandTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeCommandTransaction()}{writeCommandTransaction()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Command\+Transaction (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_ad52885d81c3914c4bfede41c600091f8}{Gx\+IO}}.
+
+
+
+Definition at line 114 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_acbc2800fdb8da025da59ed9be5808f85}\label{class_gx_i_o___s_p_i_acbc2800fdb8da025da59ed9be5808f85}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeData@{writeData}}
+\index{writeData@{writeData}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{d,  }\item[{uint32\+\_\+t}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a2b3067c5be7b4aee80d6f2b63c2c623e}{Gx\+IO}}.
+
+
+
+Definition at line 155 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a571ec329a77d56de68429b7bd46edd74}\label{class_gx_i_o___s_p_i_a571ec329a77d56de68429b7bd46edd74}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeData@{writeData}}
+\index{writeData@{writeData}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeData()}{writeData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Data (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_ac13e23aa8a4d01d60648255d4c4d0f79}{Gx\+IO}}.
+
+
+
+Definition at line 150 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a04d204f41e6cd3c4e9fe20d79ffe8c26}\label{class_gx_i_o___s_p_i_a04d204f41e6cd3c4e9fe20d79ffe8c26}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeData16@{writeData16}}
+\index{writeData16@{writeData16}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeData16()}{writeData16()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Data16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{d,  }\item[{uint32\+\_\+t}]{num = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_af1ecce581250a10e1e7cc40e780e45fb}{Gx\+IO}}.
+
+
+
+Definition at line 169 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a0995beeff20029abe0fb572c2b8a155f}\label{class_gx_i_o___s_p_i_a0995beeff20029abe0fb572c2b8a155f}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeData16Transaction@{writeData16Transaction}}
+\index{writeData16Transaction@{writeData16Transaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeData16Transaction()}{writeData16Transaction()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Data16\+Transaction (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{d,  }\item[{uint32\+\_\+t}]{num = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a35a16ab41b6c4fdc0f9f71be56257e00}{Gx\+IO}}.
+
+
+
+Definition at line 134 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a7eb81114ba36c313e30030164312c1a6}\label{class_gx_i_o___s_p_i_a7eb81114ba36c313e30030164312c1a6}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!writeDataTransaction@{writeDataTransaction}}
+\index{writeDataTransaction@{writeDataTransaction}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{writeDataTransaction()}{writeDataTransaction()}}
+{\footnotesize\ttfamily void Gx\+I\+O\+\_\+\+S\+P\+I\+::write\+Data\+Transaction (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_gx_i_o_a232feebc2ed0c8435143f73d02b119da}{Gx\+IO}}.
+
+
+
+Definition at line 125 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ad823a81e255be94cb5233203e55f928f}\label{class_gx_i_o___s_p_i_ad823a81e255be94cb5233203e55f928f}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_bl@{\_bl}}
+\index{\_bl@{\_bl}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_bl}{\_bl}}
+{\footnotesize\ttfamily int8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+bl\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 40 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a0e4b96071b0ede53e72554eed1309ecd}\label{class_gx_i_o___s_p_i_a0e4b96071b0ede53e72554eed1309ecd}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_cs@{\_cs}}
+\index{\_cs@{\_cs}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_cs}{\_cs}}
+{\footnotesize\ttfamily int8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+cs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 40 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a9a2a217ebd2e11de8433573297bb8c8c}\label{class_gx_i_o___s_p_i_a9a2a217ebd2e11de8433573297bb8c8c}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_dc@{\_dc}}
+\index{\_dc@{\_dc}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_dc}{\_dc}}
+{\footnotesize\ttfamily int8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+dc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 40 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ab0d43bfd8f4e35c0179f8902ab42d44b}\label{class_gx_i_o___s_p_i_ab0d43bfd8f4e35c0179f8902ab42d44b}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_rst@{\_rst}}
+\index{\_rst@{\_rst}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_rst}{\_rst}}
+{\footnotesize\ttfamily int8\+\_\+t Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+rst\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 40 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_a983cc0ccaaed58b2051538f6eee7fa28}\label{class_gx_i_o___s_p_i_a983cc0ccaaed58b2051538f6eee7fa28}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_spi@{\_spi}}
+\index{\_spi@{\_spi}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_spi}{\_spi}}
+{\footnotesize\ttfamily S\+P\+I\+Class\& Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+spi\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 38 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_afac2cbce4becbe75a0e5884335d6d7b4}\label{class_gx_i_o___s_p_i_afac2cbce4becbe75a0e5884335d6d7b4}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!\_spi\_settings@{\_spi\_settings}}
+\index{\_spi\_settings@{\_spi\_settings}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{\_spi\_settings}{\_spi\_settings}}
+{\footnotesize\ttfamily S\+P\+I\+Settings Gx\+I\+O\+\_\+\+S\+P\+I\+::\+\_\+spi\+\_\+settings\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 39 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{class_gx_i_o___s_p_i_ab3a12dfca18147aadda0f2ca2d1f8948}\label{class_gx_i_o___s_p_i_ab3a12dfca18147aadda0f2ca2d1f8948}} 
+\index{GxIO\_SPI@{GxIO\_SPI}!name@{name}}
+\index{name@{name}!GxIO\_SPI@{GxIO\_SPI}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char$\ast$ Gx\+I\+O\+\_\+\+S\+P\+I\+::name = \char`\"{}Gx\+I\+O\+\_\+\+S\+PI\char`\"{}}
+
+
+
+Definition at line 15 of file Gx\+I\+O\+\_\+\+S\+P\+I.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\+Gx\+I\+O/\+Gx\+I\+O\+\_\+\+S\+P\+I/\mbox{\hyperlink{_gx_i_o___s_p_i_8h}{Gx\+I\+O\+\_\+\+S\+P\+I.\+h}}\item 
+References/\+Gx\+I\+O/\+Gx\+I\+O\+\_\+\+S\+P\+I/\mbox{\hyperlink{_gx_i_o___s_p_i_8cpp}{Gx\+I\+O\+\_\+\+S\+P\+I.\+cpp}}\end{DoxyCompactItemize}

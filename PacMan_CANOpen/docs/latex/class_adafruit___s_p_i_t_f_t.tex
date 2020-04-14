@@ -1,0 +1,1642 @@
+\hypertarget{class_adafruit___s_p_i_t_f_t}{}\doxysection{Adafruit\+\_\+\+S\+P\+I\+T\+FT Class Reference}
+\label{class_adafruit___s_p_i_t_f_t}\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} is an intermediary class between \mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} and various hardware-\/specific subclasses for different displays. It handles certain operations that are common to a range of displays (address window, area fills, etc.). Originally these were all color T\+FT displays interfaced via S\+PI, but it\textquotesingle{}s since expanded to include color O\+L\+E\+Ds and parallel-\/interfaced T\+F\+Ts. T\+HE N\+A\+ME H\+AS B\+E\+EN K\+E\+PT TO A\+V\+O\+ID B\+R\+E\+A\+K\+I\+NG A L\+OT OF S\+U\+B\+C\+L\+A\+S\+S\+ES A\+ND E\+X\+A\+M\+P\+LE C\+O\+DE. Many of the class member functions similarly live on with names that don\textquotesingle{}t necessarily accurately describe what they\textquotesingle{}re doing, again to avoid breaking a lot of other code. If in doubt, read the comments.  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h$>$}
+
+Inheritance diagram for Adafruit\+\_\+\+S\+P\+I\+T\+FT\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_adafruit___s_p_i_t_f_t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aae082216e8270f83132827a70cceeaf3}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} (uint16\+\_\+t w, uint16\+\_\+t h, int8\+\_\+t cs, int8\+\_\+t dc, int8\+\_\+t mosi, int8\+\_\+t sck, int8\+\_\+t rst=-\/1, int8\+\_\+t miso=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for software (bitbang) S\+PI. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a2c3433ca3e3f9c5209765c46751bb674}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} (uint16\+\_\+t w, uint16\+\_\+t h, int8\+\_\+t cs, int8\+\_\+t dc, int8\+\_\+t rst=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for hardware S\+PI using the board\textquotesingle{}s default S\+PI peripheral. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_abd847be5c9f71e5741d41805118f05c8}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} (uint16\+\_\+t w, uint16\+\_\+t h, S\+P\+I\+Class $\ast$spi\+Class, int8\+\_\+t cs, int8\+\_\+t dc, int8\+\_\+t rst=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for hardware S\+PI using a specific S\+PI peripheral. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1a4a822c07b817cea78dfb35dbaa4525}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} (uint16\+\_\+t w, uint16\+\_\+t h, \mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}{tft\+Bus\+Width}} bus\+Width, int8\+\_\+t d0, int8\+\_\+t wr, int8\+\_\+t dc, int8\+\_\+t cs=-\/1, int8\+\_\+t rst=-\/1, int8\+\_\+t rd=-\/1)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for parallel display connection. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin}} (uint32\+\_\+t freq)=0
+\begin{DoxyCompactList}\small\item\em Display-\/specific initialization function. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}{set\+Addr\+Window}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h)=0
+\begin{DoxyCompactList}\small\item\em Set up the specific display hardware\textquotesingle{}s \char`\"{}address window\char`\"{} for subsequent pixel-\/pushing operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}{init\+S\+PI}} (uint32\+\_\+t freq=0, uint8\+\_\+t spi\+Mode=S\+P\+I\+\_\+\+M\+O\+D\+E0)
+\begin{DoxyCompactList}\small\item\em Configure microcontroller pins for T\+FT interfacing. Typically called by a subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a4eb7f9703e15a7a289e61f5bc450ca4d}{set\+S\+P\+I\+Speed}} (uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Allow changing the S\+PI clock speed after initialization. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Call before issuing command(s) or data to display. Performs chip-\/select (if required) and starts an S\+PI transaction (if using hardware S\+PI and transactions are supported). Required for all display types; not an S\+P\+I-\/specific function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}{end\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Call after issuing command(s) or data to display. Performs chip-\/deselect (if required) and ends an S\+PI transaction (if using hardware S\+PI and transactions are supported). Required for all display types; not an S\+P\+I-\/specific function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aa40496b6d0513cc9a8eef190ced96238}{send\+Command}} (uint8\+\_\+t command\+Byte, uint8\+\_\+t $\ast$data\+Bytes=N\+U\+LL, uint8\+\_\+t num\+Data\+Bytes=0)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} Send Command handles complete sending of commands and data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a25f7cee641ff20ecdb38ca6048e8b68c}{send\+Command}} (uint8\+\_\+t command\+Byte, const uint8\+\_\+t $\ast$data\+Bytes, uint8\+\_\+t num\+Data\+Bytes)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} Send Command handles complete sending of commands and const data. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a641ccc4f159129259ee08738cb99627b}{readcommand8}} (uint8\+\_\+t command\+Byte, uint8\+\_\+t index=0)
+\begin{DoxyCompactList}\small\item\em Read 8 bits of data from display configuration memory (not R\+AM). This is highly undocumented/supported and should be avoided, function is only included because some of the examples use it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}{write\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a single pixel to the display at requested coordinates. Not self-\/contained; should follow a \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}{write\+Pixels}} (uint16\+\_\+t $\ast$colors, uint32\+\_\+t len, bool block=true, bool big\+Endian=false)
+\begin{DoxyCompactList}\small\item\em Issue a series of pixels from memory to the display. Not self-\/ contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} and \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}{set\+Addr\+Window()}} calls. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a42824e0f1475f2b3df335d31651dc75a}{write\+Color}} (uint16\+\_\+t color, uint32\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Issue a series of pixels, all the same color. Not self-\/ contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} and \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}{set\+Addr\+Window()}} calls. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a filled rectangle to the display. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5964fdb249fb43869c649198e13b727b}{fill\+Rect()}} instead. \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} performs its own edge clipping and rejection; see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}{write\+Fill\+Rect\+Preclipped()}} for a more \textquotesingle{}raw\textquotesingle{} implementation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a horizontal line on the display. Performs edge clipping and rejection. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/ contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aef1099605952f87fbdf59bc480a7a894}{draw\+Fast\+H\+Line()}} instead. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}{write\+Fast\+V\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a vertical line on the display. Performs edge clipping and rejection. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/ contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}{draw\+Fast\+V\+Line()}} instead. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}{write\+Fill\+Rect\+Preclipped}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em A lower-\/level version of \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}}. This version requires all inputs are in-\/bounds, that width and height are positive, and no part extends offscreen. NO E\+D\+GE C\+L\+I\+P\+P\+I\+NG OR R\+E\+J\+E\+C\+T\+I\+ON IS P\+E\+R\+F\+O\+R\+M\+ED. If higher-\/level graphics primitives are written to handle their own clipping earlier in the drawing process, this can avoid unnecessary function calls and repeated clipping operations in the lower-\/level functions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ae69f8c2c187cccd5c9df9c25d488f1e5}{dma\+Wait}} (void)
+\begin{DoxyCompactList}\small\item\em Wait for the last D\+MA transfer in a prior non-\/blocking \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}{write\+Pixels()}} call to complete. This does nothing if D\+MA is not enabled, and is not needed if blocking \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}{write\+Pixels()}} was used (as is the default case). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5e118fc9c0fb141c8ee9f14e49f20704}{draw\+Pixel}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a single pixel to the display at requested coordinates. Self-\/contained and provides its own transaction as needed (see write\+Pixel(x,y,color) for a lower-\/level variant). Edge clipping is performed here. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5964fdb249fb43869c649198e13b727b}{fill\+Rect}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a filled rectangle to the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} or \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}{write\+Fill\+Rect\+Preclipped()}} for lower-\/level variants). Edge clipping and rejection is performed here. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aef1099605952f87fbdf59bc480a7a894}{draw\+Fast\+H\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a horizontal line on the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} for a lower-\/level variant). Edge clipping and rejection is performed here. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}{draw\+Fast\+V\+Line}} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t h, uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Draw a vertical line on the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} for a lower-\/ level variant). Edge clipping and rejection is performed here. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a53b00726d150600cd8f0feb9a897fb64}{push\+Color}} (uint16\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Essentially \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}{write\+Pixel()}} with a transaction around it. I don\textquotesingle{}t think this is in use by any of our code anymore (believe it was for some older B\+M\+P-\/reading examples), but is kept here in case any user code relies on it. Consider it D\+E\+P\+R\+E\+C\+A\+T\+ED. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aa2984b1d3854ed521259cd8208071b55}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t $\ast$pcolors, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a 16-\/bit image (565 R\+GB) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. Adapted from \href{https://github.com/PaulStoffregen/ILI9341_t3}{\texttt{ https\+://github.\+com/\+Paul\+Stoffregen/\+I\+L\+I9341\+\_\+t3}} by Marc M\+E\+R\+L\+IN. See examples/picture\+Embed to use this. 5/6/2017\+: function name and arguments have changed for compatibility with current G\+FX library and to avoid naming problems in prior implementation. Formerly \mbox{\hyperlink{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}{draw\+Bitmap()}} with arguments in different order. Handles its own transaction and edge clipping/rejection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a21a13b3b0e6e0bb1328b5050559dd919}{invert\+Display}} (bool i)
+\begin{DoxyCompactList}\small\item\em Invert the colors of the display (if supported by hardware). Self-\/contained, no transaction setup required. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a656f04e5a60f1ff7cddc2934fa676b8b}{color565}} (uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Given 8-\/bit red, green and blue values, return a \textquotesingle{}packed\textquotesingle{} 16-\/bit color value in \textquotesingle{}565\textquotesingle{} R\+GB format (5 bits red, 6 bits green, 5 bits blue). This is just a mathematical operation, no hardware is touched. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write}} (uint8\+\_\+t b)
+\begin{DoxyCompactList}\small\item\em Issue a single 8-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the byte. This is another of those functions in the library with a now-\/not-\/accurate name that\textquotesingle{}s being maintained for compatibility with outside code. This function is used even if display connection is parallel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a0169fcf8898413bba568a93c1617e8bb}{write\+Command}} (uint8\+\_\+t cmd)
+\begin{DoxyCompactList}\small\item\em Write a single command byte to the display. Chip-\/select and transaction must have been previously set -- this O\+N\+LY sets the device to C\+O\+M\+M\+A\+ND mode, issues the byte and then restores D\+A\+TA mode. There is no corresponding explicit write\+Data() function -- just use \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6904156a9bb832fc510ae6df33e936e5}{spi\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Read a single 8-\/bit value from the display. Chip-\/select and transaction must have been previously set -- this O\+N\+LY reads the byte. This is another of those functions in the library with a now-\/not-\/accurate name that\textquotesingle{}s being maintained for compatibility with outside code. This function is used even if display connection is parallel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af8d3977fd1a982a376cc4d98949d7269}{S\+P\+I\+\_\+\+W\+R\+I\+T\+E16}} (uint16\+\_\+t w)
+\begin{DoxyCompactList}\small\item\em Issue a single 16-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the word. Despite the name, this function is used even if display connection is parallel; name was maintaned for backward compatibility. Naming is also not consistent with the 8-\/bit version, \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. Sorry about that. Again, staying compatible with outside code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a97e8acadecd766abcb735e0e89c81149}{S\+P\+I\+\_\+\+W\+R\+I\+T\+E32}} (uint32\+\_\+t l)
+\begin{DoxyCompactList}\small\item\em Issue a single 32-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the longword. Despite the name, this function is used even if display connection is parallel; name was maintaned for backward compatibility. Naming is also not consistent with the 8-\/bit version, \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. Sorry about that. Again, staying compatible with outside code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab395bc0dca991a4b5151f459adf5ad38}{S\+P\+I\+\_\+\+C\+S\+\_\+\+H\+I\+GH}} (void)
+\begin{DoxyCompactList}\small\item\em Set the chip-\/select line H\+I\+GH. Does N\+OT check whether CS pin is set ($>$=0), that should be handled in calling function. Despite function name, this is used even if the display connection is parallel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_afbb8eeea97e940e29cc124e155383f76}{S\+P\+I\+\_\+\+C\+S\+\_\+\+L\+OW}} (void)
+\begin{DoxyCompactList}\small\item\em Set the chip-\/select line L\+OW. Does N\+OT check whether CS pin is set ($>$=0), that should be handled in calling function. Despite function name, this is used even if the display connection is parallel. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a94f7565d2b334770c75d8461dc675a7e}{S\+P\+I\+\_\+\+D\+C\+\_\+\+H\+I\+GH}} (void)
+\begin{DoxyCompactList}\small\item\em Set the data/command line H\+I\+GH (data mode). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ac9765347ed3a7f645eefe521c2ed52a9}{S\+P\+I\+\_\+\+D\+C\+\_\+\+L\+OW}} (void)
+\begin{DoxyCompactList}\small\item\em Set the data/command line L\+OW (command mode). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af90e317367f3ac6dae3aa46d549ca535}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint16\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a70768127ee8548d2a3690440c1694169}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t $\ast$bitmap, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad1d249d742f83ddc4c4f3867643d6eb0}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, const uint16\+\_\+t bitmap\mbox{[}$\,$\mbox{]}, const uint8\+\_\+t mask\mbox{[}$\,$\mbox{]}, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aac6f64d394f8d3557aa6f613b4219866}{draw\+R\+G\+B\+Bitmap}} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t $\ast$bitmap, uint8\+\_\+t $\ast$mask, int16\+\_\+t w, int16\+\_\+t h)
+\begin{DoxyCompactList}\small\item\em Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be R\+A\+M-\/resident. For 16-\/bit display devices; no color reduction performed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a88f3c607cb9a5bd1d7f55881a1f3dc95}{S\+P\+I\+\_\+\+M\+O\+S\+I\+\_\+\+H\+I\+GH}} (void)
+\begin{DoxyCompactList}\small\item\em Set the software (bitbang) S\+PI M\+O\+SI line H\+I\+GH. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a0093ed5cdb3302761df4633cc065b06a}{S\+P\+I\+\_\+\+M\+O\+S\+I\+\_\+\+L\+OW}} (void)
+\begin{DoxyCompactList}\small\item\em Set the software (bitbang) S\+PI M\+O\+SI line L\+OW. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a0d68df2a27c46a4ed1737d471d05af3f}{S\+P\+I\+\_\+\+S\+C\+K\+\_\+\+H\+I\+GH}} (void)
+\begin{DoxyCompactList}\small\item\em Set the software (bitbang) S\+PI S\+CK line H\+I\+GH. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a0e6a3043e2f5813d21db7ffb168955a8}{S\+P\+I\+\_\+\+S\+C\+K\+\_\+\+L\+OW}} (void)
+\begin{DoxyCompactList}\small\item\em Set the software (bitbang) S\+PI S\+CK line L\+OW. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a9d4982ab4b15c7b3bc30c553e1abf279}{S\+P\+I\+\_\+\+M\+I\+S\+O\+\_\+\+R\+E\+AD}} (void)
+\begin{DoxyCompactList}\small\item\em Read the state of the software (bitbang) S\+PI M\+I\+SO line. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_adb38cd7e43e128cf47b1f456423bea33}{S\+P\+I\+\_\+\+B\+E\+G\+I\+N\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+ON}} (void)
+\begin{DoxyCompactList}\small\item\em Start an S\+PI transaction if using the hardware S\+PI interface to the display. If using an earlier version of the Arduino platform (before the addition of S\+PI transactions), this instead attempts to set up the S\+PI clock and mode. No action is taken if the connection is not hardware S\+P\+I-\/based. This does N\+OT include a chip-\/select operation -- see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} for a function that encapsulated both actions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a52e8221c57511c40c9f53b7b455252ab}{S\+P\+I\+\_\+\+E\+N\+D\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+ON}} (void)
+\begin{DoxyCompactList}\small\item\em End an S\+PI transaction if using the hardware S\+PI interface to the display. No action is taken if the connection is not hardware S\+P\+I-\/based or if using an earlier version of the Arduino platform (before the addition of S\+PI transactions). This does N\+OT include a chip-\/deselect operation -- see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}{end\+Write()}} for a function that encapsulated both actions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab59285824eb5a042a2169edc127b2551}{T\+F\+T\+\_\+\+W\+R\+\_\+\+S\+T\+R\+O\+BE}} (void)
+\begin{DoxyCompactList}\small\item\em Set the WR line L\+OW, then H\+I\+GH. Used for parallel-\/connected interfaces when writing data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad7bfd459e24a52d990c238435a5f9b3e}{T\+F\+T\+\_\+\+R\+D\+\_\+\+H\+I\+GH}} (void)
+\begin{DoxyCompactList}\small\item\em Set the RD line H\+I\+GH. Used for parallel-\/connected interfaces when reading data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a12271a88164e8050ad349fda34dce02d}{T\+F\+T\+\_\+\+R\+D\+\_\+\+L\+OW}} (void)
+\begin{DoxyCompactList}\small\item\em Set the RD line L\+OW. Used for parallel-\/connected interfaces when reading data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>SPIClass $\ast$ \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a2003f65628bfcd075b300f022dce0ffc}{\_spi}}\\
+\>\>{\em SPI class pointer. }\\
+\>uint32\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a65e9eb00f665cadb411babf9c506a01d}{\_freq}}\\
+\>\>{\em SPI bitrate (if no SPI transactions) }\\
+\>uint32\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a78479cba8923b3d1c59b104359d71904}{\_mode}}\\
+\>\>{\em SPI data mode (transactions or no) }\\
+\} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a0159d217a74d21f78e7fec4872c26ddf}{hwspi}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Hardware S\+PI values. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a02d06f8d1fbe420c6dca776f636a41e5}{\_mosi}}\\
+\>\>{\em MOSI pin \#. }\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a19f9a2a73ad817b16cd8c73556138363}{\_miso}}\\
+\>\>{\em MISO pin \#. }\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_afd793c2ed96f6ac9e653a1bf67fda921}{\_sck}}\\
+\>\>{\em SCK pin \#. }\\
+\} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aa7a4f062dc9bfda3030109a8e5be48a9}{swspi}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Software S\+PI values. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5b26872a4e2b08017b475e9a542261cb}{\_d0}}\\
+\>\>{\em Data pin 0 \#. }\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a87971f3f0f04e8099d54be48995cb578}{\_wr}}\\
+\>\>{\em Write strobe pin \#. }\\
+\>int8\_t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a46b1c645935c1163dbad553adbdabff7}{\_rd}}\\
+\>\>{\em Read strobe pin \# (or -\/1) }\\
+\>bool \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab49cda19025e4f18f65f1a00ce65693d}{wide}} = 0\\
+\>\>{\em If true, is 16-\/bit interface. }\\
+\} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aecd1f135bb46522e8783a019dacdb092}{tft8}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em Parallel interface settings. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ae17cc84566e35b026f8b6f38903be80b}{connection}}
+\begin{DoxyCompactList}\small\item\em T\+F\+T\+\_\+\+H\+A\+R\+D\+\_\+\+S\+PI, T\+F\+T\+\_\+\+S\+O\+F\+T\+\_\+\+S\+PI, etc. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a534eb433f9084d1e5b8088964a617a8a}{\+\_\+rst}}
+\begin{DoxyCompactList}\small\item\em Reset pin \# (or -\/1) \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ac0ed6886fcef09bd3d98a02238ae7300}{\+\_\+cs}}
+\begin{DoxyCompactList}\small\item\em Chip select pin \# (or -\/1) \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a154f060e2830dc7096af9d0b6022d12a}{\+\_\+dc}}
+\begin{DoxyCompactList}\small\item\em Data/command pin \#. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a479fb9af838dc94c442b27c734dab345}{\+\_\+xstart}} = 0
+\begin{DoxyCompactList}\small\item\em Internal framebuffer X offset. \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1b1d3250b346656552dfdf939b1e428d}{\+\_\+ystart}} = 0
+\begin{DoxyCompactList}\small\item\em Internal framebuffer Y offset. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad6d068ec372f9ffa2a6a451542634bc1}{invert\+On\+Command}} = 0
+\begin{DoxyCompactList}\small\item\em Command to enable invert mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a7248ddde9f18b64675139cea13998141}{invert\+Off\+Command}} = 0
+\begin{DoxyCompactList}\small\item\em Command to disable invert mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} is an intermediary class between \mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} and various hardware-\/specific subclasses for different displays. It handles certain operations that are common to a range of displays (address window, area fills, etc.). Originally these were all color T\+FT displays interfaced via S\+PI, but it\textquotesingle{}s since expanded to include color O\+L\+E\+Ds and parallel-\/interfaced T\+F\+Ts. T\+HE N\+A\+ME H\+AS B\+E\+EN K\+E\+PT TO A\+V\+O\+ID B\+R\+E\+A\+K\+I\+NG A L\+OT OF S\+U\+B\+C\+L\+A\+S\+S\+ES A\+ND E\+X\+A\+M\+P\+LE C\+O\+DE. Many of the class member functions similarly live on with names that don\textquotesingle{}t necessarily accurately describe what they\textquotesingle{}re doing, again to avoid breaking a lot of other code. If in doubt, read the comments. 
+
+Definition at line 118 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aae082216e8270f83132827a70cceeaf3}\label{class_adafruit___s_p_i_t_f_t_aae082216e8270f83132827a70cceeaf3}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_SPITFT()}{Adafruit\_SPITFT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+Adafruit\+\_\+\+S\+P\+I\+T\+FT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{int8\+\_\+t}]{cs,  }\item[{int8\+\_\+t}]{dc,  }\item[{int8\+\_\+t}]{mosi,  }\item[{int8\+\_\+t}]{sck,  }\item[{int8\+\_\+t}]{rst = {\ttfamily -\/1},  }\item[{int8\+\_\+t}]{miso = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for software (bitbang) S\+PI. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width in pixels at default rotation setting (0). \\
+\hline
+{\em h} & Display height in pixels at default rotation setting (0). \\
+\hline
+{\em cs} & Arduino pin \# for chip-\/select (-\/1 if unused, tie CS low). \\
+\hline
+{\em dc} & Arduino pin \# for data/command select (required). \\
+\hline
+{\em mosi} & Arduino pin \# for bitbang S\+PI M\+O\+SI signal (required). \\
+\hline
+{\em sck} & Arduino pin \# for bitbang S\+PI S\+CK signal (required). \\
+\hline
+{\em rst} & Arduino pin \# for display reset (optional, display reset can be tied to M\+CU reset, default of -\/1 means unused). \\
+\hline
+{\em miso} & Arduino pin \# for bitbang S\+PI M\+I\+SO signal (optional, -\/1 default, many displays don\textquotesingle{}t support S\+PI read). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Output pins are not initialized; application typically will need to call subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function, which in turn calls this library\textquotesingle{}s \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}{init\+S\+P\+I()}} function to initialize pins. 
+\end{DoxyNote}
+
+
+Definition at line 121 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a2c3433ca3e3f9c5209765c46751bb674}\label{class_adafruit___s_p_i_t_f_t_a2c3433ca3e3f9c5209765c46751bb674}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_SPITFT()}{Adafruit\_SPITFT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+Adafruit\+\_\+\+S\+P\+I\+T\+FT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{int8\+\_\+t}]{cs,  }\item[{int8\+\_\+t}]{dc,  }\item[{int8\+\_\+t}]{rst = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for hardware S\+PI using the board\textquotesingle{}s default S\+PI peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width in pixels at default rotation setting (0). \\
+\hline
+{\em h} & Display height in pixels at default rotation setting (0). \\
+\hline
+{\em cs} & Arduino pin \# for chip-\/select (-\/1 if unused, tie CS low). \\
+\hline
+{\em dc} & Arduino pin \# for data/command select (required). \\
+\hline
+{\em rst} & Arduino pin \# for display reset (optional, display reset can be tied to M\+CU reset, default of -\/1 means unused). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Output pins are not initialized; application typically will need to call subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function, which in turn calls this library\textquotesingle{}s \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}{init\+S\+P\+I()}} function to initialize pins. 
+\end{DoxyNote}
+
+
+Definition at line 247 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_abd847be5c9f71e5741d41805118f05c8}\label{class_adafruit___s_p_i_t_f_t_abd847be5c9f71e5741d41805118f05c8}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_SPITFT()}{Adafruit\_SPITFT()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+Adafruit\+\_\+\+S\+P\+I\+T\+FT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{S\+P\+I\+Class $\ast$}]{spi\+Class,  }\item[{int8\+\_\+t}]{cs,  }\item[{int8\+\_\+t}]{dc,  }\item[{int8\+\_\+t}]{rst = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for hardware S\+PI using a specific S\+PI peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width in pixels at default rotation (0). \\
+\hline
+{\em h} & Display height in pixels at default rotation (0). \\
+\hline
+{\em spi\+Class} & Pointer to S\+P\+I\+Class type (e.\+g. \&S\+PI or \&S\+P\+I1). \\
+\hline
+{\em cs} & Arduino pin \# for chip-\/select (-\/1 if unused, tie CS low). \\
+\hline
+{\em dc} & Arduino pin \# for data/command select (required). \\
+\hline
+{\em rst} & Arduino pin \# for display reset (optional, display reset can be tied to M\+CU reset, default of -\/1 means unused). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Output pins are not initialized in constructor; application typically will need to call subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function, which in turn calls this library\textquotesingle{}s \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}{init\+S\+P\+I()}} function to initialize pins. E\+X\+C\+E\+PT...if you have built your own S\+E\+R\+C\+OM S\+PI peripheral (calling the S\+P\+I\+Class constructor) rather than one of the built-\/in S\+PI devices (e.\+g. \&S\+PI, \&S\+P\+I1 and so forth), you will need to call the \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function for your object as well as pin\+Peripheral() for the M\+O\+SI, M\+I\+SO and S\+CK pins to configure G\+P\+IO manually. Do this B\+E\+F\+O\+RE calling the display-\/specific begin or init function. Unfortunate but unavoidable. 
+\end{DoxyNote}
+
+
+Definition at line 283 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a1a4a822c07b817cea78dfb35dbaa4525}\label{class_adafruit___s_p_i_t_f_t_a1a4a822c07b817cea78dfb35dbaa4525}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_SPITFT()}{Adafruit\_SPITFT()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+Adafruit\+\_\+\+S\+P\+I\+T\+FT (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{\mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h_a4a7dffd73fe8924b90709aa7e6e366e8}{tft\+Bus\+Width}}}]{bus\+Width,  }\item[{int8\+\_\+t}]{d0,  }\item[{int8\+\_\+t}]{wr,  }\item[{int8\+\_\+t}]{dc,  }\item[{int8\+\_\+t}]{cs = {\ttfamily -\/1},  }\item[{int8\+\_\+t}]{rst = {\ttfamily -\/1},  }\item[{int8\+\_\+t}]{rd = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} constructor for parallel display connection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & Display width in pixels at default rotation (0). \\
+\hline
+{\em h} & Display height in pixels at default rotation (0). \\
+\hline
+{\em bus\+Width} & If tft16 (enumeration in header file), is a 16-\/bit parallel connection, else 8-\/bit. 16-\/bit isn\textquotesingle{}t fully implemented or tested yet so applications should pass \char`\"{}tft8bitbus\char`\"{} for now...needed to stick a required enum argument in there to disambiguate this constructor from the soft-\/\+S\+PI case. Argument is ignored on 8-\/bit architectures (no \textquotesingle{}wide\textquotesingle{} support there since P\+O\+R\+Ts are 8 bits anyway). \\
+\hline
+{\em d0} & Arduino pin \# for data bit 0 (1+ are extrapolated). The 8 (or 16) data bits M\+U\+ST be contiguous and byte-\/ aligned (or word-\/aligned for wide interface) within the same P\+O\+RT register (might not correspond to Arduino pin sequence). \\
+\hline
+{\em wr} & Arduino pin \# for write strobe (required). \\
+\hline
+{\em dc} & Arduino pin \# for data/command select (required). \\
+\hline
+{\em cs} & Arduino pin \# for chip-\/select (optional, -\/1 if unused, tie CS low). \\
+\hline
+{\em rst} & Arduino pin \# for display reset (optional, display reset can be tied to M\+CU reset, default of -\/1 means unused). \\
+\hline
+{\em rd} & Arduino pin \# for read strobe (optional, -\/1 if unused). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} object. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Output pins are not initialized; application typically will need to call subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function, which in turn calls this library\textquotesingle{}s \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}{init\+S\+P\+I()}} function to initialize pins. Yes, the name is a misnomer...this library originally handled only S\+PI displays, parallel being a recent addition (but not wanting to break existing code). 
+\end{DoxyNote}
+
+
+Definition at line 379 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}\label{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!begin@{begin}}
+\index{begin@{begin}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily virtual void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::begin (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Display-\/specific initialization function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & S\+PI frequency, in hz (or 0 for default or unused). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a656f04e5a60f1ff7cddc2934fa676b8b}\label{class_adafruit___s_p_i_t_f_t_a656f04e5a60f1ff7cddc2934fa676b8b}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!color565@{color565}}
+\index{color565@{color565}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{color565()}{color565()}}
+{\footnotesize\ttfamily uint16\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::color565 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{red,  }\item[{uint8\+\_\+t}]{green,  }\item[{uint8\+\_\+t}]{blue }\end{DoxyParamCaption})}
+
+
+
+Given 8-\/bit red, green and blue values, return a \textquotesingle{}packed\textquotesingle{} 16-\/bit color value in \textquotesingle{}565\textquotesingle{} R\+GB format (5 bits red, 6 bits green, 5 bits blue). This is just a mathematical operation, no hardware is touched. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & 8-\/bit red brightnesss (0 = off, 255 = max). \\
+\hline
+{\em green} & 8-\/bit green brightnesss (0 = off, 255 = max). \\
+\hline
+{\em blue} & 8-\/bit blue brightnesss (0 = off, 255 = max). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\textquotesingle{}Packed\textquotesingle{} 16-\/bit color value (565 format). 
+\end{DoxyReturn}
+
+
+Definition at line 1718 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ae69f8c2c187cccd5c9df9c25d488f1e5}\label{class_adafruit___s_p_i_t_f_t_ae69f8c2c187cccd5c9df9c25d488f1e5}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!dmaWait@{dmaWait}}
+\index{dmaWait@{dmaWait}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{dmaWait()}{dmaWait()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::dma\+Wait (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Wait for the last D\+MA transfer in a prior non-\/blocking \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}{write\+Pixels()}} call to complete. This does nothing if D\+MA is not enabled, and is not needed if blocking \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}{write\+Pixels()}} was used (as is the default case). 
+
+
+
+Definition at line 1086 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aef1099605952f87fbdf59bc480a7a894}\label{class_adafruit___s_p_i_t_f_t_aef1099605952f87fbdf59bc480a7a894}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawFastHLine@{drawFastHLine}}
+\index{drawFastHLine@{drawFastHLine}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawFastHLine()}{drawFastHLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::draw\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a horizontal line on the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} for a lower-\/level variant). Edge clipping and rejection is performed here. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first point. \\
+\hline
+{\em y} & Vertical position of first point. \\
+\hline
+{\em w} & Line width in pixels (positive = right of first point, negative = point of first corner). \\
+\hline
+{\em color} & 16-\/bit line color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This repeats the \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} function almost in its entirety, with the addition of a transaction start/end. It\textquotesingle{}s done this way (rather than starting the transaction and calling \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} to handle clipping and so forth) so that the transaction isn\textquotesingle{}t performed at all if the line is rejected. 
+\end{DoxyNote}
+
+
+Definition at line 1573 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}\label{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawFastVLine@{drawFastVLine}}
+\index{drawFastVLine@{drawFastVLine}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawFastVLine()}{drawFastVLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::draw\+Fast\+V\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a vertical line on the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}{write\+Fast\+H\+Line()}} for a lower-\/ level variant). Edge clipping and rejection is performed here. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first point. \\
+\hline
+{\em y} & Vertical position of first point. \\
+\hline
+{\em h} & Line height in pixels (positive = below first point, negative = above first point). \\
+\hline
+{\em color} & 16-\/bit line color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This repeats the \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}{write\+Fast\+V\+Line()}} function almost in its entirety, with the addition of a transaction start/end. It\textquotesingle{}s done this way (rather than starting the transaction and calling \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}{write\+Fast\+V\+Line()}} to handle clipping and so forth) so that the transaction isn\textquotesingle{}t performed at all if the line is rejected. 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_a1cffbb1d69c5faf49cd0cff27686a837}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1609 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a5e118fc9c0fb141c8ee9f14e49f20704}\label{class_adafruit___s_p_i_t_f_t_a5e118fc9c0fb141c8ee9f14e49f20704}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawPixel@{drawPixel}}
+\index{drawPixel@{drawPixel}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawPixel()}{drawPixel()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::draw\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a single pixel to the display at requested coordinates. Self-\/contained and provides its own transaction as needed (see write\+Pixel(x,y,color) for a lower-\/level variant). Edge clipping is performed here. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position (0 = left). \\
+\hline
+{\em y} & Vertical position (0 = top). \\
+\hline
+{\em color} & 16-\/bit pixel color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_adafruit___g_f_x_ab7fbf72885c873266f9c7eb53b5c8896}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1495 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ad1d249d742f83ddc4c4f3867643d6eb0}\label{class_adafruit___s_p_i_t_f_t_ad1d249d742f83ddc4c4f3867643d6eb0}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be P\+R\+O\+G\+M\+E\+M-\/resident. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em mask} & byte array with monochrome mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 91 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_af90e317367f3ac6dae3aa46d549ca535}\label{class_adafruit___s_p_i_t_f_t_af90e317367f3ac6dae3aa46d549ca535}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap}
+
+
+
+Draw a P\+R\+O\+G\+M\+E\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 87 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a70768127ee8548d2a3690440c1694169}\label{class_adafruit___s_p_i_t_f_t_a70768127ee8548d2a3690440c1694169}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap}
+
+
+
+Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 89 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aac6f64d394f8d3557aa6f613b4219866}\label{class_adafruit___s_p_i_t_f_t_aac6f64d394f8d3557aa6f613b4219866}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+::draw\+R\+G\+B\+Bitmap}
+
+
+
+Draw a R\+A\+M-\/resident 16-\/bit image (R\+GB 5/6/5) with a 1-\/bit mask (set bits = opaque, unset bits = clear) at the specified (x,y) position. B\+O\+TH buffers (color and mask) must be R\+A\+M-\/resident. For 16-\/bit display devices; no color reduction performed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner x coordinate \\
+\hline
+{\em y} & Top left corner y coordinate \\
+\hline
+{\em bitmap} & byte array with 16-\/bit color bitmap \\
+\hline
+{\em mask} & byte array with monochrome mask bitmap \\
+\hline
+{\em w} & Width of bitmap in pixels \\
+\hline
+{\em h} & Height of bitmap in pixels \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 94 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aa2984b1d3854ed521259cd8208071b55}\label{class_adafruit___s_p_i_t_f_t_aa2984b1d3854ed521259cd8208071b55}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!drawRGBBitmap@{drawRGBBitmap}}
+\index{drawRGBBitmap@{drawRGBBitmap}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{drawRGBBitmap()}{drawRGBBitmap()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::draw\+R\+G\+B\+Bitmap (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t $\ast$}]{pcolors,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+
+
+Draw a 16-\/bit image (565 R\+GB) at the specified (x,y) position. For 16-\/bit display devices; no color reduction performed. Adapted from \href{https://github.com/PaulStoffregen/ILI9341_t3}{\texttt{ https\+://github.\+com/\+Paul\+Stoffregen/\+I\+L\+I9341\+\_\+t3}} by Marc M\+E\+R\+L\+IN. See examples/picture\+Embed to use this. 5/6/2017\+: function name and arguments have changed for compatibility with current G\+FX library and to avoid naming problems in prior implementation. Formerly \mbox{\hyperlink{class_adafruit___g_f_x_a805a15f1b3ea9eff5d1666b8e6db1c56}{draw\+Bitmap()}} with arguments in different order. Handles its own transaction and edge clipping/rejection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Top left corner horizontal coordinate. \\
+\hline
+{\em y} & Top left corner vertical coordinate. \\
+\hline
+{\em pcolors} & Pointer to 16-\/bit array of pixel values. \\
+\hline
+{\em w} & Width of bitmap in pixels. \\
+\hline
+{\em h} & Height of bitmap in pixels. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1659 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}\label{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!endWrite@{endWrite}}
+\index{endWrite@{endWrite}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{endWrite()}{endWrite()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::end\+Write (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Call after issuing command(s) or data to display. Performs chip-\/deselect (if required) and ends an S\+PI transaction (if using hardware S\+PI and transactions are supported). Required for all display types; not an S\+P\+I-\/specific function. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_ab9be8787f3683151e86c1f3b5c8685d6}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 921 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a5964fdb249fb43869c649198e13b727b}\label{class_adafruit___s_p_i_t_f_t_a5964fdb249fb43869c649198e13b727b}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!fillRect@{fillRect}}
+\index{fillRect@{fillRect}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{fillRect()}{fillRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::fill\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Draw a filled rectangle to the display. Self-\/contained and provides its own transaction as needed (see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} or \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}{write\+Fill\+Rect\+Preclipped()}} for lower-\/level variants). Edge clipping and rejection is performed here. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first corner. \\
+\hline
+{\em y} & Vertical position of first corner. \\
+\hline
+{\em w} & Rectangle width in pixels (positive = right of first corner, negative = left of first corner). \\
+\hline
+{\em h} & Rectangle height in pixels (positive = below first corner, negative = above first corner). \\
+\hline
+{\em color} & 16-\/bit fill color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This repeats the \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} function almost in its entirety, with the addition of a transaction start/end. It\textquotesingle{}s done this way (rather than starting the transaction and calling \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} to handle clipping and so forth) so that the transaction isn\textquotesingle{}t performed at all if the rectangle is rejected. It\textquotesingle{}s really not that much code. 
+\end{DoxyNote}
+
+
+Definition at line 1525 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}\label{class_adafruit___s_p_i_t_f_t_a95164c088118b25d8e3efe48f9e86dbe}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!initSPI@{initSPI}}
+\index{initSPI@{initSPI}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{initSPI()}{initSPI()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::init\+S\+PI (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq = {\ttfamily 0},  }\item[{uint8\+\_\+t}]{spi\+Mode = {\ttfamily SPI\+\_\+MODE0} }\end{DoxyParamCaption})}
+
+
+
+Configure microcontroller pins for T\+FT interfacing. Typically called by a subclass\textquotesingle{} \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a81fb1a7842c52fa1992569880f4ea494}{begin()}} function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & S\+PI frequency when using hardware S\+PI. If default (0) is passed, will fall back on a device-\/specific value. Value is ignored when using software S\+PI or parallel connection. \\
+\hline
+{\em spi\+Mode} & S\+PI mode when using hardware S\+PI. M\+U\+ST be one of the values S\+P\+I\+\_\+\+M\+O\+D\+E0, S\+P\+I\+\_\+\+M\+O\+D\+E1, S\+P\+I\+\_\+\+M\+O\+D\+E2 or S\+P\+I\+\_\+\+M\+O\+D\+E3 defined in S\+P\+I.\+h. Do N\+OT attempt to pass \textquotesingle{}0\textquotesingle{} for S\+P\+I\+\_\+\+M\+O\+D\+E0 and so forth...the values are N\+OT the same! Use O\+N\+LY the defines! (Pity it\textquotesingle{}s not an enum.) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Another anachronistically-\/named function; this is called even when the display connection is parallel (not S\+PI). Also, this could probably be made private...quite a few class functions were generously put in the public section. 
+\end{DoxyNote}
+
+
+Definition at line 527 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a21a13b3b0e6e0bb1328b5050559dd919}\label{class_adafruit___s_p_i_t_f_t_a21a13b3b0e6e0bb1328b5050559dd919}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!invertDisplay@{invertDisplay}}
+\index{invertDisplay@{invertDisplay}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{invertDisplay()}{invertDisplay()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::invert\+Display (\begin{DoxyParamCaption}\item[{bool}]{i }\end{DoxyParamCaption})}
+
+
+
+Invert the colors of the display (if supported by hardware). Self-\/contained, no transaction setup required. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & true = inverted display, false = normal display. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1702 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a53b00726d150600cd8f0feb9a897fb64}\label{class_adafruit___s_p_i_t_f_t_a53b00726d150600cd8f0feb9a897fb64}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!pushColor@{pushColor}}
+\index{pushColor@{pushColor}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{pushColor()}{pushColor()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::push\+Color (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Essentially \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}{write\+Pixel()}} with a transaction around it. I don\textquotesingle{}t think this is in use by any of our code anymore (believe it was for some older B\+M\+P-\/reading examples), but is kept here in case any user code relies on it. Consider it D\+E\+P\+R\+E\+C\+A\+T\+ED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit pixel color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1637 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a641ccc4f159129259ee08738cb99627b}\label{class_adafruit___s_p_i_t_f_t_a641ccc4f159129259ee08738cb99627b}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!readcommand8@{readcommand8}}
+\index{readcommand8@{readcommand8}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{readcommand8()}{readcommand8()}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::readcommand8 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command\+Byte,  }\item[{uint8\+\_\+t}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Read 8 bits of data from display configuration memory (not R\+AM). This is highly undocumented/supported and should be avoided, function is only included because some of the examples use it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Byte} & The command register to read data from. \\
+\hline
+{\em index} & The byte index into the command to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unsigned 8-\/bit data read from display register. 
+\end{DoxyReturn}
+
+
+Definition at line 1778 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a25f7cee641ff20ecdb38ca6048e8b68c}\label{class_adafruit___s_p_i_t_f_t_a25f7cee641ff20ecdb38ca6048e8b68c}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!sendCommand@{sendCommand}}
+\index{sendCommand@{sendCommand}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{sendCommand()}{sendCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::send\+Command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command\+Byte,  }\item[{const uint8\+\_\+t $\ast$}]{data\+Bytes,  }\item[{uint8\+\_\+t}]{num\+Data\+Bytes }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} Send Command handles complete sending of commands and const data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Byte} & The Command Byte \\
+\hline
+{\em data\+Bytes} & A pointer to the Data bytes to send \\
+\hline
+{\em num\+Data\+Bytes} & The number of bytes we should send \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1751 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aa40496b6d0513cc9a8eef190ced96238}\label{class_adafruit___s_p_i_t_f_t_aa40496b6d0513cc9a8eef190ced96238}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!sendCommand@{sendCommand}}
+\index{sendCommand@{sendCommand}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{sendCommand()}{sendCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::send\+Command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command\+Byte,  }\item[{uint8\+\_\+t $\ast$}]{data\+Bytes = {\ttfamily NULL},  }\item[{uint8\+\_\+t}]{num\+Data\+Bytes = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_adafruit___s_p_i_t_f_t}{Adafruit\+\_\+\+S\+P\+I\+T\+FT}} Send Command handles complete sending of commands and data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\+Byte} & The Command Byte \\
+\hline
+{\em data\+Bytes} & A pointer to the Data bytes to send \\
+\hline
+{\em num\+Data\+Bytes} & The number of bytes we should send \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1728 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}\label{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!setAddrWindow@{setAddrWindow}}
+\index{setAddrWindow@{setAddrWindow}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{setAddrWindow()}{setAddrWindow()}}
+{\footnotesize\ttfamily virtual void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::set\+Addr\+Window (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Set up the specific display hardware\textquotesingle{}s \char`\"{}address window\char`\"{} for subsequent pixel-\/pushing operations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Leftmost pixel of area to be drawn (M\+U\+ST be within display bounds at current rotation setting). \\
+\hline
+{\em y} & Topmost pixel of area to be drawn (M\+U\+ST be within display bounds at current rotation setting). \\
+\hline
+{\em w} & Width of area to be drawn, in pixels (M\+U\+ST be $>$0 and, added to x, within display bounds at current rotation). \\
+\hline
+{\em h} & Height of area to be drawn, in pixels (M\+U\+ST be $>$0 and, added to x, within display bounds at current rotation). \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a4eb7f9703e15a7a289e61f5bc450ca4d}\label{class_adafruit___s_p_i_t_f_t_a4eb7f9703e15a7a289e61f5bc450ca4d}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!setSPISpeed@{setSPISpeed}}
+\index{setSPISpeed@{setSPISpeed}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{setSPISpeed()}{setSPISpeed()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::set\+S\+P\+I\+Speed (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Allow changing the S\+PI clock speed after initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & Desired frequency of S\+PI clock, may not be the end frequency you get based on what the chip can do! \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 896 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_adb38cd7e43e128cf47b1f456423bea33}\label{class_adafruit___s_p_i_t_f_t_adb38cd7e43e128cf47b1f456423bea33}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_BEGIN\_TRANSACTION@{SPI\_BEGIN\_TRANSACTION}}
+\index{SPI\_BEGIN\_TRANSACTION@{SPI\_BEGIN\_TRANSACTION}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_BEGIN\_TRANSACTION()}{SPI\_BEGIN\_TRANSACTION()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+B\+E\+G\+I\+N\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+ON (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Start an S\+PI transaction if using the hardware S\+PI interface to the display. If using an earlier version of the Arduino platform (before the addition of S\+PI transactions), this instead attempts to set up the S\+PI clock and mode. No action is taken if the connection is not hardware S\+P\+I-\/based. This does N\+OT include a chip-\/select operation -- see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} for a function that encapsulated both actions. 
+
+
+
+Definition at line 1805 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ab395bc0dca991a4b5151f459adf5ad38}\label{class_adafruit___s_p_i_t_f_t_ab395bc0dca991a4b5151f459adf5ad38}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_CS\_HIGH@{SPI\_CS\_HIGH}}
+\index{SPI\_CS\_HIGH@{SPI\_CS\_HIGH}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_CS\_HIGH()}{SPI\_CS\_HIGH()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+C\+S\+\_\+\+H\+I\+GH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the chip-\/select line H\+I\+GH. Does N\+OT check whether CS pin is set ($>$=0), that should be handled in calling function. Despite function name, this is used even if the display connection is parallel. 
+
+
+
+Definition at line 281 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_afbb8eeea97e940e29cc124e155383f76}\label{class_adafruit___s_p_i_t_f_t_afbb8eeea97e940e29cc124e155383f76}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_CS\_LOW@{SPI\_CS\_LOW}}
+\index{SPI\_CS\_LOW@{SPI\_CS\_LOW}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_CS\_LOW()}{SPI\_CS\_LOW()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+C\+S\+\_\+\+L\+OW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the chip-\/select line L\+OW. Does N\+OT check whether CS pin is set ($>$=0), that should be handled in calling function. Despite function name, this is used even if the display connection is parallel. 
+
+
+
+Definition at line 303 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a94f7565d2b334770c75d8461dc675a7e}\label{class_adafruit___s_p_i_t_f_t_a94f7565d2b334770c75d8461dc675a7e}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_DC\_HIGH@{SPI\_DC\_HIGH}}
+\index{SPI\_DC\_HIGH@{SPI\_DC\_HIGH}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_DC\_HIGH()}{SPI\_DC\_HIGH()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+D\+C\+\_\+\+H\+I\+GH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the data/command line H\+I\+GH (data mode). 
+
+
+
+Definition at line 322 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ac9765347ed3a7f645eefe521c2ed52a9}\label{class_adafruit___s_p_i_t_f_t_ac9765347ed3a7f645eefe521c2ed52a9}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_DC\_LOW@{SPI\_DC\_LOW}}
+\index{SPI\_DC\_LOW@{SPI\_DC\_LOW}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_DC\_LOW()}{SPI\_DC\_LOW()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+D\+C\+\_\+\+L\+OW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the data/command line L\+OW (command mode). 
+
+
+
+Definition at line 341 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a52e8221c57511c40c9f53b7b455252ab}\label{class_adafruit___s_p_i_t_f_t_a52e8221c57511c40c9f53b7b455252ab}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_END\_TRANSACTION@{SPI\_END\_TRANSACTION}}
+\index{SPI\_END\_TRANSACTION@{SPI\_END\_TRANSACTION}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_END\_TRANSACTION()}{SPI\_END\_TRANSACTION()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+E\+N\+D\+\_\+\+T\+R\+A\+N\+S\+A\+C\+T\+I\+ON (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+End an S\+PI transaction if using the hardware S\+PI interface to the display. No action is taken if the connection is not hardware S\+P\+I-\/based or if using an earlier version of the Arduino platform (before the addition of S\+PI transactions). This does N\+OT include a chip-\/deselect operation -- see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a65f00bcb36ed34e9f8fb72d45c6d0cad}{end\+Write()}} for a function that encapsulated both actions. 
+
+
+
+Definition at line 1833 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a9d4982ab4b15c7b3bc30c553e1abf279}\label{class_adafruit___s_p_i_t_f_t_a9d4982ab4b15c7b3bc30c553e1abf279}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_MISO\_READ@{SPI\_MISO\_READ}}
+\index{SPI\_MISO\_READ@{SPI\_MISO\_READ}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_MISO\_READ()}{SPI\_MISO\_READ()}}
+{\footnotesize\ttfamily bool Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+M\+I\+S\+O\+\_\+\+R\+E\+AD (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Read the state of the software (bitbang) S\+PI M\+I\+SO line. 
+
+\begin{DoxyReturn}{Returns}
+true if H\+I\+GH, false if L\+OW. 
+\end{DoxyReturn}
+
+
+Definition at line 2055 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a88f3c607cb9a5bd1d7f55881a1f3dc95}\label{class_adafruit___s_p_i_t_f_t_a88f3c607cb9a5bd1d7f55881a1f3dc95}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_MOSI\_HIGH@{SPI\_MOSI\_HIGH}}
+\index{SPI\_MOSI\_HIGH@{SPI\_MOSI\_HIGH}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_MOSI\_HIGH()}{SPI\_MOSI\_HIGH()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+M\+O\+S\+I\+\_\+\+H\+I\+GH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the software (bitbang) S\+PI M\+O\+SI line H\+I\+GH. 
+
+
+
+Definition at line 1960 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a0093ed5cdb3302761df4633cc065b06a}\label{class_adafruit___s_p_i_t_f_t_a0093ed5cdb3302761df4633cc065b06a}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_MOSI\_LOW@{SPI\_MOSI\_LOW}}
+\index{SPI\_MOSI\_LOW@{SPI\_MOSI\_LOW}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_MOSI\_LOW()}{SPI\_MOSI\_LOW()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+M\+O\+S\+I\+\_\+\+L\+OW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the software (bitbang) S\+PI M\+O\+SI line L\+OW. 
+
+
+
+Definition at line 1982 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a0d68df2a27c46a4ed1737d471d05af3f}\label{class_adafruit___s_p_i_t_f_t_a0d68df2a27c46a4ed1737d471d05af3f}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_SCK\_HIGH@{SPI\_SCK\_HIGH}}
+\index{SPI\_SCK\_HIGH@{SPI\_SCK\_HIGH}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_SCK\_HIGH()}{SPI\_SCK\_HIGH()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+S\+C\+K\+\_\+\+H\+I\+GH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the software (bitbang) S\+PI S\+CK line H\+I\+GH. 
+
+
+
+Definition at line 2004 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a0e6a3043e2f5813d21db7ffb168955a8}\label{class_adafruit___s_p_i_t_f_t_a0e6a3043e2f5813d21db7ffb168955a8}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_SCK\_LOW@{SPI\_SCK\_LOW}}
+\index{SPI\_SCK\_LOW@{SPI\_SCK\_LOW}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_SCK\_LOW()}{SPI\_SCK\_LOW()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+S\+C\+K\+\_\+\+L\+OW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the software (bitbang) S\+PI S\+CK line L\+OW. 
+
+
+
+Definition at line 2029 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_af8d3977fd1a982a376cc4d98949d7269}\label{class_adafruit___s_p_i_t_f_t_af8d3977fd1a982a376cc4d98949d7269}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_WRITE16@{SPI\_WRITE16}}
+\index{SPI\_WRITE16@{SPI\_WRITE16}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_WRITE16()}{SPI\_WRITE16()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+W\+R\+I\+T\+E16 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{w }\end{DoxyParamCaption})}
+
+
+
+Issue a single 16-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the word. Despite the name, this function is used even if display connection is parallel; name was maintaned for backward compatibility. Naming is also not consistent with the 8-\/bit version, \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. Sorry about that. Again, staying compatible with outside code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & 16-\/bit value to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2077 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a97e8acadecd766abcb735e0e89c81149}\label{class_adafruit___s_p_i_t_f_t_a97e8acadecd766abcb735e0e89c81149}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!SPI\_WRITE32@{SPI\_WRITE32}}
+\index{SPI\_WRITE32@{SPI\_WRITE32}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{SPI\_WRITE32()}{SPI\_WRITE32()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+S\+P\+I\+\_\+\+W\+R\+I\+T\+E32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{l }\end{DoxyParamCaption})}
+
+
+
+Issue a single 32-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the longword. Despite the name, this function is used even if display connection is parallel; name was maintaned for backward compatibility. Naming is also not consistent with the 8-\/bit version, \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. Sorry about that. Again, staying compatible with outside code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & 32-\/bit value to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 2124 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a6904156a9bb832fc510ae6df33e936e5}\label{class_adafruit___s_p_i_t_f_t_a6904156a9bb832fc510ae6df33e936e5}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!spiRead@{spiRead}}
+\index{spiRead@{spiRead}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{spiRead()}{spiRead()}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::spi\+Read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Read a single 8-\/bit value from the display. Chip-\/select and transaction must have been previously set -- this O\+N\+LY reads the byte. This is another of those functions in the library with a now-\/not-\/accurate name that\textquotesingle{}s being maintained for compatibility with outside code. This function is used even if display connection is parallel. 
+
+\begin{DoxyReturn}{Returns}
+Unsigned 8-\/bit value read (always zero if U\+S\+E\+\_\+\+F\+A\+S\+T\+\_\+\+P\+I\+N\+IO is not supported by the M\+CU architecture). 
+\end{DoxyReturn}
+
+
+Definition at line 1902 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}\label{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!spiWrite@{spiWrite}}
+\index{spiWrite@{spiWrite}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{spiWrite()}{spiWrite()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::spi\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{b }\end{DoxyParamCaption})}
+
+
+
+Issue a single 8-\/bit value to the display. Chip-\/select, transaction and data/command selection must have been previously set -- this O\+N\+LY issues the byte. This is another of those functions in the library with a now-\/not-\/accurate name that\textquotesingle{}s being maintained for compatibility with outside code. This function is used even if display connection is parallel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & 8-\/bit value to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1850 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}\label{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!startWrite@{startWrite}}
+\index{startWrite@{startWrite}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{startWrite()}{startWrite()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::start\+Write (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Call before issuing command(s) or data to display. Performs chip-\/select (if required) and starts an S\+PI transaction (if using hardware S\+PI and transactions are supported). Required for all display types; not an S\+P\+I-\/specific function. 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_aa991435d3d38f6818fc93f9370c0b3e5}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 910 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ad7bfd459e24a52d990c238435a5f9b3e}\label{class_adafruit___s_p_i_t_f_t_ad7bfd459e24a52d990c238435a5f9b3e}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!TFT\_RD\_HIGH@{TFT\_RD\_HIGH}}
+\index{TFT\_RD\_HIGH@{TFT\_RD\_HIGH}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{TFT\_RD\_HIGH()}{TFT\_RD\_HIGH()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+T\+F\+T\+\_\+\+R\+D\+\_\+\+H\+I\+GH (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the RD line H\+I\+GH. Used for parallel-\/connected interfaces when reading data. 
+
+
+
+Definition at line 2203 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a12271a88164e8050ad349fda34dce02d}\label{class_adafruit___s_p_i_t_f_t_a12271a88164e8050ad349fda34dce02d}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!TFT\_RD\_LOW@{TFT\_RD\_LOW}}
+\index{TFT\_RD\_LOW@{TFT\_RD\_LOW}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{TFT\_RD\_LOW()}{TFT\_RD\_LOW()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+T\+F\+T\+\_\+\+R\+D\+\_\+\+L\+OW (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the RD line L\+OW. Used for parallel-\/connected interfaces when reading data. 
+
+
+
+Definition at line 2219 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ab59285824eb5a042a2169edc127b2551}\label{class_adafruit___s_p_i_t_f_t_ab59285824eb5a042a2169edc127b2551}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!TFT\_WR\_STROBE@{TFT\_WR\_STROBE}}
+\index{TFT\_WR\_STROBE@{TFT\_WR\_STROBE}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{TFT\_WR\_STROBE()}{TFT\_WR\_STROBE()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+T\+F\+T\+\_\+\+W\+R\+\_\+\+S\+T\+R\+O\+BE (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Set the WR line L\+OW, then H\+I\+GH. Used for parallel-\/connected interfaces when writing data. 
+
+
+
+Definition at line 2179 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a42824e0f1475f2b3df335d31651dc75a}\label{class_adafruit___s_p_i_t_f_t_a42824e0f1475f2b3df335d31651dc75a}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeColor@{writeColor}}
+\index{writeColor@{writeColor}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeColor()}{writeColor()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Color (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{color,  }\item[{uint32\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Issue a series of pixels, all the same color. Not self-\/ contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} and \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}{set\+Addr\+Window()}} calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & 16-\/bit pixel color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+{\em len} & Number of pixels to draw. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1106 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a0169fcf8898413bba568a93c1617e8bb}\label{class_adafruit___s_p_i_t_f_t_a0169fcf8898413bba568a93c1617e8bb}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeCommand@{writeCommand}}
+\index{writeCommand@{writeCommand}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeCommand()}{writeCommand()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Write a single command byte to the display. Chip-\/select and transaction must have been previously set -- this O\+N\+LY sets the device to C\+O\+M\+M\+A\+ND mode, issues the byte and then restores D\+A\+TA mode. There is no corresponding explicit write\+Data() function -- just use \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a76dfbee0ce62682988badc0dbbdc5790}{spi\+Write()}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & 8-\/bit command to write. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1886 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}\label{class_adafruit___s_p_i_t_f_t_a06312f906256fd7e72efb21df85d2b96}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeFastHLine@{writeFastHLine}}
+\index{writeFastHLine@{writeFastHLine}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeFastHLine()}{writeFastHLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Fast\+H\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draw a horizontal line on the display. Performs edge clipping and rejection. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/ contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_aef1099605952f87fbdf59bc480a7a894}{draw\+Fast\+H\+Line()}} instead. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first point. \\
+\hline
+{\em y} & Vertical position of first point. \\
+\hline
+{\em w} & Line width in pixels (positive = right of first point, negative = point of first corner). \\
+\hline
+{\em color} & 16-\/bit line color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_ad85469e8be73f90932058fba1d4e5cbd}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1401 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}\label{class_adafruit___s_p_i_t_f_t_a9b5f5765414c6b0c94c9a060427803ec}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeFastVLine@{writeFastVLine}}
+\index{writeFastVLine@{writeFastVLine}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeFastVLine()}{writeFastVLine()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Fast\+V\+Line (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Draw a vertical line on the display. Performs edge clipping and rejection. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/ contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ab9bf597887f7098e55e7280d548bc127}{draw\+Fast\+V\+Line()}} instead. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first point. \\
+\hline
+{\em y} & Vertical position of first point. \\
+\hline
+{\em h} & Line height in pixels (positive = below first point, negative = above first point). \\
+\hline
+{\em color} & 16-\/bit line color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_ae12d09670433af17e666a203b51715f7}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1432 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}\label{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeFillRect@{writeFillRect}}
+\index{writeFillRect@{writeFillRect}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeFillRect()}{writeFillRect()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Fill\+Rect (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a filled rectangle to the display. Not self-\/contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}}. Typically used by higher-\/level graphics primitives; user code shouldn\textquotesingle{}t need to call this and is likely to use the self-\/contained \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a5964fdb249fb43869c649198e13b727b}{fill\+Rect()}} instead. \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}} performs its own edge clipping and rejection; see \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}{write\+Fill\+Rect\+Preclipped()}} for a more \textquotesingle{}raw\textquotesingle{} implementation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first corner. \\
+\hline
+{\em y} & Vertical position of first corner. \\
+\hline
+{\em w} & Rectangle width in pixels (positive = right of first corner, negative = left of first corner). \\
+\hline
+{\em h} & Rectangle height in pixels (positive = below first corner, negative = above first corner). \\
+\hline
+{\em color} & 16-\/bit fill color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Written in this deep-\/nested way because C by definition will optimize for the \textquotesingle{}if\textquotesingle{} case, not the \textquotesingle{}else\textquotesingle{} -- avoids branches and rejects clipped rectangles at the least-\/work possibility. 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_a60133faeabc10f9d909674bc4c5aabc6}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 1359 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}\label{class_adafruit___s_p_i_t_f_t_a6ef20b186a133d416f9ba71fb884d275}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writeFillRectPreclipped@{writeFillRectPreclipped}}
+\index{writeFillRectPreclipped@{writeFillRectPreclipped}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writeFillRectPreclipped()}{writeFillRectPreclipped()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Fill\+Rect\+Preclipped (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{int16\+\_\+t}]{w,  }\item[{int16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A lower-\/level version of \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a8df7d60b7c8500b31d0a8f59999c3df1}{write\+Fill\+Rect()}}. This version requires all inputs are in-\/bounds, that width and height are positive, and no part extends offscreen. NO E\+D\+GE C\+L\+I\+P\+P\+I\+NG OR R\+E\+J\+E\+C\+T\+I\+ON IS P\+E\+R\+F\+O\+R\+M\+ED. If higher-\/level graphics primitives are written to handle their own clipping earlier in the drawing process, this can avoid unnecessary function calls and repeated clipping operations in the lower-\/level functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position of first corner. M\+U\+ST BE W\+I\+T\+H\+IN S\+C\+R\+E\+EN B\+O\+U\+N\+DS. \\
+\hline
+{\em y} & Vertical position of first corner. M\+U\+ST BE W\+I\+T\+H\+IN S\+C\+R\+E\+EN B\+O\+U\+N\+DS. \\
+\hline
+{\em w} & Rectangle width in pixels. M\+U\+ST BE P\+O\+S\+I\+T\+I\+VE A\+ND N\+OT E\+X\+T\+E\+ND O\+FF S\+C\+R\+E\+EN. \\
+\hline
+{\em h} & Rectangle height in pixels. M\+U\+ST BE P\+O\+S\+I\+T\+I\+VE A\+ND N\+OT E\+X\+T\+E\+ND O\+FF S\+C\+R\+E\+EN. \\
+\hline
+{\em color} & 16-\/bit fill color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This is a new function, no graphics primitives besides rects and horizontal/vertical lines are written to best use this yet. 
+\end{DoxyNote}
+
+
+Definition at line 1471 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}\label{class_adafruit___s_p_i_t_f_t_a795dcd9f5f850c057b0a896204fc7d55}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writePixel@{writePixel}}
+\index{writePixel@{writePixel}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writePixel()}{writePixel()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Pixel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Draw a single pixel to the display at requested coordinates. Not self-\/contained; should follow a \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal position (0 = left). \\
+\hline
+{\em y} & Vertical position (0 = top). \\
+\hline
+{\em color} & 16-\/bit pixel color in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_adafruit___g_f_x_ab66a1577ec595a254e4492d641b36fd8}{Adafruit\+\_\+\+G\+FX}}.
+
+
+
+Definition at line 942 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}\label{class_adafruit___s_p_i_t_f_t_af28a0d81eee528cabe3f2fbca6815f05}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!writePixels@{writePixels}}
+\index{writePixels@{writePixels}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{writePixels()}{writePixels()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::write\+Pixels (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{colors,  }\item[{uint32\+\_\+t}]{len,  }\item[{bool}]{block = {\ttfamily true},  }\item[{bool}]{big\+Endian = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Issue a series of pixels from memory to the display. Not self-\/ contained; should follow \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ad15008e1d7d71ccc707f6efab2a86e6b}{start\+Write()}} and \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_a1928d1a2b27cc32422624ed54c0ea932}{set\+Addr\+Window()}} calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em colors} & Pointer to array of 16-\/bit pixel values in \textquotesingle{}565\textquotesingle{} R\+GB format. \\
+\hline
+{\em len} & Number of elements in \textquotesingle{}colors\textquotesingle{} array. \\
+\hline
+{\em block} & If true (default case if unspecified), function blocks until D\+MA transfer is complete. This is simply I\+G\+N\+O\+R\+ED if D\+MA is not enabled. If false, the function returns immediately after the last D\+MA transfer is started, and one should use the \mbox{\hyperlink{class_adafruit___s_p_i_t_f_t_ae69f8c2c187cccd5c9df9c25d488f1e5}{dma\+Wait()}} function before doing A\+NY other display-\/related activities (or even any S\+P\+I-\/related activities, if using an S\+PI display that shares the bus with other devices). \\
+\hline
+{\em big\+Endian} & If using D\+MA, and if set true, bitmap in memory is in big-\/endian order (most significant byte first). By default this is false, as most microcontrollers seem to be little-\/endian and 16-\/bit pixel values must be byte-\/swapped before issuing to the display (which tend to be big-\/endian when using S\+PI or 8-\/bit parallel). If an application can optimize around this -- for example, a bitmap in a uint16\+\_\+t array having the byte values already reordered big-\/endian, this can save some processing time here, E\+S\+P\+E\+C\+I\+A\+L\+LY if using this function\textquotesingle{}s non-\/blocking D\+MA mode. Not all cases are covered...this is really here only for S\+A\+MD D\+MA and much forethought on the application side. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 977 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ac0ed6886fcef09bd3d98a02238ae7300}\label{class_adafruit___s_p_i_t_f_t_ac0ed6886fcef09bd3d98a02238ae7300}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_cs@{\_cs}}
+\index{\_cs@{\_cs}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_cs}{\_cs}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+cs\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Chip select pin \# (or -\/1) 
+
+
+
+Definition at line 507 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a5b26872a4e2b08017b475e9a542261cb}\label{class_adafruit___s_p_i_t_f_t_a5b26872a4e2b08017b475e9a542261cb}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_d0@{\_d0}}
+\index{\_d0@{\_d0}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_d0}{\_d0}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+d0}
+
+
+
+Data pin 0 \#. 
+
+
+
+Definition at line 474 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a154f060e2830dc7096af9d0b6022d12a}\label{class_adafruit___s_p_i_t_f_t_a154f060e2830dc7096af9d0b6022d12a}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_dc@{\_dc}}
+\index{\_dc@{\_dc}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_dc}{\_dc}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+dc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Data/command pin \#. 
+
+
+
+Definition at line 508 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a65e9eb00f665cadb411babf9c506a01d}\label{class_adafruit___s_p_i_t_f_t_a65e9eb00f665cadb411babf9c506a01d}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_freq@{\_freq}}
+\index{\_freq@{\_freq}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_freq}{\_freq}}
+{\footnotesize\ttfamily uint32\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+freq = 0}
+
+
+
+S\+PI bitrate (if no S\+PI transactions) 
+
+Dummy var to keep subclasses happy. 
+
+Definition at line 402 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a19f9a2a73ad817b16cd8c73556138363}\label{class_adafruit___s_p_i_t_f_t_a19f9a2a73ad817b16cd8c73556138363}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_miso@{\_miso}}
+\index{\_miso@{\_miso}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_miso}{\_miso}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+miso}
+
+
+
+M\+I\+SO pin \#. 
+
+
+
+Definition at line 431 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a78479cba8923b3d1c59b104359d71904}\label{class_adafruit___s_p_i_t_f_t_a78479cba8923b3d1c59b104359d71904}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_mode@{\_mode}}
+\index{\_mode@{\_mode}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_mode}{\_mode}}
+{\footnotesize\ttfamily uint32\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+mode}
+
+
+
+S\+PI data mode (transactions or no) 
+
+
+
+Definition at line 404 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a02d06f8d1fbe420c6dca776f636a41e5}\label{class_adafruit___s_p_i_t_f_t_a02d06f8d1fbe420c6dca776f636a41e5}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_mosi@{\_mosi}}
+\index{\_mosi@{\_mosi}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_mosi}{\_mosi}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+mosi}
+
+
+
+M\+O\+SI pin \#. 
+
+
+
+Definition at line 430 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a46b1c645935c1163dbad553adbdabff7}\label{class_adafruit___s_p_i_t_f_t_a46b1c645935c1163dbad553adbdabff7}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_rd@{\_rd}}
+\index{\_rd@{\_rd}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_rd}{\_rd}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+rd}
+
+
+
+Read strobe pin \# (or -\/1) 
+
+
+
+Definition at line 476 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a534eb433f9084d1e5b8088964a617a8a}\label{class_adafruit___s_p_i_t_f_t_a534eb433f9084d1e5b8088964a617a8a}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_rst@{\_rst}}
+\index{\_rst@{\_rst}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_rst}{\_rst}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+rst\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reset pin \# (or -\/1) 
+
+
+
+Definition at line 506 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_afd793c2ed96f6ac9e653a1bf67fda921}\label{class_adafruit___s_p_i_t_f_t_afd793c2ed96f6ac9e653a1bf67fda921}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_sck@{\_sck}}
+\index{\_sck@{\_sck}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_sck}{\_sck}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+sck}
+
+
+
+S\+CK pin \#. 
+
+
+
+Definition at line 432 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a2003f65628bfcd075b300f022dce0ffc}\label{class_adafruit___s_p_i_t_f_t_a2003f65628bfcd075b300f022dce0ffc}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_spi@{\_spi}}
+\index{\_spi@{\_spi}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_spi}{\_spi}}
+{\footnotesize\ttfamily S\+P\+I\+Class$\ast$ Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+spi}
+
+
+
+S\+PI class pointer. 
+
+
+
+Definition at line 398 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a87971f3f0f04e8099d54be48995cb578}\label{class_adafruit___s_p_i_t_f_t_a87971f3f0f04e8099d54be48995cb578}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_wr@{\_wr}}
+\index{\_wr@{\_wr}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_wr}{\_wr}}
+{\footnotesize\ttfamily int8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+wr}
+
+
+
+Write strobe pin \#. 
+
+
+
+Definition at line 475 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a479fb9af838dc94c442b27c734dab345}\label{class_adafruit___s_p_i_t_f_t_a479fb9af838dc94c442b27c734dab345}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_xstart@{\_xstart}}
+\index{\_xstart@{\_xstart}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_xstart}{\_xstart}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+xstart = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Internal framebuffer X offset. 
+
+
+
+Definition at line 510 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a1b1d3250b346656552dfdf939b1e428d}\label{class_adafruit___s_p_i_t_f_t_a1b1d3250b346656552dfdf939b1e428d}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!\_ystart@{\_ystart}}
+\index{\_ystart@{\_ystart}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{\_ystart}{\_ystart}}
+{\footnotesize\ttfamily int16\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::\+\_\+ystart = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Internal framebuffer Y offset. 
+
+
+
+Definition at line 511 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ae17cc84566e35b026f8b6f38903be80b}\label{class_adafruit___s_p_i_t_f_t_ae17cc84566e35b026f8b6f38903be80b}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!connection@{connection}}
+\index{connection@{connection}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{connection}{connection}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::connection\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+T\+F\+T\+\_\+\+H\+A\+R\+D\+\_\+\+S\+PI, T\+F\+T\+\_\+\+S\+O\+F\+T\+\_\+\+S\+PI, etc. 
+
+
+
+Definition at line 505 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a0159d217a74d21f78e7fec4872c26ddf}\label{class_adafruit___s_p_i_t_f_t_a0159d217a74d21f78e7fec4872c26ddf}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!hwspi@{hwspi}}
+\index{hwspi@{hwspi}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{hwspi}{hwspi}}
+{\footnotesize\ttfamily struct \{ ... \}  Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::hwspi\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Hardware S\+PI values. 
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_a7248ddde9f18b64675139cea13998141}\label{class_adafruit___s_p_i_t_f_t_a7248ddde9f18b64675139cea13998141}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!invertOffCommand@{invertOffCommand}}
+\index{invertOffCommand@{invertOffCommand}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{invertOffCommand}{invertOffCommand}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::invert\+Off\+Command = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Command to disable invert mode. 
+
+
+
+Definition at line 513 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ad6d068ec372f9ffa2a6a451542634bc1}\label{class_adafruit___s_p_i_t_f_t_ad6d068ec372f9ffa2a6a451542634bc1}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!invertOnCommand@{invertOnCommand}}
+\index{invertOnCommand@{invertOnCommand}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{invertOnCommand}{invertOnCommand}}
+{\footnotesize\ttfamily uint8\+\_\+t Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::invert\+On\+Command = 0\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Command to enable invert mode. 
+
+
+
+Definition at line 512 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aa7a4f062dc9bfda3030109a8e5be48a9}\label{class_adafruit___s_p_i_t_f_t_aa7a4f062dc9bfda3030109a8e5be48a9}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!swspi@{swspi}}
+\index{swspi@{swspi}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{swspi}{swspi}}
+{\footnotesize\ttfamily struct \{ ... \}  Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::swspi\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Software S\+PI values. 
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_aecd1f135bb46522e8783a019dacdb092}\label{class_adafruit___s_p_i_t_f_t_aecd1f135bb46522e8783a019dacdb092}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!tft8@{tft8}}
+\index{tft8@{tft8}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{tft8}{tft8}}
+{\footnotesize\ttfamily struct \{ ... \}  Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::tft8\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Parallel interface settings. 
+
+\mbox{\Hypertarget{class_adafruit___s_p_i_t_f_t_ab49cda19025e4f18f65f1a00ce65693d}\label{class_adafruit___s_p_i_t_f_t_ab49cda19025e4f18f65f1a00ce65693d}} 
+\index{Adafruit\_SPITFT@{Adafruit\_SPITFT}!wide@{wide}}
+\index{wide@{wide}!Adafruit\_SPITFT@{Adafruit\_SPITFT}}
+\doxysubsubsection{\texorpdfstring{wide}{wide}}
+{\footnotesize\ttfamily bool Adafruit\+\_\+\+S\+P\+I\+T\+F\+T\+::wide = 0}
+
+
+
+If true, is 16-\/bit interface. 
+
+
+
+Definition at line 477 of file Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8h}{Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___s_p_i_t_f_t_8cpp}{Adafruit\+\_\+\+S\+P\+I\+T\+F\+T.\+cpp}}\end{DoxyCompactItemize}

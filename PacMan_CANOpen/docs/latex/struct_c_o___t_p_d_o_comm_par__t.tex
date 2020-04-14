@@ -1,0 +1,126 @@
+\hypertarget{struct_c_o___t_p_d_o_comm_par__t}{}\doxysection{C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t Struct Reference}
+\label{struct_c_o___t_p_d_o_comm_par__t}\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+P\+D\+O.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_a74a8681177fabbb55ebf5be843f12fc5}{max\+Sub\+Index}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_a65ee2e80b1078e84479ab749012f94cc}{C\+O\+B\+\_\+\+I\+D\+Used\+By\+T\+P\+DO}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_a328398227ff1f167649d54453e44df97}{transmission\+Type}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_ad53403c65582d166898546e329ea9587}{inhibit\+Time}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_acba30527976f508b43b3348846f2e657}{compatibility\+Entry}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_ab01f44570dca08c910c17b14fc664414}{event\+Timer}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___t_p_d_o_comm_par__t_a597bd93f097550c3d869307e733cd198}{S\+Y\+N\+C\+Start\+Value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+T\+P\+DO communication parameter. The same as record from Object dictionary (index 0x1800+). 
+
+Definition at line 108 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_a65ee2e80b1078e84479ab749012f94cc}\label{struct_c_o___t_p_d_o_comm_par__t_a65ee2e80b1078e84479ab749012f94cc}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!COB\_IDUsedByTPDO@{COB\_IDUsedByTPDO}}
+\index{COB\_IDUsedByTPDO@{COB\_IDUsedByTPDO}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_IDUsedByTPDO}{COB\_IDUsedByTPDO}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::\+C\+O\+B\+\_\+\+I\+D\+Used\+By\+T\+P\+DO}
+
+Communication object identifier for transmitting message. Meaning of the specific bits\+:
+\begin{DoxyItemize}
+\item Bit 0-\/10\+: C\+O\+B-\/\+ID for P\+DO, to change it bit 31 must be set.
+\item Bit 11-\/29\+: set to 0 for 11 bit C\+O\+B-\/\+ID.
+\item Bit 30\+: If true, rtr are N\+OT allowed for P\+DO.
+\item Bit 31\+: If true, node does N\+OT use the P\+DO. 
+\end{DoxyItemize}
+
+Definition at line 115 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_acba30527976f508b43b3348846f2e657}\label{struct_c_o___t_p_d_o_comm_par__t_acba30527976f508b43b3348846f2e657}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!compatibilityEntry@{compatibilityEntry}}
+\index{compatibilityEntry@{compatibilityEntry}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{compatibilityEntry}{compatibilityEntry}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::compatibility\+Entry}
+
+Not used 
+
+Definition at line 128 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_ab01f44570dca08c910c17b14fc664414}\label{struct_c_o___t_p_d_o_comm_par__t_ab01f44570dca08c910c17b14fc664414}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!eventTimer@{eventTimer}}
+\index{eventTimer@{eventTimer}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{eventTimer}{eventTimer}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::event\+Timer}
+
+Time between periodic transmissions of the P\+DO in milliseconds. Zero disables functionality. 
+
+Definition at line 131 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_ad53403c65582d166898546e329ea9587}\label{struct_c_o___t_p_d_o_comm_par__t_ad53403c65582d166898546e329ea9587}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!inhibitTime@{inhibitTime}}
+\index{inhibitTime@{inhibitTime}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{inhibitTime}{inhibitTime}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::inhibit\+Time}
+
+Minimum time between transmissions of the P\+DO in 100micro seconds. Zero disables functionality. 
+
+Definition at line 126 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_a74a8681177fabbb55ebf5be843f12fc5}\label{struct_c_o___t_p_d_o_comm_par__t_a74a8681177fabbb55ebf5be843f12fc5}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!maxSubIndex@{maxSubIndex}}
+\index{maxSubIndex@{maxSubIndex}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{maxSubIndex}{maxSubIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::max\+Sub\+Index}
+
+Equal to 6 
+
+Definition at line 109 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_a597bd93f097550c3d869307e733cd198}\label{struct_c_o___t_p_d_o_comm_par__t_a597bd93f097550c3d869307e733cd198}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!SYNCStartValue@{SYNCStartValue}}
+\index{SYNCStartValue@{SYNCStartValue}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{SYNCStartValue}{SYNCStartValue}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::\+S\+Y\+N\+C\+Start\+Value}
+
+Used with numbered S\+Y\+NC messages. Values\+:
+\begin{DoxyItemize}
+\item 0\+: Counter of the S\+Y\+NC message shall not be processed.
+\item 1-\/240\+: The S\+Y\+NC message with the counter value equal to this value shall be regarded as the first received S\+Y\+NC message. 
+\end{DoxyItemize}
+
+Definition at line 136 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_p_d_o_comm_par__t_a328398227ff1f167649d54453e44df97}\label{struct_c_o___t_p_d_o_comm_par__t_a328398227ff1f167649d54453e44df97}} 
+\index{CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}!transmissionType@{transmissionType}}
+\index{transmissionType@{transmissionType}!CO\_TPDOCommPar\_t@{CO\_TPDOCommPar\_t}}
+\doxysubsubsection{\texorpdfstring{transmissionType}{transmissionType}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+T\+P\+D\+O\+Comm\+Par\+\_\+t\+::transmission\+Type}
+
+Transmission type. Values\+:
+\begin{DoxyItemize}
+\item 0\+: Transmiting is synchronous, specification in device profile.
+\item 1-\/240\+: Transmiting is synchronous after every N-\/th S\+Y\+NC object.
+\item 241-\/251\+: Not used.
+\item 252-\/253\+: Transmited only on reception of Remote Transmission Request.
+\item 254\+: Manufacturer specific.
+\item 255\+: Asinchronous, specification in device profile. 
+\end{DoxyItemize}
+
+Definition at line 123 of file C\+O\+\_\+\+P\+D\+O.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___p_d_o_8h}{C\+O\+\_\+\+P\+D\+O.\+h}}\end{DoxyCompactItemize}

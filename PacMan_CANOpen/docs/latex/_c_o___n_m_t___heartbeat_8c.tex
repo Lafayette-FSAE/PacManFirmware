@@ -1,0 +1,17 @@
+\hypertarget{_c_o___n_m_t___heartbeat_8c}{}\doxysection{C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+c File Reference}
+\label{_c_o___n_m_t___heartbeat_8c}\index{CO\_NMT\_Heartbeat.c@{CO\_NMT\_Heartbeat.c}}
+{\ttfamily \#include \char`\"{}C\+O\+\_\+driver.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+S\+D\+O.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+Emergency.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$em\+Pr, uint8\+\_\+t node\+Id, uint16\+\_\+t first\+H\+B\+Time, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$N\+M\+T\+\_\+\+C\+A\+Ndev, uint16\+\_\+t N\+M\+T\+\_\+rx\+Idx, uint16\+\_\+t C\+A\+Nid\+Rx\+N\+MT, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$H\+B\+\_\+\+C\+A\+Ndev, uint16\+\_\+t H\+B\+\_\+tx\+Idx, uint16\+\_\+t C\+A\+Nid\+Tx\+HB)
+\item 
+void \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}{C\+O\+\_\+\+N\+M\+T\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, void($\ast$p\+Funct\+N\+MT)(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state))
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t H\+Btime, uint32\+\_\+t N\+M\+Tstartup, uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Behavior\mbox{[}$\,$\mbox{]}, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga831f901d4411f17bd2daa289f17b7914}{C\+O\+\_\+\+N\+M\+T\+\_\+get\+Internal\+State}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT)
+\end{DoxyCompactItemize}

@@ -1,0 +1,240 @@
+\hypertarget{struct_c_o___s_y_n_c__t}{}\doxysection{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t Struct Reference}
+\label{struct_c_o___s_y_n_c__t}\index{CO\_SYNC\_t@{CO\_SYNC\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+S\+Y\+N\+C.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a934cdd6e20fab65db45502620ddc363c}{em}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a17610d101763dfc77cb587c46d5047ce}{operating\+State}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___s_y_n_c__t_af37a656db91d31a8187e0350f472ea36}{is\+Producer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_af528cdc487bdaee3dfc0a3baa3f7c7cc}{C\+O\+B\+\_\+\+ID}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a15337541e9b3defa2dbae2df3dd01e72}{period\+Time}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a9f612a7f9d691edeef11d8df9cf166a7}{period\+Timeout\+Time}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_aee5eb3e245e54e509d2f2cc05cf4a664}{counter\+Overflow\+Value}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___s_y_n_c__t_adbc85ba8f5f4cbca0caa645216204a88}{curent\+Sync\+Time\+Is\+Inside\+Window}}
+\item 
+volatile void $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a44f3b15575ae1312a931326f24335775}{C\+A\+Nrx\+New}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a25aeadeddcae8209b6b18034036a0aaf}{C\+A\+Nrx\+Toggle}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a0977c2f09f69755e4b53df68bb1fee0b}{counter}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a491f176a5fb70400647474555628bf6f}{timer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_ae108ac75f1fb7c797393646cc6c494af}{receive\+Error}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_ae57abd984c24b2bd5165775d7a580a0c}{C\+A\+Ndev\+Rx}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a1a489d5fd447a8b5e16fb82d957d0667}{C\+A\+Ndev\+Rx\+Idx}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_afa236ed64ba004b26e6fc3f9eb5a83f3}{C\+A\+Ndev\+Tx}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___s_y_n_c__t_a3df5d2b890b65bf380544bf47fc7deeb}{C\+A\+Ntx\+Buff}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___s_y_n_c__t_ad07d96af0baa18907d4865ecf244d420}{C\+A\+Ndev\+Tx\+Idx}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\+Y\+NC producer and consumer object. 
+
+Definition at line 67 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_ae57abd984c24b2bd5165775d7a580a0c}\label{struct_c_o___s_y_n_c__t_ae57abd984c24b2bd5165775d7a580a0c}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANdevRx@{CANdevRx}}
+\index{CANdevRx@{CANdevRx}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRx}{CANdevRx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Ndev\+Rx}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 99 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a1a489d5fd447a8b5e16fb82d957d0667}\label{struct_c_o___s_y_n_c__t_a1a489d5fd447a8b5e16fb82d957d0667}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANdevRxIdx@{CANdevRxIdx}}
+\index{CANdevRxIdx@{CANdevRxIdx}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRxIdx}{CANdevRxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Ndev\+Rx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 100 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_afa236ed64ba004b26e6fc3f9eb5a83f3}\label{struct_c_o___s_y_n_c__t_afa236ed64ba004b26e6fc3f9eb5a83f3}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANdevTx@{CANdevTx}}
+\index{CANdevTx@{CANdevTx}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTx}{CANdevTx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Ndev\+Tx}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 101 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_ad07d96af0baa18907d4865ecf244d420}\label{struct_c_o___s_y_n_c__t_ad07d96af0baa18907d4865ecf244d420}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANdevTxIdx@{CANdevTxIdx}}
+\index{CANdevTxIdx@{CANdevTxIdx}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTxIdx}{CANdevTxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Ndev\+Tx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 103 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a44f3b15575ae1312a931326f24335775}\label{struct_c_o___s_y_n_c__t_a44f3b15575ae1312a931326f24335775}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANrxNew@{CANrxNew}}
+\index{CANrxNew@{CANrxNew}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxNew}{CANrxNew}}
+{\footnotesize\ttfamily volatile void $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Nrx\+New}
+
+Indicates, if new S\+Y\+NC message received from C\+AN bus 
+
+Definition at line 89 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a25aeadeddcae8209b6b18034036a0aaf}\label{struct_c_o___s_y_n_c__t_a25aeadeddcae8209b6b18034036a0aaf}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANrxToggle@{CANrxToggle}}
+\index{CANrxToggle@{CANrxToggle}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxToggle}{CANrxToggle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Nrx\+Toggle}
+
+Variable toggles, if new S\+Y\+NC message received from C\+AN bus 
+
+Definition at line 91 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a3df5d2b890b65bf380544bf47fc7deeb}\label{struct_c_o___s_y_n_c__t_a3df5d2b890b65bf380544bf47fc7deeb}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!CANtxBuff@{CANtxBuff}}
+\index{CANtxBuff@{CANtxBuff}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{CANtxBuff}{CANtxBuff}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+A\+Ntx\+Buff}
+
+C\+AN transmit buffer inside C\+A\+Ndev\+Tx 
+
+Definition at line 102 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_af528cdc487bdaee3dfc0a3baa3f7c7cc}\label{struct_c_o___s_y_n_c__t_af528cdc487bdaee3dfc0a3baa3f7c7cc}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!COB\_ID@{COB\_ID}}
+\index{COB\_ID@{COB\_ID}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_ID}{COB\_ID}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::\+C\+O\+B\+\_\+\+ID}
+
+C\+O\+B\+\_\+\+ID of S\+Y\+NC message. Calculated from {\itshape C\+OB ID S\+Y\+NC Message} variable from Object dictionary (index 0x1005). 
+
+Definition at line 75 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a0977c2f09f69755e4b53df68bb1fee0b}\label{struct_c_o___s_y_n_c__t_a0977c2f09f69755e4b53df68bb1fee0b}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!counter@{counter}}
+\index{counter@{counter}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::counter}
+
+Counter of the S\+Y\+NC message if counter\+Overflow\+Value is different than zero 
+
+Definition at line 93 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_aee5eb3e245e54e509d2f2cc05cf4a664}\label{struct_c_o___s_y_n_c__t_aee5eb3e245e54e509d2f2cc05cf4a664}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!counterOverflowValue@{counterOverflowValue}}
+\index{counterOverflowValue@{counterOverflowValue}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{counterOverflowValue}{counterOverflowValue}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::counter\+Overflow\+Value}
+
+Value from {\itshape Synchronous counter overflow value} variable from Object dictionary (index 0x1019) 
+
+Definition at line 84 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_adbc85ba8f5f4cbca0caa645216204a88}\label{struct_c_o___s_y_n_c__t_adbc85ba8f5f4cbca0caa645216204a88}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!curentSyncTimeIsInsideWindow@{curentSyncTimeIsInsideWindow}}
+\index{curentSyncTimeIsInsideWindow@{curentSyncTimeIsInsideWindow}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{curentSyncTimeIsInsideWindow}{curentSyncTimeIsInsideWindow}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::curent\+Sync\+Time\+Is\+Inside\+Window}
+
+True, if current time is inside synchronous window. In this case synchronous P\+DO may be sent. 
+
+Definition at line 87 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a934cdd6e20fab65db45502620ddc363c}\label{struct_c_o___s_y_n_c__t_a934cdd6e20fab65db45502620ddc363c}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!em@{em}}
+\index{em@{em}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{em}{em}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::em}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 68 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_af37a656db91d31a8187e0350f472ea36}\label{struct_c_o___s_y_n_c__t_af37a656db91d31a8187e0350f472ea36}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!isProducer@{isProducer}}
+\index{isProducer@{isProducer}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{isProducer}{isProducer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::is\+Producer}
+
+True, if device is S\+Y\+NC producer. Calculated from {\itshape C\+OB ID S\+Y\+NC Message} variable from Object dictionary (index 0x1005). 
+
+Definition at line 72 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a17610d101763dfc77cb587c46d5047ce}\label{struct_c_o___s_y_n_c__t_a17610d101763dfc77cb587c46d5047ce}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!operatingState@{operatingState}}
+\index{operatingState@{operatingState}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{operatingState}{operatingState}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::operating\+State}
+
+From \mbox{\hyperlink{group___c_o___s_y_n_c_gaf1a78ad9551a2d89154819f207abe225}{C\+O\+\_\+\+S\+Y\+N\+C\+\_\+init()}} 
+
+Definition at line 69 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a15337541e9b3defa2dbae2df3dd01e72}\label{struct_c_o___s_y_n_c__t_a15337541e9b3defa2dbae2df3dd01e72}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!periodTime@{periodTime}}
+\index{periodTime@{periodTime}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{periodTime}{periodTime}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::period\+Time}
+
+Sync period time in \mbox{[}microseconds\mbox{]}. Calculated from {\itshape Communication cycle period} variable from Object dictionary (index 0x1006). 
+
+Definition at line 78 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a9f612a7f9d691edeef11d8df9cf166a7}\label{struct_c_o___s_y_n_c__t_a9f612a7f9d691edeef11d8df9cf166a7}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!periodTimeoutTime@{periodTimeoutTime}}
+\index{periodTimeoutTime@{periodTimeoutTime}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{periodTimeoutTime}{periodTimeoutTime}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::period\+Timeout\+Time}
+
+Sync period timeout time in \mbox{[}microseconds\mbox{]}. (period\+Timeout\+Time = period\+Time $\ast$ 1,5) 
+
+Definition at line 81 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_ae108ac75f1fb7c797393646cc6c494af}\label{struct_c_o___s_y_n_c__t_ae108ac75f1fb7c797393646cc6c494af}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!receiveError@{receiveError}}
+\index{receiveError@{receiveError}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{receiveError}{receiveError}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::receive\+Error}
+
+Set to nonzero value, if S\+Y\+NC with wrong data length is received from C\+AN 
+
+Definition at line 98 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+\mbox{\Hypertarget{struct_c_o___s_y_n_c__t_a491f176a5fb70400647474555628bf6f}\label{struct_c_o___s_y_n_c__t_a491f176a5fb70400647474555628bf6f}} 
+\index{CO\_SYNC\_t@{CO\_SYNC\_t}!timer@{timer}}
+\index{timer@{timer}!CO\_SYNC\_t@{CO\_SYNC\_t}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+S\+Y\+N\+C\+\_\+t\+::timer}
+
+Timer for the S\+Y\+NC message in \mbox{[}microseconds\mbox{]}. Set to zero after received or transmitted S\+Y\+NC message 
+
+Definition at line 96 of file C\+O\+\_\+\+S\+Y\+N\+C.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___s_y_n_c_8h}{C\+O\+\_\+\+S\+Y\+N\+C.\+h}}\end{DoxyCompactItemize}

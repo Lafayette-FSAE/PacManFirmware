@@ -1,0 +1,112 @@
+\hypertarget{_adafruit___g_f_x_8cpp}{}\doxysection{References/\+Adafruit\+\_\+\+G\+FX.cpp File Reference}
+\label{_adafruit___g_f_x_8cpp}\index{References/Adafruit\_GFX.cpp@{References/Adafruit\_GFX.cpp}}
+{\ttfamily \#include \char`\"{}Adafruit\+\_\+\+G\+F\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}glcdfont.\+c\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a48c60b057902adf805797f183286728d}{pgm\+\_\+read\+\_\+byte}}(addr)~($\ast$(const unsigned char $\ast$)(addr))
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a910fb5f01313d339d3b835d45e1e5ad0}{pgm\+\_\+read\+\_\+word}}(addr)~($\ast$(const unsigned short $\ast$)(addr))
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a73cf3e57e32321cb193b3cc4b041cc6c}{pgm\+\_\+read\+\_\+dword}}(addr)~($\ast$(const unsigned long $\ast$)(addr))
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a0d5d72a58654d35bb9c564263d1ede9a}{pgm\+\_\+read\+\_\+pointer}}(addr)~((void $\ast$)\mbox{\hyperlink{_adafruit___g_f_x_8cpp_a73cf3e57e32321cb193b3cc4b041cc6c}{pgm\+\_\+read\+\_\+dword}}(addr))
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_ac6afabdc09a49a433ee19d8a9486056d}{min}}(a,  b)~(((a) $<$ (b)) ? (a) \+: (b))
+\item 
+\#define \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a4e000513b9464b4b8a13b6ac95f87f80}{\+\_\+swap\+\_\+int16\+\_\+t}}(a,  b)~\{ int16\+\_\+t t = a; a = b; b = t; \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_g_f_xglyph}{G\+F\+Xglyph}} $\ast$ \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a98e7a978b93a56539e9fadc83a545c59}{pgm\+\_\+read\+\_\+glyph\+\_\+ptr}} (const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$gfx\+Font, uint8\+\_\+t c)
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{_adafruit___g_f_x_8cpp_a6b2e8b87535b660493780cb70dfe0a38}{pgm\+\_\+read\+\_\+bitmap\+\_\+ptr}} (const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$gfx\+Font)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a4e000513b9464b4b8a13b6ac95f87f80}\label{_adafruit___g_f_x_8cpp_a4e000513b9464b4b8a13b6ac95f87f80}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!\_swap\_int16\_t@{\_swap\_int16\_t}}
+\index{\_swap\_int16\_t@{\_swap\_int16\_t}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{\_swap\_int16\_t}{\_swap\_int16\_t}}
+{\footnotesize\ttfamily \#define \+\_\+swap\+\_\+int16\+\_\+t(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\{ int16\+\_\+t t = a; a = b; b = t; \}}
+
+
+
+Definition at line 95 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_ac6afabdc09a49a433ee19d8a9486056d}\label{_adafruit___g_f_x_8cpp_ac6afabdc09a49a433ee19d8a9486056d}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!min@{min}}
+\index{min@{min}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{min}{min}}
+{\footnotesize\ttfamily \#define min(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~(((a) $<$ (b)) ? (a) \+: (b))}
+
+
+
+Definition at line 91 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a48c60b057902adf805797f183286728d}\label{_adafruit___g_f_x_8cpp_a48c60b057902adf805797f183286728d}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_byte@{pgm\_read\_byte}}
+\index{pgm\_read\_byte@{pgm\_read\_byte}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_byte}{pgm\_read\_byte}}
+{\footnotesize\ttfamily \#define pgm\+\_\+read\+\_\+byte(\begin{DoxyParamCaption}\item[{}]{addr }\end{DoxyParamCaption})~($\ast$(const unsigned char $\ast$)(addr))}
+
+
+
+Definition at line 48 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a73cf3e57e32321cb193b3cc4b041cc6c}\label{_adafruit___g_f_x_8cpp_a73cf3e57e32321cb193b3cc4b041cc6c}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_dword@{pgm\_read\_dword}}
+\index{pgm\_read\_dword@{pgm\_read\_dword}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_dword}{pgm\_read\_dword}}
+{\footnotesize\ttfamily \#define pgm\+\_\+read\+\_\+dword(\begin{DoxyParamCaption}\item[{}]{addr }\end{DoxyParamCaption})~($\ast$(const unsigned long $\ast$)(addr))}
+
+
+
+Definition at line 54 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a0d5d72a58654d35bb9c564263d1ede9a}\label{_adafruit___g_f_x_8cpp_a0d5d72a58654d35bb9c564263d1ede9a}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_pointer@{pgm\_read\_pointer}}
+\index{pgm\_read\_pointer@{pgm\_read\_pointer}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_pointer}{pgm\_read\_pointer}}
+{\footnotesize\ttfamily \#define pgm\+\_\+read\+\_\+pointer(\begin{DoxyParamCaption}\item[{}]{addr }\end{DoxyParamCaption})~((void $\ast$)\mbox{\hyperlink{_adafruit___g_f_x_8cpp_a73cf3e57e32321cb193b3cc4b041cc6c}{pgm\+\_\+read\+\_\+dword}}(addr))}
+
+
+
+Definition at line 61 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a910fb5f01313d339d3b835d45e1e5ad0}\label{_adafruit___g_f_x_8cpp_a910fb5f01313d339d3b835d45e1e5ad0}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_word@{pgm\_read\_word}}
+\index{pgm\_read\_word@{pgm\_read\_word}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_word}{pgm\_read\_word}}
+{\footnotesize\ttfamily \#define pgm\+\_\+read\+\_\+word(\begin{DoxyParamCaption}\item[{}]{addr }\end{DoxyParamCaption})~($\ast$(const unsigned short $\ast$)(addr))}
+
+
+
+Definition at line 51 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a6b2e8b87535b660493780cb70dfe0a38}\label{_adafruit___g_f_x_8cpp_a6b2e8b87535b660493780cb70dfe0a38}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_bitmap\_ptr@{pgm\_read\_bitmap\_ptr}}
+\index{pgm\_read\_bitmap\_ptr@{pgm\_read\_bitmap\_ptr}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_bitmap\_ptr()}{pgm\_read\_bitmap\_ptr()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ pgm\+\_\+read\+\_\+bitmap\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$}]{gfx\+Font }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 77 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{_adafruit___g_f_x_8cpp_a98e7a978b93a56539e9fadc83a545c59}\label{_adafruit___g_f_x_8cpp_a98e7a978b93a56539e9fadc83a545c59}} 
+\index{Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}!pgm\_read\_glyph\_ptr@{pgm\_read\_glyph\_ptr}}
+\index{pgm\_read\_glyph\_ptr@{pgm\_read\_glyph\_ptr}!Adafruit\_GFX.cpp@{Adafruit\_GFX.cpp}}
+\doxysubsubsection{\texorpdfstring{pgm\_read\_glyph\_ptr()}{pgm\_read\_glyph\_ptr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_g_f_xglyph}{G\+F\+Xglyph}}$\ast$ pgm\+\_\+read\+\_\+glyph\+\_\+ptr (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_g_f_xfont}{G\+F\+Xfont}} $\ast$}]{gfx\+Font,  }\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 65 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+

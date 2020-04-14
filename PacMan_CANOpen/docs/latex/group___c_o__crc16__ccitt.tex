@@ -1,0 +1,48 @@
+\hypertarget{group___c_o__crc16__ccitt}{}\doxysection{C\+RC 16 C\+C\+I\+TT}
+\label{group___c_o__crc16__ccitt}\index{CRC 16 CCITT@{CRC 16 CCITT}}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{crc16-ccitt_8h}{crc16-\/ccitt.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2crc16-ccitt_8h}{crc16-\/ccitt.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{group___c_o__crc16__ccitt_gaacf4bd398ebd47d76a37e066deb2d45f}{crc16\+\_\+ccitt}} (const unsigned char block\mbox{[}$\,$\mbox{]}, unsigned int block\+Length, unsigned short crc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Calculation of C\+RC 16 C\+C\+I\+TT polynomial.
+
+Equation\+:
+
+{\ttfamily x$^\wedge$16 + x$^\wedge$12 + x$^\wedge$5 + 1} 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o__crc16__ccitt_gaacf4bd398ebd47d76a37e066deb2d45f}\label{group___c_o__crc16__ccitt_gaacf4bd398ebd47d76a37e066deb2d45f}} 
+\index{CRC 16 CCITT@{CRC 16 CCITT}!crc16\_ccitt@{crc16\_ccitt}}
+\index{crc16\_ccitt@{crc16\_ccitt}!CRC 16 CCITT@{CRC 16 CCITT}}
+\doxysubsubsection{\texorpdfstring{crc16\_ccitt()}{crc16\_ccitt()}}
+{\footnotesize\ttfamily unsigned short crc16\+\_\+ccitt (\begin{DoxyParamCaption}\item[{const unsigned char}]{block\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{block\+Length,  }\item[{unsigned short}]{crc }\end{DoxyParamCaption})}
+
+Calculate C\+RC sum on block of data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Pointer to block of data. \\
+\hline
+{\em block\+Length} & Length of data in bytes; \\
+\hline
+{\em crc} & Initial value (zero for xmodem). If block is split into multiple segments, previous C\+RC is used as initial.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Calculated C\+RC. 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file crc16-\/ccitt.\+c.
+

@@ -1,0 +1,96 @@
+\hypertarget{struct_c_o___o_d__entry__t}{}\doxysection{C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t Struct Reference}
+\label{struct_c_o___o_d__entry__t}\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+S\+D\+O.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d__entry__t_a4cc69841652c66e0d9a5f5b6e0d0f49a}{index}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___o_d__entry__t_a6c7cf30d5ff476792a81ddb2fe29be2c}{max\+Sub\+Index}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d__entry__t_ac5260ae7daf526bb42a2df6708656dd3}{attribute}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d__entry__t_a297404810118fd3c36e10c70c39e4ed3}{length}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___o_d__entry__t_ae9a9405bbf1708a772d2394e7012d951}{p\+Data}}
+\item 
+char $\ast$ \mbox{\hyperlink{struct_c_o___o_d__entry__t_a5e616d9428b84b59e720c50e7f762a55}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object for one entry with specific index in \mbox{\hyperlink{group___c_o___s_d_o__object_dictionary}{Object dictionary}}. 
+
+Definition at line 474 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_ac5260ae7daf526bb42a2df6708656dd3}\label{struct_c_o___o_d__entry__t_ac5260ae7daf526bb42a2df6708656dd3}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!attribute@{attribute}}
+\index{attribute@{attribute}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{attribute}{attribute}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::attribute}
+
+If Object Type is record, attribute is set to zero. Attribute for each member is then set in special array with members of type \mbox{\hyperlink{struct_c_o___o_d__entry_record__t}{C\+O\+\_\+\+O\+D\+\_\+entry\+Record\+\_\+t}}. If Object Type is Array, attribute is common for all array members. See \mbox{\hyperlink{group___c_o___s_d_o_ga0244f2d504e0de4f14614884d7319fd0}{C\+O\+\_\+\+S\+D\+O\+\_\+\+O\+D\+\_\+attributes\+\_\+t}}. 
+
+Definition at line 484 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_a4cc69841652c66e0d9a5f5b6e0d0f49a}\label{struct_c_o___o_d__entry__t_a4cc69841652c66e0d9a5f5b6e0d0f49a}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!index@{index}}
+\index{index@{index}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::index}
+
+The index of Object from 0x1000 to 0x\+F\+F\+FF 
+
+Definition at line 476 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_a297404810118fd3c36e10c70c39e4ed3}\label{struct_c_o___o_d__entry__t_a297404810118fd3c36e10c70c39e4ed3}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!length@{length}}
+\index{length@{length}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::length}
+
+If Object Type is Variable, length is the length of variable in bytes. If Object Type is Array, length is the length of one array member. If Object Type is Record, length is zero. Length for each member is set in special array with members of type \mbox{\hyperlink{struct_c_o___o_d__entry_record__t}{C\+O\+\_\+\+O\+D\+\_\+entry\+Record\+\_\+t}}. If Object Type is Domain, length is zero. Length is specified by application in \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}}. 
+
+Definition at line 491 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_a6c7cf30d5ff476792a81ddb2fe29be2c}\label{struct_c_o___o_d__entry__t_a6c7cf30d5ff476792a81ddb2fe29be2c}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!maxSubIndex@{maxSubIndex}}
+\index{maxSubIndex@{maxSubIndex}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{maxSubIndex}{maxSubIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::max\+Sub\+Index}
+
+Number of (sub-\/objects -\/ 1). If Object Type is variable, then max\+Sub\+Index is 0, otherwise max\+Sub\+Index is equal or greater than 1. 
+
+Definition at line 479 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_a5e616d9428b84b59e720c50e7f762a55}\label{struct_c_o___o_d__entry__t_a5e616d9428b84b59e720c50e7f762a55}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!name@{name}}
+\index{name@{name}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily char $\ast$ C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::name}
+
+
+
+Definition at line 499 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d__entry__t_ae9a9405bbf1708a772d2394e7012d951}\label{struct_c_o___o_d__entry__t_ae9a9405bbf1708a772d2394e7012d951}} 
+\index{CO\_OD\_entry\_t@{CO\_OD\_entry\_t}!pData@{pData}}
+\index{pData@{pData}!CO\_OD\_entry\_t@{CO\_OD\_entry\_t}}
+\doxysubsubsection{\texorpdfstring{pData}{pData}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+O\+D\+\_\+entry\+\_\+t\+::p\+Data}
+
+If Object Type is Variable, p\+Data is pointer to data. If Object Type is Array, p\+Data is pointer to data. Data doesn\textquotesingle{}t include Sub-\/\+Object 0. If object type is Record, p\+Data is pointer to special array with members of type \mbox{\hyperlink{struct_c_o___o_d__entry_record__t}{C\+O\+\_\+\+O\+D\+\_\+entry\+Record\+\_\+t}}. If object type is Domain, p\+Data is null. 
+
+Definition at line 498 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___s_d_o_8h}{C\+O\+\_\+\+S\+D\+O.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,192 @@
+\hypertarget{unioncan__frame__t}{}\doxysection{can\+\_\+frame\+\_\+t Union Reference}
+\label{unioncan__frame__t}\index{can\_frame\_t@{can\_frame\_t}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>struct \{\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a5c8c71e99b94f07f617d8d67c14458ed}{dlc}}: 4\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ae44a0d83141bb96f3d382aa1687c467c}{self\_reception}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ae7b8337cd69b1d1d0c4dde0c1c2bc0fa}{single\_shot}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a22f487426cb07f40d82277bfdea45541}{rtr}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a6bc7b228ca5af70055b0f73b06d084a7}{frame\_format}}: 1\\
+\>\} \\
+\>union \{\\
+\>\>struct \{\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}{id}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a207e9746c198f4976427d1f6941cd9d5}{FRAME\_STD\_ID\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}{data}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{FRAME\_MAX\_DATA\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ac7ad9bc1f7b76adefde55baa88f52215}{reserved8}} \mbox{[}2\mbox{]}\\
+\>\>\} \mbox{\hyperlink{unioncan__frame__t_a4d29e3e4243342ed3e91de9620faca1d}{standard}}\\
+\>\>struct \{\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}{id}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}{FRAME\_EXTD\_ID\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}{data}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{FRAME\_MAX\_DATA\_LEN}}\mbox{]}\\
+\>\>\} \mbox{\hyperlink{unioncan__frame__t_ab0add6c87cad22719a6d51a73cc19649}{extended}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+uint8\+\_\+t \mbox{\hyperlink{unioncan__frame__t_aeb400d826d3d7097986a8e7825a043c7}{bytes}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a7f406893c44b94072d014c416203b043}{F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+L\+EN}}\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>struct \{\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a5c8c71e99b94f07f617d8d67c14458ed}{dlc}}: 4\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ae44a0d83141bb96f3d382aa1687c467c}{self\_reception}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ae7b8337cd69b1d1d0c4dde0c1c2bc0fa}{single\_shot}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a22f487426cb07f40d82277bfdea45541}{rtr}}: 1\\
+\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a6bc7b228ca5af70055b0f73b06d084a7}{frame\_format}}: 1\\
+\>\} \\
+\>union \{\\
+\>\>struct \{\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}{id}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a207e9746c198f4976427d1f6941cd9d5}{FRAME\_STD\_ID\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}{data}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{FRAME\_MAX\_DATA\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_ac7ad9bc1f7b76adefde55baa88f52215}{reserved8}} \mbox{[}2\mbox{]}\\
+\>\>\} \mbox{\hyperlink{unioncan__frame__t_ac788794f563f04b96cd5b899f38c228a}{standard}}\\
+\>\>struct \{\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}{id}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}{FRAME\_EXTD\_ID\_LEN}}\mbox{]}\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}{data}} \mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{FRAME\_MAX\_DATA\_LEN}}\mbox{]}\\
+\>\>\} \mbox{\hyperlink{unioncan__frame__t_ab87eb5106cb3fe1958268a30beef998c}{extended}}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 90 of file can.\+c.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{unioncan__frame__t_ae0aa2f1b17459b71646e331ba85b2065}\label{unioncan__frame__t_ae0aa2f1b17459b71646e331ba85b2065}} 
+\doxysubsubsection{\texorpdfstring{"@1}{@1}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{unioncan__frame__t_a6844c0c908feab719f17403be0baf5a7}\label{unioncan__frame__t_a6844c0c908feab719f17403be0baf5a7}} 
+\doxysubsubsection{\texorpdfstring{"@18}{@18}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{unioncan__frame__t_aeb400d826d3d7097986a8e7825a043c7}\label{unioncan__frame__t_aeb400d826d3d7097986a8e7825a043c7}} 
+\index{can\_frame\_t@{can\_frame\_t}!bytes@{bytes}}
+\index{bytes@{bytes}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{bytes}{bytes}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::bytes}
+
+
+
+Definition at line 111 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}\label{unioncan__frame__t_aadaf0a659320464f26a57ebc295f0880}} 
+\index{can\_frame\_t@{can\_frame\_t}!data@{data}}
+\index{data@{data}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::data\mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_aa257d178bac32a7f9465a4d8e99072dc}{F\+R\+A\+M\+E\+\_\+\+M\+A\+X\+\_\+\+D\+A\+T\+A\+\_\+\+L\+EN}}\mbox{]}}
+
+
+
+Definition at line 102 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_a5c8c71e99b94f07f617d8d67c14458ed}\label{unioncan__frame__t_a5c8c71e99b94f07f617d8d67c14458ed}} 
+\index{can\_frame\_t@{can\_frame\_t}!dlc@{dlc}}
+\index{dlc@{dlc}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{dlc}{dlc}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::dlc}
+
+
+
+Definition at line 93 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_ab0add6c87cad22719a6d51a73cc19649}\label{unioncan__frame__t_ab0add6c87cad22719a6d51a73cc19649}} 
+\index{can\_frame\_t@{can\_frame\_t}!extended@{extended}}
+\index{extended@{extended}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{extended}{extended}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily struct \{ ... \}  can\+\_\+frame\+\_\+t\+::extended}
+
+\mbox{\Hypertarget{unioncan__frame__t_ab87eb5106cb3fe1958268a30beef998c}\label{unioncan__frame__t_ab87eb5106cb3fe1958268a30beef998c}} 
+\index{can\_frame\_t@{can\_frame\_t}!extended@{extended}}
+\index{extended@{extended}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{extended}{extended}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily struct \{ ... \}  can\+\_\+frame\+\_\+t\+::extended}
+
+\mbox{\Hypertarget{unioncan__frame__t_a6bc7b228ca5af70055b0f73b06d084a7}\label{unioncan__frame__t_a6bc7b228ca5af70055b0f73b06d084a7}} 
+\index{can\_frame\_t@{can\_frame\_t}!frame\_format@{frame\_format}}
+\index{frame\_format@{frame\_format}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{frame\_format}{frame\_format}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::frame\+\_\+format}
+
+
+
+Definition at line 97 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}\label{unioncan__frame__t_a49649a8dba3dae30a717956e427eee26}} 
+\index{can\_frame\_t@{can\_frame\_t}!id@{id}}
+\index{id@{id}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::id\mbox{[}\mbox{\hyperlink{_references_2_c_a_n___files_2can_8c_a86430822b6e53b91c82c1a7e19ada236}{F\+R\+A\+M\+E\+\_\+\+E\+X\+T\+D\+\_\+\+I\+D\+\_\+\+L\+EN}}\mbox{]}}
+
+
+
+Definition at line 101 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_ac7ad9bc1f7b76adefde55baa88f52215}\label{unioncan__frame__t_ac7ad9bc1f7b76adefde55baa88f52215}} 
+\index{can\_frame\_t@{can\_frame\_t}!reserved8@{reserved8}}
+\index{reserved8@{reserved8}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{reserved8}{reserved8}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::reserved8\mbox{[}2\mbox{]}}
+
+
+
+Definition at line 103 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_a22f487426cb07f40d82277bfdea45541}\label{unioncan__frame__t_a22f487426cb07f40d82277bfdea45541}} 
+\index{can\_frame\_t@{can\_frame\_t}!rtr@{rtr}}
+\index{rtr@{rtr}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{rtr}{rtr}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::rtr}
+
+
+
+Definition at line 96 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_ae44a0d83141bb96f3d382aa1687c467c}\label{unioncan__frame__t_ae44a0d83141bb96f3d382aa1687c467c}} 
+\index{can\_frame\_t@{can\_frame\_t}!self\_reception@{self\_reception}}
+\index{self\_reception@{self\_reception}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{self\_reception}{self\_reception}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::self\+\_\+reception}
+
+
+
+Definition at line 94 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_ae7b8337cd69b1d1d0c4dde0c1c2bc0fa}\label{unioncan__frame__t_ae7b8337cd69b1d1d0c4dde0c1c2bc0fa}} 
+\index{can\_frame\_t@{can\_frame\_t}!single\_shot@{single\_shot}}
+\index{single\_shot@{single\_shot}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{single\_shot}{single\_shot}}
+{\footnotesize\ttfamily uint8\+\_\+t can\+\_\+frame\+\_\+t\+::single\+\_\+shot}
+
+
+
+Definition at line 95 of file can.\+c.
+
+\mbox{\Hypertarget{unioncan__frame__t_ac788794f563f04b96cd5b899f38c228a}\label{unioncan__frame__t_ac788794f563f04b96cd5b899f38c228a}} 
+\index{can\_frame\_t@{can\_frame\_t}!standard@{standard}}
+\index{standard@{standard}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{standard}{standard}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily struct \{ ... \}  can\+\_\+frame\+\_\+t\+::standard}
+
+\mbox{\Hypertarget{unioncan__frame__t_a4d29e3e4243342ed3e91de9620faca1d}\label{unioncan__frame__t_a4d29e3e4243342ed3e91de9620faca1d}} 
+\index{can\_frame\_t@{can\_frame\_t}!standard@{standard}}
+\index{standard@{standard}!can\_frame\_t@{can\_frame\_t}}
+\doxysubsubsection{\texorpdfstring{standard}{standard}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily struct \{ ... \}  can\+\_\+frame\+\_\+t\+::standard}
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{can_8c}{can.\+c}}\end{DoxyCompactItemize}

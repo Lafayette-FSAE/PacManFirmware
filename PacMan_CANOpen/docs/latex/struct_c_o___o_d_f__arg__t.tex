@@ -1,0 +1,182 @@
+\hypertarget{struct_c_o___o_d_f__arg__t}{}\doxysection{C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t Struct Reference}
+\label{struct_c_o___o_d_f__arg__t}\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+S\+D\+O.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a1fba3201e07afca60b94f5c52d4cb367}{object}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_ad43e571ead381f823a8ec77d60481a61}{data}}
+\item 
+const void $\ast$ \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a79c3a76ccc0f4c2078df9fddf84e86a1}{O\+Ddata\+Storage}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_aea5dc99358f880040711eb6046a9c286}{data\+Length}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a8c3e7dfff541e9a88bb9260c5c54b3bf}{attribute}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a2895d6b39da94435ff9a07394d20107b}{p\+Flags}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a3498f7e295008fc6196586c4049e0159}{index}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a6f3fce74bd9ced3072884c730c875ebb}{sub\+Index}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a641827d4f18322071a98141c3e6e7d42}{reading}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a10fad89f44321d6167d8d17c6f4c37c2}{first\+Segment}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_ac1cb1d8b5a484fad297863101213624e}{last\+Segment}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a84d9ba93381c52777af37f7786d50471}{data\+Length\+Total}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___o_d_f__arg__t_a42223bb6a7b6912aaf98c82bcecb1362}{offset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Object contains all information about the object being transferred by S\+DO server.
+
+Object is used as an argument to \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}}. It is also part of the \mbox{\hyperlink{struct_c_o___s_d_o__t}{C\+O\+\_\+\+S\+D\+O\+\_\+t}} object. 
+
+Definition at line 525 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a8c3e7dfff541e9a88bb9260c5c54b3bf}\label{struct_c_o___o_d_f__arg__t_a8c3e7dfff541e9a88bb9260c5c54b3bf}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!attribute@{attribute}}
+\index{attribute@{attribute}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{attribute}{attribute}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::attribute}
+
+Attribute of object in Object dictionary (informative, must N\+OT be changed). 
+
+Definition at line 544 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_ad43e571ead381f823a8ec77d60481a61}\label{struct_c_o___o_d_f__arg__t_ad43e571ead381f823a8ec77d60481a61}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!data@{data}}
+\index{data@{data}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::data}
+
+S\+DO data buffer contains data, which are exchanged in S\+DO transfer. \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}} may verify or manipulate that data before (after) they are written to (read from) Object dictionary. Data have the same endianes as processor. Pointer must N\+OT be changed. (Data up to length can be changed.) 
+
+Definition at line 535 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_aea5dc99358f880040711eb6046a9c286}\label{struct_c_o___o_d_f__arg__t_aea5dc99358f880040711eb6046a9c286}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!dataLength@{dataLength}}
+\index{dataLength@{dataLength}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{dataLength}{dataLength}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::data\+Length}
+
+Length of data in the above buffer. Read only, except for domain. If data type is domain see \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}} for special rules by upload. 
+
+Definition at line 542 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a84d9ba93381c52777af37f7786d50471}\label{struct_c_o___o_d_f__arg__t_a84d9ba93381c52777af37f7786d50471}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!dataLengthTotal@{dataLengthTotal}}
+\index{dataLengthTotal@{dataLengthTotal}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{dataLengthTotal}{dataLengthTotal}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::data\+Length\+Total}
+
+Used by domain data type. By upload \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}} may write total data length, so this information will be send in S\+DO upload initiate phase. It is not necessary to specify this variable. By download this variable contains total data size, if size is indicated in S\+DO download initiate phase 
+
+Definition at line 564 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a10fad89f44321d6167d8d17c6f4c37c2}\label{struct_c_o___o_d_f__arg__t_a10fad89f44321d6167d8d17c6f4c37c2}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!firstSegment@{firstSegment}}
+\index{firstSegment@{firstSegment}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{firstSegment}{firstSegment}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::first\+Segment}
+
+Used by domain data type. Indicates the first segment. Variable is informative. 
+
+Definition at line 554 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a3498f7e295008fc6196586c4049e0159}\label{struct_c_o___o_d_f__arg__t_a3498f7e295008fc6196586c4049e0159}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!index@{index}}
+\index{index@{index}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::index}
+
+Index of object in Object dictionary (informative, must N\+OT be changed). 
+
+Definition at line 548 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_ac1cb1d8b5a484fad297863101213624e}\label{struct_c_o___o_d_f__arg__t_ac1cb1d8b5a484fad297863101213624e}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!lastSegment@{lastSegment}}
+\index{lastSegment@{lastSegment}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{lastSegment}{lastSegment}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::last\+Segment}
+
+Used by domain data type. If false by download, then application will receive more segments during S\+DO communication cycle. If uploading, application may set variable to false, so S\+DO server will call \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}} again for filling the next data. 
+
+Definition at line 559 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a1fba3201e07afca60b94f5c52d4cb367}\label{struct_c_o___o_d_f__arg__t_a1fba3201e07afca60b94f5c52d4cb367}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!object@{object}}
+\index{object@{object}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{object}{object}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::object}
+
+Informative parameter. It may point to object, which is connected with this OD entry. It can be used inside \mbox{\hyperlink{group___c_o___s_d_o___o_d__function}{Object Dictionary function}}, O\+N\+LY if it was registered by \mbox{\hyperlink{group___c_o___s_d_o_gab433430abe125bb16c08e7be3e034985}{C\+O\+\_\+\+O\+D\+\_\+configure()}} function before. 
+
+Definition at line 529 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a79c3a76ccc0f4c2078df9fddf84e86a1}\label{struct_c_o___o_d_f__arg__t_a79c3a76ccc0f4c2078df9fddf84e86a1}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!ODdataStorage@{ODdataStorage}}
+\index{ODdataStorage@{ODdataStorage}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{ODdataStorage}{ODdataStorage}}
+{\footnotesize\ttfamily const void $\ast$ C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::\+O\+Ddata\+Storage}
+
+Pointer to location in object dictionary, where data are stored. (informative reference to old data, read only). Data have the same endianes as processor. If data type is Domain, this variable is null. 
+
+Definition at line 539 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a42223bb6a7b6912aaf98c82bcecb1362}\label{struct_c_o___o_d_f__arg__t_a42223bb6a7b6912aaf98c82bcecb1362}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!offset@{offset}}
+\index{offset@{offset}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::offset}
+
+Used by domain data type. In case of multiple segments, this indicates the offset into the buffer this segment starts at. 
+
+Definition at line 567 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a2895d6b39da94435ff9a07394d20107b}\label{struct_c_o___o_d_f__arg__t_a2895d6b39da94435ff9a07394d20107b}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!pFlags@{pFlags}}
+\index{pFlags@{pFlags}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{pFlags}{pFlags}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::p\+Flags}
+
+Pointer to the \mbox{\hyperlink{group___c_o___s_d_o_ga954a22b6af836082afaf69b0f0cc4c7e}{C\+O\+\_\+\+S\+D\+O\+\_\+\+O\+D\+\_\+flags\+\_\+t}} byte. 
+
+Definition at line 546 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a641827d4f18322071a98141c3e6e7d42}\label{struct_c_o___o_d_f__arg__t_a641827d4f18322071a98141c3e6e7d42}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!reading@{reading}}
+\index{reading@{reading}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{reading}{reading}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::reading}
+
+True, if S\+DO upload is in progress, false if S\+DO download is in progress. 
+
+Definition at line 552 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+\mbox{\Hypertarget{struct_c_o___o_d_f__arg__t_a6f3fce74bd9ced3072884c730c875ebb}\label{struct_c_o___o_d_f__arg__t_a6f3fce74bd9ced3072884c730c875ebb}} 
+\index{CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}!subIndex@{subIndex}}
+\index{subIndex@{subIndex}!CO\_ODF\_arg\_t@{CO\_ODF\_arg\_t}}
+\doxysubsubsection{\texorpdfstring{subIndex}{subIndex}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+O\+D\+F\+\_\+arg\+\_\+t\+::sub\+Index}
+
+Subindex of object in Object dictionary (informative, must N\+OT be changed). 
+
+Definition at line 550 of file C\+O\+\_\+\+S\+D\+O.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___s_d_o_8h}{C\+O\+\_\+\+S\+D\+O.\+h}}\end{DoxyCompactItemize}

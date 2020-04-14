@@ -1,0 +1,613 @@
+\hypertarget{group___c_o___n_m_t___heartbeat}{}\doxysection{N\+MT and Heartbeat}
+\label{group___c_o___n_m_t___heartbeat}\index{NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes}{Status L\+E\+D diodes}}
+\begin{DoxyCompactList}\small\item\em Macros for status L\+ED diodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Files}
+\begin{DoxyCompactItemize}
+\item 
+file \mbox{\hyperlink{_c_o___n_m_t___heartbeat_8h}{C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h}}
+\item 
+file \mbox{\hyperlink{_references_2_c_a_n___files_2_c_o___n_m_t___heartbeat_8h}{C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 127, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 5, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}{C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED}} = 4
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}{C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL}} = 128, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE}} = 129, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}{C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON}} = 130
+ \}
+\item 
+enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \{ \newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3, 
+\newline
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT}} = 0, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM}} = 1, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP}} = 2, 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}{C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}{C\+O\+\_\+\+N\+M\+T\+\_\+init}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$em\+Pr, uint8\+\_\+t node\+Id, uint16\+\_\+t first\+H\+B\+Time, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$N\+M\+T\+\_\+\+C\+A\+Ndev, uint16\+\_\+t N\+M\+T\+\_\+rx\+Idx, uint16\+\_\+t C\+A\+Nid\+Rx\+N\+MT, \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$H\+B\+\_\+\+C\+A\+Ndev, uint16\+\_\+t H\+B\+\_\+tx\+Idx, uint16\+\_\+t C\+A\+Nid\+Tx\+HB)
+\item 
+void \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}{C\+O\+\_\+\+N\+M\+T\+\_\+init\+Callback}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, void($\ast$p\+Funct\+N\+MT)(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state))
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT, uint16\+\_\+t time\+Difference\+\_\+ms, uint16\+\_\+t H\+Btime, uint32\+\_\+t N\+M\+Tstartup, uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Behavior\mbox{[}$\,$\mbox{]}, uint16\+\_\+t $\ast$timer\+Next\+\_\+ms)
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga831f901d4411f17bd2daa289f17b7914}{C\+O\+\_\+\+N\+M\+T\+\_\+get\+Internal\+State}} (\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$N\+MT)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+A\+Nopen Network management and Heartbeat producer protocol.
+
+C\+A\+Nopen device can be in one of the \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}
+\begin{DoxyItemize}
+\item Initializing. It is active before C\+A\+Nopen is initialized.
+\item Pre-\/operational. All C\+A\+Nopen objects are active, except P\+D\+Os.
+\item Operational. Process data objects (P\+D\+Os) are active too.
+\item Stopped. Only Heartbeat producer and N\+MT consumer are active.
+\end{DoxyItemize}
+
+N\+MT master can change the internal state of the devices by sending \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}.\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md9}{}\doxyparagraph{N\+M\+T message contents\+:}\label{group___c_o___n_m_t___heartbeat_autotoc_md9}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0 &\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}  \\\cline{1-2}
+1 &Node ID. If zero, command addresses all nodes.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md10}{}\doxyparagraph{Heartbeat message contents\+:}\label{group___c_o___n_m_t___heartbeat_autotoc_md10}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0 &\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}  \\\cline{1-2}
+\end{longtabu}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+\end{DoxySeeAlso}
+\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md11}{}\doxyparagraph{Status L\+E\+D diodes}\label{group___c_o___n_m_t___heartbeat_autotoc_md11}
+Macros for \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes}{Status L\+ED diodes}} are also implemented in this object.
+
+C\+A\+Nopen Network management and Heartbeat producer protocol.
+
+C\+A\+Nopen device can be in one of the \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}
+\begin{DoxyItemize}
+\item Initializing. It is active before C\+A\+Nopen is initialized.
+\item Pre-\/operational. All C\+A\+Nopen objects are active, except P\+D\+Os.
+\item Operational. Process data objects (P\+D\+Os) are active too.
+\item Stopped. Only Heartbeat producer and N\+MT consumer are active.
+\end{DoxyItemize}
+
+N\+MT master can change the internal state of the devices by sending \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}.\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md54}{}\doxyparagraph{N\+M\+T message contents\+:}\label{group___c_o___n_m_t___heartbeat_autotoc_md54}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0 &\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}  \\\cline{1-2}
+1 &Node ID. If zero, command addresses all nodes.  \\\cline{1-2}
+\end{longtabu}
+\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md55}{}\doxyparagraph{Heartbeat message contents\+:}\label{group___c_o___n_m_t___heartbeat_autotoc_md55}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Byte }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description  }\\\cline{1-2}
+\endhead
+0 &\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}  \\\cline{1-2}
+\end{longtabu}
+
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+\end{DoxySeeAlso}
+\hypertarget{group___c_o___n_m_t___heartbeat_autotoc_md56}{}\doxyparagraph{Status L\+E\+D diodes}\label{group___c_o___n_m_t___heartbeat_autotoc_md56}
+Macros for \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes}{Status L\+ED diodes}} are also implemented in this object. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}\label{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_command\_t@{CO\_NMT\_command\_t}}
+\index{CO\_NMT\_command\_t@{CO\_NMT\_command\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_command\_t}{CO\_NMT\_command\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}}
+
+Commands from N\+MT master. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Start device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED&Stop device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Put device into pre-\/operational \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE&Reset device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON&Reset C\+A\+Nopen communication on device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Start device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED&Stop device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Put device into pre-\/operational \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE&Reset device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON&Reset C\+A\+Nopen communication on device \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 106 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}\label{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_command\_t@{CO\_NMT\_command\_t}}
+\index{CO\_NMT\_command\_t@{CO\_NMT\_command\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_command\_t}{CO\_NMT\_command\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gac396242e2e12ef6b0b22ff48636bc4eb}{C\+O\+\_\+\+N\+M\+T\+\_\+command\+\_\+t}}}
+
+Commands from N\+MT master. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Start device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED&Stop device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Put device into pre-\/operational \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE&Reset device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON&Reset C\+A\+Nopen communication on device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_OPERATIONAL@{CO\_NMT\_ENTER\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba6c7cdae79e5939cf321cdf82aa6b4146}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Start device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_STOPPED@{CO\_NMT\_ENTER\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba8a2911a2a576a1bd83b7f4a247cd77c9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+S\+T\+O\+P\+P\+ED&Stop device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_ENTER\_PRE\_OPERATIONAL@{CO\_NMT\_ENTER\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4eba575ed4f3386e8a63498921e659aa7ba4}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+E\+N\+T\+E\+R\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Put device into pre-\/operational \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_NODE@{CO\_NMT\_RESET\_NODE}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebaa8558d18a80148a598e6295ef41cdf97}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+O\+DE&Reset device \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_RESET\_COMMUNICATION@{CO\_NMT\_RESET\_COMMUNICATION}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}\label{group___c_o___n_m_t___heartbeat_ggac396242e2e12ef6b0b22ff48636bc4ebabc6aef9d84c816eecaea38f9fe2cbd9c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+I\+ON&Reset C\+A\+Nopen communication on device \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 106 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}\label{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_internalState\_t@{CO\_NMT\_internalState\_t}}
+\index{CO\_NMT\_internalState\_t@{CO\_NMT\_internalState\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_internalState\_t}{CO\_NMT\_internalState\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}}
+
+Internal network state of the C\+A\+Nopen node \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG&Device is initializing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in pre-\/operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED&Device is stopped \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG&Device is initializing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in pre-\/operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED&Device is stopped \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 95 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}\label{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_internalState\_t@{CO\_NMT\_internalState\_t}}
+\index{CO\_NMT\_internalState\_t@{CO\_NMT\_internalState\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_internalState\_t}{CO\_NMT\_internalState\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}}}
+
+Internal network state of the C\+A\+Nopen node \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG&Device is initializing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in pre-\/operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED&Device is stopped \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_INITIALIZING@{CO\_NMT\_INITIALIZING}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a672c48c0e9bd5cb070bd86e1dcdc085c}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+I\+N\+I\+T\+I\+A\+L\+I\+Z\+I\+NG&Device is initializing \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_PRE\_OPERATIONAL@{CO\_NMT\_PRE\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744ae41d4ebcb7e26e165c8685b5809871a9}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+P\+R\+E\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in pre-\/operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_OPERATIONAL@{CO\_NMT\_OPERATIONAL}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744a3f9d07a10f2781201b85e9de9ba1c9a5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+O\+P\+E\+R\+A\+T\+I\+O\+N\+AL&Device is in operational state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_STOPPED@{CO\_NMT\_STOPPED}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}\label{group___c_o___n_m_t___heartbeat_gga1e8c2a6c0fd4a33183503d25a7c6d744aba34c0b4b2c6a0c11b01236cbe949ed5}} 
+C\+O\+\_\+\+N\+M\+T\+\_\+\+S\+T\+O\+P\+P\+ED&Device is stopped \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 95 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}\label{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_reset\_cmd\_t@{CO\_NMT\_reset\_cmd\_t}}
+\index{CO\_NMT\_reset\_cmd\_t@{CO\_NMT\_reset\_cmd\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_reset\_cmd\_t}{CO\_NMT\_reset\_cmd\_t}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}}}
+
+Return code for \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process()}} that tells application code what to reset. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_NOT@{CO\_RESET\_NOT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_NOT@{CO\_RESET\_NOT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT&Normal return, no action \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_COMM@{CO\_RESET\_COMM}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_COMM@{CO\_RESET\_COMM}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM&Application must provide communication reset. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_APP@{CO\_RESET\_APP}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_APP@{CO\_RESET\_APP}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP&Application must provide complete device reset \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_QUIT@{CO\_RESET\_QUIT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_QUIT@{CO\_RESET\_QUIT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT&Application must quit, no reset of microcontroller (command is not requested by the stack.) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_NOT@{CO\_RESET\_NOT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_NOT@{CO\_RESET\_NOT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT&Normal return, no action \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_COMM@{CO\_RESET\_COMM}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_COMM@{CO\_RESET\_COMM}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM&Application must provide communication reset. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_APP@{CO\_RESET\_APP}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_APP@{CO\_RESET\_APP}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP&Application must provide complete device reset \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_QUIT@{CO\_RESET\_QUIT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_QUIT@{CO\_RESET\_QUIT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT&Application must quit, no reset of microcontroller (command is not requested by the stack.) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 119 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}\label{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_reset\_cmd\_t@{CO\_NMT\_reset\_cmd\_t}}
+\index{CO\_NMT\_reset\_cmd\_t@{CO\_NMT\_reset\_cmd\_t}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_reset\_cmd\_t}{CO\_NMT\_reset\_cmd\_t}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}}}
+
+Return code for \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}{C\+O\+\_\+\+N\+M\+T\+\_\+process()}} that tells application code what to reset. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_NOT@{CO\_RESET\_NOT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_NOT@{CO\_RESET\_NOT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT&Normal return, no action \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_COMM@{CO\_RESET\_COMM}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_COMM@{CO\_RESET\_COMM}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM&Application must provide communication reset. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_APP@{CO\_RESET\_APP}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_APP@{CO\_RESET\_APP}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP&Application must provide complete device reset \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_QUIT@{CO\_RESET\_QUIT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_QUIT@{CO\_RESET\_QUIT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT&Application must quit, no reset of microcontroller (command is not requested by the stack.) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_NOT@{CO\_RESET\_NOT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_NOT@{CO\_RESET\_NOT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a1e75deb437b2e06b2c1f353bf76d8807}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+N\+OT&Normal return, no action \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_COMM@{CO\_RESET\_COMM}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_COMM@{CO\_RESET\_COMM}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2a48dc2be7c9ffa7874eb08a1ba39f6f}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+C\+O\+MM&Application must provide communication reset. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_APP@{CO\_RESET\_APP}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_APP@{CO\_RESET\_APP}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674a2ab187bf1daccd4bc31685c08ca93bf1}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+A\+PP&Application must provide complete device reset \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CO\_RESET\_QUIT@{CO\_RESET\_QUIT}!NMT and Heartbeat@{NMT and Heartbeat}}\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_RESET\_QUIT@{CO\_RESET\_QUIT}}}\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}\label{group___c_o___n_m_t___heartbeat_ggaf42f056a571b8e17a2d74428d1a49674ae2c7805e42ce9b7c893018922b24a102}} 
+C\+O\+\_\+\+R\+E\+S\+E\+T\+\_\+\+Q\+U\+IT&Application must quit, no reset of microcontroller (command is not requested by the stack.) \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 119 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ga831f901d4411f17bd2daa289f17b7914}\label{group___c_o___n_m_t___heartbeat_ga831f901d4411f17bd2daa289f17b7914}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_getInternalState@{CO\_NMT\_getInternalState}}
+\index{CO\_NMT\_getInternalState@{CO\_NMT\_getInternalState}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_getInternalState()}{CO\_NMT\_getInternalState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} C\+O\+\_\+\+N\+M\+T\+\_\+get\+Internal\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$}]{N\+MT }\end{DoxyParamCaption})}
+
+Query current N\+MT state
+
+
+\begin{DoxyParams}{Parameters}
+{\em N\+MT} & This object.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 346 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+c.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}\label{group___c_o___n_m_t___heartbeat_gafa681acd31d3655eb2db0b917eb36835}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_init@{CO\_NMT\_init}}
+\index{CO\_NMT\_init@{CO\_NMT\_init}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_init()}{CO\_NMT\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+N\+M\+T\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$}]{N\+MT,  }\item[{C\+O\+\_\+\+E\+Mpr\+\_\+t $\ast$}]{em\+Pr,  }\item[{uint8\+\_\+t}]{node\+Id,  }\item[{uint16\+\_\+t}]{first\+H\+B\+Time,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{N\+M\+T\+\_\+\+C\+A\+Ndev,  }\item[{uint16\+\_\+t}]{N\+M\+T\+\_\+rx\+Idx,  }\item[{uint16\+\_\+t}]{C\+A\+Nid\+Rx\+N\+MT,  }\item[{\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$}]{H\+B\+\_\+\+C\+A\+Ndev,  }\item[{uint16\+\_\+t}]{H\+B\+\_\+tx\+Idx,  }\item[{uint16\+\_\+t}]{C\+A\+Nid\+Tx\+HB }\end{DoxyParamCaption})}
+
+Initialize N\+MT and Heartbeat producer object.
+
+Function must be called in the communication reset section.
+
+
+\begin{DoxyParams}{Parameters}
+{\em N\+MT} & This object will be initialized. \\
+\hline
+{\em em\+Pr} & Emergency main object. \\
+\hline
+{\em node\+Id} & C\+A\+Nopen Node ID of this device. \\
+\hline
+{\em first\+H\+B\+Time} & Time between bootup and first heartbeat message in milliseconds. If first\+H\+B\+Time is greater than {\itshape Producer Heartbeat time} (object dictionary, index 0x1017), latter is used instead. \\
+\hline
+{\em N\+M\+T\+\_\+\+C\+A\+Ndev} & C\+AN device for N\+MT reception. \\
+\hline
+{\em N\+M\+T\+\_\+rx\+Idx} & Index of receive buffer in above C\+AN device. \\
+\hline
+{\em C\+A\+Nid\+Rx\+N\+MT} & C\+AN identifier for N\+MT message. \\
+\hline
+{\em H\+B\+\_\+\+C\+A\+Ndev} & C\+AN device for HB transmission. \\
+\hline
+{\em H\+B\+\_\+tx\+Idx} & Index of transmit buffer in the above C\+AN device. \\
+\hline
+{\em C\+A\+Nid\+Tx\+HB} & C\+AN identifier for HB message.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{_references_2_c_a_n___files_2_c_o__types_8h_a1cb2d3466eb0c6d267f3b5ff1a0d9532}{C\+O\+\_\+\+Return\+Error\+\_\+t}} C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+NO or C\+O\+\_\+\+E\+R\+R\+O\+R\+\_\+\+I\+L\+L\+E\+G\+A\+L\+\_\+\+A\+R\+G\+U\+M\+E\+NT. 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+c.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}\label{group___c_o___n_m_t___heartbeat_ga02e12f7d100feaf426bd8825629df388}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_initCallback@{CO\_NMT\_initCallback}}
+\index{CO\_NMT\_initCallback@{CO\_NMT\_initCallback}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_initCallback()}{CO\_NMT\_initCallback()}}
+{\footnotesize\ttfamily void C\+O\+\_\+\+N\+M\+T\+\_\+init\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$}]{N\+MT,  }\item[{void($\ast$)(\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} state)}]{p\+Funct\+N\+MT }\end{DoxyParamCaption})}
+
+Initialize N\+MT callback function.
+
+Function initializes optional callback function, which is called after N\+MT State change has occured. Function may wake up external task which handles N\+MT events. The first call is made immediately to give the consumer the current N\+MT state.
+
+\begin{DoxyRemark}{Remarks}
+Be aware that the callback function is run inside the C\+AN receive function context. Depending on the driver, this might be inside an interrupt!
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em N\+MT} & This object. \\
+\hline
+{\em p\+Funct\+N\+MT} & Pointer to the callback function. Not called if N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+c.
+
+\mbox{\Hypertarget{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}\label{group___c_o___n_m_t___heartbeat_gae3d44dbdd1e1623cc8798254a0307111}} 
+\index{NMT and Heartbeat@{NMT and Heartbeat}!CO\_NMT\_process@{CO\_NMT\_process}}
+\index{CO\_NMT\_process@{CO\_NMT\_process}!NMT and Heartbeat@{NMT and Heartbeat}}
+\doxysubsubsection{\texorpdfstring{CO\_NMT\_process()}{CO\_NMT\_process()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} C\+O\+\_\+\+N\+M\+T\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o___n_m_t__t}{C\+O\+\_\+\+N\+M\+T\+\_\+t}} $\ast$}]{N\+MT,  }\item[{uint16\+\_\+t}]{time\+Difference\+\_\+ms,  }\item[{uint16\+\_\+t}]{H\+Btime,  }\item[{uint32\+\_\+t}]{N\+M\+Tstartup,  }\item[{uint8\+\_\+t}]{error\+Register,  }\item[{const uint8\+\_\+t}]{error\+Behavior\mbox{[}$\,$\mbox{]},  }\item[{uint16\+\_\+t $\ast$}]{timer\+Next\+\_\+ms }\end{DoxyParamCaption})}
+
+Calculate blinking bytes.
+
+Function must be called cyclically every 50 milliseconds. See \mbox{\hyperlink{group___c_o___n_m_t__status_l_e_ddiodes}{Status L\+ED diodes}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em N\+MT} & N\+MT object. Process received N\+MT and produce Heartbeat messages.\\
+\hline
+\end{DoxyParams}
+Function must be called cyclically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em N\+MT} & This object. \\
+\hline
+{\em time\+Difference\+\_\+ms} & Time difference from previous function call in \mbox{[}milliseconds\mbox{]}. \\
+\hline
+{\em H\+Btime} & {\itshape Producer Heartbeat time} (object dictionary, index 0x1017). \\
+\hline
+{\em N\+M\+Tstartup} & {\itshape N\+MT startup behavior} (object dictionary, index 0x1\+F80). \\
+\hline
+{\em error\+Register} & {\itshape Error register} (object dictionary, index 0x1001). \\
+\hline
+{\em error\+Behavior} & pointer to {\itshape Error behavior} array (object dictionary, index 0x1029). Object controls, if device should leave N\+MT operational state. Length of array must be 6. If pointer is N\+U\+LL, no calculation is made. \\
+\hline
+{\em timer\+Next\+\_\+ms} & Return value -\/ info to OS -\/ see \mbox{\hyperlink{group___c_o___c_a_nopen_ga2f4679e8c6399b6b1b24886d52d65780}{C\+O\+\_\+process()}}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_gaf42f056a571b8e17a2d74428d1a49674}{C\+O\+\_\+\+N\+M\+T\+\_\+reset\+\_\+cmd\+\_\+t}} 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file C\+O\+\_\+\+N\+M\+T\+\_\+\+Heartbeat.\+c.
+

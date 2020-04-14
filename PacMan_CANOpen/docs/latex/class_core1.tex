@@ -1,0 +1,95 @@
+\hypertarget{class_core1}{}\doxysection{Core1 Class Reference}
+\label{class_core1}\index{Core1@{Core1}}
+
+
+{\ttfamily \#include $<$Core1.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_core1_a1642783e09e5d4f8836d989f0bf6f510}{Core1}} (\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$\mbox{\hyperlink{group___c_o___c_a_nopen_gaa6b0e31a1f760af91bb742c83c00a6c1}{CO}})
+\begin{DoxyCompactList}\small\item\em Constructs a new Core 1\+::\+Core 1 object Created interrupt Semaphores Starts I2C driver and joins the bus on specified pins in \mbox{\hyperlink{_pac_man_8h}{Pac\+Man.\+h}} Creates all the warning and fault timers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_core1_ab2db0186cf27fd63d414f67d9748edc6}{start}} ()
+\begin{DoxyCompactList}\small\item\em The main loop for Core 1 thread Initialises various variables Discovers Cell\+Men Quick Sorts discovered Cell\+Men into voltage ascending over Begins main loop of\+: Updating Cell\+Men Data Handling Charging Short delay to avoid triggering the Watchdog built into the E\+SP due to overloading \mbox{\hyperlink{class_core1}{Core1}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_core1_a2c07f7eb4813a862949c8b93dec95ef6}{I2\+C\+\_\+\+Interrupter\+Semaphore}}
+\item 
+volatile Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_core1_a27ec22e39ed295ba20d20306da0443f0}{charge\+Detect\+Semaphore}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 32 of file Core1.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_core1_a1642783e09e5d4f8836d989f0bf6f510}\label{class_core1_a1642783e09e5d4f8836d989f0bf6f510}} 
+\index{Core1@{Core1}!Core1@{Core1}}
+\index{Core1@{Core1}!Core1@{Core1}}
+\doxysubsubsection{\texorpdfstring{Core1()}{Core1()}}
+{\footnotesize\ttfamily Core1\+::\+Core1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_o__t}{C\+O\+\_\+t}} $\ast$}]{CO }\end{DoxyParamCaption})}
+
+
+
+Constructs a new Core 1\+::\+Core 1 object Created interrupt Semaphores Starts I2C driver and joins the bus on specified pins in \mbox{\hyperlink{_pac_man_8h}{Pac\+Man.\+h}} Creates all the warning and fault timers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em CO} & The C\+A\+Nopen object which is passed in via the toplevel Pac\+Man file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file Core1.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_core1_ab2db0186cf27fd63d414f67d9748edc6}\label{class_core1_ab2db0186cf27fd63d414f67d9748edc6}} 
+\index{Core1@{Core1}!start@{start}}
+\index{start@{start}!Core1@{Core1}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Core1\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main loop for Core 1 thread Initialises various variables Discovers Cell\+Men Quick Sorts discovered Cell\+Men into voltage ascending over Begins main loop of\+: Updating Cell\+Men Data Handling Charging Short delay to avoid triggering the Watchdog built into the E\+SP due to overloading \mbox{\hyperlink{class_core1}{Core1}}. 
+
+
+
+Definition at line 628 of file Core1.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_core1_a27ec22e39ed295ba20d20306da0443f0}\label{class_core1_a27ec22e39ed295ba20d20306da0443f0}} 
+\index{Core1@{Core1}!chargeDetectSemaphore@{chargeDetectSemaphore}}
+\index{chargeDetectSemaphore@{chargeDetectSemaphore}!Core1@{Core1}}
+\doxysubsubsection{\texorpdfstring{chargeDetectSemaphore}{chargeDetectSemaphore}}
+{\footnotesize\ttfamily volatile Semaphore\+Handle\+\_\+t Core1\+::charge\+Detect\+Semaphore}
+
+
+
+Definition at line 108 of file Core1.\+h.
+
+\mbox{\Hypertarget{class_core1_a2c07f7eb4813a862949c8b93dec95ef6}\label{class_core1_a2c07f7eb4813a862949c8b93dec95ef6}} 
+\index{Core1@{Core1}!I2C\_InterrupterSemaphore@{I2C\_InterrupterSemaphore}}
+\index{I2C\_InterrupterSemaphore@{I2C\_InterrupterSemaphore}!Core1@{Core1}}
+\doxysubsubsection{\texorpdfstring{I2C\_InterrupterSemaphore}{I2C\_InterrupterSemaphore}}
+{\footnotesize\ttfamily volatile Semaphore\+Handle\+\_\+t Core1\+::\+I2\+C\+\_\+\+Interrupter\+Semaphore}
+
+
+
+Definition at line 107 of file Core1.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_core1_8h}{Core1.\+h}}\item 
+\mbox{\hyperlink{_core1_8cpp}{Core1.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,168 @@
+\hypertarget{struct_c_o___h_bcons_node__t}{}\doxysection{C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t Struct Reference}
+\label{struct_c_o___h_bcons_node__t}\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+H\+Bconsumer.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}
+\item 
+\mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} \mbox{\hyperlink{struct_c_o___h_bcons_node__t_aca87186237691cc315da47d5bcc8ad31}{N\+M\+Tstate}}
+\item 
+\mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a6d16bde174d37094149343fcc7025e3c}{H\+Bstate}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a9024560daa5ef7f8b8110c1e8406c4e7}{timeout\+Timer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_aed6cf4335f0ffaed71ee1eb58aa6820f}{time}}
+\item 
+volatile void $\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a659a1a5c4dfd2b37f8b8855508c1880d}{C\+A\+Nrx\+New}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_ad741dd15d2f07bb712029440e10501c5}{p\+Funct\+Signal\+Hb\+Started}} )(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a688341e155f92c083b15fc8d3ff5318e}{funct\+Signal\+Object\+Hb\+Started}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_af8fdac6202a443908382e230264cd35a}{p\+Funct\+Signal\+Timeout}} )(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a037487d1863cfd8d9acd61161bbc73e4}{funct\+Signal\+Object\+Timeout}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a14175ec40fe5ae95cfc6740796fd0c35}{p\+Funct\+Signal\+Remote\+Reset}} )(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___h_bcons_node__t_af7c89e1099d3ea7d9ed182baa7418951}{funct\+Signal\+Object\+Remote\+Reset}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+One monitored node inside \mbox{\hyperlink{struct_c_o___h_bconsumer__t}{C\+O\+\_\+\+H\+Bconsumer\+\_\+t}}. 
+
+Definition at line 67 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a659a1a5c4dfd2b37f8b8855508c1880d}\label{struct_c_o___h_bcons_node__t_a659a1a5c4dfd2b37f8b8855508c1880d}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!CANrxNew@{CANrxNew}}
+\index{CANrxNew@{CANrxNew}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxNew}{CANrxNew}}
+{\footnotesize\ttfamily volatile void $\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::\+C\+A\+Nrx\+New}
+
+Indication if new Heartbeat message received from the C\+AN bus 
+
+Definition at line 73 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a688341e155f92c083b15fc8d3ff5318e}\label{struct_c_o___h_bcons_node__t_a688341e155f92c083b15fc8d3ff5318e}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!functSignalObjectHbStarted@{functSignalObjectHbStarted}}
+\index{functSignalObjectHbStarted@{functSignalObjectHbStarted}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{functSignalObjectHbStarted}{functSignalObjectHbStarted}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::funct\+Signal\+Object\+Hb\+Started}
+
+Pointer to object 
+
+Definition at line 76 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_af7c89e1099d3ea7d9ed182baa7418951}\label{struct_c_o___h_bcons_node__t_af7c89e1099d3ea7d9ed182baa7418951}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!functSignalObjectRemoteReset@{functSignalObjectRemoteReset}}
+\index{functSignalObjectRemoteReset@{functSignalObjectRemoteReset}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{functSignalObjectRemoteReset}{functSignalObjectRemoteReset}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::funct\+Signal\+Object\+Remote\+Reset}
+
+Pointer to object 
+
+Definition at line 82 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a037487d1863cfd8d9acd61161bbc73e4}\label{struct_c_o___h_bcons_node__t_a037487d1863cfd8d9acd61161bbc73e4}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!functSignalObjectTimeout@{functSignalObjectTimeout}}
+\index{functSignalObjectTimeout@{functSignalObjectTimeout}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{functSignalObjectTimeout}{functSignalObjectTimeout}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::funct\+Signal\+Object\+Timeout}
+
+Pointer to object 
+
+Definition at line 79 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a6d16bde174d37094149343fcc7025e3c}\label{struct_c_o___h_bcons_node__t_a6d16bde174d37094149343fcc7025e3c}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!HBstate@{HBstate}}
+\index{HBstate@{HBstate}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{HBstate}{HBstate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___h_bconsumer_ga7658e41b7c045b7b612e4ef8a2b663f3}{C\+O\+\_\+\+H\+Bconsumer\+\_\+state\+\_\+t}} C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::\+H\+Bstate}
+
+Current heartbeat state 
+
+Definition at line 70 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_aca87186237691cc315da47d5bcc8ad31}\label{struct_c_o___h_bcons_node__t_aca87186237691cc315da47d5bcc8ad31}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!NMTstate@{NMTstate}}
+\index{NMTstate@{NMTstate}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{NMTstate}{NMTstate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o___n_m_t___heartbeat_ga1e8c2a6c0fd4a33183503d25a7c6d744}{C\+O\+\_\+\+N\+M\+T\+\_\+internal\+State\+\_\+t}} C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::\+N\+M\+Tstate}
+
+Of the remote node (Heartbeat payload) 
+
+Definition at line 69 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}\label{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!nodeId@{nodeId}}
+\index{nodeId@{nodeId}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{nodeId}{nodeId}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::node\+Id}
+
+Node Id of the monitored node 
+
+Definition at line 68 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_ad741dd15d2f07bb712029440e10501c5}\label{struct_c_o___h_bcons_node__t_ad741dd15d2f07bb712029440e10501c5}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!pFunctSignalHbStarted@{pFunctSignalHbStarted}}
+\index{pFunctSignalHbStarted@{pFunctSignalHbStarted}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignalHbStarted}{pFunctSignalHbStarted}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::p\+Funct\+Signal\+Hb\+Started)(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)}
+
+Callback for heartbeat state change to active event From C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Timeout\+Callback() or N\+U\+LL 
+
+Definition at line 75 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a14175ec40fe5ae95cfc6740796fd0c35}\label{struct_c_o___h_bcons_node__t_a14175ec40fe5ae95cfc6740796fd0c35}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!pFunctSignalRemoteReset@{pFunctSignalRemoteReset}}
+\index{pFunctSignalRemoteReset@{pFunctSignalRemoteReset}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignalRemoteReset}{pFunctSignalRemoteReset}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::p\+Funct\+Signal\+Remote\+Reset)(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)}
+
+Callback for remote reset event From C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Remote\+Reset\+Callback() or N\+U\+LL 
+
+Definition at line 81 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_af8fdac6202a443908382e230264cd35a}\label{struct_c_o___h_bcons_node__t_af8fdac6202a443908382e230264cd35a}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!pFunctSignalTimeout@{pFunctSignalTimeout}}
+\index{pFunctSignalTimeout@{pFunctSignalTimeout}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignalTimeout}{pFunctSignalTimeout}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::p\+Funct\+Signal\+Timeout)(uint8\+\_\+t \mbox{\hyperlink{struct_c_o___h_bcons_node__t_a180aca37057c670be35bbdd89f72b812}{node\+Id}}, uint8\+\_\+t idx, void $\ast$object)}
+
+Callback for consumer timeout event From C\+O\+\_\+\+H\+Bconsumer\+\_\+init\+Timeout\+Callback() or N\+U\+LL 
+
+Definition at line 78 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_aed6cf4335f0ffaed71ee1eb58aa6820f}\label{struct_c_o___h_bcons_node__t_aed6cf4335f0ffaed71ee1eb58aa6820f}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!time@{time}}
+\index{time@{time}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::time}
+
+Consumer heartbeat time from OD 
+
+Definition at line 72 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+\mbox{\Hypertarget{struct_c_o___h_bcons_node__t_a9024560daa5ef7f8b8110c1e8406c4e7}\label{struct_c_o___h_bcons_node__t_a9024560daa5ef7f8b8110c1e8406c4e7}} 
+\index{CO\_HBconsNode\_t@{CO\_HBconsNode\_t}!timeoutTimer@{timeoutTimer}}
+\index{timeoutTimer@{timeoutTimer}!CO\_HBconsNode\_t@{CO\_HBconsNode\_t}}
+\doxysubsubsection{\texorpdfstring{timeoutTimer}{timeoutTimer}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+H\+Bcons\+Node\+\_\+t\+::timeout\+Timer}
+
+Time since last heartbeat received 
+
+Definition at line 71 of file C\+O\+\_\+\+H\+Bconsumer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___h_bconsumer_8h}{C\+O\+\_\+\+H\+Bconsumer.\+h}}\end{DoxyCompactItemize}

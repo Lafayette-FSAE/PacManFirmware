@@ -1,0 +1,168 @@
+\hypertarget{struct_c_o___c_a_nmodule__t}{}\doxysection{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t Struct Reference}
+\label{struct_c_o___c_a_nmodule__t}\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+driver\+\_\+target.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a5b2b7d5a422440dbf1d705a13d940bcb}{C\+A\+Ndriver\+State}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_ab7b4b20906351f19a60483b76ac31469}{rx\+Array}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a88edfd32c2bff5b9f29a2bccd1ac96f3}{rx\+Size}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a2af206f03beaa3ba43379301de87f526}{tx\+Array}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a6a53d3d12efbe30d1ee08e821d1b4139}{tx\+Size}}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a5555f7d10e09da5815526d7c8b10901d}{C\+A\+Nnormal}}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a9b28f7a6f02d398b3a0ea6cf70fa64f0}{use\+C\+A\+Nrx\+Filters}}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_ad7af19de0bf39c8927c926b095cb5292}{buffer\+Inhibit\+Flag}}
+\item 
+volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_ac12bd37971b89b5796fec0de71be0f07}{first\+C\+A\+Ntx\+Message}}
+\item 
+volatile uint16\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a269294aa6a15ba56f92a460fae0536ac}{C\+A\+Ntx\+Count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_aa0627988ddedc3a4ec3bbfcf3b818d06}{err\+Old}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_o___c_a_nmodule__t_a96a44ec82a601d32c13229a6cb08c151}{em}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+AN module object. It may be different in different microcontrollers. 
+
+Definition at line 252 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_ad7af19de0bf39c8927c926b095cb5292}\label{struct_c_o___c_a_nmodule__t_ad7af19de0bf39c8927c926b095cb5292}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!bufferInhibitFlag@{bufferInhibitFlag}}
+\index{bufferInhibitFlag@{bufferInhibitFlag}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{bufferInhibitFlag}{bufferInhibitFlag}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::buffer\+Inhibit\+Flag}
+
+If flag is true, then message in transmitt buffer is synchronous P\+DO message, which will be aborted, if C\+O\+\_\+clear\+Pending\+Sync\+P\+D\+Os() function will be called by application. This may be necessary if Synchronous window time was expired. 
+
+Definition at line 268 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a5b2b7d5a422440dbf1d705a13d940bcb}\label{struct_c_o___c_a_nmodule__t_a5b2b7d5a422440dbf1d705a13d940bcb}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!CANdriverState@{CANdriverState}}
+\index{CANdriverState@{CANdriverState}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{CANdriverState}{CANdriverState}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::\+C\+A\+Ndriver\+State}
+
+From \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}} 
+
+Definition at line 253 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a5555f7d10e09da5815526d7c8b10901d}\label{struct_c_o___c_a_nmodule__t_a5555f7d10e09da5815526d7c8b10901d}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!CANnormal@{CANnormal}}
+\index{CANnormal@{CANnormal}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{CANnormal}{CANnormal}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::\+C\+A\+Nnormal}
+
+C\+AN module is in normal mode 
+
+Definition at line 258 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a269294aa6a15ba56f92a460fae0536ac}\label{struct_c_o___c_a_nmodule__t_a269294aa6a15ba56f92a460fae0536ac}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!CANtxCount@{CANtxCount}}
+\index{CANtxCount@{CANtxCount}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{CANtxCount}{CANtxCount}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::\+C\+A\+Ntx\+Count}
+
+Number of messages in transmit buffer, which are waiting to be copied to the C\+AN module 
+
+Definition at line 272 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a96a44ec82a601d32c13229a6cb08c151}\label{struct_c_o___c_a_nmodule__t_a96a44ec82a601d32c13229a6cb08c151}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!em@{em}}
+\index{em@{em}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{em}{em}}
+{\footnotesize\ttfamily void $\ast$ C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::em}
+
+Emergency object 
+
+Definition at line 274 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_aa0627988ddedc3a4ec3bbfcf3b818d06}\label{struct_c_o___c_a_nmodule__t_aa0627988ddedc3a4ec3bbfcf3b818d06}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!errOld@{errOld}}
+\index{errOld@{errOld}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{errOld}{errOld}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::err\+Old}
+
+Previous state of C\+AN errors 
+
+Definition at line 273 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_ac12bd37971b89b5796fec0de71be0f07}\label{struct_c_o___c_a_nmodule__t_ac12bd37971b89b5796fec0de71be0f07}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!firstCANtxMessage@{firstCANtxMessage}}
+\index{firstCANtxMessage@{firstCANtxMessage}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{firstCANtxMessage}{firstCANtxMessage}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::first\+C\+A\+Ntx\+Message}
+
+Equal to 1, when the first transmitted message (bootup message) is in C\+AN TX buffers 
+
+Definition at line 270 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_ab7b4b20906351f19a60483b76ac31469}\label{struct_c_o___c_a_nmodule__t_ab7b4b20906351f19a60483b76ac31469}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!rxArray@{rxArray}}
+\index{rxArray@{rxArray}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{rxArray}{rxArray}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nrx__t}{C\+O\+\_\+\+C\+A\+Nrx\+\_\+t}} $\ast$ C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::rx\+Array}
+
+From \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}} 
+
+Definition at line 254 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a88edfd32c2bff5b9f29a2bccd1ac96f3}\label{struct_c_o___c_a_nmodule__t_a88edfd32c2bff5b9f29a2bccd1ac96f3}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!rxSize@{rxSize}}
+\index{rxSize@{rxSize}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{rxSize}{rxSize}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::rx\+Size}
+
+From \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}} 
+
+Definition at line 255 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a2af206f03beaa3ba43379301de87f526}\label{struct_c_o___c_a_nmodule__t_a2af206f03beaa3ba43379301de87f526}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!txArray@{txArray}}
+\index{txArray@{txArray}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{txArray}{txArray}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::tx\+Array}
+
+From \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}} 
+
+Definition at line 256 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a6a53d3d12efbe30d1ee08e821d1b4139}\label{struct_c_o___c_a_nmodule__t_a6a53d3d12efbe30d1ee08e821d1b4139}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!txSize@{txSize}}
+\index{txSize@{txSize}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{txSize}{txSize}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::tx\+Size}
+
+From \mbox{\hyperlink{group___c_o__driver_gaa6aeb96ec4dbb8750d8c9d8f6bd0f1e2}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+init()}} 
+
+Definition at line 257 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+\mbox{\Hypertarget{struct_c_o___c_a_nmodule__t_a9b28f7a6f02d398b3a0ea6cf70fa64f0}\label{struct_c_o___c_a_nmodule__t_a9b28f7a6f02d398b3a0ea6cf70fa64f0}} 
+\index{CO\_CANmodule\_t@{CO\_CANmodule\_t}!useCANrxFilters@{useCANrxFilters}}
+\index{useCANrxFilters@{useCANrxFilters}!CO\_CANmodule\_t@{CO\_CANmodule\_t}}
+\doxysubsubsection{\texorpdfstring{useCANrxFilters}{useCANrxFilters}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t\+::use\+C\+A\+Nrx\+Filters}
+
+Value different than zero indicates, that C\+AN module hardware filters are used for C\+AN reception. If there is not enough hardware filters, they won\textquotesingle{}t be used. In this case will be {\itshape all} received C\+AN messages processed by software. 
+
+Definition at line 263 of file C\+O\+\_\+driver\+\_\+target.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o__driver__target_8h}{C\+O\+\_\+driver\+\_\+target.\+h}}\end{DoxyCompactItemize}

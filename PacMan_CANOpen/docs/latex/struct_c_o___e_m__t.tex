@@ -1,0 +1,144 @@
+\hypertarget{struct_c_o___e_m__t}{}\doxysection{C\+O\+\_\+\+E\+M\+\_\+t Struct Reference}
+\label{struct_c_o___e_m__t}\index{CO\_EM\_t@{CO\_EM\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+Emergency.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_adbe8a0b1466d91ae26d064aa544edf1b}{error\+Status\+Bits}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___e_m__t_ac13b854f36eda78ec92db778ab7f8e43}{error\+Status\+Bits\+Size}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___e_m__t_acd3e24b839f8a8608da9eb3182882ff9}{buf}} \mbox{[}\mbox{\hyperlink{group___c_o___emergency_gaddb92fe676778143052bc7149399ecf5}{C\+O\+\_\+\+E\+M\+\_\+\+I\+N\+T\+E\+R\+N\+A\+L\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}} $\ast$8\mbox{]}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_a08937657fd1dcb3bdbacbc23f16eb307}{buf\+End}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_a3e5d453cb56cf626c25f60ee27d4bafe}{buf\+Write\+Ptr}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_a9d527fb1778d08dd92427c1850f831ed}{buf\+Read\+Ptr}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___e_m__t_a8937aa9e6adaaeed1620c2e2b4216d61}{buf\+Full}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_c_o___e_m__t_a1c0c2d7befb1baefcd9545776b2eed93}{wrong\+Error\+Report}}
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_a470d3b1a1db9370e07c1646ffc46ec98}{p\+Funct\+Signal}} )(void)
+\item 
+void($\ast$ \mbox{\hyperlink{struct_c_o___e_m__t_ad849ddc6a17d59276301078d0fd824c9}{p\+Funct\+Signal\+Rx}} )(const uint16\+\_\+t ident, const uint16\+\_\+t error\+Code, const uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Emergerncy object for \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}}. It contains error buffer, to which new emergency messages are written, when \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} is called. This object is included in C\+O\+\_\+\+E\+Mpr\+\_\+t object. 
+
+Definition at line 254 of file C\+O\+\_\+\+Emergency.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___e_m__t_acd3e24b839f8a8608da9eb3182882ff9}\label{struct_c_o___e_m__t_acd3e24b839f8a8608da9eb3182882ff9}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!buf@{buf}}
+\index{buf@{buf}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+E\+M\+\_\+t\+::buf}
+
+Internal buffer for storing unsent emergency messages. 
+
+Definition at line 259 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a08937657fd1dcb3bdbacbc23f16eb307}\label{struct_c_o___e_m__t_a08937657fd1dcb3bdbacbc23f16eb307}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!bufEnd@{bufEnd}}
+\index{bufEnd@{bufEnd}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{bufEnd}{bufEnd}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::buf\+End}
+
+End+1 address of the above buffer 
+
+Definition at line 260 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a8937aa9e6adaaeed1620c2e2b4216d61}\label{struct_c_o___e_m__t_a8937aa9e6adaaeed1620c2e2b4216d61}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!bufFull@{bufFull}}
+\index{bufFull@{bufFull}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{bufFull}{bufFull}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+E\+M\+\_\+t\+::buf\+Full}
+
+True if above buffer is full 
+
+Definition at line 263 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a9d527fb1778d08dd92427c1850f831ed}\label{struct_c_o___e_m__t_a9d527fb1778d08dd92427c1850f831ed}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!bufReadPtr@{bufReadPtr}}
+\index{bufReadPtr@{bufReadPtr}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{bufReadPtr}{bufReadPtr}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::buf\+Read\+Ptr}
+
+Read pointer in the above buffer 
+
+Definition at line 262 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a3e5d453cb56cf626c25f60ee27d4bafe}\label{struct_c_o___e_m__t_a3e5d453cb56cf626c25f60ee27d4bafe}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!bufWritePtr@{bufWritePtr}}
+\index{bufWritePtr@{bufWritePtr}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{bufWritePtr}{bufWritePtr}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::buf\+Write\+Ptr}
+
+Write pointer in the above buffer 
+
+Definition at line 261 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_adbe8a0b1466d91ae26d064aa544edf1b}\label{struct_c_o___e_m__t_adbe8a0b1466d91ae26d064aa544edf1b}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!errorStatusBits@{errorStatusBits}}
+\index{errorStatusBits@{errorStatusBits}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{errorStatusBits}{errorStatusBits}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::error\+Status\+Bits}
+
+From \mbox{\hyperlink{_c_o___emergency_8c_a7d833d23c88bca06ac52094f1a521e41}{C\+O\+\_\+\+E\+M\+\_\+init()}} 
+
+Definition at line 255 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_ac13b854f36eda78ec92db778ab7f8e43}\label{struct_c_o___e_m__t_ac13b854f36eda78ec92db778ab7f8e43}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!errorStatusBitsSize@{errorStatusBitsSize}}
+\index{errorStatusBitsSize@{errorStatusBitsSize}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{errorStatusBitsSize}{errorStatusBitsSize}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+E\+M\+\_\+t\+::error\+Status\+Bits\+Size}
+
+From \mbox{\hyperlink{_c_o___emergency_8c_a7d833d23c88bca06ac52094f1a521e41}{C\+O\+\_\+\+E\+M\+\_\+init()}} 
+
+Definition at line 256 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a470d3b1a1db9370e07c1646ffc46ec98}\label{struct_c_o___e_m__t_a470d3b1a1db9370e07c1646ffc46ec98}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!pFunctSignal@{pFunctSignal}}
+\index{pFunctSignal@{pFunctSignal}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignal}{pFunctSignal}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::p\+Funct\+Signal)(void)}
+
+From \mbox{\hyperlink{_c_o___emergency_8c_abed4b68105e40e7e8da784d6cc53b50c}{C\+O\+\_\+\+E\+M\+\_\+init\+Callback()}} or N\+U\+LL 
+
+Definition at line 267 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_ad849ddc6a17d59276301078d0fd824c9}\label{struct_c_o___e_m__t_ad849ddc6a17d59276301078d0fd824c9}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!pFunctSignalRx@{pFunctSignalRx}}
+\index{pFunctSignalRx@{pFunctSignalRx}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{pFunctSignalRx}{pFunctSignalRx}}
+{\footnotesize\ttfamily void($\ast$ C\+O\+\_\+\+E\+M\+\_\+t\+::p\+Funct\+Signal\+Rx)(const uint16\+\_\+t ident, const uint16\+\_\+t error\+Code, const uint8\+\_\+t error\+Register, const uint8\+\_\+t error\+Bit, const uint32\+\_\+t info\+Code)}
+
+From \mbox{\hyperlink{_c_o___emergency_8c_a583245c954327c3cf7f9fdb97854e76b}{C\+O\+\_\+\+E\+M\+\_\+init\+Callback\+Rx()}} or N\+U\+LL 
+
+Definition at line 269 of file C\+O\+\_\+\+Emergency.\+h.
+
+\mbox{\Hypertarget{struct_c_o___e_m__t_a1c0c2d7befb1baefcd9545776b2eed93}\label{struct_c_o___e_m__t_a1c0c2d7befb1baefcd9545776b2eed93}} 
+\index{CO\_EM\_t@{CO\_EM\_t}!wrongErrorReport@{wrongErrorReport}}
+\index{wrongErrorReport@{wrongErrorReport}!CO\_EM\_t@{CO\_EM\_t}}
+\doxysubsubsection{\texorpdfstring{wrongErrorReport}{wrongErrorReport}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+O\+\_\+\+E\+M\+\_\+t\+::wrong\+Error\+Report}
+
+Error in arguments to \mbox{\hyperlink{group___c_o___emergency_ga9c9b7258698aadf6e9365bc0d1324be8}{C\+O\+\_\+error\+Report()}} 
+
+Definition at line 264 of file C\+O\+\_\+\+Emergency.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___emergency_8h}{C\+O\+\_\+\+Emergency.\+h}}\end{DoxyCompactItemize}

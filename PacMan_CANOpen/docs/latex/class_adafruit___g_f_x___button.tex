@@ -1,0 +1,334 @@
+\hypertarget{class_adafruit___g_f_x___button}{}\doxysection{Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button Class Reference}
+\label{class_adafruit___g_f_x___button}\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+
+
+A simple drawn button UI element.  
+
+
+
+
+{\ttfamily \#include $<$Adafruit\+\_\+\+G\+F\+X.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_adafruit___g_f_x___button_a2232fef797e2d21f931eeda59d790d09}{Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button}} (void)
+\begin{DoxyCompactList}\small\item\em Create a simple drawn button UI element. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_a0cb6999a324b9999a1f4b610e36b16b6}{init\+Button}} (\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$gfx, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t outline, uint16\+\_\+t fill, uint16\+\_\+t textcolor, char $\ast$label, uint8\+\_\+t textsize)
+\begin{DoxyCompactList}\small\item\em Initialize button with our desired color/size/settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_ae1ecd12ab77b88bfe5a3a32ffc8eb5d4}{init\+Button}} (\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$gfx, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t outline, uint16\+\_\+t fill, uint16\+\_\+t textcolor, char $\ast$label, uint8\+\_\+t textsize\+\_\+x, uint8\+\_\+t textsize\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Initialize button with our desired color/size/settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_a471d43fc4fb575b2868190d1ec832af7}{init\+Button\+UL}} (\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$gfx, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t outline, uint16\+\_\+t fill, uint16\+\_\+t textcolor, char $\ast$label, uint8\+\_\+t textsize)
+\begin{DoxyCompactList}\small\item\em Initialize button with our desired color/size/settings, with upper-\/left coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_ad0febb5e28695d0ac2cac6a31cf6f27b}{init\+Button\+UL}} (\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$gfx, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t outline, uint16\+\_\+t fill, uint16\+\_\+t textcolor, char $\ast$label, uint8\+\_\+t textsize\+\_\+x, uint8\+\_\+t textsize\+\_\+y)
+\begin{DoxyCompactList}\small\item\em Initialize button with our desired color/size/settings, with upper-\/left coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_a1d9329970f085c5111e239be90005371}{draw\+Button}} (boolean inverted=false)
+\begin{DoxyCompactList}\small\item\em Draw the button on the screen. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x___button_aa5fb594cf6f9cd4c1815a7c1011b5830}{contains}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Helper to let us know if a coordinate is within the bounds of the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_adafruit___g_f_x___button_a221d9753f7d8e8f7f9c1ebbee69d02bd}{press}} (boolean p)
+\begin{DoxyCompactList}\small\item\em Sets button state, should be done by some touch function. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x___button_a41bcfc81edaf30a11d171a69e7e7c679}{just\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Query whether the button was pressed since we last checked state. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x___button_a8a139332b95997168ba0da37973d2887}{just\+Released}} ()
+\begin{DoxyCompactList}\small\item\em Query whether the button was released since we last checked state. \end{DoxyCompactList}\item 
+boolean \mbox{\hyperlink{class_adafruit___g_f_x___button_ab1039a89897fa2d58d7b4d32ce862bf3}{is\+Pressed}} (void)
+\begin{DoxyCompactList}\small\item\em Query whether the button is currently pressed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple drawn button UI element. 
+
+Definition at line 242 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a2232fef797e2d21f931eeda59d790d09}\label{class_adafruit___g_f_x___button_a2232fef797e2d21f931eeda59d790d09}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{Adafruit\_GFX\_Button()}{Adafruit\_GFX\_Button()}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::\+Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Create a simple drawn button UI element. 
+
+
+
+Definition at line 1467 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_aa5fb594cf6f9cd4c1815a7c1011b5830}\label{class_adafruit___g_f_x___button_aa5fb594cf6f9cd4c1815a7c1011b5830}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!contains@{contains}}
+\index{contains@{contains}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::contains (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Helper to let us know if a coordinate is within the bounds of the button. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate to check \\
+\hline
+{\em y} & The Y coordinate to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if within button graphics outline 
+\end{DoxyReturn}
+
+
+Definition at line 1619 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a1d9329970f085c5111e239be90005371}\label{class_adafruit___g_f_x___button_a1d9329970f085c5111e239be90005371}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!drawButton@{drawButton}}
+\index{drawButton@{drawButton}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{drawButton()}{drawButton()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::draw\+Button (\begin{DoxyParamCaption}\item[{boolean}]{inverted = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Draw the button on the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inverted} & Whether to draw with fill/text swapped to indicate \textquotesingle{}pressed\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1587 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a0cb6999a324b9999a1f4b610e36b16b6}\label{class_adafruit___g_f_x___button_a0cb6999a324b9999a1f4b610e36b16b6}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!initButton@{initButton}}
+\index{initButton@{initButton}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{initButton()}{initButton()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::init\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$}]{gfx,  }\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{outline,  }\item[{uint16\+\_\+t}]{fill,  }\item[{uint16\+\_\+t}]{textcolor,  }\item[{char $\ast$}]{label,  }\item[{uint8\+\_\+t}]{textsize }\end{DoxyParamCaption})}
+
+
+
+Initialize button with our desired color/size/settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gfx} & Pointer to our display so we can draw to it! \\
+\hline
+{\em x} & The X coordinate of the center of the button \\
+\hline
+{\em y} & The Y coordinate of the center of the button \\
+\hline
+{\em w} & Width of the buttton \\
+\hline
+{\em h} & Height of the buttton \\
+\hline
+{\em outline} & Color of the outline (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em fill} & Color of the button fill (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em textcolor} & Color of the button label (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em label} & Ascii string of the text inside the button \\
+\hline
+{\em textsize} & The font magnification of the label text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1487 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_ae1ecd12ab77b88bfe5a3a32ffc8eb5d4}\label{class_adafruit___g_f_x___button_ae1ecd12ab77b88bfe5a3a32ffc8eb5d4}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!initButton@{initButton}}
+\index{initButton@{initButton}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{initButton()}{initButton()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::init\+Button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$}]{gfx,  }\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{outline,  }\item[{uint16\+\_\+t}]{fill,  }\item[{uint16\+\_\+t}]{textcolor,  }\item[{char $\ast$}]{label,  }\item[{uint8\+\_\+t}]{textsize\+\_\+x,  }\item[{uint8\+\_\+t}]{textsize\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Initialize button with our desired color/size/settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gfx} & Pointer to our display so we can draw to it! \\
+\hline
+{\em x} & The X coordinate of the center of the button \\
+\hline
+{\em y} & The Y coordinate of the center of the button \\
+\hline
+{\em w} & Width of the buttton \\
+\hline
+{\em h} & Height of the buttton \\
+\hline
+{\em outline} & Color of the outline (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em fill} & Color of the button fill (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em textcolor} & Color of the button label (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em label} & Ascii string of the text inside the button \\
+\hline
+{\em textsize\+\_\+x} & The font magnification in X-\/axis of the label text \\
+\hline
+{\em textsize\+\_\+y} & The font magnification in Y-\/axis of the label text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1514 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a471d43fc4fb575b2868190d1ec832af7}\label{class_adafruit___g_f_x___button_a471d43fc4fb575b2868190d1ec832af7}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!initButtonUL@{initButtonUL}}
+\index{initButtonUL@{initButtonUL}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{initButtonUL()}{initButtonUL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::init\+Button\+UL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$}]{gfx,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{outline,  }\item[{uint16\+\_\+t}]{fill,  }\item[{uint16\+\_\+t}]{textcolor,  }\item[{char $\ast$}]{label,  }\item[{uint8\+\_\+t}]{textsize }\end{DoxyParamCaption})}
+
+
+
+Initialize button with our desired color/size/settings, with upper-\/left coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gfx} & Pointer to our display so we can draw to it! \\
+\hline
+{\em x1} & The X coordinate of the Upper-\/\+Left corner of the button \\
+\hline
+{\em y1} & The Y coordinate of the Upper-\/\+Left corner of the button \\
+\hline
+{\em w} & Width of the buttton \\
+\hline
+{\em h} & Height of the buttton \\
+\hline
+{\em outline} & Color of the outline (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em fill} & Color of the button fill (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em textcolor} & Color of the button label (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em label} & Ascii string of the text inside the button \\
+\hline
+{\em textsize} & The font magnification of the label text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1539 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_ad0febb5e28695d0ac2cac6a31cf6f27b}\label{class_adafruit___g_f_x___button_ad0febb5e28695d0ac2cac6a31cf6f27b}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!initButtonUL@{initButtonUL}}
+\index{initButtonUL@{initButtonUL}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{initButtonUL()}{initButtonUL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::init\+Button\+UL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_adafruit___g_f_x}{Adafruit\+\_\+\+G\+FX}} $\ast$}]{gfx,  }\item[{int16\+\_\+t}]{x1,  }\item[{int16\+\_\+t}]{y1,  }\item[{uint16\+\_\+t}]{w,  }\item[{uint16\+\_\+t}]{h,  }\item[{uint16\+\_\+t}]{outline,  }\item[{uint16\+\_\+t}]{fill,  }\item[{uint16\+\_\+t}]{textcolor,  }\item[{char $\ast$}]{label,  }\item[{uint8\+\_\+t}]{textsize\+\_\+x,  }\item[{uint8\+\_\+t}]{textsize\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+Initialize button with our desired color/size/settings, with upper-\/left coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gfx} & Pointer to our display so we can draw to it! \\
+\hline
+{\em x1} & The X coordinate of the Upper-\/\+Left corner of the button \\
+\hline
+{\em y1} & The Y coordinate of the Upper-\/\+Left corner of the button \\
+\hline
+{\em w} & Width of the buttton \\
+\hline
+{\em h} & Height of the buttton \\
+\hline
+{\em outline} & Color of the outline (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em fill} & Color of the button fill (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em textcolor} & Color of the button label (16-\/bit 5-\/6-\/5 standard) \\
+\hline
+{\em label} & Ascii string of the text inside the button \\
+\hline
+{\em textsize\+\_\+x} & The font magnification in X-\/axis of the label text \\
+\hline
+{\em textsize\+\_\+y} & The font magnification in Y-\/axis of the label text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 1563 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_ab1039a89897fa2d58d7b4d32ce862bf3}\label{class_adafruit___g_f_x___button_ab1039a89897fa2d58d7b4d32ce862bf3}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{isPressed()}{isPressed()}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::is\+Pressed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Query whether the button is currently pressed. 
+
+\begin{DoxyReturn}{Returns}
+True if pressed 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a41bcfc81edaf30a11d171a69e7e7c679}\label{class_adafruit___g_f_x___button_a41bcfc81edaf30a11d171a69e7e7c679}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!justPressed@{justPressed}}
+\index{justPressed@{justPressed}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{justPressed()}{justPressed()}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::just\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Query whether the button was pressed since we last checked state. 
+
+\begin{DoxyReturn}{Returns}
+True if was not-\/pressed before, now is. 
+\end{DoxyReturn}
+
+
+Definition at line 1630 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a8a139332b95997168ba0da37973d2887}\label{class_adafruit___g_f_x___button_a8a139332b95997168ba0da37973d2887}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!justReleased@{justReleased}}
+\index{justReleased@{justReleased}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{justReleased()}{justReleased()}}
+{\footnotesize\ttfamily boolean Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::just\+Released (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Query whether the button was released since we last checked state. 
+
+\begin{DoxyReturn}{Returns}
+True if was pressed before, now is not. 
+\end{DoxyReturn}
+
+
+Definition at line 1638 of file Adafruit\+\_\+\+G\+F\+X.\+cpp.
+
+\mbox{\Hypertarget{class_adafruit___g_f_x___button_a221d9753f7d8e8f7f9c1ebbee69d02bd}\label{class_adafruit___g_f_x___button_a221d9753f7d8e8f7f9c1ebbee69d02bd}} 
+\index{Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}!press@{press}}
+\index{press@{press}!Adafruit\_GFX\_Button@{Adafruit\_GFX\_Button}}
+\doxysubsubsection{\texorpdfstring{press()}{press()}}
+{\footnotesize\ttfamily void Adafruit\+\_\+\+G\+F\+X\+\_\+\+Button\+::press (\begin{DoxyParamCaption}\item[{boolean}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets button state, should be done by some touch function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & True for pressed, false for not. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 269 of file Adafruit\+\_\+\+G\+F\+X.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8h}{Adafruit\+\_\+\+G\+F\+X.\+h}}\item 
+References/\mbox{\hyperlink{_adafruit___g_f_x_8cpp}{Adafruit\+\_\+\+G\+F\+X.\+cpp}}\end{DoxyCompactItemize}

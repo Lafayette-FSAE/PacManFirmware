@@ -1,0 +1,216 @@
+\hypertarget{struct_c_o___t_i_m_e__t}{}\doxysection{C\+O\+\_\+\+T\+I\+M\+E\+\_\+t Struct Reference}
+\label{struct_c_o___t_i_m_e__t}\index{CO\_TIME\_t@{CO\_TIME\_t}}
+
+
+{\ttfamily \#include $<$C\+O\+\_\+\+T\+I\+M\+E.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a5e0f72cd4ebc3a80183d291256499e36}{em}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_ab6cfed341ab44fa68141e315633d29d1}{operating\+State}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___t_i_m_e__t_aeea1ecdf76e04f37c1d760eee72a1395}{is\+Consumer}}
+\item 
+\mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a691d02cb2128a81f4af345165146b761}{is\+Producer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a6bcf872834e3a76869943108fd55ffc3}{C\+O\+B\+\_\+\+ID}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a7c0090cb2e1e3af1fab308640c3d25a5}{period\+Time}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a9f2d24892e5b318f5eea5844f3b29a4a}{period\+Timeout\+Time}}
+\item 
+volatile void $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a3d8804ff43d23d2f06a291ca0ea40c13}{C\+A\+Nrx\+New}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a02fa485a1a5064ad6e0fc07ea3d5d092}{timer}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_abbff3c5ce159992f4b45ec042849cbc0}{receive\+Error}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a6e19205a076dd1bacdcad4a043c9324b}{C\+A\+Ndev\+Rx}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a4d9335af44c9b5e1224a6691df2f9594}{C\+A\+Ndev\+Rx\+Idx}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_ae83c94c6646437891b42e3a5a5d010dc}{C\+A\+Ndev\+Tx}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a205dfcde7a830d6a15eda16911e328cd}{C\+A\+Ndev\+Tx\+Idx}}
+\item 
+\mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a6c65e66e456fd22fca1ab96fd9471448}{T\+Xbuff}}
+\item 
+\mbox{\hyperlink{_c_o___o_d_8h_aec958daaf3c64ce9adbee4cc21006159}{T\+I\+M\+E\+\_\+\+O\+F\+\_\+\+D\+AY}} \mbox{\hyperlink{struct_c_o___t_i_m_e__t_a3ba06baffe82a1b4f68560549ddb8648}{Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+T\+I\+ME producer and consumer object. 
+
+Definition at line 79 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a6e19205a076dd1bacdcad4a043c9324b}\label{struct_c_o___t_i_m_e__t_a6e19205a076dd1bacdcad4a043c9324b}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!CANdevRx@{CANdevRx}}
+\index{CANdevRx@{CANdevRx}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRx}{CANdevRx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+A\+Ndev\+Rx}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 102 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a4d9335af44c9b5e1224a6691df2f9594}\label{struct_c_o___t_i_m_e__t_a4d9335af44c9b5e1224a6691df2f9594}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!CANdevRxIdx@{CANdevRxIdx}}
+\index{CANdevRxIdx@{CANdevRxIdx}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevRxIdx}{CANdevRxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+A\+Ndev\+Rx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 103 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_ae83c94c6646437891b42e3a5a5d010dc}\label{struct_c_o___t_i_m_e__t_ae83c94c6646437891b42e3a5a5d010dc}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!CANdevTx@{CANdevTx}}
+\index{CANdevTx@{CANdevTx}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTx}{CANdevTx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_nmodule__t}{C\+O\+\_\+\+C\+A\+Nmodule\+\_\+t}} $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+A\+Ndev\+Tx}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 104 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a205dfcde7a830d6a15eda16911e328cd}\label{struct_c_o___t_i_m_e__t_a205dfcde7a830d6a15eda16911e328cd}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!CANdevTxIdx@{CANdevTxIdx}}
+\index{CANdevTxIdx@{CANdevTxIdx}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{CANdevTxIdx}{CANdevTxIdx}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+A\+Ndev\+Tx\+Idx}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 105 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a3d8804ff43d23d2f06a291ca0ea40c13}\label{struct_c_o___t_i_m_e__t_a3d8804ff43d23d2f06a291ca0ea40c13}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!CANrxNew@{CANrxNew}}
+\index{CANrxNew@{CANrxNew}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{CANrxNew}{CANrxNew}}
+{\footnotesize\ttfamily volatile void $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+A\+Nrx\+New}
+
+Variable indicates, if new T\+I\+ME message received from C\+AN bus 
+
+Definition at line 96 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a6bcf872834e3a76869943108fd55ffc3}\label{struct_c_o___t_i_m_e__t_a6bcf872834e3a76869943108fd55ffc3}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!COB\_ID@{COB\_ID}}
+\index{COB\_ID@{COB\_ID}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{COB\_ID}{COB\_ID}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+C\+O\+B\+\_\+\+ID}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 88 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a5e0f72cd4ebc3a80183d291256499e36}\label{struct_c_o___t_i_m_e__t_a5e0f72cd4ebc3a80183d291256499e36}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!em@{em}}
+\index{em@{em}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{em}{em}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___e_m__t}{C\+O\+\_\+\+E\+M\+\_\+t}} $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::em}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 80 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_aeea1ecdf76e04f37c1d760eee72a1395}\label{struct_c_o___t_i_m_e__t_aeea1ecdf76e04f37c1d760eee72a1395}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!isConsumer@{isConsumer}}
+\index{isConsumer@{isConsumer}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{isConsumer}{isConsumer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::is\+Consumer}
+
+True, if device is T\+I\+ME consumer. Calculated from {\itshape C\+OB ID T\+I\+ME Message} variable from Object dictionary (index 0x1012). 
+
+Definition at line 84 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a691d02cb2128a81f4af345165146b761}\label{struct_c_o___t_i_m_e__t_a691d02cb2128a81f4af345165146b761}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!isProducer@{isProducer}}
+\index{isProducer@{isProducer}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{isProducer}{isProducer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_o__data_types_ga449976458a084f880dc8e3d29e7eb6f5}{bool\+\_\+t}} C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::is\+Producer}
+
+True, if device is T\+I\+ME producer. Calculated from {\itshape C\+OB ID T\+I\+ME Message} variable from Object dictionary (index 0x1012). 
+
+Definition at line 87 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_ab6cfed341ab44fa68141e315633d29d1}\label{struct_c_o___t_i_m_e__t_ab6cfed341ab44fa68141e315633d29d1}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!operatingState@{operatingState}}
+\index{operatingState@{operatingState}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{operatingState}{operatingState}}
+{\footnotesize\ttfamily uint8\+\_\+t $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::operating\+State}
+
+From \mbox{\hyperlink{group___c_o___t_i_m_e_ga3e0abe31a4c10b5402e05fde52da0a02}{C\+O\+\_\+\+T\+I\+M\+E\+\_\+init()}} 
+
+Definition at line 81 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a7c0090cb2e1e3af1fab308640c3d25a5}\label{struct_c_o___t_i_m_e__t_a7c0090cb2e1e3af1fab308640c3d25a5}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!periodTime@{periodTime}}
+\index{periodTime@{periodTime}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{periodTime}{periodTime}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::period\+Time}
+
+T\+I\+ME period time in \mbox{[}milliseconds\mbox{]}. Set to T\+I\+ME period to enable timeout detection 
+
+Definition at line 91 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a9f2d24892e5b318f5eea5844f3b29a4a}\label{struct_c_o___t_i_m_e__t_a9f2d24892e5b318f5eea5844f3b29a4a}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!periodTimeoutTime@{periodTimeoutTime}}
+\index{periodTimeoutTime@{periodTimeoutTime}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{periodTimeoutTime}{periodTimeoutTime}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::period\+Timeout\+Time}
+
+T\+I\+ME period timeout time in \mbox{[}milliseconds\mbox{]}. (period\+Timeout\+Time = period\+Time $\ast$ 1,5) 
+
+Definition at line 94 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_abbff3c5ce159992f4b45ec042849cbc0}\label{struct_c_o___t_i_m_e__t_abbff3c5ce159992f4b45ec042849cbc0}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!receiveError@{receiveError}}
+\index{receiveError@{receiveError}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{receiveError}{receiveError}}
+{\footnotesize\ttfamily uint16\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::receive\+Error}
+
+Set to nonzero value, if T\+I\+ME with wrong data length is received from C\+AN 
+
+Definition at line 101 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a3ba06baffe82a1b4f68560549ddb8648}\label{struct_c_o___t_i_m_e__t_a3ba06baffe82a1b4f68560549ddb8648}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!Time@{Time}}
+\index{Time@{Time}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{Time}{Time}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_c_o___o_d_8h_aec958daaf3c64ce9adbee4cc21006159}{T\+I\+M\+E\+\_\+\+O\+F\+\_\+\+D\+AY}} C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+Time}
+
+
+
+Definition at line 107 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a02fa485a1a5064ad6e0fc07ea3d5d092}\label{struct_c_o___t_i_m_e__t_a02fa485a1a5064ad6e0fc07ea3d5d092}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!timer@{timer}}
+\index{timer@{timer}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily uint32\+\_\+t C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::timer}
+
+Timer for the T\+I\+ME message in \mbox{[}microseconds\mbox{]}. Set to zero after received or transmitted T\+I\+ME message 
+
+Definition at line 99 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+\mbox{\Hypertarget{struct_c_o___t_i_m_e__t_a6c65e66e456fd22fca1ab96fd9471448}\label{struct_c_o___t_i_m_e__t_a6c65e66e456fd22fca1ab96fd9471448}} 
+\index{CO\_TIME\_t@{CO\_TIME\_t}!TXbuff@{TXbuff}}
+\index{TXbuff@{TXbuff}!CO\_TIME\_t@{CO\_TIME\_t}}
+\doxysubsubsection{\texorpdfstring{TXbuff}{TXbuff}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_o___c_a_ntx__t}{C\+O\+\_\+\+C\+A\+Ntx\+\_\+t}} $\ast$ C\+O\+\_\+\+T\+I\+M\+E\+\_\+t\+::\+T\+Xbuff}
+
+C\+AN transmit buffer 
+
+Definition at line 106 of file C\+O\+\_\+\+T\+I\+M\+E.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_c_o___t_i_m_e_8h}{C\+O\+\_\+\+T\+I\+M\+E.\+h}}\end{DoxyCompactItemize}

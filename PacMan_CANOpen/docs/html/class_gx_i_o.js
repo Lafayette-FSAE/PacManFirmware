@@ -1,0 +1,28 @@
+var class_gx_i_o =
+[
+    [ "GxIO", "class_gx_i_o.html#ac7c503782e51c03e9a2b1a17505f1df3", null ],
+    [ "endTransaction", "class_gx_i_o.html#ad670bfc76c60e653a44aea4429af3f4f", null ],
+    [ "init", "class_gx_i_o.html#aeeb0dc6c770a09be8a59880f13bb8d46", null ],
+    [ "readData", "class_gx_i_o.html#a981e1e284b61d7a41e2aed5ca6ed4ea8", null ],
+    [ "readData16", "class_gx_i_o.html#a71260ce003437ec95fe1cf99c0762654", null ],
+    [ "readData16Transaction", "class_gx_i_o.html#abc866e9b4b5ea9f03228e642fb59ce05", null ],
+    [ "readDataTransaction", "class_gx_i_o.html#a2b391d75c12cd9710dc2406ce31fb62e", null ],
+    [ "readRawData32", "class_gx_i_o.html#a053a02b56d89155840d86073557c3b2f", null ],
+    [ "reset", "class_gx_i_o.html#aaf86d6ead1528649c58f9c4ef054365a", null ],
+    [ "selectRegister", "class_gx_i_o.html#a00ac805e988133d8dbcb52b0988a807b", null ],
+    [ "setBackLight", "class_gx_i_o.html#afca10899f13efbc50ecfc286cc6f1be2", null ],
+    [ "setClockDivider", "class_gx_i_o.html#a83ec3ae444a78e52aac2c3f6e2bb58ff", null ],
+    [ "setFrequency", "class_gx_i_o.html#a9f605fc559ce240c78f21a2cdbcfe6ff", null ],
+    [ "startTransaction", "class_gx_i_o.html#a4658744c712c72aac6eba2fd0d91d11e", null ],
+    [ "transfer16Transaction", "class_gx_i_o.html#a234313a98c1d58ed8b66888feef92892", null ],
+    [ "transferTransaction", "class_gx_i_o.html#ace866f38a35e34d7b89a1f1544c088d6", null ],
+    [ "writeAddrMSBfirst", "class_gx_i_o.html#af1fd6ff3b6a9609a017691064e995ff9", null ],
+    [ "writeCommand", "class_gx_i_o.html#ae42120fd8036613af744047788f7bc38", null ],
+    [ "writeCommandTransaction", "class_gx_i_o.html#ad52885d81c3914c4bfede41c600091f8", null ],
+    [ "writeData", "class_gx_i_o.html#a2b3067c5be7b4aee80d6f2b63c2c623e", null ],
+    [ "writeData", "class_gx_i_o.html#ac13e23aa8a4d01d60648255d4c4d0f79", null ],
+    [ "writeData16", "class_gx_i_o.html#af1ecce581250a10e1e7cc40e780e45fb", null ],
+    [ "writeData16Transaction", "class_gx_i_o.html#a35a16ab41b6c4fdc0f9f71be56257e00", null ],
+    [ "writeDataTransaction", "class_gx_i_o.html#a232feebc2ed0c8435143f73d02b119da", null ],
+    [ "name", "class_gx_i_o.html#ae81444672d063604c33dedf81524b74a", null ]
+];

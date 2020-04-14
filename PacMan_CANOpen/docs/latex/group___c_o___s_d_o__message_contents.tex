@@ -1,0 +1,128 @@
+\hypertarget{group___c_o___s_d_o__message_contents}{}\doxysection{S\+DO message contents}
+\label{group___c_o___s_d_o__message_contents}\index{SDO message contents@{SDO message contents}}
+
+
+Excerpt from CiA D\+S301, V4.\+2.  
+
+
+Excerpt from CiA D\+S301, V4.\+2. 
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+Expedited transfer is used for transmission of up to 4 data bytes. It consists of one S\+DO request and one response. For longer variables is used segmented or block transfer.\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md12}{}\doxysubparagraph{Initiate S\+D\+O download (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md12}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 0010nnes} (nn\+: if e=s=1, number of data bytes, that do {\itshape not} contain data; e=1 for expedited transfer; s=1 if data size is indicated).
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: Expedited data or data size if segmented transfer.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md13}{}\doxysubparagraph{Initiate S\+D\+O download (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md13}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 01100000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md14}{}\doxysubparagraph{Download S\+D\+O segment (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md14}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 000tnnnc} (t\+: toggle bit set to 0 in first segment; nnn\+: number of data bytes, that do {\itshape not} contain data; c=1 if this is the last segment).
+\item byte 1..7\+: Data segment.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md15}{}\doxysubparagraph{Download S\+D\+O segment (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md15}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 001t0000} (t\+: toggle bit set to 0 in first segment).
+\item byte 1..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md16}{}\doxysubparagraph{Initiate S\+D\+O upload (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md16}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 01000000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md17}{}\doxysubparagraph{Initiate S\+D\+O upload (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md17}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 0100nnes} (nn\+: if e=s=1, number of data bytes, that do {\itshape not} contain data; e=1 for expedited transfer; s=1 if data size is indicated).
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md18}{}\doxysubparagraph{Upload S\+D\+O segment (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md18}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 011t0000} (t\+: toggle bit set to 0 in first segment).
+\item byte 1..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md19}{}\doxysubparagraph{Upload S\+D\+O segment (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md19}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 000tnnnc} (t\+: toggle bit set to 0 in first segment; nnn\+: number of data bytes, that do {\itshape not} contain data; c=1 if this is the last segment).
+\item byte 1..7\+: Data segment.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md20}{}\doxysubparagraph{Abort S\+D\+O transfer (client or server)}\label{group___c_o___s_d_o__message_contents_autotoc_md20}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 10000000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: \mbox{\hyperlink{group___c_o___s_d_o_ga7587ddcf798747fe6d97d03bf1bf2979}{C\+O\+\_\+\+S\+D\+O\+\_\+abort\+Code\+\_\+t}}.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md21}{}\doxysubparagraph{Block transfer}\label{group___c_o___s_d_o__message_contents_autotoc_md21}
+See D\+S301 V4.\+2.
+
+For C\+AN identifier see \mbox{\hyperlink{group___c_o___c_a_nopen_ga01dd35ae53fd2209ceccabdc8bf8dd06}{C\+O\+\_\+\+Default\+\_\+\+C\+A\+N\+\_\+\+I\+D\+\_\+t}}
+
+Expedited transfer is used for transmission of up to 4 data bytes. It consists of one S\+DO request and one response. For longer variables is used segmented or block transfer.\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md57}{}\doxysubparagraph{Initiate S\+D\+O download (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md57}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 0010nnes} (nn\+: if e=s=1, number of data bytes, that do {\itshape not} contain data; e=1 for expedited transfer; s=1 if data size is indicated).
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: Expedited data or data size if segmented transfer.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md58}{}\doxysubparagraph{Initiate S\+D\+O download (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md58}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 01100000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md59}{}\doxysubparagraph{Download S\+D\+O segment (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md59}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 000tnnnc} (t\+: toggle bit set to 0 in first segment; nnn\+: number of data bytes, that do {\itshape not} contain data; c=1 if this is the last segment).
+\item byte 1..7\+: Data segment.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md60}{}\doxysubparagraph{Download S\+D\+O segment (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md60}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 001t0000} (t\+: toggle bit set to 0 in first segment).
+\item byte 1..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md61}{}\doxysubparagraph{Initiate S\+D\+O upload (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md61}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 01000000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md62}{}\doxysubparagraph{Initiate S\+D\+O upload (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md62}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 0100nnes} (nn\+: if e=s=1, number of data bytes, that do {\itshape not} contain data; e=1 for expedited transfer; s=1 if data size is indicated).
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md63}{}\doxysubparagraph{Upload S\+D\+O segment (client request)}\label{group___c_o___s_d_o__message_contents_autotoc_md63}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 011t0000} (t\+: toggle bit set to 0 in first segment).
+\item byte 1..7\+: Reserved.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md64}{}\doxysubparagraph{Upload S\+D\+O segment (server response)}\label{group___c_o___s_d_o__message_contents_autotoc_md64}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 000tnnnc} (t\+: toggle bit set to 0 in first segment; nnn\+: number of data bytes, that do {\itshape not} contain data; c=1 if this is the last segment).
+\item byte 1..7\+: Data segment.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md65}{}\doxysubparagraph{Abort S\+D\+O transfer (client or server)}\label{group___c_o___s_d_o__message_contents_autotoc_md65}
+
+\begin{DoxyItemize}
+\item byte 0\+: S\+DO command specifier. 8 bits\+: {\ttfamily 10000000}.
+\item byte 1..2\+: Object index.
+\item byte 3\+: Object sub\+Index.
+\item byte 4..7\+: \mbox{\hyperlink{group___c_o___s_d_o_ga7587ddcf798747fe6d97d03bf1bf2979}{C\+O\+\_\+\+S\+D\+O\+\_\+abort\+Code\+\_\+t}}.
+\end{DoxyItemize}\hypertarget{group___c_o___s_d_o__message_contents_autotoc_md66}{}\doxysubparagraph{Block transfer}\label{group___c_o___s_d_o__message_contents_autotoc_md66}
+See D\+S301 V4.\+2. 
