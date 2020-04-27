@@ -99,6 +99,8 @@ private:
     void toggleCellManLED(unsigned char address, bool state);
     void indicateCellMen();
     void updateCellMenData();
+    bool handleChargingInterrupt(bool chargingState);
+    bool handleChargingSafety();
     void handleCharging();
 
 public:

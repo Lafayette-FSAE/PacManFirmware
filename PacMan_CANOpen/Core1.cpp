@@ -567,16 +567,9 @@ void Core1::updateCellMenData(){
     }
 }
 
-/**
- * @brief Handles the charging interrupt and relays
- * Checks to make sure all cells are within acceptable voltage ranges
- * Trys to take the interrupt semaphore for the charge connector
- * Adjusts the state of the relay based on the safety and state of charge connector
- * This provides some hysteresis until the connector is replugged in if a cell goes out of safety spec
- * @bug Can get the state inverted in certain cases (Relay on when plug out, and vice-versa), some additional logic should be put in to fix this
- */
-void Core1::handleCharging(){
-    charge = true;
+
+bool Core1::handleChargingSafety(){
+    bool charge = true;
     int newIndex; // Gets us the actual physical location which is how the array in defined
 
     // Check all cells are within spec -- This might cause issue for balancing if 1 cell becomes too high it'll turn off the relay, voltage will drop, and we will have relay oscillations
@@ -587,13 +580,16 @@ void Core1::handleCharging(){
             charge = false;
         }
     }
+    return charge;
+}
 
+bool Core1::handleChargingInterrupt(bool chargingState){
     // Charge detect interrupt
     if (xSemaphoreTake(chargeDetectSemaphore, 0) == pdTRUE) {
         if(DEBUG) Serial.println("Detected Charging thing!");
 
         // TODO: Prevent inverted state from occuring when lowering voltage when connector is in and then unplugging
-        if(charge == true){
+        if(chargingState == true){
             if(digitalRead(PIN_CHRG_EN) == LOW && currentlyCharging == false){ // It's not already on, e.g. we've plugged the cable in
                 digitalWrite(PIN_CHRG_EN, HIGH);
                 OD_chargingEnabled = true;
@@ -606,6 +602,20 @@ void Core1::handleCharging(){
             }
         }
     }
+}
+
+/**
+ * @brief Handles the charging interrupt and relays
+ * Checks to make sure all cells are within acceptable voltage ranges
+ * Trys to take the interrupt semaphore for the charge connector
+ * Adjusts the state of the relay based on the safety and state of charge connector
+ * This provides some hysteresis until the connector is replugged in if a cell goes out of safety spec
+ * @bug Can get the state inverted in certain cases (Relay on when plug out, and vice-versa), some additional logic should be put in to fix this
+ */
+void Core1::handleCharging(){
+    // Reordered to seperate the functionality for more flexibility in the algorithm later in the road
+    bool charge = handleChargingSafety();
+    charge = handleChargingInterrupt(charge);
 
     if(charge == false){
         digitalWrite(PIN_CHRG_EN, LOW);
