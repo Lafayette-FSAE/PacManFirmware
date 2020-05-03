@@ -65,7 +65,10 @@ Core1::Core1(CO_t *CO) {
 
     Wire.begin(PIN_SDA, PIN_SCL); // Join the I2C bus (address optional for master)  -- CHANGE THIS FOR DISPLAY
     if (DEBUG) printf("Core 1: Joined I2C Bus");
-    totalMAH = 0;
+    
+    currentSensor.init(LTC4151::L, LTC4151::L); // Init the LTC4151 responsible for PacMan power consumption and TSV consumption
+    consumedMAH = 0; // Should be made into OB stuff so we can save this upon loss of power or reset -- Complex issue
+    totalMAH = 60000;
 
     // Create safetyloop timers
     underVoltageTimer = xTimerCreate(
@@ -624,6 +627,15 @@ void Core1::handleCharging(){
     }
 }
 
+// This code is relatively untested due to being unable to test currents at home, please don't think this code works properly but take it as a basis to work off of
+void Core1::updateMAH(){
+    newMeasTime = micros();
+    int pacManCurrent = (int)(currentSensor.getLoadCurrent(0.82)*PacManDisConst*1000); // Parameter is the shunt resistor value in Ohms - Measuring power consumed by PacMan
+    int dischargeCurrent = (int)(currentSensor.getADCInVoltage()*DischargeConst);
+    consumedMAH += (pacManCurrent*((newMeasTime-oldMeasTime)/1000000) + (dischargeCurrent*(newMeasTime-oldMeasTime)/1000000));
+    oldMeasTime = newMeasTime;
+}
+
 // Start main loop for thread
 /**
  * @brief The main loop for Core 1 thread
@@ -642,6 +654,12 @@ void Core1::start() {
     /* We know this because in the PacMan.ino file we start
      the ESP32 with charging false and this occurs before we start checking */
     currentlyCharging = false; 
+
+    oldMeasTime = 0;
+    DischargeConst = 1;
+    PacManDisConst = 1;
+    ChargeConst = 1;
+
 
     // Not really needed to zero the array of structures but why not
     for (int i = 0; i < 16; i++) {

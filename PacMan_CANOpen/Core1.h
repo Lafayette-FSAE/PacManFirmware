@@ -9,6 +9,7 @@ Released into the public domain.
 //#include "Arduino.h"   // Required for use as an Arduino Library
 #include "PacMan.h"
 #include <Wire.h>      // Required for I2C
+#include "LTC4151.h"
 #include "can.h"
 #include "gpio.h"
 #include "Arduino.h"
@@ -38,12 +39,17 @@ private:
 
     unsigned char I2CError;             // Holds potential error when discoverying I2C devices
     float dischargeCurrent;             // Holds currently read discharge current from I2C sensor
-    unsigned long oldTime;              // Holds previous time in microseconds for integration
-    unsigned long newTime;              // Holds current time in microseconds for integration
+    unsigned long oldMeasTime;             // Holds previous time in microseconds for integration
+    unsigned long newMeasTime;
+    float DischargeConst;               // Adjust the mAh calculated per time step to match actual discharge / sensor adjustment
+    float PacManDisConst;               // Adjustment for PacMan power consumption
+    float ChargeConst;                  // Adjustment for charging constant
     int totalMAH;                       // Holds totalMAH of the pack
     int consumedMAH;                    // Keeps track of the current mAh's consumed, calculated from integration of current sensor
+    int chargedMAH;                     // Keeps track of mAh going into the battery packs
     float packSOC;                      // Keeps track of the Pack's total SOC
     bool currentlyCharging;             // Haha get it, cause its current and its currently charging
+    LTC4151 currentSensor;
 
     bool tempUV;
     bool tempOV;
@@ -102,6 +108,7 @@ private:
     bool handleChargingInterrupt(bool chargingState);
     bool handleChargingSafety();
     void handleCharging();
+    void updateMAH();
 
 public:
     Core1(CO_t *CO);                                                                    // Public Instantiator, passing in the CANopen object
