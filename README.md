@@ -37,7 +37,7 @@ Tested and working on PacMan board version: 1.3
 ## Using the PacMan
 
 The Packs have a user-friendly display that may be used to view data and configure registers for the packs or CANbus. Screens on the display may be navigated through via the button panel found beneath it. 
-A detailed instructional video can be found [here](TODO: add link to video).
+A detailed instructional video can be found [here](https://sites.lafayette.edu/motorsports/files/2020/04/Untitled.mp4).
 
 ## Connecting up the PacMan
 
