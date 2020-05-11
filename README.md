@@ -41,7 +41,7 @@ A detailed instructional video can be found [here](TODO: add link to video).
 
 ## Connecting up the PacMan
 
-Detailed instructions for this are located in the TSV User-Manual (TODO: Put a link to it here on the website) since this ties heavily with the overall assembly of the pack.
+Detailed instructions for this are located in the [TSV User-Manual](https://sites.lafayette.edu/motorsports/files/2020/04/Battery-Packs-User-Manual.pdf) since this ties heavily with the overall assembly of the pack.
 
 ## Process Diagram
 
