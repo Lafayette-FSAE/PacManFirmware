@@ -38,27 +38,37 @@ Core0::Core0(PacManRegisters* registers) {
 }
 
 /**
- * Helper function that draws the cursor in the tens position
+ * Helper function that draws the cursor for the various states
  * 
  * @param color   Color to draw graphics. Use ILI9341_BLACK to draw and ILI9341_WHITE to erase.
  */
-void Core0::drawTensCursor(uint16_t color) {
+void Core0::drawCursor(uint16_t color, uint8_t index) {
   disp.setTextColor(color);
-  disp.setTextSize(3);
-  disp.setCursor(135, 202);
-  disp.print("_");
-}
-
-/**
- * Helper function that draws the cursor in the ones position
- * 
- * @param color   Color to draw graphics. Use ILI9341_BLACK to draw and ILI9341_WHITE to erase.
- */
-void Core0::drawOnesCursor(uint16_t color) {
-  disp.setTextColor(color);
-  disp.setTextSize(3);
-  disp.setCursor(155, 202);
-  disp.print("_");
+  if (index == 0) { // Tens position on Pack/Cell screen
+    disp.drawChar(135, 202, '_', color, color, 3);
+  } else if (index == 1) { // Ones position on Pack/Cell screen
+    disp.setCursor(155, 202, '_', color, color, 3);
+  } else if (index == 2) {
+    disp.setTextSize(2);
+    disp.setCursor(20, 74);
+    disp.print("__________");
+  } else if (index == 3) {
+    disp.setTextSize(2);
+    disp.setCursor(180, 74);
+    disp.print("__________");
+  } else if (index == 4) {
+    disp.setTextSize(2);
+    disp.setCursor(20, 134);
+    disp.print("__________");
+  } else if (index == 5) {
+    disp.setTextSize(2);
+    disp.setCursor(180, 134);
+    disp.print("__________");
+  } else if (index == 6) {
+    disp.setTextSize(2);
+    disp.setCursor(20, 224);
+    disp.print("____");
+  }
 }
 
 /**
@@ -115,7 +125,7 @@ void Core0::drawPackScreen(uint16_t color) {
   disp.print(cellNumTens);
   disp.setCursor(155, 197);
   disp.print(cellNumOnes);
-  drawTensCursor(color);
+  drawCursor(color, 0);
 }
 
 /**
@@ -341,119 +351,119 @@ void Core0::runCore0() {
   leftPress = false;
 
   // FSM
-  switch(dispState) { //**************************************************************************** Transitions
-    case(PackScreen): //**************************************************************************** PackScreen
-      if(upPress) {
+  switch (dispState) { //**************************************************************************** Transitions
+    case (PackScreen): //**************************************************************************** PackScreen
+      if (upPress) {
         upPress = false;
-        if(dispCursor = 0) { // Increase tens count
-          if(cellNumTens == 9) cellNumTens = 0;
+        if (dispCursor == 0) { // Increase tens count
+          if (cellNumTens == 9) cellNumTens = 0;
           else cellNumTens++;
         } else { // Increase ones count
-          if(cellNumOnes == 9) cellNumTens = 0;
+          if (cellNumOnes == 9) cellNumTens = 0;
           else cellNumOnes++;
         }
       } else if (downPress) {
         downPress = false;
-        if(dispCursor = 0) { // Decrease tens count
-          if(cellNumTens == 0) cellNumTens = 9;
+        if (dispCursor == 0) { // Decrease tens count
+          if (cellNumTens == 0) cellNumTens = 9;
           else cellNumTens--;
         } else { // Decrease ones count
-          if(cellNumOnes == 0) cellNumOnes = 9;
+          if (cellNumOnes == 0) cellNumOnes = 9;
           else cellNumOnes--;
         }
-      } else if(rightPress) {
+      } else if (rightPress) {
         rightPress = false;
-        if(dispCursor == 0) { // Move cursor to the right
-          drawTensCursor(ILI9341_WHITE);
-          drawOnesCursor(ILI9341_BLACK);
+        if (dispCursor == 0) { // Move cursor to the right
+          drawCursor(ILI9341_WHITE, dispCursor);
           dispCursor = 1;
+          drawCursor(ILI9341_BLACK, dispCursor);
         }
-      } else if(leftPress) {
+      } else if (leftPress) {
         leftPress = false;
-        if(dispCursor == 1) { // Move cursor to the left
-          drawOnesCursor(ILI9341_WHITE);
-          drawTensCursor(ILI9341_BLACK);
+        if (dispCursor == 1) { // Move cursor to the left
+          drawCursor(ILI9341_WHITE, dispCursor);
           dispCursor = 0;
+          drawCursor(ILI9341_BLACK, dispCursor);
         }
       } else if (centerPress) {
         centerPress = false;
         cellNum = cellNumTens*10+cellNumOnes;
-        if(cellNum >= 1 && cellNum <=16) { // For valid cell numbers, update to CellScreen
+        if (cellNum >= 1 && cellNum <=16) { // For valid cell numbers, update to CellScreen
           dispState = CellScreen;
           drawCellScreen(ILI9341_BLACK, cellNum);
-        } else if(cellNum == 99) {
+        } else if (cellNum == 99) {
           dispState = ThresholdScreen;
           drawPackScreen(ILI9341_WHITE);
           drawThresholdScreen(ILI9341_BLACK);
         }
       }
     break;
-    case(CellScreen): //**************************************************************************** CellScreen
-      if(upPress) {
+    case (CellScreen): //**************************************************************************** CellScreen
+      if (upPress) {
         upPress = false;
-        if(dispCursor = 0) { // Increase tens count
-          if(cellNumTens == 9) cellNumTens = 0;
+        if (dispCursor = 0) { // Increase tens count
+          if (cellNumTens == 9) cellNumTens = 0;
           else cellNumTens++;
         } else { // Increase ones count
-          if(cellNumOnes == 9) cellNumTens = 0;
+          if (cellNumOnes == 9) cellNumTens = 0;
           else cellNumOnes++;
         }
       } else if (downPress) {
         downPress = false;
-        if(dispCursor = 0) { // Decrease tens count
-          if(cellNumTens == 0) cellNumTens = 9;
+        if (dispCursor = 0) { // Decrease tens count
+          if (cellNumTens == 0) cellNumTens = 9;
           else cellNumTens--;
         } else { // Decrease ones count
-          if(cellNumOnes == 0) cellNumOnes = 9;
+          if (cellNumOnes == 0) cellNumOnes = 9;
           else cellNumOnes--;
         }
-      } else if(rightPress) {
+      } else if (rightPress) {
         rightPress = false;
-        if(dispCursor == 0) { // Move cursor to the right
-          drawTensCursor(ILI9341_WHITE);
-          drawOnesCursor(ILI9341_BLACK);
+        if (dispCursor == 0) { // Move cursor to the right
+          drawCursor(ILI9341_WHITE, dispCursor);
           dispCursor = 1;
+          drawCursor(ILI9341_BLACK, dispCursor);
         }
-      } else if(leftPress) {
+      } else if (leftPress) {
         leftPress = false;
-        if(dispCursor == 1) { // Move cursor to the left
-          drawOnesCursor(ILI9341_WHITE);
-          drawTensCursor(ILI9341_BLACK);
+        if (dispCursor == 1) { // Move cursor to the left
+          drawCursor(ILI9341_WHITE, dispCursor);
           dispCursor = 0;
+          drawCursor(ILI9341_BLACK, dispCursor);
         }
       } else if (centerPress) {
         centerPress = false;
         cellNum = cellNumTens*10+cellNumOnes;
-        if(cellNum == 0) {
+        if (cellNum == 0) {
           dispState = PackScreen;
           drawCellScreen(ILI9341_WHITE, cellNum);
           drawPackScreen(ILI9341_BLACK);
         }
-        if(cellNum >= 1 && cellNum <=16) { // For valid cell numbers, update to CellScreen
+        if (cellNum >= 1 && cellNum <=16) { // For valid cell numbers, update to CellScreen
           dispState = CellScreen;
           drawCellScreen(ILI9341_BLACK, cellNum);
-        } else if(cellNum == 99) {
+        } else if (cellNum == 99) {
           dispState = ThresholdScreen;
           drawPackScreen(ILI9341_WHITE);
           drawThresholdScreen(ILI9341_BLACK);
         }
       }
     break;
-    case(ThresholdScreen):
+    case (ThresholdScreen):
     break;
     default: dispState = PackScreen;
     break;
   }
-  switch(dispState) { // State actions
-    case(PackScreen):
+  switch (dispState) { // State actions
+    case (PackScreen):
       eraseOldData();
       writePackData();
     break;
-    case(CellScreen):
+    case (CellScreen):
       eraseOldData();
       writeCellData(cellNum);
     break;
-    case(ThresholdScreen):
+    case (ThresholdScreen): // Do nothing
     break;
     default:
       dispCursor = 0;
