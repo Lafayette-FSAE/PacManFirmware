@@ -11,7 +11,7 @@
 PacManRegisters::PacManRegisters() {
   // Set default register values
   minVoltage = 2500;
-  maxVoltage = 4000;
+  maxVoltage = 3800;
   minTemp = 150;
   maxTemp = 650;
 }

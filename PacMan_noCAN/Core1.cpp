@@ -28,8 +28,6 @@ Core1::Core1(PacManRegisters* registers) {
   numCellMenFound = 0;
   for (int i = 0; i < 16; i++) {
     cellFaults[i] = 0;
-    cellV[i] = 0;
-    cellT[i] = 0;
   }
 
   // Safety loop timers; when the timer expires, calls openSafetyLoopCallback
@@ -111,8 +109,8 @@ void Core1::pollCellMen() {
     }
 
     // Process data
-    cellV[i] = (uint16_t)((cellData[2] << 8) + cellData[1]); // Cell voltage in mV
-    cellT[i] = (uint16_t)((cellData[4] << 8) + cellData[3]); // Cell temp in 1/10 oC
+    reg->cellV[i] = (uint16_t)((cellData[2] << 8) + cellData[1]); // Cell voltage in mV
+    reg->cellT[i] = (uint16_t)((cellData[4] << 8) + cellData[3]); // Cell temp in 1/10 oC
     Serial.print("Cell ");
     Serial.println(i);
     Serial.print("\tVoltage (V): ");

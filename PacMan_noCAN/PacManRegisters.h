@@ -33,6 +33,9 @@ class PacManRegisters {
     uint16_t PacManCurrent;
     uint8_t SOC;
 
+    uint16_t cellV[16];
+    uint16_t cellT[16];
+    
     // Functions
     PacManRegisters(); // Constructor
 };

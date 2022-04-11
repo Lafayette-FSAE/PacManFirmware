@@ -12,6 +12,18 @@
 class Core0 {
   private:
     PacManRegisters* reg;  // Pointer to the PacMan registers; needs to update values so use a pointer
+
+    // Private function calls
+    void drawTensCursor(uint16_t color);
+    void drawOnesCursor(uint16_t color);
+    void drawPackScreen(uint16_t color);
+    void drawCellScreen(uint16_t color, uint8_t cellNum);
+    void drawThresholdScreen(uint16_t color);
+    void drawConfirmScreen(uint16_t color);
+    
+    void writePackData();
+    void writeCellData(uint8_t cellNum);
+    void eraseOldData();
   public:
     Core0(PacManRegisters* reg);  // Constructor
     void initCore0();
