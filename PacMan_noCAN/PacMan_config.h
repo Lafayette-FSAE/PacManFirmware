@@ -29,7 +29,7 @@
 #define PIN_DISP_RST            21
 #define PIN_SDA_GLV             19
 #define PIN_SCL_GLV             18
-#define PIN_BTN_LEFT            51
+#define PIN_BTN_LEFT            5
 #define PIN_CHRG_DETECT         17
 #define PIN_DISP_BUSY           16
 #define PIN_CHRG_CURRENT        4

@@ -114,9 +114,9 @@ void Core1::pollCellMen() {
     Serial.print("Cell ");
     Serial.println(i);
     Serial.print("\tVoltage (V): ");
-    Serial.println(cellV[i]/(float)1000); // Convert from mV to V for reading
+    Serial.println(reg->cellV[i]/(float)1000); // Convert from mV to V for reading
     Serial.print("\tTemp (oC): ");
-    Serial.println(cellT[i]/(float)10);   // Convert from 0.1 oC to oC for reading
+    Serial.println(reg->cellT[i]/(float)10);   // Convert from 0.1 oC to oC for reading
   }
 }
 
@@ -129,8 +129,8 @@ void Core1::updateRegisters() {
   uint16_t avgTemp = 0;
   // Calculate pack voltage and average voltage
   for (int i = 0; i < numCellMenFound; i++) {
-    packV += cellV[i];
-    avgTemp += cellT[i];
+    packV += reg->cellV[i];
+    avgTemp += reg->cellT[i];
   }
   
   // Update register values
@@ -144,26 +144,26 @@ void Core1::updateRegisters() {
   Serial.print("Average cell temp (oC): ");
   Serial.println(reg->avgCellTemp/(float)10);       // Convert from 0.1 oC to oC for reading
 
-  // MCP23008 status poll
-  uint8_t packStatus = readMCP23008();
-  if (packStatus & 0x02) {
-    reg->AIRSStatus = true;
-    Serial.println("AIRs closed");
-  } else {
-    reg->AIRSStatus = false;
-  }
-  if (packStatus & 0x04) {
-    reg->SLOOP2Status = true;
-    Serial.println("SLOOP2 closed");
-  } else {
-    reg->SLOOP2Status = false;
-  }
-  if (packStatus & 0x08) {
-    reg->SLOOP1Status = true;
-    Serial.println("SLOOP1 closed");
-  } else {
-    reg->SLOOP1Status = false;
-  }
+  // MCP23008 status poll ***************************************************************************************** THIS DOESN'T WORK YET
+//  uint8_t packStatus = readMCP23008();
+//  if (packStatus & 0x02) {
+//    reg->AIRSStatus = true;
+//    Serial.println("AIRs closed");
+//  } else {
+//    reg->AIRSStatus = false;
+//  }
+//  if (packStatus & 0x04) {
+//    reg->SLOOP2Status = true;
+//    Serial.println("SLOOP2 closed");
+//  } else {
+//    reg->SLOOP2Status = false;
+//  }
+//  if (packStatus & 0x08) {
+//    reg->SLOOP1Status = true;
+//    Serial.println("SLOOP1 closed");
+//  } else {
+//    reg->SLOOP1Status = false;
+//  }
 
   // ACHS-7122 status poll
   uint16_t chargingVoltage = analogRead(PIN_CHRG_CURRENT) / 4095 * 3.3;   // A2D conversion is 0V-3.3V -> 0-4095

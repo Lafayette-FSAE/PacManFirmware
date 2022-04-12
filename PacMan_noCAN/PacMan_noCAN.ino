@@ -52,7 +52,7 @@ void setup() {
   xTaskCreatePinnedToCore(core0TaskCode, "Core0Task", 10000, NULL, 0, &Core0Task, 0);
   
   // Create Core 1 task
-  xTaskCreatePinnedToCore(core1TaskCode, "Core1Task", 10000, NULL, 2, &Core1Task, 1);
+  xTaskCreatePinnedToCore(core1TaskCode, "Core1Task", 10000, NULL, 2, &Core1Task, 0);
 }
 
 void loop() {

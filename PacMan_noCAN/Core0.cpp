@@ -45,9 +45,13 @@ Core0::Core0(PacManRegisters* registers) {
 void Core0::drawCursor(uint16_t color, uint8_t index) {
   disp.setTextColor(color);
   if (index == 0) { // Tens position on Pack/Cell screen
-    disp.drawChar(135, 202, '_', color, color, 3);
+    disp.setTextSize(3);
+    disp.setCursor(135, 202);
+    disp.print('_');
   } else if (index == 1) { // Ones position on Pack/Cell screen
-    disp.setCursor(155, 202, '_', color, color, 3);
+    disp.setTextSize(3);
+    disp.setCursor(155, 202);
+    disp.print('_');
   } else if (index == 2) {
     disp.setTextSize(2);
     disp.setCursor(20, 74);
@@ -206,9 +210,9 @@ void Core0::writePackData() {
   disp.setCursor(210, 30);
   disp.print(dispSOC);
   disp.setCursor(210, 90);
-  disp.print(dispVoltage);
+  disp.print(dispVoltage/(float)1000);
   disp.setCursor(210, 150);
-  disp.print(dispTemp);
+  disp.print(dispTemp/(float)10);
   disp.setCursor(210, 210);
   disp.print(dispCurrent);
 }
@@ -227,9 +231,9 @@ void Core0::writeCellData(uint8_t cellNum) {
   disp.setTextColor(ILI9341_BLACK);
   disp.setTextSize(3);
   disp.setCursor(210, 90);
-  disp.print(dispVoltage);
+  disp.print(dispVoltage/(float)1000);
   disp.setCursor(210, 150);
-  disp.print(dispTemp);
+  disp.print(dispTemp/(float)10);
 }
 
 /**
@@ -241,9 +245,9 @@ void Core0::eraseOldData() {
   disp.setCursor(210, 30);
   disp.print(dispSOC);
   disp.setCursor(210, 90);
-  disp.print(dispVoltage);
+  disp.print(dispVoltage/(float)1000);
   disp.setCursor(210, 150);
-  disp.print(dispTemp);
+  disp.print(dispTemp/(float)10);
   disp.setCursor(210, 210);
   disp.print(dispCurrent);
 }
@@ -472,5 +476,4 @@ void Core0::runCore0() {
       cellNum = 0;
     break;
   }
-  delay(100);
 }
