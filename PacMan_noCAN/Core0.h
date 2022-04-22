@@ -15,14 +15,21 @@ class Core0 {
 
     // Private function calls
     void drawCursor(uint16_t color, uint8_t index);
+    void drawCellNumTens(uint16_t color);
+    void drawCellNumOnes(uint16_t color);
+    void drawCellsOnSeg(uint16_t color);
+    
     void drawPackScreen(uint16_t color);
     void drawCellScreen(uint16_t color, uint8_t cellNum);
+    void drawNoCellScreen(uint16_t color);
     void drawThresholdScreen(uint16_t color);
-    void drawConfirmScreen(uint16_t color);
+    void drawEditScreen(uint16_t color, uint8_t cursor);
+    void drawConfirmScreen(uint16_t color, uint8_t cursor);
     
     void writePackData();
     void writeCellData(uint8_t cellNum);
     void eraseOldData();
+    void writeThreshold(uint16_t color, uint8_t cursor);
   public:
     Core0(PacManRegisters* reg);  // Constructor
     void initCore0();

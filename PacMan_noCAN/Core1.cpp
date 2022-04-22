@@ -44,6 +44,7 @@ Core1::Core1(PacManRegisters* registers) {
  * Updates the PacManRegisters with number of cells
  */
 void Core1::findCellMen() {
+  numCellMenFound = 0;
   // Search through all 7-bit I2C addresses
   for (int addr = 0; addr < 127; addr++) {
     // Probe address and record transmission status
@@ -285,6 +286,7 @@ void Core1::initCore1() {
 
   // Join I2C bus
   Wire.begin(PIN_SDA_GLV, PIN_SCL_GLV);
+  Wire.setClock(100000);
 
   // Initialize the MCP23008 I/O expander
   initMCP23008();
@@ -292,11 +294,11 @@ void Core1::initCore1() {
 
   // Initialize the LTC4151 power management chip
   initLTC4151();
-  
+
   // Search for CellMen on I2C bus and flash status LED if found
   while(numCellMenFound == 0) findCellMen();
   indicateCellMen();
-
+  
   Serial.println("Core 1 ready");
 }
 
@@ -305,6 +307,7 @@ void Core1::initCore1() {
  *  Collects voltage and temperature data from CellMen,
  */
 void Core1::runCore1() {
+  findCellMen();
   pollCellMen();
   updateRegisters();
   checkSafety();

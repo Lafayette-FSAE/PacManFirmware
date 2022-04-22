@@ -31,7 +31,7 @@
 #define PIN_SCL_GLV             18
 #define PIN_BTN_LEFT            5
 #define PIN_CHRG_DETECT         17
-#define PIN_DISP_BUSY           16
+#define PIN_TS_ACTIVE           16
 #define PIN_CHRG_CURRENT        4
 #define PIN_CHRG_EN             2
 #define PIN_DISP_CS             15
