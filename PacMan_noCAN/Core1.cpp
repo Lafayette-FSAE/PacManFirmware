@@ -44,7 +44,12 @@ Core1::Core1(PacManRegisters* registers) {
  * Updates the PacManRegisters with number of cells
  */
 void Core1::findCellMen() {
-  numCellMenFound = 0;
+  numSegPlusCells = 0;
+  numSegMinusCells = 0;
+
+  // Reset Seg+
+  writeMCP23008(MCP23008_GPIO, 0x20);
+  
   // Search through all 7-bit I2C addresses
   for (int addr = 0; addr < 127; addr++) {
     // Probe address and record transmission status
@@ -52,20 +57,52 @@ void Core1::findCellMen() {
     byte error = Wire.endTransmission();
 
     // Diagnose transmission status
-    if (error == 0 && addr != I2C_ADDR_MCP9804 && addr != I2C_ADDR_MCP23008 && addr != I2C_ADDR_BQ32002 && addr != I2C_ADDR_LTC4151) {
+    if (error == 0 && addr != I2C_ADDR_MCP9804 && addr != I2C_ADDR_MCP23008 && addr != I2C_ADDR_BQ32002 && addr != I2C_ADDR_LTC4151 && addr!=25) {
       Serial.print("CellMan found at address 0x");
       Serial.println(addr, HEX);
-      cellAddr[numCellMenFound] = addr; // Record CellMan address to array
-      numCellMenFound++;
+      cellAddr[numSegMinusCells] = addr; // Record CellMan address to array
+      cellAddrByPos[numSegMinusCells] = addr; // Record CellMan address to array in Seg- position
+      numSegMinusCells++;
     }
     else if (error == 4) {
       Serial.print("I2C error at address 0x");
       Serial.println(addr, HEX);
     }
   }
+  reg->numSegMinusCells = numSegMinusCells;
+
+  // Reset Seg-
+  writeMCP23008(MCP23008_GPIO, 0x10);
+
+  // Search through all 7-bit I2C addresses again
+  for (int addr = 0; addr < 127; addr++) {
+    // Probe address and record transmission status
+    Wire.beginTransmission(addr);
+    byte error = Wire.endTransmission();
+
+    // Diagnose transmission status
+    if (error == 0 && addr != I2C_ADDR_MCP9804 && addr != I2C_ADDR_MCP23008 && addr != I2C_ADDR_BQ32002 && addr != I2C_ADDR_LTC4151 && addr!=25) {
+      Serial.print("CellMan found at address 0x");
+      Serial.println(addr, HEX);
+      cellAddr[numSegMinusCells+numSegPlusCells] = addr; // Record CellMan address to array
+      cellAddrByPos[numSegPlusCells+8] = addr; // Record CellMan address to array in Seg+ position
+      numSegPlusCells++;
+    }
+    else if (error == 4) {
+      Serial.print("I2C error at address 0x");
+      Serial.println(addr, HEX);
+    }
+  }
+  writeMCP23008(MCP23008_GPIO, 0x00);
+  reg->numSegPlusCells = numSegPlusCells;
+  numCellMenFound = numSegMinusCells+numSegPlusCells;
   reg->numCells = numCellMenFound;
   Serial.print("Number of CellMen found: ");
   Serial.println(numCellMenFound);
+  Serial.print("Seg- CellMen: ");
+  Serial.print(numSegMinusCells);
+  Serial.print("\tSeg+ CellMen: ");
+  Serial.println(numSegPlusCells);
 }
 
 /* Writes the state of the status LED on a CellMan at the specified address */
@@ -102,22 +139,48 @@ void Core1::indicateCellMen() {
 /* Polls data from CellMen on the I2C bus and records voltage and temperature values */
 void Core1::pollCellMen() {
   unsigned char cellData[MSG_LEN] = {0};
-  // Request data from each CellMan
-  for (int i = 0; i < numCellMenFound; i++) {
-    Wire.requestFrom(cellAddr[i], MSG_LEN);
+  // Request data from each CellMan on Seg-
+  for (int i = 0; i < reg->numSegMinusCells; i++) {
+    Wire.requestFrom(cellAddrByPos[i], MSG_LEN);
     for (int j = 0; j < MSG_LEN; j++) {
       cellData[j] = Wire.read();
     }
 
     // Process data
-    reg->cellV[i] = (uint16_t)((cellData[2] << 8) + cellData[1]); // Cell voltage in mV
-    reg->cellT[i] = (uint16_t)((cellData[4] << 8) + cellData[3]); // Cell temp in 1/10 oC
+    cellV[i] = (uint16_t)((cellData[2] << 8) + cellData[1]); // Cell voltage in mV
+    cellT[i] = (uint16_t)((cellData[4] << 8) + cellData[3]); // Cell temp in 1/10 oC
+
+    // Store in register
+    reg->cellV[i] = cellV[i];
+    reg->cellT[i] = cellT[i];
     Serial.print("Cell ");
     Serial.println(i);
     Serial.print("\tVoltage (V): ");
     Serial.println(reg->cellV[i]/(float)1000); // Convert from mV to V for reading
     Serial.print("\tTemp (oC): ");
     Serial.println(reg->cellT[i]/(float)10);   // Convert from 0.1 oC to oC for reading
+  }
+
+  // Request data from each CellMan on Seg+
+  for (int i = 0; i < reg->numSegPlusCells; i++) {
+    Wire.requestFrom(cellAddrByPos[i+8], MSG_LEN);
+    for (int j = 0; j < MSG_LEN; j++) {
+      cellData[j] = Wire.read();
+    }
+
+    // Process data
+    cellV[i+numSegMinusCells] = (uint16_t)((cellData[2] << 8) + cellData[1]); // Cell voltage in mV
+    cellT[i+numSegMinusCells] = (uint16_t)((cellData[4] << 8) + cellData[3]); // Cell temp in 1/10 oC
+
+    // Store in register
+    reg->cellV[i+8] = cellV[i+numSegMinusCells];
+    reg->cellT[i+8] = cellT[i+numSegMinusCells];
+    Serial.print("Cell ");
+    Serial.println(i+9);
+    Serial.print("\tVoltage (V): ");
+    Serial.println(reg->cellV[i+8]/(float)1000); // Convert from mV to V for reading
+    Serial.print("\tTemp (oC): ");
+    Serial.println(reg->cellT[i+8]/(float)10);   // Convert from 0.1 oC to oC for reading
   }
 }
 
@@ -130,8 +193,8 @@ void Core1::updateRegisters() {
   uint16_t avgTemp = 0;
   // Calculate pack voltage and average voltage
   for (int i = 0; i < numCellMenFound; i++) {
-    packV += reg->cellV[i];
-    avgTemp += reg->cellT[i];
+    packV += cellV[i];
+    avgTemp += cellT[i];
   }
   
   // Update register values
@@ -145,30 +208,38 @@ void Core1::updateRegisters() {
   Serial.print("Average cell temp (oC): ");
   Serial.println(reg->avgCellTemp/(float)10);       // Convert from 0.1 oC to oC for reading
 
-  // MCP23008 status poll ***************************************************************************************** THIS DOESN'T WORK YET
-//  uint8_t packStatus = readMCP23008();
-//  if (packStatus & 0x02) {
-//    reg->AIRSStatus = true;
-//    Serial.println("AIRs closed");
-//  } else {
-//    reg->AIRSStatus = false;
-//  }
-//  if (packStatus & 0x04) {
-//    reg->SLOOP2Status = true;
-//    Serial.println("SLOOP2 closed");
-//  } else {
-//    reg->SLOOP2Status = false;
-//  }
-//  if (packStatus & 0x08) {
-//    reg->SLOOP1Status = true;
-//    Serial.println("SLOOP1 closed");
-//  } else {
-//    reg->SLOOP1Status = false;
-//  }
+  // MCP23008 status poll ***************************************************************************************** NEEDS TO BE TESTED CONNECTED TO CARMAN
+  uint8_t packStatus = readMCP23008();
+  if (packStatus & 0x01) {
+    reg->AIRSStatus = true;
+    digitalWrite(PIN_TS_ACTIVE, HIGH);
+    Serial.println("AIRs closed");
+  } else {
+    reg->AIRSStatus = false;
+    digitalWrite(PIN_TS_ACTIVE, LOW);
+  }
+  if (packStatus & 0x02) {
+    reg->SLOOP2Status = true;
+    Serial.println("SLOOP2 closed");
+  } else {
+    reg->SLOOP2Status = false;
+  }
+  if (packStatus & 0x03) {
+    reg->SLOOP1Status = true;
+    Serial.println("SLOOP1 closed");
+  } else {
+    reg->SLOOP1Status = false;
+  }
+  if (packStatus & 0x04) {
+    reg->GLVStatus = true;
+    Serial.println("GLV on");
+  } else {
+    reg->GLVStatus = false;
+  }
 
   // ACHS-7122 status poll
-  uint16_t chargingVoltage = analogRead(PIN_CHRG_CURRENT) / 4095 * 3.3;   // A2D conversion is 0V-3.3V -> 0-4095
-  reg->chargingCurrent = (chargingVoltage - 2.5) * (float)10;             // See Figure 7 @ https://docs.broadcom.com/doc/ACHS-712x-DS for linear equation derivation
+  uint16_t chargingVoltage = analogRead(PIN_CHRG_CURRENT)/4095*3.3;   // A2D conversion is 0V-3.3V -> 0-4095
+  reg->chargingCurrent = (chargingVoltage-2.5)*(float)10;             // See Figure 7 @ https://docs.broadcom.com/doc/ACHS-712x-DS for linear equation derivation
 
   // LTC4151 status poll
   reg->dischargingCurrent = readLTC4151ADCVoltage(); //******************************************************************* This is VOLTAGE! NOT CURRENT! Figure out how to translate BBM-01 voltage to current!
@@ -276,10 +347,12 @@ void Core1::initCore1() {
   // Setup pin modes
   pinMode(PIN_SLOOP_EN, OUTPUT);
   pinMode(PIN_CHRG_EN, OUTPUT);
+  pinMode(PIN_TS_ACTIVE, OUTPUT);
 
   // Write default values
   digitalWrite(PIN_SLOOP_EN, HIGH);
   digitalWrite(PIN_CHRG_EN, LOW);
+  digitalWrite(PIN_TS_ACTIVE, LOW);
 
   // Charging interrupt
   attachInterrupt(digitalPinToInterrupt(PIN_CHRG_DETECT), detectCharger, CHANGE);
@@ -308,6 +381,7 @@ void Core1::initCore1() {
  */
 void Core1::runCore1() {
   findCellMen();
+  delay(10); // Needed for delay on reset to get readings from CellMen
   pollCellMen();
   updateRegisters();
   checkSafety();

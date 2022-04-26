@@ -11,6 +11,8 @@ class PacManRegisters {
   public:
     // Register variables
     uint8_t numCells;
+    uint8_t numSegPlusCells;
+    uint8_t numSegMinusCells;
     uint16_t minVoltage;
     uint16_t maxVoltage;
     uint16_t minTemp;

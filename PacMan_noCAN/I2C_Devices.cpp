@@ -39,7 +39,7 @@ void initMCP23008() {
   writeMCP23008(MCP23008_IODIR, iodir);
   writeMCP23008(MCP23008_IPOL, ipol);
   writeMCP23008(MCP23008_GPPU, gppu);
-//  MCP23008_write(MCP23008_GPIO, 0x40); // Arbitrary write to GPIO6 pin for testing
+//  writeMCP23008(MCP23008_GPIO, 0x40); // Arbitrary write to GPIO6 pin for testing
 }
 
 /** 

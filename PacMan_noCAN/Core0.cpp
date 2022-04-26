@@ -27,7 +27,8 @@ uint8_t cellNumTens;
 uint8_t cellNumOnes;
 uint8_t cellNum;
 uint8_t dispCellNum;
-uint8_t dispNumCells;
+uint8_t dispNumSegPlusCells;
+uint8_t dispNumSegMinusCells;
 
 uint8_t dispCursor;
 uint8_t confirmCursor;
@@ -151,30 +152,34 @@ void Core0::drawCellNumOnes(uint16_t color) {
  * @param color   Color to draw graphics
  */
 void Core0::drawCellsOnSeg(uint16_t color) {
-  // Fill in cells on Seg chart
-  if (dispNumCells != reg->numCells) {
-    dispNumCells = reg->numCells;
+  // Fill in cells on Seg- chart
+  if (dispNumSegMinusCells != reg->numSegMinusCells) {
+    dispNumSegMinusCells = reg->numSegMinusCells;
     // Erase old color
     for (int i = 0; i < 8; i++) {
-      disp.fillRect(20*(i+1),  65, 20, 30, ILI9341_WHITE);
+      disp.fillRect(20*(i+1), 65, 20, 30, ILI9341_WHITE);
+    }
+    // Print new color and outline
+    for (int i = 0; i < dispNumSegMinusCells; i++) {
+      disp.fillRect(20*(i+1), 65, 20, 30, color);
+    }
+    for (int i = 0; i < 8; i++) {
+      disp.drawRect(20*(i+1), 65, 20, 30, ILI9341_BLACK);
+    }
+  }
+
+  // Fill in cells on Seg+ chart
+  if (dispNumSegPlusCells != reg->numSegPlusCells) {
+    dispNumSegPlusCells = reg->numSegPlusCells;
+    // Erase old color
+    for (int i = 0; i < 8; i++) {
       disp.fillRect(20*(i+1), 140, 20, 30, ILI9341_WHITE);
     }
-    // If 8 or less cells, color the top row
-    if (dispNumCells <= 8) {
-      for (int i = 0; i < dispNumCells; i++) {
-        disp.fillRect(20*(i+1), 65, 20, 30, color);
-      }
-    } else { // For more than 8 cells, color the top row and the bottom row
-      for (int i = 0; i < 8; i++) {
-        disp.fillRect(20*(i+1), 65, 20, 30, color);
-      }
-      for (int i = 0; i < dispNumCells - 8; i++) {
-        disp.fillRect(20*(i+1), 140, 20, 30, color);
-      }
+    // Print new color
+    for (int i = 0; i < dispNumSegPlusCells; i++) {
+      disp.fillRect(20*(i+1), 140, 20, 30, color);
     }
-    // Redraw the cell outlines
     for (int i = 0; i < 8; i++) {
-      disp.drawRect(20*(i+1),  65, 20, 30, ILI9341_BLACK);
       disp.drawRect(20*(i+1), 140, 20, 30, ILI9341_BLACK);
     }
   }
@@ -209,9 +214,9 @@ void Core0::drawPackScreen(uint16_t color) {
   // Print all data labels and segment labels
   disp.setTextSize(2);
   disp.setCursor(70, 45);
-  disp.print("Seg 1");
+  disp.print("Seg -");
   disp.setCursor(70, 120);
-  disp.print("Seg 2");
+  disp.print("Seg +");
 
   disp.setCursor(210, 10);
   disp.print("SOC(%)");
@@ -549,7 +554,8 @@ void Core0::initCore0() {
   dispMaxV = reg->maxVoltage;
   dispMinT = reg->minTemp;
   dispMaxT = reg->maxTemp;
-  dispNumCells = 0;
+  dispNumSegPlusCells = 0;
+  dispNumSegMinusCells = 0;
   upPress = false;
   downPress = false;
   centerPress = false;
@@ -943,7 +949,6 @@ void Core0::runCore0() {
       eraseOldData();
       writePackData();
       drawCellsOnSeg(ILI9341_GREEN);
-      Serial.println("PACK");
       break;
     case (CellScreen):
       eraseOldData();

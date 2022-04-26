@@ -10,7 +10,7 @@
 #include "PacManRegisters.h"
 
 #define MSG_LEN 7 // I2C message length in bytes from CellMen
-#define TRIGGER_TIME 30 // 30 seconds to trip safety loop for persisting problem
+#define TRIGGER_TIME 59 // 59 seconds to trip safety loop for persisting problem
 
 // Static functions
 static void openSafetyLoopCallback(TimerHandle_t xTimer);
@@ -19,10 +19,14 @@ class Core1 {
   private:
     PacManRegisters* reg;   // Pointer to the PacMan registers; needs to update values so use a pointer
     uint8_t numCellMenFound;
-    uint8_t cellAddr[16];   // Cell I2C adresses
-    uint8_t cellFaults[16]; // Cell fault status
-    uint16_t cellV[16];     // Cell voltages
-    uint16_t cellT[16];     // Cell temperatures
+    uint8_t numSegPlusCells;
+    uint8_t numSegMinusCells;
+    uint8_t cellAddr[16];      // Cell I2C addresses
+    uint8_t cellAddrByPos[16]; // Cell I2C addresses indexed by pack position
+    uint8_t cellFaults[16];    // Cell fault status
+    uint16_t cellV[16];        // Cell voltages
+    uint16_t cellT[16];        // Cell temperatures
+    uint16_t cellPos[16];      // Cell positions from PACK- to PACK+
 
     // Safety timer handles
     TimerHandle_t lowVoltageTimer;
