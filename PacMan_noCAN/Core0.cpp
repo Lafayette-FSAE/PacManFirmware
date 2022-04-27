@@ -186,6 +186,17 @@ void Core0::drawCellsOnSeg(uint16_t color) {
 }
 
 /**
+ * Erase the cells on seg fill color
+ */
+void Core0::eraseCellsOnSeg() {
+  for (int i = 0; i < 8; i++) {
+    disp.fillRect(20*(i+1), 65, 20, 30, ILI9341_WHITE);
+    disp.fillRect(20*(i+1), 140, 20, 30, ILI9341_WHITE);
+    
+  }
+}
+
+/**
  * Draws the main screen used to display pack data
  *
  * @param color   Color to draw graphics. Use ILI9341_BLACK to draw and ILI9341_WHITE to erase.
@@ -636,6 +647,7 @@ void Core0::runCore0() {
           eraseOldData();
           drawCellNumTens(ILI9341_WHITE);
           drawCellNumOnes(ILI9341_WHITE);
+          eraseCellsOnSeg();
           drawCursor(ILI9341_WHITE, dispCursor);
           drawThresholdScreen(ILI9341_BLACK);
           dispCursor = 2;
@@ -703,6 +715,7 @@ void Core0::runCore0() {
           eraseOldData();
           drawCellNumTens(ILI9341_WHITE);
           drawCellNumOnes(ILI9341_WHITE);
+          eraseCellsOnSeg();
           drawCursor(ILI9341_WHITE, dispCursor);
           drawThresholdScreen(ILI9341_BLACK);
           dispCursor = 2;
@@ -760,6 +773,7 @@ void Core0::runCore0() {
           drawPackScreen(ILI9341_BLACK);
         } else if (cellNum >= 1 && cellNum <= 16) { // For valid cell numbers, update to CellScreen
           dispState = CellScreen;
+          drawPackScreen(ILI9341_BLACK);
           drawCellScreen(ILI9341_BLACK, cellNum);
         } else if (cellNum == 99) {
           dispState = ThresholdScreen;
@@ -767,6 +781,7 @@ void Core0::runCore0() {
           eraseOldData();
           drawCellNumTens(ILI9341_WHITE);
           drawCellNumOnes(ILI9341_WHITE);
+          eraseCellsOnSeg();
           drawCursor(ILI9341_WHITE, dispCursor);
           drawThresholdScreen(ILI9341_BLACK);
           dispCursor = 2;
@@ -819,6 +834,8 @@ void Core0::runCore0() {
           drawPackScreen(ILI9341_BLACK);
           dispCursor = 0;
           drawCursor(ILI9341_BLUE, dispCursor);
+          dispNumSegMinusCells = 0;
+          dispNumSegPlusCells = 0;
         }
       }
       break;

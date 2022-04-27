@@ -18,6 +18,7 @@ class Core0 {
     void drawCellNumTens(uint16_t color);
     void drawCellNumOnes(uint16_t color);
     void drawCellsOnSeg(uint16_t color);
+    void eraseCellsOnSeg();
     
     void drawPackScreen(uint16_t color);
     void drawCellScreen(uint16_t color, uint8_t cellNum);
