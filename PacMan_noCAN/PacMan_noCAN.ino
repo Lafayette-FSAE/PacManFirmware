@@ -40,7 +40,7 @@ void core1TaskCode(void *parameter) {
   core1.initCore1();
   for (;;) { // Infinite loop
     core1.runCore1();
-    delay(1000); // Ideally, use a timer
+    delay(500); // Ideally, use a timer
   }
 }
 

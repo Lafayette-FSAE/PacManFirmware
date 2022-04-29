@@ -371,6 +371,10 @@ void Core1::initCore1() {
   // Search for CellMen on I2C bus and flash status LED if found
   while(numCellMenFound == 0) findCellMen();
   indicateCellMen();
+
+  // Watchdog config
+  pinMode(PIN_WATCHDOG, OUTPUT);
+  digitalWrite(PIN_WATCHDOG, LOW);
   
   Serial.println("Core 1 ready");
 }
@@ -380,10 +384,16 @@ void Core1::initCore1() {
  *  Collects voltage and temperature data from CellMen,
  */
 void Core1::runCore1() {
+  Serial.println("Start core1 code");
+  digitalWrite(PIN_WATCHDOG, HIGH);
   findCellMen();
   delay(10); // Needed for delay on reset to get readings from CellMen
   pollCellMen();
+  Serial.println("You made it past poll");
   updateRegisters();
+  Serial.println("You made it past update");
   checkSafety();
   handleChargingRelays();
+  digitalWrite(PIN_WATCHDOG, LOW);
+  delay(10); // Needed to ensure proper operation of watchdog timer
 }
