@@ -50,14 +50,14 @@ void Core1::findCellMen() {
   // Reset Seg+
   writeMCP23008(MCP23008_GPIO, 0x20);
   
-  // Search through all 7-bit I2C addresses
-  for (int addr = 0; addr < 127; addr++) {
+  // Search through possible CellMen I2C addresses
+  for (int addr = 0; addr < 24; addr++) {
     // Probe address and record transmission status
     Wire.beginTransmission(addr);
     byte error = Wire.endTransmission();
 
     // Diagnose transmission status
-    if (error == 0 && addr != I2C_ADDR_MCP9804 && addr != I2C_ADDR_MCP23008 && addr != I2C_ADDR_BQ32002 && addr != I2C_ADDR_LTC4151 && addr!=25) {
+    if (error == 0) {
       Serial.print("CellMan found at address 0x");
       Serial.println(addr, HEX);
       cellAddr[numSegMinusCells] = addr; // Record CellMan address to array
@@ -74,14 +74,14 @@ void Core1::findCellMen() {
   // Reset Seg-
   writeMCP23008(MCP23008_GPIO, 0x10);
 
-  // Search through all 7-bit I2C addresses again
-  for (int addr = 0; addr < 127; addr++) {
+  // Search through possible CellMen I2C addresses again
+  for (int addr = 0; addr < 24; addr++) {
     // Probe address and record transmission status
     Wire.beginTransmission(addr);
     byte error = Wire.endTransmission();
 
     // Diagnose transmission status
-    if (error == 0 && addr != I2C_ADDR_MCP9804 && addr != I2C_ADDR_MCP23008 && addr != I2C_ADDR_BQ32002 && addr != I2C_ADDR_LTC4151 && addr!=25) {
+    if (error == 0) {
       Serial.print("CellMan found at address 0x");
       Serial.println(addr, HEX);
       cellAddr[numSegMinusCells+numSegPlusCells] = addr; // Record CellMan address to array
@@ -384,14 +384,11 @@ void Core1::initCore1() {
  *  Collects voltage and temperature data from CellMen,
  */
 void Core1::runCore1() {
-  Serial.println("Start core1 code");
   digitalWrite(PIN_WATCHDOG, HIGH);
   findCellMen();
   delay(10); // Needed for delay on reset to get readings from CellMen
   pollCellMen();
-  Serial.println("You made it past poll");
   updateRegisters();
-  Serial.println("You made it past update");
   checkSafety();
   handleChargingRelays();
   digitalWrite(PIN_WATCHDOG, LOW);

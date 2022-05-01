@@ -244,7 +244,7 @@ void Core0::drawPackScreen(uint16_t color) {
   // Print pack number and cell select
   disp.setTextSize(3);
   disp.setCursor(10, 10);
-  disp.print("Pack 1");
+  disp.print("Pack 2");
 
   drawCellNumTens(ILI9341_BLACK);
   drawCellNumOnes(ILI9341_BLACK);
@@ -323,7 +323,7 @@ void Core0::drawThresholdScreen(uint16_t color) {
   disp.setTextColor(color);
   disp.setTextSize(3);
   disp.setCursor(10, 10);
-  disp.print("Pack 1 Thresholds");
+  disp.print("Pack 2 Thresholds");
 
   // Print data headers
   disp.setTextSize(2);
@@ -379,7 +379,7 @@ void Core0::drawConfirmScreen(uint16_t color, uint8_t cursor) {
   disp.setTextColor(color);
   disp.setTextSize(3);
   disp.setCursor(10, 10);
-  disp.print("Pack 1 Thresholds");
+  disp.print("Pack 2 Thresholds");
 
   // Print param
   disp.setCursor(30, 75);
